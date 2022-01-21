@@ -1,0 +1,32 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+
+platform :ios, '15.0'
+
+target 'OrangeDesignSystemDemo' do
+  pod 'OrangeDesignSystem', :path => '../'
+  target 'OrangeDesignSystemDemoTests' do
+    inherit! :search_paths
+    
+    pod 'SwiftGen'
+    pod 'SwiftLint'
+    pod 'SwiftFormat/CLI'
+    
+  end
+end
+
+post_install do |installer|
+  ENV['COCOAPODS_DISABLE_STATS'] = "true"
+  
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+      config.build_settings['SWIFT_VERSION'] = '5'
+      config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
+      config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+      
+    end
+  end
+end
