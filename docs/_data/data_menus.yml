@@ -2,16 +2,16 @@ toc2:
   - title: Get Started
     subfolderitems:
       - page: Integration
-        url: /index.html
+        url: /ods-ios/index.html
     
   - title: Components
     subfolderitems:
       - page: Colors
-        url: /components/colors
+        url: /ods-ios/components/colors
       - page: Fonts
-        url: /components/fonts
+        url: /ods-ios/components/fonts
       
   - title: Modules
     subfolderitems:
       - page: About
-        url: /modules/about
+        url: /ods-ios/modules/about
