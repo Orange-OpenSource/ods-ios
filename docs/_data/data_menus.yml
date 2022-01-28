@@ -1,0 +1,17 @@
+toc2:
+  - title: Get Started
+    subfolderitems:
+      - page: Integration
+        url: /index.html
+    
+  - title: Components
+    subfolderitems:
+      - page: Colors
+        url: /components/colors
+      - page: Fonts
+        url: /components/fonts
+      
+  - title: Modules
+    subfolderitems:
+      - page: About
+        url: /modules/about

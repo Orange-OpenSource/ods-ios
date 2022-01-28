@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+#outer {width:100%;margin:0 auto;padding-bottom: 10px;}
+#inner {overflow:hidden;}
+#header {min-height:80px;background:black;padding-bottom: 30px;}
+#content {width:80%;min-height:250px;float:left;background:white}
+#sidebar{width:20%;min-height:250px;float:left;background:white;
+ border-right: 2px solid #eee;}
+
+.logo {
+    height:100px;
+    width: 100px;
+}
+
+</style>
+<head>
+  {% include head.html %}
+  <title>{{ page.title }}</title>
+</head>
+
+<body>
+
+  <div id="outer">
+    <div id="header">
+      <div class="logo ods-intro pt-md-4 ps-lg-4">
+        <img src="https://c.woopic.com/logo-orange.png" alt="ods ios " >
+      </div>
+    </div>
+    <div id="inner">
+        <div id="sidebar">
+          <div class="ods-layout container-xxl">
+            <main class="ods-main order-1">
+
+{% if site.data.data_menus.toc2[0] %}
+  {% for item in site.data.data_menus.toc2 %}
+  <div class="ods-intro pt-md-4 ps-lg-4">
+    <h3>{{ item.title }}</h3>
+  </div>
+      {% if item.subfolderitems[0] %}
+      <div class="ods-content ps-lg-4 mb-3"> 
+        <ul>
+          {% for entry in item.subfolderitems %}
+              <li><a href="{{ entry.url }}">{{ entry.page }}</a>
+                {% if entry.subsubfolderitems[0] %}
+                  <ul>
+                  {% for subentry in entry.subsubfolderitems %}
+                      <li><a href="{{ subentry.url }}">{{ subentry.page }}</a></li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    {% endfor %}
+{% endif %}
+</main>
+</div>
+
+        </div>  
+        <div id="content">
+          
+ <div class="ods-layout container-xxl">
+
+
+    <main class="ods-main order-1">
+
+      <div class="ods-intro pt-md-4 ps-lg-4">
+        <div class="d-md-flex align-items-center justify-content-between">
+          <h1 id="ods-title">{{ page.title }}</h1>
+        </div>
+        <p class="ods-lead">{{ page.description }}</p>
+      </div>
+
+      <div class="ods-content ps-lg-4 mb-3">        
+        {{ content }}
+      </div>
+    </main>
+  </div>
+
+        </div>  
+    </div>
+</div>  
+
+  {% include scripts.html %}
+  
+</body></html>
