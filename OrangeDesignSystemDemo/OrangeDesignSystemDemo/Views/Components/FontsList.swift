@@ -34,6 +34,8 @@ struct FontList: View {
             VStack(alignment: .leading, spacing: 30) {
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
                     Text(fontStyle.rawValue).odsFont(style: fontStyle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 30)
                 }
             }
         }

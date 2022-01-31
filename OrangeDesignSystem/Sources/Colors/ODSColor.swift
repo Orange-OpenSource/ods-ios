@@ -53,7 +53,9 @@ public enum ODSColor: CaseIterable {
     // MARK: - CORE
 
     case coreOrange
-    case coreTheme
+    case coreTheme // White in light mode, black in dark mode
+    case coreThemeInverse // White in dark mode, black in light mode
+    case coreOrangeAccessibility
     case coreObsGrey700
 
     // MARK: - SUPPORTING
@@ -131,8 +133,12 @@ public enum ODSColor: CaseIterable {
         // CORE
         case .coreOrange:
             return "core_orange"
+        case .coreOrangeAccessibility:
+            return "core_orange_accessibility"
         case .coreTheme:
             return "core_theme"
+        case .coreThemeInverse:
+            return "core_theme_inverse"
         case .coreObsGrey700:
             return "core_obsgrey_700"
 
