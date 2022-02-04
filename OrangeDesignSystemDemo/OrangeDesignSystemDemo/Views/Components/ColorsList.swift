@@ -55,8 +55,9 @@ struct ColorSection: View {
         VStack(alignment: .leading) {
             Section(header:
                 Text(colorType.description).font(ODSFontStyle.title3.font())
-                    .frame(maxWidth: .infinity)
-                    .background(ODSColor.grey200.color)
+                    .frame(maxWidth: .infinity, minHeight: 40.0)
+                    .foregroundColor(ODSColor.grey800.color)
+                    .background(ODSColor.grey300.color)
             ) {
                 ForEach(colors, id: \.name) { color in
                     ColorDescriptionView(odsColorDescription: color)
@@ -74,6 +75,7 @@ struct ColorDescriptionView: View {
             Rectangle()
                 .foregroundColor(odsColorDescription.color)
                 .frame(width: 30, height: 30)
+                .padding(.leading, 20)
             Text(odsColorDescription.name)
             Spacer()
         }
