@@ -30,7 +30,10 @@ struct ShapeButtonsList: View {
     let hPadding: CGFloat = 16.0
     var body: some View {
         ScrollView {
-            let imageDescription = ODSImageDescription(image: Image(systemName: "checkmark.circle.fill"), imageWidth: 30, imageHeight: 30)
+            let imageDescription = ODSImageDescription(image: Image(systemName: "checkmark.circle.fill"), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.core_black_900.color)
+            let imageDescription2 = ODSImageDescription(image: Image(systemName: "checkmark.circle.fill"), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreThemeInverse.color)
+
+            // Filled buttons
             Group {
                 Button {
                     print("Action")
@@ -65,11 +68,12 @@ struct ShapeButtonsList: View {
                 .padding(.horizontal, hPadding)
             }
 
+            // Not-filled buttons
             Group {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(imageDescription: imageDescription, topText: "Added to Siri", bottomText: "Hello world")
+                    ODSGenericButtonContent(imageDescription: imageDescription2, topText: "Added to Siri", bottomText: "Hello world")
                 }
                 .buttonStyle(ODSBorderedButtonStyle())
                 .padding(.horizontal, hPadding)
@@ -93,12 +97,13 @@ struct ShapeButtonsList: View {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(imageDescription: imageDescription)
+                    ODSGenericButtonContent(imageDescription: imageDescription2)
                 }
                 .buttonStyle(ODSBorderedButtonStyle())
                 .padding(.horizontal, hPadding)
             }
 
+            // Full width butons (filled)
             Group {
                 Button {
                     print("Action")
@@ -137,6 +142,7 @@ struct ShapeButtonsList: View {
                 .padding(.horizontal, hPadding)
             }
 
+            // Disabled buttons
             Group {
                 Button {
                     print("Action")

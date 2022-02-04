@@ -76,7 +76,9 @@ public struct ODSGenericButtonContent: View {
                 }
 
                 if let bottomText = bottomText {
-                    Text(bottomText).odsFont(style: .caption1Regular)
+                    Text(bottomText)
+                        .odsFont(style: .caption1Regular)
+                        .foregroundColor(textColor)
                 }
             }
         }
