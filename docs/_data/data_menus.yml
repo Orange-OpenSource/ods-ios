@@ -4,12 +4,16 @@ toc2:
       - page: Integration
         url: /ods-ios/index.html
     
-  - title: Components
+  - title: Guidelines
     subfolderitems:
       - page: Colors
-        url: /ods-ios/components/colors
-      - page: Fonts
-        url: /ods-ios/components/fonts
+        url: /ods-ios/guidelines/colors
+      - page: Typography
+        url: /ods-ios/guidelines/typography
+
+  - title: Components
+    subfolderitems:
+      - page: to do
       
   - title: Modules
     subfolderitems:

@@ -1,7 +1,7 @@
 ---
 layout: detail
 title: Colors
-description: ODS Colors Sample
+description: How to use ODS Colors
 ---
 
 

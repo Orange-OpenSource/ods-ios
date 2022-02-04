@@ -1,7 +1,7 @@
 ---
 layout: detail
-title: Fonts
-description: ODS Fonts Sample
+title: Typography
+description: How to use ODS Typography
 ---
 
 
