@@ -98,3 +98,10 @@ ods-ios-demo/fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+#Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+

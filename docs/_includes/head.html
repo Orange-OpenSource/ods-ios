@@ -1,0 +1,75 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Preconnect to CDN: remove if not needed -->
+<link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin="anonymous">
+
+<!-- Boosted CSS -->
+<link href="https://cdn.jsdelivr.net/npm/boosted@5.0.2/dist/css/boosted.min.css" rel="stylesheet" integrity="sha384-6VTsNhIHFxNglfMLfhvvJFxXZbdvT1UXhm7+wVMAda9c+2NIFu4zmlKKz/bJthi/" crossorigin="anonymous">
+
+<!-- Custom CSS -->
+<link href="{{ "/assets/css/main.css" | relative_url }}" rel="stylesheet">
+
+<style>
+
+
+
+nav{
+    width: 50%;
+    margin: 0px auto 40px auto;
+    background-color: white;
+    position: sticky;
+    top: 0px;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav li{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;/*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;/*Agrandit le menu et espace la bordure du texte*/
+}
+
+  border-bottom: 2px solid gold;
+}
+
+
+	</style>
+<!--
+<nav>
+  <ul>
+    <li {% if page.url contains '/getting-started' %}class="active"{% endif %}><a href="/getting-started/">Getting started</a></li>
+    <li><a href="#">Component</a></li>
+    <li><a href="#">Module</a></li>
+  </ul>
+</nav>
+
+
+<div class="topnav">
+
+<ul id="navigation">
+  
+  <li {% if page.url contains '/without-plugin' %}class="active"{% endif %}><a href="/without-plugins/">Without plugins</a></li>
+  <li {% if page.url contains '/about' %}class="active"{% endif %}><a href="/about/">About</a></li>
+  
+</ul>
+<ul> <li {% if page.url contains '/blog' %}class="active"{% endif %}><a href="/blog/">Blog</a></li>
+	</ul>
+</div>-->

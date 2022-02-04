@@ -1,0 +1,24 @@
+toc2:
+  - title: Get Started
+    subfolderitems:
+      - page: Integration
+        url: /ods-ios/index.html
+    
+  - title: Guidelines
+    subfolderitems:
+      - page: Colors
+        url: /ods-ios/guidelines/colors
+      - page: Typography
+        url: /ods-ios/guidelines/typography
+
+  - title: Components
+    subfolderitems:
+      - page: Standard button
+        url: /ods-ios/components/standardButton
+      - page: Shaped button
+        url: /ods-ios/components/shapedButton
+      
+  - title: Modules
+    subfolderitems:
+      - page: About
+        url: /ods-ios/modules/about
