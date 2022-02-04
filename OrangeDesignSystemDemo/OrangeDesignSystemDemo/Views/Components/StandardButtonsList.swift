@@ -33,14 +33,13 @@ struct StandardButtonsList: View {
             let imageDescriptionPlus = ODSImageDescription(image: Image(systemName: "plus.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreOrange.color)
             let imageDescriptionInfo = ODSImageDescription(image: Image(systemName: "info.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreOrange.color)
 
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 30) {
                 HStack(alignment: .center) {
                     Button {
                         print("Action")
                     } label: {
                         ODSGenericButtonContent(imageDescription: imageDescriptionPlus)
                     }
-                    .buttonStyle(ODSFilledButtonStyle(backgroundColor: Color.clear))
                     .padding(.horizontal, hPadding)
 
                     Text("Icon (add)").odsFont(style: .bodyBold)
@@ -52,7 +51,6 @@ struct StandardButtonsList: View {
                     } label: {
                         ODSGenericButtonContent(imageDescription: imageDescriptionInfo)
                     }
-                    .buttonStyle(ODSFilledButtonStyle(backgroundColor: Color.clear))
                     .padding(.horizontal, hPadding)
 
                     Text("Icon (info)").odsFont(style: .bodyBold)
@@ -64,7 +62,6 @@ struct StandardButtonsList: View {
                     } label: {
                         ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreOrange.color)
                     }
-                    .buttonStyle(ODSFilledButtonStyle(backgroundColor: Color.clear))
                     .padding(.horizontal, hPadding)
 
                     Text("Label").odsFont(style: .bodyBold)

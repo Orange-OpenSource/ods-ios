@@ -13,7 +13,10 @@ toc2:
 
   - title: Components
     subfolderitems:
-      - page: to do
+      - page: Standard button
+        url: /ods-ios/components/standardButton
+      - page: Shaped button
+        url: /ods-ios/components/shapedButton
       
   - title: Modules
     subfolderitems:

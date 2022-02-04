@@ -22,10 +22,10 @@ Pod::Spec.new do |s|
 Orange Design System Components.
                        DESC
 
-  s.homepage         = 'https://github.com/jlchee/ods-ios'
+  s.homepage         = 'https://github.com/Orange-OpenSource/ods-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jlchee' => 'jl.chevalier@orange.com' }
-  s.source           = { :git => 'https://github.com/jlchee/ods-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Orange-OpenSource/ods-ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '15.0'
   s.swift_version = '5.0'
