@@ -25,24 +25,22 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentList: View {
+public final class AboutConfigDemo: NSObject {
 
-    var body: some View {
+    public static let instance = AboutConfigDemo()
 
-        AboutConfigDemo.instance.configure()
+    let applicationDescription = ApplicationDescription(applicationName: "ODS Demo App", applicationVersion: "1.0")
 
-        return NavigationView {
-            List {
-                NavigationLink("Colors", destination: ColorList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("About component", destination: AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationDescription))
-                    .font(ODSFontStyle.title3.font())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Components")
-        }
+    override private init() {}
+
+    public func configure() {
+        let appMenu = [
+            ODSAboutItemView(text: "What's new", nextView: AnyView(Text("What's new application..."))),
+            ODSAboutItemView(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
+            ODSAboutItemView(text: "Button", nextView: AnyView(Button("Test") {})),
+            ODSAboutItemView(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
+        ]
+
+        applicationDescription.menuList = appMenu
     }
 }

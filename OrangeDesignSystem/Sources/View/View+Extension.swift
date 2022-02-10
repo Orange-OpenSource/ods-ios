@@ -22,27 +22,33 @@
 //
 
 import Foundation
-import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentList: View {
+public enum ODSDim {
+    static let list_min_height = 42.0
+    static let list_min_width = 42.0
+    static let padding = 15.0
+}
 
-    var body: some View {
+extension View {
 
-        AboutConfigDemo.instance.configure()
+    public func odsLeadingPadding() -> some View {
+        return padding(.leading, ODSDim.padding)
+    }
 
-        return NavigationView {
-            List {
-                NavigationLink("Colors", destination: ColorList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("About component", destination: AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationDescription))
-                    .font(ODSFontStyle.title3.font())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Components")
-        }
+    public func odsTrailingPadding() -> some View {
+        return padding(.trailing, ODSDim.padding)
+    }
+
+    public func odsGlobalPadding() -> some View {
+        return padding(ODSDim.padding)
+    }
+
+    public func odsSpacerSmall() -> some View {
+        return frame(height: ODSDim.padding)
+    }
+
+    public func odsSpacerMedium() -> some View {
+        return frame(height: 25)
     }
 }

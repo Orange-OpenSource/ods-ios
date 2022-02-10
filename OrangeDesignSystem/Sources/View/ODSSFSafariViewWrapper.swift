@@ -22,27 +22,18 @@
 //
 
 import Foundation
-import OrangeDesignSystem
+import SafariServices
 import SwiftUI
+import UIKit
 
-struct ComponentList: View {
+struct ODSSFSafariViewWrapper: UIViewControllerRepresentable {
+    typealias UIViewControllerType = SFSafariViewController
 
-    var body: some View {
+    let url: URL
 
-        AboutConfigDemo.instance.configure()
-
-        return NavigationView {
-            List {
-                NavigationLink("Colors", destination: ColorList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("About component", destination: AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationDescription))
-                    .font(ODSFontStyle.title3.font())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Components")
-        }
+    func makeUIViewController(context: UIViewControllerRepresentableContext<Self>) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
     }
+
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<ODSSFSafariViewWrapper>) {}
 }

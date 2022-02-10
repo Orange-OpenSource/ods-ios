@@ -29,18 +29,63 @@ public struct AboutView: View {
     public init() {}
 
     public var body: some View {
+
         List {
-            VStack(alignment: .leading) {
-                Text("About").odsFont(style: .largeTitle)
+            VStack(alignment: .leading, spacing: 0) {
+                Text("About").odsFont(style: .largeTitle).odsGlobalPadding()
                 Image("img_about", bundle: Bundle.bundle)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal, -16)
+
+                Spacer().odsSpacerMedium()
                 ApplicationDescriptionView()
+                    .odsLeadingPadding()
+                    .odsTrailingPadding()
+                Spacer().odsSpacerSmall()
+
             }.listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+
             MenuList()
-        }.listStyle(GroupedListStyle())
+        }.listStyle(PlainListStyle())
     }
+}
+
+protocol AnyItem {}
+
+typealias Item = AnyItem & Identifiable
+
+public struct ODSAboutItemView: Identifiable {
+    //
+    var odsType: ODSTypeLink = .navigation
+
+    enum ODSTypeLink {
+        case externalBrower
+        case navigation
+        case safariViewController
+    }
+
+    public init(text: String, nextView: AnyView) {
+        self.text = text
+        self.nextView = nextView
+    }
+
+    public init(text: String, nextView: AnyView, url: String) {
+        self.init(text: text, nextView: nextView)
+        self.url = url
+        odsType = .externalBrower
+    }
+
+    public init(text: String, nextView: AnyView, safari: String) {
+        self.init(text: text, nextView: nextView)
+        url = safari
+        odsType = .safariViewController
+    }
+
+    public var id: String { text }
+    public var text: String
+    public let nextView: AnyView
+    public var url: String?
 }
 
 public class ApplicationDescription: ObservableObject {
@@ -48,6 +93,15 @@ public class ApplicationDescription: ObservableObject {
     let applicationName: String
     let applicationVersion: String
     let copyrightNotice = "Orange property. All rights reserved"
+
+    var test: ODSAboutItemView = .init(text: "What's new", nextView: AnyView(Text("To be replace")))
+
+    public var menuList = [
+        ODSAboutItemView(text: "What's new", nextView: AnyView(Text("To be replace"))),
+        ODSAboutItemView(text: "Legal information", nextView: AnyView(Button("To be replace") {})),
+        ODSAboutItemView(text: "General terms of use", nextView: AnyView(Text("To be replace"))),
+        ODSAboutItemView(text: "Privacy information", nextView: AnyView(Text("To be replace"))),
+    ]
 
     public init(applicationName: String, applicationVersion: String) {
         self.applicationName = applicationName
@@ -57,13 +111,52 @@ public class ApplicationDescription: ObservableObject {
 
 public struct MenuList: View {
 
+    @State private var showSafari = false
+
+    @EnvironmentObject var applicationDescription: ApplicationDescription
+
     public init() {}
 
     public var body: some View {
-        NavigationLink("What's new", destination: Text("Hello"))
-        NavigationLink("Legal information", destination: Text("Hello"))
-        NavigationLink("General terms of use", destination: Text("Hello"))
-        NavigationLink("Privacy information", destination: Text("Hello"))
+        ForEach(applicationDescription.menuList) { item in
+
+            switch item.odsType {
+            case .navigation:
+                NavigationLink(destination: item.nextView) {
+                    HStack {
+                        Text(item.text)
+                            .odsFont(style: .bodyRegular)
+                    }
+                    .frame(minWidth: 0,
+                           maxWidth: .infinity,
+                           minHeight: ODSDim.list_min_height,
+                           maxHeight: .infinity,
+                           alignment: .leading)
+                }
+
+            case .externalBrower:
+                if let url = item.url, let urlDestination = URL(string: url) {
+                    Link(destination: urlDestination) {
+                        HStack {
+                            Text(item.text).odsFont(style: .bodyRegular)
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSDim.list_min_height, maxHeight: .infinity, alignment: .leading)
+                    }
+                }
+
+            case .safariViewController:
+                if let url = item.url, let urlDestination = URL(string: url) {
+                    Button {
+                        showSafari.toggle()
+                    } label: {
+                        Text(item.text).odsFont(style: .bodyRegular)
+
+                    }.sheet(isPresented: $showSafari, content: {
+                        ODSSFSafariViewWrapper(url: urlDestination)
+                    }).frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSDim.list_min_height, maxHeight: .infinity, alignment: .leading)
+                }
+            }
+        }
     }
 }
 
