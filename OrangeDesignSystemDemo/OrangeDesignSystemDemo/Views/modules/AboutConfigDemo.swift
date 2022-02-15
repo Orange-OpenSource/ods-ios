@@ -35,10 +35,10 @@ public final class AboutConfigDemo: NSObject {
 
     public func configure() {
         let appMenu = [
-            ODSAboutItemView(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-            ODSAboutItemView(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
-            ODSAboutItemView(text: "Button", nextView: AnyView(Button("Test") {})),
-            ODSAboutItemView(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
+            ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
+            ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
+            ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
+            ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
         ]
 
         applicationDescription.menuList = appMenu

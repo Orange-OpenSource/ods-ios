@@ -46,16 +46,12 @@ public struct AboutView: View {
             }.listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets())
 
-            MenuList()
+            ODSAboutItemView()
         }.listStyle(PlainListStyle())
     }
 }
 
-protocol AnyItem {}
-
-typealias Item = AnyItem & Identifiable
-
-public struct ODSAboutItemView: Identifiable {
+public struct ODSAboutItem: Identifiable {
     //
     var odsType: ODSTypeLink = .navigation
 
@@ -94,13 +90,11 @@ public class ApplicationDescription: ObservableObject {
     let applicationVersion: String
     let copyrightNotice = "Orange property. All rights reserved"
 
-    var test: ODSAboutItemView = .init(text: "What's new", nextView: AnyView(Text("To be replace")))
-
     public var menuList = [
-        ODSAboutItemView(text: "What's new", nextView: AnyView(Text("To be replace"))),
-        ODSAboutItemView(text: "Legal information", nextView: AnyView(Button("To be replace") {})),
-        ODSAboutItemView(text: "General terms of use", nextView: AnyView(Text("To be replace"))),
-        ODSAboutItemView(text: "Privacy information", nextView: AnyView(Text("To be replace"))),
+        ODSAboutItem(text: "What's new", nextView: AnyView(Text("To be replace"))),
+        ODSAboutItem(text: "Legal information", nextView: AnyView(Button("To be replace") {})),
+        ODSAboutItem(text: "General terms of use", nextView: AnyView(Text("To be replace"))),
+        ODSAboutItem(text: "Privacy information", nextView: AnyView(Text("To be replace"))),
     ]
 
     public init(applicationName: String, applicationVersion: String) {
@@ -109,7 +103,7 @@ public class ApplicationDescription: ObservableObject {
     }
 }
 
-public struct MenuList: View {
+public struct ODSAboutItemView: View {
 
     @State private var showSafari = false
 
