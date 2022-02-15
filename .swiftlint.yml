@@ -32,6 +32,7 @@ attributes:
     - "@frozen"
     - "@objc"
 disabled_rules:
+  - trailing_comma
   - cyclomatic_complexity
   - file_length
   - force_unwrapping
