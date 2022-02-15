@@ -20,6 +20,7 @@
 		F99FF08C2767B23E006236A0 /* OrangeDesignSystemDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */; };
 		F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */; };
 		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
+		F9F0BD1627B27AD900B36DD8 /* AboutConfigDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0BD1527B27AD900B36DD8 /* AboutConfigDemo.swift */; };
 		FD699CA9276CD0D1008670BD /* StandardButtonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */; };
 		FD8A27A92768932700784B0E /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoTests.swift; path = OrangeDesignSystemDemoTests/OrangeDesignSystemDemoTests.swift; sourceTree = "<group>"; };
 		F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITestsLaunchTests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITests.swift; sourceTree = "<group>"; };
+		F9F0BD1527B27AD900B36DD8 /* AboutConfigDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutConfigDemo.swift; path = OrangeDesignSystemDemo/Views/modules/AboutConfigDemo.swift; sourceTree = "<group>"; };
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandardButtonsList.swift; path = OrangeDesignSystemDemo/Views/Components/StandardButtonsList.swift; sourceTree = "<group>"; };
 		FDC4430B27AD80C30024701B /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = ../docs; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				F99FF0802767AF6C006236A0 /* ComponentsList.swift */,
 				F99FF07B2767AF2B006236A0 /* Components */,
+				F9F0BD1427B27ABA00B36DD8 /* Modules */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,14 @@
 				F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */,
 			);
 			name = OrangeDesignSystemDemoUITests;
+			sourceTree = "<group>";
+		};
+		F9F0BD1427B27ABA00B36DD8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F9F0BD1527B27AD900B36DD8 /* AboutConfigDemo.swift */,
+			);
+			name = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +472,7 @@
 				F99FF0862767AF77006236A0 /* FontsList.swift in Sources */,
 				FD8A27A92768932700784B0E /* (null) in Sources */,
 				F99FF0852767AF77006236A0 /* ColorsList.swift in Sources */,
+				F9F0BD1627B27AD900B36DD8 /* AboutConfigDemo.swift in Sources */,
 				F99FF0812767AF6C006236A0 /* ComponentsList.swift in Sources */,
 				F99FF0872767AF77006236A0 /* ShapeButtonsList.swift in Sources */,
 				F99FF0752767AE2A006236A0 /* ContentView.swift in Sources */,
