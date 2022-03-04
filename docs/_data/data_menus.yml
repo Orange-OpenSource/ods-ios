@@ -7,18 +7,18 @@ toc2:
   - title: Guidelines
     subfolderitems:
       - page: Colors
-        url: /ods-ios/guidelines/colors
+        url: /ods-ios/guidelines/colors_docs
       - page: Typography
-        url: /ods-ios/guidelines/typography
+        url: /ods-ios/guidelines/typography_docs
 
   - title: Components
     subfolderitems:
       - page: Standard button
-        url: /ods-ios/components/standardButton
+        url: /ods-ios/components/standardButton_docs
       - page: Shaped button
-        url: /ods-ios/components/shapedButton
+        url: /ods-ios/components/shapedButton_docs
       
   - title: Modules
     subfolderitems:
       - page: About
-        url: /ods-ios/modules/about
+        url: /ods-ios/modules/about_docs
