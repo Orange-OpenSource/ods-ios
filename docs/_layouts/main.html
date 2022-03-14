@@ -90,7 +90,32 @@
 
     <main class="ods-main order-1">
 
-      <div class="ods-intro pt-md-4 ps-lg-4">
+      
+
+        
+
+{% if page.content_page %}
+ 
+  {% for all in site.pages %}
+    {% if all.name contains page.content_page %}
+
+    <div class="ods-intro pt-md-4 ps-lg-4">
+        <div class="d-md-flex align-items-center justify-content-between">
+          <h1 id="ods-title">{{ all.title }}</h1>
+
+        </div>
+        <p class="ods-lead">{{ all.description }}</p>
+      </div>
+
+     <div class="ods-content ps-lg-4 mb-3">
+
+        {{all.content}}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  
+  <div class="ods-intro pt-md-4 ps-lg-4">
         <div class="d-md-flex align-items-center justify-content-between">
           <h1 id="ods-title">{{ page.title }}</h1>
 
@@ -98,9 +123,14 @@
         <p class="ods-lead">{{ page.description }}</p>
       </div>
 
-      <div class="ods-content ps-lg-4 mb-3">        
-        {{ content }}
+     <div class="ods-content ps-lg-4 mb-3">
+
+        {{content}}
       </div>
+
+{% endif %}
+
+       
     </main>
   </div>
 

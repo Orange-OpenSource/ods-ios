@@ -1,6 +1,6 @@
 
 # Build settings
-baseurl: /ods-ios
+baseurl: /ods-ios/
 relative_links:
   enabled: true
   collections: true
