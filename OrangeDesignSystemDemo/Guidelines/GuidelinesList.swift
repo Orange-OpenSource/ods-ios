@@ -21,23 +21,24 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentList: View {
-
+struct GuidelinesList: View {
     var body: some View {
-
-        AboutConfigDemo.instance.configure()
-
-        return NavigationView {
+        NavigationView {
             List {
-                NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
+                NavigationLink("Colors", destination: ColorList()).font(ODSFontStyle.title3.font())
+                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Components")
+            .navigationTitle("Guidelines")
         }
+    }
+}
+
+struct GuidelinesListView_Previews: PreviewProvider {
+    static var previews: some View {
+        GuidelinesList()
     }
 }
