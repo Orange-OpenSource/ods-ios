@@ -27,23 +27,35 @@ import SwiftUI
 
 struct ColorList: View {
 
-    private let coreColors = ODSColor.allCases.enumerated().filter { $1.type == .core }.map { $1 }
-    private let functionalColors = ODSColor.allCases.enumerated().filter { $1.type == .functional }.map { $1 }
-    private let supportingColors = ODSColor.allCases.enumerated().filter { $1.type == .supporting }.map { $1 }
-    private let greyColors = ODSColor.allCases.enumerated().filter { $1.type == .grey }.map { $1 }
-    private let basicColors = ODSColor.allCases.enumerated().filter { $1.type == .basic }.map { $1 }
-
     var body: some View {
-        ScrollView {
-            VStack(spacing: 10) {
-                ColorSection(colorType: .core, colors: coreColors)
-                ColorSection(colorType: .functional, colors: functionalColors)
-                ColorSection(colorType: .supporting, colors: supportingColors)
-                ColorSection(colorType: .grey, colors: greyColors)
-                ColorSection(colorType: .basic, colors: basicColors)
-            }
-        }
+        Rectangle()
+            .fill(MyColor.coreOrange)
+            .frame(width: 200, height: 200)
+        Text("TEST COULEUR").foregroundColor(ODSColour.coreOrange.color)
+//        ScrollView {
+//            VStack(spacing: 10) {
+//                Text("TEST COULEUR").foregroundColor(Color("core_orange"))
+//            }
+//        }
     }
+
+//    private let coreColors = ODSColor.allCases.enumerated().filter { $1.type == .core }.map { $1 }
+//    private let functionalColors = ODSColor.allCases.enumerated().filter { $1.type == .functional }.map { $1 }
+//    private let supportingColors = ODSColor.allCases.enumerated().filter { $1.type == .supporting }.map { $1 }
+//    private let greyColors = ODSColor.allCases.enumerated().filter { $1.type == .grey }.map { $1 }
+//    private let basicColors = ODSColor.allCases.enumerated().filter { $1.type == .basic }.map { $1 }
+//
+//    var body: some View {
+//        ScrollView {
+//            VStack(spacing: 10) {
+//                ColorSection(colorType: .core, colors: coreColors)
+//                ColorSection(colorType: .functional, colors: functionalColors)
+//                ColorSection(colorType: .supporting, colors: supportingColors)
+//                ColorSection(colorType: .grey, colors: greyColors)
+//                ColorSection(colorType: .basic, colors: basicColors)
+//            }
+//        }
+//    }
 }
 
 struct ColorSection: View {
@@ -78,6 +90,14 @@ struct ColorDescriptionView: View {
                 .padding(.leading, 20)
             Text(odsColorDescription.name)
             Spacer()
+        }
+    }
+}
+
+struct ColorList_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            ColorList().preferredColorScheme($0)
         }
     }
 }

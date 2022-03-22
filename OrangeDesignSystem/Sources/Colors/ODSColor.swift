@@ -24,9 +24,176 @@
 import SwiftUI
 import UIKit
 
+public enum MyColor {
+    public static let coreOrange = ODSColour.coreOrange.color
+}
+
 // ==================
 // MARK: - ODS Colors
 // ==================
+
+public enum ODSColour {
+
+    // MARK: - CORE
+
+    case coreOrange // 2 tints (Dark & Light)
+    case coreWhite
+    case coreBlack
+    case coreObsGrey
+
+    // MARK: - FUNCTIONAL
+
+    case functionalPositive // 2 tints (Dark & Light)
+    case functionalNegative // 2 tints (Dark & Light)
+    case functionalInfo // 2 tints (Dark & Light)
+    case functionalAlert // 2 tints (Dark & Light)
+
+    // MARK: - SUPPORTING
+
+    case supportingBlue100
+    case supportingBlue200
+    case supportingBlue300
+    case supportingYellow100
+    case supportingYellow200
+    case supportingYellow300
+    case supportingGreen100
+    case supportingGreen200
+    case supportingGreen300
+    case supportingPurple100
+    case supportingPurple200
+    case supportingPurple300
+    case supportingPink100
+    case supportingPink200
+    case supportingPink300
+
+    public var onLightName: String {
+        switch self {
+        case .coreOrange:
+            return "Orange 200"
+        case .coreWhite:
+            return "White 100"
+        case .coreBlack:
+            return "Black 900"
+        case .coreObsGrey:
+            return "OBS Grey 700"
+        case .functionalPositive:
+            return "Positive 200"
+        case .functionalNegative:
+            return "Negative 200"
+        case .functionalInfo:
+            return "Info 200"
+        case .functionalAlert:
+            return "Alert 200"
+        case .supportingBlue100:
+            return "Blue 100"
+        case .supportingBlue200:
+            return "Blue 200"
+        case .supportingBlue300:
+            return "Blue 300"
+        case .supportingYellow100:
+            return "Yellow 100"
+        case .supportingYellow200:
+            return "Yellow 200"
+        case .supportingYellow300:
+            return "Yellow 300"
+        case .supportingGreen100:
+            return "Green 100"
+        case .supportingGreen200:
+            return "Green 200"
+        case .supportingGreen300:
+            return "Green 300"
+        case .supportingPurple100:
+            return "Purple 100"
+        case .supportingPurple200:
+            return "Purple 200"
+        case .supportingPurple300:
+            return "Purple 300"
+        case .supportingPink100:
+            return "Pink 100"
+        case .supportingPink200:
+            return "Pink 200"
+        case .supportingPink300:
+            return "Pink 300"
+        }
+    }
+
+    public var onDarkName: String {
+        switch self {
+        case .coreOrange:
+            return "Orange 100"
+        case .functionalPositive:
+            return "Positive 100"
+        case .functionalNegative:
+            return "Negative 100"
+        case .functionalInfo:
+            return "Info 100"
+        case .functionalAlert:
+            return "Alert 100"
+        default:
+            return onLightName
+        }
+    }
+
+    private var internalName: String {
+        switch self {
+        // CORE
+        case .coreOrange:
+            return "core_orange"
+        case .coreBlack:
+            return "Black 900"
+        case .coreWhite:
+            return "White 100"
+        case .coreObsGrey:
+            return "core_obsgrey_700"
+
+        // FUNCTIONAL
+        case .functionalInfo:
+            return "functional_info"
+        case .functionalAlert:
+            return "functional_alert"
+        case .functionalPositive:
+            return "functional_positive"
+        case .functionalNegative:
+            return "functional_negative"
+
+        // SUPPORTING
+        case .supportingBlue100:
+            return "supporting_blue_100"
+        case .supportingBlue200:
+            return "supporting_blue_200"
+        case .supportingBlue300:
+            return "supporting_blue_300"
+        case .supportingYellow100:
+            return "supporting_yellow_100"
+        case .supportingYellow200:
+            return "supporting_yellow_200"
+        case .supportingYellow300:
+            return "supporting_yellow_300"
+        case .supportingGreen100:
+            return "supporting_green_100"
+        case .supportingGreen200:
+            return "supporting_green_200"
+        case .supportingGreen300:
+            return "supporting_green_300"
+        case .supportingPurple100:
+            return "supporting_purple_100"
+        case .supportingPurple200:
+            return "supporting_purple_200"
+        case .supportingPurple300:
+            return "supporting_purple_300"
+        case .supportingPink100:
+            return "supporting_pink_100"
+        case .supportingPink200:
+            return "supporting_pink_200"
+        case .supportingPink300:
+            return "supporting_pink_300"
+        }
+    }
+
+    public var color: Color {
+        return Color(internalName, bundle: Bundle.bundle)
+    }
+}
 
 /// A huge list of colors which are mainly binded to system colors.
 ///
