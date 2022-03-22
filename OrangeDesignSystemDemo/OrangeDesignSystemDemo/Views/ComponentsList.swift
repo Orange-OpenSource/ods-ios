@@ -33,13 +33,8 @@ struct ComponentList: View {
 
         return NavigationView {
             List {
-                NavigationLink("Colors", destination: ColorList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
                 NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
                 NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("About component", destination: AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationDescription))
-                    .font(ODSFontStyle.title3.font())
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Components")
