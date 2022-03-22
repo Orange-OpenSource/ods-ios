@@ -29,33 +29,27 @@ struct MainTabView: View {
         TabView {
             GuidelinesList()
                 .tabItem {
-                    Label("Guidelines", image: "orange.book.fill")
+                    Label("Guidelines", image: "Guideline-DNA_32")
                 }
             ComponentList()
                 .tabItem {
-                    Image("orange.folder.fill")
-                    Text("Components")
+                    Label("Components", image: "component-atom_32")
                 }
             ModulesList()
                 .tabItem {
-                    Image("orange.square.stack.3d.up.fill")
-                    Text("Modules")
+                    Label("Modules", image: "Module-molecule_32")
                 }
             Text("About")
                 .font(ODSFontStyle.largeTitle.font())
                 .tabItem {
-                    // Image("orange.info.circle.fill")
-                    Image(systemName: "info.circle.fill")
-                    Text("About")
+                    Label("About", image: "info_32")
                 }
             Text("Search")
                 .font(ODSFontStyle.largeTitle.font())
                 .tabItem {
-                    Image("orange.magnifyingglass")
-                    Text("Search")
+                    Label("Search", image: "Search_32")
                 }
         }
-        // .accentColor(ODSColor.coreOrange.color)
         .tabBarStyle(backgroundColor: ODSColor.coreTheme.color,
                      itemColor: ODSColor.coreThemeInverse.color,
                      selectedItemColor: ODSColor.coreOrange.color)
