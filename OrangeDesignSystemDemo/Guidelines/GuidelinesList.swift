@@ -21,13 +21,24 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-@main
-struct ods_ios_swiftUI_demoApp: App {
-    var body: some Scene {
-        WindowGroup {
-            MainTabView()
+struct GuidelinesList: View {
+    var body: some View {
+        NavigationView {
+            List {
+                NavigationLink("Colors", destination: ColorList()).font(ODSFontStyle.title3.font())
+                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Guidelines")
         }
+    }
+}
+
+struct GuidelinesListView_Previews: PreviewProvider {
+    static var previews: some View {
+        GuidelinesList()
     }
 }

@@ -21,16 +21,25 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct ContentView: View {
+struct ModulesList: View {
     var body: some View {
-        ComponentList()
+        NavigationView {
+            List {
+                NavigationLink("About component", destination: AboutView()
+                    .environmentObject(AboutConfigDemo.instance.applicationDescription))
+                    .font(ODSFontStyle.title3.font())
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Modules")
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ModulesList_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ModulesList()
     }
 }
