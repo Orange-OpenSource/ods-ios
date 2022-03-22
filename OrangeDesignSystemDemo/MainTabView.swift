@@ -58,6 +58,8 @@ struct MainTabView: View {
 
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+        ForEach(ColorScheme.allCases, id: \.self) {
+            MainTabView().preferredColorScheme($0)
+        }
     }
 }

@@ -27,7 +27,7 @@ import SwiftUI
 struct ods_ios_swiftUI_demoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }
