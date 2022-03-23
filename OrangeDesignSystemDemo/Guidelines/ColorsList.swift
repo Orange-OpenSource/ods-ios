@@ -28,34 +28,45 @@ import SwiftUI
 struct ColorList: View {
 
     var body: some View {
-        Rectangle()
-            .fill(MyColor.coreOrange)
-            .frame(width: 200, height: 200)
-        Text("TEST COULEUR").foregroundColor(ODSColour.coreOrange.color)
-//        ScrollView {
-//            VStack(spacing: 10) {
-//                Text("TEST COULEUR").foregroundColor(Color("core_orange"))
-//            }
-//        }
+        ScrollView {
+            VStack(spacing: 10) {
+                HStack(spacing: 10) {
+                    ColourBigView(colour: ODSColour.coreOrange)
+                    ColourBigView(colour: ODSColour.coreWhite)
+                }
+                HStack(spacing: 10) {
+                    ColourBigView(colour: ODSColour.coreBlack)
+                    ColourBigView(colour: ODSColour.coreObsGrey)
+                }
+            }
+            VStack(spacing: 10) {
+                HStack(spacing: 10) {
+                    ColourBigView(colour: ODSColour.functionalPositive)
+                    ColourBigView(colour: ODSColour.functionalNegative)
+                }
+                HStack(spacing: 10) {
+                    ColourBigView(colour: ODSColour.functionalAlert)
+                    ColourBigView(colour: ODSColour.functionalInfo)
+                }
+            }
+        }.padding(16)
     }
+}
 
-//    private let coreColors = ODSColor.allCases.enumerated().filter { $1.type == .core }.map { $1 }
-//    private let functionalColors = ODSColor.allCases.enumerated().filter { $1.type == .functional }.map { $1 }
-//    private let supportingColors = ODSColor.allCases.enumerated().filter { $1.type == .supporting }.map { $1 }
-//    private let greyColors = ODSColor.allCases.enumerated().filter { $1.type == .grey }.map { $1 }
-//    private let basicColors = ODSColor.allCases.enumerated().filter { $1.type == .basic }.map { $1 }
-//
-//    var body: some View {
-//        ScrollView {
-//            VStack(spacing: 10) {
-//                ColorSection(colorType: .core, colors: coreColors)
-//                ColorSection(colorType: .functional, colors: functionalColors)
-//                ColorSection(colorType: .supporting, colors: supportingColors)
-//                ColorSection(colorType: .grey, colors: greyColors)
-//                ColorSection(colorType: .basic, colors: basicColors)
-//            }
-//        }
-//    }
+struct ColourBigView: View {
+    let colour: ODSColour
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Rectangle()
+                .fill(colour.color)
+                .aspectRatio(1.0, contentMode: .fit)
+            Text(colour.onLightName)
+            Text(colour.rgb)
+            Text(colour.hexa)
+            Spacer()
+        }
+    }
 }
 
 struct ColorSection: View {

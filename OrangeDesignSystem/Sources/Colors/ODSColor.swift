@@ -24,8 +24,44 @@
 import SwiftUI
 import UIKit
 
-public enum MyColor {
-    public static let coreOrange = ODSColour.coreOrange.color
+// shortcuts
+public enum ODS {
+
+    public enum core {
+        public static let orange = ODSColour.coreOrange.color
+        public static let white = ODSColour.coreWhite.color
+        public static let black = ODSColour.coreBlack.color
+        public static let obsGrey = ODSColour.coreObsGrey.color
+    }
+
+    public enum functional {
+        public static let positive = ODSColour.functionalPositive.color
+        public static let negative = ODSColour.functionalNegative.color
+        public static let alert = ODSColour.functionalAlert.color
+        public static let info = ODSColour.functionalInfo.color
+    }
+
+    public enum supporting {
+        public static let blue100 = ODSColour.supportingBlue100.color
+        public static let blue200 = ODSColour.supportingBlue200.color
+        public static let blue300 = ODSColour.supportingBlue300.color
+
+        public static let green100 = ODSColour.supportingGreen100.color
+        public static let green200 = ODSColour.supportingGreen200.color
+        public static let green300 = ODSColour.supportingGreen300.color
+
+        public static let yellow100 = ODSColour.supportingYellow100.color
+        public static let yellow200 = ODSColour.supportingYellow200.color
+        public static let yellow300 = ODSColour.supportingYellow300.color
+
+        public static let purple100 = ODSColour.supportingPurple100.color
+        public static let purple200 = ODSColour.supportingPurple200.color
+        public static let purple300 = ODSColour.supportingPurple300.color
+
+        public static let pink100 = ODSColour.supportingPink100.color
+        public static let pink200 = ODSColour.supportingPink200.color
+        public static let pink300 = ODSColour.supportingPink300.color
+    }
 }
 
 // ==================
@@ -140,11 +176,11 @@ public enum ODSColour {
         case .coreOrange:
             return "core_orange"
         case .coreBlack:
-            return "Black 900"
+            return "core_black"
         case .coreWhite:
-            return "White 100"
+            return "core_white"
         case .coreObsGrey:
-            return "core_obsgrey_700"
+            return "core_obs_grey"
 
         // FUNCTIONAL
         case .functionalInfo:
@@ -192,6 +228,42 @@ public enum ODSColour {
 
     public var color: Color {
         return Color(internalName, bundle: Bundle.bundle)
+    }
+
+    public var rgb: String {
+        guard let rgba = Color(internalName, bundle: Bundle.bundle).rgba else {
+            return ""
+        }
+
+        let red = String(format: "%.0f", rgba.red * 255)
+        let green = String(format: "%.0f", rgba.green * 255)
+        let blue = String(format: "%.0f", rgba.blue * 255)
+        return "rgb(\(red), \(green), \(blue))"
+    }
+
+    public var hexa: String {
+        let swiftUIColor = Color(internalName, bundle: Bundle.bundle)
+        return swiftUIColor.hexaRGBA ?? ""
+    }
+}
+
+extension Color {
+    var uiColor: UIColor { .init(self) }
+
+    typealias RGBA = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+
+    var rgba: RGBA? {
+        var (r, g, b, a): RGBA = (0, 0, 0, 0)
+        return uiColor.getRed(&r, green: &g, blue: &b, alpha: &a) ? (r, g, b, a) : nil
+    }
+
+    var hexaRGBA: String? {
+        guard let (red, green, blue, alpha) = rgba else { return nil }
+        return String(format: "#%02x%02x%02x%02x",
+                      Int(round(red * 255)),
+                      Int(round(green * 255)),
+                      Int(round(blue * 255)),
+                      Int(round(alpha * 255)))
     }
 }
 
