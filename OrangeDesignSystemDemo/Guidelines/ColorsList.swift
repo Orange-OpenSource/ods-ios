@@ -27,41 +27,76 @@ import SwiftUI
 
 struct ColorList: View {
 
+    // MARK: - Dark/Light managment
+    @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
+    @State var selectedTheme = 0 // Any value : overwritten when View.onAppear
+    @State var screenColorScheme: ColorScheme = .light
+
+    func initColorScheme() {
+        if phoneColorScheme == .light {
+            screenColorScheme = .light
+            selectedTheme = 0
+        } else {
+            screenColorScheme = .dark
+            selectedTheme = 1
+        }
+    }
+
+    func setColorScheme() {
+        screenColorScheme = selectedTheme == 0 ? .light : .dark
+    }
+
+    // MARK: - Body
     var body: some View {
-        ScrollView {
-            VStack {
-                HStack(spacing: 19) {
-                    ColourBigView(colour: ODSColour.coreOrange)
-                    ColourBigView(colour: ODSColour.coreWhite)
+        VStack {
+            Picker("Favorite Color", selection: $selectedTheme, content: {
+                Text("on Light").tag(0)
+                Text("on Dark").tag(1)
+            }).pickerStyle(.segmented)
+                .onAppear {
+                    initColorScheme()
+                }.onChange(of: selectedTheme, perform: { _ in
+                    setColorScheme()
+                }).padding(16)
+
+            ScrollView {
+
+                VStack {
+                    HStack(spacing: 19) {
+                        ColourBigView(colour: ODSColour.coreOrange, scheme: screenColorScheme)
+                        ColourBigView(colour: ODSColour.coreWhite, scheme: screenColorScheme)
+                    }
+                    HStack(spacing: 19) {
+                        ColourBigView(colour: ODSColour.coreBlack, scheme: screenColorScheme)
+                        ColourBigView(colour: ODSColour.coreObsGrey, scheme: screenColorScheme)
+                    }
                 }
-                HStack(spacing: 19) {
-                    ColourBigView(colour: ODSColour.coreBlack)
-                    ColourBigView(colour: ODSColour.coreObsGrey)
+                VStack {
+                    HStack(spacing: 19) {
+                        ColourBigView(colour: ODSColour.functionalPositive, scheme: screenColorScheme)
+                        ColourBigView(colour: ODSColour.functionalNegative, scheme: screenColorScheme)
+                    }
+                    HStack(spacing: 19) {
+                        ColourBigView(colour: ODSColour.functionalAlert, scheme: screenColorScheme)
+                        ColourBigView(colour: ODSColour.functionalInfo, scheme: screenColorScheme)
+                    }
                 }
-            }
-            VStack {
-                HStack(spacing: 19) {
-                    ColourBigView(colour: ODSColour.functionalPositive)
-                    ColourBigView(colour: ODSColour.functionalNegative)
-                }
-                HStack(spacing: 19) {
-                    ColourBigView(colour: ODSColour.functionalAlert)
-                    ColourBigView(colour: ODSColour.functionalInfo)
-                }
-            }
-        }.padding(16)
+            }.padding(16)
+        }.background(ODSColor.coreTheme.color)
+            .colorScheme(screenColorScheme)
     }
 }
 
 struct ColourBigView: View {
     let colour: ODSColour
+    let scheme: ColorScheme
 
     var body: some View {
         VStack(alignment: .leading) {
             Rectangle()
                 .fill(colour.color)
                 .aspectRatio(1.0, contentMode: .fit)
-            Text(colour.onLightName).odsFont(style: .headline)
+            Text(colour.name(forScheme: scheme)).odsFont(style: .headline)
             Text(colour.internalName).odsFont(style: .subhead)
             Text(colour.rgb).odsFont(style: .caption1Regular)
             Text(colour.hexa).odsFont(style: .caption1Regular)
@@ -69,41 +104,41 @@ struct ColourBigView: View {
     }
 }
 
-struct ColorSection: View {
-
-    let colorType: ODSColor.ColorType
-    let colors: [ODSColor]
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Section(header:
-                Text(colorType.description).font(ODSFontStyle.title3.font())
-                    .frame(maxWidth: .infinity, minHeight: 40.0)
-                    .foregroundColor(ODSColor.grey800.color)
-                    .background(ODSColor.grey300.color)
-            ) {
-                ForEach(colors, id: \.name) { color in
-                    ColorDescriptionView(odsColorDescription: color)
-                }
-            }
-        }
-    }
-}
-
-struct ColorDescriptionView: View {
-    let odsColorDescription: ODSColor
-
-    var body: some View {
-        HStack(spacing: 20) {
-            Rectangle()
-                .foregroundColor(odsColorDescription.color)
-                .frame(width: 30, height: 30)
-                .padding(.leading, 20)
-            Text(odsColorDescription.name)
-            Spacer()
-        }
-    }
-}
+// struct ColorSection: View {
+//
+//    let colorType: ODSColor.ColorType
+//    let colors: [ODSColor]
+//
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            Section(header:
+//                Text(colorType.description).font(ODSFontStyle.title3.font())
+//                    .frame(maxWidth: .infinity, minHeight: 40.0)
+//                    .foregroundColor(ODSColor.grey800.color)
+//                    .background(ODSColor.grey300.color)
+//            ) {
+//                ForEach(colors, id: \.name) { color in
+//                    ColorDescriptionView(odsColorDescription: color)
+//                }
+//            }
+//        }
+//    }
+// }
+//
+// struct ColorDescriptionView: View {
+//    let odsColorDescription: ODSColor
+//
+//    var body: some View {
+//        HStack(spacing: 20) {
+//            Rectangle()
+//                .foregroundColor(odsColorDescription.color)
+//                .frame(width: 30, height: 30)
+//                .padding(.leading, 20)
+//            Text(odsColorDescription.name)
+//            Spacer()
+//        }
+//    }
+// }
 
 struct ColorList_Previews: PreviewProvider {
     static var previews: some View {

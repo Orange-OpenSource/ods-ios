@@ -167,6 +167,14 @@ public enum ODSColour {
         }
     }
 
+    public func name(forScheme scheme: ColorScheme) -> String {
+        if scheme == .light {
+            return onLightName
+        } else {
+            return onDarkName
+        }
+    }
+
     public var internalName: String {
         switch self {
         // CORE
@@ -178,7 +186,6 @@ public enum ODSColour {
             return "core_white"
         case .coreObsGrey:
             return "core_obs_grey"
-
         // FUNCTIONAL
         case .functionalInfo:
             return "functional_info"
@@ -188,7 +195,6 @@ public enum ODSColour {
             return "functional_positive"
         case .functionalNegative:
             return "functional_negative"
-
         // SUPPORTING
         case .supportingBlue100:
             return "supporting_blue_100"
