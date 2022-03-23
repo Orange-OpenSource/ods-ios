@@ -71,21 +71,18 @@ public enum ODS {
 public enum ODSColour {
 
     // MARK: - CORE
-
     case coreOrange // 2 tints (Dark & Light)
     case coreWhite
     case coreBlack
     case coreObsGrey
 
     // MARK: - FUNCTIONAL
-
     case functionalPositive // 2 tints (Dark & Light)
     case functionalNegative // 2 tints (Dark & Light)
     case functionalInfo // 2 tints (Dark & Light)
     case functionalAlert // 2 tints (Dark & Light)
 
     // MARK: - SUPPORTING
-
     case supportingBlue100
     case supportingBlue200
     case supportingBlue300
@@ -170,7 +167,7 @@ public enum ODSColour {
         }
     }
 
-    private var internalName: String {
+    public var internalName: String {
         switch self {
         // CORE
         case .coreOrange:

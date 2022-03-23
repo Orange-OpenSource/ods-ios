@@ -29,22 +29,22 @@ struct ColorList: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 10) {
-                HStack(spacing: 10) {
+            VStack {
+                HStack(spacing: 19) {
                     ColourBigView(colour: ODSColour.coreOrange)
                     ColourBigView(colour: ODSColour.coreWhite)
                 }
-                HStack(spacing: 10) {
+                HStack(spacing: 19) {
                     ColourBigView(colour: ODSColour.coreBlack)
                     ColourBigView(colour: ODSColour.coreObsGrey)
                 }
             }
-            VStack(spacing: 10) {
-                HStack(spacing: 10) {
+            VStack {
+                HStack(spacing: 19) {
                     ColourBigView(colour: ODSColour.functionalPositive)
                     ColourBigView(colour: ODSColour.functionalNegative)
                 }
-                HStack(spacing: 10) {
+                HStack(spacing: 19) {
                     ColourBigView(colour: ODSColour.functionalAlert)
                     ColourBigView(colour: ODSColour.functionalInfo)
                 }
@@ -57,14 +57,14 @@ struct ColourBigView: View {
     let colour: ODSColour
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .leading) {
             Rectangle()
                 .fill(colour.color)
                 .aspectRatio(1.0, contentMode: .fit)
-            Text(colour.onLightName)
-            Text(colour.rgb)
-            Text(colour.hexa)
-            Spacer()
+            Text(colour.onLightName).odsFont(style: .headline)
+            Text(colour.internalName).odsFont(style: .subhead)
+            Text(colour.rgb).odsFont(style: .caption1Regular)
+            Text(colour.hexa).odsFont(style: .caption1Regular)
         }
     }
 }
