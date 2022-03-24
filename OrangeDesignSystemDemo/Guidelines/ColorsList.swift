@@ -50,8 +50,8 @@ struct ColorList: View {
     var body: some View {
         VStack {
             Picker("Favorite Color", selection: $selectedTheme, content: {
-                Text("on Light").tag(0)
-                Text("on Dark").tag(1)
+                Text("On Light").tag(0)
+                Text("On Dark").tag(1)
             }).pickerStyle(.segmented)
                 .onAppear {
                     initColorScheme()
