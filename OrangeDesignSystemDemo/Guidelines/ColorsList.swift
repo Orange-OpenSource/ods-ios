@@ -82,7 +82,7 @@ struct ColorList: View {
                     }
                 }
             }.padding(16)
-        }.background(ODSColor.coreTheme.color)
+        }.background(Color(uiColor: UIColor.systemBackground))
             .colorScheme(screenColorScheme)
     }
 }
@@ -96,49 +96,30 @@ struct ColourBigView: View {
             Rectangle()
                 .fill(colour.color)
                 .aspectRatio(1.0, contentMode: .fit)
-            Text(colour.name(forScheme: scheme)).odsFont(style: .headline)
-            Text(colour.internalName).odsFont(style: .subhead)
-            Text(colour.rgb).odsFont(style: .caption1Regular)
-            Text(colour.hexa).odsFont(style: .caption1Regular)
+            Text(colour.displayName(forScheme: scheme)).odsFont(style: .headline)
+            Text(colour.rawValue).odsFont(style: .caption1Regular)
+            Text(colour.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
+            Text(colour.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
         }
     }
 }
 
-// struct ColorSection: View {
-//
-//    let colorType: ODSColor.ColorType
-//    let colors: [ODSColor]
-//
-//    var body: some View {
-//        VStack(alignment: .leading) {
-//            Section(header:
-//                Text(colorType.description).font(ODSFontStyle.title3.font())
-//                    .frame(maxWidth: .infinity, minHeight: 40.0)
-//                    .foregroundColor(ODSColor.grey800.color)
-//                    .background(ODSColor.grey300.color)
-//            ) {
-//                ForEach(colors, id: \.name) { color in
-//                    ColorDescriptionView(odsColorDescription: color)
-//                }
-//            }
-//        }
-//    }
-// }
-//
-// struct ColorDescriptionView: View {
-//    let odsColorDescription: ODSColor
-//
-//    var body: some View {
-//        HStack(spacing: 20) {
-//            Rectangle()
-//                .foregroundColor(odsColorDescription.color)
-//                .frame(width: 30, height: 30)
-//                .padding(.leading, 20)
-//            Text(odsColorDescription.name)
-//            Spacer()
-//        }
-//    }
-// }
+struct ColourSmallView: View {
+    let colour: ODSColour
+    let scheme: ColorScheme
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Rectangle()
+                .fill(colour.color)
+                .aspectRatio(1.0, contentMode: .fit)
+            Text(colour.displayName(forScheme: scheme)).odsFont(style: .headline)
+            Text(colour.rawValue).odsFont(style: .caption1Regular)
+            Text(colour.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
+            Text(colour.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
+        }
+    }
+}
 
 struct ColorList_Previews: PreviewProvider {
     static var previews: some View {

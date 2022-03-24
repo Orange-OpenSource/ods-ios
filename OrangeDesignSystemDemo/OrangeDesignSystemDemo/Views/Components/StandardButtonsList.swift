@@ -30,8 +30,8 @@ struct StandardButtonsList: View {
     let hPadding: CGFloat = 16.0
     var body: some View {
         ScrollView {
-            let imageDescriptionPlus = ODSImageDescription(image: Image(systemName: "plus.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreOrange.color)
-            let imageDescriptionInfo = ODSImageDescription(image: Image(systemName: "info.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreOrange.color)
+            let imageDescriptionPlus = ODSImageDescription(image: Image(systemName: "plus.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreOrange)
+            let imageDescriptionInfo = ODSImageDescription(image: Image(systemName: "info.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreOrange)
 
             VStack(alignment: .center, spacing: 30) {
                 HStack(alignment: .center) {
@@ -60,7 +60,7 @@ struct StandardButtonsList: View {
                     Button {
                         print("Action")
                     } label: {
-                        ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreOrange.color)
+                        ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreOrange)
                     }
                     .padding(.horizontal, hPadding)
 

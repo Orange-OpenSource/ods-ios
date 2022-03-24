@@ -50,9 +50,9 @@ struct MainTabView: View {
                     Label("Search", image: "Search_32")
                 }
         }
-        .tabBarStyle(backgroundColor: ODSColor.coreTheme.color,
-                     itemColor: ODSColor.coreThemeInverse.color,
-                     selectedItemColor: ODSColor.coreOrange.color)
+        .tabBarStyle(backgroundColor: Color(uiColor: UIColor.systemBackground),
+                     itemColor: Color.primary,
+                     selectedItemColor: ODSColor.coreOrange)
     }
 }
 
