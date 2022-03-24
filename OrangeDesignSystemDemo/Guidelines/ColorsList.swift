@@ -58,9 +58,7 @@ struct ColorList: View {
                 }.onChange(of: selectedTheme, perform: { _ in
                     setColorScheme()
                 }).padding(16)
-
             ScrollView {
-
                 VStack {
                     HStack(spacing: 19) {
                         ColourBigView(colour: ODSColour.coreOrange, scheme: screenColorScheme)
