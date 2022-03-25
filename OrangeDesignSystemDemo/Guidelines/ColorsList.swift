@@ -79,9 +79,8 @@ struct ColorList: View {
                         ColourBigView(colour: ODSColour.functionalInfo, scheme: screenColorScheme)
                     }
                 }
-            }.padding(16)
-        }.background(Color(uiColor: UIColor.systemBackground))
-            .colorScheme(screenColorScheme)
+            }.padding(16).background(screenColorScheme == .light ? Color.white : Color.black)
+        }
     }
 }
 
@@ -98,7 +97,7 @@ struct ColourBigView: View {
             Text(colour.rawValue).odsFont(style: .caption1Regular)
             Text(colour.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
             Text(colour.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
-        }
+        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(scheme)
     }
 }
 
