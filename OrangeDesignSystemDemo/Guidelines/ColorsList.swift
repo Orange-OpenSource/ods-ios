@@ -29,56 +29,40 @@ struct ColorList: View {
 
     // MARK: - Dark/Light managment
     @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
-    @State var selectedTheme = 0 // Any value : overwritten when View.onAppear
+    @State var selectedTheme: ColorScheme = .light // Any value : overwritten when View.onAppear
     @State private var screenColorScheme: ColorScheme = .light
-
-    func initColorScheme() {
-        if phoneColorScheme == .light {
-            screenColorScheme = .light
-            selectedTheme = 0
-        } else {
-            screenColorScheme = .dark
-            selectedTheme = 1
-        }
-    }
-
-    func setColorScheme() {
-        screenColorScheme = selectedTheme == 0 ? .light : .dark
-    }
 
     // MARK: - Body
     var body: some View {
         VStack {
-            Picker("Favorite Color", selection: $selectedTheme, content: {
-                Text("On Light").tag(0)
-                Text("On Dark").tag(1)
+            Picker("Favorite Scheme", selection: $screenColorScheme, content: {
+                Text("On Light").tag(ColorScheme.light)
+                Text("On Dark").tag(ColorScheme.dark)
             }).pickerStyle(.segmented)
                 .onAppear {
-                    initColorScheme()
-                }.onChange(of: selectedTheme, perform: { _ in
-                    setColorScheme()
-                }).padding(16)
+                    screenColorScheme = phoneColorScheme
+                }.padding(16)
             ScrollView {
                 SectionTitle(title: "Core", scheme: $screenColorScheme)
                 VStack {
                     HStack(spacing: 19) {
-                        colorBigView(color: ODSColor.coreOrange, scheme: $screenColorScheme)
-                        colorBigView(color: ODSColor.coreWhite, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.coreOrange, scheme: $screenColorScheme, bordered: false)
+                        colorBigView(color: ODSColor.coreWhite, scheme: $screenColorScheme, bordered: screenColorScheme == .light)
                     }
                     HStack(spacing: 19) {
-                        colorBigView(color: ODSColor.coreBlack, scheme: $screenColorScheme)
-                        colorBigView(color: ODSColor.coreObsGrey, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.coreBlack, scheme: $screenColorScheme, bordered: screenColorScheme == .dark)
+                        colorBigView(color: ODSColor.coreObsGrey, scheme: $screenColorScheme, bordered: false)
                     }
                 }
                 SectionTitle(title: "Functional", scheme: $screenColorScheme)
                 VStack {
                     HStack(spacing: 19) {
-                        colorBigView(color: ODSColor.functionalPositive, scheme: $screenColorScheme)
-                        colorBigView(color: ODSColor.functionalNegative, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.functionalPositive, scheme: $screenColorScheme, bordered: false)
+                        colorBigView(color: ODSColor.functionalNegative, scheme: $screenColorScheme, bordered: false)
                     }
                     HStack(spacing: 19) {
-                        colorBigView(color: ODSColor.functionalAlert, scheme: $screenColorScheme)
-                        colorBigView(color: ODSColor.functionalInfo, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.functionalAlert, scheme: $screenColorScheme, bordered: false)
+                        colorBigView(color: ODSColor.functionalInfo, scheme: $screenColorScheme, bordered: false)
                     }
                 }
                 SectionTitle(title: "Supporting", scheme: $screenColorScheme)
@@ -129,12 +113,20 @@ struct SectionTitle: View {
 struct colorBigView: View {
     let color: ODSColor
     @Binding var scheme: ColorScheme
+    var bordered: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
-            Rectangle()
-                .fill(color.color)
-                .aspectRatio(1.0, contentMode: .fit)
+            if bordered {
+                Rectangle()
+                    .fill(color.color)
+                    .border(Color.secondary)
+                    .aspectRatio(1.0, contentMode: .fit)
+            } else {
+                Rectangle()
+                    .fill(color.color)
+                    .aspectRatio(1.0, contentMode: .fit)
+            }
             Text(color.displayName(forScheme: scheme)).odsFont(style: .headline)
             Text(color.rawValue).odsFont(style: .caption1Regular)
             Text(color.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
