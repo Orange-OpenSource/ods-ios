@@ -25,12 +25,30 @@ import Foundation
 import SwiftUI
 
 public enum ODSDim {
-    static let list_min_height = 42.0
-    static let list_min_width = 42.0
-    static let padding = 15.0
+    public static let list_min_height = 42.0
+    public static let list_min_width = 42.0
+    public static let padding = 15.0
+
+    public enum ODSCard {
+        public static let borderWidth: Double = 1
+        public static let borderShadowWidth: Double = 2
+        public static let borderColor: Color = ODSColor.grey800.color
+    }
+
+    public enum ODSSpacing {
+        static let tiny: Double = 5
+        static let small: Double = 10
+        static let regular: Double = 15
+        static let large: Double = 20
+        static let huge: Double = 30
+    }
 }
 
 extension View {
+
+    public func fullWidthFrame(alignment: Alignment = .leading) -> some View {
+        frame(maxWidth: .infinity, alignment: alignment)
+    }
 
     public func odsLeadingPadding() -> some View {
         return padding(.leading, ODSDim.padding)
