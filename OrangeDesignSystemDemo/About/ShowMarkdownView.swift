@@ -48,6 +48,8 @@ struct ShowMarkdownView: View {
 
 struct ShowMarkdownView_Previews: PreviewProvider {
     static var previews: some View {
-        ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice")
+        ForEach(ColorScheme.allCases, id: \.self) {
+            ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice").preferredColorScheme($0)
+        }
     }
 }

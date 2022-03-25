@@ -36,6 +36,8 @@ struct ODSDemoAboutView: View {
 
 struct ODSDemoAboutView_Previews: PreviewProvider {
     static var previews: some View {
-        ODSDemoAboutView()
+        ForEach(ColorScheme.allCases, id: \.self) {
+            ODSDemoAboutView().preferredColorScheme($0)
+        }
     }
 }

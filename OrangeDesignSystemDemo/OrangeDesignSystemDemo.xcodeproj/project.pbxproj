@@ -261,8 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				FDB8C4F027EC6B1700CD9F68 /* ODSDemoAboutView.swift */,
-				FDB8C4F227EC6C5600CD9F68 /* ODSDemoAboutConfig.swift */,
 				FDD9DB7927ECAF220094B5CE /* ShowMarkdownView.swift */,
+				FDB8C4F227EC6C5600CD9F68 /* ODSDemoAboutConfig.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
