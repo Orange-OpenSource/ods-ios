@@ -30,7 +30,7 @@ struct ColorList: View {
     // MARK: - Dark/Light managment
     @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
     @State var selectedTheme = 0 // Any value : overwritten when View.onAppear
-    @State var screenColorScheme: ColorScheme = .light
+    @State private var screenColorScheme: ColorScheme = .light
 
     func initColorScheme() {
         if phoneColorScheme == .light {
@@ -59,24 +59,54 @@ struct ColorList: View {
                     setColorScheme()
                 }).padding(16)
             ScrollView {
+                SectionTitle(title: "Core", scheme: $screenColorScheme)
                 VStack {
                     HStack(spacing: 19) {
-                        ColourBigView(colour: ODSColour.coreOrange, scheme: screenColorScheme)
-                        ColourBigView(colour: ODSColour.coreWhite, scheme: screenColorScheme)
+                        colorBigView(color: ODSColor.coreOrange, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.coreWhite, scheme: $screenColorScheme)
                     }
                     HStack(spacing: 19) {
-                        ColourBigView(colour: ODSColour.coreBlack, scheme: screenColorScheme)
-                        ColourBigView(colour: ODSColour.coreObsGrey, scheme: screenColorScheme)
+                        colorBigView(color: ODSColor.coreBlack, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.coreObsGrey, scheme: $screenColorScheme)
                     }
                 }
+                SectionTitle(title: "Functional", scheme: $screenColorScheme)
                 VStack {
                     HStack(spacing: 19) {
-                        ColourBigView(colour: ODSColour.functionalPositive, scheme: screenColorScheme)
-                        ColourBigView(colour: ODSColour.functionalNegative, scheme: screenColorScheme)
+                        colorBigView(color: ODSColor.functionalPositive, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.functionalNegative, scheme: $screenColorScheme)
                     }
                     HStack(spacing: 19) {
-                        ColourBigView(colour: ODSColour.functionalAlert, scheme: screenColorScheme)
-                        ColourBigView(colour: ODSColour.functionalInfo, scheme: screenColorScheme)
+                        colorBigView(color: ODSColor.functionalAlert, scheme: $screenColorScheme)
+                        colorBigView(color: ODSColor.functionalInfo, scheme: $screenColorScheme)
+                    }
+                }
+                SectionTitle(title: "Supporting", scheme: $screenColorScheme)
+                VStack {
+                    HStack(spacing: 19) {
+                        colorSmallView(color: ODSColor.supportingBlue100, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingBlue200, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingBlue300, scheme: $screenColorScheme)
+                    }
+                    HStack(spacing: 19) {
+                        colorSmallView(color: ODSColor.supportingYellow100, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingYellow200, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingYellow300, scheme: $screenColorScheme)
+                    }
+                    HStack(spacing: 19) {
+                        colorSmallView(color: ODSColor.supportingGreen100, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingGreen200, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingGreen300, scheme: $screenColorScheme)
+                    }
+                    HStack(spacing: 19) {
+                        colorSmallView(color: ODSColor.supportingPink100, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingPink200, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingPink300, scheme: $screenColorScheme)
+                    }
+                    HStack(spacing: 19) {
+                        colorSmallView(color: ODSColor.supportingPurple100, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingPurple200, scheme: $screenColorScheme)
+                        colorSmallView(color: ODSColor.supportingPurple300, scheme: $screenColorScheme)
                     }
                 }
             }.padding(16).background(screenColorScheme == .light ? Color.white : Color.black)
@@ -84,37 +114,47 @@ struct ColorList: View {
     }
 }
 
-struct ColourBigView: View {
-    let colour: ODSColour
-    let scheme: ColorScheme
+struct SectionTitle: View {
+    var title: String
+    @Binding var scheme: ColorScheme
+
+    var body: some View {
+        Spacer().frame(height: 30)
+        Text(title).odsFont(style: .title2)
+            .foregroundColor(scheme == .dark ? Color.white : Color.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct colorBigView: View {
+    let color: ODSColor
+    @Binding var scheme: ColorScheme
 
     var body: some View {
         VStack(alignment: .leading) {
             Rectangle()
-                .fill(colour.color)
+                .fill(color.color)
                 .aspectRatio(1.0, contentMode: .fit)
-            Text(colour.displayName(forScheme: scheme)).odsFont(style: .headline)
-            Text(colour.rawValue).odsFont(style: .caption1Regular)
-            Text(colour.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
-            Text(colour.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
+            Text(color.displayName(forScheme: scheme)).odsFont(style: .headline)
+            Text(color.rawValue).odsFont(style: .caption1Regular)
+            Text(color.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
+            Text(color.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
         }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(scheme)
     }
 }
 
-struct ColourSmallView: View {
-    let colour: ODSColour
-    let scheme: ColorScheme
+struct colorSmallView: View {
+    let color: ODSColor
+    @Binding var scheme: ColorScheme
 
     var body: some View {
         VStack(alignment: .leading) {
             Rectangle()
-                .fill(colour.color)
+                .fill(color.color)
                 .aspectRatio(1.0, contentMode: .fit)
-            Text(colour.displayName(forScheme: scheme)).odsFont(style: .headline)
-            Text(colour.rawValue).odsFont(style: .caption1Regular)
-            Text(colour.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
-            Text(colour.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
-        }
+            Text(color.displayName(forScheme: scheme)).odsFont(style: .headline)
+            Text(color.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
+        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(scheme)
     }
 }
 

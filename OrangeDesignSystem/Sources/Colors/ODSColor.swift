@@ -24,59 +24,9 @@
 import SwiftUI
 import UIKit
 
-// shortcuts
-public enum ODSColor {
-    public static let coreOrange = ODSColour.coreOrange.color
-    public static let coreWhite = ODSColour.coreWhite.color
-    public static let coreBlack = ODSColour.coreBlack.color
-    public static let coreObsGrey = ODSColour.coreObsGrey.color
-
-    public static let functionalPositive = ODSColour.functionalPositive.color
-    public static let functionalNegative = ODSColour.functionalNegative.color
-    public static let functionalAlert = ODSColour.functionalAlert.color
-    public static let functionalInfo = ODSColour.functionalInfo.color
-
-    public static let supportingBlue100 = ODSColour.supportingBlue100.color
-    public static let supportingBlue200 = ODSColour.supportingBlue200.color
-    public static let supportingBlue300 = ODSColour.supportingBlue300.color
-
-    public static let supportingGreen100 = ODSColour.supportingGreen100.color
-    public static let supportingGreen200 = ODSColour.supportingGreen200.color
-    public static let supportingGreen300 = ODSColour.supportingGreen300.color
-
-    public static let supportingYellow100 = ODSColour.supportingYellow100.color
-    public static let supportingYellow200 = ODSColour.supportingYellow200.color
-    public static let supportingYellow300 = ODSColour.supportingYellow300.color
-
-    public static let supportingPurple100 = ODSColour.supportingPurple100.color
-    public static let supportingPurple200 = ODSColour.supportingPurple200.color
-    public static let supportingPurple300 = ODSColour.supportingPurple300.color
-
-    public static let supportingPink100 = ODSColour.supportingPink100.color
-    public static let supportingPink200 = ODSColour.supportingPink200.color
-    public static let supportingPink300 = ODSColour.supportingPink300.color
-}
-
-extension String {
-    func camelCaseToSnakeCase() -> String {
-        let acronymPattern = "([A-Z]+)([A-Z][a-z]|[0-9])"
-        let normalPattern = "([a-z0-9])([A-Z])"
-        return processCamalCaseRegex(pattern: acronymPattern)?
-            .processCamalCaseRegex(pattern: normalPattern)?.lowercased() ?? lowercased()
-    }
-
-    private func processCamalCaseRegex(pattern: String) -> String? {
-        let regex = try? NSRegularExpression(pattern: pattern, options: [])
-        let range = NSRange(location: 0, length: count)
-        return regex?.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: "$1_$2")
-    }
-}
-
 // ==================
 // MARK: - ODS Colors
 // ==================
-
-// typealias RGB = (red: Int, green: Int, blue: Int)
 
 public struct RGB {
     let red: Int
@@ -94,7 +44,7 @@ public struct RGB {
     }
 }
 
-public enum ODSColour: String {
+public enum ODSColor: String {
 
     // MARK: - CORE
     case coreOrange // 2 tints (Dark & Light)
@@ -154,7 +104,7 @@ public enum ODSColour: String {
         case .supportingYellow200:
             return "Yellow 200"
         case .supportingYellow300:
-            return "Yellow 1300"
+            return "Yellow 300"
         case .supportingGreen100:
             return "Green 100"
         case .supportingGreen200:
@@ -177,7 +127,7 @@ public enum ODSColour: String {
     }
 
     private var internalName: String {
-        return rawValue.camelCaseToSnakeCase()
+        return rawValue
     }
 
     public var color: Color {
@@ -244,22 +194,35 @@ public enum ODSColour: String {
     }
 }
 
-extension Color {
-    var uiColor: UIColor { .init(self) }
+// shortcuts : add fonts ?
+public enum ODS {
+    public static let coreOrange = ODSColor.coreOrange.color
+    public static let coreWhite = ODSColor.coreWhite.color
+    public static let coreBlack = ODSColor.coreBlack.color
+    public static let coreObsGrey = ODSColor.coreObsGrey.color
 
-    typealias RGBA = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+    public static let functionalPositive = ODSColor.functionalPositive.color
+    public static let functionalNegative = ODSColor.functionalNegative.color
+    public static let functionalAlert = ODSColor.functionalAlert.color
+    public static let functionalInfo = ODSColor.functionalInfo.color
 
-    var rgba: RGBA? {
-        var (r, g, b, a): RGBA = (0, 0, 0, 0)
-        return uiColor.getRed(&r, green: &g, blue: &b, alpha: &a) ? (r, g, b, a) : nil
-    }
+    public static let supportingBlue100 = ODSColor.supportingBlue100.color
+    public static let supportingBlue200 = ODSColor.supportingBlue200.color
+    public static let supportingBlue300 = ODSColor.supportingBlue300.color
 
-    var hexaRGBA: String? {
-        guard let (red, green, blue, alpha) = rgba else { return nil }
-        return String(format: "#%02x%02x%02x%02x",
-                      Int(round(red * 255)),
-                      Int(round(green * 255)),
-                      Int(round(blue * 255)),
-                      Int(round(alpha * 255)))
-    }
+    public static let supportingGreen100 = ODSColor.supportingGreen100.color
+    public static let supportingGreen200 = ODSColor.supportingGreen200.color
+    public static let supportingGreen300 = ODSColor.supportingGreen300.color
+
+    public static let supportingYellow100 = ODSColor.supportingYellow100.color
+    public static let supportingYellow200 = ODSColor.supportingYellow200.color
+    public static let supportingYellow300 = ODSColor.supportingYellow300.color
+
+    public static let supportingPurple100 = ODSColor.supportingPurple100.color
+    public static let supportingPurple200 = ODSColor.supportingPurple200.color
+    public static let supportingPurple300 = ODSColor.supportingPurple300.color
+
+    public static let supportingPink100 = ODSColor.supportingPink100.color
+    public static let supportingPink200 = ODSColor.supportingPink200.color
+    public static let supportingPink300 = ODSColor.supportingPink300.color
 }

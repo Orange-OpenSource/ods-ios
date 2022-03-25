@@ -52,7 +52,7 @@ struct MainTabView: View {
         }
         .tabBarStyle(backgroundColor: Color(uiColor: UIColor.systemBackground),
                      itemColor: Color.primary,
-                     selectedItemColor: ODSColor.coreOrange)
+                     selectedItemColor: ODS.coreOrange)
     }
 }
 

@@ -30,7 +30,7 @@ struct ShapeButtonsList: View {
     let hPadding: CGFloat = 16.0
     var body: some View {
         ScrollView {
-            let imageDescription = ODSImageDescription(image: Image(systemName: "checkmark.circle.fill"), imageWidth: 30, imageHeight: 30, foregroundColor: ODSColor.coreBlack)
+            let imageDescription = ODSImageDescription(image: Image(systemName: "checkmark.circle.fill"), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreBlack)
             let imageDescription2 = ODSImageDescription(image: Image(systemName: "checkmark.circle.fill"), imageWidth: 30, imageHeight: 30, foregroundColor: Color.primary)
 
             // Filled buttons
@@ -38,7 +38,7 @@ struct ShapeButtonsList: View {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(imageDescription: imageDescription, topText: "Added to Siri", bottomText: "Hello world", textColor: ODSColor.coreBlack)
+                    ODSGenericButtonContent(imageDescription: imageDescription, topText: "Added to Siri", bottomText: "Hello world", textColor: ODS.coreBlack)
                 }
                 .buttonStyle(ODSFilledButtonStyle())
                 .padding(.horizontal, hPadding)
@@ -46,7 +46,7 @@ struct ShapeButtonsList: View {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(topText: "Added to Siri", bottomText: "Hello world", textColor: ODSColor.coreBlack)
+                    ODSGenericButtonContent(topText: "Added to Siri", bottomText: "Hello world", textColor: ODS.coreBlack)
                 }
                 .buttonStyle(ODSFilledButtonStyle())
                 .padding(.horizontal, hPadding)
@@ -54,7 +54,7 @@ struct ShapeButtonsList: View {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(topText: "Added to Siri", textColor: ODSColor.coreBlack)
+                    ODSGenericButtonContent(topText: "Added to Siri", textColor: ODS.coreBlack)
                 }
                 .buttonStyle(ODSFilledButtonStyle())
                 .padding(.horizontal, hPadding)
@@ -108,7 +108,7 @@ struct ShapeButtonsList: View {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(imageDescription: imageDescription, topText: "Added to Siri", bottomText: "Hello world", textColor: ODSColor.coreBlack)
+                    ODSGenericButtonContent(imageDescription: imageDescription, topText: "Added to Siri", bottomText: "Hello world", textColor: ODS.coreBlack)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(ODSFilledButtonStyle())
@@ -117,7 +117,7 @@ struct ShapeButtonsList: View {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(topText: "Added to Siri", bottomText: "Hello world", textColor: ODSColor.coreBlack)
+                    ODSGenericButtonContent(topText: "Added to Siri", bottomText: "Hello world", textColor: ODS.coreBlack)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(ODSFilledButtonStyle())
@@ -126,7 +126,7 @@ struct ShapeButtonsList: View {
                 Button {
                     print("Action")
                 } label: {
-                    ODSGenericButtonContent(topText: "Added to Siri", textColor: ODSColor.coreBlack)
+                    ODSGenericButtonContent(topText: "Added to Siri", textColor: ODS.coreBlack)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(ODSFilledButtonStyle())
