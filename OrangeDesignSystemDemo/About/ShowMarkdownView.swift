@@ -21,44 +21,33 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct MainTabView: View {
-    var body: some View {
-        TabView {
-            GuidelinesList()
-                .tabItem {
-                    Label("Guidelines", image: "Guideline-DNA_32")
-                }
-            ComponentList()
-                .tabItem {
-                    Label("Components", image: "component-atom_32")
-                }
-            ModulesList()
-                .tabItem {
-                    Label("Modules", image: "Module-molecule_32")
-                }
-            ODSDemoAboutView()
-                .tabItem {
-                    Label("About", image: "info_32")
-                }
-            Text("Search")
-                .font(ODSFontStyle.largeTitle.font())
-                .tabItem {
-                    Label("Search", image: "Search_32")
-                }
+struct ShowMarkdownView: View {
+
+    let markDownFileName: String
+
+    private func markDownContent() -> AttributedString? {
+        guard let filepath = Bundle.main.url(forResource: markDownFileName, withExtension: "md") else {
+            return nil
         }
-        .tabBarStyle(backgroundColor: ODSColor.coreTheme.color,
-                     itemColor: ODSColor.coreThemeInverse.color,
-                     selectedItemColor: ODSColor.coreOrange.color)
+
+        if let fileContent = try? AttributedString(contentsOf: filepath, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)) {
+            return fileContent
+        } else {
+            return nil
+        }
+    }
+
+    var body: some View {
+        ScrollView {
+            Text(markDownContent() ?? "unable to load content !")
+        }.padding(20)
     }
 }
 
-struct TabView_Previews: PreviewProvider {
+struct ShowMarkdownView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            MainTabView().preferredColorScheme($0)
-        }
+        ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice")
     }
 }

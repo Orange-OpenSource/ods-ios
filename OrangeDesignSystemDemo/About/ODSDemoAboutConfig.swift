@@ -24,20 +24,18 @@
 import OrangeDesignSystem
 import SwiftUI
 
-public final class AboutConfigDemo: NSObject {
+public final class ODSDemoAboutConfig: NSObject {
 
-    public static let instance = AboutConfigDemo()
+    public static let instance = ODSDemoAboutConfig()
 
-    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0")
+    let applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo", applicationVersion: "1.0")
 
     override private init() {}
 
     public func configure() {
         let appMenu = [
-            ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-            ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
-            ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
-            ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
+            ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice"))),
+            ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoCGU"))),
         ]
 
         applicationDescription.menuList = appMenu
