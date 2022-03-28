@@ -26,7 +26,8 @@ import SwiftUI
 
 struct ModulesList: View {
     var body: some View {
-        NavigationView {
+        AboutConfigDemo.instance.configure()
+        return NavigationView {
             List {
                 NavigationLink("About component", destination: AboutView()
                     .environmentObject(AboutConfigDemo.instance.applicationDescription))

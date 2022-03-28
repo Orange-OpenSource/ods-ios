@@ -21,25 +21,20 @@
 //
 //
 
+import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-public final class AboutConfigDemo: NSObject {
+struct ComponentList: View {
 
-    public static let instance = AboutConfigDemo()
-
-    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0")
-
-    override private init() {}
-
-    public func configure() {
-        let appMenu = [
-            ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-            ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
-            ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
-            ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
-        ]
-
-        applicationDescription.menuList = appMenu
+    var body: some View {
+        NavigationView {
+            List {
+                NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
+                NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Components")
+        }
     }
 }

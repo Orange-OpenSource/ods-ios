@@ -24,41 +24,21 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct MainTabView: View {
+struct ODSDemoAboutView: View {
     var body: some View {
-        TabView {
-            GuidelinesList()
-                .tabItem {
-                    Label("Guidelines", image: "Guideline-DNA_32")
-                }
-            ComponentList()
-                .tabItem {
-                    Label("Components", image: "component-atom_32")
-                }
-            ModulesList()
-                .tabItem {
-                    Label("Modules", image: "Module-molecule_32")
-                }
-            ODSDemoAboutView()
-                .tabItem {
-                    Label("About", image: "info_32")
-                }
-            Text("Search")
-                .font(ODSFontStyle.largeTitle.font())
-                .tabItem {
-                    Label("Search", image: "Search_32")
-                }
+        ODSDemoAboutConfig.instance.configure()
+        return NavigationView {
+            AboutView()
+                .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
+                .navigationBarHidden(true)
         }
-        .tabBarStyle(backgroundColor: ODSColor.coreTheme.color,
-                     itemColor: ODSColor.coreThemeInverse.color,
-                     selectedItemColor: ODSColor.coreOrange.color)
     }
 }
 
-struct TabView_Previews: PreviewProvider {
+struct ODSDemoAboutView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            MainTabView().preferredColorScheme($0)
+            ODSDemoAboutView().preferredColorScheme($0)
         }
     }
 }

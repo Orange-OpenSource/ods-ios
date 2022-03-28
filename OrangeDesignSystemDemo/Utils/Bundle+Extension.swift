@@ -21,25 +21,31 @@
 //
 //
 
-import OrangeDesignSystem
-import SwiftUI
+import Foundation
 
-public final class AboutConfigDemo: NSObject {
+extension Bundle {
 
-    public static let instance = AboutConfigDemo()
+    // =========
+    // MARK: API
+    // =========
 
-    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0")
+    var name: String {
+        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
+    }
 
-    override private init() {}
+    var marketingVersion: String {
+        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
+    }
 
-    public func configure() {
-        let appMenu = [
-            ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-            ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
-            ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
-            ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
-        ]
+    var buildVersion: String {
+        string(forInfoDictionaryKey: kCFBundleVersionKey as String) ?? "0"
+    }
 
-        applicationDescription.menuList = appMenu
+    // ============================
+    // MARK: Private Implementation
+    // ============================
+
+    private func string(forInfoDictionaryKey key: String) -> String? {
+        object(forInfoDictionaryKey: key) as? String
     }
 }

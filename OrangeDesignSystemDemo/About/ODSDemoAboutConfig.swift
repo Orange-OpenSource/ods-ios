@@ -21,23 +21,23 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentList: View {
+public final class ODSDemoAboutConfig: NSObject {
 
-    var body: some View {
+    public static let instance = ODSDemoAboutConfig()
 
-        AboutConfigDemo.instance.configure()
+    let applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo", applicationVersion: Bundle.main.marketingVersion, imageHeader: Image("AboutImage", bundle: Bundle.main))
 
-        return NavigationView {
-            List {
-                NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Components")
-        }
+    override private init() {}
+
+    public func configure() {
+        let appMenu = [
+            ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice"))),
+            ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoCGU"))),
+        ]
+
+        applicationDescription.menuList = appMenu
     }
 }
