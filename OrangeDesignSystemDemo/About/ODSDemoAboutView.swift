@@ -30,6 +30,7 @@ struct ODSDemoAboutView: View {
         return NavigationView {
             AboutView()
                 .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
+                .navigationBarHidden(true)
         }
     }
 }

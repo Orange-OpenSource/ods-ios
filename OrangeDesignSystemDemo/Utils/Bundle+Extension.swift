@@ -21,23 +21,31 @@
 //
 //
 
-import OrangeDesignSystem
-import SwiftUI
+import Foundation
 
-public final class ODSDemoAboutConfig: NSObject {
+extension Bundle {
 
-    public static let instance = ODSDemoAboutConfig()
+    // =========
+    // MARK: API
+    // =========
 
-    let applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo", applicationVersion: Bundle.main.marketingVersion, imageHeader: Image("AboutImage", bundle: Bundle.main))
+    var name: String {
+        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
+    }
 
-    override private init() {}
+    var marketingVersion: String {
+        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
+    }
 
-    public func configure() {
-        let appMenu = [
-            ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice"))),
-            ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoCGU"))),
-        ]
+    var buildVersion: String {
+        string(forInfoDictionaryKey: kCFBundleVersionKey as String) ?? "0"
+    }
 
-        applicationDescription.menuList = appMenu
+    // ============================
+    // MARK: Private Implementation
+    // ============================
+
+    private func string(forInfoDictionaryKey key: String) -> String? {
+        object(forInfoDictionaryKey: key) as? String
     }
 }

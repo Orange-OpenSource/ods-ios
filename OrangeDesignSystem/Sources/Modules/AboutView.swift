@@ -28,12 +28,16 @@ public struct AboutView: View {
 
     public init() {}
 
+    @EnvironmentObject var applicationDescription: ApplicationDescription
+
     public var body: some View {
 
         List {
             VStack(alignment: .leading, spacing: 0) {
-                Text("About").odsFont(style: .largeTitle).odsGlobalPadding()
-                Image("img_about", bundle: Bundle.bundle)
+                Text("About").odsFont(style: .largeTitle)
+                    .odsGlobalPadding()
+
+                applicationDescription.imageHeader
                     .resizable()
                     .aspectRatio(contentMode: .fit)
 
@@ -88,25 +92,26 @@ public class ApplicationDescription: ObservableObject {
 
     let applicationName: String
     let applicationVersion: String
-    let copyrightNotice = "Orange property. All rights reserved"
+    let copyrightNotice: String = "Orange property. All rights reserved"
+    let imageHeader: Image
 
     public var menuList = [
-        ODSAboutItem(text: "What's new", nextView: AnyView(Text("To be replace"))),
-        ODSAboutItem(text: "Legal information", nextView: AnyView(Button("To be replace") {})),
-        ODSAboutItem(text: "General terms of use", nextView: AnyView(Text("To be replace"))),
-        ODSAboutItem(text: "Privacy information", nextView: AnyView(Text("To be replace"))),
+        ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
+        ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
+        ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
+        ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
     ]
 
-    public init(applicationName: String, applicationVersion: String) {
+    public init(applicationName: String, applicationVersion: String, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
         self.applicationName = applicationName
         self.applicationVersion = applicationVersion
+        self.imageHeader = imageHeader
     }
 }
 
 public struct ODSAboutItemView: View {
 
     @State private var showSafari = false
-
     @EnvironmentObject var applicationDescription: ApplicationDescription
 
     public init() {}
@@ -119,7 +124,7 @@ public struct ODSAboutItemView: View {
                 NavigationLink(destination: item.nextView) {
                     HStack {
                         Text(item.text)
-                            .odsFont(style: .bodyRegular)
+                            .odsFont(style: .bodyBold)
                     }
                     .frame(minWidth: 0,
                            maxWidth: .infinity,
@@ -132,7 +137,7 @@ public struct ODSAboutItemView: View {
                 if let url = item.url, let urlDestination = URL(string: url) {
                     Link(destination: urlDestination) {
                         HStack {
-                            Text(item.text).odsFont(style: .bodyRegular)
+                            Text(item.text).odsFont(style: .bodyBold)
                         }
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSDim.list_min_height, maxHeight: .infinity, alignment: .leading)
                     }
@@ -143,7 +148,7 @@ public struct ODSAboutItemView: View {
                     Button {
                         showSafari.toggle()
                     } label: {
-                        Text(item.text).odsFont(style: .bodyRegular)
+                        Text(item.text).odsFont(style: .bodyBold)
 
                     }.sheet(isPresented: $showSafari, content: {
                         ODSSFSafariViewWrapper(url: urlDestination)
@@ -159,8 +164,23 @@ private struct ApplicationDescriptionView: View {
     @EnvironmentObject var applicationDescription: ApplicationDescription
 
     var body: some View {
-        Text(applicationDescription.applicationName).odsFont(style: .largeTitle)
-        Text("Version  \(applicationDescription.applicationVersion)").odsFont(style: .bodyRegular)
-        Text(applicationDescription.copyrightNotice).odsFont(style: .bodyRegular)
+        VStack(alignment: .leading, spacing: 4) {
+            Text(applicationDescription.applicationName).odsFont(style: .largeTitle)
+            Text("Version  \(applicationDescription.applicationVersion)").odsFont(style: .bodyRegular)
+            Text(applicationDescription.copyrightNotice).odsFont(style: .bodyRegular)
+        }
+    }
+}
+
+struct AboutView_Previews: PreviewProvider {
+    static var previews: some View {
+        let applicationDescription = ApplicationDescription(applicationName: "APP NAME", applicationVersion: "1.0.0")
+
+        ForEach(ColorScheme.allCases, id: \.self) {
+
+            AboutView()
+                .preferredColorScheme($0)
+                .environmentObject(applicationDescription)
+        }
     }
 }

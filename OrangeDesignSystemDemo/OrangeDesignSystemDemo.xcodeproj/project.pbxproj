@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
+		F942D27227F19B2700595FDB /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F942D27127F19B2700595FDB /* Bundle+Extension.swift */; };
 		F99FF0732767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF06E2767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift */; };
 		F99FF0742767AE2A006236A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99FF06F2767AE2A006236A0 /* Assets.xcassets */; };
 		F99FF07F2767AF62006236A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99FF07E2767AF62006236A0 /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		F913B86327679A32001CB0AA /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		F913B86827679EE9001CB0AA /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
 		F913B86927679EE9001CB0AA /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftformat; path = ../.swiftformat; sourceTree = "<group>"; };
+		F942D27127F19B2700595FDB /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		F99FF06A2767ACD1006236A0 /* OrangeDesignSystem.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = OrangeDesignSystem.podspec; path = ../OrangeDesignSystem.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F99FF06E2767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoApp.swift; path = OrangeDesignSystemDemo/OrangeDesignSystemDemoApp.swift; sourceTree = "<group>"; };
 		F99FF06F2767AE2A006236A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = OrangeDesignSystemDemo/Assets.xcassets; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		FD7742D727DBA11F0010A733 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F942D27127F19B2700595FDB /* Bundle+Extension.swift */,
 				FD7742D827DBA1770010A733 /* View+tabBarStyle.swift */,
 			);
 			path = Utils;
@@ -529,6 +532,7 @@
 				FDEE1BAA27DB48930007A465 /* MainTabView.swift in Sources */,
 				FD699CA9276CD0D1008670BD /* StandardButtonsList.swift in Sources */,
 				FDD9F99827E47D9C000C75E8 /* GuidelinesList.swift in Sources */,
+				F942D27227F19B2700595FDB /* Bundle+Extension.swift in Sources */,
 				F99FF0862767AF77006236A0 /* FontsList.swift in Sources */,
 				FDB8C4F127EC6B1700CD9F68 /* ODSDemoAboutView.swift in Sources */,
 				FDB8C4F327EC6C5600CD9F68 /* ODSDemoAboutConfig.swift in Sources */,
