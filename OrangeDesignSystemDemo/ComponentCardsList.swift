@@ -25,16 +25,46 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentList: View {
+struct ComponentsCardsList: View {
+    let componentList = [
+        TextButtonComponentModel(name: "Buttons", image: "Shape_button") {
+            ShapeButtonsList()
+        },
+        TextButtonComponentModel(name: "Text Buttons", image: "Text_button") {
+            StandardButtonsList()
+        },
+        TextButtonComponentModel(name: "Bars", image: "Bars"),
+        TextButtonComponentModel(name: "Controls", image: "Controls"),
+        TextButtonComponentModel(name: "Modals", image: "Modals"),
+    ]
+
+    let columns = [
+        GridItem(.adaptive(minimum: 150), alignment: .topLeading),
+    ]
 
     var body: some View {
         NavigationView {
-            List {
-                NavigationLink("Standard buttons", destination: StandardButtonsList()).font(ODSFontStyle.title3.font())
-                NavigationLink("Shape buttons", destination: ShapeButtonsList()).font(ODSFontStyle.title3.font())
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(componentList) {
+                        TextButtonComponent(component: $0)
+                    }
+                    .padding([.top, .leading, .trailing])
+                }
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .padding(.top)
             .navigationTitle("Components")
+            .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray5))
+        }
+    }
+}
+
+struct ComponentsCardsList_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            ComponentsCardsList()
+                .preferredColorScheme($0)
         }
     }
 }

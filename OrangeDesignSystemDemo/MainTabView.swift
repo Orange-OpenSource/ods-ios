@@ -31,7 +31,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Guidelines", image: "Guideline-DNA_32")
                 }
-            ComponentList()
+            ComponentsCardsList()
                 .tabItem {
                     Label("Components", image: "component-atom_32")
                 }
