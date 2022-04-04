@@ -138,7 +138,7 @@ struct colorBigView: View {
                     .aspectRatio(1.0, contentMode: .fit)
             }
             Text(color.displayName(forScheme: scheme)).odsFont(style: .headline)
-            Text(color.rawValue).odsFont(style: .caption1Regular)
+            Text(color.rawValue).font(.system(.caption2, design: .monospaced))
             Text(color.rgb(forScheme: scheme).toString()).odsFont(style: .caption1Regular)
             Text(color.hexa(forScheme: scheme)).odsFont(style: .caption1Regular)
         }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(scheme)

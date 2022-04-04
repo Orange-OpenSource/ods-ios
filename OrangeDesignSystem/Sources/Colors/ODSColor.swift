@@ -110,12 +110,8 @@ public enum ODSColor: String {
         }
     }
 
-    private var internalName: String {
-        return rawValue
-    }
-
     public var color: Color {
-        return Color(internalName, bundle: Bundle.bundle)
+        return Color(rawValue, bundle: Bundle.bundle)
     }
 
     public func rgb(forScheme scheme: ColorScheme) -> RGB {
