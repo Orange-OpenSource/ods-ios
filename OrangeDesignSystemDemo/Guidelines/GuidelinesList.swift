@@ -25,14 +25,17 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct GuidelinesList: View {
+
+    @ObservedObject var screenState = ScreenState()
+
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("Colors", destination: ColorList()).font(ODSFontStyle.title3.font())
+                NavigationLink("Colors", destination: ColorList().environmentObject(self.screenState)).font(ODSFontStyle.title3.font())
                 NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Guidelines")
+            }.environmentObject(ScreenState())
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Guidelines")
         }
     }
 }
