@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct Component: Identifiable {
+struct TextButtonComponentModel: Identifiable {
     let name: String
     let image: String
     let destination: AnyView?
@@ -47,7 +47,7 @@ struct Component: Identifiable {
 }
 
 struct TextButtonComponent: View {
-    var component: Component
+    let component: TextButtonComponentModel
     var body: some View {
         NavigationLink(destination: component.destination) {
             VStack(alignment: .leading, spacing: 0) {
@@ -70,7 +70,7 @@ struct TextButtonComponent: View {
 
 struct TextButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        let component = Component(name: "Text", image: "Shape_button")
+        let component = TextButtonComponentModel(name: "Text", image: "Shape_button")
         ForEach(ColorScheme.allCases, id: \.self) {
             TextButtonComponent(component: component)
                 .frame(width: 200)
