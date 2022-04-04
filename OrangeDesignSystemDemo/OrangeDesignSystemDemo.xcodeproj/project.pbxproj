@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
+		CD925A4B27FB2D39001C3112 /* ComponentCardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD925A4A27FB2D39001C3112 /* ComponentCardsList.swift */; };
+		CD925A4D27FB2D61001C3112 /* TextButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD925A4C27FB2D60001C3112 /* TextButtonComponent.swift */; };
 		F942D27227F19B2700595FDB /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F942D27127F19B2700595FDB /* Bundle+Extension.swift */; };
 		F99FF0732767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF06E2767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift */; };
 		F99FF0742767AE2A006236A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99FF06F2767AE2A006236A0 /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B655A0B148F11BB69BCFF556 /* Pods-OrangeDesignSystemDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD925A4A27FB2D39001C3112 /* ComponentCardsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentCardsList.swift; sourceTree = "<group>"; };
+		CD925A4C27FB2D60001C3112 /* TextButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextButtonComponent.swift; sourceTree = "<group>"; };
 		E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA530275652AE0012E192 /* OrangeDesignSystemDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeDesignSystemDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA540275652AF0012E192 /* OrangeDesignSystemDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,9 +202,11 @@
 		F99FF07B2767AF2B006236A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CD925A4A27FB2D39001C3112 /* ComponentCardsList.swift */,
 				FDB8C4ED27EC6A4200CD9F68 /* ComponentsList.swift */,
 				FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */,
 				F99FF0842767AF77006236A0 /* ShapeButtonsList.swift */,
+				CD925A4C27FB2D60001C3112 /* TextButtonComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -533,7 +539,9 @@
 				FD699CA9276CD0D1008670BD /* StandardButtonsList.swift in Sources */,
 				FDD9F99827E47D9C000C75E8 /* GuidelinesList.swift in Sources */,
 				F942D27227F19B2700595FDB /* Bundle+Extension.swift in Sources */,
+				CD925A4B27FB2D39001C3112 /* ComponentCardsList.swift in Sources */,
 				F99FF0862767AF77006236A0 /* FontsList.swift in Sources */,
+				CD925A4D27FB2D61001C3112 /* TextButtonComponent.swift in Sources */,
 				FDB8C4F127EC6B1700CD9F68 /* ODSDemoAboutView.swift in Sources */,
 				FDB8C4F327EC6C5600CD9F68 /* ODSDemoAboutConfig.swift in Sources */,
 				FD8A27A92768932700784B0E /* (null) in Sources */,

@@ -21,44 +21,51 @@
 //
 //
 
+import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct MainTabView: View {
+struct ComponentsCardsList: View {
+    let componentList = [
+        Component(name: "Buttons", image: "Shape_button") {
+            ShapeButtonsList()
+        },
+        Component(name: "Text Buttons", image: "ComponentTextButtonThumbs") {
+            StandardButtonsList()
+        },
+        Component(name: "Activity views", image: "ComponentActivityViewsThumbs"),
+        Component(name: "Bars", image: "ComponentBarsThumbs"),
+        Component(name: "Controls", image: "ComponentControlsThumbs"),
+        Component(name: "Modals", image: "ComponentModalsThumbs"),
+        Component(name: "Popovers", image: "ComponentPopoversThumbs"),
+    ]
+
+    let columns = [
+        GridItem(.adaptive(minimum: 150), alignment: .topLeading),
+    ]
+
     var body: some View {
-        TabView {
-            GuidelinesList()
-                .tabItem {
-                    Label("Guidelines", image: "Guideline-DNA_32")
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(componentList) {
+                        TextButtonComponent(component: $0)
+                    }
+                    .padding([.top, .leading, .trailing])
                 }
-            ComponentsCardsList()
-                .tabItem {
-                    Label("Components", image: "component-atom_32")
-                }
-            ModulesList()
-                .tabItem {
-                    Label("Modules", image: "Module-molecule_32")
-                }
-            ODSDemoAboutView()
-                .tabItem {
-                    Label("About", image: "info_32")
-                }
-            Text("Search")
-                .font(ODSFontStyle.largeTitle.font())
-                .tabItem {
-                    Label("Search", image: "Search_32")
-                }
+            }
+            .padding(.top)
+            .navigationTitle("Components")
+            .navigationViewStyle(.stack)
         }
-        .tabBarStyle(backgroundColor: ODSColor.coreTheme.color,
-                     itemColor: ODSColor.coreThemeInverse.color,
-                     selectedItemColor: ODSColor.coreOrange.color)
     }
 }
 
-struct TabView_Previews: PreviewProvider {
+struct ComponentsCardsList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            MainTabView().preferredColorScheme($0)
+            ComponentsCardsList()
+                .preferredColorScheme($0)
         }
     }
 }
