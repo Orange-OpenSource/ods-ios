@@ -33,7 +33,6 @@ struct ColorList: View {
 
     // MARK: - Dark/Light managment
     @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
-    // @State private var screenColorScheme: ColorScheme = .light
 
     @EnvironmentObject var screenState: ScreenState
     @State private var selectedScheme = 0
@@ -45,25 +44,14 @@ struct ColorList: View {
                 .odsFont(style: .title1)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-            Picker("Favorite Scheme", selection: $selectedScheme, content: {
-                Text("On Light").tag(0)
-                Text("On Dark").tag(1)
+            Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
+                Text("On Light").tag(ColorScheme.light)
+                Text("On Dark").tag(ColorScheme.dark)
             }).pickerStyle(.segmented)
                 .onAppear {
                     screenState.colorScheme = phoneColorScheme
-                    selectedScheme = (phoneColorScheme == .light) ? 0 : 1
-                }.onChange(of: selectedScheme, perform: { tag in
-                    if tag == 0 {
-                        screenState.colorScheme = .light
-                    } else {
-                        screenState.colorScheme = .dark
-                    }
-                }).padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
+                }.padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
                 .padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
-
-//            Picker("Favorite Scheme", selection: $screenColorScheme, content: {
-//                Text("On Light").tag(ColorScheme.light)
-//                Text("On Dark").tag(ColorScheme.dark)
 
             ScrollView {
                 Spacer().frame(height: 5)
