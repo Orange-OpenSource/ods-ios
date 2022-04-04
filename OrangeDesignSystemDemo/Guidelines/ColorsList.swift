@@ -33,9 +33,7 @@ struct ColorList: View {
 
     // MARK: - Dark/Light managment
     @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
-
     @EnvironmentObject var screenState: ScreenState
-    @State private var selectedScheme = 0
 
     // MARK: - Body
     var body: some View {
