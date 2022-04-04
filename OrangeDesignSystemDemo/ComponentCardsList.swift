@@ -30,14 +30,14 @@ struct ComponentsCardsList: View {
         Component(name: "Buttons", image: "Shape_button") {
             ShapeButtonsList()
         },
-        Component(name: "Text Buttons", image: "ComponentTextButtonThumbs") {
+        Component(name: "Text Buttons", image: "Text_button") {
             StandardButtonsList()
         },
-        Component(name: "Activity views", image: "ComponentActivityViewsThumbs"),
-        Component(name: "Bars", image: "ComponentBarsThumbs"),
-        Component(name: "Controls", image: "ComponentControlsThumbs"),
-        Component(name: "Modals", image: "ComponentModalsThumbs"),
-        Component(name: "Popovers", image: "ComponentPopoversThumbs"),
+//        Component(name: "Activity views", image: "ComponentActivityViewsThumbs"),
+        Component(name: "Bars", image: "Bars"),
+        Component(name: "Controls", image: "Controls"),
+        Component(name: "Modals", image: "Modals"),
+//        Component(name: "Popovers", image: "ComponentPopoversThumbs"),
     ]
 
     let columns = [
@@ -57,6 +57,7 @@ struct ComponentsCardsList: View {
             .padding(.top)
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray5))
         }
     }
 }

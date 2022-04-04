@@ -60,9 +60,9 @@ struct TextButtonComponent: View {
                         maxWidth: .infinity,
                         alignment: .topLeading)
                     .padding()
-                    .accentColor(.white)
+                    .accentColor(ODSColor.coreThemeInverse.color)
             }
-            .background(.gray)
+            .background(ODSColor.coreTheme.color)
             .cornerRadius(12)
         }
     }
@@ -70,12 +70,13 @@ struct TextButtonComponent: View {
 
 struct TextButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        let component = Component(name: "Text", image: "ComponentActionSheetsThumbs")
+        let component = Component(name: "Text", image: "Shape_button")
         ForEach(ColorScheme.allCases, id: \.self) {
             TextButtonComponent(component: component)
                 .frame(width: 200)
                 .preferredColorScheme($0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.gray)
     }
 }
