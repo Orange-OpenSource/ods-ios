@@ -24,22 +24,21 @@
 import OrangeDesignSystem
 import SwiftUI
 
-public final class AboutConfigDemo: NSObject {
+struct ODSDemoAboutView: View {
+    var body: some View {
+        ODSDemoAboutConfig.instance.configure()
+        return NavigationView {
+            AboutView()
+                .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
+                .navigationBarHidden(true)
+        }
+    }
+}
 
-    public static let instance = AboutConfigDemo()
-
-    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0")
-
-    override private init() {}
-
-    public func configure() {
-        let appMenu = [
-            ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-            ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
-            ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
-            ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
-        ]
-
-        applicationDescription.menuList = appMenu
+struct ODSDemoAboutView_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            ODSDemoAboutView().preferredColorScheme($0)
+        }
     }
 }

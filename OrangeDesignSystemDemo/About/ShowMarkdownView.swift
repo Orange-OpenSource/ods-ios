@@ -21,25 +21,35 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-public final class AboutConfigDemo: NSObject {
+struct ShowMarkdownView: View {
 
-    public static let instance = AboutConfigDemo()
+    let markDownFileName: String
 
-    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0")
+    private func markDownContent() -> AttributedString? {
+        guard let filepath = Bundle.main.url(forResource: markDownFileName, withExtension: "md") else {
+            return nil
+        }
 
-    override private init() {}
+        if let fileContent = try? AttributedString(contentsOf: filepath, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)) {
+            return fileContent
+        } else {
+            return nil
+        }
+    }
 
-    public func configure() {
-        let appMenu = [
-            ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-            ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
-            ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
-            ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
-        ]
+    var body: some View {
+        ScrollView {
+            Text(markDownContent() ?? "unable to load content !")
+        }.padding(20)
+    }
+}
 
-        applicationDescription.menuList = appMenu
+struct ShowMarkdownView_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice").preferredColorScheme($0)
+        }
     }
 }

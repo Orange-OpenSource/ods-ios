@@ -39,8 +39,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Modules", image: "Module-molecule_32")
                 }
-            Text("About")
-                .font(ODSFontStyle.largeTitle.font())
+            ODSDemoAboutView()
                 .tabItem {
                     Label("About", image: "info_32")
                 }
