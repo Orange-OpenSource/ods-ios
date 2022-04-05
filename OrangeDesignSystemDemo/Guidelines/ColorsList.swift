@@ -42,6 +42,7 @@ struct ColorList: View {
                 .odsFont(style: .title1)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+
             Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
                 Text("On Light").tag(ColorScheme.light)
                 Text("On Dark").tag(ColorScheme.dark)
@@ -49,7 +50,6 @@ struct ColorList: View {
                 .onAppear {
                     screenState.colorScheme = phoneColorScheme
                 }.padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
-                .padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
 
             ScrollView {
                 Spacer().frame(height: 5)
@@ -167,7 +167,7 @@ struct colorSmallView: View {
 struct ColorList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ColorList().preferredColorScheme($0)
+            ColorList().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }
