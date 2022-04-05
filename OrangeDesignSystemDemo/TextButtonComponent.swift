@@ -60,9 +60,9 @@ struct TextButtonComponent: View {
                         maxWidth: .infinity,
                         alignment: .topLeading)
                     .padding()
-                    .accentColor(ODSColor.coreThemeInverse.color)
+                    .accentColor(Color(uiColor: .systemBackground))
             }
-            .background(ODSColor.coreTheme.color)
+            .background(Color(uiColor: .systemBackground))
             .cornerRadius(12)
         }
     }

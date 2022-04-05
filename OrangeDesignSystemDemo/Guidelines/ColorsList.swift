@@ -25,59 +25,149 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
+class ScreenState: ObservableObject {
+    @Published var colorScheme: ColorScheme = .light
+}
+
 struct ColorList: View {
 
-    private let coreColors = ODSColor.allCases.enumerated().filter { $1.type == .core }.map { $1 }
-    private let functionalColors = ODSColor.allCases.enumerated().filter { $1.type == .functional }.map { $1 }
-    private let supportingColors = ODSColor.allCases.enumerated().filter { $1.type == .supporting }.map { $1 }
-    private let greyColors = ODSColor.allCases.enumerated().filter { $1.type == .grey }.map { $1 }
-    private let basicColors = ODSColor.allCases.enumerated().filter { $1.type == .basic }.map { $1 }
+    // MARK: - Dark/Light managment
+    @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
+    @EnvironmentObject var screenState: ScreenState
 
+    // MARK: - Body
     var body: some View {
-        ScrollView {
-            VStack(spacing: 10) {
-                ColorSection(colorType: .core, colors: coreColors)
-                ColorSection(colorType: .functional, colors: functionalColors)
-                ColorSection(colorType: .supporting, colors: supportingColors)
-                ColorSection(colorType: .grey, colors: greyColors)
-                ColorSection(colorType: .basic, colors: basicColors)
-            }
+        VStack {
+            Text("Palette")
+                .odsFont(style: .title1)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+
+            Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
+                Text("On Light").tag(ColorScheme.light)
+                Text("On Dark").tag(ColorScheme.dark)
+            }).pickerStyle(.segmented)
+                .onAppear {
+                    screenState.colorScheme = phoneColorScheme
+                }.padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
+
+            ScrollView {
+                Spacer().frame(height: 5)
+                SectionTitle(title: "Core")
+                VStack {
+                    Spacer().frame(height: 30)
+                    HStack(spacing: 15) {
+                        colorBigView(color: ODSColor.coreOrange, bordered: false)
+                        colorBigView(color: ODSColor.coreWhite, bordered: screenState.colorScheme == .light)
+                    }
+                    HStack(spacing: 15) {
+                        colorBigView(color: ODSColor.coreBlack, bordered: screenState.colorScheme == .dark)
+                        colorBigView(color: ODSColor.coreObsGrey, bordered: false)
+                    }
+                }
+                Spacer().frame(height: 30)
+                SectionTitle(title: "Functional")
+                VStack {
+                    HStack(spacing: 15) {
+                        colorBigView(color: ODSColor.functionalPositive, bordered: false)
+                        colorBigView(color: ODSColor.functionalNegative, bordered: false)
+                    }
+                    HStack(spacing: 15) {
+                        colorBigView(color: ODSColor.functionalAlert, bordered: false)
+                        colorBigView(color: ODSColor.functionalInfo, bordered: false)
+                    }
+                }
+                Spacer().frame(height: 30)
+                SectionTitle(title: "Supporting")
+                VStack {
+                    HStack(spacing: 15) {
+                        colorSmallView(color: ODSColor.supportingBlue100)
+                        colorSmallView(color: ODSColor.supportingBlue200)
+                        colorSmallView(color: ODSColor.supportingBlue300)
+                    }
+                    HStack(spacing: 15) {
+                        colorSmallView(color: ODSColor.supportingYellow100)
+                        colorSmallView(color: ODSColor.supportingYellow200)
+                        colorSmallView(color: ODSColor.supportingYellow300)
+                    }
+                    HStack(spacing: 15) {
+                        colorSmallView(color: ODSColor.supportingGreen100)
+                        colorSmallView(color: ODSColor.supportingGreen200)
+                        colorSmallView(color: ODSColor.supportingGreen300)
+                    }
+                    HStack(spacing: 15) {
+                        colorSmallView(color: ODSColor.supportingPink100)
+                        colorSmallView(color: ODSColor.supportingPink200)
+                        colorSmallView(color: ODSColor.supportingPink300)
+                    }
+                    HStack(spacing: 15) {
+                        colorSmallView(color: ODSColor.supportingPurple100)
+                        colorSmallView(color: ODSColor.supportingPurple200)
+                        colorSmallView(color: ODSColor.supportingPurple300)
+                    }
+                }
+            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+                .background(self.screenState.colorScheme == .light ? Color.white : Color.black)
         }
     }
 }
 
-struct ColorSection: View {
+struct SectionTitle: View {
+    var title: String
+    @EnvironmentObject var screenState: ScreenState
 
-    let colorType: ODSColor.ColorType
-    let colors: [ODSColor]
+    var body: some View {
+        Text(title).odsFont(style: .title1)
+            .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct colorBigView: View {
+    let color: ODSColor
+    @EnvironmentObject var screenState: ScreenState
+
+    var bordered: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
-            Section(header:
-                Text(colorType.description).font(ODSFontStyle.title3.font())
-                    .frame(maxWidth: .infinity, minHeight: 40.0)
-                    .foregroundColor(ODSColor.grey800.color)
-                    .background(ODSColor.grey300.color)
-            ) {
-                ForEach(colors, id: \.name) { color in
-                    ColorDescriptionView(odsColorDescription: color)
-                }
+            if bordered {
+                Rectangle()
+                    .fill(color.color)
+                    .border(Color.secondary)
+                    .aspectRatio(1.0, contentMode: .fit)
+            } else {
+                Rectangle()
+                    .fill(color.color)
+                    .aspectRatio(1.0, contentMode: .fit)
             }
-        }
+            Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
+            Text(color.rawValue).font(.system(.caption2, design: .monospaced))
+            Text(color.rgb(forScheme: self.screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
+            Text(color.hexa(forScheme: self.screenState.colorScheme)).odsFont(style: .caption1Regular)
+        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(self.screenState.colorScheme)
     }
 }
 
-struct ColorDescriptionView: View {
-    let odsColorDescription: ODSColor
+struct colorSmallView: View {
+    let color: ODSColor
+    @EnvironmentObject var screenState: ScreenState
 
     var body: some View {
-        HStack(spacing: 20) {
+        VStack(alignment: .leading) {
             Rectangle()
-                .foregroundColor(odsColorDescription.color)
-                .frame(width: 30, height: 30)
-                .padding(.leading, 20)
-            Text(odsColorDescription.name)
-            Spacer()
+                .fill(color.color)
+                .aspectRatio(1.0, contentMode: .fit)
+            Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
+            Text(color.hexa(forScheme: self.screenState.colorScheme)).odsFont(style: .caption1Regular)
+        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(self.screenState.colorScheme)
+    }
+}
+
+struct ColorList_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            ColorList().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }

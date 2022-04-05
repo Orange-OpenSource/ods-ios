@@ -28,37 +28,21 @@ import UIKit
 // MARK: - ODS Colors
 // ==================
 
-/// A huge list of colors which are mainly binded to system colors.
-///
-
-public enum ODSColor: CaseIterable {
-    public enum ColorType: Int, CaseIterable {
-        case core = 0
-        case functional
-        case supporting
-        case grey
-        case basic
-
-        public var description: String {
-            switch self {
-            case .core: return "Core"
-            case .functional: return "Functional"
-            case .supporting: return "Supporting"
-            case .grey: return "Grey"
-            case .basic: return "Basic"
-            }
-        }
-    }
+public enum ODSColor: String {
 
     // MARK: - CORE
+    case coreOrange // 2 tints (Dark & Light)
+    case coreWhite
+    case coreBlack
+    case coreObsGrey
 
-    case coreOrange
-    case coreTheme // White in light mode, black in dark mode
-    case coreThemeInverse // White in dark mode, black in light mode
-    case coreObsGrey700
+    // MARK: - FUNCTIONAL
+    case functionalPositive // 2 tints (Dark & Light)
+    case functionalNegative // 2 tints (Dark & Light)
+    case functionalInfo // 2 tints (Dark & Light)
+    case functionalAlert // 2 tints (Dark & Light)
 
     // MARK: - SUPPORTING
-
     case supportingBlue100
     case supportingBlue200
     case supportingBlue300
@@ -75,153 +59,117 @@ public enum ODSColor: CaseIterable {
     case supportingPink200
     case supportingPink300
 
-    // MARK: - FUNCTIONAL
-
-    case functionalInfo
-    case functionalAlert
-    case functionalPositive
-    case functionalNegative
-
-    // MARK: - GREY
-
-    case grey200
-    case grey300
-    case grey400
-    case grey500
-    case grey600
-    case grey800
-
-    // MARK: - BASIC COLORS
-
-    case core_orange_200
-    case core_orange_100
-    case core_white_100
-    case core_black_900
-    case core_obsgrey_700
-    case functional_info_200
-    case functional_info_100
-    case functional_alert_200
-    case functional_alert_100
-    case functional_positive_200
-    case functional_positive_100
-    case functional_negative_200
-    case functional_negative_100
+    public func displayName(forScheme scheme: ColorScheme) -> String {
+        switch self {
+        case .coreOrange:
+            return scheme == .light ? "Orange 200" : "Orange 100"
+        case .coreWhite:
+            return "White 100"
+        case .coreBlack:
+            return "Black 900"
+        case .coreObsGrey:
+            return "OBS Grey 700"
+        case .functionalPositive:
+            return scheme == .light ? "Positive 200" : "Positive 100"
+        case .functionalNegative:
+            return scheme == .light ? "Negative 200" : "Negative 100"
+        case .functionalInfo:
+            return scheme == .light ? "Info 200" : "Info 100"
+        case .functionalAlert:
+            return scheme == .light ? "Alert 200" : "Alert 100"
+        case .supportingBlue100:
+            return "Blue 100"
+        case .supportingBlue200:
+            return "Blue 200"
+        case .supportingBlue300:
+            return "Blue 300"
+        case .supportingYellow100:
+            return "Yellow 100"
+        case .supportingYellow200:
+            return "Yellow 200"
+        case .supportingYellow300:
+            return "Yellow 300"
+        case .supportingGreen100:
+            return "Green 100"
+        case .supportingGreen200:
+            return "Green 200"
+        case .supportingGreen300:
+            return "Green 300"
+        case .supportingPurple100:
+            return "Purple 100"
+        case .supportingPurple200:
+            return "Purple 200"
+        case .supportingPurple300:
+            return "Purple 300"
+        case .supportingPink100:
+            return "Pink 100"
+        case .supportingPink200:
+            return "Pink 200"
+        case .supportingPink300:
+            return "Pink 300"
+        }
+    }
 
     public var color: Color {
-        return Color(name, bundle: Bundle.bundle)
+        return Color(rawValue, bundle: Bundle.bundle)
     }
 
-    public var type: ColorType? {
-        if name.starts(with: "core") {
-            return .core
-        } else if name.starts(with: "functional") {
-            return .functional
-        } else if name.starts(with: "supporting") {
-            return .supporting
-        } else if name.starts(with: "grey") {
-            return .grey
-        } else if name.starts(with: "ods") {
-            return .basic
-        } else {
-            return nil
-        }
-    }
-
-    public var name: String {
+    public func rgb(forScheme scheme: ColorScheme) -> RGB {
         switch self {
-        // CORE
         case .coreOrange:
-            return "core_orange"
-        case .coreTheme:
-            return "core_theme"
-        case .coreThemeInverse:
-            return "core_theme_inverse"
-        case .coreObsGrey700:
-            return "core_obsgrey_700"
-
-        // SUPPORTING
-        case .supportingBlue100:
-            return "supporting_blue_100"
-        case .supportingBlue200:
-            return "supporting_blue_200"
-        case .supportingBlue300:
-            return "supporting_blue_300"
-        case .supportingYellow100:
-            return "supporting_yellow_100"
-        case .supportingYellow200:
-            return "supporting_yellow_200"
-        case .supportingYellow300:
-            return "supporting_yellow_300"
-        case .supportingGreen100:
-            return "supporting_green_100"
-        case .supportingGreen200:
-            return "supporting_green_200"
-        case .supportingGreen300:
-            return "supporting_green_300"
-        case .supportingPurple100:
-            return "supporting_purple_100"
-        case .supportingPurple200:
-            return "supporting_purple_200"
-        case .supportingPurple300:
-            return "supporting_purple_300"
-        case .supportingPink100:
-            return "supporting_pink_100"
-        case .supportingPink200:
-            return "supporting_pink_200"
-        case .supportingPink300:
-            return "supporting_pink_300"
-
-        // FUNCTIONAL
-        case .functionalInfo:
-            return "functional_info"
-        case .functionalAlert:
-            return "functional_alert"
+            return scheme == .light ? RGB(241, 110, 0) : RGB(255, 121, 0)
+        case .coreWhite:
+            return RGB(255, 255, 255)
+        case .coreBlack:
+            return RGB(0, 0, 0)
+        case .coreObsGrey:
+            return RGB(89, 89, 89)
         case .functionalPositive:
-            return "functional_positive"
+            return scheme == .light ? RGB(34, 135, 34) : RGB(50, 200, 50)
         case .functionalNegative:
-            return "functional_negative"
-
-        // GREY
-        case .grey200:
-            return "grey_200"
-        case .grey300:
-            return "grey_300"
-        case .grey400:
-            return "grey_400"
-        case .grey500:
-            return "grey_500"
-        case .grey600:
-            return "grey_600"
-        case .grey800:
-            return "grey_800"
-
-        // BASIC
-        case .core_orange_100:
-            return "ods_color_core_orange_100"
-        case .core_orange_200:
-            return "ods_color_core_orange_200"
-        case .core_white_100:
-            return "ods_color_core_white_100"
-        case .core_black_900:
-            return "ods_color_core_black_900"
-        case .core_obsgrey_700:
-            return "ods_color_core_obsgrey_700"
-        case .functional_info_100:
-            return "ods_functional_info_100"
-        case .functional_info_200:
-            return "ods_functional_info_200"
-        case .functional_alert_100:
-            return "ods_functional_alert_100"
-        case .functional_alert_200:
-            return "ods_functional_alert_200"
-        case .functional_positive_100:
-            return "ods_functional_positive_100"
-        case .functional_positive_200:
-            return "ods_functional_positive_200"
-        case .functional_negative_100:
-            return "ods_functional_negative_100"
-        case .functional_negative_200:
-            return "ods_functional_negative_200"
+            return scheme == .light ? RGB(205, 60, 20) : RGB(213, 63, 21)
+        case .functionalInfo:
+            return scheme == .light ? RGB(65, 112, 216) : RGB(82, 126, 219)
+        case .functionalAlert:
+            return scheme == .light ? RGB(143, 114, 0) : RGB(255, 204, 0)
+        case .supportingBlue100:
+            return RGB(181, 232, 247)
+        case .supportingBlue200:
+            return RGB(75, 180, 230)
+        case .supportingBlue300:
+            return RGB(8, 94, 189)
+        case .supportingYellow100:
+            return RGB(255, 246, 182)
+        case .supportingYellow200:
+            return RGB(255, 210, 0)
+        case .supportingYellow300:
+            return RGB(255, 180, 0)
+        case .supportingGreen100:
+            return RGB(184, 235, 214)
+        case .supportingGreen200:
+            return RGB(80, 190, 135)
+        case .supportingGreen300:
+            return RGB(10, 110, 49)
+        case .supportingPurple100:
+            return RGB(217, 194, 240)
+        case .supportingPurple200:
+            return RGB(168, 133, 216)
+        case .supportingPurple300:
+            return RGB(73, 33, 145)
+        case .supportingPink100:
+            return RGB(255, 232, 247)
+        case .supportingPink200:
+            return RGB(255, 180, 230)
+        case .supportingPink300:
+            return RGB(255, 138, 212)
         }
+    }
+
+    public func hexa(forScheme scheme: ColorScheme) -> String {
+        let rgb = self.rgb(forScheme: scheme)
+        return String(format: "#%02x%02x%02x",
+                      Int(rgb.red),
+                      Int(rgb.green),
+                      Int(rgb.blue)).uppercased()
     }
 }

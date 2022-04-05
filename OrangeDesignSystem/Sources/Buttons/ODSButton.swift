@@ -90,7 +90,7 @@ public struct ODSGenericButtonContent: View {
 public struct ODSFilledButtonStyle: ButtonStyle {
     let backgroundColor: Color?
 
-    public init(backgroundColor: Color? = ODSColor.coreOrange.color) {
+    public init(backgroundColor: Color = ODS.coreOrange) {
         self.backgroundColor = backgroundColor
     }
 
@@ -138,7 +138,7 @@ private struct ODSBorderedButtonLabel: View {
     var body: some View {
         ODSButtonLabel(configuration: configuration)
             .overlay(RoundedRectangle(cornerRadius: 8.0).strokeBorder(style: StrokeStyle(lineWidth: 1.0)))
-            .foregroundColor(isEnabled ? (backgroundColor ?? .primary) : ODSColor.grey200.color)
+            .foregroundColor(isEnabled ? (backgroundColor ?? .primary) : Color(UIColor.lightGray)) // To review
             .opacity(configuration.isPressed ? 0.2 : 1.0)
     }
 }
@@ -150,8 +150,8 @@ private struct ODSFilledButtonLabel: View {
 
     var body: some View {
         ODSButtonLabel(configuration: configuration)
-            .foregroundColor(isEnabled ? ODSColor.core_black_900.color : ODSColor.grey200.color)
-            .background(isEnabled ? (backgroundColor ?? ODSColor.coreTheme.color) : ODSColor.grey200.color)
+            .foregroundColor(isEnabled ? ODS.coreBlack : Color(UIColor.lightGray))
+            .background(isEnabled ? (backgroundColor ?? Color.primary) : Color(UIColor.lightGray))
             .opacity(configuration.isPressed || !isEnabled ? 0.2 : 1.0)
             .cornerRadius(8.0)
     }

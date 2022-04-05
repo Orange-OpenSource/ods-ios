@@ -21,27 +21,20 @@
 //
 //
 
-import OrangeDesignSystem
-import SwiftUI
+import Foundation
 
-struct GuidelinesList: View {
+public struct RGB {
+    let red: Int
+    let green: Int
+    let blue: Int
 
-    @ObservedObject var screenState = ScreenState()
-
-    var body: some View {
-        NavigationView {
-            List {
-                NavigationLink("Colors", destination: ColorList().environmentObject(self.screenState)).font(ODSFontStyle.title3.font())
-                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
-            }.environmentObject(ScreenState())
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Guidelines")
-        }
+    init(_ red: Int, _ green: Int, _ blue: Int) {
+        self.red = red
+        self.green = green
+        self.blue = blue
     }
-}
 
-struct GuidelinesListView_Previews: PreviewProvider {
-    static var previews: some View {
-        GuidelinesList()
+    public func toString() -> String {
+        return "rgb(\(red), \(green), \(blue))"
     }
 }
