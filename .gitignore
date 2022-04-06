@@ -87,10 +87,10 @@ Dependencies/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 **/fastlane/*.env
-ods-ios-demo/fastlane/report.xml
-ods-ios-demo/fastlane/Preview.html
-ods-ios-demo/fastlane/screenshots/**/*.png
-ods-ios-demo/fastlane/test_output
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots/**/*.png
+**/fastlane/test_output
 
 # Code Injection
 #
