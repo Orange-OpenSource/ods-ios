@@ -60,7 +60,7 @@ struct TextButtonComponent: View {
                         maxWidth: .infinity,
                         alignment: .topLeading)
                     .padding()
-                    .accentColor(Color(uiColor: .systemBackground))
+                    .accentColor(Color(uiColor: .label))
             }
             .background(Color(uiColor: .systemBackground))
             .cornerRadius(12)
