@@ -27,65 +27,52 @@ import SwiftUI
 
 struct CardViewDemo: View {
 
+    let listModel = ODSListModel(title: "CardViewDemo",
+                                 cards: [ODSCardModel(title: "Sandbox", image: "empty") {
+                                     CardViewDemoSandbox()
+                                 },
+                                 ODSCardModel(title: "List", image: "empty") {
+                                     CardViewDemoList()
+                                 },
+                                 ODSCardModel(title: "Grid", image: "empty") {
+                                     CardViewDemoGrid()
+                                 }])
     var body: some View {
-        List {
-            NavigationLink("Sandbox", destination: CardViewDemoSandbox()).font(ODSFontStyle.title3.font())
-            NavigationLink("List", destination: CardViewDemoList()).font(ODSFontStyle.title3.font())
-            NavigationLink("Grid", destination: CardViewDemoGrid()).font(ODSFontStyle.title3.font())
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("CardViewDemo")
+        ListCardView().environmentObject(listModel)
     }
 }
 
 struct CardViewDemoGrid: View {
-    let cards = (1 ... 20).map { ODSCardModel(title: "Title \($0)", image: "img_about") }
+    let cards = (1 ... 20).map { ODSCardModel(title: "Title \($0)", image: "empty") }
 
     let columns = [
         GridItem(.adaptive(minimum: 150.0), alignment: .topLeading),
     ]
 
     var body: some View {
-        /* List(cards) {
-             CardView(element: $0)
-                 .listRowSeparator(.hidden)
-                 .listRowBackground(ODSColor.grey200.color)
-         }.background(ODSColor.grey200.color)
-             .listRowSeparator(.hidden)
-             .listStyle(.plain)
-             .navigationBarTitleDisplayMode(.large)
-             .navigationTitle("CardViewDemoList")
-         */
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(cards, id: \.title) { item in
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 15) {
+                ForEach(cards, id: \.title) { item in
+                    NavigationLink(destination: EmptyView()) {
                         ODSCardView(element: item)
                     }
-                    .padding([.trailing])
                 }
+                .padding([.trailing])
             }
-            .padding([.leading, .bottom])
-            .navigationTitle("CardViewDemoGrid")
-            .navigationViewStyle(.stack)
-            .background(ODSColor.grey200.color)
         }
+        .padding([.leading, .top, .bottom])
+        .navigationTitle("Page title")
+        .navigationViewStyle(.stack)
+        .background(Color(uiColor: .systemGray5))
     }
 }
 
 struct CardViewDemoList: View {
-    @State private var cards = [ODSCardModel](repeating: ODSCardModel.example, count: 10)
+    let cards = (1 ... 40).map { ODSCardModel(title: "Title \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)") }
 
     var body: some View {
-        List(cards) {
-            ODSCardView(element: $0)
-                .listRowSeparator(.hidden)
-                .listRowBackground(ODSColor.grey200.color)
-        }.background(ODSColor.grey200.color)
-            .listRowSeparator(.hidden)
-            .listStyle(.plain)
-            .navigationBarTitleDisplayMode(.large)
-            .navigationTitle("CardViewDemoList")
+        let model = ODSListModel(title: "CardViewDemo List", cards: cards)
+        ListCardView().environmentObject(model)
     }
 }
 
@@ -98,9 +85,9 @@ struct CardViewDemoSandbox: View {
             // let size = UIScreen.main.bounds.size.width / 2 - (ODSDim.padding * 2)
             VStack(alignment: .leading, spacing: 15) {
 
-                let minimal = ODSCardModel(title: "titre", image: "img_about")
+                let minimal = ODSCardModel(title: "titre", image: "empty")
 
-                let sample2 = ODSCardModel(title: "titre", image: "img_about", subTitle: "desPlaceholer LabImaging", description: "Imaging Imaging LabImaging Imaging Imaging LabImaging Imaging ImagingLabImaging Imaging Imaging")
+                let sample2 = ODSCardModel(title: "titre", image: "empty", subTitle: "desPlaceholer LabImaging", description: "Lorem ipsum dolor sit amet, at blandit nec tristique porttitor.")
 
                 NavigationLink(destination: ShapeButtonsList()) {
                     ODSCardView(element: ODSCardModel.example)
@@ -114,7 +101,7 @@ struct CardViewDemoSandbox: View {
                         Button {
                             print("Action")
                         } label: {
-                            ODSGenericButtonContent(topText: "Added to Siri", textColor: ODSColor.core_black_900.color)
+                            ODSGenericButtonContent(topText: "Added to Siri", textColor: ODSColor.coreBlack.color)
                         }
                         .buttonStyle(ODSFilledButtonStyle())
                     }
@@ -140,7 +127,7 @@ struct CardViewDemoSandbox: View {
                         Button("Third") {}
                     }.padding()
 
-                let sample1 = ODSCardModel(title: "titre", image: "img_about", subTitle: "Description")
+                let sample1 = ODSCardModel(title: "titre", image: "empty", subTitle: "Description")
 
                 ODSCardView(element: sample1)
                     .environmentObject(ODSCardView_Control())
@@ -165,11 +152,12 @@ struct CardViewDemoSandbox: View {
                     .environmentObject(ODSCardView_Control())
                     .padding()
             }
-            .background(ODSColor.grey200.color)
+            .background(Color(uiColor: .systemGray5))
             .frame(width: UIScreen.main.bounds.width)
             // .frame(maxHeight: .infinity)
             Spacer()
-        }
+        }.navigationTitle("SandBox")
+            .background(Color(uiColor: .systemGray5))
     }
 }
 

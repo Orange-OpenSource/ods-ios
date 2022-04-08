@@ -27,14 +27,21 @@ import SwiftUI
 struct ModulesList: View {
     var body: some View {
         AboutConfigDemo.instance.configure()
+
+        let listModel = ODSListModel(title: "Modules",
+                                     cards: [ODSCardModel(title: "About", image: "AboutImage") {
+                                         AboutView()
+                                             .environmentObject(AboutConfigDemo.instance.applicationDescription)
+                                             .navigationBarTitleDisplayMode(.inline)
+                                     },
+                                     ODSCardModel(title: "Card", image: "empty") {
+                                         CardViewDemo()
+                                     }])
+
         return NavigationView {
-            List {
-                NavigationLink("About component", destination: AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationDescription))
-                    .font(ODSFontStyle.title3.font())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Modules")
+            ListCardView()
+                .environmentObject(listModel)
+                .background(Color(uiColor: .systemGray5))
         }
     }
 }

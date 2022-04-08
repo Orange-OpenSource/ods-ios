@@ -29,12 +29,6 @@ public enum ODSDim {
     public static let list_min_width = 42.0
     public static let padding = 15.0
 
-    public enum ODSCard {
-        public static let borderWidth: Double = 1
-        public static let borderShadowWidth: Double = 2
-        public static let borderColor: Color = ODSColor.grey800.color
-    }
-
     public enum ODSSpacing {
         static let tiny: Double = 5
         static let small: Double = 10
