@@ -132,12 +132,17 @@ struct SectionTitle: View {
 }
 
 struct colorBigView: View {
+
     let color: ODSColor
     @EnvironmentObject var screenState: ScreenState
+    @State private var showingModal = false
 
     var bordered: Bool
 
     var body: some View {
+
+        let tap = TapGesture().onEnded { _ in showingModal.toggle() }
+
         VStack(alignment: .leading) {
             if bordered {
                 Rectangle()
@@ -150,25 +155,85 @@ struct colorBigView: View {
                     .aspectRatio(1.0, contentMode: .fit)
             }
             Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(style: .headline)
-            Text(color.rawValue).font(.system(.caption2, design: .monospaced))
+            Text(color.rawValue).font(.system(.caption, design: .monospaced))
             Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
             Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
-        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(screenState.colorScheme)
+        }.background(Color(uiColor: UIColor.systemBackground))
+            .colorScheme(screenState.colorScheme)
+            .gesture(tap)
+            .fullScreenCover(isPresented: $showingModal) { ColorDetailView(color: self.color) }
     }
 }
 
-struct colorSmallView: View {
-    let color: ODSColor
+struct ColorDetailView: View {
+
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
     @EnvironmentObject var screenState: ScreenState
 
+    let color: ODSColor
+
     var body: some View {
+        ZStack {
+
+            BackgroundBlurView().edgesIgnoringSafeArea(.all)
+
+            VStack(alignment: .leading) {
+                Rectangle().fill(color.color)
+                    .frame(width: 300, height: 150)
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
+                    Text(color.rawValue).font(.system(.caption, design: .monospaced))
+                    Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
+                    Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
+
+                    Spacer().frame(height: 15)
+
+                    Text("Usage").odsFont(style: .headline)
+                    Text("Coming soon ...").odsFont(style: .caption1Regular)
+
+                }.padding(EdgeInsets(top: 10, leading: 15, bottom: 20, trailing: 15))
+            }.background(Color(uiColor: UIColor.systemGray6))
+                .cornerRadius(10)
+        }.onTapGesture {
+            dismiss()
+        }
+    }
+}
+
+struct BackgroundBlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+        DispatchQueue.main.async {
+            view.superview?.superview?.backgroundColor = .clear
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {}
+}
+
+struct colorSmallView: View {
+
+    let color: ODSColor
+    @EnvironmentObject var screenState: ScreenState
+    @State private var showingModal = false
+
+    var body: some View {
+
+        let tap = TapGesture().onEnded { _ in showingModal.toggle() }
+
         VStack(alignment: .leading) {
             Rectangle()
                 .fill(color.color)
                 .aspectRatio(1.0, contentMode: .fit)
             Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(style: .headline)
             Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
-        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(self.screenState.colorScheme)
+        }.background(Color(uiColor: UIColor.systemBackground))
+            .colorScheme(self.screenState.colorScheme)
+            .gesture(tap)
+            .fullScreenCover(isPresented: $showingModal) { ColorDetailView(color: self.color) }
     }
 }
 
