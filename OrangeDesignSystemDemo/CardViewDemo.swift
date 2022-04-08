@@ -27,73 +27,145 @@ import SwiftUI
 
 struct CardViewDemo: View {
 
-    @State var eventOne: CardView_Control = .init()
+    var body: some View {
+        List {
+            NavigationLink("Sandbox", destination: CardViewDemoSandbox()).font(ODSFontStyle.title3.font())
+            NavigationLink("List", destination: CardViewDemoList()).font(ODSFontStyle.title3.font())
+            NavigationLink("Grid", destination: CardViewDemoGrid()).font(ODSFontStyle.title3.font())
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("CardViewDemo")
+    }
+}
+
+struct CardViewDemoGrid: View {
+    let cards = (1 ... 20).map { ODSCardModel(title: "Title \($0)", image: "img_about") }
+
+    let columns = [
+        GridItem(.adaptive(minimum: 150.0), alignment: .topLeading),
+    ]
+
+    var body: some View {
+        /* List(cards) {
+             CardView(element: $0)
+                 .listRowSeparator(.hidden)
+                 .listRowBackground(ODSColor.grey200.color)
+         }.background(ODSColor.grey200.color)
+             .listRowSeparator(.hidden)
+             .listStyle(.plain)
+             .navigationBarTitleDisplayMode(.large)
+             .navigationTitle("CardViewDemoList")
+         */
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(cards, id: \.title) { item in
+                        ODSCardView(element: item)
+                    }
+                    .padding([.trailing])
+                }
+            }
+            .padding([.leading, .bottom])
+            .navigationTitle("CardViewDemoGrid")
+            .navigationViewStyle(.stack)
+            .background(ODSColor.grey200.color)
+        }
+    }
+}
+
+struct CardViewDemoList: View {
+    @State private var cards = [ODSCardModel](repeating: ODSCardModel.example, count: 10)
+
+    var body: some View {
+        List(cards) {
+            ODSCardView(element: $0)
+                .listRowSeparator(.hidden)
+                .listRowBackground(ODSColor.grey200.color)
+        }.background(ODSColor.grey200.color)
+            .listRowSeparator(.hidden)
+            .listStyle(.plain)
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("CardViewDemoList")
+    }
+}
+
+struct CardViewDemoSandbox: View {
+
+    @StateObject private var eventOne = ODSCardView_Control()
 
     var body: some View {
         ScrollView {
-            /* CardViewBis(image: "img_about", category: "Insider VSCO's Imaging LabImaging Imaging Imaging Imaging ", heading: "Insider VSCO's Imaging LabImaging Imaging Imaging Imaging", author: "Insider VSCO's Imaging LabImaging Imaging Imaging Imaging") */
-
+            // let size = UIScreen.main.bounds.size.width / 2 - (ODSDim.padding * 2)
             VStack(alignment: .leading, spacing: 15) {
 
-                ODSCard {
-                    CardComplexContent {
-                        Image("img_about", bundle: Bundle.bundle)
-                            .frame(width: .infinity, height: 180)
-                            .fullWidthFrame()
-                            .frame(alignment: .top)
-                        // .frame(ma)
-                        // .centerCropped()
+                let minimal = ODSCardModel(title: "titre", image: "img_about")
 
-                    } bottomContent: {
-                        VStack(alignment: .leading) {
-                            Text("With image Imaging Imaging LabImaging Imaging Imaging LabImaging Imaging ImagingLabImaging Imaging End.")
-                                .fullWidthFrame()
-                                .multilineTextAlignment(.leading)
-                                .lineLimit(nil)
-                                .frame(maxHeight: .infinity)
-                            // .font(ODSFontStyle.bodyBold.font())
-                            // .foregroundColor(ODSColor.coreThemeInverse.color)
-                            // .fullWidthFrame()
-                            Spacer(minLength: 0)
-                            Text("Imaging Imaging LabImaging Imaging Imaging LabImaging Imaging ImagingLabImaging Imaging End.")
-                                .fullWidthFrame()
-                                .font(ODSFontStyle.bodyRegular.font())
-                                .foregroundColor(ODSColor.coreThemeInverse.color)
-                                .lineLimit(nil)
-                                .frame(maxHeight: .infinity)
+                let sample2 = ODSCardModel(title: "titre", image: "img_about", subTitle: "desPlaceholer LabImaging", description: "Imaging Imaging LabImaging Imaging Imaging LabImaging Imaging ImagingLabImaging Imaging Imaging")
 
-                            Button {
-                                print("Action")
-                            } label: {
-                                ODSGenericButtonContent(topText: "Added to Siri", textColor: ODSColor.core_black_900.color)
-                            }
-                            .buttonStyle(ODSFilledButtonStyle())
+                NavigationLink(destination: ShapeButtonsList()) {
+                    ODSCardView(element: ODSCardModel.example)
+                        .environmentObject(ODSCardView_Control())
+                        .padding()
+                }
+
+                CardViewCustom(element: ODSCardModel.example) {
+                    Group {
+                        Spacer()
+                        Button {
+                            print("Action")
+                        } label: {
+                            ODSGenericButtonContent(topText: "Added to Siri", textColor: ODSColor.core_black_900.color)
                         }
+                        .buttonStyle(ODSFilledButtonStyle())
                     }
-                }.padding()
-                /* CardViewBis(image: "img_about", category: "Insider VSCO's Imaging LabImaging Imaging Imaging Imaging ", heading: "Insider VSCO's Imaging LabImaging Imaging Imaging Imaging", author: "Insider VSCO's Imaging LabImaging Imaging Imaging Imaging") */
-                CardView(backgroundImage: Image("img_about"), title: "Titre", subtitle: "", description: "", isShowDetail: false)
-                    .frame(width: 165)
-                    .environmentObject(eventOne)
-                    .alert("Important message", isPresented: $eventOne.anyTriggered) {
+                }
+                .environmentObject(ODSCardView_Control())
+                .padding()
+
+                CardViewCustom(element: minimal) {
+                    Group {
+                        Spacer()
+                        NavigationLink(destination: ShapeButtonsList()) {
+                            ODSGenericButtonContent(topText: "Added to Siri")
+                        }.buttonStyle(ODSBorderedButtonStyle())
+                    }
+                }
+                .environmentObject(ODSCardView_Control())
+                .padding()
+
+                ODSCardView(element: ODSCardModel.exampleMultiline)
+                    .environmentObject(eventOne).alert("Important message", isPresented: $eventOne.anyTriggered) {
                         Button("First") {}
                         Button("Second") {}
                         Button("Third") {}
-                    }
+                    }.padding()
 
-                CardView(backgroundImage: Image("img_about"), title: "Titre", subtitle: "Subtitle", description: "", isShowDetail: false)
+                let sample1 = ODSCardModel(title: "titre", image: "img_about", subTitle: "Description")
+
+                ODSCardView(element: sample1)
+                    .environmentObject(ODSCardView_Control())
+                    .padding()
+
+                ODSCardView(element: sample2)
+                    .environmentObject(ODSCardView_Control())
+                    .frame(width: 160)
+                    .padding()
+
+                ODSCardView(element: sample2)
                     .frame(width: 165)
-                    .environmentObject(CardView_Control())
+                    .environmentObject(ODSCardView_Control())
+                    .padding()
 
-                CardView(backgroundImage: Image("img_about"), title: "Titre", subtitle: "", description: "", isShowDetail: false)
+                ODSCardView(element: sample2)
                     .frame(width: 165)
-                    .environmentObject(CardView_Control())
+                    .environmentObject(ODSCardView_Control())
+                    .padding()
 
-                // .frame(height: 500)
-                CardView(backgroundImage: Image("img_about"), title: "Titre", subtitle: "Subtitle", description: "desPlaceholer LabImaging Imaging Imaging LabImaging Imaging Imaging LabImaging Imaging ImagingLabImaging Imaging Imaging", isShowDetail: false)
-                    .environmentObject(CardView_Control()).padding()
-                // .frame(height: 500)
+                ODSCardView(element: sample2)
+                    .environmentObject(ODSCardView_Control())
+                    .padding()
             }
+            .background(ODSColor.grey200.color)
             .frame(width: UIScreen.main.bounds.width)
             // .frame(maxHeight: .infinity)
             Spacer()
@@ -102,54 +174,45 @@ struct CardViewDemo: View {
 }
 
 #if DEBUG
+struct CardViewDemoGrid_Previews: PreviewProvider {
+    static var previews: some View {
+        //
+        CardViewDemoGrid()
+            .previewInterfaceOrientation(.portrait)
+        CardViewDemoGrid()
+            .previewInterfaceOrientation(.portrait)
+            .environment(\.dynamicTypeSize, .accessibility3) // <- CONSTANT
+    }
+}
+
 struct CardViewDemo_Previews: PreviewProvider {
     static var previews: some View {
         //
         CardViewDemo()
             .previewInterfaceOrientation(.portrait)
-        CardViewDemo()
+    }
+}
+
+struct CardViewDemoList_Previews: PreviewProvider {
+    static var previews: some View {
+        //
+        CardViewDemoList()
+            .previewInterfaceOrientation(.portrait)
+        CardViewDemoList()
             .previewInterfaceOrientation(.portrait)
             .environment(\.dynamicTypeSize, .accessibility3) // <- CONSTANT
     }
 }
-#endif
 
-struct CardViewBis: View {
-    var image: String
-    var category: String
-    var heading: String
-    var author: String
-
-    var body: some View {
-        VStack {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(category)
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                    Text(heading)
-                        .font(.title)
-                        .fontWeight(.black)
-                        .foregroundColor(.primary)
-                    Text(author.uppercased())
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-                .layoutPriority(100)
-
-                Spacer()
-            }
-            .padding()
-        }
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(.sRGB, red: 150 / 255, green: 150 / 255, blue: 150 / 255, opacity: 0.1), lineWidth: 1)
-        )
-        .padding([.top, .horizontal])
+struct CardViewDemoSandBox_Previews: PreviewProvider {
+    static var previews: some View {
+        //
+        CardViewDemoSandbox()
+            .previewInterfaceOrientation(.portrait)
+        CardViewDemoSandbox()
+            .previewInterfaceOrientation(.portrait)
+            .environment(\.dynamicTypeSize, .accessibility3) // <- CONSTANT
     }
 }
+
+#endif

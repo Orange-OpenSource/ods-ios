@@ -1,0 +1,176 @@
+//
+// MIT License
+// Copyright (c) 2021 Orange
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the  Software), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+//
+
+import Combine
+import SwiftUI
+
+public struct ODSCardModel: Identifiable {
+    public let title: String
+    let subTitle: String?
+    let description: String?
+    let button: String?
+    let image: String
+
+    public init(title: String, image: String) {
+        self.title = title
+        self.image = image
+        subTitle = nil
+        description = nil
+        button = nil
+    }
+
+    public init(title: String, image: String, subTitle: String? = nil, description: String? = nil, button: String? = nil) {
+        self.title = title
+        self.image = image
+        self.subTitle = subTitle
+        self.description = description
+        self.button = button
+    }
+
+    public var id: String {
+        title
+    }
+
+    public static let example = ODSCardModel(title: "Title", image: "img_about", subTitle: "Subtitle", description: "Description")
+    public static let exampleMultiline = ODSCardModel(title: "Et galisum fugiat ex omnis officia et iusto eius et animi consequuntur et distinctio magnam id autem exercitationem a sint quibusdam. Aut ipsa autem aut omnis architecto ex ratione provident eum placeat atque qui veniam quos est rerum molestiae.", image: "img_about", subTitle: "Sed quasi illo in quidem consectetur sit consequatur voluptatibus sed adipisci fuga quo voluptatem similique non quidem magni! Et dolores libero ut voluptatem possimus ea minus necessitatibus qui totam culpa vel maxime distinctio id ullam dolor et optio velit", description: "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit.")
+}
+
+open class ODSCardView_Control: ObservableObject {
+    public init() {}
+
+    @Published public var anyTriggered = false
+}
+
+public struct ODSCardView: View {
+    public let element: ODSCardModel
+
+    @EnvironmentObject var control: ODSCardView_Control
+
+    public init(element: ODSCardModel) {
+        self.element = element
+    }
+
+    public var body: some View {
+
+        CardInnerView(element: element) {}
+            /* .onTapGesture {
+                 withAnimation(.interpolatingSpring(mass: 1, stiffness: 90, damping: 15, initialVelocity: 1)) {
+                     self.control.anyTriggered.toggle()
+                 }
+             } */
+            .cornerRadius(10)
+            .shadow(color: ODSColor.grey600.color, radius: 1)
+    }
+}
+
+public struct CardViewCustom<ButtonContent>: View where ButtonContent: View {
+    public let element: ODSCardModel
+
+    @EnvironmentObject var control: ODSCardView_Control
+    @ViewBuilder var buttonContent: () -> ButtonContent
+
+    public init(element: ODSCardModel, buttonContent: @escaping () -> ButtonContent) {
+        self.element = element
+        self.buttonContent = buttonContent
+    }
+
+    public var body: some View {
+
+        CardInnerView(element: element) {
+            buttonContent()
+        }
+        .cornerRadius(10)
+        .shadow(color: ODSColor.grey600.color, radius: 1)
+    }
+}
+
+struct CardInnerView<ButtonContent>: View where ButtonContent: View {
+    let element: ODSCardModel
+    @ViewBuilder var buttonContent: () -> ButtonContent
+
+    @State private var translation = CGSize.zero
+
+    var body: some View {
+
+        VStack(alignment: .leading, spacing: 0) {
+
+            ZStack {
+                Image(element.image, bundle: Bundle.bundle)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
+            HStack(spacing: 0) {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(element.title)
+                        .font(ODSFontStyle.bodyBold.font())
+                        .foregroundColor(ODSColor.coreThemeInverse.color)
+                        .lineLimit(nil)
+                    if let subTitle = element.subTitle {
+                        Text(subTitle)
+                            .font(ODSFontStyle.bodyRegular.font())
+                            .foregroundColor(ODSColor.coreThemeInverse.color)
+                            .lineLimit(nil)
+                    }
+                    Spacer()
+                    if let description = element.description {
+                        HStack(spacing: 0) {
+                            Text(description)
+                                .font(ODSFontStyle.bodyRegular.font())
+                                .foregroundColor(ODSColor.coreThemeInverse.color)
+                                .lineLimit(nil)
+                            Spacer()
+                        }
+                    }
+                    if let description = element.button {
+                        HStack(spacing: 0) {
+                            Text(description)
+                                .font(ODSFontStyle.bodyRegular.font())
+                                .foregroundColor(ODSColor.coreThemeInverse.color)
+                                .lineLimit(nil)
+                            Spacer()
+                        }
+                    }
+                    buttonContent()
+                }.layoutPriority(100)
+            }
+            .padding()
+        }
+        .background(ODSColor.coreTheme.color)
+    }
+}
+
+#if DEBUG
+struct CardView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+
+            ODSCardView(element: ODSCardModel.example).environmentObject(ODSCardView_Control())
+
+            let sample2 = ODSCardModel(title: "titre", image: "img_about", subTitle: "desPlaceholer LabImaging Imaging Imaging LabImaging Imaging Imaging LabImaging Imaging ImagingLabImaging Imaging Imaging")
+            ODSCardView(element: sample2)
+                .environmentObject(ODSCardView_Control())
+                .frame(width: 160, height: 175)
+        }
+    }
+}
+#endif
