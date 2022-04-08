@@ -21,7 +21,6 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
 @main
