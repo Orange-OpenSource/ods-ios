@@ -36,7 +36,6 @@ struct ColorUsage: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             ScrollView {
-
                 Text("It is important to use the iOS system background and label colours and as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.")
 
                 Spacer().frame(height: 20)
