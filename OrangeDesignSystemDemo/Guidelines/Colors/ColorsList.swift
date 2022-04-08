@@ -37,7 +37,9 @@ struct ColorList: View {
 
     // MARK: - Body
     var body: some View {
+
         VStack {
+            Spacer().frame(height: 10)
             Text("Palette")
                 .odsFont(style: .title1)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -107,7 +109,13 @@ struct ColorList: View {
                     }
                 }
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-                .background(self.screenState.colorScheme == .light ? Color.white : Color.black)
+                .background(screenState.colorScheme == .light ? Color.white : Color.black)
+        }.toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: ColorUsage()) {
+                    Text("Usage")
+                }.foregroundColor(ODS.coreOrange)
+            }
         }
     }
 }
@@ -141,11 +149,11 @@ struct colorBigView: View {
                     .fill(color.color)
                     .aspectRatio(1.0, contentMode: .fit)
             }
-            Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
+            Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(style: .headline)
             Text(color.rawValue).font(.system(.caption2, design: .monospaced))
-            Text(color.rgb(forScheme: self.screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
-            Text(color.hexa(forScheme: self.screenState.colorScheme)).odsFont(style: .caption1Regular)
-        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(self.screenState.colorScheme)
+            Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
+            Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
+        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(screenState.colorScheme)
     }
 }
 
@@ -158,8 +166,8 @@ struct colorSmallView: View {
             Rectangle()
                 .fill(color.color)
                 .aspectRatio(1.0, contentMode: .fit)
-            Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
-            Text(color.hexa(forScheme: self.screenState.colorScheme)).odsFont(style: .caption1Regular)
+            Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(style: .headline)
+            Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
         }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(self.screenState.colorScheme)
     }
 }

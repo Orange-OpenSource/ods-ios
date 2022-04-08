@@ -21,14 +21,28 @@
 //
 //
 
+import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-@main
-struct ods_ios_swiftUI_demoApp: App {
-    var body: some Scene {
-        WindowGroup {
-            MainTabView()
-        }
+struct ColorUsage: View {
+
+    // MARK: - Body
+    var body: some View {
+        VStack {
+            Spacer().frame(height: 10)
+            Text("Usage")
+                .odsFont(style: .title1)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            ScrollView {
+
+                Text("It is important to use the iOS system background and label colours and as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.")
+
+                Spacer().frame(height: 20)
+
+                Text("Some colours are define with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).").accentColor(ODS.coreOrange)
+            }
+        }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
     }
 }

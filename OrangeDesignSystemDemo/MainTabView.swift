@@ -25,12 +25,14 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct MainTabView: View {
+
     var body: some View {
+
         TabView {
             GuidelinesList()
                 .tabItem {
                     Label("Guidelines", image: "Guideline-DNA_32")
-                }
+                }.navigationBarColor(tintColor: UIColor(ODS.coreOrange))
             ComponentsCardsList()
                 .tabItem {
                     Label("Components", image: "component-atom_32")
