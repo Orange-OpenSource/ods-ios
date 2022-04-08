@@ -37,7 +37,9 @@ struct ColorList: View {
 
     // MARK: - Body
     var body: some View {
+
         VStack {
+            Spacer().frame(height: 10)
             Text("Palette")
                 .odsFont(style: .title1)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -57,57 +59,63 @@ struct ColorList: View {
                 VStack {
                     Spacer().frame(height: 30)
                     HStack(spacing: 15) {
-                        colorBigView(color: ODSColor.coreOrange, bordered: false)
-                        colorBigView(color: ODSColor.coreWhite, bordered: screenState.colorScheme == .light)
+                        ColorBig(color: ODSColor.coreOrange, bordered: false)
+                        ColorBig(color: ODSColor.coreWhite, bordered: screenState.colorScheme == .light)
                     }
                     HStack(spacing: 15) {
-                        colorBigView(color: ODSColor.coreBlack, bordered: screenState.colorScheme == .dark)
-                        colorBigView(color: ODSColor.coreObsGrey, bordered: false)
+                        ColorBig(color: ODSColor.coreBlack, bordered: screenState.colorScheme == .dark)
+                        ColorBig(color: ODSColor.coreObsGrey, bordered: false)
                     }
                 }
                 Spacer().frame(height: 30)
                 SectionTitle(title: "Functional")
                 VStack {
                     HStack(spacing: 15) {
-                        colorBigView(color: ODSColor.functionalPositive, bordered: false)
-                        colorBigView(color: ODSColor.functionalNegative, bordered: false)
+                        ColorBig(color: ODSColor.functionalPositive, bordered: false)
+                        ColorBig(color: ODSColor.functionalNegative, bordered: false)
                     }
                     HStack(spacing: 15) {
-                        colorBigView(color: ODSColor.functionalAlert, bordered: false)
-                        colorBigView(color: ODSColor.functionalInfo, bordered: false)
+                        ColorBig(color: ODSColor.functionalAlert, bordered: false)
+                        ColorBig(color: ODSColor.functionalInfo, bordered: false)
                     }
                 }
                 Spacer().frame(height: 30)
                 SectionTitle(title: "Supporting")
                 VStack {
                     HStack(spacing: 15) {
-                        colorSmallView(color: ODSColor.supportingBlue100)
-                        colorSmallView(color: ODSColor.supportingBlue200)
-                        colorSmallView(color: ODSColor.supportingBlue300)
+                        ColorSmall(color: ODSColor.supportingBlue100)
+                        ColorSmall(color: ODSColor.supportingBlue200)
+                        ColorSmall(color: ODSColor.supportingBlue300)
                     }
                     HStack(spacing: 15) {
-                        colorSmallView(color: ODSColor.supportingYellow100)
-                        colorSmallView(color: ODSColor.supportingYellow200)
-                        colorSmallView(color: ODSColor.supportingYellow300)
+                        ColorSmall(color: ODSColor.supportingYellow100)
+                        ColorSmall(color: ODSColor.supportingYellow200)
+                        ColorSmall(color: ODSColor.supportingYellow300)
                     }
                     HStack(spacing: 15) {
-                        colorSmallView(color: ODSColor.supportingGreen100)
-                        colorSmallView(color: ODSColor.supportingGreen200)
-                        colorSmallView(color: ODSColor.supportingGreen300)
+                        ColorSmall(color: ODSColor.supportingGreen100)
+                        ColorSmall(color: ODSColor.supportingGreen200)
+                        ColorSmall(color: ODSColor.supportingGreen300)
                     }
                     HStack(spacing: 15) {
-                        colorSmallView(color: ODSColor.supportingPink100)
-                        colorSmallView(color: ODSColor.supportingPink200)
-                        colorSmallView(color: ODSColor.supportingPink300)
+                        ColorSmall(color: ODSColor.supportingPink100)
+                        ColorSmall(color: ODSColor.supportingPink200)
+                        ColorSmall(color: ODSColor.supportingPink300)
                     }
                     HStack(spacing: 15) {
-                        colorSmallView(color: ODSColor.supportingPurple100)
-                        colorSmallView(color: ODSColor.supportingPurple200)
-                        colorSmallView(color: ODSColor.supportingPurple300)
+                        ColorSmall(color: ODSColor.supportingPurple100)
+                        ColorSmall(color: ODSColor.supportingPurple200)
+                        ColorSmall(color: ODSColor.supportingPurple300)
                     }
                 }
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-                .background(self.screenState.colorScheme == .light ? Color.white : Color.black)
+                .background(screenState.colorScheme == .light ? Color.white : Color.black)
+        }.toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: ColorUsage()) {
+                    Text("Usage")
+                }.foregroundColor(ODS.coreOrange)
+            }
         }
     }
 }
@@ -120,47 +128,6 @@ struct SectionTitle: View {
         Text(title).odsFont(style: .title1)
             .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
             .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-struct colorBigView: View {
-    let color: ODSColor
-    @EnvironmentObject var screenState: ScreenState
-
-    var bordered: Bool
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            if bordered {
-                Rectangle()
-                    .fill(color.color)
-                    .border(Color.secondary)
-                    .aspectRatio(1.0, contentMode: .fit)
-            } else {
-                Rectangle()
-                    .fill(color.color)
-                    .aspectRatio(1.0, contentMode: .fit)
-            }
-            Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
-            Text(color.rawValue).font(.system(.caption2, design: .monospaced))
-            Text(color.rgb(forScheme: self.screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
-            Text(color.hexa(forScheme: self.screenState.colorScheme)).odsFont(style: .caption1Regular)
-        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(self.screenState.colorScheme)
-    }
-}
-
-struct colorSmallView: View {
-    let color: ODSColor
-    @EnvironmentObject var screenState: ScreenState
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Rectangle()
-                .fill(color.color)
-                .aspectRatio(1.0, contentMode: .fit)
-            Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
-            Text(color.hexa(forScheme: self.screenState.colorScheme)).odsFont(style: .caption1Regular)
-        }.background(Color(uiColor: UIColor.systemBackground)).colorScheme(self.screenState.colorScheme)
     }
 }
 
