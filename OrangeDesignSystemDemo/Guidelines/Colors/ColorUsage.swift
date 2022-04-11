@@ -21,46 +21,35 @@
 //
 //
 
+import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct MainTabView: View {
+struct ColorUsage: View {
 
+    // MARK: - Body
     var body: some View {
+        VStack {
+            Spacer().frame(height: 10)
+            Text("Usage")
+                .odsFont(style: .title1)
+                .frame(maxWidth: .infinity, alignment: .leading)
 
-        TabView {
-            GuidelinesList()
-                .tabItem {
-                    Label("Guidelines", image: "Guideline-DNA_32")
-                }.navigationBarColor(tintColor: UIColor(ODS.coreOrange))
-            ComponentsCardsList()
-                .tabItem {
-                    Label("Components", image: "component-atom_32")
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("It is important to use the iOS system background and label colours and as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.")
+                    Text("Some colours are define with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).").accentColor(ODS.coreOrange)
+                    // TO-DO : make component
                 }
-            ModulesList()
-                .tabItem {
-                    Label("Modules", image: "Module-molecule_32")
-                }
-            ODSDemoAboutView()
-                .tabItem {
-                    Label("About", image: "info_32")
-                }
-            Text("Search")
-                .font(ODSFontStyle.largeTitle.font())
-                .tabItem {
-                    Label("Search", image: "Search_32")
-                }
-        }
-        .tabBarStyle(backgroundColor: Color(uiColor: UIColor.systemBackground),
-                     itemColor: Color.primary,
-                     selectedItemColor: ODS.coreOrange)
+            }
+        }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
     }
 }
 
-struct TabView_Previews: PreviewProvider {
+struct ColorUsage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            MainTabView().preferredColorScheme($0)
+            ColorUsage().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }
