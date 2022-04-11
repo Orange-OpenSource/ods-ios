@@ -63,16 +63,8 @@ public struct ODSCardModel: Identifiable {
     public static let exampleMultiline = ODSCardModel(title: "Et galisum fugiat ex omnis officia et iusto eius et animi consequuntur et distinctio magnam id autem exercitationem a sint quibusdam. Aut ipsa autem aut omnis architecto ex ratione provident eum placeat atque qui veniam quos est rerum molestiae.", image: "empty", subTitle: "Sed quasi illo in quidem consectetur sit consequatur voluptatibus sed adipisci fuga quo voluptatem similique non quidem magni! Et dolores libero ut voluptatem possimus ea minus necessitatibus qui totam culpa vel maxime distinctio id ullam dolor et optio velit", description: "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit.")
 }
 
-open class ODSCardView_Control: ObservableObject {
-    public init() {}
-
-    @Published public var anyTriggered = false
-}
-
 public struct ODSCardView: View {
     public let element: ODSCardModel
-
-    @EnvironmentObject var control: ODSCardView_Control
 
     public init(element: ODSCardModel) {
         self.element = element
@@ -81,11 +73,6 @@ public struct ODSCardView: View {
     public var body: some View {
 
         CardInnerView(element: element) {}
-            /* .onTapGesture {
-                 withAnimation(.interpolatingSpring(mass: 1, stiffness: 90, damping: 15, initialVelocity: 1)) {
-                     self.control.anyTriggered.toggle()
-                 }
-             } */
             .cornerRadius(10)
             .shadow(radius: 1)
     }
@@ -94,7 +81,6 @@ public struct ODSCardView: View {
 public struct CardViewCustom<ButtonContent>: View where ButtonContent: View {
     public let element: ODSCardModel
 
-    @EnvironmentObject var control: ODSCardView_Control
     @ViewBuilder var buttonContent: () -> ButtonContent
 
     public init(element: ODSCardModel, buttonContent: @escaping () -> ButtonContent) {
@@ -163,11 +149,9 @@ struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
 
-            ODSCardView(element: ODSCardModel.example).environmentObject(ODSCardView_Control())
-
+            ODSCardView(element: ODSCardModel.example)
             let sample2 = ODSCardModel(title: "titre", image: "img_about", subTitle: "desPlaceholer LabImaging Imaging Imaging LabImaging Imaging Imaging LabImaging Imaging ImagingLabImaging Imaging Imaging")
             ODSCardView(element: sample2)
-                .environmentObject(ODSCardView_Control())
                 .frame(width: 160, height: 175)
         }
     }

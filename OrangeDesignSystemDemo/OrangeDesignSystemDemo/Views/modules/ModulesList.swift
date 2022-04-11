@@ -28,18 +28,18 @@ struct ModulesList: View {
     var body: some View {
         AboutConfigDemo.instance.configure()
 
-        let listModel = ODSListModel(title: "Modules",
-                                     cards: [ODSCardModel(title: "About", image: "AboutImage") {
-                                         AboutView()
-                                             .environmentObject(AboutConfigDemo.instance.applicationDescription)
-                                             .navigationBarTitleDisplayMode(.inline)
-                                     },
-                                     ODSCardModel(title: "Card", image: "empty") {
-                                         CardViewDemo()
-                                     }])
+        let listModel = ODSListCardViewModel(title: "Modules",
+                                             cards: [ODSCardModel(title: "About", image: "AboutImage") {
+                                                 AboutView()
+                                                     .environmentObject(AboutConfigDemo.instance.applicationDescription)
+                                                     .navigationBarTitleDisplayMode(.inline)
+                                             },
+                                             ODSCardModel(title: "ListCardView", image: "Cards") {
+                                                 CardViewDemo()
+                                             }])
 
         return NavigationView {
-            ListCardView()
+            ODSListCardView()
                 .environmentObject(listModel)
                 .background(Color(uiColor: .systemGray5))
         }

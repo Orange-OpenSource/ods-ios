@@ -36,6 +36,9 @@ struct ComponentsCardsList: View {
         TextButtonComponentModel(name: "Bars", image: "Bars"),
         TextButtonComponentModel(name: "Controls", image: "Controls"),
         TextButtonComponentModel(name: "Modals", image: "Modals"),
+        TextButtonComponentModel(name: "Card", image: "Card") {
+            CardViewDemoSandbox()
+        },
     ]
 
     let columns = [

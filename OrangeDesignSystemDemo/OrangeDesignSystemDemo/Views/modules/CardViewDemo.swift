@@ -27,18 +27,17 @@ import SwiftUI
 
 struct CardViewDemo: View {
 
-    let listModel = ODSListModel(title: "CardViewDemo",
-                                 cards: [ODSCardModel(title: "Sandbox", image: "empty") {
-                                     CardViewDemoSandbox()
-                                 },
-                                 ODSCardModel(title: "List", image: "empty") {
-                                     CardViewDemoList()
-                                 },
-                                 ODSCardModel(title: "Grid", image: "empty") {
-                                     CardViewDemoGrid()
-                                 }])
+    let listModel = ODSListCardViewModel(title: "ListCard",
+                                         cards: [
+                                             ODSCardModel(title: "List", image: "Cards") {
+                                                 CardViewDemoList()
+                                             },
+                                             ODSCardModel(title: "Grid", image: "Card") {
+                                                 CardViewDemoGrid()
+                                             },
+                                         ])
     var body: some View {
-        ListCardView().environmentObject(listModel)
+        ODSListCardView().environmentObject(listModel)
     }
 }
 
@@ -71,14 +70,12 @@ struct CardViewDemoList: View {
     let cards = (1 ... 40).map { ODSCardModel(title: "Title \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)") }
 
     var body: some View {
-        let model = ODSListModel(title: "CardViewDemo List", cards: cards)
-        ListCardView().environmentObject(model)
+        let model = ODSListCardViewModel(title: "CardViewDemo List", cards: cards)
+        ODSListCardView().environmentObject(model)
     }
 }
 
 struct CardViewDemoSandbox: View {
-
-    @StateObject private var eventOne = ODSCardView_Control()
 
     var body: some View {
         ScrollView {
@@ -91,7 +88,6 @@ struct CardViewDemoSandbox: View {
 
                 NavigationLink(destination: ShapeButtonsList()) {
                     ODSCardView(element: ODSCardModel.example)
-                        .environmentObject(ODSCardView_Control())
                         .padding()
                 }
 
@@ -106,7 +102,6 @@ struct CardViewDemoSandbox: View {
                         .buttonStyle(ODSFilledButtonStyle())
                     }
                 }
-                .environmentObject(ODSCardView_Control())
                 .padding()
 
                 CardViewCustom(element: minimal) {
@@ -117,46 +112,36 @@ struct CardViewDemoSandbox: View {
                         }.buttonStyle(ODSBorderedButtonStyle())
                     }
                 }
-                .environmentObject(ODSCardView_Control())
                 .padding()
 
                 ODSCardView(element: ODSCardModel.exampleMultiline)
-                    .environmentObject(eventOne).alert("Important message", isPresented: $eventOne.anyTriggered) {
-                        Button("First") {}
-                        Button("Second") {}
-                        Button("Third") {}
-                    }.padding()
+                    .padding()
 
                 let sample1 = ODSCardModel(title: "titre", image: "empty", subTitle: "Description")
 
                 ODSCardView(element: sample1)
-                    .environmentObject(ODSCardView_Control())
                     .padding()
 
                 ODSCardView(element: sample2)
-                    .environmentObject(ODSCardView_Control())
                     .frame(width: 160)
                     .padding()
 
                 ODSCardView(element: sample2)
                     .frame(width: 165)
-                    .environmentObject(ODSCardView_Control())
                     .padding()
 
                 ODSCardView(element: sample2)
                     .frame(width: 165)
-                    .environmentObject(ODSCardView_Control())
                     .padding()
 
                 ODSCardView(element: sample2)
-                    .environmentObject(ODSCardView_Control())
                     .padding()
             }
             .background(Color(uiColor: .systemGray5))
             .frame(width: UIScreen.main.bounds.width)
             // .frame(maxHeight: .infinity)
             Spacer()
-        }.navigationTitle("SandBox")
+        }.navigationTitle("Card")
             .background(Color(uiColor: .systemGray5))
     }
 }

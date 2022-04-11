@@ -23,29 +23,40 @@
 
 import SwiftUI
 
-private struct CanBeHighlightedKey: EnvironmentKey {
+public class ODSListCardViewModel: ObservableObject {
+    public let cards: [ODSCardModel]
+    public let title: String
 
-    // =============================
-    // MARK: EnvironmentKey Protocol
-    // =============================
-
-    static let defaultValue = true
+    public init(title: String, cards: [ODSCardModel]) {
+        self.title = title
+        self.cards = cards
+    }
 }
 
-// MARK: -
+public struct ODSListCardView: View {
+    @EnvironmentObject private var list: ODSListCardViewModel
 
-extension EnvironmentValues {
+    let columns = [
+        GridItem(.flexible(), alignment: .topLeading),
+    ]
 
-    // =========
-    // MARK: API
-    // =========
+    public init() {}
 
-    var canBeHighlighted: Bool {
-        get {
-            self[CanBeHighlightedKey.self]
+    public var body: some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: ODSDim.ODSSpacing.regular) {
+                ForEach(list.cards, id: \.title) { card in
+                    NavigationLink(destination: card.destination) {
+                        ODSCardView(element: card)
+                    }
+                }
+                .padding([.trailing])
+            }
         }
-        set {
-            self[CanBeHighlightedKey.self] = newValue
-        }
+        .padding([.leading, .top])
+        .navigationBarTitleDisplayMode(.large)
+        .navigationTitle(list.title)
+        .navigationViewStyle(.stack)
+        .background(Color(uiColor: .systemGray5))
     }
 }
