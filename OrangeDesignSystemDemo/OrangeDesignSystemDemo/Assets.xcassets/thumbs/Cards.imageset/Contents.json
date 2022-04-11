@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "cards_module.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

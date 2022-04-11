@@ -21,46 +21,33 @@
 //
 //
 
-import Foundation
+import OrangeDesignSystem
 import SwiftUI
 
-public enum ODSDim {
-    public static let list_min_height = 42.0
-    public static let list_min_width = 42.0
-    public static let padding = 15.0
+struct ModulesList: View {
+    var body: some View {
+        AboutConfigDemo.instance.configure()
 
-    public enum ODSSpacing {
-        static let tiny: Double = 5
-        static let small: Double = 10
-        static let regular: Double = 15
-        static let large: Double = 20
-        static let huge: Double = 30
+        let listModel = ODSListCardViewModel(title: "Modules",
+                                             cards: [ODSCardModel(title: "About", image: "AboutImage") {
+                                                 AboutView()
+                                                     .environmentObject(AboutConfigDemo.instance.applicationDescription)
+                                                     .navigationBarTitleDisplayMode(.inline)
+                                             },
+                                             ODSCardModel(title: "ListCardView", image: "Cards") {
+                                                 CardViewDemo()
+                                             }])
+
+        return NavigationView {
+            ODSListCardView()
+                .environmentObject(listModel)
+                .background(Color(uiColor: .systemGray5))
+        }
     }
 }
 
-extension View {
-
-    public func fullWidthFrame(alignment: Alignment = .leading) -> some View {
-        frame(maxWidth: .infinity, alignment: alignment)
-    }
-
-    public func odsLeadingPadding() -> some View {
-        return padding(.leading, ODSDim.padding)
-    }
-
-    public func odsTrailingPadding() -> some View {
-        return padding(.trailing, ODSDim.padding)
-    }
-
-    public func odsGlobalPadding() -> some View {
-        return padding(ODSDim.padding)
-    }
-
-    public func odsSpacerSmall() -> some View {
-        return frame(height: ODSDim.padding)
-    }
-
-    public func odsSpacerMedium() -> some View {
-        return frame(height: 25)
+struct ModulesList_Previews: PreviewProvider {
+    static var previews: some View {
+        ModulesList()
     }
 }

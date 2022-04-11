@@ -21,26 +21,42 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct ModulesList: View {
-    var body: some View {
-        AboutConfigDemo.instance.configure()
-        return NavigationView {
-            List {
-                NavigationLink("About component", destination: AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationDescription))
-                    .font(ODSFontStyle.title3.font())
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Modules")
-        }
+public class ODSListCardViewModel: ObservableObject {
+    public let cards: [ODSCardModel]
+    public let title: String
+
+    public init(title: String, cards: [ODSCardModel]) {
+        self.title = title
+        self.cards = cards
     }
 }
 
-struct ModulesList_Previews: PreviewProvider {
-    static var previews: some View {
-        ModulesList()
+public struct ODSListCardView: View {
+    @EnvironmentObject private var list: ODSListCardViewModel
+
+    let columns = [
+        GridItem(.flexible(), alignment: .topLeading),
+    ]
+
+    public init() {}
+
+    public var body: some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: ODSDim.ODSSpacing.regular) {
+                ForEach(list.cards, id: \.title) { card in
+                    NavigationLink(destination: card.destination) {
+                        ODSCardView(element: card)
+                    }
+                }
+                .padding([.trailing])
+            }
+        }
+        .padding([.leading, .top])
+        .navigationBarTitleDisplayMode(.large)
+        .navigationTitle(list.title)
+        .navigationViewStyle(.stack)
+        .background(Color(uiColor: .systemGray5))
     }
 }

@@ -50,20 +50,21 @@ struct TextButtonComponent: View {
     let component: TextButtonComponentModel
     var body: some View {
         NavigationLink(destination: component.destination) {
-            VStack(alignment: .leading, spacing: 0) {
-                Image(component.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                Text(component.name)
-                    .font(ODSFontStyle.headline.font())
-                    .frame(
-                        maxWidth: .infinity,
-                        alignment: .topLeading)
-                    .padding()
-                    .accentColor(Color(uiColor: .label))
-            }
-            .background(Color(uiColor: .systemBackground))
-            .cornerRadius(12)
+            /* VStack(alignment: .leading, spacing: 0) {
+                 Image(component.image)
+                     .resizable()
+                     .aspectRatio(contentMode: .fit)
+                 Text(component.name)
+                     .font(ODSFontStyle.headline.font())
+                     .frame(
+                         maxWidth: .infinity,
+                         alignment: .topLeading)
+                     .padding()
+                     .accentColor(Color(uiColor: .label))
+             }
+             .background(Color(uiColor: .systemBackground))
+             .cornerRadius(12) */
+            ODSCardView(element: ODSCardModel(title: component.name, image: component.image))
         }
     }
 }

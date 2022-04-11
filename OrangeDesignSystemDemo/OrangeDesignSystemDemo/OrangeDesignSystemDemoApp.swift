@@ -21,6 +21,7 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
 @main
@@ -28,6 +29,7 @@ struct ods_ios_swiftUI_demoApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .accentColor(ODSColor.coreOrange.color)
         }
     }
 }
