@@ -51,9 +51,7 @@ struct MainTabView: View {
                     Label("Search", image: "Search_32")
                 }
         }
-        .tabBarStyle(backgroundColor: Color(uiColor: UIColor.systemBackground),
-                     itemColor: Color.primary,
-                     selectedItemColor: ODS.coreOrange)
+        .tabBarStyle(itemColor: Color.primary)
     }
 }
 

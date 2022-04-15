@@ -29,13 +29,25 @@ struct GuidelinesList: View {
     @ObservedObject var screenState = ScreenState()
 
     var body: some View {
-        NavigationView {
-            List {
-                NavigationLink("Colors", destination: ColorList().environmentObject(self.screenState)).font(ODSFontStyle.title3.font())
-                NavigationLink("Fonts", destination: FontList()).font(ODSFontStyle.title3.font())
-            }.environmentObject(ScreenState())
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Guidelines")
+        let listModel = ODSListCardViewModel(title: "Guidelines",
+                                             cards: [
+                                                 ODSCardModel(title: "Colors", image: "Colour") {
+                                                     ColorList().environmentObject(self.screenState)
+                                                 },
+                                                 ODSCardModel(title: "Typographie", image: "Cards") {
+                                                     FontList()
+                                                 },
+                                                 ODSCardModel(title: "Imagery", image: "Imagery") {
+                                                     Text("[see design system web site](https://system.design.orange.com/0c1af118d/p/73d2a9-imagery)")
+                                                 },
+                                                 ODSCardModel(title: "Iconographie", image: "Iconography") {
+                                                     Text("[see design system web site](https://system.design.orange.com/0c1af118d/p/354f64-iconography/b/80118e)")
+                                                 },
+                                             ])
+        return NavigationView {
+            ODSListCardView()
+                .environmentObject(listModel)
+                .background(Color(uiColor: .systemGray5))
         }
     }
 }
