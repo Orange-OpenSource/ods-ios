@@ -4,5 +4,10 @@
 <dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>CFBundleDisplayName</key>
+	<string>ODS Demo</string>
+	<key>CFBundleSpokenName</key>
+	<string>Orange Design System Demonstration</string>
+	
 </dict>
 </plist>
