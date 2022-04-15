@@ -23,13 +23,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 update bundler number
 
-### ios tests
+### ios prepare_release
 
 ```sh
-[bundle exec] fastlane ios tests
+[bundle exec] fastlane ios prepare_release
 ```
 
-Unit test
+Prepare release notes
 
 ### ios build
 

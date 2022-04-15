@@ -6,6 +6,7 @@ platform :ios, '15.0'
 
 target 'OrangeDesignSystemDemo' do
   pod 'OrangeDesignSystem', :path => '../'
+  pod 'Parma'
   target 'OrangeDesignSystemDemoTests' do
     inherit! :search_paths
     

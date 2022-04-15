@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OrangeDesignSystem'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Orange Design System Components'
 
 
@@ -24,7 +24,7 @@ Orange Design System Components.
 
   s.homepage         = 'https://github.com/Orange-OpenSource/ods-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jlchee' => 'jl.chevalier@orange.com' }
+  s.author           = { 'Philippe Besombe' => 'philippe.besombe@orange.com', 'Patrick Boursier' => 'patrick.boursier@orange.com', 'Jean-Luc Chevalier' => 'jl.chevalier@orange.com', 'Julien Galhaut' => 'julien1.galhaut@orange.com', 'Guillaume Margé' => 'guillaume.marge@orange.com' }
   s.source           = { :git => 'https://github.com/Orange-OpenSource/ods-ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '15.0'

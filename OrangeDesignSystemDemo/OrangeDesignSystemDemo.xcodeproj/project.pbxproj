@@ -40,6 +40,7 @@
 		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
 		FD699CA9276CD0D1008670BD /* StandardButtonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */; };
 		FD8A27A92768932700784B0E /* (null) in Sources */ = {isa = PBXBuildFile; };
+		FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandardButtonsList.swift; path = OrangeDesignSystemDemo/Views/Components/StandardButtonsList.swift; sourceTree = "<group>"; };
 		FDC4430B27AD80C30024701B /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = ../docs; sourceTree = "<group>"; };
+		FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		EB0AA527275652AE0012E192 = {
 			isa = PBXGroup;
 			children = (
+				FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */,
 				FDC4430B27AD80C30024701B /* docs */,
 				F913B85F2767969E001CB0AA /* Package.swift */,
 				F913B86727679DCC001CB0AA /* codeQuality */,
@@ -443,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F90D977C2800311E006D29FC /* ODSDemoPrivacyNotice.md in Resources */,
+				FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */,
 				F99FF07F2767AF62006236A0 /* Preview Assets.xcassets in Resources */,
 				F90D977D2800311E006D29FC /* ODSDemoCGU.md in Resources */,
 				F99FF0742767AE2A006236A0 /* Assets.xcassets in Resources */,
@@ -774,7 +778,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -808,7 +812,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

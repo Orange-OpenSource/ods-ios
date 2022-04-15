@@ -36,6 +36,7 @@ public final class ODSDemoAboutConfig: NSObject {
         let appMenu = [
             ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice"))),
             ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(markDownFileName: "ODSDemoCGU"))),
+            ODSAboutItem(text: "Change log", nextView: AnyView(ShowMarkdownView(markDownFileName: "CHANGELOG"))),
         ]
 
         applicationDescription.menuList = appMenu

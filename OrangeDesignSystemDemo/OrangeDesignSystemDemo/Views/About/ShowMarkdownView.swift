@@ -21,28 +21,25 @@
 //
 //
 
+import Parma
 import SwiftUI
 
 struct ShowMarkdownView: View {
 
     let markDownFileName: String
 
-    private func markDownContent() -> AttributedString? {
-        guard let filepath = Bundle.main.url(forResource: markDownFileName, withExtension: "md") else {
-            return nil
-        }
-
-        if let fileContent = try? AttributedString(contentsOf: filepath, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)) {
-            return fileContent
-        } else {
-            return nil
-        }
-    }
+    @State var markdown: String = ""
 
     var body: some View {
         ScrollView {
-            Text(markDownContent() ?? "unable to load content !")
-        }.padding(20)
+            Parma(markdown)
+                .padding(.horizontal, 24)
+        }
+        .onAppear {
+            if let url = Bundle.main.url(forResource: markDownFileName, withExtension: "md") {
+                markdown = try! String(contentsOf: url)
+            }
+        }
     }
 }
 
