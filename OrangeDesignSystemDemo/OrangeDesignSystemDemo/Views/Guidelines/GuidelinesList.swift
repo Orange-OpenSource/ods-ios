@@ -31,16 +31,16 @@ struct GuidelinesList: View {
     var body: some View {
         let listModel = ODSListCardViewModel(title: "Guidelines",
                                              cards: [
-                                                 ODSCardModel(title: "Colors", image: "Colour") {
+                                                 ODSCardModel(title: "Colours", image: "Colour") {
                                                      ColorList().environmentObject(self.screenState)
                                                  },
-                                                 ODSCardModel(title: "Typographie", image: "Cards") {
+                                                 ODSCardModel(title: "Typography", image: "Cards") {
                                                      FontList()
                                                  },
                                                  ODSCardModel(title: "Imagery", image: "Imagery") {
                                                      Text("[see design system web site](https://system.design.orange.com/0c1af118d/p/73d2a9-imagery)")
                                                  },
-                                                 ODSCardModel(title: "Iconographie", image: "Iconography") {
+                                                 ODSCardModel(title: "Iconography", image: "Iconography") {
                                                      Text("[see design system web site](https://system.design.orange.com/0c1af118d/p/354f64-iconography/b/80118e)")
                                                  },
                                              ])
