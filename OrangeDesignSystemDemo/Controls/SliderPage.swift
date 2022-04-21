@@ -29,9 +29,9 @@ struct SliderPage: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Spacer().frame(height: 5)
                 ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
-                Anatomy(image: "SliderAnatomy", items: ["Container", "Active fill", "Track", "Handle", "Icon"])
+                ComponentAnatomy(image: "SliderAnatomy", items: ["Container", "Active fill", "Track", "Handle", "Icon"])
+               
                 VariantsTitle()
                 UnlabeledSlider()
                 LabeledSlider()
@@ -50,43 +50,6 @@ struct SliderPage_Previews: PreviewProvider {
             SliderPage()
                 .preferredColorScheme($0)
         }
-    }
-}
-
-struct Anatomy: View {
-
-    var image: String?
-    var items: [String]
-
-    var body: some View {
-        Text("Anatomy").odsFont(style: .title1)
-
-        Image(image ?? "empty")
-            .resizable()
-            .scaledToFit()
-            .padding([.leading, .trailing], 15)
-        VStack(alignment: .leading) {
-            ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-                Text("\(index + 1). \(item)").odsFont(style: .callout)
-            }
-        }
-    }
-}
-
-struct ComponentDescription: View {
-
-    var text: String
-
-    var body: some View {
-        Text(text).odsFont(style: .bodyRegular)
-    }
-}
-
-struct VariantsTitle: View {
-
-    var body: some View {
-        Text("Variants")
-            .odsFont(style: .title1)
     }
 }
 
