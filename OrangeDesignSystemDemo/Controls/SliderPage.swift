@@ -22,6 +22,7 @@
 //
 
 import Foundation
+import OrangeDesignSystem
 import SwiftUI
 
 struct SliderPage: View {
@@ -31,13 +32,11 @@ struct SliderPage: View {
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
                 ComponentAnatomy(image: "SliderAnatomy", items: ["Container", "Active fill", "Track", "Handle", "Icon"])
-               
                 VariantsTitle()
                 UnlabeledSlider()
                 LabeledSlider()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-
         }.navigationTitle("Slider")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
