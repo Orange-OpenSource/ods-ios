@@ -38,6 +38,7 @@
 		F99FF08C2767B23E006236A0 /* OrangeDesignSystemDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */; };
 		F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */; };
 		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
+		F9D1E24028126EC000F2F7CE /* CardViewDemoSandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1E23F28126EC000F2F7CE /* CardViewDemoSandbox.swift */; };
 		FD699CA9276CD0D1008670BD /* StandardButtonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */; };
 		FD8A27A92768932700784B0E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
@@ -103,6 +104,7 @@
 		F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoTests.swift; path = OrangeDesignSystemDemoTests/OrangeDesignSystemDemoTests.swift; sourceTree = "<group>"; };
 		F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITestsLaunchTests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITests.swift; sourceTree = "<group>"; };
+		F9D1E23F28126EC000F2F7CE /* CardViewDemoSandbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardViewDemoSandbox.swift; path = OrangeDesignSystemDemo/Views/Components/CardViewDemoSandbox.swift; sourceTree = "<group>"; };
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandardButtonsList.swift; path = OrangeDesignSystemDemo/Views/Components/StandardButtonsList.swift; sourceTree = "<group>"; };
 		FDC4430B27AD80C30024701B /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = ../docs; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				F90D9769280030B8006D29FC /* TextButtonComponent.swift */,
 				FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */,
 				F99FF0842767AF77006236A0 /* ShapeButtonsList.swift */,
+				F9D1E23F28126EC000F2F7CE /* CardViewDemoSandbox.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				F96A3E1B280451660086B9BF /* ColorSmall.swift in Sources */,
 				F90D976A280030B8006D29FC /* TextButtonComponent.swift in Sources */,
 				F99FF0872767AF77006236A0 /* ShapeButtonsList.swift in Sources */,
+				F9D1E24028126EC000F2F7CE /* CardViewDemoSandbox.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
