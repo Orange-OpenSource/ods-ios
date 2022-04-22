@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - [SDK] Colors
 - [SDK] About page
-- [DemoApp] Rename App
+- [DemoApp] Rename App to ODS Demo
 
 ### Added
 - [SDK] Component card small
@@ -18,6 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] New module page
 - [DemoApp] Automate the versioning in the about page
 - [DemoApp] Release note managgement
+- [DemoApp] High level App navigation
 
 ## [0.1] - 2022-01-26
 ### Added
