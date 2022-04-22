@@ -31,15 +31,6 @@ struct ControlsList: View {
             SliderPage()
 
         },
-//        TextButtonComponentModel(name: "Text Buttons", image: "Text_button") {
-//            StandardButtonsList()
-//        },
-//        TextButtonComponentModel(name: "Bars", image: "Bars"),
-//        TextButtonComponentModel(name: "Controls", image: "Controls"),
-//        TextButtonComponentModel(name: "Modals", image: "Modals"),
-//        TextButtonComponentModel(name: "Card", image: "Card") {
-//            CardViewDemoSandbox()
-//        },
     ]
 
     let columns = [
