@@ -40,10 +40,6 @@ struct ColorList: View {
 
         VStack {
             Spacer().frame(height: 10)
-            Text("Palette")
-                .odsFont(style: .title1)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
 
             Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
                 Text("On Light").tag(ColorScheme.light)
@@ -116,7 +112,7 @@ struct ColorList: View {
                     Text("Usage")
                 }.foregroundColor(ODS.coreOrange)
             }
-        }
+        }.navigationTitle("Palette")
     }
 }
 

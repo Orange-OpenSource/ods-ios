@@ -25,21 +25,11 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentsCardsList: View {
+struct ControlsList: View {
     let componentList = [
-        TextButtonComponentModel(name: "Buttons", image: "Shape_button") {
-            ShapeButtonsList()
-        },
-        TextButtonComponentModel(name: "Text Buttons", image: "Text_button") {
-            StandardButtonsList()
-        },
-        TextButtonComponentModel(name: "Bars", image: "Bars"),
-        TextButtonComponentModel(name: "Controls", image: "Controls") {
-            ControlsList()
-        },
-        TextButtonComponentModel(name: "Modals", image: "Modals"),
-        TextButtonComponentModel(name: "Card", image: "Card") {
-            CardViewDemoSandbox()
+        TextButtonComponentModel(name: "Sliders", image: "Controls") {
+            SliderPage()
+
         },
     ]
 
@@ -48,27 +38,26 @@ struct ComponentsCardsList: View {
     ]
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList) {
-                        TextButtonComponent(component: $0)
-                    }
-                    .padding([.trailing])
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 15) {
+                ForEach(componentList) {
+                    TextButtonComponent(component: $0)
                 }
+                .padding([.trailing])
             }
-            .padding([.leading, .top])
-            .navigationTitle("Components")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray5))
         }
+
+        .padding([.leading, .top])
+        .navigationTitle("Controls")
+        .navigationViewStyle(.stack)
+        .background(Color(uiColor: .systemGray5))
     }
 }
 
-struct ComponentsCardsList_Previews: PreviewProvider {
+struct ControlsList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ComponentsCardsList()
+            ControlsList()
                 .preferredColorScheme($0)
         }
     }
