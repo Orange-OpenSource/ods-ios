@@ -27,7 +27,7 @@ import SwiftUI
 
 struct ControlsList: View {
     let componentList = [
-        TextButtonComponentModel(name: "Sliders", image: "Shape_button") {
+        TextButtonComponentModel(name: "Sliders", image: "Controls") {
             SliderPage()
 
         },
