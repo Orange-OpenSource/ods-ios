@@ -24,12 +24,12 @@
 import Combine
 import SwiftUI
 
-public struct ODSCardModel: Identifiable {
-    public var title: String
-    public let image: String
-    public let subTitle: String?
-    public let description: String?
-    public let destination: AnyView?
+public class ODSCardModel: ObservableObject, Identifiable {
+    @Published public var title: String
+    @Published public var image: String
+    @Published public var subTitle: String?
+    @Published public var description: String?
+    public var destination: AnyView?
 
     public init(title: String, image: String) {
         self.title = title
@@ -59,7 +59,7 @@ public struct ODSCardModel: Identifiable {
         title
     }
 
-    public static let example = ODSCardModel(title: "Title", image: "empty", subTitle: "Subtitle", description: "Lorem ipsum dolor sit amet, at blandit nec tristique porttitor.")
+    public static let example = ODSCardModel(title: "Title", image: "empty", subTitle: "Subtitle", description: "Description")
     public static let exampleMultiline = ODSCardModel(title: "Et galisum fugiat ex omnis officia et iusto eius et animi consequuntur et distinctio magnam id autem exercitationem a sint quibusdam. Aut ipsa autem aut omnis architecto ex ratione provident eum placeat atque qui veniam quos est rerum molestiae.", image: "empty", subTitle: "Sed quasi illo in quidem consectetur sit consequatur voluptatibus sed adipisci fuga quo voluptatem similique non quidem magni! Et dolores libero ut voluptatem possimus ea minus necessitatibus qui totam culpa vel maxime distinctio id ullam dolor et optio velit", description: "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit.")
 }
 
@@ -79,7 +79,7 @@ public struct ODSCardView: View {
 }
 
 public struct CardViewCustom<ButtonContent>: View where ButtonContent: View {
-    public let element: ODSCardModel
+    @ObservedObject public var element: ODSCardModel
 
     @ViewBuilder var buttonContent: () -> ButtonContent
 
@@ -109,7 +109,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
         VStack(alignment: .leading, spacing: 0) {
 
             ZStack {
-                Image(element.image)
+                Image(element.image.isEmpty ? "empty" : element.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             }
@@ -126,7 +126,8 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
                             .lineLimit(nil)
                     }
                     Spacer()
-                    if let description = element.description {
+                    if let description = element.description, !description.isEmpty {
+
                         HStack(spacing: 0) {
                             Text(description)
                                 .font(ODSFontStyle.bodyRegular.font())

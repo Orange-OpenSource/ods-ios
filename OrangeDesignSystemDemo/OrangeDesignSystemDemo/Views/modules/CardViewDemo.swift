@@ -75,77 +75,6 @@ struct CardViewDemoList: View {
     }
 }
 
-struct CardViewDemoSandbox: View {
-
-    var body: some View {
-        ScrollView {
-            // let size = UIScreen.main.bounds.size.width / 2 - (ODSDim.padding * 2)
-            VStack(alignment: .leading, spacing: 15) {
-
-                let minimal = ODSCardModel(title: "titre", image: "empty")
-
-                let sample2 = ODSCardModel(title: "titre", image: "empty", subTitle: "desPlaceholer LabImaging", description: "Lorem ipsum dolor sit amet, at blandit nec tristique porttitor.")
-
-                NavigationLink(destination: ShapeButtonsList()) {
-                    ODSCardView(element: ODSCardModel.example)
-                        .padding()
-                }
-
-                CardViewCustom(element: ODSCardModel.example) {
-                    Group {
-                        Spacer()
-                        Button {
-                            print("Action")
-                        } label: {
-                            ODSGenericButtonContent(topText: "Added to Siri", textColor: ODSColor.coreBlack.color)
-                        }
-                        .buttonStyle(ODSFilledButtonStyle())
-                    }
-                }
-                .padding()
-
-                CardViewCustom(element: minimal) {
-                    Group {
-                        Spacer()
-                        NavigationLink(destination: ShapeButtonsList()) {
-                            ODSGenericButtonContent(topText: "Added to Siri")
-                        }.buttonStyle(ODSBorderedButtonStyle())
-                    }
-                }
-                .padding()
-
-                ODSCardView(element: ODSCardModel.exampleMultiline)
-                    .padding()
-
-                let sample1 = ODSCardModel(title: "titre", image: "empty", subTitle: "Description")
-
-                ODSCardView(element: sample1)
-                    .padding()
-
-                ODSCardView(element: sample2)
-                    .frame(width: 160)
-                    .padding()
-
-                ODSCardView(element: sample2)
-                    .frame(width: 165)
-                    .padding()
-
-                ODSCardView(element: sample2)
-                    .frame(width: 165)
-                    .padding()
-
-                ODSCardView(element: sample2)
-                    .padding()
-            }
-            .background(Color(uiColor: .systemGray5))
-            .frame(width: UIScreen.main.bounds.width)
-            // .frame(maxHeight: .infinity)
-            Spacer()
-        }.navigationTitle("Card")
-            .background(Color(uiColor: .systemGray5))
-    }
-}
-
 #if DEBUG
 struct CardViewDemoGrid_Previews: PreviewProvider {
     static var previews: some View {
@@ -172,17 +101,6 @@ struct CardViewDemoList_Previews: PreviewProvider {
         CardViewDemoList()
             .previewInterfaceOrientation(.portrait)
         CardViewDemoList()
-            .previewInterfaceOrientation(.portrait)
-            .environment(\.dynamicTypeSize, .accessibility3) // <- CONSTANT
-    }
-}
-
-struct CardViewDemoSandBox_Previews: PreviewProvider {
-    static var previews: some View {
-        //
-        CardViewDemoSandbox()
-            .previewInterfaceOrientation(.portrait)
-        CardViewDemoSandbox()
             .previewInterfaceOrientation(.portrait)
             .environment(\.dynamicTypeSize, .accessibility3) // <- CONSTANT
     }

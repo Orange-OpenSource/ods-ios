@@ -35,6 +35,7 @@ struct SliderPage: View {
                 VariantsTitle()
                 UnlabeledSlider()
                 LabeledSlider()
+                SteppedSlider()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }.navigationTitle("Slider")
@@ -63,27 +64,51 @@ struct UnlabeledSlider: View {
             Slider(
                 value: $value,
                 in: 0 ... 100)
-        }.padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 20))
+        }.padding([.leading, .trailing], 45)
     }
 }
 
 struct LabeledSlider: View {
 
-    @State private var value = 50.0
+    @State private var value = 80.0
 
     var body: some View {
 
         Text("Labeled slider")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
-            HStack {
+            Slider(
+                value: $value,
+                in: 0 ... 100) {
+                    Text("Value")
+            } minimumValueLabel: {
                 Image(systemName: "speaker.wave.1.fill")
-                Slider(
-                    value: $value,
-                    in: 0 ... 100,
-                    step: 5)
+            } maximumValueLabel: {
                 Image(systemName: "speaker.wave.3.fill")
             }
-        }
+        }.padding([.leading, .trailing], 10)
+    }
+}
+
+struct SteppedSlider: View {
+
+    @State private var value = 30.0
+
+    var body: some View {
+
+        Text("Stepped slider").odsFont(style: .title2)
+        Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
+        VStack(alignment: .center) {
+            Slider(
+                value: $value,
+                in: 0 ... 100,
+                step: 10) {
+                    Text("Value")
+            } minimumValueLabel: {
+                Text("  0")
+            } maximumValueLabel: {
+                Text("100")
+            }
+        }.padding([.leading, .trailing], 10)
     }
 }
