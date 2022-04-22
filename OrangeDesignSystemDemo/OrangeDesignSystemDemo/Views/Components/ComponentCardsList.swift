@@ -27,17 +27,19 @@ import SwiftUI
 
 struct ComponentsCardsList: View {
     let componentList = [
-        TextButtonComponentModel(name: "Buttons", image: "Shape_button") {
+        TextButtonComponentModel(name: "Button", image: "Shape_button") {
             ShapeButtonsList()
         },
-        TextButtonComponentModel(name: "Text Buttons", image: "Text_button") {
+        TextButtonComponentModel(name: "Text Button", image: "Text_button") {
             StandardButtonsList()
         },
-        TextButtonComponentModel(name: "Bars", image: "Bars"),
-        TextButtonComponentModel(name: "Controls", image: "Controls") {
-            ControlsList()
+        TextButtonComponentModel(name: "Tab Bar", image: "Bars"),
+        TextButtonComponentModel(name: "Sliders", image: "Controls") {
+            SliderPage()
         },
-        TextButtonComponentModel(name: "Modals", image: "Modals"),
+        TextButtonComponentModel(name: "Edit Text", image: "Controls") {
+            EditText()
+        },
         TextButtonComponentModel(name: "Card", image: "Card") {
             CardViewDemoSandbox()
         },

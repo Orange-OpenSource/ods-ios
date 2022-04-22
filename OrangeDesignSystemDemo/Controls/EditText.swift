@@ -25,40 +25,37 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ControlsList: View {
-    let componentList = [
-        TextButtonComponentModel(name: "Sliders", image: "Controls") {
-            SliderPage()
-
-        },
-    ]
-
-    let columns = [
-        GridItem(.adaptive(minimum: 150), alignment: .topLeading),
-    ]
+struct EditText: View {
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 15) {
-                ForEach(componentList) {
-                    TextButtonComponent(component: $0)
-                }
-                .padding([.trailing])
-            }
-        }
-
-        .padding([.leading, .top])
-        .navigationTitle("Controls")
-        .navigationViewStyle(.stack)
-        .background(Color(uiColor: .systemGray5))
+            VStack(alignment: .leading, spacing: 20) {
+                ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
+                ComponentAnatomy(image: "EditTextAnatomy", items: ["A selector", "A label"])
+                StandardEditText()
+                Spacer().frame(height: 10)
+            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+        }.navigationTitle("Slider")
+            .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray6))
     }
 }
 
-struct ControlsList_Previews: PreviewProvider {
+struct EditText_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ControlsList()
+            EditText()
                 .preferredColorScheme($0)
         }
+    }
+}
+
+struct StandardEditText: View {
+
+    @State private var textToEdit: String = "This is some editable text..."
+
+    var body: some View {
+        TextEditor(text: $textToEdit)
+            .odsFont(style: .title1)
     }
 }

@@ -85,3 +85,18 @@ extension Text {
         }
     }
 }
+
+extension TextEditor {
+    public func odsFont(style: ODSFontStyle, fixed: Bool = false) -> TextEditor {
+
+        if fixed {
+            if let text = font(style.font()).dynamicTypeSize(.medium) as? TextEditor {
+                return text
+            }
+            return self
+
+        } else {
+            return font(style.font()) as? TextEditor ?? self
+        }
+    }
+}
