@@ -33,11 +33,11 @@ struct ComponentsCardsList: View {
         TextButtonComponentModel(name: "Text Buttons", image: "Text_button") {
             StandardButtonsList()
         },
-        TextButtonComponentModel(name: "Bars", image: "Bars"),
+        // TextButtonComponentModel(name: "Bars", image: "Bars"),
         TextButtonComponentModel(name: "Controls", image: "Controls") {
             ControlsList()
         },
-        TextButtonComponentModel(name: "Modals", image: "Modals"),
+        // TextButtonComponentModel(name: "Modals", image: "Modals"),
         TextButtonComponentModel(name: "Card", image: "Card") {
             CardViewDemoSandbox()
         },
@@ -60,7 +60,6 @@ struct ComponentsCardsList: View {
             .padding([.leading, .top])
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray5))
         }
     }
 }

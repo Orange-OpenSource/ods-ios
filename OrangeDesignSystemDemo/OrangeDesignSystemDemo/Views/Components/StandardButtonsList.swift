@@ -67,6 +67,7 @@ struct StandardButtonsList: View {
                     Text("Label").odsFont(style: .bodyBold)
                 }
             }
-        }
+        }.navigationTitle("Text Buttons")
+            .navigationViewStyle(.stack)
     }
 }
