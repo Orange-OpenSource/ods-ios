@@ -184,6 +184,7 @@ struct ShapeButtonsList: View {
                 .padding(.horizontal, hPadding)
                 .disabled(true)
             }
-        }
+        }.navigationTitle("Buttons")
+            .navigationViewStyle(.stack)
     }
 }
