@@ -27,7 +27,7 @@ struct ProgressIndicator: View {
     @State private var secondsElapsed = 0.0
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     let maxSeconds: CGFloat = 100.0
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 20) {
@@ -44,10 +44,6 @@ struct ProgressIndicator: View {
         }.navigationTitle("Progress Indicator")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
-    }
-    
-    func instantiateTimer() {
-        timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     }
 }
 
