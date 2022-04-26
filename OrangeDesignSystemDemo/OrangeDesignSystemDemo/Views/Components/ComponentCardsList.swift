@@ -34,12 +34,15 @@ struct ComponentsCardsList: View {
             StandardButtonsList()
         },
         // TextButtonComponentModel(name: "Bars", image: "Bars"),
-        TextButtonComponentModel(name: "Controls", image: "Controls") {
-            ControlsList()
+        TextButtonComponentModel(name: "Slider", image: "Controls") {
+            SliderPage()
         },
         // TextButtonComponentModel(name: "Modals", image: "Modals"),
         TextButtonComponentModel(name: "Card", image: "Card") {
             CardViewDemoSandbox()
+        },
+        TextButtonComponentModel(name: "TabBar", image: "Card") {
+            TabBarPage()
         },
     ]
 

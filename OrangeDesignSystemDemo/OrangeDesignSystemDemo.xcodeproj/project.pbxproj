@@ -11,8 +11,7 @@
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F059395E28113B3500E1A02A /* ComponentTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059395D28113B3500E1A02A /* ComponentTemplate.swift */; };
 		F069EDEF2817DE36003563D0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069EDEE2817DE36003563D0 /* TabBar.swift */; };
-		F0F0C23F280FF22C00042E41 /* ControlsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F0C23E280FF22C00042E41 /* ControlsList.swift */; };
-		F0F0C241280FF53700042E41 /* SliderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F0C240280FF53700042E41 /* SliderPage.swift */; };
+		F0F0C241280FF53700042E41 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F0C240280FF53700042E41 /* Slider.swift */; };
 		F90D9768280030A6006D29FC /* FontsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* FontsList.swift */; };
 		F90D976A280030B8006D29FC /* TextButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9769280030B8006D29FC /* TextButtonComponent.swift */; };
 		F90D976C280030C4006D29FC /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976B280030C4006D29FC /* MainTabView.swift */; };
@@ -76,8 +75,7 @@
 		EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F059395D28113B3500E1A02A /* ComponentTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTemplate.swift; sourceTree = "<group>"; };
 		F069EDEE2817DE36003563D0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		F0F0C23E280FF22C00042E41 /* ControlsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsList.swift; sourceTree = "<group>"; };
-		F0F0C240280FF53700042E41 /* SliderPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderPage.swift; sourceTree = "<group>"; };
+		F0F0C240280FF53700042E41 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		F90D9765280030A6006D29FC /* FontsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsList.swift; sourceTree = "<group>"; };
 		F90D9769280030B8006D29FC /* TextButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextButtonComponent.swift; path = OrangeDesignSystemDemo/Views/Components/TextButtonComponent.swift; sourceTree = "<group>"; };
 		F90D976B280030C4006D29FC /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabView.swift; path = OrangeDesignSystemDemo/Views/MainTabView.swift; sourceTree = "<group>"; };
@@ -201,15 +199,6 @@
 			path = Template;
 			sourceTree = "<group>";
 		};
-		F0F0C23D280FF21000042E41 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				F0F0C23E280FF22C00042E41 /* ControlsList.swift */,
-				F0F0C240280FF53700042E41 /* SliderPage.swift */,
-			);
-			path = Controls;
-			sourceTree = "<group>";
-		};
 		F90D9762280030A6006D29FC /* Guidelines */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,13 +287,13 @@
 			isa = PBXGroup;
 			children = (
 				F059395C28113B0600E1A02A /* Template */,
-				F0F0C23D280FF21000042E41 /* Controls */,
 				F90D978628005A4A006D29FC /* ComponentCardsList.swift */,
 				F90D9769280030B8006D29FC /* TextButtonComponent.swift */,
 				FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */,
 				F99FF0842767AF77006236A0 /* ShapeButtonsList.swift */,
 				F9D1E23F28126EC000F2F7CE /* CardViewDemoSandbox.swift */,
 				F069EDEE2817DE36003563D0 /* TabBar.swift */,
+				F0F0C240280FF53700042E41 /* Slider.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -617,8 +606,7 @@
 				F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */,
 				F90D9768280030A6006D29FC /* FontsList.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
-				F0F0C23F280FF22C00042E41 /* ControlsList.swift in Sources */,
-				F0F0C241280FF53700042E41 /* SliderPage.swift in Sources */,
+				F0F0C241280FF53700042E41 /* Slider.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
 				F069EDEF2817DE36003563D0 /* TabBar.swift in Sources */,
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,

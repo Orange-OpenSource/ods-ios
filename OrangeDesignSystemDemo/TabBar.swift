@@ -33,12 +33,21 @@ struct TabBarPage: View {
                 ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience..")
                 ComponentAnatomy(image: "TabBarAnatomy", items: ["Container", "Label", "Icon"])
                 VariantsTitle()
-                UnlabeledSlider()
-                LabeledSlider()
-                SteppedSlider()
+                VStack {
+                    TabView {
+                        GuidelinesList()
+                            .tabItem {
+                                Label("Guidelines", image: "Guideline-DNA_32")
+                            }.navigationBarColor(tintColor: UIColor(ODS.coreOrange))
+                        ComponentsCardsList()
+                            .tabItem {
+                                Label("Components", image: "component-atom_32")
+                            }
+                    }
+                }
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Slider")
+        }.navigationTitle("Tab bar")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
     }
@@ -52,4 +61,3 @@ struct TabBarPage_Previews: PreviewProvider {
         }
     }
 }
-
