@@ -29,9 +29,11 @@ struct SliderPage: View {
 
     var body: some View {
         ScrollView {
+            Image("Controls")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
-                ComponentAnatomy(image: "SliderAnatomy", items: ["Container", "Active fill", "Track", "Handle", "Icon"])
                 VariantsTitle()
                 UnlabeledSlider()
                 LabeledSlider()
