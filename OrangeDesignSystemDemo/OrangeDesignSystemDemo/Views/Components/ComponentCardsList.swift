@@ -42,7 +42,7 @@ struct ComponentsCardsList: View {
             CardViewDemoSandbox()
         },
         TextButtonComponentModel(name: "Progress indicator", image: "Bars") {
-            ProgressIndicator()
+            ProgressIndicatorPage()
         },
     ]
 
