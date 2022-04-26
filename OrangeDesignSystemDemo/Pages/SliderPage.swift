@@ -29,9 +29,11 @@ struct SliderPage: View {
 
     var body: some View {
         ScrollView {
+            Image("Controls")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
-                ComponentAnatomy(image: "SliderAnatomy", items: ["Container", "Active fill", "Track", "Handle", "Icon"])
                 VariantsTitle()
                 UnlabeledSlider()
                 LabeledSlider()
@@ -81,11 +83,11 @@ struct LabeledSlider: View {
                 value: $value,
                 in: 0 ... 100) {
                     Text("Value")
-                } minimumValueLabel: {
-                    Image(systemName: "speaker.wave.1.fill")
-                } maximumValueLabel: {
-                    Image(systemName: "speaker.wave.3.fill")
-                }
+            } minimumValueLabel: {
+                Image(systemName: "speaker.wave.1.fill")
+            } maximumValueLabel: {
+                Image(systemName: "speaker.wave.3.fill")
+            }
         }.padding([.leading, .trailing], 10)
     }
 }
@@ -104,11 +106,11 @@ struct SteppedSlider: View {
                 in: 0 ... 100,
                 step: 10) {
                     Text("Value")
-                } minimumValueLabel: {
-                    Text("  0")
-                } maximumValueLabel: {
-                    Text("100")
-                }
+            } minimumValueLabel: {
+                Text("  0")
+            } maximumValueLabel: {
+                Text("100")
+            }
         }.padding([.leading, .trailing], 10)
     }
 }

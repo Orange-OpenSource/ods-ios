@@ -23,24 +23,20 @@
 
 import SwiftUI
 
-struct ProgressIndicator: View {
-    @State private var secondsElapsed = 0.0
-    @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-    let maxSeconds: CGFloat = 100.0
+struct ProgressIndicatorPage: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .center, spacing: 20) {
-                ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
-                    .onReceive(timer) { _ in
-                        if secondsElapsed < maxSeconds {
-                            secondsElapsed += 1
-                        } else {
-                            secondsElapsed = 0
-                        }
-                    }.padding()
-                ProgressView()
-            }
+            Image("Controls")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+
+            VStack(alignment: .leading, spacing: 20) {
+                ComponentDescription(text: "Progress indicators show users that elements or pages are loading.")
+                VariantsTitle()
+                ProgressBar()
+                ProgressIndicator()
+            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }.navigationTitle("Progress Indicator")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
@@ -50,5 +46,32 @@ struct ProgressIndicator: View {
 struct ProgressIndicator_Previews: PreviewProvider {
     static var previews: some View {
         ProgressIndicator()
+    }
+}
+
+struct ProgressBar: View {
+    @State private var secondsElapsed = 0.0
+    @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    let maxSeconds: CGFloat = 100.0
+
+    var body: some View {
+        Text("Progress bar")
+            .odsFont(style: .title2)
+        ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
+            .onReceive(timer) { _ in
+                if secondsElapsed < maxSeconds {
+                    secondsElapsed += 1
+                } else {
+                    secondsElapsed = 0
+                }
+            }
+    }
+}
+
+struct ProgressIndicator: View {
+    var body: some View {
+        Text("Progress indicator")
+            .odsFont(style: .title2)
+        ProgressView()
     }
 }

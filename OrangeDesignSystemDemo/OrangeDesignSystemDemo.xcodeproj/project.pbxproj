@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
-		CDA7623B2817F0DA00E691BC /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA7623A2817F0DA00E691BC /* ProgressIndicator.swift */; };
+		CDA7623B2817F0DA00E691BC /* ProgressIndicatorPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA7623A2817F0DA00E691BC /* ProgressIndicatorPage.swift */; };
 		F059395E28113B3500E1A02A /* ComponentTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059395D28113B3500E1A02A /* ComponentTemplate.swift */; };
-		F0F0C23F280FF22C00042E41 /* ControlsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F0C23E280FF22C00042E41 /* ControlsList.swift */; };
 		F0F0C241280FF53700042E41 /* SliderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F0C240280FF53700042E41 /* SliderPage.swift */; };
 		F90D9768280030A6006D29FC /* FontsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* FontsList.swift */; };
 		F90D976A280030B8006D29FC /* TextButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9769280030B8006D29FC /* TextButtonComponent.swift */; };
@@ -70,13 +69,12 @@
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B655A0B148F11BB69BCFF556 /* Pods-OrangeDesignSystemDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CDA7623A2817F0DA00E691BC /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
+		CDA7623A2817F0DA00E691BC /* ProgressIndicatorPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorPage.swift; sourceTree = "<group>"; };
 		E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA530275652AE0012E192 /* OrangeDesignSystemDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeDesignSystemDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA540275652AF0012E192 /* OrangeDesignSystemDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F059395D28113B3500E1A02A /* ComponentTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTemplate.swift; sourceTree = "<group>"; };
-		F0F0C23E280FF22C00042E41 /* ControlsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsList.swift; sourceTree = "<group>"; };
 		F0F0C240280FF53700042E41 /* SliderPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderPage.swift; sourceTree = "<group>"; };
 		F90D9765280030A6006D29FC /* FontsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsList.swift; sourceTree = "<group>"; };
 		F90D9769280030B8006D29FC /* TextButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextButtonComponent.swift; path = OrangeDesignSystemDemo/Views/Components/TextButtonComponent.swift; sourceTree = "<group>"; };
@@ -193,21 +191,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F03B800428182A5100F9C802 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				F0F0C240280FF53700042E41 /* SliderPage.swift */,
+				CDA7623A2817F0DA00E691BC /* ProgressIndicatorPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		F059395C28113B0600E1A02A /* Template */ = {
 			isa = PBXGroup;
 			children = (
 				F059395D28113B3500E1A02A /* ComponentTemplate.swift */,
 			);
 			path = Template;
-			sourceTree = "<group>";
-		};
-		F0F0C23D280FF21000042E41 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				F0F0C23E280FF22C00042E41 /* ControlsList.swift */,
-				F0F0C240280FF53700042E41 /* SliderPage.swift */,
-			);
-			path = Controls;
 			sourceTree = "<group>";
 		};
 		F90D9762280030A6006D29FC /* Guidelines */ = {
@@ -297,14 +295,13 @@
 		F99FF07B2767AF2B006236A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F03B800428182A5100F9C802 /* Pages */,
 				F059395C28113B0600E1A02A /* Template */,
-				F0F0C23D280FF21000042E41 /* Controls */,
 				F90D978628005A4A006D29FC /* ComponentCardsList.swift */,
 				F90D9769280030B8006D29FC /* TextButtonComponent.swift */,
 				FD699CA8276CD0D1008670BD /* StandardButtonsList.swift */,
 				F99FF0842767AF77006236A0 /* ShapeButtonsList.swift */,
 				F9D1E23F28126EC000F2F7CE /* CardViewDemoSandbox.swift */,
-				CDA7623A2817F0DA00E691BC /* ProgressIndicator.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -614,11 +611,10 @@
 				F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */,
 				FD699CA9276CD0D1008670BD /* StandardButtonsList.swift in Sources */,
 				F96A3E19280451660086B9BF /* ColorDetail.swift in Sources */,
-				CDA7623B2817F0DA00E691BC /* ProgressIndicator.swift in Sources */,
+				CDA7623B2817F0DA00E691BC /* ProgressIndicatorPage.swift in Sources */,
 				F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */,
 				F90D9768280030A6006D29FC /* FontsList.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
-				F0F0C23F280FF22C00042E41 /* ControlsList.swift in Sources */,
 				F0F0C241280FF53700042E41 /* SliderPage.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,

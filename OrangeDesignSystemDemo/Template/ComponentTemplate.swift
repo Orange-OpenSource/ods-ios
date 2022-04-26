@@ -24,26 +24,6 @@
 import Foundation
 import SwiftUI
 
-struct ComponentAnatomy: View {
-
-    var image: String?
-    var items: [String]
-
-    var body: some View {
-        Text("Anatomy").odsFont(style: .title1)
-
-        Image(image ?? "empty")
-            .resizable()
-            .scaledToFit()
-            .padding([.leading, .trailing], 15)
-        VStack(alignment: .leading) {
-            ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-                Text("\(index + 1). \(item)").odsFont(style: .callout)
-            }
-        }
-    }
-}
-
 struct ComponentDescription: View {
 
     var text: String
