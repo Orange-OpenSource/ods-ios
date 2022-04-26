@@ -41,6 +41,9 @@ struct ComponentsCardsList: View {
         TextButtonComponentModel(name: "Card", image: "Card") {
             CardViewDemoSandbox()
         },
+        TextButtonComponentModel(name: "Progress indicator", image: "Bars") {
+            ProgressIndicator()
+        },
     ]
 
     let columns = [
