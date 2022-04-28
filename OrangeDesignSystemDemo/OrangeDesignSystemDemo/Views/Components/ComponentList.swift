@@ -31,9 +31,11 @@ struct ComponentsCardsList: View {
             ShapeButtonsList()
         },
         TextButtonComponentModel(name: "Text Buttons", image: "Text_button") {
-            StandardButtonsList()
+            TextButtonPage()
         },
-        // TextButtonComponentModel(name: "Bars", image: "Bars"),
+        TextButtonComponentModel(name: "Bars", image: "Bars") {
+            TabBarPage()
+        },
         TextButtonComponentModel(name: "Sliders", image: "Controls") {
             SliderPage()
         },

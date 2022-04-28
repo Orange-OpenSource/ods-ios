@@ -25,20 +25,30 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct FontList: View {
-
-    let fontStyles = ODSFontStyle.allCases
+struct TabBarPage: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 30) {
-                ForEach(fontStyles, id: \.rawValue) { fontStyle in
-                    Text(fontStyle.rawValue).odsFont(style: fontStyle)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 30)
-                }
-            }
-        }.navigationTitle("Buttons")
+            Image("Bars")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+            VStack(alignment: .leading, spacing: 20) {
+                ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
+                VariantsTitle()
+                TabBarVariant()
+                Spacer().frame(height: 10)
+            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+        }.navigationTitle("TabBar")
             .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray6))
+    }
+}
+
+struct TabBarVariant: View {
+
+    var body: some View {
+        Image("Bars")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
     }
 }

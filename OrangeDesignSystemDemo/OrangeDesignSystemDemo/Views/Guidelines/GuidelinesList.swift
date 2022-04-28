@@ -34,7 +34,7 @@ struct GuidelinesList: View {
                                                  ODSCardModel(title: "Colours", image: "Colour") {
                                                      ColorList().environmentObject(self.screenState)
                                                  },
-                                                 ODSCardModel(title: "Typography", image: "Cards") {
+                                                 ODSCardModel(title: "Typography", image: "Typography") {
                                                      FontList()
                                                  },
                                                  ODSCardModel(title: "Imagery", image: "Imagery") {
