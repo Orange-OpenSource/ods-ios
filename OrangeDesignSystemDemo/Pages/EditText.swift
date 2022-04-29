@@ -26,7 +26,6 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-<<<<<<< HEAD:OrangeDesignSystemDemo/Pages/EditText.swift
 struct EditText: View {
 
     var body: some View {
@@ -36,43 +35,18 @@ struct EditText: View {
                 StandardEditText()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Slider")
-=======
-struct TabBarPage: View {
-
-    var body: some View {
-        ScrollView {
-            Image("Bars")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
-                ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
-                VariantsTitle()
-                TabBarVariant()
-                Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("TabBar")
->>>>>>> 723da1f5841eb60301c77738bb9dadd52aee6ed7:OrangeDesignSystemDemo/Pages/TabBarPage.swift
+        }.navigationTitle("Edit Text")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
     }
 }
 
-<<<<<<< HEAD:OrangeDesignSystemDemo/Pages/EditText.swift
 struct EditText_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
             EditText()
                 .preferredColorScheme($0)
         }
-=======
-struct TabBarVariant: View {
-
-    var body: some View {
-        Image("Bars")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
->>>>>>> 723da1f5841eb60301c77738bb9dadd52aee6ed7:OrangeDesignSystemDemo/Pages/TabBarPage.swift
     }
 }
 

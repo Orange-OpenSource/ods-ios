@@ -39,6 +39,9 @@ struct ComponentsCardsList: View {
         TextButtonComponentModel(name: "Sliders", image: "Controls") {
             SliderPage()
         },
+        TextButtonComponentModel(name: "Edit Text", image: "Controls") {
+            EditText()
+        },
         // TextButtonComponentModel(name: "Modals", image: "Modals"),
         TextButtonComponentModel(name: "Card", image: "Card") {
             CardViewDemoSandbox()

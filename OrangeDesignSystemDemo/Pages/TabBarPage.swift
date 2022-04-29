@@ -26,18 +26,6 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-<<<<<<< HEAD:OrangeDesignSystemDemo/Pages/EditText.swift
-struct EditText: View {
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
-                StandardEditText()
-                Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Slider")
-=======
 struct TabBarPage: View {
 
     var body: some View {
@@ -52,45 +40,16 @@ struct TabBarPage: View {
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }.navigationTitle("TabBar")
->>>>>>> 723da1f5841eb60301c77738bb9dadd52aee6ed7:OrangeDesignSystemDemo/Pages/TabBarPage.swift
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
     }
 }
 
-<<<<<<< HEAD:OrangeDesignSystemDemo/Pages/EditText.swift
-struct EditText_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            EditText()
-                .preferredColorScheme($0)
-        }
-=======
 struct TabBarVariant: View {
 
     var body: some View {
         Image("Bars")
             .resizable()
             .aspectRatio(contentMode: .fill)
->>>>>>> 723da1f5841eb60301c77738bb9dadd52aee6ed7:OrangeDesignSystemDemo/Pages/TabBarPage.swift
-    }
-}
-
-struct StandardEditText: View {
-
-    @State private var textToEdit: String = "This is some editable text..."
-    @FocusState private var isFocused: Bool
-
-    var body: some View {
-
-        TextField("A text field", text: $textToEdit)
-            .focused($isFocused, equals: true)
-            .font(.title2)
-            .padding(.horizontal, 20)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.isFocused = true
-                }
-            }
     }
 }
