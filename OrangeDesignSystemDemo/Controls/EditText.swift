@@ -24,6 +24,7 @@
 import Foundation
 import OrangeDesignSystem
 import SwiftUI
+import Combine
 
 struct EditText: View {
 
@@ -31,7 +32,6 @@ struct EditText: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
-                ComponentAnatomy(image: "EditTextAnatomy", items: ["A selector", "A label"])
                 StandardEditText()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
@@ -53,9 +53,45 @@ struct EditText_Previews: PreviewProvider {
 struct StandardEditText: View {
 
     @State private var textToEdit: String = "This is some editable text..."
+    enum FocusField: Hashable {
+        case field
+    }
+
+    @FocusState private var focusedField: FocusField?
 
     var body: some View {
         TextEditor(text: $textToEdit)
-            .odsFont(style: .title1)
+            .frame(minHeight: 0, maxHeight: 300)
+            .font(.title2)
+            .cornerRadius(10)
+        //.lineLimit(2)
+        //.lineSpacing(10.0)
+            .padding(.horizontal, 40)
+            .frame(minHeight: 0, maxHeight: 300)
+            .focused($focusedField, equals: .field)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.focusedField = .field
+                    if let textField = self as? UITextField {
+                        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+                    }
+                }
+            }
+//            .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)) { obj in
+//                if let textField = obj.object as? UITextField {
+//                    textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+//                }
+//            }
+
+//        TextField("A text field", text: $textToEdit)
+//            // .textFieldStyle(.roundedBorder)
+//            .focused($focusedField, equals: .field)
+//            .font(.title2)
+//            .padding(.horizontal, 20)
+//            .onAppear {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                    self.focusedField = .field
+//                }
+//            }
     }
 }
