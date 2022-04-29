@@ -53,43 +53,18 @@ struct EditText_Previews: PreviewProvider {
 struct StandardEditText: View {
 
     @State private var textToEdit: String = "This is some editable text..."
-    enum FocusField: Hashable {
-        case field
-    }
-
-    @FocusState private var focusedField: FocusField?
+    @FocusState private var isFocused: Bool
 
     var body: some View {
-        TextEditor(text: $textToEdit)
-            .frame(minHeight: 0, maxHeight: 300)
+
+        TextField("A text field", text: $textToEdit)
+            .focused($isFocused, equals: true)
             .font(.title2)
-            .cornerRadius(10)
-            // .lineLimit(2)
-            // .lineSpacing(10.0)
-            .padding(.horizontal, 40)
-            .frame(minHeight: 0, maxHeight: 300)
-            .focused($focusedField, equals: .field)
+            .padding(.horizontal, 20)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.focusedField = .field
-    
+                    self.isFocused = true
                 }
             }
-//            .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)) { obj in
-//                if let textField = obj.object as? UITextField {
-//                    textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
-//                }
-//            }
-
-//        TextField("A text field", text: $textToEdit)
-//            // .textFieldStyle(.roundedBorder)
-//            .focused($focusedField, equals: .field)
-//            .font(.title2)
-//            .padding(.horizontal, 20)
-//            .onAppear {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                    self.focusedField = .field
-//                }
-//            }
     }
 }
