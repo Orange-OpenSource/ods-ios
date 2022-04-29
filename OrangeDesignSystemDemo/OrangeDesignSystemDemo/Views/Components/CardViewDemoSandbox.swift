@@ -56,9 +56,6 @@ struct CardViewDemoSandbox: View {
                         }
                     }
                 }
-                .onAppear {
-                    example.title = ODSCardModel.example.title
-                }
                 .padding()
 
                 /*** Custom */
