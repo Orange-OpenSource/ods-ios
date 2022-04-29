@@ -21,35 +21,55 @@
 //
 //
 
-import Combine
 import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarPage: View {
+struct EditTextPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Bars")
+            Image("Controls")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
-                ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
+                ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
                 VariantsTitle()
-                TabBarVariant()
+                StandardEditText()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("TabBar")
+        }.navigationTitle("Edit Text")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
     }
 }
 
-struct TabBarVariant: View {
+struct EditText_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            EditTextPage()
+                .preferredColorScheme($0)
+        }
+    }
+}
+
+struct StandardEditText: View {
+
+    @State private var textToEdit: String = "This is some editable text..."
+    @FocusState private var isFocused: Bool
 
     var body: some View {
-        Image("Bars")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
+
+        VStack {
+            TextField("A text field", text: $textToEdit)
+                .focused($isFocused, equals: true)
+                .padding(.horizontal, 20)
+                .font(ODSFontStyle.headline.font())
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.isFocused = true
+                    }
+                }
+        }
     }
 }
