@@ -40,7 +40,7 @@ struct ComponentsCardsList: View {
             SliderPage()
         },
         TextButtonComponentModel(name: "Edit Text", image: "Controls") {
-            EditText()
+            EditTextPage()
         },
         // TextButtonComponentModel(name: "Modals", image: "Modals"),
         TextButtonComponentModel(name: "Card", image: "Card") {

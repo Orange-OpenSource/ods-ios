@@ -26,7 +26,7 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct EditText: View {
+struct EditTextPage: View {
 
     var body: some View {
         ScrollView {
@@ -48,7 +48,7 @@ struct EditText: View {
 struct EditText_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            EditText()
+            EditTextPage()
                 .preferredColorScheme($0)
         }
     }
