@@ -27,78 +27,76 @@ import SwiftUI
 
 struct CardViewDemoSandbox: View {
     @StateObject var example = ODSCardModel(title: ODSCardModel.example.title, image: ODSCardModel.example.image)
-    @State var showReset = false
-    @State var longText = false
-    @State var hideSubtitle = true
-    @State var hideDescription = true
     @State var showImage = false
+    @State var showSubtitle = false
+    @State var showDescription = false
+    @State var showButton = false
+
+    private func resetSwitches() {
+        showImage = false
+        showSubtitle = false
+        showDescription = false
+        showButton = false
+    }
 
     var body: some View {
         ScrollView {
-            // let size = UIScreen.main.bounds.size.width / 2 - (ODSDim.padding * 2)
             VStack(alignment: .leading, spacing: 15) {
 
                 /*** Card View */
                 CardViewCustom(element: example) {
 
                     Group {
-                        if showReset {
+                        if showButton {
                             Spacer()
-                            Button {
-                                print("Reset")
-                                showReset = false
-                                longText = false
-                                hideSubtitle = true
-                                hideDescription = true
-                                showImage = false
-                            } label: {
-                                ODSGenericButtonContent(topText: "Reset", textColor: ODSColor.coreBlack.color)
+                            Button {} label: {
+                                ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
                             }
                             .buttonStyle(ODSFilledButtonStyle())
                         }
                     }
                 }
-                .onAppear {
-                    // example = longText ? ODSCardModel.exampleMultiline : ODSCardModel.example
-                    example.title = longText ? ODSCardModel.exampleMultiline.title : ODSCardModel.example.title
-                }
                 .padding()
 
                 /*** Custom */
                 VStack {
-                    Toggle(isOn: $longText) {
-                        Text("Replace with very long text").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
-                    }.onChange(of: longText) { _ in
-                        print(longText)
-                        example.title = longText ? ODSCardModel.exampleMultiline.title : ODSCardModel.example.title
-                        example.subTitle = hideSubtitle ? "" : longText ? ODSCardModel.exampleMultiline.subTitle : ODSCardModel.example.subTitle
-                        example.description = hideDescription ? "" : longText ? ODSCardModel.exampleMultiline.description : ODSCardModel.example.description
-                    }
-                    Toggle(isOn: $showReset) {
-                        Text("Add reset button").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
-                    }
-                    Toggle(isOn: $hideSubtitle) {
-                        Text("Remove Subtitle").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
-
-                    }.onChange(of: hideSubtitle) { _ in
-                        example.subTitle = hideSubtitle ? "" : longText ? ODSCardModel.exampleMultiline.subTitle : ODSCardModel.example.subTitle
-                    }
-                    Toggle(isOn: $hideDescription) {
-                        Text("Remove Description").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
-
-                    }.onChange(of: hideDescription) { _ in
-                        example.description = hideDescription ? "" : longText ? ODSCardModel.exampleMultiline.description : ODSCardModel.example.description
-                    }
                     Toggle(isOn: $showImage) {
-                        Text("Add top image").font(ODSFontStyle.bodyRegular.font())
+                        Text("Show image").font(ODSFontStyle.bodyRegular.font())
                             .foregroundColor(.primary)
                     }.onChange(of: showImage) { _ in
                         example.image = showImage ? "Card" : ""
                     }
+
+                    Toggle(isOn: $showSubtitle) {
+                        Text("Show subtitle").font(ODSFontStyle.bodyRegular.font())
+                            .foregroundColor(.primary)
+                    }.onChange(of: showSubtitle) { _ in
+                        example.subTitle = showSubtitle ? ODSCardModel.example.subTitle : ""
+                    }
+
+                    Toggle(isOn: $showDescription) {
+                        Text("Show description").font(ODSFontStyle.bodyRegular.font())
+                            .foregroundColor(.primary)
+
+                    }.onChange(of: showDescription) { _ in
+                        example.description = showDescription ? ODSCardModel.example.description : ""
+                    }
+
+                    Toggle(isOn: $showButton) {
+                        Text("Show button").font(ODSFontStyle.bodyRegular.font())
+                            .foregroundColor(.primary)
+                    }
+
+                    Spacer().frame(height: 30)
+
+                    Button {
+                        resetSwitches()
+                    } label: {
+                        ODSGenericButtonContent(topText: "Reset", textColor: ODS.coreBlack)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(ODSFilledButtonStyle())
+
                 }.padding()
             }
             .background(Color(uiColor: .systemGray5))

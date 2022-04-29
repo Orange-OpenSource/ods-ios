@@ -38,7 +38,7 @@ struct FontList: View {
                         .padding(.leading, 30)
                 }
             }
-        }.navigationTitle("Buttons")
+        }.navigationTitle("Typography")
             .navigationViewStyle(.stack)
     }
 }
