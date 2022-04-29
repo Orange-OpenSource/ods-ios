@@ -25,52 +25,38 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentsCardsList: View {
-    let componentList = [
-        TextButtonComponentModel(name: "Button", image: "Shape_button") {
-            ShapeButtonsList()
-        },
-        TextButtonComponentModel(name: "Text Button", image: "Text_button") {
-            StandardButtonsList()
-        },
-        TextButtonComponentModel(name: "Tab Bar", image: "Bars"),
-        TextButtonComponentModel(name: "Slider", image: "Controls") {
-            SliderPage()
-        },
-        TextButtonComponentModel(name: "Edit Text", image: "Controls") {
-            EditText()
-        },
-        TextButtonComponentModel(name: "Card", image: "Card") {
-            CardViewDemoSandbox()
-        },
-    ]
-
-    let columns = [
-        GridItem(.adaptive(minimum: 150), alignment: .topLeading),
-    ]
+struct TabBarPage: View {
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList) {
-                        TextButtonComponent(component: $0)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience..")
+                ComponentAnatomy(image: "TabBarAnatomy", items: ["Container", "Label", "Icon"])
+                VariantsTitle()
+                VStack {
+                    TabView {
+                        GuidelinesList()
+                            .tabItem {
+                                Label("Guidelines", image: "Guideline-DNA_32")
+                            }.navigationBarColor(tintColor: UIColor(ODS.coreOrange))
+                        ComponentsCardsList()
+                            .tabItem {
+                                Label("Components", image: "component-atom_32")
+                            }
                     }
-                    .padding([.trailing])
                 }
-            }
-            .padding([.leading, .top])
-            .navigationTitle("Components")
+                Spacer().frame(height: 10)
+            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+        }.navigationTitle("Tab bar")
             .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray5))
-        }
+            .background(Color(uiColor: .systemGray6))
     }
 }
 
-struct ComponentsCardsList_Previews: PreviewProvider {
+struct TabBarPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ComponentsCardsList()
+            TabBarPage()
                 .preferredColorScheme($0)
         }
     }
