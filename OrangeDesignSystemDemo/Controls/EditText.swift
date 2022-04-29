@@ -21,10 +21,10 @@
 //
 //
 
+import Combine
 import Foundation
 import OrangeDesignSystem
 import SwiftUI
-import Combine
 
 struct EditText: View {
 
@@ -64,17 +64,15 @@ struct StandardEditText: View {
             .frame(minHeight: 0, maxHeight: 300)
             .font(.title2)
             .cornerRadius(10)
-        //.lineLimit(2)
-        //.lineSpacing(10.0)
+            // .lineLimit(2)
+            // .lineSpacing(10.0)
             .padding(.horizontal, 40)
             .frame(minHeight: 0, maxHeight: 300)
             .focused($focusedField, equals: .field)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.focusedField = .field
-                    if let textField = self as? UITextField {
-                        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
-                    }
+    
                 }
             }
 //            .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)) { obj in
