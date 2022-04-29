@@ -48,10 +48,13 @@ struct TextButtonPage: View {
 struct LabelButton: View {
 
     var body: some View {
+
         Text("Label")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
-            ODSGenericButtonContent(topText: "Button", textColor: ODS.coreOrange)
+            Button {} label: {
+                ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
+            }
         }.padding([.leading, .trailing], 45)
     }
 }
@@ -64,7 +67,9 @@ struct IconButton: View {
         Text("Icon")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
-            ODSGenericButtonContent(imageDescription: imageDescriptionPlus)
+            Button {} label: {
+                ODSGenericButtonContent(imageDescription: imageDescriptionPlus)
+            }
         }.padding([.leading, .trailing], 45)
     }
 }

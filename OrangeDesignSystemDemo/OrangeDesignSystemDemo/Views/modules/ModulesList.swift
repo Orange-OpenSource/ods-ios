@@ -34,7 +34,7 @@ struct ModulesList: View {
                                                      .environmentObject(AboutConfigDemo.instance.applicationDescription)
                                                      .navigationBarTitleDisplayMode(.inline)
                                              },
-                                             ODSCardModel(title: "ListCardView", image: "Cards") {
+                                             ODSCardModel(title: "Card view", image: "Cards") {
                                                  CardViewDemo()
                                              }])
 

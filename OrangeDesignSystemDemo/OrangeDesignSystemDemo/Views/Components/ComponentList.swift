@@ -42,7 +42,6 @@ struct ComponentsCardsList: View {
         TextButtonComponentModel(name: "Edit Text", image: "Controls") {
             EditTextPage()
         },
-        // TextButtonComponentModel(name: "Modals", image: "Modals"),
         TextButtonComponentModel(name: "Card", image: "Card") {
             CardViewDemoSandbox()
         },
@@ -68,6 +67,7 @@ struct ComponentsCardsList: View {
             .padding([.leading, .top])
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray5))
         }
     }
 }
