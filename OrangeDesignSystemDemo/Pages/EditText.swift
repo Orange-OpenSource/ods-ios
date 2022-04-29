@@ -30,8 +30,12 @@ struct EditText: View {
 
     var body: some View {
         ScrollView {
+            Image("Controls")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
+                VariantsTitle()
                 StandardEditText()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
@@ -57,14 +61,16 @@ struct StandardEditText: View {
 
     var body: some View {
 
-        TextField("A text field", text: $textToEdit)
-            .focused($isFocused, equals: true)
-            .font(.title2)
-            .padding(.horizontal, 20)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.isFocused = true
+        VStack {
+            TextField("A text field", text: $textToEdit)
+                .focused($isFocused, equals: true)
+                .padding(.horizontal, 20)
+                .font(ODSFontStyle.headline.font())
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.isFocused = true
+                    }
                 }
-            }
+        }
     }
 }
