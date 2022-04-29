@@ -25,92 +25,46 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct SliderPage: View {
+struct TextButtonPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Controls")
+            Image("Text_button")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
-                ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
+                ComponentDescription(text: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.")
                 VariantsTitle()
-                UnlabeledSlider()
-                LabeledSlider()
-                SteppedSlider()
+                LabelButton()
+                IconButton()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Slider")
+        }.navigationTitle("Text Buttons")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
     }
 }
 
-struct SliderPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            SliderPage()
-                .preferredColorScheme($0)
-        }
-    }
-}
-
-struct UnlabeledSlider: View {
-
-    @State private var value = 50.0
+struct LabelButton: View {
 
     var body: some View {
-        Text("Unlabeled slider")
+        Text("Label")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: 0 ... 100)
+            ODSGenericButtonContent(topText: "Button", textColor: ODS.coreOrange)
         }.padding([.leading, .trailing], 45)
     }
 }
 
-struct LabeledSlider: View {
+struct IconButton: View {
 
-    @State private var value = 80.0
+    let imageDescriptionPlus = ODSImageDescription(image: Image(systemName: "plus.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange)
 
     var body: some View {
-
-        Text("Labeled slider")
+        Text("Icon")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: 0 ... 100) {
-                    Text("Value")
-            } minimumValueLabel: {
-                Image(systemName: "speaker.wave.1.fill")
-            } maximumValueLabel: {
-                Image(systemName: "speaker.wave.3.fill")
-            }
-        }.padding([.leading, .trailing], 10)
-    }
-}
-
-struct SteppedSlider: View {
-
-    @State private var value = 30.0
-
-    var body: some View {
-
-        Text("Stepped slider").odsFont(style: .title2)
-        Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
-        VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: 0 ... 100,
-                step: 10) {
-                    Text("Value")
-            } minimumValueLabel: {
-                Text("  0")
-            } maximumValueLabel: {
-                Text("100")
-            }
-        }.padding([.leading, .trailing], 10)
+            ODSGenericButtonContent(imageDescription: imageDescriptionPlus)
+        }.padding([.leading, .trailing], 45)
     }
 }
