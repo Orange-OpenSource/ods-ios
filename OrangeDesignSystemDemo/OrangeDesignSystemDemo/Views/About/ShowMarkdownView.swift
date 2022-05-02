@@ -26,12 +26,14 @@ import SwiftUI
 
 struct ShowMarkdownView: View {
 
+    let title: String
     let markDownFileName: String
 
     @State var markdown: String = ""
 
     var body: some View {
         ScrollView {
+            Spacer().frame(height: 10)
             Parma(markdown)
                 .padding(.horizontal, 24)
         }
@@ -39,14 +41,14 @@ struct ShowMarkdownView: View {
             if let url = Bundle.main.url(forResource: markDownFileName, withExtension: "md") {
                 markdown = try! String(contentsOf: url)
             }
-        }
+        }.navigationTitle(title)
     }
 }
 
 struct ShowMarkdownView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ShowMarkdownView(markDownFileName: "ODSDemoPrivacyNotice").preferredColorScheme($0)
+            ShowMarkdownView(title: "Privacy Policy", markDownFileName: "ODSDemoPrivacyNotice").preferredColorScheme($0)
         }
     }
 }
