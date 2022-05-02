@@ -97,8 +97,8 @@ public class ApplicationDescription: ObservableObject {
 
     public var menuList = [
         ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-        ODSAboutItem(text: "External Web Browser", nextView: AnyView(EmptyView()), url: "https://system.design.orange.com/"),
-        ODSAboutItem(text: "Web View", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
+        ODSAboutItem(text: "External web browser", nextView: AnyView(EmptyView()), url: "https://system.design.orange.com/"),
+        ODSAboutItem(text: "Web view", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
     ]
 
     public init(applicationName: String, applicationVersion: String, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
