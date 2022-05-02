@@ -46,9 +46,9 @@ public struct AboutView: View {
                     .odsLeadingPadding()
                     .odsTrailingPadding()
                 Spacer().odsSpacerSmall()
-
-            }.listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets())
+            }
+            .listRowSeparator(.hidden)
+            .listRowInsets(EdgeInsets())
 
             ODSAboutItemView()
         }.listStyle(PlainListStyle())
@@ -97,9 +97,8 @@ public class ApplicationDescription: ObservableObject {
 
     public var menuList = [
         ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
-        ODSAboutItem(text: "Safari Web Browser", nextView: AnyView(EmptyView()), url: "https://www.apple.com"),
-        ODSAboutItem(text: "Button", nextView: AnyView(Button("Test") {})),
-        ODSAboutItem(text: "Safari View", nextView: AnyView(Text("Error View")), safari: "https://www.apple.com"),
+        ODSAboutItem(text: "External web browser", nextView: AnyView(EmptyView()), url: "https://system.design.orange.com/"),
+        ODSAboutItem(text: "Web view", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
     ]
 
     public init(applicationName: String, applicationVersion: String, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
