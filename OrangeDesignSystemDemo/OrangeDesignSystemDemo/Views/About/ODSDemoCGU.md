@@ -1,4 +1,3 @@
-
 #### General Conditions of Use (GCUs)
 
 ## «**ODS Demo**» Service for APPLE iOS
