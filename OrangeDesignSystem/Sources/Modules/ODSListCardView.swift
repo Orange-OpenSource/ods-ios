@@ -44,16 +44,16 @@ public struct ODSListCardView: View {
 
     public var body: some View {
         ScrollView {
+            Spacer().frame(height: 15)
             LazyVGrid(columns: columns, spacing: ODSDim.ODSSpacing.regular) {
                 ForEach(list.cards, id: \.title) { card in
                     NavigationLink(destination: card.destination) {
                         ODSCardView(element: card)
                     }
-                }
-                .padding([.trailing])
+                }.padding([.leading, .trailing])
             }
+            Spacer().frame(height: 15)
         }
-        .padding([.leading, .top])
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(list.title)
         .navigationViewStyle(.stack)
