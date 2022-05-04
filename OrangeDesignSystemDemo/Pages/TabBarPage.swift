@@ -30,7 +30,7 @@ struct TabBarPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Bars")
+            Image("empty")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
@@ -39,7 +39,7 @@ struct TabBarPage: View {
                 TabBarVariant()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("TabBar")
+        }.navigationTitle("Tab bar")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
     }
@@ -48,7 +48,7 @@ struct TabBarPage: View {
 struct TabBarVariant: View {
 
     var body: some View {
-        Image("Bars")
+        Image("empty")
             .resizable()
             .aspectRatio(contentMode: .fill)
     }
