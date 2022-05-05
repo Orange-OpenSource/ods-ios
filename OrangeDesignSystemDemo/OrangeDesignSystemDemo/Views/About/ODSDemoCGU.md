@@ -2,7 +2,7 @@
 
 ## «**ODS Demo**» Service for APPLE iOS
 
-### PREAMBLE
+### Preamble
 
 The « ODS » Service allows Users to view in a mobile app the Orange Design System (ODS) implementation on a Device compatible with Apple iOS (« **Service** »).
 
@@ -16,7 +16,7 @@ Access to and use of the Service are subject to these General Conditions of Use 
 
 THE USER AGREES NOT TO USE THE SERVICE FOR ILLEGAL USE OR PROHIBITED BY THESE CGU OR ANY APPLICABLE LAW.
 
-### ARTICLE 1 - DEFINITIONS
+### Article 1 - Definitions
 
 In these GCU, the following terms shall, unless otherwise stated, have the following meanings:
 
@@ -28,11 +28,11 @@ In these GCU, the following terms shall, unless otherwise stated, have the follo
 
 **User** : means a natural person, whether adult or a minor who has obtained prior permission from their legal representative to use the Service, who uses the Service for their own needs and for personal, non-commercial purposes.
 
-### ARTICLE 2 – PURPOSE
+### Article 2 – Purpose
 
 These GCU's govern Orange Innovation' provision and the User's use of the Service.
 
-### ARTICLE 3 – ACCESS TO THE SERVICE
+### Article 3 – Access to the service
 
 #### 3.1 Technical Requirements
 
@@ -44,11 +44,11 @@ The responsibility of Orange Innovation will in no case be accepted if the User 
 
 The User confirms that the information he or she provides to Orange Innovation is continuously reliable, accurate and current.
 
-### ARTICLE 4 - COST OF THE SERVICE
+### Article 4 - Cost of the service
 
 Orange Innovation provides the Service to the User for free, excluding any mobile phone subscription costs or charges for connection and access to the internet or Networks.
 
-### ARTICLE 5 – USER OBLIGATIONS
+### Article 5 – User obligations
 
 #### 5.1 Unauthorized use of account
 
@@ -62,7 +62,7 @@ The User warrants that he/she (i) does not live in a country subject to an embar
 
 The User warrants that he/she will comply with the terms of any third-party contracts related to the User's use of the Application. In particular, the User must confirm that he/she is not in violation of the terms of his/her data or mobile phone subscriptions.
 
-### ARTICLE 6 - ORANGE INNOVATION' RESPONSIBILITY
+### Article 6 - Orange innovation's responsability
 
 #### 6.1 Resources necessary for the running of the Service
 
@@ -84,13 +84,13 @@ The User and Orange Innovation agree and accept that with respect to the operati
 
 The User and Orange Innovation agree and accept that Apple and its subsidiaries are parties to these GCUs and that, from the moment these GCUs are accepted by the User, Apple may demand that the User fulfil his/her contractual obligations under these GCUs.
 
- ### ARTICLE 7 – SUSPENSION AND TERMINATION
+ ### Article 7 – Suspension and termination
 
 Orange Innovation reserves the right to stop providing the Service in the Apple AppStore without prior notice and without penalty. Orange Innovation may at any time permanently stop providing the Service.
 
 Upon termination, the User will still be bound by the guarantees made and by the exclusions and limitations of Orange Innovation liability. In addition, Orange Innovation will not be liable to Users or any third party for any termination of access to the Service.
 
- ### ARTICLE 8 – PERSONAL DATA
+ ### Article 8 – Personal data
 
 The User is solely responsible for the data that he/she provides via the Service and warrants that such data is completely accurate and complete.
 
@@ -98,7 +98,7 @@ No personal data is collected or processed under the Service. In case of collect
 
 The User may contact Orange Innovation with any questions regarding Orange Innovation' data retention policies in accordance with Article 11 below.
 
-### ARTICLE 9 - INTELLECTUAL PROPERTY
+### Article 9 - Intellectual property
 
 #### 9.1 User Rights
 
@@ -118,12 +118,12 @@ Orange Innovation hereby grants the User a non-exclusive, non-transferrable, rev
 
 These GCUs do not give the User, with respect to the Application, its source code and/or software components, the right to sublicense, assign, use, copy, modify, distribute, access, disassemble, decompile or translate the Application, except as expressly authorised by applicable law.
 
- ### ARTICLE 10 – APPLICABLE LAW AND GENERAL PROVISIONS
+ ### Article 10 – Applicable law and general provisions
 
 If one or more terms in these GCUs are deemed null and void by application of a law or regulation, or as the result of a final decision of a competent court, the remaining terms continue in full force and applicability. Any terms deemed null and void shall be replaced by terms similar in content to the invalid terms.
 
 These GCU are governed by French law. The parties will not be held responsible, or considered to have breached these GCU, in the event of any delay or incomplete performance caused by a force majeure as defined by the case law of the French courts.
 
-### ARTICLE 11 - CONTACT
+### Article 11 - Contact
 
 Any claim, dispute concerning the Service, request to access, rectify or delete personal data, must be emailed to Orange Innovation in the 'Contact' section of the Application.

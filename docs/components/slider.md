@@ -1,7 +1,7 @@
 ---
 layout: detail
-title: Standard button
-description: A standard button is based on ODSGenericButtonContent
+title: Slider
+description: A standard slider branded for Orange
 ---
 
 
