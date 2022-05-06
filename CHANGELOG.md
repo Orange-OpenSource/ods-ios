@@ -2,6 +2,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [DemoApp] Update Button page with new design specifications
+
+### Added
 
 ## [0.2.0] - 2022-05-05
 ### Changed
