@@ -17,6 +17,12 @@ toc2:
         url: /ods-ios/components/standardButton_docs
       - page: Shaped button
         url: /ods-ios/components/shapedButton_docs
+      - page: Slider
+        url: /ods-ios/components/slider_docs
+      - page: Progress indicator
+        url: /ods-ios/components/progressIndicator_docs
+      - page: Edit text
+        url: /ods-ios/components/editText_docs
       
   - title: Modules
     subfolderitems:
