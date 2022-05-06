@@ -26,7 +26,6 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct CardViewDemoSandbox: View {
-    @StateObject var example = ODSCardModel(title: ODSCardModel.example.title, image: ODSCardModel.example.image)
     @State var showImage = false
     @State var showSubtitle = false
     @State var showDescription = false
@@ -39,6 +38,14 @@ struct CardViewDemoSandbox: View {
         showButton = false
     }
 
+    var example: ODSCardModel {
+        ODSCardModel(
+            title: "Title",
+            image: showImage ? "Card" : "",
+            subTitle: showSubtitle ? ODSCardModel.example.subTitle : "",
+            description: showDescription ? ODSCardModel.example.description : "")
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
@@ -46,14 +53,11 @@ struct CardViewDemoSandbox: View {
                 /*** Card View */
                 CardViewCustom(element: example) {
 
-                    Group {
-                        if showButton {
-                            Spacer()
-                            Button {} label: {
-                                ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
-                            }
-                            .buttonStyle(ODSFilledButtonStyle())
+                    if showButton {
+                        Button {} label: {
+                            ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
                         }
+                        .buttonStyle(ODSFilledButtonStyle())
                     }
                 }
                 .padding()
@@ -63,23 +67,16 @@ struct CardViewDemoSandbox: View {
                     Toggle(isOn: $showImage) {
                         Text("Show image").font(ODSFontStyle.bodyRegular.font())
                             .foregroundColor(.primary)
-                    }.onChange(of: showImage) { _ in
-                        example.image = showImage ? "Card" : ""
                     }
 
                     Toggle(isOn: $showSubtitle) {
                         Text("Show subtitle").font(ODSFontStyle.bodyRegular.font())
                             .foregroundColor(.primary)
-                    }.onChange(of: showSubtitle) { _ in
-                        example.subTitle = showSubtitle ? ODSCardModel.example.subTitle : ""
                     }
 
                     Toggle(isOn: $showDescription) {
                         Text("Show description").font(ODSFontStyle.bodyRegular.font())
                             .foregroundColor(.primary)
-
-                    }.onChange(of: showDescription) { _ in
-                        example.description = showDescription ? ODSCardModel.example.description : ""
                     }
 
                     Toggle(isOn: $showButton) {
@@ -98,9 +95,9 @@ struct CardViewDemoSandbox: View {
                     .buttonStyle(ODSFilledButtonStyle())
 
                 }.padding()
+                    .font(ODSFontStyle.bodyRegular.font())
+                    .foregroundColor(.primary)
             }
-            .background(Color(uiColor: .systemGray5))
-            Spacer()
 
         }.navigationTitle("Card")
             .background(Color(uiColor: .systemGray5))
@@ -110,12 +107,16 @@ struct CardViewDemoSandbox: View {
 #if DEBUG
 struct CardViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
-        //
-        CardViewDemoSandbox()
-            .previewInterfaceOrientation(.portrait)
-        CardViewDemoSandbox()
-            .previewInterfaceOrientation(.portrait)
-            .environment(\.dynamicTypeSize, .accessibility3) // <- CONSTANT
+        NavigationView {
+            CardViewDemoSandbox()
+                .previewInterfaceOrientation(.portrait)
+        }
+
+        NavigationView {
+            CardViewDemoSandbox()
+                .previewInterfaceOrientation(.portrait)
+                .environment(\.dynamicTypeSize, .accessibility3)
+        }
     }
 }
 #endif
