@@ -35,7 +35,6 @@ public struct ODSCardModel {
         self.image = image
         self.subTitle = subTitle
         self.description = description
-        // destination = AnyView(Text(title))
     }
 
     public init<Destination>(title: String, image: String, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
