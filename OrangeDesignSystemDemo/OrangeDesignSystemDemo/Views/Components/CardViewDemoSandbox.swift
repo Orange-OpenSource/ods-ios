@@ -65,23 +65,19 @@ struct CardViewDemoSandbox: View {
                 /*** Custom */
                 VStack {
                     Toggle(isOn: $showImage) {
-                        Text("Show image").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
+                        Text("Show image")
                     }
 
                     Toggle(isOn: $showSubtitle) {
-                        Text("Show subtitle").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
+                        Text("Show subtitle")
                     }
 
                     Toggle(isOn: $showDescription) {
-                        Text("Show description").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
+                        Text("Show description")
                     }
 
                     Toggle(isOn: $showButton) {
-                        Text("Show button").font(ODSFontStyle.bodyRegular.font())
-                            .foregroundColor(.primary)
+                        Text("Show button")
                     }
 
                     Spacer().frame(height: 30)
