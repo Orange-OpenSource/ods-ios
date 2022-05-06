@@ -39,7 +39,8 @@ struct ColorDetail: View {
             BackgroundBlurView().edgesIgnoringSafeArea(.all)
 
             VStack(alignment: .leading) {
-                Rectangle().fill(color.color)
+
+                Rectangle().fill(color.color(forScheme: screenState.colorScheme))
                     .frame(width: 300, height: 150)
 
                 VStack(alignment: .leading, spacing: 3) {

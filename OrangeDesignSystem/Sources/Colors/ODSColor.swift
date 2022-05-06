@@ -114,6 +114,13 @@ public enum ODSColor: String {
         return Color(rawValue, bundle: Bundle.bundle)
     }
 
+    public func color(forScheme scheme: ColorScheme) -> Color {
+        let rgbColor = rgb(forScheme: scheme)
+        return Color(red: Double(rgbColor.red) / 255.0,
+                     green: Double(rgbColor.green) / 255.0,
+                     blue: Double(rgbColor.blue) / 255.0)
+    }
+
     public func rgb(forScheme scheme: ColorScheme) -> RGB {
         switch self {
         case .coreOrange:
