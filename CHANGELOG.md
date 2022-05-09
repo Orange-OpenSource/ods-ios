@@ -3,6 +3,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color
+- [DemoApp] Bug #102 Fixed : Card bad display
+- [DemoApp] Bug #101 Fixed : Progress indicator not centered
+
 ## [0.2.0] - 2022-05-05
 ### Changed
 - [SDK] Colors
