@@ -24,9 +24,9 @@
 import Foundation
 
 public struct RGB {
-    let red: Int
-    let green: Int
-    let blue: Int
+    public let red: Int
+    public let green: Int
+    public let blue: Int
 
     init(_ red: Int, _ green: Int, _ blue: Int) {
         self.red = red

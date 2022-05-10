@@ -50,19 +50,19 @@ struct CardViewDemoGrid: View {
 
     var body: some View {
         ScrollView {
+            Spacer().frame(height: 15)
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(cards, id: \.title) { item in
                     NavigationLink(destination: EmptyView()) {
                         ODSCardView(element: item)
                     }
                 }
-                .padding([.trailing])
-            }
-        }
-        .padding([.leading, .top, .bottom])
-        .navigationTitle("Page title")
-        .navigationViewStyle(.stack)
-        .background(Color(uiColor: .systemGray5))
+            }.padding([.leading, .trailing])
+            Spacer().frame(height: 15)
+
+        }.navigationTitle("Page title")
+            .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray5))
     }
 }
 
