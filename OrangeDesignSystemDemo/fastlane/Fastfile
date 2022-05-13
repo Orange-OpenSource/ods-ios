@@ -15,6 +15,7 @@ platform :ios do
   lane :increment do
     timestamp = sh 'date +%s'
     timestamp = timestamp.strip!
+    timestamp+= "dev"
     increment_build_number(xcodeproj: ODS_PROJECT, build_number: timestamp)
   end
   
