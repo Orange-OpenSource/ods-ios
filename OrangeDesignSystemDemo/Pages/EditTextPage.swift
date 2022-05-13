@@ -33,7 +33,7 @@ struct EditTextPage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
-                ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
+                ComponentDescription(text: "Edit text modified  is the selection of textual areas leading to the display of buttons allowing interaction")
                 VariantsTitle()
                 StandardEditText()
                 Spacer().frame(height: 10)

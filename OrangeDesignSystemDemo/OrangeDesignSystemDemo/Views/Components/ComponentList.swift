@@ -28,7 +28,7 @@ import SwiftUI
 struct ComponentsCardsList: View {
     let componentList = [
         TextButtonComponentModel(name: "Button", image: "Shape_button") {
-            ShapeButtonsList()
+            ShapeButton()
         },
         TextButtonComponentModel(name: "Text Button", image: "Text_button") {
             TextButtonPage()
