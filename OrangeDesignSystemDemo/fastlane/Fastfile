@@ -3,9 +3,11 @@ APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
 DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
 
+
 ODS_WORKSPACE = "OrangeDesignSystemDemo.xcworkspace"
 ODS_PROJECT = "OrangeDesignSystemDemo.xcodeproj"
 ODS_SCHEME = "OrangeDesignSystemDemo"
+ODS_PROPROFILE = ENV["ODS_PROPROFILE"]
 TESTFLIGHT_GROUPS = ENV["TESTFLIGHT_GROUPS"]
 
 default_platform(:ios)
@@ -49,6 +51,7 @@ platform :ios do
   end
 
   lane :qualif do
+
     build_and_upload
 
   end
@@ -60,6 +63,13 @@ platform :ios do
 
   desc "upload to testflight"
   private_lane :build_and_upload do
+
+    update_app_identifier(
+      xcodeproj: "#{ODS_PROJECT}",
+      plist_path: "#{ODS_SCHEME}/Info.plist",
+      app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+    )
+
     api_key = app_store_connect_api_key(
       key_id: APPLE_KEY_ID,
       issuer_id: APPLE_ISSUER_ID,
@@ -75,15 +85,18 @@ platform :ios do
     )
 
     build_app(
+      workspace: ODS_WORKSPACE,
+        clean: true,
         scheme: ODS_SCHEME,
         output_directory: 'build/',
-        archive_path: 'build/',
+        #archive_path: 'build/',
         output_name: 'odsDemo',
         configuration: 'Release',
         include_symbols: true,
         export_method: 'app-store',
         xcargs: '-allowProvisioningUpdates'
     )
+
 
     version = get_app_version
     puts version
