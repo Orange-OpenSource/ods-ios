@@ -6,6 +6,7 @@ DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
 ODS_WORKSPACE = "OrangeDesignSystemDemo.xcworkspace"
 ODS_PROJECT = "OrangeDesignSystemDemo.xcodeproj"
 ODS_SCHEME = "OrangeDesignSystemDemo"
+TESTFLIGHT_GROUPS = ENV["TESTFLIGHT_GROUPS"]
 
 default_platform(:ios)
 
@@ -15,23 +16,22 @@ platform :ios do
   lane :increment do
     timestamp = sh 'date +%s'
     timestamp = timestamp.strip!
-    timestamp+= "dev"
     increment_build_number(xcodeproj: ODS_PROJECT, build_number: timestamp)
   end
-  
+
   desc "Prepare release notes"
   lane :prepare_release do
     version = get_app_version
-  
+
     stamp_changelog(
-        changelog_path: '../CHANGELOG.md',   
+        changelog_path: '../CHANGELOG.md',
         section_identifier: version,
         git_tag: version,
         should_stamp_date: true,
         stamp_datetime_format: '%F'
     )
   end
-  
+
   desc "build IPA file"
   lane :build do
     cocoapods(
@@ -47,9 +47,19 @@ platform :ios do
       export_method: 'development'
     )
   end
-  
+
+  lane :qualif do
+    buildAndUpload
+
+  end
+
+  lane :prod do
+    build_and_upload
+
+  end
+
   desc "upload to testflight"
-  lane :beta do
+  private lane :build_and_upload do
     api_key = app_store_connect_api_key(
       key_id: APPLE_KEY_ID,
       issuer_id: APPLE_ISSUER_ID,
@@ -57,14 +67,14 @@ platform :ios do
       duration: 500,
       in_house: false
     )
-  
+
     increment
-    
+
     cocoapods(
         clean_install: true
     )
 
-    gym(
+    build_app(
         scheme: ODS_SCHEME,
         output_directory: 'build/',
         archive_path: 'build/',
@@ -90,11 +100,11 @@ platform :ios do
         skip_waiting_for_build_processing: false,
         distribute_external: true,
         notify_external_testers: true,
-        groups: "ods-ext",
+        groups: TESTFLIGHT_GROUPS,
         api_key: api_key
     )
   end
- 
+
   def get_app_version
     version = get_version_number(
         xcodeproj: ODS_PROJECT,
@@ -102,25 +112,26 @@ platform :ios do
     )
     return version
   end
- 
- 
+
+
   def read_current_release_notes
     version = get_app_version
-    
+
     changelog=read_changelog(
         changelog_path: '../CHANGELOG.md',
         section_identifier: "[#{version}]",
     )
-    
+
     if changelog == ""
         changelog=read_changelog(
             changelog_path: '../CHANGELOG.md',
             section_identifier: "[Unreleased]",
         )
     end
-    
+
     puts "current relase notes = #{changelog}"
     return changelog
   end
 
 end
+

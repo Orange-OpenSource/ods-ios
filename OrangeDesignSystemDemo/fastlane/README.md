@@ -39,6 +39,14 @@ Prepare release notes
 
 build IPA file
 
+### ios qualif
+
+```sh
+[bundle exec] fastlane ios qualif
+```
+
+
+
 ### ios beta
 
 ```sh

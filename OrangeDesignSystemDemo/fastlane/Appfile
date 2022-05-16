@@ -1,3 +1,12 @@
-app_identifier(ENV["ODS_DEVELOPER_APP_IDENTIFIER"])
 apple_id(ENV["ODS_FASTLANE_APPLE_ID"])
 team_id(ENV["ODS_DEVELOPER_PORTAL_TEAM_ID"])
+
+for_lane :qualif do
+  app_identifier(ENV["ODS_DEVELOPER_APP_IDENTIFIER_QUALIF"])app_identifier 'soft.cocoa.ods-ios-demo.qualif'
+  ENV["TESTFLIGHT_GROUPS"] =  "qualif-team"
+end
+
+for_lane :prod do
+  app_identifier(ENV["ODS_DEVELOPER_APP_IDENTIFIER_PROD"]) #app_identifier 'soft.cocoa.ods-ios-demo'
+  ENV["TESTFLIGHT_GROUPS"] =  "public-access"
+end
