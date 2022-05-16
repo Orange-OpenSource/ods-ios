@@ -47,13 +47,13 @@ build IPA file
 
 
 
-### ios beta
+### ios prod
 
 ```sh
-[bundle exec] fastlane ios beta
+[bundle exec] fastlane ios prod
 ```
 
-upload to testflight
+
 
 ----
 
