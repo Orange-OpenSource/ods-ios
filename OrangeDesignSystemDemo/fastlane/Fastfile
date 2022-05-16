@@ -49,7 +49,7 @@ platform :ios do
   end
 
   lane :qualif do
-    buildAndUpload
+    build_and_upload
 
   end
 
