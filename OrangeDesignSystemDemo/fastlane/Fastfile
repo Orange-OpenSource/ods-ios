@@ -14,14 +14,20 @@ default_platform(:ios)
 
 platform :ios do
 
-  desc "update bundler number"
+  # ------------------------------------------------------------
+  # UPDATE BUILD NUMBER WITH TIMESTAMP
+  # ------------------------------------------------------------
+  desc "UPDATE BUILD NUMBER WITH TIMESTAMP"
   lane :increment do
     timestamp = sh 'date +%s'
     timestamp = timestamp.strip!
     increment_build_number(xcodeproj: ODS_PROJECT, build_number: timestamp)
   end
 
-  desc "Prepare release notes"
+  # ------------------------------------------------------------
+  # READ AND SET NEXT RELEASE NOTE IN CHANLOG
+  # ------------------------------------------------------------
+  desc "READ AND SET NEXT RELEASE NOTE IN CHANLOG"
   lane :prepare_release do
     version = get_app_version
 
@@ -34,7 +40,10 @@ platform :ios do
     )
   end
 
-  desc "build IPA file"
+  # ------------------------------------------------------------
+  # BUILD DEBUG APP
+  # ------------------------------------------------------------
+  desc "BUILD DEBUG APP"
   lane :build do
     cocoapods(
       clean_install: true
@@ -50,18 +59,32 @@ platform :ios do
     )
   end
 
+  # ------------------------------------------------------------
+  # BUILD & UPLOAD TO TESTFLIGHT QUALIF APP
+  # ------------------------------------------------------------
+  desc "BUILD & UPLOAD TO TESTFLIGHT QUALIF APP"
   lane :qualif do
-
+    Dir.chdir "../OrangeDesignSystemDemo/Assets.xcassets" do
+        sh "rm -Rf AppIconRelease.appiconset"
+        sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
+    end
     build_and_upload
 
   end
 
+  # ------------------------------------------------------------
+  # BUILD & UPLOAD TO TESTFLIGHT PROD APP
+  # ------------------------------------------------------------
+  desc "BUILD & UPLOAD TO TESTFLIGHT PROD APP"
   lane :prod do
     build_and_upload
-
   end
 
-  desc "upload to testflight"
+
+  # -----------------------------------------------------------------------
+  # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
+  # -----------------------------------------------------------------------
+  desc "PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)"
   private_lane :build_and_upload do
 
     update_app_identifier(
