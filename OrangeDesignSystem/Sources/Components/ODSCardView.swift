@@ -25,19 +25,19 @@ import SwiftUI
 
 public struct ODSCardModel {
     public var title: String
-    public var image: String?
+    public var image: Image?
     public var subTitle: String?
     public var description: String?
     public var destination: AnyView?
 
-    public init(title: String, image: String? = nil, subTitle: String? = nil, description: String? = nil) {
+    public init(title: String, image: Image? = nil, subTitle: String? = nil, description: String? = nil) {
         self.title = title
         self.image = image
         self.subTitle = subTitle
         self.description = description
     }
 
-    public init<Destination>(title: String, image: String? = nil, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
+    public init<Destination>(title: String, image: Image? = nil, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
         self.title = title
         self.image = image
         self.subTitle = subTitle
@@ -45,8 +45,8 @@ public struct ODSCardModel {
         self.destination = AnyView(destination())
     }
 
-    public static let example = ODSCardModel(title: "Title", image: "", subTitle: "Subtitle", description: "Description")
-    public static let exampleMultiline = ODSCardModel(title: "Et galisum fugiat ex omnis officia et iusto eius et animi consequuntur et distinctio magnam id autem exercitationem a sint quibusdam. Aut ipsa autem aut omnis architecto ex ratione provident eum placeat atque qui veniam quos est rerum molestiae.", image: "", subTitle: "Sed quasi illo in quidem consectetur sit consequatur voluptatibus sed adipisci fuga quo voluptatem similique non quidem magni! Et dolores libero ut voluptatem possimus ea minus necessitatibus qui totam culpa vel maxime distinctio id ullam dolor et optio velit", description: "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit.")
+    public static let example = ODSCardModel(title: "Title", image: nil, subTitle: "Subtitle", description: "Description")
+    public static let exampleMultiline = ODSCardModel(title: "Et galisum fugiat ex omnis officia et iusto eius et animi consequuntur et distinctio magnam id autem exercitationem a sint quibusdam. Aut ipsa autem aut omnis architecto ex ratione provident eum placeat atque qui veniam quos est rerum molestiae.", image: nil, subTitle: "Sed quasi illo in quidem consectetur sit consequatur voluptatibus sed adipisci fuga quo voluptatem similique non quidem magni! Et dolores libero ut voluptatem possimus ea minus necessitatibus qui totam culpa vel maxime distinctio id ullam dolor et optio velit", description: "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit.")
 }
 
 public struct ODSCardView: View {
@@ -93,17 +93,15 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
     var body: some View {
 
         VStack(alignment: .leading, spacing: 0) {
-            if let image = element.image, !image.isEmpty {
-                Image(image, bundle: Bundle.main)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            }
+            element.image?
+                .resizable()
+                .aspectRatio(contentMode: .fill)
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(element.title)
                     .multilineTextAlignment(.leading)
                     .font(ODSFontStyle.bodyBold.font())
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 if let subTitle = element.subTitle, !subTitle.isEmpty {
                     Text(subTitle)
                 }

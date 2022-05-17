@@ -27,25 +27,25 @@ import SwiftUI
 
 struct ComponentsCardsList: View {
     let componentList = [
-        TextButtonComponentModel(name: "Button", image: "Shape_button") {
+        TextButtonComponentModel(name: "Button", image: Image("Shape_button")) {
             ShapeButtonsList()
         },
-        TextButtonComponentModel(name: "Text Button", image: "Text_button") {
+        TextButtonComponentModel(name: "Text Button", image: Image("Text_button")) {
             TextButtonPage()
         },
-        TextButtonComponentModel(name: "Bar", image: "empty") {
+        TextButtonComponentModel(name: "Bar", image: Image("empty")) {
             TabBarPage()
         },
-        TextButtonComponentModel(name: "Slider", image: "Controls") {
+        TextButtonComponentModel(name: "Slider", image: Image("Controls")) {
             SliderPage()
         },
-        TextButtonComponentModel(name: "Edit Text", image: "empty") {
+        TextButtonComponentModel(name: "Edit Text", image: Image("empty")) {
             EditTextPage()
         },
-        TextButtonComponentModel(name: "Card", image: "Card") {
+        TextButtonComponentModel(name: "Card", image: Image("Card")) {
             CardViewDemoSandbox()
         },
-        TextButtonComponentModel(name: "Progress indicator", image: "empty") {
+        TextButtonComponentModel(name: "Progress indicator", image: Image("empty")) {
             ProgressIndicatorPage()
         },
     ]

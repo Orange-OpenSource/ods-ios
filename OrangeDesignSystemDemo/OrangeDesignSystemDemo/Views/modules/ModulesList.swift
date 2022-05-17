@@ -29,12 +29,12 @@ struct ModulesList: View {
         AboutConfigDemo.instance.configure()
 
         let listModel = ODSListCardViewModel(title: "Modules",
-                                             cards: [ODSCardModel(title: "About", image: "AboutImage") {
+                                             cards: [ODSCardModel(title: "About", image: Image("AboutImage")) {
                                                  AboutView()
                                                      .environmentObject(AboutConfigDemo.instance.applicationDescription)
                                                      .navigationBarTitleDisplayMode(.inline)
                                              },
-                                             ODSCardModel(title: "Card view", image: "Cards") {
+                                             ODSCardModel(title: "Card view", image: Image("Cards")) {
                                                  CardViewDemo()
                                              }])
 

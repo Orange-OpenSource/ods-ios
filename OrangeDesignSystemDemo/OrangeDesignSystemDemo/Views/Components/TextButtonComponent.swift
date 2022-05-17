@@ -26,16 +26,16 @@ import SwiftUI
 
 struct TextButtonComponentModel: Identifiable {
     let name: String
-    let image: String
+    let image: Image
     let destination: AnyView?
 
-    init<Destination>(name: String, image: String, @ViewBuilder destination: () -> Destination) where Destination: View {
+    init<Destination>(name: String, image: Image, @ViewBuilder destination: () -> Destination) where Destination: View {
         self.name = name
         self.image = image
         self.destination = AnyView(destination())
     }
 
-    init(name: String, image: String) {
+    init(name: String, image: Image) {
         self.name = name
         self.image = image
         destination = AnyView(Text(name + " to be define"))
@@ -71,7 +71,7 @@ struct TextButtonComponent: View {
 
 struct TextButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        let component = TextButtonComponentModel(name: "Text", image: "Shape_button")
+        let component = TextButtonComponentModel(name: "Text", image: Image("Shape_button"))
         ForEach(ColorScheme.allCases, id: \.self) {
             TextButtonComponent(component: component)
                 .frame(width: 200)

@@ -41,7 +41,7 @@ struct CardViewDemoSandbox: View {
     var example: ODSCardModel {
         ODSCardModel(
             title: "Title",
-            image: showImage ? "Card" : nil,
+            image: showImage ? Image("Card") : nil,
             subTitle: showSubtitle ? ODSCardModel.example.subTitle : nil,
             description: showDescription ? ODSCardModel.exampleMultiline.description : nil)
     }
