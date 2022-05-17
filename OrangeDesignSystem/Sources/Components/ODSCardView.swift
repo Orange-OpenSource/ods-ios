@@ -25,19 +25,19 @@ import SwiftUI
 
 public struct ODSCardModel {
     public var title: String
-    public var image: String
+    public var image: String?
     public var subTitle: String?
     public var description: String?
     public var destination: AnyView?
 
-    public init(title: String, image: String, subTitle: String? = nil, description: String? = nil) {
+    public init(title: String, image: String? = nil, subTitle: String? = nil, description: String? = nil) {
         self.title = title
         self.image = image
         self.subTitle = subTitle
         self.description = description
     }
 
-    public init<Destination>(title: String, image: String, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
+    public init<Destination>(title: String, image: String? = nil, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
         self.title = title
         self.image = image
         self.subTitle = subTitle
@@ -93,14 +93,17 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
     var body: some View {
 
         VStack(alignment: .leading, spacing: 0) {
-            Image(element.image.isEmpty ? "ods_empty" : element.image,
-                  bundle: element.image.isEmpty ? Bundle.bundle : Bundle.main)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            if let image = element.image, !image.isEmpty {
+                Image(image, bundle: Bundle.main)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(element.title)
+                    .multilineTextAlignment(.leading)
                     .font(ODSFontStyle.bodyBold.font())
+                    .frame(maxWidth: .infinity)
                 if let subTitle = element.subTitle, !subTitle.isEmpty {
                     Text(subTitle)
                 }
