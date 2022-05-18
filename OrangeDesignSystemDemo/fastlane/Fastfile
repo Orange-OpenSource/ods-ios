@@ -8,7 +8,6 @@ ODS_WORKSPACE = "OrangeDesignSystemDemo.xcworkspace"
 ODS_PROJECT = "OrangeDesignSystemDemo.xcodeproj"
 ODS_SCHEME = "OrangeDesignSystemDemo"
 ODS_PROPROFILE = ENV["ODS_PROPROFILE"]
-TESTFLIGHT_GROUPS = ENV["TESTFLIGHT_GROUPS"]
 
 default_platform(:ios)
 
@@ -64,12 +63,12 @@ platform :ios do
   # ------------------------------------------------------------
   desc "BUILD & UPLOAD TO TESTFLIGHT QUALIF APP"
   lane :qualif do
+    puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
     Dir.chdir "../OrangeDesignSystemDemo/Assets.xcassets" do
         sh "rm -Rf AppIconRelease.appiconset"
         sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
     end
     build_and_upload
-
   end
 
   # ------------------------------------------------------------
@@ -77,6 +76,7 @@ platform :ios do
   # ------------------------------------------------------------
   desc "BUILD & UPLOAD TO TESTFLIGHT PROD APP"
   lane :prod do
+    puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
     build_and_upload
   end
 
@@ -86,6 +86,7 @@ platform :ios do
   # -----------------------------------------------------------------------
   desc "PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)"
   private_lane :build_and_upload do
+    TESTFLIGHT_GROUPS = ENV['TESTFLIGHT_GROUPS']
 
     update_app_identifier(
       xcodeproj: "#{ODS_PROJECT}",
