@@ -36,9 +36,6 @@ struct ShapeButtonPage: View {
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed")
                 VariantsTitle()
-                FullWidthImportantMainCallToAction()
-                FullWidthFilled()
-                FullWidthOutlined()
                 ButtonList()
 
                 Spacer().frame(height: 10)
@@ -50,59 +47,10 @@ struct ShapeButtonPage: View {
     }
 }
 
-private struct FullWidthImportantMainCallToAction: View {
-
-    var body: some View {
-
-        Text("Important - Main call to action")
-            .odsFont(style: .title2)
-        VStack(alignment: .center) {
-            Button {} label: {
-                ODSGenericButtonContent(topText: "Button", textColor: .black)
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(ODSFilledButtonStyle())
-        }.padding([.leading, .trailing], 45)
-    }
-}
-
-private struct FullWidthFilled: View {
-
-    var body: some View {
-
-        Text("Filled")
-            .odsFont(style: .title2)
-        VStack(alignment: .center) {
-            Button {} label: {
-                ODSGenericButtonContent(topText: "Button", textColor: Color(UIColor.systemGray6))
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(ODSFilledButtonStyle(backgroundColor: Color(UIColor.label)))
-        }.padding([.leading, .trailing], 45)
-    }
-}
-
-private struct FullWidthOutlined: View {
-
-    var body: some View {
-
-        Text("Outlined")
-            .odsFont(style: .title2)
-        VStack(alignment: .center) {
-            Button {} label: {
-                ODSGenericButtonContent(topText: "Button", textColor: Color(UIColor.label))
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(ODSBorderedButtonStyle())
-        }.padding([.leading, .trailing], 45)
-    }
-}
-
 private struct ButtonList: View {
 
     var body: some View {
-        Text("Button list :")
-        ForEach(DemoButton.buttons, id: \.name) { button in
+        ForEach(DemoButton.buttons, id: \.order) { button in
 
             Text(button.name)
                 .odsFont(style: .title2)
@@ -110,35 +58,31 @@ private struct ButtonList: View {
             VStack(alignment: .center) {
                 Button {} label: {
                     ODSGenericButtonContent(topText: "Button", textColor: button.textColor)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: button.isFullWidth ? .infinity : nil)
                 }
-                .buttonStyle(ODSFilledButtonStyle(backgroundColor: button.BGColor)) // .buttonStyle(button.buttonStyle.style())
+                .buttonStyle(ODSButtonStyle(backgroundColor: button.BGColor, isFilled: button.isFilled))
             }.padding([.leading, .trailing], 45)
         }
     }
 }
 
-// Need to use custom view modifier !
-
-enum ODSButtonStyle {
-    case filled
-    case outlined
-
-//    func style() -> ButtonStyle {
-//        return ODSBorderedButtonStyle()
-//    }
-}
-
 private struct DemoButton {
+    let order: Int
     let name: String
     let textColor: Color
     let BGColor: Color?
-    let buttonStyle: ODSButtonStyle
+    let isFilled: Bool
+    let isFullWidth: Bool
 
     static var buttons: [DemoButton] { [
-        DemoButton(name: "Important - Main call to action", textColor: Color(.black), BGColor: nil, buttonStyle: .filled),
-        DemoButton(name: "Filled", textColor: Color(.systemGray6), BGColor: Color(.label), buttonStyle: .outlined),
-        DemoButton(name: "Outlined", textColor: Color(.label), BGColor: nil, buttonStyle: .outlined),
+        DemoButton(order: 1, name: "Important - Main call to action", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: true),
+        DemoButton(order: 2, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: true),
+        DemoButton(order: 3, name: "Outlined", textColor: Color(.label), BGColor: nil, isFilled: false, isFullWidth: true),
+        DemoButton(order: 4, name: "Important - Main call to action", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: false),
+        DemoButton(order: 5, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: false),
+        DemoButton(order: 6, name: "Outlined", textColor: Color(.label), BGColor: nil, isFilled: false, isFullWidth: false),
+        DemoButton(order: 7, name: "Negative", textColor: Color(.systemBackground), BGColor: ODS.functionalNegative, isFilled: true, isFullWidth: true),
+        DemoButton(order: 8, name: "Positive", textColor: Color(.systemBackground), BGColor: ODS.functionalPositive, isFilled: true, isFullWidth: true),
     ]
     }
 }

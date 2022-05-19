@@ -3,7 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- [DemoApp] Update Button page with new design specifications
+- [DemoApp] Update text button and shaped button pages with new design specifications
 
 ### Added
 

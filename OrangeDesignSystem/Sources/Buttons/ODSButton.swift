@@ -114,7 +114,30 @@ public struct ODSBorderedButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         ODSBorderedButtonLabel(configuration: configuration, backgroundColor: backgroundColor)
-            .contentShape(Rectangle())
+    }
+}
+
+// MARK: Main Button style
+
+public struct ODSButtonStyle: ButtonStyle {
+    let backgroundColor: Color?
+    let isFilled: Bool
+
+    public init(backgroundColor: Color? = nil, isFilled: Bool = false) {
+        if let backgroundColor = backgroundColor {
+            self.backgroundColor = backgroundColor
+        } else {
+            self.backgroundColor = isFilled ? ODS.coreOrange : nil
+        }
+        self.isFilled = isFilled
+    }
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        if isFilled {
+            return AnyView(ODSFilledButtonLabel(configuration: configuration, backgroundColor: backgroundColor))
+        } else {
+            return AnyView(ODSBorderedButtonLabel(configuration: configuration, backgroundColor: backgroundColor))
+        }
     }
 }
 
