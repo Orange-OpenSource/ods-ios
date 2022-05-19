@@ -35,17 +35,18 @@ struct TextButtonPage: View {
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.")
                 VariantsTitle()
+                IconButton(name: "Icon (add)", imageName: "plus.circle")
+                IconButton(name: "Icon (info)", imageName: "info.circle")
                 LabelButton()
-                IconButton()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Text Buttons")
+        }.navigationTitle("Text Button")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))
     }
 }
 
-struct LabelButton: View {
+private struct LabelButton: View {
 
     var body: some View {
 
@@ -59,17 +60,27 @@ struct LabelButton: View {
     }
 }
 
-struct IconButton: View {
+private struct IconButton: View {
 
-    let imageDescriptionPlus = ODSImageDescription(image: Image(systemName: "plus.circle").renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange)
+    let name: String
+    let imageName: String
 
     var body: some View {
-        Text("Icon")
+        Text(name)
             .odsFont(style: .title2)
         VStack(alignment: .center) {
             Button {} label: {
-                ODSGenericButtonContent(imageDescription: imageDescriptionPlus)
+                ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))
             }
         }.padding([.leading, .trailing], 45)
+    }
+}
+
+struct TextButtonPage_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            TextButtonPage()
+                .preferredColorScheme($0)
+        }
     }
 }

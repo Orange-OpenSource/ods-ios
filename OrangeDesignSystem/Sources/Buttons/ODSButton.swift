@@ -90,8 +90,12 @@ public struct ODSGenericButtonContent: View {
 public struct ODSFilledButtonStyle: ButtonStyle {
     let backgroundColor: Color?
 
-    public init(backgroundColor: Color = ODS.coreOrange) {
-        self.backgroundColor = backgroundColor
+    public init(backgroundColor: Color? = ODS.coreOrange) {
+        if let backgroundColor = backgroundColor {
+            self.backgroundColor = backgroundColor
+        } else {
+            self.backgroundColor = ODS.coreOrange
+        }
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
