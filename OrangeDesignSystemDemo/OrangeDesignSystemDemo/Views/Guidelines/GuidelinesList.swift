@@ -37,12 +37,6 @@ struct GuidelinesList: View {
                                                  ODSCardModel(title: "Typography", image: "Typography") {
                                                      FontList()
                                                  },
-                                                 ODSCardModel(title: "Imagery", image: "Imagery") {
-                                                     Text("[see design system web site](https://system.design.orange.com/0c1af118d/p/73d2a9-imagery)")
-                                                 },
-                                                 ODSCardModel(title: "Iconography", image: "Iconography") {
-                                                     Text("[see design system web site](https://system.design.orange.com/0c1af118d/p/354f64-iconography/b/80118e)")
-                                                 },
                                              ])
         return NavigationView {
             ODSListCardView()
