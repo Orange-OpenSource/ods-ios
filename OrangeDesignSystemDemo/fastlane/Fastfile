@@ -3,35 +3,46 @@ APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
 DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
 
+
 ODS_WORKSPACE = "OrangeDesignSystemDemo.xcworkspace"
 ODS_PROJECT = "OrangeDesignSystemDemo.xcodeproj"
 ODS_SCHEME = "OrangeDesignSystemDemo"
+ODS_PROPROFILE = ENV["ODS_PROPROFILE"]
 
 default_platform(:ios)
 
 platform :ios do
 
-  desc "update bundler number"
+  # ------------------------------------------------------------
+  # UPDATE BUILD NUMBER WITH TIMESTAMP
+  # ------------------------------------------------------------
+  desc "UPDATE BUILD NUMBER WITH TIMESTAMP"
   lane :increment do
     timestamp = sh 'date +%s'
     timestamp = timestamp.strip!
     increment_build_number(xcodeproj: ODS_PROJECT, build_number: timestamp)
   end
-  
-  desc "Prepare release notes"
+
+  # ------------------------------------------------------------
+  # READ AND SET NEXT RELEASE NOTE IN CHANLOG
+  # ------------------------------------------------------------
+  desc "READ AND SET NEXT RELEASE NOTE IN CHANLOG"
   lane :prepare_release do
     version = get_app_version
-  
+
     stamp_changelog(
-        changelog_path: '../CHANGELOG.md',   
+        changelog_path: '../CHANGELOG.md',
         section_identifier: version,
         git_tag: version,
         should_stamp_date: true,
         stamp_datetime_format: '%F'
     )
   end
-  
-  desc "build IPA file"
+
+  # ------------------------------------------------------------
+  # BUILD DEBUG APP
+  # ------------------------------------------------------------
+  desc "BUILD DEBUG APP"
   lane :build do
     cocoapods(
       clean_install: true
@@ -46,9 +57,43 @@ platform :ios do
       export_method: 'development'
     )
   end
-  
-  desc "upload to testflight"
-  lane :beta do
+
+  # ------------------------------------------------------------
+  # BUILD & UPLOAD TO TESTFLIGHT QUALIF APP
+  # ------------------------------------------------------------
+  desc "BUILD & UPLOAD TO TESTFLIGHT QUALIF APP"
+  lane :qualif do
+    puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
+    Dir.chdir "../OrangeDesignSystemDemo/Assets.xcassets" do
+        sh "rm -Rf AppIconRelease.appiconset"
+        sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
+    end
+    build_and_upload
+  end
+
+  # ------------------------------------------------------------
+  # BUILD & UPLOAD TO TESTFLIGHT PROD APP
+  # ------------------------------------------------------------
+  desc "BUILD & UPLOAD TO TESTFLIGHT PROD APP"
+  lane :prod do
+    puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
+    build_and_upload
+  end
+
+
+  # -----------------------------------------------------------------------
+  # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
+  # -----------------------------------------------------------------------
+  desc "PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)"
+  private_lane :build_and_upload do
+    TESTFLIGHT_GROUPS = ENV['TESTFLIGHT_GROUPS']
+
+    update_app_identifier(
+      xcodeproj: "#{ODS_PROJECT}",
+      plist_path: "#{ODS_SCHEME}/Info.plist",
+      app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+    )
+
     api_key = app_store_connect_api_key(
       key_id: APPLE_KEY_ID,
       issuer_id: APPLE_ISSUER_ID,
@@ -56,23 +101,26 @@ platform :ios do
       duration: 500,
       in_house: false
     )
-  
+
     increment
-    
+
     cocoapods(
         clean_install: true
     )
 
-    gym(
+    build_app(
+      workspace: ODS_WORKSPACE,
+        clean: true,
         scheme: ODS_SCHEME,
         output_directory: 'build/',
-        archive_path: 'build/',
+        #archive_path: 'build/',
         output_name: 'odsDemo',
         configuration: 'Release',
         include_symbols: true,
         export_method: 'app-store',
         xcargs: '-allowProvisioningUpdates'
     )
+
 
     version = get_app_version
     puts version
@@ -89,11 +137,11 @@ platform :ios do
         skip_waiting_for_build_processing: false,
         distribute_external: true,
         notify_external_testers: true,
-        groups: "ods-ext",
+        groups: TESTFLIGHT_GROUPS,
         api_key: api_key
     )
   end
- 
+
   def get_app_version
     version = get_version_number(
         xcodeproj: ODS_PROJECT,
@@ -101,25 +149,26 @@ platform :ios do
     )
     return version
   end
- 
- 
+
+
   def read_current_release_notes
     version = get_app_version
-    
+
     changelog=read_changelog(
         changelog_path: '../CHANGELOG.md',
         section_identifier: "[#{version}]",
     )
-    
+
     if changelog == ""
         changelog=read_changelog(
             changelog_path: '../CHANGELOG.md',
             section_identifier: "[Unreleased]",
         )
     end
-    
+
     puts "current relase notes = #{changelog}"
     return changelog
   end
 
 end
+
