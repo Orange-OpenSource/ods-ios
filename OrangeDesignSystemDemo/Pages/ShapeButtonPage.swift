@@ -58,7 +58,10 @@ private struct ButtonList: View {
             VStack(alignment: .center) {
                 HStack {
                     Button {} label: {
-                        ODSGenericButtonContent(topText: "Button", textColor: button.textColor)
+                        ODSGenericButtonContent(
+                            imageDescription: button.withIcon ? ODSImageDescription(image: Image(systemName: "plus").renderingMode(.template), imageWidth: 15, imageHeight: 15, foregroundColor: button.textColor) : nil,
+                            topText: "Button", 
+                            textColor: button.textColor)
                             .frame(maxWidth: button.isFullWidth ? .infinity : nil)
                     }
                     .frame(maxWidth: .infinity)
@@ -76,16 +79,33 @@ private struct DemoButton {
     let BGColor: Color?
     let isFilled: Bool
     let isFullWidth: Bool
+    let withIcon: Bool
+
+    public init(order: Int, name: String, textColor: Color, BGColor: Color? = nil, isFilled: Bool = false, isFullWidth: Bool = false, withIcon: Bool = false) {
+        self.order = order
+        self.name = name
+        self.textColor = textColor
+        self.BGColor = BGColor
+        self.isFilled = isFilled
+        self.isFullWidth = isFullWidth
+        self.withIcon = withIcon
+    }
 
     static var buttons: [DemoButton] { [
-        DemoButton(order: 1, name: "Important - Main call to action (full width)", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: true),
+        DemoButton(order: 1, name: "Important (full width)", textColor: Color(.black), isFilled: true, isFullWidth: true),
         DemoButton(order: 2, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: true),
-        DemoButton(order: 3, name: "Outlined", textColor: Color(.label), BGColor: nil, isFilled: false, isFullWidth: true),
-        DemoButton(order: 4, name: "Important - Main call to action (width adapted to the content)", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: false),
-        DemoButton(order: 5, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: false),
-        DemoButton(order: 6, name: "Outlined", textColor: Color(.label), BGColor: nil, isFilled: false, isFullWidth: false),
+        DemoButton(order: 3, name: "Outlined", textColor: Color(.label), isFilled: false, isFullWidth: true),
+        DemoButton(order: 4, name: "Important (variable width)", textColor: Color(.black), isFilled: true),
+        DemoButton(order: 5, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true),
+        DemoButton(order: 6, name: "Outlined", textColor: Color(.label)),
         DemoButton(order: 7, name: "Negative", textColor: Color(.systemBackground), BGColor: ODS.functionalNegative, isFilled: true, isFullWidth: true),
         DemoButton(order: 8, name: "Positive", textColor: Color(.systemBackground), BGColor: ODS.functionalPositive, isFilled: true, isFullWidth: true),
+        DemoButton(order: 9, name: "Important with icon (full width)", textColor: Color(.black), isFilled: true, isFullWidth: true, withIcon: true),
+        DemoButton(order: 10, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: true, withIcon: true),
+        DemoButton(order: 11, name: "Outlined", textColor: Color(.label), isFilled: false, isFullWidth: true, withIcon: true),
+        DemoButton(order: 12, name: "Important with icon (variable width)", textColor: Color(.black), isFilled: true, withIcon: true),
+        DemoButton(order: 13, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, withIcon: true),
+        DemoButton(order: 14, name: "Outlined", textColor: Color(.label), withIcon: true),
     ]
     }
 }
