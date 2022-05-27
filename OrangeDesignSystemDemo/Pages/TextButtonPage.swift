@@ -56,6 +56,8 @@ private struct LabelButton: View {
             Button {} label: {
                 ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
             }
+            .frame(maxWidth: .infinity)
+            .padding([.bottom], 15)
         }.padding([.leading, .trailing], 45)
     }
 }
@@ -72,6 +74,8 @@ private struct IconButton: View {
             Button {} label: {
                 ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))
             }
+            .frame(maxWidth: .infinity)
+            .padding([.bottom], 15)
         }.padding([.leading, .trailing], 45)
     }
 }
