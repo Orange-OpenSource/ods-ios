@@ -33,20 +33,21 @@ struct ComponentsCardsList: View {
         TextButtonComponentModel(name: "Shape button", image: "Shape_button") {
             ShapeButtonPage()
         },
-        TextButtonComponentModel(name: "Bar", image: "empty") {
-            TabBarPage()
-        },
         TextButtonComponentModel(name: "Slider", image: "Controls") {
             SliderPage()
+        },
+
+        TextButtonComponentModel(name: "Card", image: "Card") {
+            CardViewDemoSandbox()
+        },
+        TextButtonComponentModel(name: "Progress indicator", image: "Progress_indicator") {
+            ProgressIndicatorPage()
         },
         TextButtonComponentModel(name: "Edit text", image: "empty") {
             EditTextPage()
         },
-        TextButtonComponentModel(name: "Card", image: "Card") {
-            CardViewDemoSandbox()
-        },
-        TextButtonComponentModel(name: "Progress indicator", image: "empty") {
-            ProgressIndicatorPage()
+        TextButtonComponentModel(name: "Bar", image: "empty") {
+            TabBarPage()
         },
     ]
 
