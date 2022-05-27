@@ -56,11 +56,14 @@ private struct ButtonList: View {
                 .odsFont(style: .title2)
 
             VStack(alignment: .center) {
-                Button {} label: {
-                    ODSGenericButtonContent(topText: "Button", textColor: button.textColor)
-                        .frame(maxWidth: button.isFullWidth ? .infinity : nil)
+                HStack {
+                    Button {} label: {
+                        ODSGenericButtonContent(topText: "Button", textColor: button.textColor)
+                            .frame(maxWidth: button.isFullWidth ? .infinity : nil)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .buttonStyle(ODSButtonStyle(backgroundColor: button.BGColor, isFilled: button.isFilled))
                 }
-                .buttonStyle(ODSButtonStyle(backgroundColor: button.BGColor, isFilled: button.isFilled))
             }.padding([.leading, .trailing], 45)
         }
     }
@@ -75,10 +78,10 @@ private struct DemoButton {
     let isFullWidth: Bool
 
     static var buttons: [DemoButton] { [
-        DemoButton(order: 1, name: "Important - Main call to action", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: true),
+        DemoButton(order: 1, name: "Important - Main call to action (full width)", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: true),
         DemoButton(order: 2, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: true),
         DemoButton(order: 3, name: "Outlined", textColor: Color(.label), BGColor: nil, isFilled: false, isFullWidth: true),
-        DemoButton(order: 4, name: "Important - Main call to action", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: false),
+        DemoButton(order: 4, name: "Important - Main call to action (width adapted to the content)", textColor: Color(.black), BGColor: nil, isFilled: true, isFullWidth: false),
         DemoButton(order: 5, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: false),
         DemoButton(order: 6, name: "Outlined", textColor: Color(.label), BGColor: nil, isFilled: false, isFullWidth: false),
         DemoButton(order: 7, name: "Negative", textColor: Color(.systemBackground), BGColor: ODS.functionalNegative, isFilled: true, isFullWidth: true),
