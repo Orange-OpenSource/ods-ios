@@ -56,19 +56,17 @@ private struct ButtonList: View {
                 .odsFont(style: .title2)
 
             VStack(alignment: .center) {
-                HStack {
-                    Button {} label: {
-                        ODSGenericButtonContent(
-                            imageDescription: button.withIcon ? ODSImageDescription(image: Image(systemName: "plus").renderingMode(.template), imageWidth: 15, imageHeight: 15, foregroundColor: button.textColor) : nil,
-                            topText: "Button",
-                            textColor: button.textColor)
-                            .frame(maxWidth: button.isFullWidth ? .infinity : nil)
-                    }
-                    .disabled(button.isDisabled)
-                    .frame(maxWidth: .infinity)
-                    .buttonStyle(ODSButtonStyle(borderColor: button.textColor, backgroundColor: button.BGColor, isFilled: button.isFilled))
-
-                }.padding([.bottom], 15)
+                Button {} label: {
+                    ODSGenericButtonContent(
+                        imageDescription: button.withIcon ? ODSImageDescription(image: Image(systemName: "plus").renderingMode(.template), imageWidth: 15, imageHeight: 15, foregroundColor: button.textColor) : nil,
+                        topText: "Button",
+                        textColor: button.textColor)
+                        .frame(maxWidth: button.isFullWidth ? .infinity : nil)
+                }
+                .disabled(button.isDisabled)
+                .frame(maxWidth: .infinity)
+                .buttonStyle(ODSButtonStyle(borderColor: button.textColor, backgroundColor: button.BGColor, isFilled: button.isFilled))
+                .padding([.bottom], 15)
             }.padding([.leading, .trailing], 45)
         }
     }
