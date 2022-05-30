@@ -65,7 +65,7 @@ private struct ButtonList: View {
                 }
                 .disabled(button.isDisabled)
                 .frame(maxWidth: .infinity)
-                .buttonStyle(ODSButtonStyle(borderColor: button.textColor, backgroundColor: button.BGColor, isFilled: button.isFilled))
+                .buttonStyle(ODSFilledButtonStyle()) // ODSButtonStyle(borderColor: button.textColor, backgroundColor: button.BGColor, buttonType: button.buttonType)
                 .padding([.bottom], 15)
             }.padding([.leading, .trailing], 45)
         }
@@ -77,40 +77,40 @@ private struct DemoButton {
     let name: String
     let textColor: Color
     let BGColor: Color?
-    let isFilled: Bool
+    let buttonType: ButtonType
     let isFullWidth: Bool
     let withIcon: Bool
     let isDisabled: Bool
 
-    public init(order: Int, name: String, textColor: Color, BGColor: Color? = nil, isFilled: Bool = false, isFullWidth: Bool = false, withIcon: Bool = false, isDisabled: Bool = false) {
+    public init(order: Int, name: String, textColor: Color, BGColor: Color? = nil, buttonType: ButtonType = .filled, isFullWidth: Bool = false, withIcon: Bool = false, isDisabled: Bool = false) {
         self.order = order
         self.name = name
         self.textColor = textColor
         self.BGColor = BGColor
-        self.isFilled = isFilled
+        self.buttonType = buttonType
         self.isFullWidth = isFullWidth
         self.withIcon = withIcon
         self.isDisabled = isDisabled
     }
 
     static var buttons: [DemoButton] { [
-        DemoButton(order: 1, name: "Important (full width)", textColor: Color(.black), isFilled: true, isFullWidth: true),
-        DemoButton(order: 2, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: true),
-        DemoButton(order: 3, name: "Outlined", textColor: Color(.label), isFilled: false, isFullWidth: true),
-        DemoButton(order: 4, name: "Important (variable width)", textColor: Color(.black), isFilled: true),
-        DemoButton(order: 5, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true),
-        DemoButton(order: 6, name: "Outlined", textColor: Color(.label)),
-        DemoButton(order: 7, name: "Negative", textColor: Color(.systemBackground), BGColor: ODS.functionalNegative, isFilled: true, isFullWidth: true),
-        DemoButton(order: 8, name: "Positive", textColor: Color(.systemBackground), BGColor: ODS.functionalPositive, isFilled: true, isFullWidth: true),
-        DemoButton(order: 9, name: "Important with icon (full width)", textColor: Color(.black), isFilled: true, isFullWidth: true, withIcon: true),
-        DemoButton(order: 10, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: true, withIcon: true),
-        DemoButton(order: 11, name: "Outlined", textColor: Color(.label), isFilled: false, isFullWidth: true, withIcon: true),
-        DemoButton(order: 12, name: "Important with icon (variable width)", textColor: Color(.black), isFilled: true, withIcon: true),
-        DemoButton(order: 13, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, withIcon: true),
-        DemoButton(order: 14, name: "Outlined", textColor: Color(.label), withIcon: true),
-        DemoButton(order: 15, name: "Important disabled", textColor: Color(.black), isFilled: true, isFullWidth: true, isDisabled: true),
-        DemoButton(order: 16, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFilled: true, isFullWidth: true, isDisabled: true),
-        DemoButton(order: 17, name: "Outlined", textColor: Color(.label), isFilled: false, isFullWidth: true, isDisabled: true),
+        DemoButton(order: 1, name: "Important (full width)", textColor: Color(.black), isFullWidth: true),
+        DemoButton(order: 2, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFullWidth: true),
+        DemoButton(order: 3, name: "Outlined", textColor: Color(.label), buttonType: .bordered, isFullWidth: true),
+        DemoButton(order: 4, name: "Important (variable width)", textColor: Color(.black)),
+        DemoButton(order: 5, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label)),
+        DemoButton(order: 6, name: "Outlined", textColor: Color(.label), buttonType: .bordered),
+        DemoButton(order: 7, name: "Negative", textColor: Color(.systemBackground), BGColor: ODS.functionalNegative, isFullWidth: true),
+        DemoButton(order: 8, name: "Positive", textColor: Color(.systemBackground), BGColor: ODS.functionalPositive, isFullWidth: true),
+        DemoButton(order: 9, name: "Important with icon (full width)", textColor: Color(.black), isFullWidth: true, withIcon: true),
+        DemoButton(order: 10, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFullWidth: true, withIcon: true),
+        DemoButton(order: 11, name: "Outlined", textColor: Color(.label), buttonType: .bordered, isFullWidth: true, withIcon: true),
+        DemoButton(order: 12, name: "Important with icon (variable width)", textColor: Color(.black), withIcon: true),
+        DemoButton(order: 13, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), withIcon: true),
+        DemoButton(order: 14, name: "Outlined", textColor: Color(.label), buttonType: .bordered, withIcon: true),
+        DemoButton(order: 15, name: "Important disabled", textColor: Color(.black), isFullWidth: true, isDisabled: true),
+        DemoButton(order: 16, name: "Filled", textColor: Color(.systemBackground), BGColor: Color(.label), isFullWidth: true, isDisabled: true),
+        DemoButton(order: 17, name: "Outlined", textColor: Color(.label), buttonType: .bordered, isFullWidth: true, isDisabled: true),
     ]
     }
 }

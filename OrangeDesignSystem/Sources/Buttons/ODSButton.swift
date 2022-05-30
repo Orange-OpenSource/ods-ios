@@ -119,26 +119,38 @@ public struct ODSBorderedButtonStyle: ButtonStyle {
 }
 
 // MARK: Main Button style
+public enum ButtonType {
+    case filled
+    case bordered
+
+    public var isFilled: Bool {
+        switch self {
+        case .filled: return true
+        case .bordered: return false
+        }
+    }
+}
 
 public struct ODSButtonStyle: ButtonStyle {
     let borderColor: Color?
     let backgroundColor: Color?
-    let isFilled: Bool
+    let buttonType: ButtonType
 
-    public init(borderColor: Color? = nil, backgroundColor: Color? = nil, isFilled: Bool = false) {
+    public init(borderColor: Color? = nil, backgroundColor: Color? = nil, buttonType: ButtonType = .filled) {
         if let backgroundColor = backgroundColor {
             self.backgroundColor = backgroundColor
         } else {
-            self.backgroundColor = isFilled ? ODS.coreOrange : nil
+            self.backgroundColor = buttonType.isFilled ? ODS.coreOrange : nil
         }
-        self.isFilled = isFilled
+        self.buttonType = buttonType
         self.borderColor = borderColor
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        if isFilled {
+        switch buttonType {
+        case .filled:
             return AnyView(ODSFilledButtonLabel(configuration: configuration, backgroundColor: backgroundColor))
-        } else {
+        case .bordered:
             return AnyView(ODSBorderedButtonLabel(configuration: configuration, borderColor: borderColor))
         }
     }
