@@ -167,8 +167,8 @@ private struct ODSBorderedButtonLabel: View {
 
     var body: some View {
         ODSButtonLabel(configuration: configuration)
-            .overlay(RoundedRectangle(cornerRadius: 8.0).stroke(isEnabled ? (borderColor ?? .primary) : Color(.quaternaryLabel), lineWidth: 1.0))
-            .opacity(configuration.isPressed ? 0.2 : (isEnabled ? 1.0 : 0.2))
+            .overlay(RoundedRectangle(cornerRadius: 8.0).stroke(isEnabled ? (borderColor ?? .primary) : Color(.secondaryLabel), lineWidth: 1.0))
+            .opacity(configuration.isPressed ? 0.2 : (isEnabled ? 1.0 : 0.5))
     }
 }
 
@@ -179,8 +179,8 @@ private struct ODSFilledButtonLabel: View {
 
     var body: some View {
         ODSButtonLabel(configuration: configuration)
-            .background(isEnabled ? (backgroundColor ?? .primary) : Color(UIColor.systemFill))
-            .opacity(configuration.isPressed || !isEnabled ? 0.2 : 1.0)
+            .background(backgroundColor ?? .primary)
+            .opacity(configuration.isPressed || !isEnabled ? 0.3 : 1.0)
             .cornerRadius(8.0)
     }
 }
