@@ -103,9 +103,9 @@ public struct ODSFilledButtonStyle: ButtonStyle {
 // MARK: Bordered Button style
 
 public struct ODSBorderedButtonStyle: ButtonStyle {
-    let borderColor: Color?
+    let borderColor: Color
 
-    public init(borderColor: Color? = nil) {
+    public init(borderColor: Color = .primary) {
         self.borderColor = borderColor
     }
 
