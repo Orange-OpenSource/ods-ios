@@ -65,7 +65,7 @@ private struct ButtonList: View {
                 }
                 .disabled(button.isDisabled)
                 .frame(maxWidth: .infinity)
-                .buttonStyle(ODSFilledButtonStyle()) // ODSButtonStyle(borderColor: button.textColor, backgroundColor: button.BGColor, buttonType: button.buttonType)
+                .buttonStyle(ODSButtonStyle(borderColor: button.textColor, backgroundColor: button.BGColor, buttonType: button.buttonType))
                 .padding([.bottom], 15)
             }.padding([.leading, .trailing], 45)
         }
