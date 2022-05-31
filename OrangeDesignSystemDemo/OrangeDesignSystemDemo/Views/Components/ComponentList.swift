@@ -27,26 +27,27 @@ import SwiftUI
 
 struct ComponentsCardsList: View {
     let componentList = [
-        TextButtonComponentModel(name: "Button", image: "Shape_button") {
-            ShapeButtonsList()
-        },
-        TextButtonComponentModel(name: "Text Button", image: "Text_button") {
+        ComponentModel(name: "Text button", image: "Text_button") {
             TextButtonPage()
         },
-        TextButtonComponentModel(name: "Bar", image: "empty") {
-            TabBarPage()
+        ComponentModel(name: "Shape button", image: "Shape_button") {
+            ShapeButtonPage()
         },
-        TextButtonComponentModel(name: "Slider", image: "Controls") {
+        ComponentModel(name: "Slider", image: "Controls") {
             SliderPage()
         },
-        TextButtonComponentModel(name: "Edit Text", image: "empty") {
+
+        ComponentModel(name: "Card", image: "Card") {
+            CardPage()
+        },
+        ComponentModel(name: "Progress indicator", image: "Progress_indicator") {
+            ProgressIndicatorPage()
+        },
+        ComponentModel(name: "Edit text", image: "empty") {
             EditTextPage()
         },
-        TextButtonComponentModel(name: "Card", image: "Card") {
-            CardViewDemoSandbox()
-        },
-        TextButtonComponentModel(name: "Progress indicator", image: "empty") {
-            ProgressIndicatorPage()
+        ComponentModel(name: "Bar", image: "empty") {
+            TabBarPage()
         },
     ]
 
@@ -60,7 +61,7 @@ struct ComponentsCardsList: View {
                 Spacer().frame(height: 15)
                 LazyVGrid(columns: columns, spacing: 15) {
                     ForEach(componentList) {
-                        TextButtonComponent(component: $0)
+                        Component(component: $0)
                     }
                 }.padding([.leading, .trailing])
                 Spacer().frame(height: 15)

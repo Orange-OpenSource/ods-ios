@@ -27,7 +27,7 @@ struct ProgressIndicatorPage: View {
 
     var body: some View {
         ScrollView {
-            Image("empty")
+            Image("Progress_indicator")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
