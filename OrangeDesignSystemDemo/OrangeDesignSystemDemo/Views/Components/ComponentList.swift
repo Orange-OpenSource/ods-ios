@@ -48,6 +48,9 @@ struct ComponentsCardsList: View {
         TextButtonComponentModel(name: "Progress indicator", image: "empty") {
             ProgressIndicatorPage()
         },
+        TextButtonComponentModel(name: "Lists", image: "empty") {
+            ListsPage()
+        },
     ]
 
     let columns = [

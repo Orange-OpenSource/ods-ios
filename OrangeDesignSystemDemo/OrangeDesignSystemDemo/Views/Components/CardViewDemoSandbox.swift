@@ -31,6 +31,8 @@ struct CardViewDemoSandbox: View {
     @State var showDescription = false
     @State var showButton = false
 
+    @State var colorScheme = 0
+
     private func resetSwitches() {
         showImage = false
         showSubtitle = false
@@ -67,6 +69,8 @@ struct CardViewDemoSandbox: View {
                     Toggle(isOn: $showImage) {
                         Text("Show image")
                     }
+                    .toggleStyle(.button)
+                    .buttonStyle(.bordered)
 
                     Toggle(isOn: $showSubtitle) {
                         Text("Show subtitle")
@@ -89,7 +93,6 @@ struct CardViewDemoSandbox: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(ODSFilledButtonStyle())
-
                 }.padding()
                     .font(ODSFontStyle.bodyRegular.font())
                     .foregroundColor(.primary)
