@@ -50,6 +50,7 @@ public struct ODSGenericButtonContent: View {
     let bottomText: String?
     let textColor: Color
     let imageDescription: ODSImageDescription?
+    @Environment(\.isEnabled) var isEnabled
 
     public init(imageDescription: ODSImageDescription? = nil, topText: String? = nil, bottomText: String? = nil, textColor: Color = .primary) {
         self.imageDescription = imageDescription
@@ -72,13 +73,13 @@ public struct ODSGenericButtonContent: View {
                 if let topText = topText {
                     Text(topText)
                         .odsFont(style: .bodyBold)
-                        .foregroundColor(textColor)
+                        .foregroundColor(isEnabled ? textColor : .primary)
                 }
 
                 if let bottomText = bottomText {
                     Text(bottomText)
                         .odsFont(style: .caption1Regular)
-                        .foregroundColor(textColor)
+                        .foregroundColor(isEnabled ? textColor : .primary)
                 }
             }
         }
@@ -88,7 +89,7 @@ public struct ODSGenericButtonContent: View {
 // MARK: Filled Button style
 
 public struct ODSFilledButtonStyle: ButtonStyle {
-    let backgroundColor: Color?
+    let backgroundColor: Color
 
     public init(backgroundColor: Color = ODS.coreOrange) {
         self.backgroundColor = backgroundColor
@@ -102,15 +103,52 @@ public struct ODSFilledButtonStyle: ButtonStyle {
 // MARK: Bordered Button style
 
 public struct ODSBorderedButtonStyle: ButtonStyle {
-    let backgroundColor: Color?
+    let borderColor: Color
 
-    public init(backgroundColor: Color? = nil) {
-        self.backgroundColor = backgroundColor
+    public init(borderColor: Color = .primary) {
+        self.borderColor = borderColor
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        ODSBorderedButtonLabel(configuration: configuration, backgroundColor: backgroundColor)
-            .contentShape(Rectangle())
+        ODSBorderedButtonLabel(configuration: configuration, borderColor: borderColor)
+    }
+}
+
+// MARK: Main Button style
+public enum ButtonType {
+    case filled
+    case bordered
+
+    public var isFilled: Bool {
+        switch self {
+        case .filled: return true
+        case .bordered: return false
+        }
+    }
+}
+
+public struct ODSButtonStyle: ButtonStyle {
+    let borderColor: Color?
+    let backgroundColor: Color?
+    let buttonType: ButtonType
+
+    public init(borderColor: Color? = nil, backgroundColor: Color? = nil, buttonType: ButtonType = .filled) {
+        if let backgroundColor = backgroundColor {
+            self.backgroundColor = backgroundColor
+        } else {
+            self.backgroundColor = buttonType.isFilled ? ODS.coreOrange : nil
+        }
+        self.buttonType = buttonType
+        self.borderColor = borderColor
+    }
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        switch buttonType {
+        case .filled:
+            return AnyView(ODSFilledButtonLabel(configuration: configuration, backgroundColor: backgroundColor))
+        case .bordered:
+            return AnyView(ODSBorderedButtonLabel(configuration: configuration, borderColor: borderColor))
+        }
     }
 }
 
@@ -133,13 +171,12 @@ private struct ODSButtonLabel: View {
 private struct ODSBorderedButtonLabel: View {
     @Environment(\.isEnabled) var isEnabled
     let configuration: ButtonStyle.Configuration
-    let backgroundColor: Color?
+    let borderColor: Color?
 
     var body: some View {
         ODSButtonLabel(configuration: configuration)
-            .overlay(RoundedRectangle(cornerRadius: 8.0).strokeBorder(style: StrokeStyle(lineWidth: 1.0)))
-            .foregroundColor(isEnabled ? (backgroundColor ?? .primary) : Color(UIColor.lightGray)) // To review
-            .opacity(configuration.isPressed ? 0.2 : 1.0)
+            .overlay(RoundedRectangle(cornerRadius: 8.0).stroke(isEnabled ? (borderColor ?? .primary) : Color(.secondaryLabel), lineWidth: 1.0))
+            .opacity(configuration.isPressed ? 0.2 : (isEnabled ? 1.0 : 0.5))
     }
 }
 
@@ -150,9 +187,8 @@ private struct ODSFilledButtonLabel: View {
 
     var body: some View {
         ODSButtonLabel(configuration: configuration)
-            .foregroundColor(isEnabled ? ODS.coreBlack : Color(UIColor.lightGray))
-            .background(isEnabled ? (backgroundColor ?? Color.primary) : Color(UIColor.lightGray))
-            .opacity(configuration.isPressed || !isEnabled ? 0.2 : 1.0)
+            .background(backgroundColor ?? .primary)
+            .opacity(configuration.isPressed || !isEnabled ? 0.3 : 1.0)
             .cornerRadius(8.0)
     }
 }

@@ -2,6 +2,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [DemoApp] Update text button and shaped button pages with new design specifications
+
+### Added
 
 ### Bugs
 - [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color
