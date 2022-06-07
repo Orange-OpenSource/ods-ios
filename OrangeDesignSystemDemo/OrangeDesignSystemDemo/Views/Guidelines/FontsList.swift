@@ -31,14 +31,67 @@ struct FontList: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 30) {
+            VStack(alignment: .leading, spacing: ODSDim.padding) {
+
+                Image("Typography")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+
+                Text("Use the system typeface San Francisco for all Latin, Greek and Cyrillic alphabets.\n\n"
+                    + "Use the built-in text styles in order to create a clear distinct visual typographic hierarchy.\n\n"
+                    + "Using the built-in text styles enables users to take advantage of features such as Dynamic Type. Based on the Apple Dynamic Types, Orange defines thoses sizes :")
+                    .padding(.horizontal, ODSDim.padding)
+
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
-                    Text(fontStyle.rawValue).odsFont(style: fontStyle)
+                    Text(fontStyle.description).odsFont(style: fontStyle)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 30)
                 }
+                .padding(.horizontal, ODSDim.padding)
+                .padding(.bottom, ODSDim.padding)
             }
-        }.navigationTitle("Typography")
-            .navigationViewStyle(.stack)
+        }
+        .navigationTitle("Typography")
+        .navigationViewStyle(.stack)
+    }
+}
+
+extension ODSFontStyle {
+    var description: String {
+        switch self {
+        case .largeTitle:
+            return "Large Title"
+        case .title1:
+            return "Title 1"
+        case .title2:
+            return "Title 2"
+        case .title3:
+            return "Title 3"
+        case .headline:
+            return "Headline"
+        case .bodyBold:
+            return "Body Bold"
+        case .bodyRegular:
+            return "Body Regular"
+        case .callout:
+            return "Callout Regular"
+        case .subhead:
+            return "Subheadline Bold"
+        case .footnote:
+            return "Footnote Regular"
+        case .caption1Bold:
+            return "Caption 1 Bold"
+        case .caption1Regular:
+            return "Caption 1 Regular"
+        case .caption2:
+            return "Caption 2 Regular"
+        }
+    }
+}
+
+struct FontList_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            FontList().environmentObject(ScreenState()).preferredColorScheme($0)
+        }
     }
 }
