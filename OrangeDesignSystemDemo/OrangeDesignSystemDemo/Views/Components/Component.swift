@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct TextButtonComponentModel: Identifiable {
+struct ComponentModel: Identifiable {
     let name: String
     let image: String
     let destination: AnyView?
@@ -46,24 +46,10 @@ struct TextButtonComponentModel: Identifiable {
     }
 }
 
-struct TextButtonComponent: View {
-    let component: TextButtonComponentModel
+struct Component: View {
+    let component: ComponentModel
     var body: some View {
         NavigationLink(destination: component.destination) {
-            /* VStack(alignment: .leading, spacing: 0) {
-                 Image(component.image)
-                     .resizable()
-                     .aspectRatio(contentMode: .fit)
-                 Text(component.name)
-                     .font(ODSFontStyle.headline.font())
-                     .frame(
-                         maxWidth: .infinity,
-                         alignment: .topLeading)
-                     .padding()
-                     .accentColor(Color(uiColor: .label))
-             }
-             .background(Color(uiColor: .systemBackground))
-             .cornerRadius(12) */
             ODSCardView(element: ODSCardModel(title: component.name, image: component.image))
         }
     }
@@ -71,9 +57,9 @@ struct TextButtonComponent: View {
 
 struct TextButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        let component = TextButtonComponentModel(name: "Text", image: "Shape_button")
+        let component = ComponentModel(name: "Text", image: "Shape_button")
         ForEach(ColorScheme.allCases, id: \.self) {
-            TextButtonComponent(component: component)
+            Component(component: component)
                 .frame(width: 200)
                 .preferredColorScheme($0)
         }

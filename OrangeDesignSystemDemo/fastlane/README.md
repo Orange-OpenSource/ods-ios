@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios increment
 ```
 
-update bundler number
+UPDATE BUILD NUMBER WITH TIMESTAMP
 
 ### ios prepare_release
 
@@ -29,7 +29,7 @@ update bundler number
 [bundle exec] fastlane ios prepare_release
 ```
 
-Prepare release notes
+READ AND SET NEXT RELEASE NOTE IN CHANLOG
 
 ### ios build
 
@@ -37,15 +37,23 @@ Prepare release notes
 [bundle exec] fastlane ios build
 ```
 
-build IPA file
+BUILD DEBUG APP
 
-### ios beta
+### ios qualif
 
 ```sh
-[bundle exec] fastlane ios beta
+[bundle exec] fastlane ios qualif
 ```
 
-upload to testflight
+BUILD & UPLOAD TO TESTFLIGHT QUALIF APP
+
+### ios prod
+
+```sh
+[bundle exec] fastlane ios prod
+```
+
+BUILD & UPLOAD TO TESTFLIGHT PROD APP
 
 ----
 
