@@ -37,24 +37,33 @@ public enum ODSListItemRightIconModel {
     case toggle(Binding<Bool>)
 }
 
-public struct ODSListItemModel: Identifiable {
+public enum ODSListItemMinHeight: CGFloat {
+    case medium = 44.0
+    case large = 60.0
+}
 
+public struct ODSListItemModel: Identifiable {
+    
     public var id: UUID
     let title: String
     let subtitle: String?
     let leftIconModel: ODSListItemLeftIconModel?
     let rightIconModel: ODSListItemRightIconModel?
-
+    let minHeight: ODSListItemMinHeight
+    
     public init(
         title: String,
         subtitle: String? = nil,
         leftIconModel: ODSListItemLeftIconModel? = nil,
-        rightIconModel: ODSListItemRightIconModel? = nil)
+        rightIconModel: ODSListItemRightIconModel? = nil,
+        minHeight: ODSListItemMinHeight = .medium)
     {
         self.title = title
         self.subtitle = subtitle
         self.leftIconModel = leftIconModel
         self.rightIconModel = rightIconModel
+        self.minHeight = minHeight
+        
         id = UUID()
     }
 }
@@ -63,22 +72,23 @@ public struct ODSListItemModel: Identifiable {
 // MARK: Views
 // ============
 public struct ODSListItem: View {
-
+    
     let model: ODSListItemModel
-
+    
     public var body: some View {
-        HStack(alignment: .center, spacing: 16) {
+        HStack(alignment: .center, spacing: 8) {
             if let lestIconModel = model.leftIconModel {
-                ODSListItemLeftIcon(iconModel: lestIconModel)
+                ODSListItemLeftIcon(iconModel: lestIconModel, iconHeight: model.minHeight.rawValue)
+                    .background(Color.green)
             }
-
+            
             VStack(alignment: .leading, spacing: 4) {
                 Text(LocalizedStringKey(model.title))
                     .font(.title3)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
-
+                
                 if let subtitle = model.subtitle {
                     Text(LocalizedStringKey(subtitle))
                         .font(.subheadline)
@@ -86,17 +96,18 @@ public struct ODSListItem: View {
                         .multilineTextAlignment(.leading)
                 }
             }
-
+            .padding(.vertical, 8)
+            
             Spacer()
-
+            
             if let rightIconModel = model.rightIconModel {
                 ODSListItemRightIcon(iconModel: rightIconModel)
             }
         }
-        .modifier(ODSListItemModifier())
+        .modifier(ODSListItemModifier(minHeight: model.minHeight))
         .padding(.horizontal, 16)
     }
-
+    
     public init(model: ODSListItemModel) {
         self.model = model
     }

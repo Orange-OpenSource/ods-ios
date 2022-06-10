@@ -43,16 +43,14 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Progress indicator", image: "Progress_indicator") {
             ProgressIndicatorPage()
         },
-<<<<<<< HEAD
-        TextButtonComponentModel(name: "Lists", image: "empty") {
+        ComponentModel(name: "Lists", image: "empty") {
             ListsPage()
-=======
+        },
         ComponentModel(name: "Edit text", image: "empty") {
             EditTextPage()
         },
         ComponentModel(name: "Bar", image: "empty") {
             TabBarPage()
->>>>>>> a4e4bb9cdad26bab02471502778770d13c6a2709
         },
     ]
 

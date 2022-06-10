@@ -95,16 +95,10 @@ struct CardPage: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(ODSFilledButtonStyle())
-<<<<<<< HEAD:OrangeDesignSystemDemo/OrangeDesignSystemDemo/Views/Components/CardViewDemoSandbox.swift
-                }.padding()
-                    .font(ODSFontStyle.bodyRegular.font())
-                    .foregroundColor(.primary)
-=======
                 }
                 .padding()
                 .font(ODSFontStyle.bodyRegular.font())
                 .foregroundColor(.primary)
->>>>>>> a4e4bb9cdad26bab02471502778770d13c6a2709:OrangeDesignSystemDemo/Pages/CardPage.swift
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }

@@ -42,18 +42,21 @@ public struct ODSList: View {
     @State var selection: UUID?
 
     public var body: some View {
-        ScrollView {
-            ForEach(model.itemModels, id: \.id) { model in
-                switch model.rightIconModel {
-                case .toggle, .none:
-                    ODSListItem(model: model)
-                case let .text(text) where text.isEmpty:
-                    ODSListItem(model: model)
-                default:
-                    NavigationLink {
-                        Text("\(model.title) is clicked")
-                    } label: {
+        List /*(selection: $multiSelection)*/ {
+            VStack (spacing: 0) {
+                ForEach(model.itemModels, id: \.id) { model in
+                    switch model.rightIconModel {
+                    case .toggle, .none:
                         ODSListItem(model: model)
+                    case let .text(text) where text.isEmpty:
+                        ODSListItem(model: model)
+                    default:
+                        NavigationLink {
+                            Text("\(model.title) is clicked")
+                        } label: {
+                            ODSListItem(model: model)
+                        }
+                        .listRowInsets(EdgeInsets())
                     }
                 }
             }

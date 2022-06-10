@@ -26,22 +26,33 @@ import SwiftUI
 struct ODSListItemLeftIcon: View {
 
     let iconModel: ODSListItemLeftIconModel
+    let iconHeight: CGFloat?
 
     var body: some View {
         switch iconModel {
         case let .withImage(image):
-            image.imageIconModifier()
+            image.iconModifier(height: iconHeight)
         case let .withUrl(url, placeHolder):
             AsyncImage(url: url) { image in
-                image.imageIconModifier()
+                image.iconModifier(height: iconHeight)
             } placeholder: {
-                placeHolder.imageIconModifier()
+                placeHolder.iconModifier(height: iconHeight)
             }
         }
     }
 
-    init(iconModel: ODSListItemLeftIconModel) {
+    init(iconModel: ODSListItemLeftIconModel, iconHeight: CGFloat?) {
         self.iconModel = iconModel
+        self.iconHeight = iconHeight
+    }
+}
+
+extension Image {
+    func iconModifier(height: CGFloat? = 44) -> some View {
+        resizable()
+            .aspectRatio(contentMode: .fit)
+            .clipShape(Circle())
+            .frame(height: height)
     }
 }
 
@@ -54,12 +65,18 @@ struct ODSListItemRightIcon: View {
         case let .chevron(text):
             HStack {
                 if let text = text {
-                    Text(text).font(.subheadline).foregroundColor(Color(UIColor.systemGray6))
+                    Text(text)
+                        .font(.subheadline)
+                        .foregroundColor(Color(UIColor.systemGray3))
                 }
                 ChevronView()
             }
+            
         case let .text(text):
-            Text(text).font(.subheadline).foregroundColor(Color(UIColor.systemGray6))
+            Text(text)
+                .font(.subheadline)
+                .foregroundColor(Color(UIColor.systemGray3))
+            
         case let .toggle(binding):
             Toggle("", isOn: binding).tint(ODS.coreOrange)
         }
@@ -79,12 +96,14 @@ extension Image {
 }
 
 struct ODSListItemModifier: ViewModifier {
-
+    
+    let minHeight: ODSListItemMinHeight
+    
     func body(content: Content) -> some View {
         content
             .listRowBackground(Color.clear)
             .listRowInsets(EdgeInsets())
-            .frame(minHeight: ODSDim.list_min_height)
+            .frame(minHeight: minHeight.rawValue)
     }
 }
 
