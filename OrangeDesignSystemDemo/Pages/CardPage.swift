@@ -25,7 +25,7 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct CardViewDemoSandbox: View {
+struct CardPage: View {
     @State var showImage = false
     @State var showSubtitle = false
     @State var showDescription = false
@@ -48,11 +48,13 @@ struct CardViewDemoSandbox: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 15) {
+            VStack(alignment: .leading, spacing: 20) {
 
-                /*** Card View */
+                ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
+                VariantsTitle()
+
+                // Card demonstrator
                 CardViewCustom(element: example) {
-
                     if showButton {
                         Button {} label: {
                             ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
@@ -62,7 +64,7 @@ struct CardViewDemoSandbox: View {
                 }
                 .padding()
 
-                /*** Custom */
+                // Controls
                 VStack {
                     Toggle(isOn: $showImage) {
                         Text("Show image")
@@ -89,14 +91,15 @@ struct CardViewDemoSandbox: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(ODSFilledButtonStyle())
-
-                }.padding()
-                    .font(ODSFontStyle.bodyRegular.font())
-                    .foregroundColor(.primary)
+                }
+                .padding()
+                .font(ODSFontStyle.bodyRegular.font())
+                .foregroundColor(.primary)
             }
-
-        }.navigationTitle("Card")
-            .background(Color(uiColor: .systemGray5))
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+        }
+        .navigationTitle("Card")
+        .background(Color(uiColor: .systemGray5))
     }
 }
 
@@ -104,12 +107,12 @@ struct CardViewDemoSandbox: View {
 struct CardViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CardViewDemoSandbox()
+            CardPage()
                 .previewInterfaceOrientation(.portrait)
         }
 
         NavigationView {
-            CardViewDemoSandbox()
+            CardPage()
                 .previewInterfaceOrientation(.portrait)
                 .environment(\.dynamicTypeSize, .accessibility3)
         }
