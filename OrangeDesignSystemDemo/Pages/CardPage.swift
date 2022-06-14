@@ -48,6 +48,10 @@ struct CardPage: View {
 
     var body: some View {
         ScrollView {
+            Image("Cards")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+
             VStack(alignment: .leading, spacing: 20) {
 
                 ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
@@ -99,7 +103,7 @@ struct CardPage: View {
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }
         .navigationTitle("Card")
-        .background(Color(uiColor: .systemGray5))
+        .background(Color(uiColor: .systemGray6))
     }
 }
 
