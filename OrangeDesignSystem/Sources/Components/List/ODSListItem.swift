@@ -32,7 +32,6 @@ public enum ODSListItemLeftIconModel {
 }
 
 public enum ODSListItemRightIconModel {
-    case chevron(String?)
     case text(String)
     case toggle(Binding<Bool>)
 }
@@ -43,14 +42,14 @@ public enum ODSListItemMinHeight: CGFloat {
 }
 
 public struct ODSListItemModel: Identifiable {
-    
+
     public var id: UUID
-    let title: String
-    let subtitle: String?
-    let leftIconModel: ODSListItemLeftIconModel?
-    let rightIconModel: ODSListItemRightIconModel?
-    let minHeight: ODSListItemMinHeight
-    
+    public let title: String
+    public let subtitle: String?
+    public let leftIconModel: ODSListItemLeftIconModel?
+    public let rightIconModel: ODSListItemRightIconModel?
+    public let minHeight: ODSListItemMinHeight
+
     public init(
         title: String,
         subtitle: String? = nil,
@@ -63,7 +62,7 @@ public struct ODSListItemModel: Identifiable {
         self.leftIconModel = leftIconModel
         self.rightIconModel = rightIconModel
         self.minHeight = minHeight
-        
+
         id = UUID()
     }
 }
@@ -72,23 +71,22 @@ public struct ODSListItemModel: Identifiable {
 // MARK: Views
 // ============
 public struct ODSListItem: View {
-    
+
     let model: ODSListItemModel
-    
+
     public var body: some View {
         HStack(alignment: .center, spacing: 8) {
             if let lestIconModel = model.leftIconModel {
                 ODSListItemLeftIcon(iconModel: lestIconModel, iconHeight: model.minHeight.rawValue)
-                    .background(Color.green)
             }
-            
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(LocalizedStringKey(model.title))
                     .font(.title3)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
-                
+
                 if let subtitle = model.subtitle {
                     Text(LocalizedStringKey(subtitle))
                         .font(.subheadline)
@@ -97,17 +95,16 @@ public struct ODSListItem: View {
                 }
             }
             .padding(.vertical, 8)
-            
+
             Spacer()
-            
+
             if let rightIconModel = model.rightIconModel {
                 ODSListItemRightIcon(iconModel: rightIconModel)
             }
         }
         .modifier(ODSListItemModifier(minHeight: model.minHeight))
-        .padding(.horizontal, 16)
     }
-    
+
     public init(model: ODSListItemModel) {
         self.model = model
     }

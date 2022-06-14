@@ -26,11 +26,19 @@ import SwiftUI
 // =============
 // MARK: Models
 // =============
-public struct ODSListModel {
-    let itemModels: [ODSListItemModel]
+public class ODSListModel: ObservableObject {
+    @Published public var itemModels: [ODSListItemModel]
 
     public init(itemModels: [ODSListItemModel]) {
         self.itemModels = itemModels
+    }
+
+    func delete(at offsets: IndexSet) {
+        itemModels.remove(atOffsets: offsets)
+    }
+
+    func move(from source: IndexSet, to destination: Int) {
+        itemModels.move(fromOffsets: source, toOffset: destination)
     }
 }
 
@@ -38,31 +46,42 @@ public struct ODSListModel {
 // MARK: Views
 // ============
 public struct ODSList: View {
-    let model: ODSListModel
+    @ObservedObject var model: ODSListModel
     @State var selection: UUID?
 
     public var body: some View {
-        List /*(selection: $multiSelection)*/ {
-            VStack (spacing: 0) {
-                ForEach(model.itemModels, id: \.id) { model in
-                    switch model.rightIconModel {
-                    case .toggle, .none:
-                        ODSListItem(model: model)
-                    case let .text(text) where text.isEmpty:
-                        ODSListItem(model: model)
-                    default:
-                        NavigationLink {
-                            Text("\(model.title) is clicked")
-                        } label: {
-                            ODSListItem(model: model)
-                        }
-                        .listRowInsets(EdgeInsets())
+        List /* (selection: $multiSelection) */ {
+            ForEach(model.itemModels, id: \.id) { itemModel in
+                switch itemModel.rightIconModel {
+                case .toggle, .none:
+                    ODSListItem(model: itemModel)
+                case let .text(text) where text.isEmpty:
+                    ODSListItem(model: itemModel)
+                default:
+                    NavigationLink {
+                        Text("\(itemModel.title) is clicked")
+                    } label: {
+                        ODSListItem(model: itemModel)
                     }
+                    .listRowInsets(EdgeInsets())
                 }
             }
+            .onMove(perform: move)
+            .onDelete(perform: delete)
+            .listRowSeparator(Visibility.visible)
+            .padding(.horizontal, 16)
         }
+        .toolbar { EditButton() }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    func delete(at offsets: IndexSet) {
+        model.delete(at: offsets)
+    }
+
+    func move(from source: IndexSet, to destination: Int) {
+        model.move(from: source, to: destination)
     }
 
     public init(model: ODSListModel) {

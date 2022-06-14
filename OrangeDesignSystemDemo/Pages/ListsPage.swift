@@ -26,14 +26,25 @@ import SwiftUI
 
 class ListsPageModel: ObservableObject {
 
-    @Published var showSubtitle: Bool
-    @Published var showLeftIcon: Bool
-    @Published var showRightIcon: Bool
-    @Published var minHeight: ODSListItemMinHeight
+    @Published var showSubtitle: Bool {
+        didSet { updateListModel() }
+    }
+
+    @Published var showLeftIcon: Bool {
+        didSet { updateListModel() }
+    }
+
+    @Published var showRightIcon: Bool {
+        didSet { updateListModel() }
+    }
+
+    @Published var minHeight: ODSListItemMinHeight {
+        didSet { updateListModel() }
+    }
+
+    @Published var odsListModel = ODSListModel(itemModels: [])
 
     @State var toggleAcivated: Bool
-
-    var rightIcons: [ODSListItemRightIconModel]
 
     init(showSubtitle: Bool = false,
          showLeftIcon: Bool = false,
@@ -45,29 +56,38 @@ class ListsPageModel: ObservableObject {
         minHeight = .medium
 
         toggleAcivated = false
-        rightIcons = [.chevron(nil)]
-        rightIcons.append(.chevron("Details"))
-        rightIcons.append(.text("Details"))
-        rightIcons.append(.toggle($toggleAcivated))
+        odsListModel = ODSListModel(itemModels: [])
+
+        let rightIcons: [ODSListItemRightIconModel] = [.text("Details"), .toggle($toggleAcivated)]
+            + [.text("Details 2"), .toggle($toggleAcivated)]
+            + [.text("Details 3"), .toggle($toggleAcivated)]
+
+        let itemModels: [ODSListItemModel] = rightIcons.map { icon in
+            itemModel(with: icon)
+        }
+        odsListModel = ODSListModel(itemModels: itemModels)
     }
 
-    var odsListItemModels: ODSListModel {
+    func itemModel(with rightIcon: ODSListItemRightIconModel?) -> ODSListItemModel {
+        let title = "Title"
+        let subTitle = showSubtitle ? "The subtitle" : nil
+        let image = Image("ListIcon", bundle: Bundle.main)
+        let leftIconModel = showLeftIcon ? ODSListItemLeftIconModel.withImage(image) : nil
+        let rightIconModel = showRightIcon ? rightIcon : nil
 
-        let items: [ODSListItemModel] = rightIcons.map { icon in
-            let title = "Title"
-            let subTitle = showSubtitle ? "The subtitle" : nil
-            let image = Image("logo2OrangeSmallLogo", bundle: Bundle.bundle)
-            let leftIconModel = showLeftIcon ? ODSListItemLeftIconModel.withImage(image) : nil
-            let rightIconModel = showRightIcon ? icon : nil
+        return ODSListItemModel(title: title,
+                                subtitle: subTitle,
+                                leftIconModel: leftIconModel,
+                                rightIconModel: rightIconModel,
+                                minHeight: minHeight)
+    }
 
-            return ODSListItemModel(title: title,
-                                    subtitle: subTitle,
-                                    leftIconModel: leftIconModel,
-                                    rightIconModel: rightIconModel,
-                                    minHeight: minHeight)
+    func updateListModel() {
+        let newItems = odsListModel.itemModels.map { item in
+            self.itemModel(with: item.rightIconModel)
         }
 
-        return ODSListModel(itemModels: items + items + items + items)
+        odsListModel.itemModels = newItems
     }
 }
 
@@ -81,10 +101,8 @@ struct ListsPage: View {
 
     var body: some View {
         ZStack {
-            ODSList(model: listsPageModel.odsListItemModels)
-
-            BottomSheet()
-                .environmentObject(listsPageModel)
+            ODSList(model: listsPageModel.odsListModel)
+            BottomSheet().environmentObject(listsPageModel)
         }
     }
 }

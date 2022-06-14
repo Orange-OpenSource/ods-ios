@@ -62,21 +62,11 @@ struct ODSListItemRightIcon: View {
 
     var body: some View {
         switch iconModel {
-        case let .chevron(text):
-            HStack {
-                if let text = text {
-                    Text(text)
-                        .font(.subheadline)
-                        .foregroundColor(Color(UIColor.systemGray3))
-                }
-                ChevronView()
-            }
-            
         case let .text(text):
             Text(text)
                 .font(.subheadline)
                 .foregroundColor(Color(UIColor.systemGray3))
-            
+
         case let .toggle(binding):
             Toggle("", isOn: binding).tint(ODS.coreOrange)
         }
@@ -96,36 +86,13 @@ extension Image {
 }
 
 struct ODSListItemModifier: ViewModifier {
-    
+
     let minHeight: ODSListItemMinHeight
-    
+
     func body(content: Content) -> some View {
         content
             .listRowBackground(Color.clear)
             .listRowInsets(EdgeInsets())
             .frame(minHeight: minHeight.rawValue)
-    }
-}
-
-struct ChevronView: View {
-
-    @Environment(\.layoutDirection) var layoutDirection: LayoutDirection
-
-    var chevronImageName: String {
-        switch layoutDirection {
-        case .leftToRight:
-            return "chevron.right"
-        case .rightToLeft:
-            return "chevron.left"
-        @unknown default:
-            return "chevron.right"
-        }
-    }
-
-    var body: some View {
-        Image(systemName: chevronImageName)
-            .renderingMode(.template)
-            .foregroundColor(Color.secondary)
-            .font(Font.system(.footnote).weight(.semibold))
     }
 }
