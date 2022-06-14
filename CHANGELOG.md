@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.0] - Unrelease
 
-- [DemoApp] #42 Update ODS-Guideline, Typography screen 
+- [DemoApp] #42  Update ODS-Guideline, Typography screen
+- [DemoApp] #136 Show build number and build type in about screen  
 
 ## [0.3.0] - 2022-06-10
 ### Changed

@@ -37,8 +37,16 @@ extension Bundle {
         string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
     }
 
-    var buildVersion: String {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String) ?? "0"
+    var buildVersion: String? {
+        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
+    }
+
+    var buildType: String? {
+        #if DEBUG
+        "This is a DEBUG version"
+        #else
+        string(forInfoDictionaryKey: "ODSBuildType")
+        #endif
     }
 
     // ============================
