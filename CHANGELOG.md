@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.4.0] - Unrelease
 
 - [DemoApp] #42 Update ODS-Guideline, Typography screen 
+- [DemoApp] Bug #110 Card content with longer text
 
 ## [0.3.0] - 2022-06-10
 ### Changed
