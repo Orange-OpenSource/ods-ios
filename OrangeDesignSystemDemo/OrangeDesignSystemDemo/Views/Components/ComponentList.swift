@@ -26,15 +26,16 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsCardsList: View {
+    // Remark: Components are automatically displayed sorted by their name
     let componentList = [
+        ComponentModel(name: "Bars - tab", image: "empty") {
+            TabBarPage()
+        },
         ComponentModel(name: "Buttons - text", image: "Text_button") {
             TextButtonPage()
         },
         ComponentModel(name: "Buttons - shape", image: "Shape_button") {
             ShapeButtonPage()
-        },
-        ComponentModel(name: "Sliders", image: "Controls") {
-            SliderPage()
         },
         ComponentModel(name: "Cards", image: "Card") {
             CardPage()
@@ -42,11 +43,11 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
             ProgressIndicatorPage()
         },
+        ComponentModel(name: "Sliders", image: "Controls") {
+            SliderPage()
+        },
         ComponentModel(name: "Text edit menu", image: "empty") {
             EditTextPage()
-        },
-        ComponentModel(name: "Bars - tab", image: "empty") {
-            TabBarPage()
         },
     ]
 
@@ -59,7 +60,7 @@ struct ComponentsCardsList: View {
             ScrollView {
                 Spacer().frame(height: 15)
                 LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList) {
+                    ForEach(componentList.sorted { $0.name < $1.name} ) {
                         Component(component: $0)
                     }
                 }.padding([.leading, .trailing])
