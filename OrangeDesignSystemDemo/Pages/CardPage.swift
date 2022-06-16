@@ -41,7 +41,7 @@ struct CardPage: View {
     var example: ODSCardModel {
         ODSCardModel(
             title: "Title",
-            image: showImage ? "Card" : "",
+            image: showImage ? "Cards" : "",
             subTitle: showSubtitle ? ODSCardModel.example.subTitle : "",
             description: showDescription ? ODSCardModel.example.description : "")
     }
@@ -102,8 +102,6 @@ struct CardPage: View {
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }
-        .navigationTitle("Card")
-        .background(Color(uiColor: .systemGray6))
     }
 }
 

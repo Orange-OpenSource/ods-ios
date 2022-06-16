@@ -40,10 +40,7 @@ struct ShapeButtonPage: View {
 
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Button")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
-            .navigationViewStyle(.stack)
+        }
     }
 }
 
