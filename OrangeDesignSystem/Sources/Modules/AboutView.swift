@@ -92,6 +92,7 @@ public class ApplicationDescription: ObservableObject {
 
     let applicationName: String
     let applicationVersion: String
+    let applicationBuildNumber: String?
     let applicationBuildType: String?
     let copyrightNotice: String = "Orange property. All rights reserved"
     let imageHeader: Image
@@ -102,10 +103,11 @@ public class ApplicationDescription: ObservableObject {
         ODSAboutItem(text: "Web view", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
     ]
 
-    public init(applicationName: String, applicationVersion: String, applicationBuildType: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
+    public init(applicationName: String, applicationVersion: String, applicationBuildNumber: String?, applicationBuildType: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
         self.applicationName = applicationName
         self.applicationVersion = applicationVersion
         self.applicationBuildType = applicationBuildType
+        self.applicationBuildNumber = applicationBuildNumber
         self.imageHeader = imageHeader
     }
 }
@@ -167,18 +169,22 @@ private struct ApplicationDescriptionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(applicationDescription.applicationName).odsFont(style: .largeTitle)
-            Text("Version  \(applicationDescription.applicationVersion)").odsFont(style: .bodyRegular)
-            if let buildType = applicationDescription.applicationBuildType {
-                Text(buildType).odsFont(style: .bodyRegular).odsFont(style: .bodyRegular)
+            Text("Version \(applicationDescription.applicationVersion)")
+            if let buildNumber = applicationDescription.applicationBuildNumber {
+                Text("Build \(buildNumber)")
             }
-            Text(applicationDescription.copyrightNotice).odsFont(style: .bodyRegular)
+            if let buildType = applicationDescription.applicationBuildType {
+                Text(buildType)
+            }
+
+            Text(applicationDescription.copyrightNotice)
         }
     }
 }
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        let applicationDescription = ApplicationDescription(applicationName: "APP NAME", applicationVersion: "1.0.0", applicationBuildType: "PREVIEW")
+        let applicationDescription = ApplicationDescription(applicationName: "APP NAME", applicationVersion: "1.0.0", applicationBuildNumber: "123456789", applicationBuildType: "PREVIEW")
 
         ForEach(ColorScheme.allCases, id: \.self) {
 

@@ -37,7 +37,7 @@ extension Bundle {
         string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
     }
 
-    var buildVersion: String? {
+    var buildNumber: String? {
         string(forInfoDictionaryKey: kCFBundleVersionKey as String)
     }
 

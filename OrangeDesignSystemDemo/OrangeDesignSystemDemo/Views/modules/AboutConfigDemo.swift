@@ -28,7 +28,7 @@ public final class AboutConfigDemo: NSObject {
 
     public static let instance = AboutConfigDemo()
 
-    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0")
+    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0", applicationBuildNumber: nil)
 
     override private init() {}
 

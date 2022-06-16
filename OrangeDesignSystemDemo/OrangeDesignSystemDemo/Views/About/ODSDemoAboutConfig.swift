@@ -31,14 +31,9 @@ public final class ODSDemoAboutConfig: NSObject {
     public let applicationDescription: ApplicationDescription
 
     override private init() {
-
-        var fullApplicationVersion = Bundle.main.marketingVersion
-        if let buildVersion = Bundle.main.buildVersion {
-            fullApplicationVersion.append(contentsOf: " (\(buildVersion))")
-        }
-
         applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo",
-                                                        applicationVersion: fullApplicationVersion,
+                                                        applicationVersion: Bundle.main.marketingVersion,
+                                                        applicationBuildNumber: Bundle.main.buildNumber,
                                                         applicationBuildType: Bundle.main.buildType,
                                                         imageHeader: Image("AboutImage", bundle: Bundle.main))
     }
