@@ -28,7 +28,7 @@ public final class ODSDemoAboutConfig: NSObject {
 
     public static let instance = ODSDemoAboutConfig()
 
-    public let applicationDescription: ApplicationDescription
+    let applicationDescription: ApplicationDescription
 
     override private init() {
         applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo",

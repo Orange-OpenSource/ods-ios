@@ -103,7 +103,7 @@ public class ApplicationDescription: ObservableObject {
         ODSAboutItem(text: "Web view", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
     ]
 
-    public init(applicationName: String, applicationVersion: String, applicationBuildNumber: String?, applicationBuildType: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
+    public init(applicationName: String, applicationVersion: String, applicationBuildNumber: String? = nil, applicationBuildType: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
         self.applicationName = applicationName
         self.applicationVersion = applicationVersion
         self.applicationBuildType = applicationBuildType
