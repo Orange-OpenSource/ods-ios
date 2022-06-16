@@ -28,9 +28,15 @@ public final class ODSDemoAboutConfig: NSObject {
 
     public static let instance = ODSDemoAboutConfig()
 
-    let applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo", applicationVersion: Bundle.main.marketingVersion, imageHeader: Image("AboutImage", bundle: Bundle.main))
+    let applicationDescription: ApplicationDescription
 
-    override private init() {}
+    override private init() {
+        applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo",
+                                                        applicationVersion: Bundle.main.marketingVersion,
+                                                        applicationBuildNumber: Bundle.main.buildNumber,
+                                                        applicationBuildType: Bundle.main.buildType,
+                                                        imageHeader: Image("AboutImage", bundle: Bundle.main))
+    }
 
     public func configure() {
         let appMenu = [

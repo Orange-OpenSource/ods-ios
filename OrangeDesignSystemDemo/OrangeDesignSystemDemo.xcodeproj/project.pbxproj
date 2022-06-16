@@ -151,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07240127285B656400DFB9A9 /* Typography */ = {
+			isa = PBXGroup;
+			children = (
+				F90D9765280030A6006D29FC /* FontsList.swift */,
+			);
+			path = Typography;
+			sourceTree = "<group>";
+		};
 		174EE48FFD62B367205CFF78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,8 +232,8 @@
 		F90D9762280030A6006D29FC /* Guidelines */ = {
 			isa = PBXGroup;
 			children = (
+				07240127285B656400DFB9A9 /* Typography */,
 				F96A3E10280451660086B9BF /* Colors */,
-				F90D9765280030A6006D29FC /* FontsList.swift */,
 				F96A3E1C280451FE0086B9BF /* GuidelinesList.swift */,
 			);
 			name = Guidelines;
@@ -825,7 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -860,7 +868,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

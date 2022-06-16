@@ -1,19 +1,27 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+
+## [0.4.0] - Unrelease
+
+### Changed
+- [DemoApp] #136 Show build number and build type in about screen 
+- [DemoApp] #131 Add illustration on card detailed page  
+- [DemoApp] #42 Update ODS-Guideline, Typography screen
+
+### Bugs
+- [DemoApp] Bug #110 Card content with longer text
+- [DemoApp] Bug #97 Update title for cards in components screen
+
+## [0.3.0] - 2022-06-10
 ### Changed
 - [DemoApp] Update text button and shaped button pages with new design specifications
-
-### Added
+- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
 ### Bugs
 - [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color
 - [DemoApp] Bug #102 Fixed : Card bad display
 - [DemoApp] Bug #101 Fixed : Progress indicator not centered
-
-### Changed
-- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
 ## [0.2.0] - 2022-05-05
 ### Changed

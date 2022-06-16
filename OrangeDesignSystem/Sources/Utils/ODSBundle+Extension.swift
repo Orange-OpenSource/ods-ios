@@ -22,23 +22,18 @@
 //
 
 import Foundation
-import OrangeDesignSystem
-import SwiftUI
 
-struct FontList: View {
-
-    let fontStyles = ODSFontStyle.allCases
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 30) {
-                ForEach(fontStyles, id: \.rawValue) { fontStyle in
-                    Text(fontStyle.rawValue).odsFont(style: fontStyle)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 30)
-                }
-            }
-        }.navigationTitle("Typography")
-            .navigationViewStyle(.stack)
+extension Bundle {
+    public static var ods: Bundle {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
+        return Bundle(for: ODSBundleResource.self)
+        #endif
     }
 }
+
+#if SWIFT_PACKAGE
+#else
+class ODSBundleResource {}
+#endif
