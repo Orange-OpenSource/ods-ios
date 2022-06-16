@@ -10,7 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] #42 Update ODS-Guideline, Typography screen
 
 ### Bugs
-- [DemoApp] Bug #128 Displays components sorted by name
+- [DemoApp] Bug #129 Displays components sorted by name
 - [DemoApp] Bug #110 Card content with longer text
 - [DemoApp] Bug #97 Update title for cards in components screen
 
