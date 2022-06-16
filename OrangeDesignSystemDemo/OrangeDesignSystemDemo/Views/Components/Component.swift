@@ -49,7 +49,12 @@ struct ComponentModel: Identifiable {
 struct Component: View {
     let component: ComponentModel
     var body: some View {
-        NavigationLink(destination: component.destination) {
+        NavigationLink {
+            component.destination
+                .navigationTitle(component.name)
+                .navigationViewStyle(.stack)
+                .background(Color(uiColor: .systemGray6))
+        } label: {
             ODSCardView(element: ODSCardModel(title: component.name, image: component.image))
         }
     }
