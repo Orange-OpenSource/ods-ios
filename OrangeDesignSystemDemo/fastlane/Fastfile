@@ -68,6 +68,9 @@ platform :ios do
         sh "rm -Rf AppIconRelease.appiconset"
         sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
     end
+    
+    set_info_plist_value(path: "../OrangeDesignSystemDemo/Info.plist", key: "ODSBuildType", value: "This is a QUALIF version")
+    
     build_and_upload
   end
 

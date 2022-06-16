@@ -111,7 +111,7 @@ public enum ODSColor: String {
     }
 
     public var color: Color {
-        return Color(rawValue, bundle: Bundle.bundle)
+        return Color(rawValue, bundle: Bundle.ods)
     }
 
     public func color(forScheme scheme: ColorScheme) -> Color {

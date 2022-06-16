@@ -24,11 +24,16 @@
 import Foundation
 
 extension Bundle {
-    public static var bundle: Bundle {
+    public static var ods: Bundle {
         #if SWIFT_PACKAGE
         return Bundle.module
         #else
-        return Bundle(for: ODSMain.self)
+        return Bundle(for: ODSBundleResource.self)
         #endif
     }
 }
+
+#if SWIFT_PACKAGE
+#else
+class ODSBundleResource {}
+#endif

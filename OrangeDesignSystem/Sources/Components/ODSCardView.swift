@@ -94,7 +94,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
 
         VStack(alignment: .leading, spacing: 0) {
             Image(element.image.isEmpty ? "ods_empty" : element.image,
-                  bundle: element.image.isEmpty ? Bundle.bundle : Bundle.main)
+                  bundle: element.image.isEmpty ? Bundle.ods : Bundle.main)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
