@@ -39,10 +39,9 @@ struct SliderPage: View {
                 LabeledSlider()
                 SteppedSlider()
                 Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Slider")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
+            }
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+        }
     }
 }
 
