@@ -24,7 +24,7 @@
 import Foundation
 
 extension Bundle {
-    public static var bundle: Bundle {
+    public static var ods: Bundle {
         #if SWIFT_PACKAGE
         return Bundle.module
         #else
