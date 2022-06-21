@@ -33,7 +33,7 @@ public enum ODSListItemLeftIconModel {
 
 public enum ODSListItemRightIconModel {
     case text(String)
-    case toggle(Binding<Bool>)
+    case infoButton(onClicked: () -> Void)
 }
 
 public enum ODSListItemMinHeight: CGFloat {
@@ -41,14 +41,14 @@ public enum ODSListItemMinHeight: CGFloat {
     case large = 60.0
 }
 
-public struct ODSListItemModel: Identifiable {
+public struct ODSListItemModel {
 
-    public var id: UUID
+    public let id: UUID
     public let title: String
+    public let minHeight: ODSListItemMinHeight
     public let subtitle: String?
     public let leftIconModel: ODSListItemLeftIconModel?
     public let rightIconModel: ODSListItemRightIconModel?
-    public let minHeight: ODSListItemMinHeight
 
     public init(
         title: String,
@@ -62,6 +62,26 @@ public struct ODSListItemModel: Identifiable {
         self.leftIconModel = leftIconModel
         self.rightIconModel = rightIconModel
         self.minHeight = minHeight
+
+        id = UUID()
+    }
+}
+
+public struct ODSListItemWithToggleModel {
+
+    public let id: UUID
+    public let title: String
+    public let minHeight: ODSListItemMinHeight
+    public let isOn: Binding<Bool>
+
+    public init(
+        title: String,
+        minHeight: ODSListItemMinHeight = .medium,
+        isOn: Binding<Bool>)
+    {
+        self.title = title
+        self.minHeight = minHeight
+        self.isOn = isOn
 
         id = UUID()
     }
@@ -106,6 +126,28 @@ public struct ODSListItem: View {
     }
 
     public init(model: ODSListItemModel) {
+        self.model = model
+    }
+}
+
+public struct ODSListItemWithToggle: View {
+
+    let model: ODSListItemWithToggleModel
+
+    public var body: some View {
+        Toggle(isOn: model.isOn) {
+            Text(LocalizedStringKey(model.title))
+                .font(.title3)
+                .foregroundColor(.primary)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+        }
+        .tint(ODS.coreOrange)
+        .modifier(ODSListItemModifier(minHeight: model.minHeight))
+    }
+
+    public init(model: ODSListItemWithToggleModel) {
         self.model = model
     }
 }

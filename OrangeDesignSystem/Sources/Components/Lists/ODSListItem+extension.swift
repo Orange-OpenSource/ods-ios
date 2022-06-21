@@ -52,6 +52,7 @@ extension Image {
         resizable()
             .aspectRatio(contentMode: .fit)
             .clipShape(Circle())
+            .padding(.vertical, 8)
             .frame(height: height)
     }
 }
@@ -67,21 +68,14 @@ struct ODSListItemRightIcon: View {
                 .font(.subheadline)
                 .foregroundColor(Color(UIColor.systemGray3))
 
-        case let .toggle(binding):
-            Toggle("", isOn: binding).tint(ODS.coreOrange)
+        case let .infoButton(onClicked):
+            Image(systemName: "info.circle")
+                .frame(width: 16, height: 16, alignment: .center)
+                .foregroundColor(ODSColor.coreOrange.color)
+                .onTapGesture {
+                    onClicked()
+                }
         }
-    }
-}
-
-// =======================
-// MARK: Internal Helpers
-// =======================
-extension Image {
-    func imageIconModifier(color: Color = Color.primary, width: CGFloat? = 32, height: CGFloat? = 32) -> some View {
-        resizable()
-            .renderingMode(.template)
-            .foregroundColor(color)
-            .frame(width: width, height: height)
     }
 }
 
@@ -91,7 +85,6 @@ struct ODSListItemModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .listRowBackground(Color.clear)
             .listRowInsets(EdgeInsets())
             .frame(minHeight: minHeight.rawValue)
     }

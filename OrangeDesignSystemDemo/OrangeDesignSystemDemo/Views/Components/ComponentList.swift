@@ -61,11 +61,13 @@ struct ComponentsCardsList: View {
         NavigationView {
             ScrollView {
                 Spacer().frame(height: 15)
+
                 LazyVGrid(columns: columns, spacing: 15) {
                     ForEach(componentList) {
                         Component(component: $0)
                     }
                 }.padding([.leading, .trailing])
+
                 Spacer().frame(height: 15)
             }
             .navigationTitle("Components")

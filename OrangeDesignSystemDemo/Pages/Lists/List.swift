@@ -21,15 +21,30 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
 // =============
 // MARK: Models
 // =============
-public class ODSListModel: ObservableObject {
-    @Published public var itemModels: [ODSListItemModel]
+class ListModel: ObservableObject {
+    public enum ItemModelType: Identifiable {
+        case generic(ODSListItemModel)
+        case withToggle(ODSListItemWithToggleModel)
 
-    public init(itemModels: [ODSListItemModel]) {
+        var id: UUID {
+            switch self {
+            case let .generic(model):
+                return model.id
+            case let .withToggle(model):
+                return model.id
+            }
+        }
+    }
+
+    @Published var itemModels: [ItemModelType]
+
+    init(itemModels: [ItemModelType]) {
         self.itemModels = itemModels
     }
 
@@ -45,25 +60,22 @@ public class ODSListModel: ObservableObject {
 // ============
 // MARK: Views
 // ============
-public struct ODSList: View {
-    @ObservedObject var model: ODSListModel
-    @State var selection: UUID?
+struct ListView: View {
+    @ObservedObject var model: ListModel
+    @State var multiSelection: Set<UUID>?
 
-    public var body: some View {
+    var body: some View {
         List /* (selection: $multiSelection) */ {
-            ForEach(model.itemModels, id: \.id) { itemModel in
-                switch itemModel.rightIconModel {
-                case .toggle, .none:
-                    ODSListItem(model: itemModel)
-                case let .text(text) where text.isEmpty:
-                    ODSListItem(model: itemModel)
-                default:
-                    NavigationLink {
-                        Text("\(itemModel.title) is clicked")
-                    } label: {
-                        ODSListItem(model: itemModel)
+            ForEach(model.itemModels, id: \.id) { itemModelType in
+                switch itemModelType {
+                case let .generic(model):
+                    NavigationLink(model) {
+                        Text("\(model.title) is clicked")
                     }
                     .listRowInsets(EdgeInsets())
+
+                case let .withToggle(model):
+                    ODSListItemWithToggle(model: model)
                 }
             }
             .onMove(perform: move)
@@ -84,7 +96,7 @@ public struct ODSList: View {
         model.move(from: source, to: destination)
     }
 
-    public init(model: ODSListModel) {
+    init(model: ListModel) {
         self.model = model
     }
 }
