@@ -28,7 +28,7 @@ import SwiftUI
 struct ComponentsCardsList: View {
     // Remark: Components are automatically displayed sorted by their name
     let componentList = [
-        ComponentModel(name: "Bars - tab", image: "empty") {
+        ComponentModel(name: "Bars - tab", image: "BarTab") {
             TabBarPage()
         },
         ComponentModel(name: "Buttons - text", image: "Text_button") {
@@ -60,7 +60,7 @@ struct ComponentsCardsList: View {
             ScrollView {
                 Spacer().frame(height: 15)
                 LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList.sorted { $0.name < $1.name} ) {
+                    ForEach(componentList.sorted { $0.name < $1.name }) {
                         Component(component: $0)
                     }
                 }.padding([.leading, .trailing])
