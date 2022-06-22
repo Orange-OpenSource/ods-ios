@@ -37,7 +37,7 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Buttons - shape", image: "Shape_button") {
             ShapeButtonPage()
         },
-        ComponentModel(name: "Cards", image: "Card") {
+        ComponentModel(name: "Cards", image: "Cards_1") {
             CardPage()
         },
         ComponentModel(name: "Progress indicators", image: "Progress_indicator") {

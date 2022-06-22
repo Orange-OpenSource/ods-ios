@@ -48,7 +48,7 @@ struct CardPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Cards")
+            Image("Cards_1")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
