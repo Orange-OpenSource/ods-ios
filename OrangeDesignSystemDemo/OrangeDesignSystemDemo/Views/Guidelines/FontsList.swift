@@ -43,8 +43,11 @@ struct FontList: View {
                     .padding(.horizontal, ODSDim.padding)
 
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
-                    Text(fontStyle.description).odsFont(style: fontStyle)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack {
+                        Text(fontStyle.description).odsFont(style: fontStyle)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text(fontStyle.rawValue).font(.system(.caption, design: .monospaced))
+                    }
                 }
                 .padding(.horizontal, ODSDim.padding)
                 .padding(.bottom, ODSDim.padding)
@@ -59,31 +62,31 @@ extension ODSFontStyle {
     var description: String {
         switch self {
         case .largeTitle:
-            return "Large Title"
+            return "Large Title (bold)"
         case .title1:
-            return "Title 1"
+            return "Title 1 (bold)"
         case .title2:
-            return "Title 2"
+            return "Title 2 (bold)"
         case .title3:
-            return "Title 3"
+            return "Title 3 (bold)"
         case .headline:
-            return "Headline"
+            return "Headline (bold)"
         case .bodyBold:
-            return "Body Bold"
+            return "Body (bold)"
         case .bodyRegular:
-            return "Body Regular"
+            return "Body (regular)"
         case .callout:
-            return "Callout Regular"
+            return "Callout (regular)"
         case .subhead:
-            return "Subheadline Bold"
+            return "Subheadline (bold)"
         case .footnote:
-            return "Footnote Regular"
+            return "Footnote (regular)"
         case .caption1Bold:
-            return "Caption 1 Bold"
+            return "Caption 1 (bold)"
         case .caption1Regular:
-            return "Caption 1 Regular"
+            return "Caption 1 (regular)"
         case .caption2:
-            return "Caption 2 Regular"
+            return "Caption 2 (regular)"
         }
     }
 }
