@@ -1,6 +1,6 @@
 ---
 layout: detail
-title: Slider
+title: Sliders
 description: A standard slider branded for Orange
 ---
 

@@ -31,7 +31,7 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Bars - tab", image: "Tab bar") {
             TabBarPage()
         },
-        ComponentModel(name: "Buttons - text", image: "Buttons - Standard") {
+        ComponentModel(name: "Buttons - standard", image: "Buttons - Standard") {
             TextButtonPage()
         },
         ComponentModel(name: "Buttons - shape", image: "Buttons - Shape") {
