@@ -1,6 +1,6 @@
 ---
 layout: detail
-title: Standard button
+title: Buttons - standard
 description: A standard button is based on ODSGenericButtonContent
 ---
 

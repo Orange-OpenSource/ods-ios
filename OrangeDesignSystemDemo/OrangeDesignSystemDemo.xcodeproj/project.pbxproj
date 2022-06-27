@@ -45,7 +45,6 @@
 		F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */; };
 		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
 		F9D1E24028126EC000F2F7CE /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1E23F28126EC000F2F7CE /* CardPage.swift */; };
-		FD8A27A92768932700784B0E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		FD91FD2E281C09A6004D9943 /* EditTextPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91FD2D281C09A6004D9943 /* EditTextPage.swift */; };
 		FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 /* End PBXBuildFile section */
@@ -635,7 +634,6 @@
 				F96A3E1A280451660086B9BF /* ColorBig.swift in Sources */,
 				F0B26B65281A8D5B00A33699 /* TextButtonPage.swift in Sources */,
 				F96A3E1D280451FE0086B9BF /* GuidelinesList.swift in Sources */,
-				FD8A27A92768932700784B0E /* (null) in Sources */,
 				F059395E28113B3500E1A02A /* ComponentTemplate.swift in Sources */,
 				F96A3E24280452960086B9BF /* View+tabBarStyle.swift in Sources */,
 				F96A3E25280452960086B9BF /* BackgroundBlurView.swift in Sources */,

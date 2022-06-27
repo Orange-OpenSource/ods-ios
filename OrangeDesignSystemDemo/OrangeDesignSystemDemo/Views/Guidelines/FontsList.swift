@@ -43,8 +43,11 @@ struct FontList: View {
                     .padding(.horizontal, ODSDim.padding)
 
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
-                    Text(fontStyle.description).odsFont(style: fontStyle)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 8.0) {
+                        Text(fontStyle.description).odsFont(style: fontStyle)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text(fontStyle.rawValue).font(.system(.caption, design: .monospaced))
+                    }
                 }
                 .padding(.horizontal, ODSDim.padding)
                 .padding(.bottom, ODSDim.padding)
@@ -68,22 +71,22 @@ extension ODSFontStyle {
             return "Title 3"
         case .headline:
             return "Headline"
-        case .bodyBold:
-            return "Body Bold"
         case .bodyRegular:
-            return "Body Regular"
+            return "Body (regular)"
+        case .bodyBold:
+            return "Body (bold)"
         case .callout:
-            return "Callout Regular"
+            return "Callout"
         case .subhead:
-            return "Subheadline Bold"
+            return "Subheadline"
         case .footnote:
-            return "Footnote Regular"
-        case .caption1Bold:
-            return "Caption 1 Bold"
+            return "Footnote"
         case .caption1Regular:
-            return "Caption 1 Regular"
+            return "Caption 1 (regular)"
+        case .caption1Bold:
+            return "Caption 1 (bold)"
         case .caption2:
-            return "Caption 2 Regular"
+            return "Caption 2"
         }
     }
 }
