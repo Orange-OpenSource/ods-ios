@@ -30,13 +30,13 @@ public enum ODSFontStyle: String, CaseIterable {
     case title2
     case title3
     case headline
-    case bodyBold
     case bodyRegular
+    case bodyBold
     case callout
     case subhead
     case footnote
-    case caption1Bold
     case caption1Regular
+    case caption1Bold
     case caption2
 
     public func font() -> Font {
@@ -51,20 +51,20 @@ public enum ODSFontStyle: String, CaseIterable {
             return Font.title3.bold()
         case .headline:
             return Font.headline.bold()
-        case .bodyBold:
-            return Font.body.bold()
         case .bodyRegular:
             return Font.body
+        case .bodyBold:
+            return Font.body.bold()
         case .callout:
             return Font.callout
         case .subhead:
             return Font.subheadline.bold()
         case .footnote:
             return Font.footnote
-        case .caption1Bold:
-            return Font.caption.bold()
         case .caption1Regular:
             return Font.caption
+        case .caption1Bold:
+            return Font.caption.bold()
         case .caption2:
             return Font.caption2
         }
