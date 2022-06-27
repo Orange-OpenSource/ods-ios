@@ -62,31 +62,31 @@ extension ODSFontStyle {
     var description: String {
         switch self {
         case .largeTitle:
-            return "Large Title (bold)"
+            return "Large Title"
         case .title1:
-            return "Title 1 (bold)"
+            return "Title 1"
         case .title2:
-            return "Title 2 (bold)"
+            return "Title 2"
         case .title3:
-            return "Title 3 (bold)"
+            return "Title 3"
         case .headline:
-            return "Headline (bold)"
-        case .bodyBold:
-            return "Body (bold)"
+            return "Headline"
         case .bodyRegular:
             return "Body (regular)"
+        case .bodyBold:
+            return "Body (bold)"
         case .callout:
-            return "Callout (regular)"
+            return "Callout"
         case .subhead:
-            return "Subheadline (bold)"
+            return "Subheadline"
         case .footnote:
-            return "Footnote (regular)"
-        case .caption1Bold:
-            return "Caption 1 (bold)"
+            return "Footnote"
         case .caption1Regular:
             return "Caption 1 (regular)"
+        case .caption1Bold:
+            return "Caption 1 (bold)"
         case .caption2:
-            return "Caption 2 (regular)"
+            return "Caption 2"
         }
     }
 }
