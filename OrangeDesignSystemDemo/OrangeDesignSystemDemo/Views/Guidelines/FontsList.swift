@@ -43,7 +43,7 @@ struct FontList: View {
                     .padding(.horizontal, ODSDim.padding)
 
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
-                    HStack {
+                    VStack(alignment: .leading, spacing: 8.0) {
                         Text(fontStyle.description).odsFont(style: fontStyle)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text(fontStyle.rawValue).font(.system(.caption, design: .monospaced))
