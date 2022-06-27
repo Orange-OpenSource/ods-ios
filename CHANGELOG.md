@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.0] - Unrelease
 
+- [DemoApp] #124 Demo App clean-up
 - [DemoApp] Bug #130 Add missing component illustrations
 - [DemoApp] #136 Show build number and build type in about screen 
 - [DemoApp] #131 Add illustration on card detailed page  

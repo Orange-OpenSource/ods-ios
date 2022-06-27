@@ -1,6 +1,6 @@
 ---
 layout: detail
-title: Shaped button
+title: Buttons shape
 description: A shaped button is based on `ODSGenericButtonContent` by applying predefined button style
 ---
 
