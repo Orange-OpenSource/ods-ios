@@ -33,39 +33,39 @@ struct ChipsPage: View {
     // Chips with textOnly
 
     @State var textOnlyChips = [
-        ODSGenericChip(text: "Enable1"),
-        ODSGenericChip(text: "Selected1", selected: true),
-        ODSGenericChip(text: "Disabled1", disabled: true, removable: false),
+        ODSChipModel(text: "Enable1"),
+        ODSChipModel(text: "Selected1", selected: true),
+        ODSChipModel(text: "Disabled1", disabled: true, removable: false),
     ]
 
-    @State var textOnlyRemovableChips: [ODSGenericChip] = [
-        ODSGenericChip(text: "Enable2", removable: true),
-        ODSGenericChip(text: "Selected2", selected: true, removable: true),
-        ODSGenericChip(text: "Disabled2", disabled: true, removable: true),
+    @State var textOnlyRemovableChips: [ODSChipModel] = [
+        ODSChipModel(text: "Enable2", removable: true),
+        ODSChipModel(text: "Selected2", selected: true, removable: true),
+        ODSChipModel(text: "Disabled2", disabled: true, removable: true),
     ]
 
     // Chips with icons
     @State var withIconChips = [
-        ODSGenericChip(text: "Enable3", avatar: .icon(iconImage)),
-        ODSGenericChip(text: "Selected3", avatar: .icon(iconImage), selected: true),
-        ODSGenericChip(text: "Disabled3", avatar: .icon(iconImage), disabled: true),
+        ODSChipModel(text: "Enable3", thumbnail: .icon(iconImage)),
+        ODSChipModel(text: "Selected3", thumbnail: .icon(iconImage), selected: true),
+        ODSChipModel(text: "Disabled3", thumbnail: .icon(iconImage), disabled: true),
     ]
     @State var withIconRemovabeleChips = [
-        ODSGenericChip(text: "Enable4", avatar: .icon(iconImage), removable: true),
-        ODSGenericChip(text: "Selected4", avatar: .icon(iconImage), selected: true, removable: true),
-        ODSGenericChip(text: "Disabled4", avatar: .icon(iconImage), disabled: true, removable: true),
+        ODSChipModel(text: "Enable4", thumbnail: .icon(iconImage), removable: true),
+        ODSChipModel(text: "Selected4", thumbnail: .icon(iconImage), selected: true, removable: true),
+        ODSChipModel(text: "Disabled4", thumbnail: .icon(iconImage), disabled: true, removable: true),
     ]
 
     // Chips with avatar
     @State var withAvatarChips = [
-        ODSGenericChip(text: "Enable5", avatar: .image(avatarImage)),
-        ODSGenericChip(text: "Selected5", avatar: .image(avatarImage), selected: true),
-        ODSGenericChip(text: "Disabled5", avatar: .image(avatarImage), disabled: true),
+        ODSChipModel(text: "Enable5", thumbnail: .avatar(avatarImage)),
+        ODSChipModel(text: "Selected5", thumbnail: .avatar(avatarImage), selected: true),
+        ODSChipModel(text: "Disabled5", thumbnail: .avatar(avatarImage), disabled: true),
     ]
     @State var withAvatarRemovaleChips = [
-        ODSGenericChip(text: "Enable6", avatar: .image(avatarImage), removable: true),
-        ODSGenericChip(text: "Selected6", avatar: .image(avatarImage), selected: true, removable: true),
-        ODSGenericChip(text: "Disabled6", avatar: .image(avatarImage), disabled: true, removable: true),
+        ODSChipModel(text: "Enable6", thumbnail: .avatar(avatarImage), removable: true),
+        ODSChipModel(text: "Selected6", thumbnail: .avatar(avatarImage), selected: true, removable: true),
+        ODSChipModel(text: "Disabled6", thumbnail: .avatar(avatarImage), disabled: true, removable: true),
     ]
 
     var body: some View {
@@ -91,8 +91,8 @@ struct ChipsPage: View {
 struct GroupedChips: View {
 
     let title: String
-    var chips: Binding<[ODSGenericChip]>
-    var removableChips: Binding<[ODSGenericChip]>
+    var chips: Binding<[ODSChipModel]>
+    var removableChips: Binding<[ODSChipModel]>
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -108,9 +108,9 @@ struct GroupedChips: View {
 }
 
 struct HorizontalChipsListView: View {
-    let chips: [ODSGenericChip]
+    let chips: [ODSChipModel]
 
-    init(chips: [ODSGenericChip]) {
+    init(chips: [ODSChipModel]) {
         self.chips = chips
     }
 

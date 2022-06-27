@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "Close.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Chips_cross_for_extract@1x.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
