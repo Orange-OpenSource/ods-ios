@@ -40,6 +40,9 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Cards", image: "Card") {
             CardPage()
         },
+        ComponentModel(name: "Chips", image: "Chips") {
+            ChipsPage()
+        },
         ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
             ProgressIndicatorPage()
         },
@@ -60,7 +63,7 @@ struct ComponentsCardsList: View {
             ScrollView {
                 Spacer().frame(height: 15)
                 LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList.sorted { $0.name < $1.name} ) {
+                    ForEach(componentList.sorted { $0.name < $1.name }) {
                         Component(component: $0)
                     }
                 }.padding([.leading, .trailing])
