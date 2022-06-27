@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "Text edit menu.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "TextEditMenu.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

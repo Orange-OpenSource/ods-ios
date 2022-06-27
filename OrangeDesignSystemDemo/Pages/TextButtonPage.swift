@@ -29,7 +29,7 @@ struct TextButtonPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Text_button")
+            Image("Buttons - Standard")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {

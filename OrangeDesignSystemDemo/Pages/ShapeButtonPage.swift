@@ -30,7 +30,7 @@ struct ShapeButtonPage: View {
     let hPadding: CGFloat = 16.0
     var body: some View {
         ScrollView {
-            Image("Shape_button")
+            Image("Buttons - Shape")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {

@@ -45,11 +45,11 @@ struct MainTabView: View {
                 .tabItem {
                     Label("About", image: "info_32")
                 }
-            Text("Search")
-                .font(ODSFontStyle.largeTitle.font())
-                .tabItem {
-                    Label("Search", image: "Search_32")
-                }
+//            Text("Search")
+//                .font(ODSFontStyle.largeTitle.font())
+//                .tabItem {
+//                    Label("Search", image: "Search_32")
+//                }
         }
         .tabBarStyle(itemColor: Color.primary)
     }
