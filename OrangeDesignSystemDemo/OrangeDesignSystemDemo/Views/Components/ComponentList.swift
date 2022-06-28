@@ -40,6 +40,9 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Cards", image: "Cards_1") {
             CardPage()
         },
+        ComponentModel(name: "Chips", image: "Chips") {
+            ChipsPage()
+        },
         ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
             ProgressIndicatorPage()
         },
