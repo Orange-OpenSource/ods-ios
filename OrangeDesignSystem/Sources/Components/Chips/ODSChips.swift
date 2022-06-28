@@ -191,10 +191,10 @@ public struct ODSChipView: View {
                         }
                     }
                 }
-                .background(background)
-                .clipShape(Capsule())
-                .disabled(chip.disabled)
             }
+            .background(background)
+            .clipShape(Capsule())
+            .disabled(chip.disabled)
         }
     }
 
@@ -239,7 +239,7 @@ struct ChipThumbnail: View {
                 .resizable()
                 .renderingMode(.template)
                 .aspectRatio(contentMode: .fill)
-                .accentColor(selected ? .black : .primary)
+                .tint(selected ? .black : .primary)
                 .frame(width: height - 9, height: height - 9, alignment: .center)
                 .padding(.leading, 7)
 
