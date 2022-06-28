@@ -158,16 +158,13 @@ public struct ODSChipView: View {
         self.chip = chip
         self.onChipSelected = onChipSelected
         self.onChipRemoved = onChipRemoved
-        selected = chip.selected
     }
 
     @State var textHeight: CGFloat = 16.0
-    @State var selected: Bool
 
     public var body: some View {
         VStack {
             Button {
-                selected.toggle()
                 onChipSelected(chip)
             } label: {
                 HStack(alignment: .center, spacing: 0) {
@@ -189,7 +186,7 @@ public struct ODSChipView: View {
                             Button {
                                 self.onChipRemoved(chip)
                             } label: {
-                                ClosseButtonLabel(height: textHeight, selected: selected)
+                                ClosseButtonLabel(height: textHeight, selected: chip.selected)
                             }
                         }
                     }
@@ -204,14 +201,14 @@ public struct ODSChipView: View {
     var textLeadingPadding: CGFloat {
         switch chip.thumbnail {
         case .icon: return 8.0
-        case .avatar: return selected ? 8 : 6
+        case .avatar: return chip.selected ? 8 : 6
         case .iconSystem: return 8
         case .none: return 16.0
         }
     }
 
     @ViewBuilder var background: some View {
-        if selected {
+        if chip.selected {
             Capsule().foregroundColor(ODSColor.coreOrange.color)
         } else {
             Capsule().stroke(lineWidth: 1)

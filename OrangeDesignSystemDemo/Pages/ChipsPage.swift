@@ -121,6 +121,7 @@ struct HorizontalChipsListView: View {
 
                 ForEach(chips, id: \.id) { chip in
                     ODSChipView(chip: chip) { _ in
+                        print("Selected chip: \(chip)")
                     } onChipRemoved: { _ in
                     }
                 }
