@@ -97,7 +97,7 @@ struct ChipsPage: View {
                 GroupedChips(title: "With system icon", chips: $withSystemIconChips, removableChips: $withSystemIconRemovaleChips)
                 GroupedChips(title: "With avatar", chips: $withAvatarChips, removableChips: $withAvatarRemovaleChips)
             }
-            .padding(EdgeInsets(top: 0, leading: 16, bottom: 5, trailing: 16))
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
         }
     }
 }

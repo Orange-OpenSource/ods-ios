@@ -172,23 +172,21 @@ public struct ODSChipView: View {
                         ChipThumbnail(selected: chip.selected, thumbnail: thumbnail, height: textHeight)
                     }
 
-                    HStack(spacing: 0) {
-                        Text(chip.text)
-                            .odsFont(style: .subhead)
-                            .tint(chip.selected ? .black : .primary)
-                            .padding(.vertical, 6)
-                            .padding(.leading, textLeadingPadding)
-                            .padding(.trailing, chip.removable ? 8 : 16)
-                            .readSize { size in
-                                textHeight = size.height
-                            }
-
-                        if chip.removable {
-                            ClosseButtonLabel(height: textHeight, selected: chip.selected)
-                                .highPriorityGesture(TapGesture().onEnded {
-                                    self.onChipRemoved(chip)
-                                })
+                    Text(chip.text)
+                        .odsFont(style: .subhead)
+                        .tint(chip.selected ? .black : .primary)
+                        .padding(.vertical, 6)
+                        .padding(.leading, textLeadingPadding)
+                        .padding(.trailing, chip.removable ? 8 : 16)
+                        .readSize { size in
+                            textHeight = size.height
                         }
+
+                    if chip.removable {
+                        RemoveButtonLabel(height: textHeight, selected: chip.selected)
+                            .highPriorityGesture(TapGesture().onEnded {
+                                self.onChipRemoved(chip)
+                            })
                     }
                 }
             }
@@ -267,7 +265,7 @@ struct SelectedAvatar: View {
     }
 }
 
-struct ClosseButtonLabel: View {
+struct RemoveButtonLabel: View {
 
     let height: CGFloat
     let selected: Bool
