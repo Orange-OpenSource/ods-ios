@@ -23,6 +23,31 @@
 
 import SwiftUI
 
+public struct SliderOnTrackModifier<V>: ViewModifier where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint {
+    var value: Binding<V>
+    var range: ClosedRange<V>
+    var step: V?
+
+    public init(value: Binding<V>, range: ClosedRange<V>, step: V? = nil) {
+        self.range = range
+        self.value = value
+        self.step = step
+    }
+
+    public func body(content: Content) -> some View {
+        VStack(alignment: .center) {
+            GeometryReader { geometry in
+                content
+                    .gesture(DragGesture(minimumDistance: 0).onChanged { value in
+                        let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
+                        let newValue = self.range.lowerBound + round(V(Double(percent)) * (self.range.upperBound - self.range.lowerBound))
+                        self.value.wrappedValue = newValue
+                    })
+            }
+        }
+    }
+}
+
 public struct ODSSlider: View {
     @Binding var value: Double
     public var range: ClosedRange<Double>

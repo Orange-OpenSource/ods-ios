@@ -57,16 +57,18 @@ struct SliderPage_Previews: PreviewProvider {
 struct UnlabeledSlider: View {
 
     @State private var value = 50.0
+    let range = 0 ... 100.0
 
     var body: some View {
         Text("Unlabeled slider")
             .odsFont(style: .title2)
-//        VStack(alignment: .center) {
-//            Slider(
-//                value: $value,
-//                in: 0 ... 100)
-//        }.padding([.leading, .trailing], 45)
-        ODSSlider(value: $value, range: 0 ... 100)
+        VStack(alignment: .center) {
+            Slider(
+                value: $value,
+                in: 0 ... 100)
+        }
+        .modifier(SliderOnTrackModifier(value: $value, range: range))
+        .padding([.leading, .trailing], 45)
     }
 }
 
@@ -78,9 +80,6 @@ struct LabeledSlider: View {
 
         Text("Labeled slider")
             .odsFont(style: .title2)
-        VStack(alignment: .center) {
-            ODSSlider(value: $value, range: 0 ... 100)
-        }
         VStack(alignment: .center) {
             Slider(
                 value: $value,
@@ -99,27 +98,20 @@ struct LabeledSlider: View {
 struct SteppedSlider: View {
 
     @State private var value = 30.0
-
-    @State private var value2 = 30.0
+    let range = 0.0 ... 100.0
 
     var body: some View {
 
         Text("Stepped slider").odsFont(style: .title2)
         Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
         VStack(alignment: .center) {
-            // TODO: step doesn't work
-            ODSSlider(value: $value, range: 0 ... 100, step: 10)
-        }
-        .padding([.leading, .trailing], 10)
-        Text("Value : \(Int(value2))").odsFont(style: .bodyRegular)
-        VStack(alignment: .center) {
             Slider(
-                value: $value2,
-                in: 0 ... 100,
+                value: $value,
+                in: range,
                 step: 10) {
                     Text("Value")
                 } minimumValueLabel: {
-                    Text("  0")
+                    Text("0")
                 } maximumValueLabel: {
                     Text("100")
                 }
