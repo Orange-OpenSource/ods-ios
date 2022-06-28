@@ -174,6 +174,7 @@ public struct ODSChipView: View {
 
                     HStack(spacing: 0) {
                         Text(chip.text)
+                            .odsFont(style: .subhead)
                             .tint(chip.selected ? .black : .primary)
                             .padding(.vertical, 6)
                             .padding(.leading, textLeadingPadding)
@@ -183,18 +184,17 @@ public struct ODSChipView: View {
                             }
 
                         if chip.removable {
-                            Button {
-                                self.onChipRemoved(chip)
-                            } label: {
-                                ClosseButtonLabel(height: textHeight, selected: chip.selected)
-                            }
+                            ClosseButtonLabel(height: textHeight, selected: chip.selected)
+                                .highPriorityGesture(TapGesture().onEnded {
+                                    self.onChipRemoved(chip)
+                                })
                         }
                     }
                 }
+                .background(background)
+                .clipShape(Capsule())
+                .disabled(chip.disabled)
             }
-            .background(background)
-            .clipShape(Capsule())
-            .disabled(chip.disabled)
         }
     }
 
@@ -239,14 +239,14 @@ struct ChipThumbnail: View {
                 .resizable()
                 .renderingMode(.template)
                 .aspectRatio(contentMode: .fill)
-                .tint(selected ? .black : .primary)
+                .accentColor(selected ? .black : .primary)
                 .frame(width: height - 9, height: height - 9, alignment: .center)
                 .padding(.leading, 7)
 
         case let .iconSystem(name):
             Image(systemName: name)
                 .tint(selected ? .black : .primary)
-                .padding(.horizontal, 8)
+                .padding(.leading, 8)
         }
     }
 }
@@ -279,7 +279,7 @@ struct ClosseButtonLabel: View {
             .aspectRatio(contentMode: .fit)
             .tint(selected ? .black : .primary)
             .frame(width: height - 11, height: height - 11, alignment: .center)
-            .padding(.trailing, 8.0)
+            .padding(.trailing, 7.0)
     }
 }
 

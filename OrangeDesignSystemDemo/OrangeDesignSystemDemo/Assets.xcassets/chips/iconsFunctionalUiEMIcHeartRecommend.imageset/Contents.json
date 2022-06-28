@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Close.pdf",
+      "filename" : "iconsFunctionalUiEMIcHeartRecommend.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "iconsFunctionalUiEMIcHeartRecommend@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "iconsFunctionalUiEMIcHeartRecommend@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

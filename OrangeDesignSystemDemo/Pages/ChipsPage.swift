@@ -33,39 +33,52 @@ struct ChipsPage: View {
     // Chips with textOnly
 
     @State var textOnlyChips = [
-        ODSChipModel(text: "Enable1"),
-        ODSChipModel(text: "Selected1", selected: true),
-        ODSChipModel(text: "Disabled1", disabled: true, removable: false),
+        ODSChipModel(text: "Enable"),
+        ODSChipModel(text: "Selected", selected: true),
+        ODSChipModel(text: "Disabled", disabled: true, removable: false),
     ]
 
     @State var textOnlyRemovableChips: [ODSChipModel] = [
-        ODSChipModel(text: "Enable2", removable: true),
-        ODSChipModel(text: "Selected2", selected: true, removable: true),
-        ODSChipModel(text: "Disabled2", disabled: true, removable: true),
+        ODSChipModel(text: "Enable", removable: true),
+        ODSChipModel(text: "Selected", selected: true, removable: true),
+        ODSChipModel(text: "Disabled", disabled: true, removable: true),
     ]
 
     // Chips with icons
     @State var withIconChips = [
-        ODSChipModel(text: "Enable3", thumbnail: .icon(iconImage)),
-        ODSChipModel(text: "Selected3", thumbnail: .icon(iconImage), selected: true),
-        ODSChipModel(text: "Disabled3", thumbnail: .icon(iconImage), disabled: true),
+        ODSChipModel(text: "Enable", thumbnail: .icon(iconImage)),
+        ODSChipModel(text: "Selected", thumbnail: .icon(iconImage), selected: true),
+        ODSChipModel(text: "Disabled", thumbnail: .icon(iconImage), disabled: true),
     ]
     @State var withIconRemovabeleChips = [
-        ODSChipModel(text: "Enable4", thumbnail: .icon(iconImage), removable: true),
-        ODSChipModel(text: "Selected4", thumbnail: .icon(iconImage), selected: true, removable: true),
-        ODSChipModel(text: "Disabled4", thumbnail: .icon(iconImage), disabled: true, removable: true),
+        ODSChipModel(text: "Enable", thumbnail: .icon(iconImage), removable: true),
+        ODSChipModel(text: "Selected", thumbnail: .icon(iconImage), selected: true, removable: true),
+        ODSChipModel(text: "Disabled", thumbnail: .icon(iconImage), disabled: true, removable: true),
+    ]
+
+    // System icons
+    @State var withSystemIconChips = [
+        ODSChipModel(text: "Enable", thumbnail: .iconSystem(name: "heart")),
+        ODSChipModel(text: "Selected", thumbnail: .iconSystem(name: "heart"), selected: true),
+        ODSChipModel(text: "Disabled", thumbnail: .iconSystem(name: "heart"), disabled: true),
+    ]
+
+    @State var withSystemIconRemovaleChips = [
+        ODSChipModel(text: "Enable", thumbnail: .iconSystem(name: "heart"), removable: true),
+        ODSChipModel(text: "Selected", thumbnail: .iconSystem(name: "heart"), selected: true, removable: true),
+        ODSChipModel(text: "Disabled", thumbnail: .iconSystem(name: "heart"), disabled: true, removable: true),
     ]
 
     // Chips with avatar
     @State var withAvatarChips = [
-        ODSChipModel(text: "Enable5", thumbnail: .avatar(avatarImage)),
-        ODSChipModel(text: "Selected5", thumbnail: .avatar(avatarImage), selected: true),
-        ODSChipModel(text: "Disabled5", thumbnail: .avatar(avatarImage), disabled: true),
+        ODSChipModel(text: "Enable", thumbnail: .avatar(avatarImage)),
+        ODSChipModel(text: "Selected", thumbnail: .avatar(avatarImage), selected: true),
+        ODSChipModel(text: "Disabled", thumbnail: .avatar(avatarImage), disabled: true),
     ]
     @State var withAvatarRemovaleChips = [
-        ODSChipModel(text: "Enable6", thumbnail: .avatar(avatarImage), removable: true),
-        ODSChipModel(text: "Selected6", thumbnail: .avatar(avatarImage), selected: true, removable: true),
-        ODSChipModel(text: "Disabled6", thumbnail: .avatar(avatarImage), disabled: true, removable: true),
+        ODSChipModel(text: "Enable", thumbnail: .avatar(avatarImage), removable: true),
+        ODSChipModel(text: "Selected", thumbnail: .avatar(avatarImage), selected: true, removable: true),
+        ODSChipModel(text: "Disabled", thumbnail: .avatar(avatarImage), disabled: true, removable: true),
     ]
 
     var body: some View {
@@ -80,7 +93,8 @@ struct ChipsPage: View {
                 VariantsTitle()
 
                 GroupedChips(title: "Text only", chips: $textOnlyChips, removableChips: $textOnlyRemovableChips)
-                GroupedChips(title: "With icon", chips: $withIconChips, removableChips: $withIconRemovabeleChips)
+                GroupedChips(title: "With icon from image", chips: $withIconChips, removableChips: $withIconRemovabeleChips)
+                GroupedChips(title: "With system icon", chips: $withSystemIconChips, removableChips: $withSystemIconRemovaleChips)
                 GroupedChips(title: "With avatar", chips: $withAvatarChips, removableChips: $withAvatarRemovaleChips)
             }
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 5, trailing: 16))
@@ -123,6 +137,7 @@ struct HorizontalChipsListView: View {
                     ODSChipView(chip: chip) { _ in
                         print("Selected chip: \(chip)")
                     } onChipRemoved: { _ in
+                        print("Removed chip: \(chip)")
                     }
                 }
             }
