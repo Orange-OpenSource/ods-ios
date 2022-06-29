@@ -23,90 +23,45 @@
 
 import SwiftUI
 
-public struct SliderOnTrackModifier<V>: ViewModifier where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint {
-    var value: Binding<V>
-    var range: ClosedRange<V>
-    var step: V?
-
-    public init(value: Binding<V>, range: ClosedRange<V>, step: V? = nil) {
-        self.range = range
-        self.value = value
-        self.step = step
-    }
-
-    public func body(content: Content) -> some View {
-        VStack(alignment: .center) {
-            GeometryReader { geometry in
-                content
-                    .gesture(DragGesture(minimumDistance: 0).onChanged { value in
-                        let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
-                        let newValue = self.range.lowerBound + round(V(Double(percent)) * (self.range.upperBound - self.range.lowerBound))
-                        self.value.wrappedValue = newValue
-                    })
-            }
-        }
-    }
-}
-
 public struct ODSSlider: View {
     @Binding var value: Double
     public var range: ClosedRange<Double>
-    var step: Double = 1.0
+    var step: Double
+    var minimumValueLabel: AnyView?
+    var maximumValueLabel: AnyView?
 
-    public init(value: Binding<Double>, range: ClosedRange<Double>) {
-        self.range = range
+    public init(value: Binding<Double>, range: ClosedRange<Double>, step: Double.Stride = 1) {
         _value = value
-    }
-
-    public init(value: Binding<Double>, range: ClosedRange<Double>, step: Double = 1.0) {
         self.range = range
         self.step = step
+    }
+
+    public init<MinView, MaxView>(value: Binding<Double>, range: ClosedRange<Double>, step: Double.Stride = 1, @ViewBuilder minimumValueLabel: () -> MinView, @ViewBuilder maximumValueLabel: () -> MaxView) where MinView: View, MaxView: View {
         _value = value
+        self.range = range
+        self.step = step
+        self.minimumValueLabel = AnyView(minimumValueLabel())
+        self.maximumValueLabel = AnyView(maximumValueLabel())
     }
 
     public var body: some View {
         VStack(alignment: .center) {
-            GeometryReader { geometry in
-                Slider(
-                    value: $value,
-                    in: range,
-                    step: step) {
-                        Text("Value")
-                    } minimumValueLabel: {
-                        Text("  0")
-                    } maximumValueLabel: {
-                        Text("100")
-                    }
-                    .gesture(DragGesture(minimumDistance: 0).onChanged { value in
-                        let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
-                        let newValue = self.range.lowerBound + round(Double(percent) * (self.range.upperBound - self.range.lowerBound))
-                        self.$value.wrappedValue = newValue
-                    })
+            HStack {
+                minimumValueLabel
+                GeometryReader { geometry in
+                    Slider(
+                            value: $value,
+                            in: range,
+                            step: step)
+                            .gesture(DragGesture(minimumDistance: 0).onChanged { value in
+                                let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
+                                let newValue = self.range.lowerBound + round(Double(percent) * (self.range.upperBound - self.range.lowerBound))
+                                let rounded = round(newValue / step) * step
+                                self.$value.wrappedValue = rounded
+                            })
+                }
+                maximumValueLabel
             }
         }
     }
 }
-
-// public struct ODSSlider2 : View {
-//    @State private var  value = 50.0
-//    var range: ClosedRange<Double> = 0 ... 100
-//    var step: Double = 1.0
-//
-//    var body: some View {
-//            Text("Unlabeled slider")
-//                .odsFont(style: .title2)
-//            VStack(alignment: .center) {
-//                    GeometryReader { geometry in
-//                            Slider(
-//                                value: $value,
-//                                in: range,
-//                                step: step)
-//                                .gesture(DragGesture(minimumDistance: 0).onEnded { value in
-//                                        let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
-//                                        let newValue = self.range.lowerBound + round(Double(percent) * (self.range.upperBound - self.range.lowerBound))
-//                                        self.$value.wrappedValue = newValue
-//                                    })
-//                        }.padding([.leading, .trailing], 45)
-//                }
-//        }
-// }

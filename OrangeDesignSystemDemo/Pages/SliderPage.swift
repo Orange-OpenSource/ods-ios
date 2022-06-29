@@ -63,27 +63,41 @@ struct UnlabeledSlider: View {
         Text("Unlabeled slider")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
+            ODSSlider(
+                value: $value,
+                range: range)
+        }
+        .padding([.leading, .trailing], 10)
+        VStack(alignment: .center) {
             Slider(
                 value: $value,
-                in: 0 ... 100)
+                in: range)
         }
-        .modifier(SliderOnTrackModifier(value: $value, range: range))
-        .padding([.leading, .trailing], 45)
+        .padding([.leading, .trailing], 10)
     }
 }
 
 struct LabeledSlider: View {
 
     @State private var value = 80.0
+    let range = 0 ... 100.0
 
     var body: some View {
 
         Text("Labeled slider")
             .odsFont(style: .title2)
+        Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
+        VStack(alignment: .center) {
+            ODSSlider(value: $value,
+                      range: range,
+                      minimumValueLabel: { Image(systemName: "speaker.wave.1.fill") },
+                      maximumValueLabel: { Image(systemName: "speaker.wave.3.fill") })
+        }
+        .padding([.leading, .trailing], 10)
         VStack(alignment: .center) {
             Slider(
                 value: $value,
-                in: 0 ... 100) {
+                in: range) {
                     Text("Value")
                 } minimumValueLabel: {
                     Image(systemName: "speaker.wave.1.fill")
@@ -99,16 +113,25 @@ struct SteppedSlider: View {
 
     @State private var value = 30.0
     let range = 0.0 ... 100.0
+    let step = 2.0
 
     var body: some View {
 
         Text("Stepped slider").odsFont(style: .title2)
         Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
         VStack(alignment: .center) {
+            ODSSlider(value: $value,
+                      range: range,
+                      step: step,
+                      minimumValueLabel: { Text("0") },
+                      maximumValueLabel: { Text("100") })
+        }
+        .padding([.leading, .trailing], 10)
+        VStack(alignment: .center) {
             Slider(
                 value: $value,
                 in: range,
-                step: 10) {
+                step: step) {
                     Text("Value")
                 } minimumValueLabel: {
                     Text("0")
