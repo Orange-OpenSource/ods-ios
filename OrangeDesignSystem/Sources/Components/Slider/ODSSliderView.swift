@@ -27,29 +27,29 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
     @Binding var value: V
     public let range: ClosedRange<V>
     let step: V.Stride
-    let minimumLabelView: ValueLabel
-    let maximumLabelView: ValueLabel
+    let minimumValueLabel: ValueLabel
+    let maximumValueLabel: ValueLabel
 
     public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1) where ValueLabel == EmptyView {
         _value = value
         self.range = range
         self.step = step
-        maximumLabelView = EmptyView()
-        minimumLabelView = EmptyView()
+        maximumValueLabel = EmptyView()
+        minimumValueLabel = EmptyView()
     }
 
     public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder minimumLabelView: () -> ValueLabel, @ViewBuilder maximumLabelView: () -> ValueLabel) {
         _value = value
         self.range = range
         self.step = step
-        self.minimumLabelView = minimumLabelView()
-        self.maximumLabelView = maximumLabelView()
+        minimumValueLabel = minimumLabelView()
+        maximumValueLabel = maximumLabelView()
     }
 
     public var body: some View {
         VStack {
             HStack(alignment: .center) {
-                minimumLabelView
+                minimumValueLabel
                 GeometryReader { geometry in
                     Slider(
                         value: $value,
@@ -66,7 +66,7 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
                             height: geometry.size.height,
                             alignment: .center)
                 }
-                maximumLabelView
+                maximumValueLabel
             }
         }
     }
