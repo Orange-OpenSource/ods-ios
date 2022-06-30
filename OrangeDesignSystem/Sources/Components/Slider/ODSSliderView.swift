@@ -23,25 +23,27 @@
 
 import SwiftUI
 
-public struct ODSSlider: View {
-    @Binding var value: Double
-    public var range: ClosedRange<Double>
-    var step: Double
-    var minimumLabelView: AnyView?
-    var maximumLabelView: AnyView?
+public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint, ValueLabel: View {
+    @Binding var value: V
+    public let range: ClosedRange<V>
+    let step: V.Stride
+    let minimumLabelView: ValueLabel
+    let maximumLabelView: ValueLabel
 
-    public init(value: Binding<Double>, range: ClosedRange<Double>, step: Double.Stride = 1) {
+    public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1) where ValueLabel == EmptyView {
         _value = value
         self.range = range
         self.step = step
+        maximumLabelView = EmptyView()
+        minimumLabelView = EmptyView()
     }
 
-    public init<MinimumLabelView, MaximumLabelView>(value: Binding<Double>, range: ClosedRange<Double>, step: Double.Stride = 1, @ViewBuilder minimumLabelView: () -> MinimumLabelView, @ViewBuilder maximumLabelView: () -> MaximumLabelView) where MinimumLabelView: View, MaximumLabelView: View {
+    public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder minimumLabelView: () -> ValueLabel, @ViewBuilder maximumLabelView: () -> ValueLabel) {
         _value = value
         self.range = range
         self.step = step
-        self.minimumLabelView = AnyView(minimumLabelView())
-        self.maximumLabelView = AnyView(maximumLabelView())
+        self.minimumLabelView = minimumLabelView()
+        self.maximumLabelView = maximumLabelView()
     }
 
     public var body: some View {
@@ -55,9 +57,9 @@ public struct ODSSlider: View {
                         step: step)
                         .gesture(DragGesture(minimumDistance: 0).onChanged { value in
                             let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
-                            let newValue = self.range.lowerBound + round(Double(percent) * (self.range.upperBound - self.range.lowerBound))
-                            let rounded = round(newValue / step) * step
-                            self.$value.wrappedValue = rounded
+                            let newValue = self.range.lowerBound + round(V(Double(percent)) * (self.range.upperBound - self.range.lowerBound))
+                            let rounded = round(V.Stride(newValue) / step) * step
+                            self.$value.wrappedValue = V(rounded)
                         })
                         .frame(
                             width: geometry.size.width,
