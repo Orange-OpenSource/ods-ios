@@ -113,7 +113,7 @@ struct SteppedSlider: View {
 
     @State private var value = 30.0
     let range = 0.0 ... 100.0
-    let step = 2.0
+    let step = 10.0
 
     var body: some View {
 

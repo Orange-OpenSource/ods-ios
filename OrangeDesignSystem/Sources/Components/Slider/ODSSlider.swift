@@ -45,8 +45,8 @@ public struct ODSSlider: View {
     }
 
     public var body: some View {
-        VStack(alignment: .center) {
-            HStack {
+        VStack {
+            HStack(alignment: .center) {
                 minimumValueLabel
                 GeometryReader { geometry in
                     Slider(
@@ -59,6 +59,10 @@ public struct ODSSlider: View {
                                 let rounded = round(newValue / step) * step
                                 self.$value.wrappedValue = rounded
                             })
+                            .frame(
+                                    width: geometry.size.width,
+                                    height: geometry.size.height,
+                                    alignment: .center)
                 }
                 maximumValueLabel
             }
