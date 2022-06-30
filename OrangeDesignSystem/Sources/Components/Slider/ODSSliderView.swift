@@ -69,3 +69,18 @@ public struct ODSSlider: View {
         }
     }
 }
+
+#if DEBUG
+struct ODSSlider_Previews: PreviewProvider {
+
+    static var previews: some View {
+
+        VStack {
+            ODSSlider(
+                value: .constant(50),
+                range: 0 ... 100.0)
+                .padding([.leading, .trailing], 10)
+        }
+    }
+} SliderP
+#endif
