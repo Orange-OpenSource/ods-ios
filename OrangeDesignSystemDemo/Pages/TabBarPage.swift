@@ -30,7 +30,7 @@ struct TabBarPage: View {
 
     var body: some View {
         ScrollView {
-            Image("BarTab")
+            Image("Tab bar")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {

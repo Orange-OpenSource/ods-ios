@@ -29,7 +29,7 @@ struct EditTextPage: View {
 
     var body: some View {
         ScrollView {
-            Image("TextEditMenu")
+            Image("Text edit menu")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {

@@ -82,5 +82,5 @@ struct ODSSlider_Previews: PreviewProvider {
                 .padding([.leading, .trailing], 10)
         }
     }
-} SliderP
+}
 #endif
