@@ -27,8 +27,8 @@ public struct ODSSlider: View {
     @Binding var value: Double
     public var range: ClosedRange<Double>
     var step: Double
-    var minimumValueLabel: AnyView?
-    var maximumValueLabel: AnyView?
+    var minimumLabelView: AnyView?
+    var maximumLabelView: AnyView?
 
     public init(value: Binding<Double>, range: ClosedRange<Double>, step: Double.Stride = 1) {
         _value = value
@@ -36,35 +36,35 @@ public struct ODSSlider: View {
         self.step = step
     }
 
-    public init<MinView, MaxView>(value: Binding<Double>, range: ClosedRange<Double>, step: Double.Stride = 1, @ViewBuilder minimumValueLabel: () -> MinView, @ViewBuilder maximumValueLabel: () -> MaxView) where MinView: View, MaxView: View {
+    public init<MinimumLabelView, MaximumLabelView>(value: Binding<Double>, range: ClosedRange<Double>, step: Double.Stride = 1, @ViewBuilder minimumLabelView: () -> MinimumLabelView, @ViewBuilder maximumLabelView: () -> MaximumLabelView) where MinimumLabelView: View, MaximumLabelView: View {
         _value = value
         self.range = range
         self.step = step
-        self.minimumValueLabel = AnyView(minimumValueLabel())
-        self.maximumValueLabel = AnyView(maximumValueLabel())
+        self.minimumLabelView = AnyView(minimumLabelView())
+        self.maximumLabelView = AnyView(maximumLabelView())
     }
 
     public var body: some View {
         VStack {
             HStack(alignment: .center) {
-                minimumValueLabel
+                minimumLabelView
                 GeometryReader { geometry in
                     Slider(
-                            value: $value,
-                            in: range,
-                            step: step)
-                            .gesture(DragGesture(minimumDistance: 0).onChanged { value in
-                                let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
-                                let newValue = self.range.lowerBound + round(Double(percent) * (self.range.upperBound - self.range.lowerBound))
-                                let rounded = round(newValue / step) * step
-                                self.$value.wrappedValue = rounded
-                            })
-                            .frame(
-                                    width: geometry.size.width,
-                                    height: geometry.size.height,
-                                    alignment: .center)
+                        value: $value,
+                        in: range,
+                        step: step)
+                        .gesture(DragGesture(minimumDistance: 0).onChanged { value in
+                            let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
+                            let newValue = self.range.lowerBound + round(Double(percent) * (self.range.upperBound - self.range.lowerBound))
+                            let rounded = round(newValue / step) * step
+                            self.$value.wrappedValue = rounded
+                        })
+                        .frame(
+                            width: geometry.size.width,
+                            height: geometry.size.height,
+                            alignment: .center)
                 }
-                maximumValueLabel
+                maximumLabelView
             }
         }
     }

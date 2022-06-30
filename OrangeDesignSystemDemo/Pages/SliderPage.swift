@@ -68,12 +68,6 @@ struct UnlabeledSlider: View {
                 range: range)
         }
         .padding([.leading, .trailing], 10)
-        VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: range)
-        }
-        .padding([.leading, .trailing], 10)
     }
 }
 
@@ -90,20 +84,8 @@ struct LabeledSlider: View {
         VStack(alignment: .center) {
             ODSSlider(value: $value,
                       range: range,
-                      minimumValueLabel: { Image(systemName: "speaker.wave.1.fill") },
-                      maximumValueLabel: { Image(systemName: "speaker.wave.3.fill") })
-        }
-        .padding([.leading, .trailing], 10)
-        VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: range) {
-                    Text("Value")
-                } minimumValueLabel: {
-                    Image(systemName: "speaker.wave.1.fill")
-                } maximumValueLabel: {
-                    Image(systemName: "speaker.wave.3.fill")
-                }
+                      minimumLabelView: { Image(systemName: "speaker.wave.1.fill") },
+                      maximumLabelView: { Image(systemName: "speaker.wave.3.fill") })
         }
         .padding([.leading, .trailing], 10)
     }
@@ -123,21 +105,8 @@ struct SteppedSlider: View {
             ODSSlider(value: $value,
                       range: range,
                       step: step,
-                      minimumValueLabel: { Text("0") },
-                      maximumValueLabel: { Text("100") })
-        }
-        .padding([.leading, .trailing], 10)
-        VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: range,
-                step: step) {
-                    Text("Value")
-                } minimumValueLabel: {
-                    Text("0")
-                } maximumValueLabel: {
-                    Text("100")
-                }
+                      minimumLabelView: { Text("0") },
+                      maximumLabelView: { Text("100") })
         }
         .padding([.leading, .trailing], 10)
     }
