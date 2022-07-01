@@ -57,6 +57,6 @@ public struct ODSListCardView: View {
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(list.title)
         .navigationViewStyle(.stack)
-        .background(Color(uiColor: .systemGray5))
+        .background(ODSColor.primaryBackground.color)
     }
 }

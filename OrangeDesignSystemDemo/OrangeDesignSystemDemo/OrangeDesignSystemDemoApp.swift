@@ -32,7 +32,6 @@ struct ods_ios_swiftUI_demoApp: App {
                 .accentColor(ODSColor.coreOrange.color)
                 .navigationBarColor(tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
                                     backgroundColor: ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground)
-            
         }
     }
 }

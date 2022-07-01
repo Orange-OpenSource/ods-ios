@@ -61,6 +61,8 @@ public enum ODSColor: String {
 
     // MARK: - TMP
     case componentBackground
+    case componentBackground2
+    case primaryBackground
 
     public func displayName(forScheme scheme: ColorScheme) -> String {
         switch self {
@@ -114,6 +116,10 @@ public enum ODSColor: String {
         // Tmp
         case .componentBackground:
             return "Component background"
+        case .componentBackground2:
+            return "Component background 2"
+        case .primaryBackground:
+            return "Primary background"
         }
     }
 
@@ -179,7 +185,11 @@ public enum ODSColor: String {
 
         // Tmp
         case .componentBackground:
-            return scheme == .light ? RGB(249, 249, 249) : RGB(21, 21, 21)
+            return scheme == .light ? RGB(249, 249, 249) : RGB(28, 28, 28)
+        case .componentBackground2:
+            return scheme == .light ? RGB(255, 255, 255) : RGB(28, 28, 28)
+        case .primaryBackground:
+            return scheme == .light ? RGB(255, 255, 255) : RGB(0, 0, 0)
         }
     }
 

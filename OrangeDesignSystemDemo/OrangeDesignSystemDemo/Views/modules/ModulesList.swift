@@ -41,7 +41,7 @@ struct ModulesList: View {
         return NavigationView {
             ODSListCardView()
                 .environmentObject(listModel)
-                .background(Color(uiColor: .systemGray5))
+                .background(ODSColor.primaryBackground.color)
         }
     }
 }
