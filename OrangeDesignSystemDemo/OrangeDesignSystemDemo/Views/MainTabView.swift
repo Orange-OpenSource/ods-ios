@@ -32,7 +32,8 @@ struct MainTabView: View {
             GuidelinesList()
                 .tabItem {
                     Label("Guidelines", image: "Guideline-DNA_32")
-                }.navigationBarColor(tintColor: UIColor(ODS.coreOrange))
+                }.navigationBarColor(tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
+                                     backgroundColor: ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground)
             ComponentsCardsList()
                 .tabItem {
                     Label("Components", image: "component-atom_32")
@@ -51,7 +52,7 @@ struct MainTabView: View {
 //                    Label("Search", image: "Search_32")
 //                }
         }
-        .tabBarStyle(itemColor: Color.primary)
+        .tabBarStyle(backgroundColor: ODSColor.componentBackground.color, itemColor: Color.primary)
     }
 }
 
