@@ -41,7 +41,7 @@ struct SliderPage: View {
                 Spacer().frame(height: 10)
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 

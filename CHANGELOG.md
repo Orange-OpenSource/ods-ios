@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.0] - Unrelease
 - [DemoApp/SDK] #128 Add slider action on bar tap
+- [DemoApp] #161 Design review Sprint 11 (background colours, shadows, ...) 
 - [DemoApp/SDK] #150 Add Chip component
 - [DemoApp] #42 Typographie : Update font style list (add id)
 - [DemoApp] #124 Demo App clean-up
