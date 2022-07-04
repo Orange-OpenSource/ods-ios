@@ -62,7 +62,7 @@ struct CardViewDemoGrid: View {
 
         }.navigationTitle("Page title")
             .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray5))
+            .background(ODSColor.primaryBackground.color)
     }
 }
 

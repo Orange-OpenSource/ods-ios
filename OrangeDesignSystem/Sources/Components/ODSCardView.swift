@@ -113,7 +113,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
             .font(ODSFontStyle.bodyRegular.font())
             .foregroundColor(.primary)
             .padding()
-        }.background(Color(UIColor.systemBackground))
+        }.background(ODSColor.componentBackground2.color)
     }
 }
 
