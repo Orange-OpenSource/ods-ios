@@ -57,61 +57,61 @@ struct SliderPage_Previews: PreviewProvider {
 struct UnlabeledSlider: View {
 
     @State private var value = 50.0
+    let range = 0 ... 100.0
 
     var body: some View {
         Text("Unlabeled slider")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
-            Slider(
+            ODSSlider(
                 value: $value,
-                in: 0 ... 100)
-        }.padding([.leading, .trailing], 45)
+                range: range)
+        }
+        .padding([.leading, .trailing], 10)
     }
 }
 
 struct LabeledSlider: View {
 
     @State private var value = 80.0
+    let range = 0 ... 100.0
 
     var body: some View {
 
         Text("Labeled slider")
             .odsFont(style: .title2)
+        Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
         VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: 0 ... 100)
-            {
-                Text("Value")
-            } minimumValueLabel: {
+            ODSSlider(value: $value,
+                      range: range) {
                 Image(systemName: "speaker.wave.1.fill")
-            } maximumValueLabel: {
+            } maximumLabelView: {
                 Image(systemName: "speaker.wave.3.fill")
             }
-        }.padding([.leading, .trailing], 10)
+        }
+        .padding([.leading, .trailing], 10)
     }
 }
 
 struct SteppedSlider: View {
 
     @State private var value = 30.0
+    let range = 0.0 ... 100.0
+    let step = 10.0
 
     var body: some View {
 
         Text("Stepped slider").odsFont(style: .title2)
         Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
         VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: 0 ... 100,
-                step: 10)
-            {
-                Text("Value")
-            } minimumValueLabel: {
-                Text("  0")
-            } maximumValueLabel: {
+            ODSSlider(value: $value,
+                      range: range,
+                      step: step) {
+                Text("0")
+            } maximumLabelView: {
                 Text("100")
             }
-        }.padding([.leading, .trailing], 10)
+            .padding([.leading, .trailing], 10)
+        }
     }
 }
