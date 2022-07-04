@@ -31,7 +31,7 @@ struct FontList: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: ODSDim.padding) {
+            VStack(alignment: .leading, spacing: ODSSpacing.m) {
 
                 Image("Typography")
                     .resizable()
@@ -40,7 +40,7 @@ struct FontList: View {
                 Text("Use the system typeface San Francisco for all Latin, Greek and Cyrillic alphabets.\n\n"
                     + "Use the built-in text styles in order to create a clear distinct visual typographic hierarchy.\n\n"
                     + "Using the built-in text styles enables users to take advantage of features such as Dynamic Type. Based on the Apple Dynamic Types, Orange defines thoses sizes :")
-                    .padding(.horizontal, ODSDim.padding)
+                    .padding(.horizontal, ODSSpacing.m)
 
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
                     VStack(alignment: .leading, spacing: 8.0) {
@@ -49,8 +49,8 @@ struct FontList: View {
                         Text(fontStyle.rawValue).font(.system(.caption, design: .monospaced))
                     }
                 }
-                .padding(.horizontal, ODSDim.padding)
-                .padding(.bottom, ODSDim.padding)
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.bottom, ODSSpacing.m)
             }
         }
         .navigationTitle("Typography")

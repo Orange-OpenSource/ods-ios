@@ -21,42 +21,14 @@
 //
 //
 
-import SwiftUI
+import Foundation
 
-public class ODSListCardViewModel: ObservableObject {
-    public let cards: [ODSCardModel]
-    public let title: String
-
-    public init(title: String, cards: [ODSCardModel]) {
-        self.title = title
-        self.cards = cards
-    }
-}
-
-public struct ODSListCardView: View {
-    @EnvironmentObject private var list: ODSListCardViewModel
-
-    let columns = [
-        GridItem(.flexible(), alignment: .topLeading),
-    ]
-
-    public init() {}
-
-    public var body: some View {
-        ScrollView {
-            Spacer().frame(height: 15)
-            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                ForEach(list.cards, id: \.title) { card in
-                    NavigationLink(destination: card.destination) {
-                        ODSCardView(element: card)
-                    }
-                }.padding([.leading, .trailing])
-            }
-            Spacer().frame(height: 15)
-        }
-        .navigationBarTitleDisplayMode(.large)
-        .navigationTitle(list.title)
-        .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
-    }
+public enum ODSSpacing {
+    public static let none: Double = 0
+    public static let xs: Double = 4
+    public static let s: Double = 8
+    public static let m: Double = 16
+    public static let l: Double = 24
+    public static let xl: Double = 32
+    public static let xxl: Double = 40
 }

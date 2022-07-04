@@ -27,15 +27,6 @@ import SwiftUI
 public enum ODSDim {
     public static let list_min_height = 42.0
     public static let list_min_width = 42.0
-    public static let padding = 15.0
-
-    public enum ODSSpacing {
-        static let tiny: Double = 5
-        static let small: Double = 10
-        static let regular: Double = 15
-        static let large: Double = 20
-        static let huge: Double = 30
-    }
 }
 
 extension View {
@@ -45,19 +36,19 @@ extension View {
     }
 
     public func odsLeadingPadding() -> some View {
-        return padding(.leading, ODSDim.padding)
+        return padding(.leading, ODSSpacing.m)
     }
 
     public func odsTrailingPadding() -> some View {
-        return padding(.trailing, ODSDim.padding)
+        return padding(.trailing, ODSSpacing.m)
     }
 
     public func odsGlobalPadding() -> some View {
-        return padding(ODSDim.padding)
+        return padding(ODSSpacing.m)
     }
 
     public func odsSpacerSmall() -> some View {
-        return frame(height: ODSDim.padding)
+        return frame(height: ODSSpacing.m)
     }
 
     public func odsSpacerMedium() -> some View {
