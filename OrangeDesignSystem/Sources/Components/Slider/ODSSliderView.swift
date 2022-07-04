@@ -27,29 +27,33 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
     @Binding var value: V
     public let range: ClosedRange<V>
     let step: V.Stride
-    let minimumValueLabel: ValueLabel
-    let maximumValueLabel: ValueLabel
+    let minimumValueLabel: () -> ValueLabel
+    let maximumValueLabel: () -> ValueLabel
 
     public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1) where ValueLabel == EmptyView {
         _value = value
         self.range = range
         self.step = step
-        maximumValueLabel = EmptyView()
-        minimumValueLabel = EmptyView()
+        maximumValueLabel = {
+            EmptyView()
+        }
+        minimumValueLabel = {
+            EmptyView()
+        }
     }
 
-    public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder minimumLabelView: () -> ValueLabel, @ViewBuilder maximumLabelView: () -> ValueLabel) {
+    public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder minimumLabelView: @escaping () -> ValueLabel, @ViewBuilder maximumLabelView: @escaping () -> ValueLabel) {
         _value = value
         self.range = range
         self.step = step
-        minimumValueLabel = minimumLabelView()
-        maximumValueLabel = maximumLabelView()
+        minimumValueLabel = minimumLabelView
+        maximumValueLabel = maximumLabelView
     }
 
     public var body: some View {
         VStack {
             HStack(alignment: .center) {
-                minimumValueLabel
+                minimumValueLabel()
                 GeometryReader { geometry in
                     Slider(
                         value: $value,
@@ -66,7 +70,7 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
                             height: geometry.size.height,
                             alignment: .center)
                 }
-                maximumValueLabel
+                maximumValueLabel()
             }
         }
     }
@@ -81,6 +85,23 @@ struct ODSSlider_Previews: PreviewProvider {
             ODSSlider(
                 value: .constant(50),
                 range: 0 ... 100.0)
+                .padding([.leading, .trailing], 10)
+        }
+    }
+}
+
+struct ODSSlider_Previews_with_label: PreviewProvider {
+
+    static var previews: some View {
+
+        VStack {
+            ODSSlider(
+                value: .constant(50),
+                range: 0 ... 100.0) {
+                    Image(systemName: "speaker.wave.1.fill")
+                } maximumLabelView: {
+                    Image(systemName: "speaker.wave.3.fill")
+                }
                 .padding([.leading, .trailing], 10)
         }
     }

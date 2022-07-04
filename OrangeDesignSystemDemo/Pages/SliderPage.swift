@@ -83,9 +83,11 @@ struct LabeledSlider: View {
         Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
         VStack(alignment: .center) {
             ODSSlider(value: $value,
-                      range: range,
-                      minimumLabelView: { Image(systemName: "speaker.wave.1.fill") },
-                      maximumLabelView: { Image(systemName: "speaker.wave.3.fill") })
+                      range: range) {
+                Image(systemName: "speaker.wave.1.fill")
+            } maximumLabelView: {
+                Image(systemName: "speaker.wave.3.fill")
+            }
         }
         .padding([.leading, .trailing], 10)
     }
@@ -104,10 +106,12 @@ struct SteppedSlider: View {
         VStack(alignment: .center) {
             ODSSlider(value: $value,
                       range: range,
-                      step: step,
-                      minimumLabelView: { Text("0") },
-                      maximumLabelView: { Text("100") })
+                      step: step) {
+                Text("0")
+            } maximumLabelView: {
+                Text("100")
+            }
+            .padding([.leading, .trailing], 10)
         }
-        .padding([.leading, .trailing], 10)
     }
 }
