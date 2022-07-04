@@ -80,7 +80,7 @@ public struct CardViewCustom<ButtonContent>: View where ButtonContent: View {
             buttonContent()
         }
         .cornerRadius(10)
-        .shadow(radius: 12)
+        .shadow(radius: 8)
     }
 }
 
