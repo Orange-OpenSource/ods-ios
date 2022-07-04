@@ -21,8 +21,8 @@ toc2:
         url: /ods-ios/components/slider_docs
       - page: Progress indicator
         url: /ods-ios/components/progressIndicator_docs
-      - page: Edit text
-        url: /ods-ios/components/editText_docs
+      - page: Text selection
+        url: /ods-ios/components/textSelection_docs
       
   - title: Modules
     subfolderitems:

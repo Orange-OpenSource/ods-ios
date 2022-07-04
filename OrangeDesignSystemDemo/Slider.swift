@@ -81,14 +81,13 @@ struct LabeledSlider: View {
         VStack(alignment: .center) {
             Slider(
                 value: $value,
-                in: 0 ... 100)
-            {
-                Text("Value")
-            } minimumValueLabel: {
-                Image(systemName: "speaker.wave.1.fill")
-            } maximumValueLabel: {
-                Image(systemName: "speaker.wave.3.fill")
-            }
+                in: 0 ... 100) {
+                    Text("Value")
+                } minimumValueLabel: {
+                    Image(systemName: "speaker.wave.1.fill")
+                } maximumValueLabel: {
+                    Image(systemName: "speaker.wave.3.fill")
+                }
         }.padding([.leading, .trailing], 10)
     }
 }
@@ -105,14 +104,13 @@ struct SteppedSlider: View {
             Slider(
                 value: $value,
                 in: 0 ... 100,
-                step: 10)
-            {
-                Text("Value")
-            } minimumValueLabel: {
-                Text("  0")
-            } maximumValueLabel: {
-                Text("100")
-            }
+                step: 10) {
+                    Text("Value")
+                } minimumValueLabel: {
+                    Text("  0")
+                } maximumValueLabel: {
+                    Text("100")
+                }
         }.padding([.leading, .trailing], 10)
     }
 }

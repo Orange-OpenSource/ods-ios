@@ -25,7 +25,7 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct EditTextPage: View {
+struct TextSelectionPage: View {
 
     var body: some View {
         ScrollView {
@@ -35,23 +35,23 @@ struct EditTextPage: View {
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
                 VariantsTitle()
-                StandardEditText()
+                StandardTextSelection()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }.background(ODSColor.primaryBackground.color)
     }
 }
 
-struct EditText_Previews: PreviewProvider {
+struct TextSelection_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            EditTextPage()
+            TextSelectionPage()
                 .preferredColorScheme($0)
         }
     }
 }
 
-struct StandardEditText: View {
+struct StandardTextSelection: View {
 
     @State private var textToEdit: String = "This is some editable text..."
     @FocusState private var isFocused: Bool
