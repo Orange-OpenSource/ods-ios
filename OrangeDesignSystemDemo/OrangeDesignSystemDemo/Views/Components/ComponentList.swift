@@ -71,8 +71,7 @@ struct ComponentsCardsList: View {
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray5))
-        }
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 
