@@ -26,30 +26,34 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsCardsList: View {
+    // Remark: Components are automatically displayed sorted by their name
     let componentList = [
-        ComponentModel(name: "Buttons - text", image: "Text_button") {
+        ComponentModel(name: "Bars - tab", image: "Tab bar") {
+            TabBarPage()
+        },
+        ComponentModel(name: "Buttons - standard", image: "Buttons - Standard") {
             TextButtonPage()
         },
-        ComponentModel(name: "Buttons - shape", image: "Shape_button") {
+        ComponentModel(name: "Buttons - shape", image: "Buttons - Shape") {
             ShapeButtonPage()
         },
-        ComponentModel(name: "Sliders", image: "Controls") {
-            SliderPage()
-        },
-        ComponentModel(name: "Cards", image: "Card") {
+        ComponentModel(name: "Cards", image: "Cards_1") {
             CardPage()
         },
+        ComponentModel(name: "Chips", image: "Chips") {
+            ChipsPage()
+        },
         ComponentModel(name: "Lists", image: "empty") {
-            ListsPage()
+            ListPage()
         },
         ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
             ProgressIndicatorPage()
         },
-        ComponentModel(name: "Text edit menu", image: "empty") {
-            EditTextPage()
+        ComponentModel(name: "Sliders", image: "Slider") {
+            SliderPage()
         },
-        ComponentModel(name: "Bars - tab", image: "empty") {
-            TabBarPage()
+        ComponentModel(name: "Text edit menu", image: "Text edit menu") {
+            EditTextPage()
         },
     ]
 
@@ -63,7 +67,7 @@ struct ComponentsCardsList: View {
                 Spacer().frame(height: 15)
 
                 LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList) {
+                    ForEach(componentList.sorted { $0.name < $1.name }) {
                         Component(component: $0)
                     }
                 }.padding([.leading, .trailing])

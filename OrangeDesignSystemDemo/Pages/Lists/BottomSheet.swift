@@ -26,7 +26,7 @@ import SwiftUI
 
 // MARK: Button sheet with header and content
 struct BottomSheet: View {
-    @State var showContent: Bool = false
+    @State var showContent: Bool = true
 
     var body: some View {
         VStack(spacing: 0) {
@@ -50,13 +50,16 @@ struct BottomSheedHeader: View {
     @Binding var showContent: Bool
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            RoundedRectangle(cornerRadius: 4)
+                .frame(width: 55, height: 4, alignment: .center)
+                .padding(.top, 8)
+                .padding(.bottom, 4)
+
             Button {
                 showContent.toggle()
             } label: {
                 VStack(spacing: 0) {
-                    Divider()
-
                     HStack(spacing: 16) {
                         let imageName = showContent ? "chevron.down" : "chevron.up"
 
@@ -64,8 +67,8 @@ struct BottomSheedHeader: View {
                             .foregroundColor(.primary)
                             .accessibility(hidden: true)
 
-                        Text("Swipe down to view")
-                            .font(.body)
+                        Text("Settings")
+                            .odsFont(style: .headline)
                             .foregroundColor(.primary)
                         Spacer()
                     }
@@ -81,42 +84,22 @@ struct BottomSheedHeader: View {
 // MARK: Bottom Sheet - content for list
 struct BottomSheetContent: View {
 
-    @EnvironmentObject var listPageModel: ListsPageModel
+    @EnvironmentObject var listPageModel: ListPageModel
 
     var body: some View {
-        VStack(spacing: 8) {
-            Toggle("Show left icon", isOn: $listPageModel.showLeftIcon)
-            Divider()
-            Toggle("Show subtitle", isOn: $listPageModel.showSubtitle)
-            Divider()
-            BottomSheetListItemHeight(minHeight: $listPageModel.minHeight)
+        VStack(spacing: 16) {
+            ODSChipPicker(title: "Second line of text",
+                          chips: listPageModel.secondLineOfTextChips,
+                          type: .single($listPageModel.selectedSecondLineOfTextChip, allowZeroSelection: true))
+
+            ODSChipPicker(title: "Leading",
+                          chips: listPageModel.leadingImageChips,
+                          type: .single($listPageModel.selectedLeadingImageChip, allowZeroSelection: true))
+
+            ODSChipPicker(title: "Trailing",
+                          chips: listPageModel.trailingImageChips,
+                          type: .single($listPageModel.selectedTrailingImageChip, allowZeroSelection: true))
         }
-        .padding(.horizontal, 16)
         .padding(.vertical, 8)
-    }
-}
-
-struct BottomSheetListItemHeight: View {
-    var chips: [ListHeitghtChip]
-    var lastSelectedHeight: Binding<ODSListItemMinHeight>
-
-    var body: some View {
-        VStack {
-            Text("List item min height").frame(maxWidth: .infinity, alignment: .leading)
-
-            ODSChipsView(chips: chips, selectionType: .single) { chip in
-                self.lastSelectedHeight.wrappedValue = chip.height
-            }
-        }
-    }
-
-    init(minHeight: Binding<ODSListItemMinHeight>) {
-        chips = [
-            ListHeitghtChip(heightDescription: "Large", height: .large, isSelected: minHeight.wrappedValue == .large),
-            ListHeitghtChip(heightDescription: "Medium", height: .medium,
-                            isSelected: minHeight.wrappedValue == .medium),
-        ]
-
-        lastSelectedHeight = minHeight
     }
 }

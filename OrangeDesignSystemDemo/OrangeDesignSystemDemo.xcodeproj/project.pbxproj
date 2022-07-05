@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		079AB7982837CCB400AFDAE9 /* ListsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079AB7972837CCB400AFDAE9 /* ListsPage.swift */; };
+		078ABEBE2862FE4800E328A9 /* ChipsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078ABEBD2862FE4800E328A9 /* ChipsPage.swift */; };
+		079AB7982837CCB400AFDAE9 /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079AB7972837CCB400AFDAE9 /* ListPage.swift */; };
 		07C724B22860746100592F07 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C724B12860746100592F07 /* BottomSheet.swift */; };
-		07C724B42860748B00592F07 /* Chips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C724B32860748B00592F07 /* Chips.swift */; };
 		07C724B62861A64300592F07 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C724B52861A64200592F07 /* List.swift */; };
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
@@ -48,7 +48,6 @@
 		F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */; };
 		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
 		F9D1E24028126EC000F2F7CE /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1E23F28126EC000F2F7CE /* CardPage.swift */; };
-		FD8A27A92768932700784B0E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		FD91FD2E281C09A6004D9943 /* EditTextPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91FD2D281C09A6004D9943 /* EditTextPage.swift */; };
 		FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 /* End PBXBuildFile section */
@@ -72,9 +71,9 @@
 
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
-		079AB7972837CCB400AFDAE9 /* ListsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsPage.swift; sourceTree = "<group>"; };
+		078ABEBD2862FE4800E328A9 /* ChipsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsPage.swift; sourceTree = "<group>"; };
+		079AB7972837CCB400AFDAE9 /* ListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
 		07C724B12860746100592F07 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
-		07C724B32860748B00592F07 /* Chips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chips.swift; sourceTree = "<group>"; };
 		07C724B52861A64200592F07 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,9 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				07C724B52861A64200592F07 /* List.swift */,
-				079AB7972837CCB400AFDAE9 /* ListsPage.swift */,
+				079AB7972837CCB400AFDAE9 /* ListPage.swift */,
 				07C724B12860746100592F07 /* BottomSheet.swift */,
-				07C724B32860748B00592F07 /* Chips.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -234,6 +232,7 @@
 				CDA7623A2817F0DA00E691BC /* ProgressIndicatorPage.swift */,
 				FD91FD2D281C09A6004D9943 /* EditTextPage.swift */,
 				F0B26B68281AC31C00A33699 /* TabBarPage.swift */,
+				078ABEBD2862FE4800E328A9 /* ChipsPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -651,19 +650,17 @@
 				F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */,
 				F90D9768280030A6006D29FC /* FontsList.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
-				079AB7982837CCB400AFDAE9 /* ListsPage.swift in Sources */,
+				079AB7982837CCB400AFDAE9 /* ListPage.swift in Sources */,
 				F0F0C241280FF53700042E41 /* SliderPage.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,
 				F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */,
-				07C724B42860748B00592F07 /* Chips.swift in Sources */,
 				F0B26B69281AC31C00A33699 /* TabBarPage.swift in Sources */,
 				F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */,
 				F96A3E1A280451660086B9BF /* ColorBig.swift in Sources */,
 				07C724B62861A64300592F07 /* List.swift in Sources */,
 				F0B26B65281A8D5B00A33699 /* TextButtonPage.swift in Sources */,
 				F96A3E1D280451FE0086B9BF /* GuidelinesList.swift in Sources */,
-				FD8A27A92768932700784B0E /* (null) in Sources */,
 				F059395E28113B3500E1A02A /* ComponentTemplate.swift in Sources */,
 				F96A3E24280452960086B9BF /* View+tabBarStyle.swift in Sources */,
 				F96A3E25280452960086B9BF /* BackgroundBlurView.swift in Sources */,
@@ -674,6 +671,7 @@
 				F99FF0872767AF77006236A0 /* ShapeButtonPage.swift in Sources */,
 				F9D1E24028126EC000F2F7CE /* CardPage.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift in Sources */,
+				078ABEBE2862FE4800E328A9 /* ChipsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

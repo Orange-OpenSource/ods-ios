@@ -63,7 +63,7 @@ struct Component: View {
 
 struct TextButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        let component = ComponentModel(name: "Text", image: "Shape_button")
+        let component = ComponentModel(name: "Text", image: "Buttons - Shape")
         ForEach(ColorScheme.allCases, id: \.self) {
             Component(component: component)
                 .frame(width: 200)

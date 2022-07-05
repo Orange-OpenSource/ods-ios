@@ -1,16 +1,16 @@
 ---
 layout: detail
-title: Edit text
+title: Text edit menu
 description: A system behavior fior text fields branded for Orange
 ---
 
 
-### Edit text
+### Text edit menu
 
-Edit text is available when text field or text editor  is entering in edition mode. This is not a custom component but just a way to customize the component with coreOrange accent color.
+Text edit menu is available when text field or text editor is entering in edition mode. This is not a custom component but just a way to customize the component with coreOrange accent color.
 
 
-#### Edit text example
+#### Text edit menu example
 
 ```swift
     TextField("A text field", text: $textToEdit)

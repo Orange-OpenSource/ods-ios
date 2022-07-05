@@ -26,59 +26,77 @@ import SwiftUI
 // =============
 // MARK: Models
 // =============
-public enum ODSListItemLeftIconModel {
+/// Model describes the leading icon of the list item.
+/// Image can be loaded from resources or asynchronously from the specified URL.
+/// Until the image loads, the placeholder image is displayed.
+public enum ODSListItemLeadingIconModel {
     case withImage(Image)
     case withUrl(URL, Image)
 }
 
-public enum ODSListItemRightIconModel {
+/// Model describes the trailing icon of the list item.
+/// A text or an "i" button are available.
+public enum ODSListItemTrailingIconModel {
     case text(String)
     case infoButton(onClicked: () -> Void)
 }
 
+/// To sepecify the minimum height of the list item.
 public enum ODSListItemMinHeight: CGFloat {
     case medium = 44.0
     case large = 60.0
 }
 
+/// This model can be used to achieve the list item templates existing in the spec.
+///
+/// - Parameter title: The primary text of the list item
+/// - Parameter subtile: The secondary text of the list item (optional)
+/// - Parameter leadingIconModel: The leading icon of the list item (optional)
+/// - Parameter trailingIconModel: The trailing meta text, info button
+/// - Parameter minHeight: The minimum height of the list item (medium by default)
+///
 public struct ODSListItemModel {
 
     public let id: UUID
     public let title: String
-    public let minHeight: ODSListItemMinHeight
     public let subtitle: String?
-    public let leftIconModel: ODSListItemLeftIconModel?
-    public let rightIconModel: ODSListItemRightIconModel?
-
+    public let leadingIconModel: ODSListItemLeadingIconModel?
+    public let trailingIconModel: ODSListItemTrailingIconModel?
+    public let minHeight: ODSListItemMinHeight
+    
     public init(
         title: String,
         subtitle: String? = nil,
-        leftIconModel: ODSListItemLeftIconModel? = nil,
-        rightIconModel: ODSListItemRightIconModel? = nil,
+        leadingIconModel: ODSListItemLeadingIconModel? = nil,
+        trailingIconModel: ODSListItemTrailingIconModel? = nil,
         minHeight: ODSListItemMinHeight = .medium)
     {
         self.title = title
         self.subtitle = subtitle
-        self.leftIconModel = leftIconModel
-        self.rightIconModel = rightIconModel
+        self.leadingIconModel = leadingIconModel
+        self.trailingIconModel = trailingIconModel
         self.minHeight = minHeight
 
         id = UUID()
     }
 }
 
+///
+/// This model can be used to achieve the list item templates existing in the spec.
+///
+/// - Parameter title: The primary text of the list item
+/// - Parameter isOn: A binding to a property that determines whether the toggle is on
+///     or off.
+/// - Parameter minHeight: The minimum height of the list item (medium by default)
+///
 public struct ODSListItemWithToggleModel {
 
     public let id: UUID
     public let title: String
-    public let minHeight: ODSListItemMinHeight
     public let isOn: Binding<Bool>
+    public let minHeight: ODSListItemMinHeight
 
-    public init(
-        title: String,
-        minHeight: ODSListItemMinHeight = .medium,
-        isOn: Binding<Bool>)
-    {
+    public init(title: String, isOn: Binding<Bool>, minHeight: ODSListItemMinHeight = .medium) {
         self.title = title
         self.minHeight = minHeight
         self.isOn = isOn
@@ -90,14 +108,26 @@ public struct ODSListItemWithToggleModel {
 // ============
 // MARK: Views
 // ============
+/// A list is a continuous vertical group of data entries like text, icons or images.
+///
+/// <a href="https://system.design.orange.com/0c1af118d/p/63daa5-lists/b/47ebec" target="_blank">ODS Lists</a>.
+///
+/// You can use this view in the NavigationLink by providing the right model:
+///
+///     NavigationLink(ODSListItemModel(title: "Title", subtitle: "Subtitle")) {
+///         Text("The destination View")
+///     }
+///
+/// - Parameter model: The model describe the item.
+///
 public struct ODSListItem: View {
 
     let model: ODSListItemModel
 
     public var body: some View {
         HStack(alignment: .center, spacing: 8) {
-            if let lestIconModel = model.leftIconModel {
-                ODSListItemLeftIcon(iconModel: lestIconModel, iconHeight: model.minHeight.rawValue)
+            if let leadingIconModel = model.leadingIconModel {
+                ODSListItemLeadingIcon(model: leadingIconModel, height: model.minHeight.rawValue)
             }
 
             VStack(alignment: .leading, spacing: 4) {
@@ -118,8 +148,8 @@ public struct ODSListItem: View {
 
             Spacer()
 
-            if let rightIconModel = model.rightIconModel {
-                ODSListItemRightIcon(iconModel: rightIconModel)
+            if let trailingIconModel = model.trailingIconModel {
+                ODSListItemTrailingIcon(iconModel: trailingIconModel)
             }
         }
         .modifier(ODSListItemModifier(minHeight: model.minHeight))
@@ -130,6 +160,13 @@ public struct ODSListItem: View {
     }
 }
 
+/// You can use this view to add item in list.
+///
+/// Do not use it in a NavigationLink because a chevron will be added next the the toggle
+/// which it in not allowed by Orange design rules..
+///
+/// - Parameter model: The model describe the item.
+/// 
 public struct ODSListItemWithToggle: View {
 
     let model: ODSListItemWithToggleModel

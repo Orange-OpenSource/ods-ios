@@ -23,27 +23,27 @@
 
 import SwiftUI
 
-struct ODSListItemLeftIcon: View {
+struct ODSListItemLeadingIcon: View {
 
-    let iconModel: ODSListItemLeftIconModel
-    let iconHeight: CGFloat?
+    let model: ODSListItemLeadingIconModel
+    let height: CGFloat?
 
     var body: some View {
-        switch iconModel {
+        switch model {
         case let .withImage(image):
-            image.iconModifier(height: iconHeight)
+            image.iconModifier(height: height)
         case let .withUrl(url, placeHolder):
             AsyncImage(url: url) { image in
-                image.iconModifier(height: iconHeight)
+                image.iconModifier(height: height)
             } placeholder: {
-                placeHolder.iconModifier(height: iconHeight)
+                placeHolder.iconModifier(height: height)
             }
         }
     }
 
-    init(iconModel: ODSListItemLeftIconModel, iconHeight: CGFloat?) {
-        self.iconModel = iconModel
-        self.iconHeight = iconHeight
+    init(model: ODSListItemLeadingIconModel, height: CGFloat?) {
+        self.model = model
+        self.height = height
     }
 }
 
@@ -57,9 +57,9 @@ extension Image {
     }
 }
 
-struct ODSListItemRightIcon: View {
+struct ODSListItemTrailingIcon: View {
 
-    let iconModel: ODSListItemRightIconModel
+    let iconModel: ODSListItemTrailingIconModel
 
     var body: some View {
         switch iconModel {
