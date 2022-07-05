@@ -36,7 +36,10 @@ struct TabBarPage: View {
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
                 VariantsTitle()
-                TabBarVariant()
+                TabBarVariant(nbItems: 2)
+                TabBarVariant(nbItems: 3)
+                TabBarVariant(nbItems: 4)
+                TabBarVariant(nbItems: 5)
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
         }.background(ODSColor.primaryBackground.color)
@@ -45,8 +48,11 @@ struct TabBarPage: View {
 
 struct TabBarVariant: View {
 
+    var nbItems: Int
+
     var body: some View {
-        Image("empty")
+        Text("\(nbItems) entries").odsFont(style: .title2)
+        Image("TabBar-\(nbItems)-items")
             .resizable()
             .aspectRatio(contentMode: .fill)
     }
