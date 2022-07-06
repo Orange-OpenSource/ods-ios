@@ -31,7 +31,7 @@ struct FontList: View {
 
     var body: some View {
         ScrollView(content: {
-            VStack(alignment: .leading, content: {
+            VStack(alignment: .leading) {
 
                 Image("Typography")
                     .resizable()
@@ -54,7 +54,7 @@ struct FontList: View {
                     }
                 }
                 .padding(.horizontal, ODSSpacing.m)
-            })
+            }
         })
         .navigationTitle("Typography")
         .navigationViewStyle(.stack)
