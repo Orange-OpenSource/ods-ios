@@ -36,7 +36,7 @@ struct EditTextPage: View {
                 ComponentDescription(text: "Edit text is the selection of textual areas leading to the display of buttons allowing interaction")
                 VariantsTitle()
                 StandardEditText()
-                Spacer().frame(height: 10)
+                ODSSpacer(.s)
             }
             .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
         }

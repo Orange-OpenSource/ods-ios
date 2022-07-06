@@ -86,7 +86,7 @@ struct CardPage: View {
                         Text("Show button")
                     }
 
-                    Spacer().frame(height: 30)
+                    ODSSpacer(.l)
 
                     Button {
                         resetSwitches()

@@ -49,7 +49,7 @@ struct ColorDetail: View {
                     Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
                     Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
 
-                    Spacer().frame(height: 15)
+                    ODSSpacer(.m)
 
                     Text("Usage").odsFont(style: .headline)
                     Text("Coming soon ...").odsFont(style: .caption1Regular)

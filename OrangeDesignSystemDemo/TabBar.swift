@@ -45,7 +45,7 @@ struct TabBarPage: View {
                             }
                     }
                 }
-                Spacer().frame(height: 10)
+                ODSSpacer(.s)
             }.padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
         }.navigationTitle("Tab bar")
             .navigationViewStyle(.stack)

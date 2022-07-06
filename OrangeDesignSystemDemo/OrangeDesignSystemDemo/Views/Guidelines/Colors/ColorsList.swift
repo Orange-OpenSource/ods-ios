@@ -39,7 +39,7 @@ struct ColorList: View {
     var body: some View {
         VStack {
             Group {
-                Spacer().frame(height: 10)
+                ODSSpacer(.s)
                 Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
                     Text("On Light").tag(ColorScheme.light)
                     Text("On Dark").tag(ColorScheme.dark)
@@ -52,11 +52,11 @@ struct ColorList: View {
             }
 
             ScrollView {
-                Spacer().frame(height: 5)
+                ODSSpacer(.xs)
                 SectionTitle(title: "Core")
 
                 VStack {
-                    Spacer().frame(height: 30)
+                    ODSSpacer(.l)
                     HStack(spacing: 15) {
                         ColorBig(color: ODSColor.coreOrange, bordered: false)
                         ColorBig(color: ODSColor.coreWhite, bordered: screenState.colorScheme == .light)
@@ -68,7 +68,7 @@ struct ColorList: View {
                 }
                 .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
-                Spacer().frame(height: 30)
+                ODSSpacer(.l)
                 SectionTitle(title: "Functional")
 
                 VStack {
@@ -83,7 +83,7 @@ struct ColorList: View {
                 }
                 .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
-                Spacer().frame(height: 30)
+                ODSSpacer(.l)
                 SectionTitle(title: "Supporting")
 
                 VStack {

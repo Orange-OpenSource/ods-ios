@@ -132,7 +132,7 @@ struct HorizontalChipsListView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                Spacer(minLength: 8)
+                ODSSpacer(.s)
 
                 ForEach(chips, id: \.id) { chip in
                     ODSChipView(chip: chip) { _ in

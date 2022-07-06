@@ -26,7 +26,7 @@ import SwiftUI
 public struct ODSSpacer: View {
     public let height: ODSSpacerHeight
 
-    public init(_ height: ODSSpacerHeight) {
+    public init(_ height: ODSSpacerHeight = ODSSpacerHeight.none) {
         self.height = height
     }
 

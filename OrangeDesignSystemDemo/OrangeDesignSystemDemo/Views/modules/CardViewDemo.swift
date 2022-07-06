@@ -52,7 +52,7 @@ struct CardViewDemoGrid: View {
 
     var body: some View {
         ScrollView {
-            Spacer().frame(height: 15)
+            ODSSpacer(.m)
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(cards, id: \.title) { item in
                     NavigationLink(destination: EmptyView()) {
@@ -61,7 +61,7 @@ struct CardViewDemoGrid: View {
                 }
             }
             .padding([.leading, .trailing])
-            Spacer().frame(height: 15)
+            ODSSpacer(.m)
         }
         .navigationTitle("Page title")
         .navigationViewStyle(.stack)

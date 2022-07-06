@@ -38,7 +38,7 @@ struct SliderPage: View {
                 UnlabeledSlider()
                 LabeledSlider()
                 SteppedSlider()
-                Spacer().frame(height: 10)
+                ODSSpacer(.s)
             }
             .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
         }
