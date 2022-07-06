@@ -21,6 +21,7 @@
 //
 //
 
+import OrangeDesignSystem
 import Parma
 import SwiftUI
 
@@ -33,9 +34,9 @@ struct ShowMarkdownView: View {
 
     var body: some View {
         ScrollView {
-            Spacer().frame(height: 10)
+            ODSSpacer(.s)
             Parma(markdown)
-                .padding(.horizontal, 24)
+                .padding(.horizontal, ODSSpacing.l)
         }
         .onAppear {
             if let url = Bundle.main.url(forResource: markDownFileName, withExtension: "md") {

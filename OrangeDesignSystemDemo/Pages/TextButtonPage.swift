@@ -39,8 +39,10 @@ struct TextButtonPage: View {
                 IconButton(name: "Icon (info)", imageName: "info.circle")
                 LabelButton()
                 Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -55,8 +57,9 @@ private struct LabelButton: View {
                 ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
             }
             .frame(maxWidth: .infinity)
-            .padding([.bottom], 15)
-        }.padding([.leading, .trailing], 45)
+            .padding([.bottom], ODSSpacing.m)
+        }
+        .padding([.leading, .trailing], ODSSpacing.xxl)
     }
 }
 
@@ -73,8 +76,9 @@ private struct IconButton: View {
                 ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))
             }
             .frame(maxWidth: .infinity)
-            .padding([.bottom], 15)
-        }.padding([.leading, .trailing], 45)
+            .padding([.bottom], ODSSpacing.m)
+        }
+        .padding([.leading, .trailing], ODSSpacing.xxl)
     }
 }
 

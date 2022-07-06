@@ -42,7 +42,9 @@ struct CardViewDemo: View {
 }
 
 struct CardViewDemoGrid: View {
-    let cards = (1 ... 20).map { ODSCardModel(title: "Title \($0)", image: "empty") }
+    let cards = (1 ... 20).map {
+        ODSCardModel(title: "Title \($0)", image: "empty")
+    }
 
     let columns = [
         GridItem(.adaptive(minimum: 150.0), alignment: .topLeading),
@@ -57,17 +59,20 @@ struct CardViewDemoGrid: View {
                         ODSCardView(element: item)
                     }
                 }
-            }.padding([.leading, .trailing])
+            }
+            .padding([.leading, .trailing])
             Spacer().frame(height: 15)
-
-        }.navigationTitle("Page title")
-            .navigationViewStyle(.stack)
-            .background(ODSColor.primaryBackground.color)
+        }
+        .navigationTitle("Page title")
+        .navigationViewStyle(.stack)
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
 struct CardViewDemoList: View {
-    let cards = (1 ... 40).map { ODSCardModel(title: "Title \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)") }
+    let cards = (1 ... 40).map {
+        ODSCardModel(title: "Title \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)")
+    }
 
     var body: some View {
         let model = ODSListCardViewModel(title: "CardViewDemo List", cards: cards)

@@ -37,8 +37,10 @@ struct ProgressIndicatorPage: View {
                 VariantsTitle()
                 ProgressBar()
                 ProgressIndicator()
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

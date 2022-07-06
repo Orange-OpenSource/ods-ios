@@ -121,10 +121,10 @@ public struct ODSChipsView: View {
                             }
                     }
                 }
-                .padding(.leading, 5)
-                .padding(.trailing, 10)
+                .padding(.leading, ODSSpacing.xs)
+                .padding(.trailing, ODSSpacing.s)
             }
-            .padding(.vertical, 8)
+            .padding(.vertical, ODSSpacing.s)
         }
     }
 
@@ -175,9 +175,9 @@ public struct ODSChipView: View {
                     Text(chip.text)
                         .odsFont(style: .subhead)
                         .tint(chip.selected ? .black : .primary)
-                        .padding(.vertical, 6)
+                        .padding(.vertical, ODSSpacing.s)
                         .padding(.leading, textLeadingPadding)
-                        .padding(.trailing, chip.removable ? 8 : 16)
+                        .padding(.trailing, chip.removable ? ODSSpacing.s : ODSSpacing.m)
                         .readSize { size in
                             textHeight = size.height
                         }
@@ -230,7 +230,7 @@ struct ChipThumbnail: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: height - 6, height: height - 6, alignment: .center)
                     .clipShape(Circle())
-                    .padding(.leading, 4)
+                    .padding(.leading, ODSSpacing.xs)
             }
         case let .icon(image):
             image
@@ -239,12 +239,12 @@ struct ChipThumbnail: View {
                 .aspectRatio(contentMode: .fill)
                 .tint(selected ? .black : .primary)
                 .frame(width: height - 9, height: height - 9, alignment: .center)
-                .padding(.leading, 7)
+                .padding(.leading, ODSSpacing.s)
 
         case let .iconSystem(name):
             Image(systemName: name)
                 .tint(selected ? .black : .primary)
-                .padding(.leading, 8)
+                .padding(.leading, ODSSpacing.s)
         }
     }
 }
@@ -261,7 +261,7 @@ struct SelectedAvatar: View {
             .background(Color.black)
             .frame(width: height - 6, height: height - 6, alignment: .center)
             .clipShape(Circle())
-            .padding(.leading, 4)
+            .padding(.leading, ODSSpacing.xs)
     }
 }
 
@@ -277,7 +277,7 @@ struct RemoveButtonLabel: View {
             .aspectRatio(contentMode: .fit)
             .tint(selected ? .black : .primary)
             .frame(width: height - 11, height: height - 11, alignment: .center)
-            .padding(.trailing, 7.0)
+            .padding(.trailing, ODSSpacing.s)
     }
 }
 

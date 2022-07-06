@@ -46,7 +46,7 @@ struct TabBarPage: View {
                     }
                 }
                 Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+            }.padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
         }.navigationTitle("Tab bar")
             .navigationViewStyle(.stack)
             .background(Color(uiColor: .systemGray6))

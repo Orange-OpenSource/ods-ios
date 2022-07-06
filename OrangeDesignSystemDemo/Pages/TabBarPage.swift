@@ -38,8 +38,10 @@ struct TabBarPage: View {
                 VariantsTitle()
                 TabBarVariant()
                 Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

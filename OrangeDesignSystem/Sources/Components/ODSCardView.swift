@@ -113,7 +113,8 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
             .font(ODSFontStyle.bodyRegular.font())
             .foregroundColor(.primary)
             .padding()
-        }.background(ODSColor.componentBackground2.color)
+        }
+        .background(ODSColor.componentBackground2.color)
     }
 }
 
@@ -128,7 +129,8 @@ struct CardView_Previews: PreviewProvider {
                         ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
                     }
                     .buttonStyle(ODSFilledButtonStyle())
-                }.padding()
+                }
+                .padding()
                 ODSCardView(element: ODSCardModel.example).padding()
             }
         }

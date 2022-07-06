@@ -30,32 +30,32 @@ struct FontList: View {
     let fontStyles = ODSFontStyle.allCases
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
+        ScrollView(content: {
+            VStack(alignment: .leading, content: {
 
                 Image("Typography")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
 
-                Spacer().frame(height: 16.0)
+                ODSSpacer(.m)
 
                 Text("Use the system typeface San Francisco for all Latin, Greek and Cyrillic alphabets.\n\n"
                     + "Use the built-in text styles in order to create a clear distinct visual typographic hierarchy.\n\n"
-                    + "Using the built-in text styles enables users to take advantage of features such as Dynamic Type. Based on the Apple Dynamic Types, Orange defines thoses sizes :").padding(.horizontal, 16.0)
+                    + "Using the built-in text styles enables users to take advantage of features such as Dynamic Type. Based on the Apple Dynamic Types, Orange defines thoses sizes :").padding(.horizontal, ODSSpacing.m)
 
-                Spacer().frame(height: 16.0)
+                ODSSpacer(.m)
 
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
                     VStack(alignment: .leading) {
                         Text(fontStyle.description).odsFont(style: fontStyle)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text("style: \(fontStyle.rawValue)").font(.system(.caption, design: .monospaced))
-                        Spacer().frame(height: 16.0)
+                        ODSSpacer(.m)
                     }
                 }
-                .padding(.horizontal, 16.0)
-            }
-        }
+                .padding(.horizontal, ODSSpacing.m)
+            })
+        })
         .navigationTitle("Typography")
         .navigationViewStyle(.stack)
         .background(ODSColor.primaryBackground.color)

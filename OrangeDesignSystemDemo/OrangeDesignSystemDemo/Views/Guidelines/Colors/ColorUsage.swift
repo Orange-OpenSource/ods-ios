@@ -39,8 +39,9 @@ struct ColorUsage: View {
                 Text("Some colours are define with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).").accentColor(ODS.coreOrange)
                 // TO-DO : make component
             }
-        }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-            .navigationTitle("Usage")
+        }
+        .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        .navigationTitle("Usage")
     }
 }
 

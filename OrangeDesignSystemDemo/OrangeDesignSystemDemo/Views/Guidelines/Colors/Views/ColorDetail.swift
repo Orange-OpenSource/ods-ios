@@ -53,11 +53,13 @@ struct ColorDetail: View {
 
                     Text("Usage").odsFont(style: .headline)
                     Text("Coming soon ...").odsFont(style: .caption1Regular)
-
-                }.padding(EdgeInsets(top: 10, leading: 15, bottom: 20, trailing: 15))
-            }.background(Color(uiColor: UIColor.systemGray6))
-                .cornerRadius(10)
-        }.onTapGesture {
+                }
+                .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.l, trailing: ODSSpacing.m))
+            }
+            .background(Color(uiColor: UIColor.systemGray6))
+            .cornerRadius(10)
+        }
+        .onTapGesture {
             dismiss()
         }
     }

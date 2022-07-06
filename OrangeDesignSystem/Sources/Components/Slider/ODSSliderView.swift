@@ -85,7 +85,7 @@ struct ODSSlider_Previews: PreviewProvider {
             ODSSlider(
                 value: .constant(50),
                 range: 0 ... 100.0)
-                .padding([.leading, .trailing], 10)
+                .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }
@@ -102,7 +102,7 @@ struct ODSSlider_Previews_with_label: PreviewProvider {
                 } maximumLabelView: {
                     Image(systemName: "speaker.wave.3.fill")
                 }
-                .padding([.leading, .trailing], 10)
+                .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }

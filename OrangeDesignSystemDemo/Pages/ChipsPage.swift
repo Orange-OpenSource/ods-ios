@@ -97,8 +97,9 @@ struct ChipsPage: View {
                 GroupedChips(title: "With system icon", chips: $withSystemIconChips, removableChips: $withSystemIconRemovaleChips)
                 GroupedChips(title: "With avatar", chips: $withAvatarChips, removableChips: $withAvatarRemovaleChips)
             }
-            .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
-        }.background(ODSColor.primaryBackground.color)
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -116,7 +117,7 @@ struct GroupedChips: View {
                 HorizontalChipsListView(chips: chips.wrappedValue)
                 HorizontalChipsListView(chips: removableChips.wrappedValue)
             }
-            .padding(.horizontal, -16)
+            .padding(.horizontal, -ODSSpacing.m)
         }
     }
 }

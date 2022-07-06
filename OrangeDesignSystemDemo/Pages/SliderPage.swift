@@ -40,8 +40,9 @@ struct SliderPage: View {
                 SteppedSlider()
                 Spacer().frame(height: 10)
             }
-            .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -67,7 +68,7 @@ struct UnlabeledSlider: View {
                 value: $value,
                 range: range)
         }
-        .padding([.leading, .trailing], 10)
+        .padding([.leading, .trailing], ODSSpacing.s)
     }
 }
 
@@ -89,7 +90,7 @@ struct LabeledSlider: View {
                 Image(systemName: "speaker.wave.3.fill")
             }
         }
-        .padding([.leading, .trailing], 10)
+        .padding([.leading, .trailing], ODSSpacing.s)
     }
 }
 
@@ -111,7 +112,7 @@ struct SteppedSlider: View {
             } maximumLabelView: {
                 Text("100")
             }
-            .padding([.leading, .trailing], 10)
+            .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }

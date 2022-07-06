@@ -43,10 +43,12 @@ struct ColorList: View {
                 Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
                     Text("On Light").tag(ColorScheme.light)
                     Text("On Dark").tag(ColorScheme.dark)
-                }).pickerStyle(.segmented)
-                    .onAppear {
-                        screenState.colorScheme = phoneColorScheme
-                    }.padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
+                })
+                .pickerStyle(.segmented)
+                .onAppear {
+                    screenState.colorScheme = phoneColorScheme
+                }
+                .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
             }
 
             ScrollView {
@@ -63,7 +65,8 @@ struct ColorList: View {
                         ColorBig(color: ODSColor.coreBlack, bordered: screenState.colorScheme == .dark)
                         ColorBig(color: ODSColor.coreObsGrey, bordered: false)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+                }
+                .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
                 Spacer().frame(height: 30)
                 SectionTitle(title: "Functional")
@@ -77,7 +80,8 @@ struct ColorList: View {
                         ColorBig(color: ODSColor.functionalAlert, bordered: false)
                         ColorBig(color: ODSColor.functionalInfo, bordered: false)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+                }
+                .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
                 Spacer().frame(height: 30)
                 SectionTitle(title: "Supporting")
@@ -108,15 +112,20 @@ struct ColorList: View {
                         ColorSmall(color: ODSColor.supportingPurple200)
                         ColorSmall(color: ODSColor.supportingPurple300)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-            }.background(screenState.colorScheme == .light ? Color.white : Color.black)
-        }.toolbar {
+                }
+                .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+            }
+            .background(screenState.colorScheme == .light ? Color.white : Color.black)
+        }
+        .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: ColorUsage()) {
                     Text("Usage")
-                }.foregroundColor(ODS.coreOrange)
+                }
+                .foregroundColor(ODS.coreOrange)
             }
-        }.navigationTitle("Palette")
+        }
+        .navigationTitle("Palette")
     }
 }
 
@@ -128,7 +137,7 @@ struct SectionTitle: View {
         Text(title).odsFont(style: .title1)
             .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
+            .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
     }
 }
 

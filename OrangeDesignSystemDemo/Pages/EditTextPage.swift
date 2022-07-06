@@ -37,8 +37,10 @@ struct EditTextPage: View {
                 VariantsTitle()
                 StandardEditText()
                 Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -61,7 +63,7 @@ struct StandardEditText: View {
         VStack {
             TextField("A text field", text: $textToEdit)
                 .focused($isFocused, equals: true)
-                .padding(.horizontal, 20)
+                .padding(.horizontal, ODSSpacing.m)
                 .font(ODSFontStyle.headline.font())
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

@@ -21,37 +21,16 @@
 //
 //
 
-import Foundation
 import SwiftUI
 
-public enum ODSDim {
-    public static let list_min_height = 42.0
-    public static let list_min_width = 42.0
-}
+public struct ODSSpacer: View {
+    public let height: ODSSpacerHeight
 
-extension View {
-
-    public func fullWidthFrame(alignment: Alignment = .leading) -> some View {
-        frame(maxWidth: .infinity, alignment: alignment)
+    public init(_ height: ODSSpacerHeight) {
+        self.height = height
     }
 
-    public func odsLeadingPadding() -> some View {
-        return padding(.leading, ODSSpacing.m)
-    }
-
-    public func odsTrailingPadding() -> some View {
-        return padding(.trailing, ODSSpacing.m)
-    }
-
-    public func odsGlobalPadding() -> some View {
-        return padding(ODSSpacing.m)
-    }
-
-    public func odsSpacerSmall() -> some View {
-        return frame(height: ODSSpacing.m)
-    }
-
-    public func odsSpacerMedium() -> some View {
-        return frame(height: 25)
+    public var body: some View {
+        Spacer().frame(height: height.rawValue)
     }
 }
