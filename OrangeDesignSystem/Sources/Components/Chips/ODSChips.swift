@@ -60,9 +60,9 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         let disabled: Bool
         let removable: Bool
 
-        public init(_ id: Value, text: String, thumbnail: ODSChipThumbnail? = nil, disabled: Bool = false, removable: Bool = false)
+        public init(_ value: Value, text: String, thumbnail: ODSChipThumbnail? = nil, disabled: Bool = false, removable: Bool = false)
         {
-            value = id
+            self.value = value
             self.text = text
             self.thumbnail = thumbnail
             self.disabled = disabled
