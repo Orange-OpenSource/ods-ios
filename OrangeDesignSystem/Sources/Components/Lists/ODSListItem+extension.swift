@@ -51,7 +51,6 @@ extension Image {
     func iconModifier(height: CGFloat? = 44) -> some View {
         resizable()
             .aspectRatio(contentMode: .fit)
-            .clipShape(Circle())
             .padding(.vertical, 8)
             .frame(height: height)
     }

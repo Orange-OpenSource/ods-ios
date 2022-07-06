@@ -27,21 +27,34 @@ import SwiftUI
 // MARK: Lists Page Model
 class ListPageModel: ObservableObject {
 
+    enum SecondLineOfTextChip {
+        case subtitle
+    }
+
+    enum TrailingImageChip {
+        case text
+        case infoButton
+    }
+
+    enum LeadingImageChip {
+        case image
+    }
+
     @Published var listModel: ListModel
 
-    let secondLineOfTextChips: [ODSChip]
-    let trailingImageChips: [ODSChip]
-    let leadingImageChips: [ODSChip]
+    let secondLineOfTextChips: [OODSChip<SecondLineOfTextChip>]
+    let trailingImageChips: [OODSChip<TrailingImageChip>]
+    let leadingImageChips: [OODSChip<LeadingImageChip>]
 
-    @Published var selectedSecondLineOfTextChip: ODSChip? {
+    @Published var selectedSecondLineOfTextChip: SecondLineOfTextChip? {
         didSet { updateListModel() }
     }
 
-    @Published var selectedLeadingImageChip: ODSChip? {
+    @Published var selectedLeadingImageChip: LeadingImageChip? {
         didSet { updateListModel() }
     }
 
-    @Published var selectedTrailingImageChip: ODSChip? {
+    @Published var selectedTrailingImageChip: TrailingImageChip? {
         didSet { updateListModel() }
     }
 
@@ -56,13 +69,13 @@ class ListPageModel: ObservableObject {
         self.toogleState = toogleState
         self.showSheetOnIButtonClicked = showSheetOnIButtonClicked
 
-        secondLineOfTextChips = [ODSChip(0, text: "Subtitle")]
-        leadingImageChips = [ODSChip(0, text: "Image")]
-        trailingImageChips = [ODSChip(0, text: "Button icon"), ODSChip(1, text: "Text")]
+        secondLineOfTextChips = [OODSChip(.subtitle, text: "Subtitle")]
+        leadingImageChips = [OODSChip(.image, text: "Image")]
+        trailingImageChips = [OODSChip(.infoButton, text: "Button icon"), OODSChip(.text, text: "Text")]
 
-        selectedSecondLineOfTextChip = secondLineOfTextChips[0]
-        selectedLeadingImageChip = leadingImageChips[0]
-        selectedTrailingImageChip = trailingImageChips[1]
+        selectedSecondLineOfTextChip = .subtitle
+        selectedLeadingImageChip = .image
+        selectedTrailingImageChip = .text
 
         listModel = ListModel(itemModels: [])
 
@@ -84,10 +97,13 @@ class ListPageModel: ObservableObject {
         let leadingIconModel = selectedLeadingImageChip == nil ? nil : ODSListItemLeadingIconModel.withImage(image)
 
         var trailingIconModel: ODSListItemTrailingIconModel?
-        switch selectedTrailingImageChip?.id {
-        case 0: trailingIconModel = ODSListItemTrailingIconModel.infoButton(onClicked: onIButtonClicked)
-        case 1: trailingIconModel = ODSListItemTrailingIconModel.text("Details")
-        default: trailingIconModel = nil
+        switch selectedTrailingImageChip {
+        case .infoButton:
+            trailingIconModel = ODSListItemTrailingIconModel.infoButton(onClicked: onIButtonClicked)
+        case .text:
+            trailingIconModel = ODSListItemTrailingIconModel.text("Details")
+        default:
+            trailingIconModel = nil
         }
 
         return ODSListItemModel(title: "Title",
@@ -161,5 +177,6 @@ struct ListPageInner: View {
             ListView(model: listPageModel.listModel)
             BottomSheet().environmentObject(listPageModel)
         }
+        .background(ODSColor.componentBackground2.color)
     }
 }

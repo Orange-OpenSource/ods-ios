@@ -34,7 +34,7 @@ struct BottomSheet: View {
 
             VStack(spacing: 0) {
                 BottomSheedHeader(showContent: $showContent)
-                    .background(Color(UIColor.systemGray6))
+                    .background(Color(.systemGray6))
 
                 if showContent {
                     BottomSheetContent()
@@ -42,6 +42,8 @@ struct BottomSheet: View {
             }
             .background(Color(UIColor.systemBackground))
         }
+        .cornerRadius(10)
+        .shadow(radius: 8)
     }
 }
 
@@ -89,16 +91,19 @@ struct BottomSheetContent: View {
     var body: some View {
         VStack(spacing: 16) {
             ODSChipPicker(title: "Second line of text",
-                          chips: listPageModel.secondLineOfTextChips,
-                          type: .single($listPageModel.selectedSecondLineOfTextChip, allowZeroSelection: true))
+                          selection: $listPageModel.selectedSecondLineOfTextChip,
+                          allowZeroSelection: true,
+                          chips: listPageModel.secondLineOfTextChips)
 
             ODSChipPicker(title: "Leading",
-                          chips: listPageModel.leadingImageChips,
-                          type: .single($listPageModel.selectedLeadingImageChip, allowZeroSelection: true))
+                          selection: $listPageModel.selectedLeadingImageChip,
+                          allowZeroSelection: true,
+                          chips: listPageModel.leadingImageChips)
 
             ODSChipPicker(title: "Trailing",
-                          chips: listPageModel.trailingImageChips,
-                          type: .single($listPageModel.selectedTrailingImageChip, allowZeroSelection: true))
+                          selection: $listPageModel.selectedTrailingImageChip,
+                          allowZeroSelection: true,
+                          chips: listPageModel.trailingImageChips)
         }
         .padding(.vertical, 8)
     }
