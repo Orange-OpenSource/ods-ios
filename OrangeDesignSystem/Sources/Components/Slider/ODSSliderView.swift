@@ -97,13 +97,12 @@ struct ODSSlider_Previews_with_label: PreviewProvider {
         VStack {
             ODSSlider(
                 value: .constant(50),
-                range: 0 ... 100.0)
-            {
-                Image(systemName: "speaker.wave.1.fill")
-            } maximumLabelView: {
-                Image(systemName: "speaker.wave.3.fill")
-            }
-            .padding([.leading, .trailing], 10)
+                range: 0 ... 100.0) {
+                    Image(systemName: "speaker.wave.1.fill")
+                } maximumLabelView: {
+                    Image(systemName: "speaker.wave.3.fill")
+                }
+                .padding([.leading, .trailing], 10)
         }
     }
 }

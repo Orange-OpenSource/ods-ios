@@ -113,13 +113,12 @@ public struct ODSChipsView: View {
                 HStack {
                     ForEach(chips, id: \.id) { chip in
                         ODSChipView(
-                            chip: chip)
-                        { chip in
-                            select(chip)
-                            onChipTapped(chip)
-                        } onChipRemoved: { chip in
-                            onChipRemoved(chip)
-                        }
+                            chip: chip) { chip in
+                                select(chip)
+                                onChipTapped(chip)
+                            } onChipRemoved: { chip in
+                                onChipRemoved(chip)
+                            }
                     }
                 }
                 .padding(.leading, 5)
