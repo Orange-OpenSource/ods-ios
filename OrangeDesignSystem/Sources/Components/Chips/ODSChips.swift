@@ -35,19 +35,22 @@ public enum ODSChipThumbnail {
 /// <a href="https://zeroheight.com/3b9fee398/p/67a9e8-chips/b/604d19" target="_blank">ODS Chips</a>.
 ///
 /// Chips are small components containing a number of elements that represent a calendar event or contact.
-///
-/// - parameter text Text to display in the chip.
-/// - parameter thumbnail Optional right thumbnail.
-/// - parameter disabled When disabled, chip will not respond to user input. It will also appear visually
-/// disabled and disabled to accessibility services.
-/// - parameter removable To add the remove cross to allow a chip to be removed from a list of chips.
 
-public typealias OODSChip<Value> = ODSChipPicker<Value>.ODSChipModel where Value: Hashable
+public typealias ODSChip<Value> = ODSChipPicker<Value>.ODSChipModel where Value: Hashable
 
 /// Create a picker by providing the selection type with a binding to get selected element(s).
 /// An additonnal title can be added above the Picker.
 ///
 public struct ODSChipPicker<Value>: View where Value: Hashable {
+
+    /// The chip element description.
+    ///  - Parameters
+    ///     - value: The value of the chip
+    ///     - text: Text to display in the chip.
+    ///     - thumbnail: Optional leading thumbnail.
+    ///     - disabled: When disabled, chip will not respond to user input. It will also appear
+    ///       visually disabled and disabled to accessibility services.
+    ///     - removable: To add the remove cross to allow a chip to be removed from a list of chips.
 
     public struct ODSChipModel {
 
@@ -296,7 +299,7 @@ struct ChipRemoveLabel: View {
 }
 
 #if DEBUG
-struct OODSChips_Previews: PreviewProvider {
+struct ODSChips_Previews: PreviewProvider {
 
     enum ChipsTest: Int, CaseIterable {
         case title1 = 1
@@ -305,23 +308,23 @@ struct OODSChips_Previews: PreviewProvider {
         case removabele2
         case disabled
 
-        var odsChip: OODSChip<ChipsTest> {
+        var odsChip: ODSChip<ChipsTest> {
             switch self {
             case .title1:
-                return OODSChip(self, text: "Title 1")
+                return ODSChip(self, text: "Title 1")
             case .title2:
-                return OODSChip(self, text: "Title 2", thumbnail: .iconSystem(name: "heart"))
+                return ODSChip(self, text: "Title 2", thumbnail: .iconSystem(name: "heart"))
             case .removable1:
-                return OODSChip(self, text: "Removable 1", removable: true)
+                return ODSChip(self, text: "Removable 1", removable: true)
             case .removabele2:
-                return OODSChip(self, text: "Removable 2", thumbnail: .iconSystem(name: "heart"), removable: true)
+                return ODSChip(self, text: "Removable 2", thumbnail: .iconSystem(name: "heart"), removable: true)
             case .disabled:
-                return OODSChip(self, text: "Disabled", disabled: true)
+                return ODSChip(self, text: "Disabled", disabled: true)
             }
         }
     }
 
-    struct OODSChipPickerTest: View {
+    struct ODSChipPickerTest: View {
         @State var selectedChip: ChipsTest?
         @State var selectedChips: [ChipsTest] = []
         let allowZeroSelection = true
@@ -367,7 +370,7 @@ struct OODSChips_Previews: PreviewProvider {
     }
 
     static var previews: some View {
-        OODSChipPickerTest()
+        ODSChipPickerTest()
     }
 }
 #endif

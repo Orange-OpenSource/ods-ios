@@ -49,12 +49,6 @@ public enum ODSListItemMinHeight: CGFloat {
 
 /// This model can be used to achieve the list item templates existing in the spec.
 ///
-/// - Parameter title: The primary text of the list item
-/// - Parameter subtile: The secondary text of the list item (optional)
-/// - Parameter leadingIconModel: The leading icon of the list item (optional)
-/// - Parameter trailingIconModel: The trailing meta text, info button
-/// - Parameter minHeight: The minimum height of the list item (medium by default)
-///
 public struct ODSListItemModel {
 
     public let id: UUID
@@ -64,6 +58,15 @@ public struct ODSListItemModel {
     public let trailingIconModel: ODSListItemTrailingIconModel?
     public let minHeight: ODSListItemMinHeight
 
+    /// Describe the Item content.
+    ///
+    /// - Parameters
+    ///     - title: The primary text of the list item
+    ///     - subtile: The secondary text of the list item (optional)
+    ///     - leadingIconModel: The leading icon of the list item (optional)
+    ///     - trailingIconModel: The trailing meta text, info button
+    ///     - minHeight: The minimum height of the list item (medium by default)
+    ///
     public init(
         title: String,
         subtitle: String? = nil,
@@ -112,13 +115,13 @@ public struct ODSListItemWithToggleModel {
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/63daa5-lists/b/47ebec" target="_blank">ODS Lists</a>.
 ///
-/// You can use this view in the NavigationLink by providing the right model:
+/// You can use this view in the NavigationLink providing the right model:
 ///
 ///     NavigationLink(ODSListItemModel(title: "Title", subtitle: "Subtitle")) {
 ///         Text("The destination View")
 ///     }
 ///
-/// - Parameter model: The model describe the item.
+/// - Parameter model: The model describing the item.
 ///
 public struct ODSListItem: View {
 
@@ -160,12 +163,12 @@ public struct ODSListItem: View {
     }
 }
 
-/// You can use this view to add item in list.
+/// You can use this view to add item with toggle in list.
 ///
 /// Do not use it in a NavigationLink because a chevron will be added next the the toggle
 /// which it in not allowed by Orange design rules..
 ///
-/// - Parameter model: The model describe the item.
+/// - Parameter model: The model describing the item.
 ///
 public struct ODSListItemWithToggle: View {
 

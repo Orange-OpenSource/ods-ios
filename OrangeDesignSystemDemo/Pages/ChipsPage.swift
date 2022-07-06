@@ -43,8 +43,8 @@ class ChipsPageModel: ObservableObject {
         case disabled
     }
 
-    let textOnlyChips: [OODSChip<TextOnlyChip>]
-    let textOnlyRemovableChips: [OODSChip<TextOnlyRemovableChip>]
+    let textOnlyChips: [ODSChip<TextOnlyChip>]
+    let textOnlyRemovableChips: [ODSChip<TextOnlyRemovableChip>]
 
     @Published var selectedTextOnlyChip: TextOnlyChip?
     @Published var selectedTextOnlyRemovableChip: TextOnlyRemovableChip?
@@ -62,8 +62,8 @@ class ChipsPageModel: ObservableObject {
         case disabled
     }
 
-    let withIconChips: [OODSChip<WithIconChip>]
-    let withIconRemovableChips: [OODSChip<WithIconRemovableChip>]
+    let withIconChips: [ODSChip<WithIconChip>]
+    let withIconRemovableChips: [ODSChip<WithIconRemovableChip>]
 
     @Published var selectedWithIconChip: WithIconChip?
     @Published var selectedWithIconRemovableChip: WithIconRemovableChip?
@@ -81,8 +81,8 @@ class ChipsPageModel: ObservableObject {
         case disabled
     }
 
-    let withSystemIconChips: [OODSChip<WithSystemIconChip>]
-    let withSystemIconRemovableChips: [OODSChip<WithSystemIconRemovableChip>]
+    let withSystemIconChips: [ODSChip<WithSystemIconChip>]
+    let withSystemIconRemovableChips: [ODSChip<WithSystemIconRemovableChip>]
 
     @Published var selectedWithSystemIconChip: WithSystemIconChip?
     @Published var selectedWithSystemIconRemovableChip: WithSystemIconRemovableChip?
@@ -100,8 +100,8 @@ class ChipsPageModel: ObservableObject {
         case disabled
     }
 
-    let withAvatarChips: [OODSChip<WithAvatarChip>]
-    let withAvatarRemovableChips: [OODSChip<WithAvatarRemovableChip>]
+    let withAvatarChips: [ODSChip<WithAvatarChip>]
+    let withAvatarRemovableChips: [ODSChip<WithAvatarRemovableChip>]
 
     @Published var selectedWithAvatarChip: WithAvatarChip?
     @Published var selectedWithAvatarRemovableChip: WithAvatarRemovableChip?
@@ -109,67 +109,67 @@ class ChipsPageModel: ObservableObject {
     init() {
         // Chips with textOnly
         textOnlyChips = [
-            OODSChip(.enabled, text: "Enable"),
-            OODSChip(.selected, text: "Selected"),
-            OODSChip(.disabled, text: "Disabled", disabled: true),
+            ODSChip(.enabled, text: "Enable"),
+            ODSChip(.selected, text: "Selected"),
+            ODSChip(.disabled, text: "Disabled", disabled: true),
         ]
 
         selectedTextOnlyChip = .selected
 
         textOnlyRemovableChips = [
-            OODSChip(.enabled, text: "Enable", removable: true),
-            OODSChip(.selected, text: "Selected", removable: true),
-            OODSChip(.disabled, text: "Disabled", disabled: true, removable: true),
+            ODSChip(.enabled, text: "Enable", removable: true),
+            ODSChip(.selected, text: "Selected", removable: true),
+            ODSChip(.disabled, text: "Disabled", disabled: true, removable: true),
         ]
 
         selectedTextOnlyRemovableChip = .selected
 
         // Chips with icon
         withIconChips = [
-            OODSChip(.enabled, text: "Enable", thumbnail: .icon(iconImage)),
-            OODSChip(.selected, text: "Selected", thumbnail: .icon(iconImage)),
-            OODSChip(.disabled, text: "Disabled", thumbnail: .icon(iconImage), disabled: true),
+            ODSChip(.enabled, text: "Enable", thumbnail: .icon(iconImage)),
+            ODSChip(.selected, text: "Selected", thumbnail: .icon(iconImage)),
+            ODSChip(.disabled, text: "Disabled", thumbnail: .icon(iconImage), disabled: true),
         ]
 
         selectedWithIconChip = .selected
 
         withIconRemovableChips = [
-            OODSChip(.enabled, text: "Enable", thumbnail: .icon(iconImage), removable: true),
-            OODSChip(.selected, text: "Selected", thumbnail: .icon(iconImage), removable: true),
-            OODSChip(.disabled, text: "Disabled", thumbnail: .icon(iconImage), disabled: true, removable: true),
+            ODSChip(.enabled, text: "Enable", thumbnail: .icon(iconImage), removable: true),
+            ODSChip(.selected, text: "Selected", thumbnail: .icon(iconImage), removable: true),
+            ODSChip(.disabled, text: "Disabled", thumbnail: .icon(iconImage), disabled: true, removable: true),
         ]
 
         selectedWithIconRemovableChip = .selected
 
         // System icons
         withSystemIconChips = [
-            OODSChip(.enabled, text: "Enable", thumbnail: .iconSystem(name: "heart")),
-            OODSChip(.selected, text: "Selected", thumbnail: .iconSystem(name: "heart")),
-            OODSChip(.disabled, text: "Disabled", thumbnail: .iconSystem(name: "heart"), disabled: true),
+            ODSChip(.enabled, text: "Enable", thumbnail: .iconSystem(name: "heart")),
+            ODSChip(.selected, text: "Selected", thumbnail: .iconSystem(name: "heart")),
+            ODSChip(.disabled, text: "Disabled", thumbnail: .iconSystem(name: "heart"), disabled: true),
         ]
 
         selectedWithSystemIconChip = .selected
 
         withSystemIconRemovableChips = [
-            OODSChip(.enabled, text: "Enable", thumbnail: .iconSystem(name: "heart"), removable: true),
-            OODSChip(.selected, text: "Selected", thumbnail: .iconSystem(name: "heart"), removable: true),
-            OODSChip(.disabled, text: "Disabled", thumbnail: .iconSystem(name: "heart"), disabled: true, removable: true),
+            ODSChip(.enabled, text: "Enable", thumbnail: .iconSystem(name: "heart"), removable: true),
+            ODSChip(.selected, text: "Selected", thumbnail: .iconSystem(name: "heart"), removable: true),
+            ODSChip(.disabled, text: "Disabled", thumbnail: .iconSystem(name: "heart"), disabled: true, removable: true),
         ]
         selectedWithSystemIconRemovableChip = .selected
 
         // Chips with avatar
         withAvatarChips = [
-            OODSChip(.enabled, text: "Enable", thumbnail: .avatar(avatarImage)),
-            OODSChip(.selected, text: "Selected", thumbnail: .avatar(avatarImage)),
-            OODSChip(.disabled, text: "Disabled", thumbnail: .avatar(avatarImage), disabled: true),
+            ODSChip(.enabled, text: "Enable", thumbnail: .avatar(avatarImage)),
+            ODSChip(.selected, text: "Selected", thumbnail: .avatar(avatarImage)),
+            ODSChip(.disabled, text: "Disabled", thumbnail: .avatar(avatarImage), disabled: true),
         ]
 
         selectedWithAvatarChip = .selected
 
         withAvatarRemovableChips = [
-            OODSChip(.enabled, text: "Enable", thumbnail: .avatar(avatarImage), removable: true),
-            OODSChip(.selected, text: "Selected", thumbnail: .avatar(avatarImage), removable: true),
-            OODSChip(.disabled, text: "Disabled", thumbnail: .avatar(avatarImage), disabled: true, removable: true),
+            ODSChip(.enabled, text: "Enable", thumbnail: .avatar(avatarImage), removable: true),
+            ODSChip(.selected, text: "Selected", thumbnail: .avatar(avatarImage), removable: true),
+            ODSChip(.disabled, text: "Disabled", thumbnail: .avatar(avatarImage), disabled: true, removable: true),
         ]
 
         selectedWithAvatarRemovableChip = .selected
@@ -229,8 +229,8 @@ struct ChipsPageInner: View {
 struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovable: Hashable, ChipRemovable: Hashable {
 
     let title: String
-    var chips: [OODSChip<ChipNotRemovable>]
-    var removableChips: [OODSChip<ChipRemovable>]
+    var chips: [ODSChip<ChipNotRemovable>]
+    var removableChips: [ODSChip<ChipRemovable>]
 
     let selection: Binding<ChipNotRemovable?>
     let selectionRemovableChips: Binding<ChipRemovable?>

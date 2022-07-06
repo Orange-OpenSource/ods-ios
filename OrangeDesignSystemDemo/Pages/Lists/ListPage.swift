@@ -42,9 +42,9 @@ class ListPageModel: ObservableObject {
 
     @Published var listModel: ListModel
 
-    let secondLineOfTextChips: [OODSChip<SecondLineOfTextChip>]
-    let trailingImageChips: [OODSChip<TrailingImageChip>]
-    let leadingImageChips: [OODSChip<LeadingImageChip>]
+    let secondLineOfTextChips: [ODSChip<SecondLineOfTextChip>]
+    let trailingImageChips: [ODSChip<TrailingImageChip>]
+    let leadingImageChips: [ODSChip<LeadingImageChip>]
 
     @Published var selectedSecondLineOfTextChip: SecondLineOfTextChip? {
         didSet { updateListModel() }
@@ -69,9 +69,9 @@ class ListPageModel: ObservableObject {
         self.toogleState = toogleState
         self.showSheetOnIButtonClicked = showSheetOnIButtonClicked
 
-        secondLineOfTextChips = [OODSChip(.subtitle, text: "Subtitle")]
-        leadingImageChips = [OODSChip(.image, text: "Image")]
-        trailingImageChips = [OODSChip(.infoButton, text: "Button icon"), OODSChip(.text, text: "Text")]
+        secondLineOfTextChips = [ODSChip(.subtitle, text: "Subtitle")]
+        leadingImageChips = [ODSChip(.image, text: "Image")]
+        trailingImageChips = [ODSChip(.infoButton, text: "Button icon"), ODSChip(.text, text: "Text")]
 
         selectedSecondLineOfTextChip = .subtitle
         selectedLeadingImageChip = .image
