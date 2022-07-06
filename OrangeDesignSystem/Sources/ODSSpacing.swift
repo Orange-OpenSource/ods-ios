@@ -34,7 +34,7 @@ public enum ODSSpacing {
     public static let xxl: Double = 40
 }
 
-public enum ODSSpacerHeight: Double {
+public enum ODSSpacerValue: Double {
     case none = 0
     case xs = 4
     case s = 8

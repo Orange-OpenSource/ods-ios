@@ -24,9 +24,9 @@
 import SwiftUI
 
 public struct ODSSpacer: View {
-    public let height: ODSSpacerHeight
+    public let height: ODSSpacerValue
 
-    public init(_ height: ODSSpacerHeight = ODSSpacerHeight.none) {
+    public init(_ height: ODSSpacerValue = ODSSpacerValue.none) {
         self.height = height
     }
 
@@ -34,3 +34,16 @@ public struct ODSSpacer: View {
         Spacer().frame(height: height.rawValue)
     }
 }
+
+#if DEBUG
+struct ODSSpacer_Previews: PreviewProvider {
+
+    static var previews: some View {
+
+        VStack {
+            Text("Start").odsFont(style: .title1)
+            Text("End").odsFont(style: .title1)
+        }
+    }
+}
+#endif
