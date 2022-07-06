@@ -60,7 +60,7 @@ public struct ODSCardView: View {
 
         CardInnerView(element: element) {}
             .cornerRadius(10)
-            .shadow(radius: 1)
+            .shadow(radius: 8)
     }
 }
 
@@ -80,7 +80,7 @@ public struct CardViewCustom<ButtonContent>: View where ButtonContent: View {
             buttonContent()
         }
         .cornerRadius(10)
-        .shadow(radius: 1)
+        .shadow(radius: 8)
     }
 }
 
@@ -113,7 +113,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
             .font(ODSFontStyle.bodyRegular.font())
             .foregroundColor(.primary)
             .padding()
-        }.background(Color(UIColor.systemBackground))
+        }.background(ODSColor.componentBackground2.color)
     }
 }
 

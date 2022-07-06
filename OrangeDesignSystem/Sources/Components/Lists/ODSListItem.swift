@@ -63,7 +63,7 @@ public struct ODSListItemModel {
     public let leadingIconModel: ODSListItemLeadingIconModel?
     public let trailingIconModel: ODSListItemTrailingIconModel?
     public let minHeight: ODSListItemMinHeight
-    
+
     public init(
         title: String,
         subtitle: String? = nil,
@@ -166,7 +166,7 @@ public struct ODSListItem: View {
 /// which it in not allowed by Orange design rules..
 ///
 /// - Parameter model: The model describe the item.
-/// 
+///
 public struct ODSListItemWithToggle: View {
 
     let model: ODSListItemWithToggleModel

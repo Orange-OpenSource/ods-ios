@@ -98,7 +98,7 @@ class ListPageModel: ObservableObject {
     }
 
     func tooggleItemModel(with minHeight: ODSListItemMinHeight) -> ODSListItemWithToggleModel {
-        return ODSListItemWithToggleModel(title: "Title: cell with toggle", isOn: toogleState,  minHeight: minHeight)
+        return ODSListItemWithToggleModel(title: "Title: cell with toggle", isOn: toogleState, minHeight: minHeight)
     }
 
     func updateListModel() {

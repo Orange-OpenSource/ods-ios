@@ -29,6 +29,7 @@ let avatarImage = Image("avatar", bundle: Bundle.main)
 let iconImage = Image("iconsFunctionalUiEMIcHeartRecommend", bundle: Bundle.main)
 
 struct ChipsPage: View {
+
     // Chips with textOnly
     @State var selectedTextOnlyChip: ODSChip?
     @State var selectedTextOnlyRemovableChip: ODSChip?

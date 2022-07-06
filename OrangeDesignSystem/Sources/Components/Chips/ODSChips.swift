@@ -166,9 +166,6 @@ public struct ODSChipPicker: View {
     func isSelected(_ chip: ODSChip) -> Bool {
         switch type {
         case let .single(selectedChip, _):
-            let selected = chip.id == selectedChip.wrappedValue?.id ? "YES" : "NO"
-            print("\(chip.id) selected: \(selected), \(selectedChip.wrappedValue?.id)")
-
             return chip.id == selectedChip.wrappedValue?.id
         case let .multiple(selectedChips):
             return selectedChips.wrappedValue.contains(where: { chip.id == $0.id })
@@ -263,6 +260,7 @@ struct ChipRemoveLabel: View {
     }
 }
 
+#if DEBUG
 struct OODSChips_Previews: PreviewProvider {
 
     struct OODSChipPickerTest: View {
@@ -311,3 +309,4 @@ struct OODSChips_Previews: PreviewProvider {
         OODSChipPickerTest()
     }
 }
+#endif

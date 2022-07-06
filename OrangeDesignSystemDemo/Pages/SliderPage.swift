@@ -29,7 +29,7 @@ struct SliderPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Controls")
+            Image("Slider")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
@@ -41,10 +41,11 @@ struct SliderPage: View {
                 Spacer().frame(height: 10)
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 
+#if DEBUG
 struct SliderPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -53,63 +54,66 @@ struct SliderPage_Previews: PreviewProvider {
         }
     }
 }
+#endif
 
 struct UnlabeledSlider: View {
 
     @State private var value = 50.0
+    let range = 0 ... 100.0
 
     var body: some View {
         Text("Unlabeled slider")
             .odsFont(style: .title2)
         VStack(alignment: .center) {
-            Slider(
+            ODSSlider(
                 value: $value,
-                in: 0 ... 100)
-        }.padding([.leading, .trailing], 45)
+                range: range)
+        }
+        .padding([.leading, .trailing], 10)
     }
 }
 
 struct LabeledSlider: View {
 
     @State private var value = 80.0
+    let range = 0 ... 100.0
 
     var body: some View {
 
         Text("Labeled slider")
             .odsFont(style: .title2)
+        Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
         VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: 0 ... 100) {
-                    Text("Value")
-                } minimumValueLabel: {
-                    Image(systemName: "speaker.wave.1.fill")
-                } maximumValueLabel: {
-                    Image(systemName: "speaker.wave.3.fill")
-                }
-        }.padding([.leading, .trailing], 10)
+            ODSSlider(value: $value,
+                      range: range) {
+                Image(systemName: "speaker.wave.1.fill")
+            } maximumLabelView: {
+                Image(systemName: "speaker.wave.3.fill")
+            }
+        }
+        .padding([.leading, .trailing], 10)
     }
 }
 
 struct SteppedSlider: View {
 
     @State private var value = 30.0
+    let range = 0.0 ... 100.0
+    let step = 10.0
 
     var body: some View {
 
         Text("Stepped slider").odsFont(style: .title2)
         Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
         VStack(alignment: .center) {
-            Slider(
-                value: $value,
-                in: 0 ... 100,
-                step: 10) {
-                    Text("Value")
-                } minimumValueLabel: {
-                    Text("  0")
-                } maximumValueLabel: {
-                    Text("100")
-                }
-        }.padding([.leading, .trailing], 10)
+            ODSSlider(value: $value,
+                      range: range,
+                      step: step) {
+                Text("0")
+            } maximumLabelView: {
+                Text("100")
+            }
+            .padding([.leading, .trailing], 10)
+        }
     }
 }

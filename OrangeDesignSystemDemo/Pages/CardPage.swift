@@ -105,7 +105,7 @@ struct CardPage: View {
                 .foregroundColor(.primary)
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 

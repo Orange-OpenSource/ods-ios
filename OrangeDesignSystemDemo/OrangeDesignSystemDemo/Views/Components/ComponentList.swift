@@ -43,7 +43,7 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Chips", image: "Chips") {
             ChipsPage()
         },
-        ComponentModel(name: "Lists", image: "empty") {
+        ComponentModel(name: "Lists", image: "Lists") {
             ListPage()
         },
         ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
@@ -76,8 +76,7 @@ struct ComponentsCardsList: View {
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray5))
-        }
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 

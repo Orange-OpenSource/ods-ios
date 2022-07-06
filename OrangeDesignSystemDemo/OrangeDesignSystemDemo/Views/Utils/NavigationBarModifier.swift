@@ -52,7 +52,7 @@ struct NavigationBarColor: ViewModifier {
 }
 
 extension View {
-    func navigationBarColor(tintColor: UIColor) -> some View {
-        modifier(NavigationBarColor(tintColor: tintColor))
+    func navigationBarColor(tintColor: UIColor, backgroundColor: UIColor) -> some View {
+        modifier(NavigationBarColor(tintColor: tintColor, backgroundColor: backgroundColor))
     }
 }
