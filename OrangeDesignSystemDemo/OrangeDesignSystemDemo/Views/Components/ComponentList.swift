@@ -52,8 +52,8 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Sliders", image: "Slider") {
             SliderPage()
         },
-        ComponentModel(name: "Text edit menu", image: "Text edit menu") {
-            EditTextPage()
+        ComponentModel(name: "Text selection", image: "Text edit menu") {
+            TextSelectionPage()
         },
     ]
 

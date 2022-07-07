@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.4.0] - Unrelease
 
 - [DemoApp/SDK] #36 Add List component
+- [Component] #166 Add Text Selection component and remove Text Edit Menu
+- [Component] #35 Add tab bar page
 - [DemoApp] Bug #155 Typography style addition, and spacing fix
 - [DemoApp/SDK] #128 Add slider action on bar tap
 - [DemoApp] #161 Design review Sprint 11 (background colours, shadows, ...) 
