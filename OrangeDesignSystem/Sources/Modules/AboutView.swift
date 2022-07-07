@@ -33,18 +33,15 @@ public struct AboutView: View {
     public var body: some View {
 
         List {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 Text("About").odsFont(style: .largeTitle)
                     .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
-
                 applicationDescription.imageHeader
                     .resizable()
                     .aspectRatio(contentMode: .fit)
 
-                ODSSpacer(.m)
                 ApplicationDescriptionView()
-                    .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.none, trailing: ODSSpacing.m))
-                ODSSpacer(.m)
+                    .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
             }
             .listRowSeparator(.hidden)
             .listRowInsets(EdgeInsets())

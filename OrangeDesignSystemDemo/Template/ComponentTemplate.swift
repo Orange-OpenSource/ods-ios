@@ -30,8 +30,8 @@ struct ComponentDescription: View {
     var text: String
 
     var body: some View {
-        ODSSpacer(.xs)
         Text(text).odsFont(style: .bodyRegular)
+            .padding(.top, ODSSpacing.xs)
     }
 }
 

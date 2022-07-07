@@ -61,17 +61,19 @@ struct ComponentsCardsList: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ODSSpacer(.m)
                 LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList.sorted { $0.name < $1.name }) {
+                    ForEach(componentList.sorted {
+                        $0.name < $1.name
+                    }) {
                         Component(component: $0)
                     }
-                }.padding([.leading, .trailing])
-                ODSSpacer(.m)
+                }
+                .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
-        }.background(ODSColor.primaryBackground.color)
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

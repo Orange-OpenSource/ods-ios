@@ -34,15 +34,16 @@ struct ShowMarkdownView: View {
 
     var body: some View {
         ScrollView {
-            ODSSpacer(.s)
             Parma(markdown)
+                .padding(.top, ODSSpacing.s)
                 .padding(.horizontal, ODSSpacing.l)
         }
         .onAppear {
             if let url = Bundle.main.url(forResource: markDownFileName, withExtension: "md") {
                 markdown = try! String(contentsOf: url)
             }
-        }.navigationTitle(title)
+        }
+        .navigationTitle(title)
     }
 }
 

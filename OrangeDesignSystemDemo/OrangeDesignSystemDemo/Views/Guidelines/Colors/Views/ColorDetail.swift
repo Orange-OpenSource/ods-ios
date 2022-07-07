@@ -49,9 +49,8 @@ struct ColorDetail: View {
                     Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
                     Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
 
-                    ODSSpacer(.m)
-
                     Text("Usage").odsFont(style: .headline)
+                        .padding(.top, ODSSpacing.l)
                     Text("Coming soon ...").odsFont(style: .caption1Regular)
                 }
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.l, trailing: ODSSpacing.m))

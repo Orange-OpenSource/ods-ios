@@ -36,9 +36,7 @@ struct ShapeButtonPage: View {
             VStack(alignment: .leading, spacing: 20) {
                 ComponentDescription(text: "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed")
                 VariantsTitle()
-                ButtonList()
-
-                ODSSpacer(.s)
+                ButtonList().padding(.bottom, ODSSpacing.s)
             }
             .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
         }

@@ -39,8 +39,7 @@ struct TabBarPage: View {
                 TabBarVariant(nbItems: 2)
                 TabBarVariant(nbItems: 3)
                 TabBarVariant(nbItems: 4)
-                TabBarVariant(nbItems: 5)
-                ODSSpacer(.s)
+                TabBarVariant(nbItems: 5).padding(.bottom, ODSSpacing.s)
             }
             .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
         }

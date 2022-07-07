@@ -39,7 +39,6 @@ struct ColorList: View {
     var body: some View {
         VStack {
             Group {
-                ODSSpacer(.s)
                 Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
                     Text("On Light").tag(ColorScheme.light)
                     Text("On Dark").tag(ColorScheme.dark)
@@ -49,14 +48,12 @@ struct ColorList: View {
                     screenState.colorScheme = phoneColorScheme
                 }
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-            }
+            }.padding(.top, ODSSpacing.s)
 
             ScrollView {
-                ODSSpacer(.xs)
                 SectionTitle(title: "Core")
 
                 VStack {
-                    ODSSpacer(.l)
                     HStack(spacing: 15) {
                         ColorBig(color: ODSColor.coreOrange, bordered: false)
                         ColorBig(color: ODSColor.coreWhite, bordered: screenState.colorScheme == .light)
@@ -66,10 +63,10 @@ struct ColorList: View {
                         ColorBig(color: ODSColor.coreObsGrey, bordered: false)
                     }
                 }
-                .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+                .padding(EdgeInsets(top: ODSSpacing.l, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
-                ODSSpacer(.l)
                 SectionTitle(title: "Functional")
+                    .padding(.top, ODSSpacing.l)
 
                 VStack {
                     HStack(spacing: 15) {
@@ -83,8 +80,8 @@ struct ColorList: View {
                 }
                 .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
-                ODSSpacer(.l)
                 SectionTitle(title: "Supporting")
+                    .padding(.top, ODSSpacing.l)
 
                 VStack {
                     HStack(spacing: 15) {
@@ -113,7 +110,7 @@ struct ColorList: View {
                         ColorSmall(color: ODSColor.supportingPurple300)
                     }
                 }
-                .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+                .padding(EdgeInsets(top: ODSSpacing.xs, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
             }
             .background(screenState.colorScheme == .light ? Color.white : Color.black)
         }

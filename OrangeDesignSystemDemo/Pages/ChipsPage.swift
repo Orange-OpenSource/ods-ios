@@ -131,9 +131,7 @@ struct HorizontalChipsListView: View {
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ODSSpacer(.s)
-
+            HStack(spacing: ODSSpacing.s) {
                 ForEach(chips, id: \.id) { chip in
                     ODSChipView(chip: chip) { _ in
                         print("Selected chip: \(chip)")
@@ -141,7 +139,7 @@ struct HorizontalChipsListView: View {
                         print("Removed chip: \(chip)")
                     }
                 }
-            }
+            }.padding(.top, ODSSpacing.s)
         }
     }
 }

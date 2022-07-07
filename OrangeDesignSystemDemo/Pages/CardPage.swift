@@ -84,9 +84,7 @@ struct CardPage: View {
 
                     Toggle(isOn: $showButton) {
                         Text("Show button")
-                    }
-
-                    ODSSpacer(.l)
+                    }.padding(.bottom, ODSSpacing.l)
 
                     Button {
                         resetSwitches()

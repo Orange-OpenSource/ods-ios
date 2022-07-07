@@ -85,7 +85,7 @@ struct ODSSlider_Previews: PreviewProvider {
             ODSSlider(
                 value: .constant(50),
                 range: 0 ... 100.0)
-                .padding([.leading, .trailing], 10)
+                .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }

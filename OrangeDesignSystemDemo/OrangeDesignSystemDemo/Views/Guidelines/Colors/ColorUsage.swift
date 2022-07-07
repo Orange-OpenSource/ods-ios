@@ -32,11 +32,10 @@ struct ColorUsage: View {
         ScrollView {
             VStack(alignment: .leading) {
 
-                ODSSpacer(.s)
                 Text("It is important to use the iOS system background and label colours and as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.")
-
-                ODSSpacer(.m)
+                    .padding(.top, ODSSpacing.s)
                 Text("Some colours are define with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).").accentColor(ODS.coreOrange)
+                    .padding(.top, ODSSpacing.m)
                 // TO-DO : make component
             }
         }

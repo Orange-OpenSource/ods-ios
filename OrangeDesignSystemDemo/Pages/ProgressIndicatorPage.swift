@@ -74,9 +74,9 @@ struct ProgressIndicator: View {
         Text("Progress indicator")
             .odsFont(style: .title2)
         HStack {
-            ODSSpacer()
+            Spacer()
             ProgressView()
-            ODSSpacer()
+            Spacer()
         }
     }
 }
