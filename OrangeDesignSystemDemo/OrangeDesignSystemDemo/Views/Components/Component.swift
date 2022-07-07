@@ -48,6 +48,7 @@ struct ComponentModel: Identifiable {
 
 struct Component: View {
     let component: ComponentModel
+
     var body: some View {
         NavigationLink {
             component.destination

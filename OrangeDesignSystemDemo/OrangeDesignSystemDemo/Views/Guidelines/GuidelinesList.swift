@@ -46,8 +46,10 @@ struct GuidelinesList: View {
     }
 }
 
+#if DEBUG
 struct GuidelinesListView_Previews: PreviewProvider {
     static var previews: some View {
         GuidelinesList()
     }
 }
+#endif
