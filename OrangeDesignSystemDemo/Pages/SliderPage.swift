@@ -45,6 +45,7 @@ struct SliderPage: View {
     }
 }
 
+#if DEBUG
 struct SliderPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -53,6 +54,7 @@ struct SliderPage_Previews: PreviewProvider {
         }
     }
 }
+#endif
 
 struct UnlabeledSlider: View {
 

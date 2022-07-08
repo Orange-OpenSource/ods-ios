@@ -23,58 +23,6 @@
 
 import SwiftUI
 
-// ===========
-// MARK: Chips
-// ===========
-
-/// <a href="https://zeroheight.com/3b9fee398/p/67a9e8-chips/b/604d19" target="_blank">ODS Chips</a>.
-///
-/// Chips are small components containing a number of elements that represent a calendar event or contact.
-///
-/// - parameter text Text to display in the chip.
-/// - parameter selected The current selection value of the chip.
-/// - parameter disabled When disabled, chip will not respond to user input. It will also appear visually
-/// disabled and disabled to accessibility services.
-/// - parameter removable To add the remove cross to allow a chip to be removed from a list of chips.
-/// - parameter thumbnail Optional right thumbnail.
-///
-public class ODSChipModel: Identifiable, CustomDebugStringConvertible {
-    public var id: UUID
-    public var text: String
-    public var selected: Bool
-    public var disabled: Bool
-    public var removable: Bool
-    public var thumbnail: ODSChipThumbnail?
-
-    // swiftlint:disable multiline_parameters_brackets
-    public init(text: String,
-                thumbnail: ODSChipThumbnail? = nil,
-                selected: Bool = false,
-                disabled: Bool = false,
-                removable: Bool = false)
-    {
-        id = UUID()
-        self.text = text
-        self.thumbnail = thumbnail
-        self.selected = selected
-        self.disabled = disabled
-        self.removable = removable
-    }
-
-    public var debugDescription: String {
-        "Name: \(text)\n"
-            + "selected: \(selected)\n"
-            + "removale: \(removable)\n"
-            + "disabled: \(disabled)\n"
-    }
-}
-
-/// If chips are added in a list, the selection can be single or multiple.
-public enum ODSChipsSelectionType {
-    case multiple
-    case single
-}
-
 /// A thumbnail can be added on the right side of a chip.
 /// - Icon is a simple image with only one color
 /// - Avatar is the a more complex image like contact photo.
@@ -84,132 +32,197 @@ public enum ODSChipThumbnail {
     case avatar(Image)
 }
 
-// ===========
-// MARK: Views
-// ===========
-/// The view used to display a chips in a horizontal scrollable list.
+/// <a href="https://zeroheight.com/3b9fee398/p/67a9e8-chips/b/604d19" target="_blank">ODS Chips</a>.
 ///
-/// - parameter chips Model of all chips in the list
-/// - parameter selectionType The type of chip selection.
-/// - parameter onChipSelected When the chip is clicked and the selection state has changed.
-/// - parameter onChipRemoved When the remove cross is clicked and the chip has been removed from the list.
+/// Chips are small components containing a number of elements that represent a calendar event or contact.
 
-public struct ODSChipsView: View {
-    private let chips: [ODSChipModel]
-    private var selectionType: ODSChipsSelectionType
-    private let onChipTapped: (ODSChipModel) -> Void
-    private let onChipRemoved: (ODSChipModel) -> Void
+public typealias ODSChip<Value> = ODSChipPicker<Value>.ODSChipModel where Value: Hashable
 
-    public init(chips: [ODSChipModel], selectionType: ODSChipsSelectionType, onChipTapped: @escaping (ODSChipModel) -> Void, onChipRemoved: @escaping (ODSChipModel) -> Void) {
+/// Create a picker by providing the selection type with a binding to get selected element(s).
+/// An additonnal title can be added above the Picker.
+///
+public struct ODSChipPicker<Value>: View where Value: Hashable {
+
+    /// The chip element description.
+    ///  - Parameters
+    ///     - value: The value of the chip
+    ///     - text: Text to display in the chip.
+    ///     - thumbnail: Optional leading thumbnail.
+    ///     - disabled: When disabled, chip will not respond to user input. It will also appear
+    ///       visually disabled and disabled to accessibility services.
+    ///     - removable: To add the remove cross to allow a chip to be removed from a list of chips.
+
+    public struct ODSChipModel {
+
+        let value: Value
+        let text: String
+        let thumbnail: ODSChipThumbnail?
+        let disabled: Bool
+        let removable: Bool
+
+        public init(_ value: Value, text: String, thumbnail: ODSChipThumbnail? = nil, disabled: Bool = false, removable: Bool = false)
+        {
+            self.value = value
+            self.text = text
+            self.thumbnail = thumbnail
+            self.disabled = disabled
+            self.removable = removable
+        }
+    }
+
+    /// Creates a picker that manage a single selection.
+    ///
+    /// - Parameters:
+    ///     - title: Optional title above the picker
+    ///     - selection: A binding to a property that determines the
+    ///       currently-selected option.
+    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
+    ///     - chips: All chips describing elements to be displayed.
+
+    public init(title: String? = nil, selection: Binding<Value?>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
+        self.title = title
         self.chips = chips
-        self.selectionType = selectionType
-        self.onChipTapped = onChipTapped
-        self.onChipRemoved = onChipRemoved
+        self.allowZeroSelection = allowZeroSelection
+
+        singleSelection = selection
+        multipleSelection = nil
     }
 
+    /// Creates a picker that manage a multiple selection.
+    ///
+    /// - Parameters:
+    ///     - title: Optional title above the picker
+    ///     - selection: A binding to a property that determines the
+    ///       currently-selected option.
+    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
+    ///     - chips: All chips describing elements to be displayed.
+    public init(title: String? = nil, selection: Binding<[Value]>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
+        self.title = title
+        self.chips = chips
+        self.allowZeroSelection = allowZeroSelection
+        singleSelection = nil
+        multipleSelection = selection
+    }
+
+    typealias SingleSelection = Binding<Value?>
+    typealias MultipleSelection = Binding<[Value]>
+
+    let title: String?
+    let chips: [ODSChipModel]
+    let singleSelection: SingleSelection?
+    let multipleSelection: MultipleSelection?
+    let allowZeroSelection: Bool
+
+    @State var textHeight: CGFloat = 30.0
+
     public var body: some View {
-        ScrollView(.horizontal) {
-            VStack(spacing: 0) {
-                HStack {
-                    ForEach(chips, id: \.id) { chip in
-                        ODSChipView(
-                            chip: chip) { chip in
-                                select(chip)
-                                onChipTapped(chip)
-                            } onChipRemoved: { chip in
-                                onChipRemoved(chip)
+        VStack(alignment: .leading, spacing: ODSSpacing.s) {
+            if let title = title {
+                Text(title).odsFont(style: .headline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, ODSSpacing.m)
+            }
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                VStack(spacing: ODSSpacing.none) {
+
+                    HStack(spacing: ODSSpacing.s) {
+                        ForEach(chips, id: \.value) { chip in
+                            Button {
+                                handleSelection(for: chip)
+                            } label: {
+                                HStack(alignment: .center, spacing: ODSSpacing.none) {
+                                    if let thumbnail = chip.thumbnail {
+                                        ChipThumbnail(selected: isSelected(chip),
+                                                      thumbnail: thumbnail,
+                                                      height: textHeight)
+                                    }
+
+                                    Text(chip.text)
+                                        .odsFont(style: .subhead)
+                                        .tint(isSelected(chip) ? .black : .primary)
+                                        .padding(.vertical, 6)
+                                        .padding(.leading, textLeadingPadding(for: chip))
+                                        .padding(.trailing, chip.removable ? ODSSpacing.s : ODSSpacing.m)
+                                        .readSize { size in
+                                            textHeight = size.height
+                                        }
+
+                                    if chip.removable {
+                                        ChipRemoveLabel(height: textHeight, selected: isSelected(chip))
+                                            .highPriorityGesture(TapGesture().onEnded {})
+                                    }
+                                }
                             }
-                    }
-                }
-                .padding(.leading, ODSSpacing.xs)
-                .padding(.trailing, ODSSpacing.s)
-            }
-            .padding(.vertical, ODSSpacing.s)
-        }
-    }
-
-    private func select(_ chip: ODSChipModel) {
-        switch selectionType {
-        case .multiple:
-            break
-        case .single:
-            for chip in chips {
-                chip.selected = false
-            }
-        }
-
-        chip.selected.toggle()
-    }
-}
-
-/// The view used to display a chip according to its model `ODSChipModel`
-/// - parameter chip The model defines the chip elements (text, thumbnail) and state
-/// - parameter onChipSelected On the chip is clicked and the selection state will change.
-/// - parameter onChipRemoved On the close cross is clicked and the chip will removed from a list.
-public struct ODSChipView: View {
-    let chip: ODSChipModel
-    let onChipSelected: (ODSChipModel) -> Void
-    let onChipRemoved: (ODSChipModel) -> Void
-
-    public init(chip: ODSChipModel,
-                onChipSelected: @escaping (ODSChipModel) -> Void,
-                onChipRemoved: @escaping (ODSChipModel) -> Void)
-    {
-        self.chip = chip
-        self.onChipSelected = onChipSelected
-        self.onChipRemoved = onChipRemoved
-    }
-
-    @State var textHeight: CGFloat = 16.0
-
-    public var body: some View {
-        VStack {
-            Button {
-                onChipSelected(chip)
-            } label: {
-                HStack(alignment: .center, spacing: 0) {
-                    if let thumbnail = chip.thumbnail {
-                        ChipThumbnail(selected: chip.selected, thumbnail: thumbnail, height: textHeight)
-                    }
-
-                    Text(chip.text)
-                        .odsFont(style: .subhead)
-                        .tint(chip.selected ? .black : .primary)
-                        .padding(.vertical, ODSSpacing.s)
-                        .padding(.leading, textLeadingPadding)
-                        .padding(.trailing, chip.removable ? ODSSpacing.s : ODSSpacing.m)
-                        .readSize { size in
-                            textHeight = size.height
+                            .background(background(for: chip))
+                            .clipShape(Capsule())
+                            .disabled(chip.disabled)
                         }
-
-                    if chip.removable {
-                        RemoveButtonLabel(height: textHeight, selected: chip.selected)
-                            .highPriorityGesture(TapGesture().onEnded {
-                                self.onChipRemoved(chip)
-                            })
                     }
+                    .padding(.trailing, ODSSpacing.s)
+                    .padding(.leading, ODSSpacing.m)
                 }
             }
-            .background(background)
-            .clipShape(Capsule())
-            .disabled(chip.disabled)
         }
     }
 
-    var textLeadingPadding: CGFloat {
+    func textLeadingPadding(for chip: ODSChipModel) -> CGFloat {
         switch chip.thumbnail {
-        case .icon: return 8.0
-        case .avatar: return chip.selected ? 8 : 6
-        case .iconSystem: return 8
-        case .none: return 16.0
+        case .icon: return ODSSpacing.s
+        case .avatar: return isSelected(chip) ? ODSSpacing.s : ODSSpacing.s - 2
+        case .iconSystem: return ODSSpacing.s
+        case .none: return ODSSpacing.m
         }
     }
 
-    @ViewBuilder var background: some View {
-        if chip.selected {
+    @ViewBuilder func background(for chip: ODSChipModel) -> some View {
+        if isSelected(chip) {
             Capsule().foregroundColor(ODSColor.coreOrange.color)
         } else {
             Capsule().stroke(lineWidth: 1)
+        }
+    }
+
+    func isSelected(_ chip: ODSChipModel) -> Bool {
+
+        if let singleSelection = singleSelection {
+            return chip.value == singleSelection.wrappedValue
+        }
+
+        if let multipleSelection = multipleSelection {
+            return multipleSelection.wrappedValue.contains(where: { chip.value == $0 })
+        }
+
+        return false
+    }
+
+    func handleSelection(for chip: ODSChipModel) {
+        if let singleSelection = singleSelection {
+            handle(singleSelection, for: chip)
+        } else {
+            if let multipleSelection = multipleSelection {
+                handle(multipleSelection, for: chip)
+            }
+        }
+    }
+
+    func handle(_ singleSelection: SingleSelection, for chip: ODSChipModel) {
+        if singleSelection.wrappedValue == chip.value {
+            if allowZeroSelection {
+                singleSelection.wrappedValue = nil
+            }
+        } else {
+            singleSelection.wrappedValue = chip.value
+        }
+    }
+
+    func handle(_ multipleSelection: MultipleSelection, for chip: ODSChipModel) {
+        if let index = multipleSelection.wrappedValue.firstIndex(where: { $0 == chip.value }) {
+            if multipleSelection.count != 1 || allowZeroSelection {
+                multipleSelection.wrappedValue.remove(at: index)
+            }
+        } else {
+            multipleSelection.wrappedValue.append(chip.value)
         }
     }
 }
@@ -223,7 +236,7 @@ struct ChipThumbnail: View {
         switch thumbnail {
         case let .avatar(image):
             if selected {
-                SelectedAvatar(height: height)
+                ChipSelectedAvatar(height: height)
             } else {
                 image
                     .resizable()
@@ -249,7 +262,7 @@ struct ChipThumbnail: View {
     }
 }
 
-struct SelectedAvatar: View {
+struct ChipSelectedAvatar: View {
     let height: CGFloat
 
     var body: some View {
@@ -265,7 +278,7 @@ struct SelectedAvatar: View {
     }
 }
 
-struct RemoveButtonLabel: View {
+struct ChipRemoveLabel: View {
 
     let height: CGFloat
     let selected: Bool
@@ -281,41 +294,79 @@ struct RemoveButtonLabel: View {
     }
 }
 
-struct Chips_Previews: PreviewProvider {
+#if DEBUG
+struct ODSChips_Previews: PreviewProvider {
 
-    struct ChipSelectionTest: View {
-        @State var chips = [
-            ODSChipModel(text: "Chip 1", selected: false),
-            ODSChipModel(text: "Chip _ 2", thumbnail: .iconSystem(name: "heart"), selected: false),
-            ODSChipModel(text: "Chip 3", selected: false, removable: true),
-            ODSChipModel(text: "Chip 4", selected: false, disabled: true),
-        ]
+    enum ChipsTest: Int, CaseIterable {
+        case title1 = 1
+        case title2
+        case removable1
+        case removabele2
+        case disabled
 
-        @State var lastSelectedChipMessage: String = ""
-        @State var lastSelectedChip: UUID?
+        var odsChip: ODSChip<ChipsTest> {
+            switch self {
+            case .title1:
+                return ODSChip(self, text: "Title 1")
+            case .title2:
+                return ODSChip(self, text: "Title 2", thumbnail: .iconSystem(name: "heart"))
+            case .removable1:
+                return ODSChip(self, text: "Removable 1", removable: true)
+            case .removabele2:
+                return ODSChip(self, text: "Removable 2", thumbnail: .iconSystem(name: "heart"), removable: true)
+            case .disabled:
+                return ODSChip(self, text: "Disabled", disabled: true)
+            }
+        }
+    }
+
+    struct ODSChipPickerTest: View {
+        @State var selectedChip: ChipsTest?
+        @State var selectedChips: [ChipsTest] = []
+        let allowZeroSelection = true
+
+        let chips = ChipsTest.allCases.map { $0.odsChip }
 
         var body: some View {
             VStack {
-                ODSChipsView(chips: chips, selectionType: .multiple) { chip in
-                    lastSelectedChipMessage = "\(chip.text) is \(chip.selected ? "Selected" : "Unselected")"
-                    self.lastSelectedChip = chip.id
-                } onChipRemoved: { chip in
-                    if chip.selected {
-                        lastSelectedChip = nil
-                        lastSelectedChipMessage = ""
+                VStack(spacing: ODSSpacing.s) {
+                    VStack(spacing: ODSSpacing.s) {
+                        ODSChipPicker(title: "Single selection",
+                                      selection: $selectedChip,
+                                      allowZeroSelection: allowZeroSelection,
+                                      chips: chips)
+                        Text("selected Chip : \(selectedChip?.odsChip.text ?? "")")
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
+                    .padding(.horizontal, ODSSpacing.m)
+                    .padding(.bottom, ODSSpacing.l)
+                    .background(ODSColor.supportingGreen100.color)
 
-                    self.chips = chips.filter {
-                        $0.id != chip.id
+                    VStack(spacing: ODSSpacing.s) {
+                        ODSChipPicker(title: "Multiple selection",
+                                      selection: $selectedChips,
+                                      allowZeroSelection: allowZeroSelection,
+                                      chips: chips)
+
+                        Text("Selected Chip : \(self.selectedChipsText)")
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
+                    .padding(.horizontal, ODSSpacing.m)
+                    .padding(.bottom, ODSSpacing.l)
+                    .background(ODSColor.supportingGreen100.color)
                 }
+            }
+        }
 
-                Text(lastSelectedChipMessage)
+        var selectedChipsText: String {
+            return selectedChips.reduce(into: "") { result, chip in
+                result = "\(result), \(chip.odsChip.text)"
             }
         }
     }
 
     static var previews: some View {
-        ChipSelectionTest()
+        ODSChipPickerTest()
     }
 }
+#endif

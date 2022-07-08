@@ -21,35 +21,15 @@
 //
 //
 
-import OrangeDesignSystem
+import Foundation
 import SwiftUI
 
-struct GuidelinesList: View {
-
-    @ObservedObject var screenState = ScreenState()
-
-    var body: some View {
-        let listModel = ODSListCardViewModel(title: "Guidelines",
-                                             cards: [
-                                                 ODSCardModel(title: "Colours", image: "Colour") {
-                                                     ColorList().environmentObject(self.screenState)
-                                                 },
-                                                 ODSCardModel(title: "Typography", image: "Typography") {
-                                                     FontList()
-                                                 },
-                                             ])
-        return NavigationView {
-            ODSListCardView()
-                .environmentObject(listModel)
-                .background(ODSColor.primaryBackground.color)
-        }
-    }
+public enum ODSSpacing {
+    public static let none: Double = 0
+    public static let xs: Double = 4
+    public static let s: Double = 8
+    public static let m: Double = 16
+    public static let l: Double = 24
+    public static let xl: Double = 32
+    public static let xxl: Double = 40
 }
-
-#if DEBUG
-struct GuidelinesListView_Previews: PreviewProvider {
-    static var previews: some View {
-        GuidelinesList()
-    }
-}
-#endif
