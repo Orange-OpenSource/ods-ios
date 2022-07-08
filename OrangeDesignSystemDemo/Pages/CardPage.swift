@@ -26,13 +26,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct CardPage: View {
-    @State var showImage = false
+    @State var showImage = true
     @State var showSubtitle = false
     @State var showDescription = false
     @State var showButton = false
 
     private func resetSwitches() {
-        showImage = false
+        showImage = true
         showSubtitle = false
         showDescription = false
         showButton = false
@@ -41,7 +41,7 @@ struct CardPage: View {
     var example: ODSCardModel {
         ODSCardModel(
             title: "Title",
-            image: showImage ? "Cards" : "",
+            image: showImage ? "Cards" : nil,
             subTitle: showSubtitle ? ODSCardModel.example.subTitle : "",
             description: showDescription ? ODSCardModel.example.description : "")
     }

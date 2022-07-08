@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.0] - Unrelease
 
+- [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default
 - [DemoApp/SDK] #36 Add List component
 - [Component] #166 Add Text Selection component and remove Text Edit Menu
 - [Component] #35 Add tab bar page
