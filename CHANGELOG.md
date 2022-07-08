@@ -29,10 +29,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Update text button and shaped button pages with new design specifications
 - [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
+## [0.3.0] - 2022-06-10
+### Changed
+- [DemoApp] Update text button and shaped button pages with new design specifications
+
+### Added
+
 ### Bugs
 - [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color
 - [DemoApp] Bug #102 Fixed : Card bad display
 - [DemoApp] Bug #101 Fixed : Progress indicator not centered
+
+### Changed
+- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
 ## [0.2.0] - 2022-05-05
 ### Changed
