@@ -41,13 +41,15 @@ struct GuidelinesList: View {
         return NavigationView {
             ODSListCardView()
                 .environmentObject(listModel)
-                .background(Color(uiColor: .systemGray5))
+                .background(ODSColor.primaryBackground.color)
         }
     }
 }
 
+#if DEBUG
 struct GuidelinesListView_Previews: PreviewProvider {
     static var previews: some View {
         GuidelinesList()
     }
 }
+#endif

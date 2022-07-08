@@ -21,6 +21,7 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
 struct ProgressIndicatorPage: View {
@@ -37,9 +38,7 @@ struct ProgressIndicatorPage: View {
                 ProgressBar()
                 ProgressIndicator()
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Progress Indicator")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 

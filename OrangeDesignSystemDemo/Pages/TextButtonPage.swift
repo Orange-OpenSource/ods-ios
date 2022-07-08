@@ -29,7 +29,7 @@ struct TextButtonPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Text_button")
+            Image("Buttons - Standard")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
@@ -40,9 +40,7 @@ struct TextButtonPage: View {
                 LabelButton()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Text Button")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 

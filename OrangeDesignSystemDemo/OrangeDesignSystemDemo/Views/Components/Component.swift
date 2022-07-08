@@ -48,8 +48,14 @@ struct ComponentModel: Identifiable {
 
 struct Component: View {
     let component: ComponentModel
+
     var body: some View {
-        NavigationLink(destination: component.destination) {
+        NavigationLink {
+            component.destination
+                .navigationTitle(component.name)
+                .navigationViewStyle(.stack)
+                .background(Color(uiColor: .systemGray6))
+        } label: {
             ODSCardView(element: ODSCardModel(title: component.name, image: component.image))
         }
     }
@@ -57,7 +63,8 @@ struct Component: View {
 
 struct TextButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        let component = ComponentModel(name: "Text", image: "Shape_button")
+        let component = ComponentModel(name: "Text", image: "Buttons - Shape")
+
         ForEach(ColorScheme.allCases, id: \.self) {
             Component(component: component)
                 .frame(width: 200)
