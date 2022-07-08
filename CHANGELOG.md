@@ -2,7 +2,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [0.4.0] - Unrelease
+## [Unreleased]
+
+## [0.4.0] - 2022-07-08
 
 - [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default
 - [DemoApp/SDK] #36 Add List component
@@ -58,5 +60,3 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1] - 2022-01-26
 ### Added
 - First version of SDK with demo app
-- Creation of Git Issue template for bug reports
-- Creation of Git Issue template for bug reports
