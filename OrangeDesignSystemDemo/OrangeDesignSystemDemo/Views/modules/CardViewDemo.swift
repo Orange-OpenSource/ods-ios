@@ -60,9 +60,10 @@ struct CardViewDemoGrid: View {
             }.padding([.leading, .trailing])
             Spacer().frame(height: 15)
 
-        }.navigationTitle("Page title")
-            .navigationViewStyle(.stack)
-            .background(ODSColor.primaryBackground.color)
+        }
+        .navigationTitle("Page title")
+        .navigationViewStyle(.stack)
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

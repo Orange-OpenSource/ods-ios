@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		078ABEBE2862FE4800E328A9 /* ChipsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078ABEBD2862FE4800E328A9 /* ChipsPage.swift */; };
+		07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C53287C7470004397D7 /* ODSColors+extension.swift */; };
+		07973C56287C74CF004397D7 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C55287C74CF004397D7 /* RGB.swift */; };
 		079AB7982837CCB400AFDAE9 /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079AB7972837CCB400AFDAE9 /* ListPage.swift */; };
 		07C724B22860746100592F07 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C724B12860746100592F07 /* BottomSheet.swift */; };
 		07C724B62861A64300592F07 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C724B52861A64200592F07 /* List.swift */; };
@@ -72,6 +74,8 @@
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
 		078ABEBD2862FE4800E328A9 /* ChipsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsPage.swift; sourceTree = "<group>"; };
+		07973C53287C7470004397D7 /* ODSColors+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ODSColors+extension.swift"; sourceTree = "<group>"; };
+		07973C55287C74CF004397D7 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		079AB7972837CCB400AFDAE9 /* ListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
 		07C724B12860746100592F07 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		07C724B52861A64200592F07 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
@@ -162,6 +166,15 @@
 				F90D9765280030A6006D29FC /* FontsList.swift */,
 			);
 			path = Typography;
+			sourceTree = "<group>";
+		};
+		07973C57287C74F1004397D7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				07973C55287C74CF004397D7 /* RGB.swift */,
+				07973C53287C7470004397D7 /* ODSColors+extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		07C724B02860744000592F07 /* Lists */ = {
@@ -288,6 +301,7 @@
 		F96A3E10280451660086B9BF /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				07973C57287C74F1004397D7 /* Utils */,
 				F96A3E11280451660086B9BF /* ColorsList.swift */,
 				F96A3E12280451660086B9BF /* ColorUsage.swift */,
 				F96A3E13280451660086B9BF /* Views */,
@@ -643,6 +657,7 @@
 				F96A3E23280452960086B9BF /* Bundle+Extension.swift in Sources */,
 				F96A3E26280452960086B9BF /* NavigationBarModifier.swift in Sources */,
 				F90D978728005A4A006D29FC /* ComponentList.swift in Sources */,
+				07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */,
 				FD91FD2E281C09A6004D9943 /* TextSelectionPage.swift in Sources */,
 				F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */,
 				F96A3E19280451660086B9BF /* ColorDetail.swift in Sources */,
@@ -663,6 +678,7 @@
 				F96A3E1D280451FE0086B9BF /* GuidelinesList.swift in Sources */,
 				F059395E28113B3500E1A02A /* ComponentTemplate.swift in Sources */,
 				F96A3E24280452960086B9BF /* View+tabBarStyle.swift in Sources */,
+				07973C56287C74CF004397D7 /* RGB.swift in Sources */,
 				F96A3E25280452960086B9BF /* BackgroundBlurView.swift in Sources */,
 				F90D978228003281006D29FC /* ModulesList.swift in Sources */,
 				07C724B22860746100592F07 /* BottomSheet.swift in Sources */,

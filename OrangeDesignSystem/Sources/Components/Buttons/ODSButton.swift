@@ -72,13 +72,13 @@ public struct ODSGenericButtonContent: View {
             VStack(alignment: imageDescription == nil ? .center : .leading) {
                 if let topText = topText {
                     Text(topText)
-                        .odsFont(style: .bodyBold)
+                        .odsFont(.bodyBold)
                         .foregroundColor(isEnabled ? textColor : .primary)
                 }
 
                 if let bottomText = bottomText {
                     Text(bottomText)
-                        .odsFont(style: .caption1Regular)
+                        .odsFont(.caption1Regular)
                         .foregroundColor(isEnabled ? textColor : .primary)
                 }
             }

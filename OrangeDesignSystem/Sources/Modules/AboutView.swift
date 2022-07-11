@@ -34,7 +34,8 @@ public struct AboutView: View {
 
         List {
             VStack(alignment: .leading, spacing: 0) {
-                Text("About").odsFont(style: .largeTitle)
+                Text("About")
+                    .odsFont(.largeTitle)
                     .odsGlobalPadding()
 
                 applicationDescription.imageHeader
@@ -128,7 +129,7 @@ public struct ODSAboutItemView: View {
                 NavigationLink(destination: item.nextView) {
                     HStack {
                         Text(item.text)
-                            .odsFont(style: .bodyBold)
+                            .odsFont(.bodyBold)
                     }
                     .frame(minWidth: 0,
                            maxWidth: .infinity,
@@ -141,7 +142,7 @@ public struct ODSAboutItemView: View {
                 if let url = item.url, let urlDestination = URL(string: url) {
                     Link(destination: urlDestination) {
                         HStack {
-                            Text(item.text).odsFont(style: .bodyBold)
+                            Text(item.text).odsFont(.bodyBold)
                         }
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSDim.list_min_height, maxHeight: .infinity, alignment: .leading)
                     }
@@ -152,7 +153,7 @@ public struct ODSAboutItemView: View {
                     Button {
                         showSafari.toggle()
                     } label: {
-                        Text(item.text).odsFont(style: .bodyBold)
+                        Text(item.text).odsFont(.bodyBold)
 
                     }.sheet(isPresented: $showSafari, content: {
                         ODSSFSafariViewWrapper(url: urlDestination)
@@ -169,7 +170,7 @@ private struct ApplicationDescriptionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(applicationDescription.applicationName).odsFont(style: .largeTitle)
+            Text(applicationDescription.applicationName).odsFont(.largeTitle)
             Text("Version \(applicationDescription.applicationVersion)")
             if let buildNumber = applicationDescription.applicationBuildNumber {
                 Text("Build \(buildNumber)")

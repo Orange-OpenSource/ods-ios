@@ -48,13 +48,14 @@ struct ColorBig: View {
                     .fill(color.color)
                     .aspectRatio(1.0, contentMode: .fit)
             }
-            Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(style: .headline)
+            Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(.headline)
             Text(color.rawValue).font(.system(.caption, design: .monospaced))
-            Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
-            Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
-        }.background(Color(uiColor: UIColor.systemBackground))
-            .colorScheme(screenState.colorScheme)
-            .gesture(tap)
-            .fullScreenCover(isPresented: $showingModal) { ColorDetail(color: self.color) }
+            Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(.caption1Regular)
+            Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
+        }
+        .background(Color(uiColor: UIColor.systemBackground))
+        .colorScheme(screenState.colorScheme)
+        .gesture(tap)
+        .fullScreenCover(isPresented: $showingModal) { ColorDetail(color: self.color) }
     }
 }

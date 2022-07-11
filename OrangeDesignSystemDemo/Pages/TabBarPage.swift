@@ -51,7 +51,7 @@ struct TabBarVariant: View {
     var nbItems: Int
 
     var body: some View {
-        Text("\(nbItems) entries").odsFont(style: .title2)
+        Text("\(nbItems) entries").odsFont(.title2)
         Image("TabBar-\(nbItems)-items")
             .resizable()
             .aspectRatio(contentMode: .fill)

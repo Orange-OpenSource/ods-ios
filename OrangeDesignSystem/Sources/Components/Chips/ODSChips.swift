@@ -118,7 +118,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     public var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             if let title = title {
-                Text(title).odsFont(style: .headline)
+                Text(title).odsFont(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 16)
             }
@@ -139,7 +139,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
                                     }
 
                                     Text(chip.text)
-                                        .odsFont(style: .subhead)
+                                        .odsFont(.subhead)
                                         .tint(isSelected(chip) ? .black : .primary)
                                         .padding(.vertical, 6)
                                         .padding(.leading, textLeadingPadding(for: chip))
@@ -342,7 +342,7 @@ struct ODSChips_Previews: PreviewProvider {
                         Text("selected Chip : \(selectedChip?.odsChip.text ?? "")")
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .padding(.horizontal, 16)
+                    .padding(.horizontal, 0)
                     .padding(.bottom, 20)
                     .background(ODSColor.supportingGreen100.color)
 
@@ -354,8 +354,9 @@ struct ODSChips_Previews: PreviewProvider {
 
                         Text("Selected Chip : \(self.selectedChipsText)")
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.trailing, 16)
                     }
-                    .padding(.horizontal, 16)
+                    .padding(.horizontal, 0)
                     .padding(.bottom, 20)
                     .background(ODSColor.supportingGreen100.color)
                 }
