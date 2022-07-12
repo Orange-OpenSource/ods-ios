@@ -125,7 +125,8 @@ struct SectionTitle: View {
     @EnvironmentObject var screenState: ScreenState
 
     var body: some View {
-        Text(title).odsFont(style: .title1)
+        Text(title)
+            .odsFont(.title1)
             .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))

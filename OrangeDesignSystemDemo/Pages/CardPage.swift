@@ -96,7 +96,7 @@ struct CardPage: View {
                     .buttonStyle(ODSFilledButtonStyle())
                 }
                 .padding()
-                .font(ODSFontStyle.bodyRegular.font())
+                .odsFont(.bodyRegular)
                 .foregroundColor(.primary)
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))

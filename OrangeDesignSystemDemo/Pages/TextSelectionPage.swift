@@ -48,11 +48,11 @@ struct TextSelectionInTextField: View {
     var body: some View {
         VStack {
             Text("Text selection in text field")
-                .odsFont(style: .title2)
+                .odsFont(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextField("A text field", text: $textToEdit)
                 .padding(.horizontal, 20)
-                .font(ODSFontStyle.headline.font())
+                .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))
         }
@@ -69,11 +69,11 @@ struct TextSelectionInTextEditor: View {
     var body: some View {
         VStack {
             Text("Text selection in text editor")
-                .odsFont(style: .title2)
+                .odsFont(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $textToEdit)
                 .padding(.horizontal, 20)
-                .font(ODSFontStyle.headline.font())
+                .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))
         }

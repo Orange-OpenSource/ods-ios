@@ -48,8 +48,8 @@ Slider(
 #### Stepped slider (with text and value display)
 
 ```swift
-Text("Stepped slider").odsFont(style: .title2)
-Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
+Text("Stepped slider").odsFont(.title2)
+Text("Value : \(Int(value))").odsFont(.bodyRegular)
 VStack(alignment: .center) {
     Slider(
         value: $value,

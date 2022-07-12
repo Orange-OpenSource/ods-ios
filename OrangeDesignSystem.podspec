@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OrangeDesignSystem'
-  s.version          = '0.4.0'
+  s.version          = '0.5.0'
   s.summary          = 'Orange Design System Components'
 
 
