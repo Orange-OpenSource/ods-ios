@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [SDK] #117 Review documentation introduction
+ 
 ## [0.4.0] - 2022-07-08
 
 - [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default

@@ -43,7 +43,7 @@ struct TextSelectionPage: View {
 }
 
 struct TextSelectionInTextField: View {
-    @State private var textToEdit: String = "LPL Text selection in a text field"
+    @State private var textToEdit: String = "Text selection in a text field"
 
     var body: some View {
         VStack {
@@ -52,8 +52,7 @@ struct TextSelectionInTextField: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextField("A text field", text: $textToEdit)
                 .padding(.horizontal, 20)
-                .odsFont(.title3)
-//                .odsFont(.headline)
+                .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))
         }
