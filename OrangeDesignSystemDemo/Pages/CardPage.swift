@@ -53,7 +53,6 @@ struct CardPage: View {
                 .aspectRatio(contentMode: .fill)
 
             VStack(alignment: .leading, spacing: 20) {
-
                 ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
                 VariantsTitle()
 
