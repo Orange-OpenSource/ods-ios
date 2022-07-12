@@ -52,7 +52,7 @@ struct TextSelectionInTextField: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextField("A text field", text: $textToEdit)
                 .padding(.horizontal, 20)
-                .odsFont(.title3)
+                .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))
         }
