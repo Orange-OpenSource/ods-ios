@@ -1,15 +1,14 @@
 ---
 layout: detail
 title: Colors
-description: How to use ODS Colors
 ---
-
 ---
 
 **Page Summary**
 
 * [Specifications references](#specifications-references)
 * [Implementation](#implementation)
+
 ---
 
 ## Specifications references
@@ -19,18 +18,17 @@ description: How to use ODS Colors
 
 ## Implementation
 
-Four types of colors:
-- Core color
+Four categories of colors:
+- Core
 - Functional
 - Supporting
-- Stil not classified
+- Not classified
 
 Colors will be different depending on whether they are displayed in light or in dark mode.
 
 You can use ODSColor like this:
 
 ``` swift
-
     Image(systemName: "checkmark").foregroundColor(ODSColor.coreOrange.color)
     MyView().background(ODSColor.primaryBackground.color)
 ```
