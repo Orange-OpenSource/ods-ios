@@ -99,7 +99,7 @@ extension ODSColor {
                       Int(rgb.green),
                       Int(rgb.blue)).uppercased()
     }
-    
+
     func displayName(forScheme scheme: ColorScheme) -> String {
         switch self {
         case .coreOrange:
@@ -158,5 +158,4 @@ extension ODSColor {
             return "Primary background"
         }
     }
-
 }

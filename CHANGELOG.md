@@ -3,7 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [Unreleased]
-
+- [DemoApp] #123 Use Cheap component in Card demo page instead of native ios switches
 - [SDK] #117 Review documentation introduction
  
 ## [0.4.0] - 2022-07-08
