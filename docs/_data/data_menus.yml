@@ -13,17 +13,23 @@ toc2:
 
   - title: Components
     subfolderitems:
-      - page: Standard button
+      - page: Button - standard
         url: /ods-ios/components/standardButton_docs
-      - page: Shaped button
+      - page: Button - shape
         url: /ods-ios/components/shapedButton_docs
-      - page: Slider
-        url: /ods-ios/components/slider_docs
+      - page: Cards
+        url: /ods-ios/components/cards_docs
+      - page: Chips
+        url: /ods-ios/components/chips_docs
+      - page: Lists
+        url: /ods-ios/components/lists_docs
       - page: Progress indicator
         url: /ods-ios/components/progressIndicator_docs
+      - page: Slider
+        url: /ods-ios/components/slider_docs
       - page: Text selection
         url: /ods-ios/components/textSelection_docs
-      
+
   - title: Modules
     subfolderitems:
       - page: About
