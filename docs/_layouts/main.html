@@ -64,11 +64,11 @@
                     <div class="ods-content ps-lg-4 mb-3">
                         <ul>
                             {% for entry in item.subfolderitems %}
-                            <li><a href="{{ entry.url }}">{{ entry.page }}</a>
+                            <li><a href="{{ site.baseurl }}/{{ entry.url }}">{{ entry.page }}</a>
                                 {% if entry.subsubfolderitems[0] %}
                                 <ul>
                                     {% for subentry in entry.subsubfolderitems %}
-                                    <li><a href="{{ subentry.url }}">{{ subentry.page }}</a></li>
+                                    <li><a href="{{ site.baseurl }}/{{ subentry.url }}">{{ subentry.page }}</a></li>
                                     {% endfor %}
                                 </ul>
                                 {% endif %}
