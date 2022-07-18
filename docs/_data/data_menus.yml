@@ -3,7 +3,7 @@ toc2:
   - title: Get Started
     subfolderitems:
       - page: Integration
-        url: index.html
+        url: /index.html
     
   - title: Guidelines
     subfolderitems:
