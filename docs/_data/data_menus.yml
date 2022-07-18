@@ -3,35 +3,35 @@ toc2:
   - title: Get Started
     subfolderitems:
       - page: Integration
-        url: /ods-ios/index.html
+        url: index.html
     
   - title: Guidelines
     subfolderitems:
       - page: Colors
-        url: /ods-ios/guidelines/colors_docs
+        url: guidelines/colors_docs
       - page: Typography
-        url: /ods-ios/guidelines/typography_docs
+        url: guidelines/typography_docs
 
   - title: Components
     subfolderitems:
       - page: Button - standard
-        url: /ods-ios/components/standardButton_docs
+        url: components/standardButton_docs
       - page: Button - shape
-        url: /ods-ios/components/shapedButton_docs
+        url: components/shapedButton_docs
       - page: Cards
-        url: /ods-ios/components/cards_docs
+        url: components/cards_docs
       - page: Chips
-        url: /ods-ios/components/chips_docs
+        url: components/chips_docs
       - page: Lists
-        url: /ods-ios/components/lists_docs
+        url: components/lists_docs
       - page: Progress indicator
-        url: /ods-ios/components/progressIndicator_docs
+        url: components/progressIndicator_docs
       - page: Slider
-        url: /ods-ios/components/slider_docs
+        url: components/slider_docs
       - page: Text selection
-        url: /ods-ios/components/textSelection_docs
+        url: components/textSelection_docs
 
   - title: Modules
     subfolderitems:
       - page: About
-        url: /ods-ios/modules/about_docs
+        url: modules/about_docs
