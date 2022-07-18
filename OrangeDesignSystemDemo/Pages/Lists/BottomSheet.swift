@@ -25,8 +25,14 @@ import OrangeDesignSystem
 import SwiftUI
 
 // MARK: Button sheet with header and content
-struct BottomSheet: View {
+struct BottomSheet<ContentView>: View where ContentView: View {
     @State var showContent: Bool = true
+    let contentView: () -> ContentView
+
+    init(showContent: Bool = true, @ViewBuilder contentView: @escaping () -> ContentView) {
+        self.showContent = showContent
+        self.contentView = contentView
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -37,7 +43,7 @@ struct BottomSheet: View {
                     .background(Color(.systemGray6))
 
                 if showContent {
-                    BottomSheetContent()
+                    contentView()
                 }
             }
             .background(Color(UIColor.systemBackground))
@@ -84,7 +90,7 @@ struct BottomSheedHeader: View {
 }
 
 // MARK: Bottom Sheet - content for list
-struct BottomSheetContent: View {
+struct ListBottomSheetContent: View {
 
     @EnvironmentObject var listPageModel: ListPageModel
 

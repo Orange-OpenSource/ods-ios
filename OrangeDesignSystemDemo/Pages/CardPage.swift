@@ -25,17 +25,47 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct CardPage: View {
-    @State var showImage = true
-    @State var showSubtitle = false
-    @State var showDescription = false
-    @State var showButton = false
+class CardPageModel: ObservableObject {
 
-    private func resetSwitches() {
-        showImage = true
-        showSubtitle = false
-        showDescription = false
-        showButton = false
+    var showImage: Bool {
+        selectedCardItemFilter.contains { $0 == .showImage }
+    }
+
+    var showSubtitle: Bool {
+        selectedCardItemFilter.contains { $0 == .showSubtitle }
+    }
+
+    var showDescription: Bool {
+        selectedCardItemFilter.contains { $0 == .showDescription }
+    }
+
+    var showButton: Bool {
+        selectedCardItemFilter.contains { $0 == .showButton }
+    }
+
+    enum CardItemFilter: Int {
+        case showImage = 0
+        case showSubtitle
+        case showDescription
+        case showButton
+    }
+
+    let cardItemFilterChips: [ODSChip<CardItemFilter>]
+
+    @Published var selectedCardItemFilter: [CardItemFilter]
+
+    init() {
+        cardItemFilterChips = [
+            ODSChip(.showImage, text: "Show Image"),
+            ODSChip(.showSubtitle, text: "Show Subtitle"),
+            ODSChip(.showDescription, text: "Show Description"),
+            ODSChip(.showButton, text: "Show Button"),
+        ]
+        selectedCardItemFilter = [.showImage]
+    }
+
+    func resetSwitches() {
+        selectedCardItemFilter = [.showImage]
     }
 
     var example: ODSCardModel {
@@ -45,62 +75,57 @@ struct CardPage: View {
             subTitle: showSubtitle ? ODSCardModel.example.subTitle : "",
             description: showDescription ? ODSCardModel.example.description : "")
     }
+}
+
+struct CardPage: View {
+
+    @ObservedObject var model: CardPageModel
+
+    init() {
+        model = CardPageModel()
+    }
 
     var body: some View {
-        ScrollView {
-            Image("Cards_1")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+        ZStack {
+            ScrollView {
+                Image("Cards_1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
 
-            VStack(alignment: .leading, spacing: 20) {
-                ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
-                VariantsTitle()
+                VStack(alignment: .leading, spacing: 16) {
+                    ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
+                    VariantsTitle()
 
-                // Card demonstrator
-                CardViewCustom(element: example) {
-                    if showButton {
-                        Button {} label: {
-                            ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
+                    // Card demonstrator
+                    CardViewCustom(element: model.example) {
+                        if model.showButton {
+                            Button {} label: {
+                                ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
+                            }
+                            .buttonStyle(ODSFilledButtonStyle())
                         }
-                        .buttonStyle(ODSFilledButtonStyle())
                     }
                 }
-                .padding()
-
-                // Controls
-                VStack {
-                    Toggle(isOn: $showImage) {
-                        Text("Show image")
-                    }
-
-                    Toggle(isOn: $showSubtitle) {
-                        Text("Show subtitle")
-                    }
-
-                    Toggle(isOn: $showDescription) {
-                        Text("Show description")
-                    }
-
-                    Toggle(isOn: $showButton) {
-                        Text("Show button")
-                    }
-
-                    Spacer().frame(height: 30)
-
-                    Button {
-                        resetSwitches()
-                    } label: {
-                        ODSGenericButtonContent(topText: "Reset", textColor: ODS.coreBlack)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(ODSFilledButtonStyle())
-                }
-                .padding()
-                .odsFont(.bodyRegular)
-                .foregroundColor(.primary)
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
             }
-            .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            .background(ODSColor.componentBackground2.color)
+            BottomSheet {
+                CardBottomSheetContent()
+            }
+            .environmentObject(model)
+        }
+    }
+}
+
+struct CardBottomSheetContent: View {
+
+    @EnvironmentObject var model: CardPageModel
+
+    var body: some View {
+        VStack(spacing: 30) {
+            ODSChipPicker(title: "Update card content", selection: $model.selectedCardItemFilter, allowZeroSelection: true, chips: model.cardItemFilterChips)
+        }
+        padding(.vertical, 8)
     }
 }
 

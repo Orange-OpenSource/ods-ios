@@ -237,11 +237,11 @@
 		F03B800428182A5100F9C802 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				F9D1E23F28126EC000F2F7CE /* CardPage.swift */,
 				07C724B02860744000592F07 /* Lists */,
 				F0B26B64281A8D5B00A33699 /* TextButtonPage.swift */,
 				F99FF0842767AF77006236A0 /* ShapeButtonPage.swift */,
 				F0F0C240280FF53700042E41 /* SliderPage.swift */,
-				F9D1E23F28126EC000F2F7CE /* CardPage.swift */,
 				CDA7623A2817F0DA00E691BC /* ProgressIndicatorPage.swift */,
 				FD91FD2D281C09A6004D9943 /* TextSelectionPage.swift */,
 				F0B26B68281AC31C00A33699 /* TabBarPage.swift */,
