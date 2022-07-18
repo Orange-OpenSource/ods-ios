@@ -19,6 +19,6 @@ Once you have your Swift package set up, adding ODS as a dependency is as easy a
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Orange-OpenSource/ods-ios.git", .upToNextMajor(from: "0.1"))
+    .package(url: "https://github.com/Orange-OpenSource/ods-ios.git", .upToNextMajor(from: "0.5.0"))
 ]
 ``` 
