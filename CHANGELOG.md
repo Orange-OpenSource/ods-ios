@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [SDK] #47 Link code documentation from the DSM without title and description 
+- [SDK] #149 Homogenize documentation structure for all components
+- [SDK] #117 Review documentation introduction
+ 
 ## [0.4.0] - 2022-07-08
 
 - [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default
@@ -33,6 +37,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - [DemoApp] Update text button and shaped button pages with new design specifications
 - [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
+
+### Added
 
 ### Bugs
 - [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color

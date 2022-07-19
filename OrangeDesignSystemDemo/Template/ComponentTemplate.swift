@@ -30,7 +30,7 @@ struct ComponentDescription: View {
 
     var body: some View {
         Spacer().frame(height: 5)
-        Text(text).odsFont(style: .bodyRegular)
+        Text(text).odsFont(.bodyRegular)
     }
 }
 
@@ -38,6 +38,6 @@ struct VariantsTitle: View {
 
     var body: some View {
         Text("Variants")
-            .odsFont(style: .title1)
+            .odsFont(.title1)
     }
 }

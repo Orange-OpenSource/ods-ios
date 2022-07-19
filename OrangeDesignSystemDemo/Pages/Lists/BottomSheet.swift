@@ -70,7 +70,7 @@ struct BottomSheedHeader: View {
                             .accessibility(hidden: true)
 
                         Text("Settings")
-                            .odsFont(style: .headline)
+                            .odsFont(.headline)
                             .foregroundColor(.primary)
                         Spacer()
                     }
