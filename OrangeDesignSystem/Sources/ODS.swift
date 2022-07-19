@@ -23,7 +23,7 @@
 
 import Foundation
 
-// shortcuts
+/// Shortcuts to get access to ODS colors
 public enum ODS {
     public static let coreOrange = ODSColor.coreOrange.color
     public static let coreWhite = ODSColor.coreWhite.color
