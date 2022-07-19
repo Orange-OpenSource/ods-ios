@@ -11,9 +11,9 @@ description: Cards contain content and actions about a single subject.
 * [Specifications references](#specifications-references)
 * [Accessibility](#accessibility)
 * [Variants](#variants)
-    * [Card image first](#card-image-first)
-    * [Card title first](#card-title-first)
-    * [Small card](#small-card)
+    * [Large cards (Image first)](#large-cards-image-first)
+    * [Large cards (Title first)](#large-cards-title-first)
+    * [Small cards](#small-cards)
 * [Component specific tokens](#component-specific-tokens)
 
 ---
@@ -30,7 +30,7 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 Cards are a contained and independent element that can display content and actions on a single topic.
 
-### Large cards
+### Large cards (Image first)
 
 There are a few ways cards can be presented. Ranging from a single title on its own for a simple card view or with more information shown in a subtitle and supporting text and actions at the bottom of the card.
 
@@ -49,6 +49,9 @@ ODSCardView(element: ODSCardModel(title: "Title", description: "The description"
 - Media, title, subtitle with button
 - Media, title, subtitle with text button
 
+_Soon available_
+
+### Large cards (Title first)
 _Soon available_
 
 ### Small cards
