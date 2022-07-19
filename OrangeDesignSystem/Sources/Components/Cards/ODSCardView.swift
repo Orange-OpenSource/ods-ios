@@ -102,7 +102,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(element.title)
-                    .font(ODSFontStyle.bodyBold.font())
+                    .odsFont(.bodyBold)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 if let subTitle = element.subTitle, !subTitle.isEmpty {
@@ -114,7 +114,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
                 buttonContent().padding(.top)
             }
             .layoutPriority(100)
-            .font(ODSFontStyle.bodyRegular.font())
+            .odsFont(.bodyRegular)
             .foregroundColor(.primary)
             .padding()
         }

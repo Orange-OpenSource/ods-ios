@@ -55,7 +55,7 @@ struct ProgressBar: View {
 
     var body: some View {
         Text("Progress bar")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
             .onReceive(timer) { _ in
                 if secondsElapsed < maxSeconds {
@@ -70,7 +70,7 @@ struct ProgressBar: View {
 struct ProgressIndicator: View {
     var body: some View {
         Text("Progress indicator")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         HStack {
             Spacer()
             ProgressView()

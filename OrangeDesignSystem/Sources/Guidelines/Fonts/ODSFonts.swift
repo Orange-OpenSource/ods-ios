@@ -24,6 +24,7 @@
 import Foundation
 import SwiftUI
 
+/// Defines all styles supported by Orange application for Text elements.
 public enum ODSFontStyle: String, CaseIterable {
     case largeTitle
     case title1
@@ -39,7 +40,8 @@ public enum ODSFontStyle: String, CaseIterable {
     case caption1Bold
     case caption2
 
-    public func font() -> Font {
+    /// Font associated to ODSFontStyle
+    public var font: Font {
         switch self {
         case .largeTitle:
             return Font.largeTitle.bold()
@@ -71,17 +73,15 @@ public enum ODSFontStyle: String, CaseIterable {
     }
 }
 
-extension Text {
-    public func odsFont(style: ODSFontStyle, fixed: Bool = false) -> Text {
-
-        if fixed {
-            if let text = font(style.font()).dynamicTypeSize(.medium) as? Text {
-                return text
-            }
-            return self
-
-        } else {
-            return font(style.font())
-        }
+extension View {
+    /// Sets the font for text in this view defined by the __ODSFontStyle__
+    ///
+    /// - Parameter odsStyle: The default ods font style to use in this view.
+    ///
+    /// - Returns: A view with the default font set to the value you supply.
+    ///
+    /// @see font(_ font: Font?) -> some View
+    @inlinable public func odsFont(_ odsStyle: ODSFontStyle) -> some View {
+        font(odsStyle.font)
     }
 }

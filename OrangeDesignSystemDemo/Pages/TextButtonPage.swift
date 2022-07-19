@@ -49,7 +49,7 @@ private struct LabelButton: View {
     var body: some View {
 
         Text("Label")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         VStack(alignment: .center) {
             Button {} label: {
                 ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
@@ -67,7 +67,7 @@ private struct IconButton: View {
 
     var body: some View {
         Text(name)
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         VStack(alignment: .center) {
             Button {} label: {
                 ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))

@@ -50,7 +50,7 @@ private struct ButtonList: View {
         ForEach(DemoButton.buttons, id: \.order) { button in
 
             Text(button.name)
-                .odsFont(style: .title2)
+                .odsFont(.title2)
 
             VStack(alignment: .center) {
                 Button {} label: {
