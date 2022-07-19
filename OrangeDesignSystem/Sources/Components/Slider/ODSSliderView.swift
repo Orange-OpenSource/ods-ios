@@ -23,12 +23,30 @@
 
 import SwiftUI
 
+
+///
+/// <a href="https://zeroheight.com/3b9fee398/p/67a9e8-chips/b/604d19" target="_blank">ODS Chips</a>.
+///
+/// Based on the native `Slider`, the `ODSSLider` offers to the user the possibility
+/// to type direcly on the slider's track to get a value.
+///
 public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint, ValueLabel: View {
     @Binding var value: V
     public let range: ClosedRange<V>
     let step: V.Stride
     let minimumValueLabel: () -> ValueLabel
     let maximumValueLabel: () -> ValueLabel
+
+    /// Creates an unlabeled slider to select a value from a given range, subject to a
+    /// step increment.
+    ///
+    /// - Parameters:
+    ///   - value: The selected value within `range`.
+    ///   - range: The range of the valid values.
+    ///   - step: The distance between each valid value. default 1
+    ///
+    /// The `value` of the created instance is equal to the position of
+    /// the given value within `range`.
 
     public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1) where ValueLabel == EmptyView {
         _value = value
@@ -42,6 +60,19 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
         }
     }
 
+    /// Creates a slider to select a value from a given range, subject to a
+    /// step increment. which displays the provided labels.
+    ///
+    /// - Parameters:
+    ///   - value: The selected value within `range`.
+    ///   - range: The range of the valid values.
+    ///   - step: The distance between each valid value. default 1
+    ///   - minimumValueLabel: A view that describes `range.lowerBound`.
+    ///   - maximumValueLabel: A view that describes `range.lowerBound`.
+    ///
+    /// The `value` of the created instance is equal to the position of
+    /// the given value within `range`.
+    ///
     public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder minimumLabelView: @escaping () -> ValueLabel, @ViewBuilder maximumLabelView: @escaping () -> ValueLabel) {
         _value = value
         self.range = range
@@ -53,7 +84,9 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
     public var body: some View {
         VStack {
             HStack(alignment: .center) {
+                
                 minimumValueLabel()
+                
                 GeometryReader { geometry in
                     Slider(
                         value: $value,
@@ -70,6 +103,7 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
                             height: geometry.size.height,
                             alignment: .center)
                 }
+                
                 maximumValueLabel()
             }
         }

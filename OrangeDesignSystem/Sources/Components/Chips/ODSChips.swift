@@ -35,7 +35,7 @@ public enum ODSChipThumbnail {
 /// <a href="https://zeroheight.com/3b9fee398/p/67a9e8-chips/b/604d19" target="_blank">ODS Chips</a>.
 ///
 /// Chips are small components containing a number of elements that represent a calendar event or contact.
-
+///
 public typealias ODSChip<Value> = ODSChipPicker<Value>.ODSChipModel where Value: Hashable
 
 /// Create a picker by providing the selection type with a binding to get selected element(s).
@@ -44,14 +44,6 @@ public typealias ODSChip<Value> = ODSChipPicker<Value>.ODSChipModel where Value:
 public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     /// The chip element description.
-    ///  - Parameters
-    ///     - value: The value of the chip
-    ///     - text: Text to display in the chip.
-    ///     - thumbnail: Optional leading thumbnail.
-    ///     - disabled: When disabled, chip will not respond to user input. It will also appear
-    ///       visually disabled and disabled to accessibility services.
-    ///     - removable: To add the remove cross to allow a chip to be removed from a list of chips.
-
     public struct ODSChipModel {
 
         let value: Value
@@ -60,6 +52,15 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         let disabled: Bool
         let removable: Bool
 
+        /// Create a chip model that discribe the chip content.
+        /// 
+        /// - Parameters
+        ///     - value: The value of the chip
+        ///     - text: Text to display in the chip.
+        ///     - thumbnail: Optional leading thumbnail.
+        ///     - disabled: When disabled, chip will not respond to user input. It will also appear
+        ///       visually disabled and disabled to accessibility services.
+        ///     - removable: To add the remove cross to allow a chip to be removed from a list of chips.
         public init(_ value: Value, text: String, thumbnail: ODSChipThumbnail? = nil, disabled: Bool = false, removable: Bool = false)
         {
             self.value = value

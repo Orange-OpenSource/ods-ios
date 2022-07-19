@@ -87,11 +87,6 @@ public struct ODSListItemModel {
 ///
 /// This model can be used to achieve the list item templates existing in the spec.
 ///
-/// - Parameter title: The primary text of the list item
-/// - Parameter isOn: A binding to a property that determines whether the toggle is on
-///     or off.
-/// - Parameter minHeight: The minimum height of the list item (medium by default)
-///
 public struct ODSListItemWithToggleModel {
 
     public let id: UUID
@@ -99,6 +94,13 @@ public struct ODSListItemWithToggleModel {
     public let isOn: Binding<Bool>
     public let minHeight: ODSListItemMinHeight
 
+    /// Create a model that describes the content of the `ODSListItemWithToggle`.
+    ///
+    /// - Parameters
+    ///    - title: The primary text of the list item
+    ///    - isOn: A binding to a property that determines whether the toggle is on or off.
+    ///    - minHeight: The minimum height of the list item (medium by default)
+    ///
     public init(title: String, isOn: Binding<Bool>, minHeight: ODSListItemMinHeight = .medium) {
         self.title = title
         self.minHeight = minHeight
@@ -121,11 +123,17 @@ public struct ODSListItemWithToggleModel {
 ///         Text("The destination View")
 ///     }
 ///
-/// - Parameter model: The model describing the item.
-///
 public struct ODSListItem: View {
 
     let model: ODSListItemModel
+
+    /// Create the `ODSListItem`with content discribed by the `ODSListItemModel`.
+    ///
+    /// - Parameter model: The model describing the item.
+    ///
+    public init(model: ODSListItemModel) {
+        self.model = model
+    }
 
     public var body: some View {
         HStack(alignment: .center, spacing: 8) {
@@ -157,10 +165,6 @@ public struct ODSListItem: View {
         }
         .modifier(ODSListItemModifier(minHeight: model.minHeight))
     }
-
-    public init(model: ODSListItemModel) {
-        self.model = model
-    }
 }
 
 /// You can use this view to add item with toggle in list.
@@ -168,11 +172,17 @@ public struct ODSListItem: View {
 /// Do not use it in a NavigationLink because a chevron will be added next the the toggle
 /// which it in not allowed by Orange design rules..
 ///
-/// - Parameter model: The model describing the item.
-///
 public struct ODSListItemWithToggle: View {
 
     let model: ODSListItemWithToggleModel
+
+    /// Create the `ODSListItemWithToggle`with content discribed by the `ODSListItemWithToggleModel`.
+    ///
+    /// - Parameter model: The model describing the item.
+    ///
+    public init(model: ODSListItemWithToggleModel) {
+        self.model = model
+    }
 
     public var body: some View {
         Toggle(isOn: model.isOn) {
@@ -184,9 +194,5 @@ public struct ODSListItemWithToggle: View {
                 .multilineTextAlignment(.leading)
         }
         .modifier(ODSListItemModifier(minHeight: model.minHeight))
-    }
-
-    public init(model: ODSListItemWithToggleModel) {
-        self.model = model
     }
 }
