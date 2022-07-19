@@ -2,7 +2,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [Unreleased]
+## [0.4.1] - 2022-07-19
 
 - [SDK] #47 Link code documentation from the DSM without title and description 
 - [SDK] #149 Homogenize documentation structure for all components
