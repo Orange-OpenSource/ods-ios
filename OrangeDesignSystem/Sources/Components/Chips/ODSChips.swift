@@ -32,7 +32,7 @@ public enum ODSChipThumbnail {
     case avatar(Image)
 }
 
-/// <a href="https://zeroheight.com/3b9fee398/p/67a9e8-chips/b/604d19" target="_blank">ODS Chips</a>.
+/// <a href="https://system.design.orange.com/0c1af118d/p/85a52b-components/b/1497a4" target="_blank">ODS Chips</a>.
 ///
 /// Chips are small components containing a number of elements that represent a calendar event or contact.
 ///
@@ -52,15 +52,15 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         let disabled: Bool
         let removable: Bool
 
-        /// Create a chip model that discribe the chip content.
+        /// Create a chip model that describes the chip contents.
         /// 
         /// - Parameters
         ///     - value: The value of the chip
-        ///     - text: Text to display in the chip.
-        ///     - thumbnail: Optional leading thumbnail.
-        ///     - disabled: When disabled, chip will not respond to user input. It will also appear
-        ///       visually disabled and disabled to accessibility services.
-        ///     - removable: To add the remove cross to allow a chip to be removed from a list of chips.
+        ///     - text: Text of the chip
+        ///     - thumbnail: Optional leading thumbnail
+        ///     - disabled: When disabled, chip will not respond to user input.
+        ///     - removable: A cross to the chip and provides a remove action (remove chip from list).
+        ///
         public init(_ value: Value, text: String, thumbnail: ODSChipThumbnail? = nil, disabled: Bool = false, removable: Bool = false)
         {
             self.value = value
@@ -79,7 +79,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     ///       currently-selected option.
     ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
     ///     - chips: All chips describing elements to be displayed.
-
+    ///
     public init(title: String? = nil, selection: Binding<Value?>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
         self.title = title
         self.chips = chips
@@ -97,6 +97,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     ///       currently-selected option.
     ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
     ///     - chips: All chips describing elements to be displayed.
+    ///     
     public init(title: String? = nil, selection: Binding<[Value]>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
         self.title = title
         self.chips = chips

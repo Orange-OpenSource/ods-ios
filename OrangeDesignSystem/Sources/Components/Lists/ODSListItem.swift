@@ -98,7 +98,7 @@ public struct ODSListItemWithToggleModel {
     ///
     /// - Parameters
     ///    - title: The primary text of the list item
-    ///    - isOn: A binding to a property that determines whether the toggle is on or off.
+    ///    - isOn: A binding to a property that determines whether the toggle is ON or OFF.
     ///    - minHeight: The minimum height of the list item (medium by default)
     ///
     public init(title: String, isOn: Binding<Bool>, minHeight: ODSListItemMinHeight = .medium) {
@@ -127,7 +127,7 @@ public struct ODSListItem: View {
 
     let model: ODSListItemModel
 
-    /// Create the `ODSListItem`with content discribed by the `ODSListItemModel`.
+    /// Create the `ODSListItem` view with content described by the `ODSListItemModel`.
     ///
     /// - Parameter model: The model describing the item.
     ///
@@ -176,7 +176,7 @@ public struct ODSListItemWithToggle: View {
 
     let model: ODSListItemWithToggleModel
 
-    /// Create the `ODSListItemWithToggle`with content discribed by the `ODSListItemWithToggleModel`.
+    /// Create the `ODSListItemWithToggle` view with content discribed by the `ODSListItemWithToggleModel`.
     ///
     /// - Parameter model: The model describing the item.
     ///

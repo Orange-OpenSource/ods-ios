@@ -80,7 +80,7 @@ List {
 
 ### List item with title and toggle
 
-**Note:** Don’t forget, if item is set in a NavigationLink, a chevron is automatically added on right by the system. For design purpose it is NOT recomanded to add ODSListItemWithToggle in a NavigationLink.
+**Note:** Don’t forget, if item is set in a NavigationLink, a chevron is automatically added on right by the system. For design purpose it is NOT recommended to add ODSListItemWithToggle in a NavigationLink.
 
 ```swift      
 @State var isOn: Bool = false

@@ -19,15 +19,13 @@ description: Chips are compact elements that represent an input, attribute, or a
 
 ## Specifications references
 
-- [Design System Manager](https://zeroheight.com/3b9fee398/v/latest/p/67a9e8-chips/b/604d19)
+- [Design System Manager](https://system.design.orange.com/0c1af118d/p/85a52b-components/b/1497a4)
 
 ## Accessibility
 
 Please follow [accessibility criteria for development](https://a11y-guidelines.orange.com/en/mobile/ios/)
 
-Chips support content labeling for accessibility and are readable by most screen readers, such as
-TalkBack. Text rendered in chips is automatically provided to accessibility services. Additional
-content labels are usually unnecessary.
+Chips support dynamic types for accessibility. 
 
 ## Variants
 
