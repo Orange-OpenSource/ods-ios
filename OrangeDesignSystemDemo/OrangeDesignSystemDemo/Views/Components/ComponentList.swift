@@ -64,7 +64,7 @@ struct ComponentsCardsList: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 15) {
+                LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
                     ForEach(componentList.sorted {
                         $0.name < $1.name
                     }) {

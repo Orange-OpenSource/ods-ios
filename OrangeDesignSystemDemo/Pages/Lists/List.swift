@@ -67,6 +67,7 @@ struct ListView: View {
     var body: some View {
         List /* (selection: $multiSelection) */ {
             ForEach(model.itemModels, id: \.id) { itemModelType in
+
                 switch itemModelType {
                 case let .generic(model):
                     NavigationLink(model) {

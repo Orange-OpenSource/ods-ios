@@ -33,7 +33,7 @@ struct ShapeButtonPage: View {
             Image("Buttons - Shape")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed")
                 VariantsTitle()
                 ButtonList().padding(.bottom, ODSSpacing.s)
@@ -50,7 +50,7 @@ private struct ButtonList: View {
         ForEach(DemoButton.buttons, id: \.order) { button in
 
             Text(button.name)
-                .odsFont(style: .title2)
+                .odsFont(.title2)
 
             VStack(alignment: .center) {
                 Button {} label: {

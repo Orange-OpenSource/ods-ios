@@ -34,14 +34,16 @@ public struct AboutView: View {
 
         List {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                Text("About").odsFont(style: .largeTitle)
-                    .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+                Text("About")
+                    .odsFont(.largeTitle)
+                    .padding(.all, ODSSpacing.m)
+
                 applicationDescription.imageHeader
                     .resizable()
                     .aspectRatio(contentMode: .fit)
 
                 ApplicationDescriptionView()
-                    .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+                    .padding(.all, ODSSpacing.m)
             }
             .listRowSeparator(.hidden)
             .listRowInsets(EdgeInsets())
@@ -127,8 +129,7 @@ public struct ODSAboutItemView: View {
             case .navigation:
                 NavigationLink(destination: item.nextView) {
                     HStack {
-                        Text(item.text)
-                            .odsFont(style: .bodyBold)
+                        Text(item.text).odsFont(.bodyBold)
                     }
                     .frame(minWidth: 0,
                            maxWidth: .infinity,
@@ -141,9 +142,13 @@ public struct ODSAboutItemView: View {
                 if let url = item.url, let urlDestination = URL(string: url) {
                     Link(destination: urlDestination) {
                         HStack {
-                            Text(item.text).odsFont(style: .bodyBold)
+                            Text(item.text).odsFont(.bodyBold)
                         }
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSSpacing.xxl, maxHeight: .infinity, alignment: .leading)
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity,
+                               minHeight: ODSSpacing.xxl,
+                               maxHeight: .infinity,
+                               alignment: .leading)
                     }
                 }
 
@@ -152,12 +157,16 @@ public struct ODSAboutItemView: View {
                     Button {
                         showSafari.toggle()
                     } label: {
-                        Text(item.text).odsFont(style: .bodyBold)
+                        Text(item.text).odsFont(.bodyBold)
+                            .frame(minWidth: 0,
+                                   maxWidth: .infinity,
+                                   minHeight: ODSSpacing.xxl,
+                                   maxHeight: .infinity,
+                                   alignment: .leading)
                     }
-                    .sheet(isPresented: $showSafari, content: {
+                    .sheet(isPresented: $showSafari) {
                         ODSSFSafariViewWrapper(url: urlDestination)
-                    })
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSSpacing.xxl, maxHeight: .infinity, alignment: .leading)
+                    }
                 }
             }
         }
@@ -170,7 +179,7 @@ private struct ApplicationDescriptionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(applicationDescription.applicationName).odsFont(style: .largeTitle)
+            Text(applicationDescription.applicationName).odsFont(.largeTitle)
             Text("Version \(applicationDescription.applicationVersion)")
             if let buildNumber = applicationDescription.applicationBuildNumber {
                 Text("Build \(buildNumber)")

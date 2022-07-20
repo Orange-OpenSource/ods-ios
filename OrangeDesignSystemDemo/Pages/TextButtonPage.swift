@@ -32,7 +32,7 @@ struct TextButtonPage: View {
             Image("Buttons - Standard")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.")
                 VariantsTitle()
                 IconButton(name: "Icon (add)", imageName: "plus.circle")
@@ -50,7 +50,7 @@ private struct LabelButton: View {
     var body: some View {
 
         Text("Label")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         VStack(alignment: .center) {
             Button {} label: {
                 ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
@@ -69,7 +69,7 @@ private struct IconButton: View {
 
     var body: some View {
         Text(name)
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         VStack(alignment: .center) {
             Button {} label: {
                 ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))

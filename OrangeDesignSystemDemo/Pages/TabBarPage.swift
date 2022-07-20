@@ -33,7 +33,7 @@ struct TabBarPage: View {
             Image("Tab bar")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
                 VariantsTitle()
                 TabBarVariant(nbItems: 2)
@@ -52,7 +52,7 @@ struct TabBarVariant: View {
     var nbItems: Int
 
     var body: some View {
-        Text("\(nbItems) entries").odsFont(style: .title2)
+        Text("\(nbItems) entries").odsFont(.title2)
         Image("TabBar-\(nbItems)-items")
             .resizable()
             .aspectRatio(contentMode: .fill)

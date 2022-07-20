@@ -32,7 +32,7 @@ struct SliderPage: View {
             Image("Slider")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
                 VariantsTitle()
                 UnlabeledSlider()
@@ -63,13 +63,13 @@ struct UnlabeledSlider: View {
 
     var body: some View {
         Text("Unlabeled slider")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         VStack(alignment: .center) {
             ODSSlider(
                 value: $value,
                 range: range)
         }
-        .padding([.leading, .trailing], ODSSpacing.s)
+        .padding(.horizontal, ODSSpacing.s)
     }
 }
 
@@ -80,12 +80,10 @@ struct LabeledSlider: View {
 
     var body: some View {
 
-        Text("Labeled slider")
-            .odsFont(style: .title2)
-        Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
+        Text("Labeled slider").odsFont(.title2)
+        Text("Value : \(Int(value))").odsFont(.bodyRegular)
         VStack(alignment: .center) {
-            ODSSlider(value: $value,
-                      range: range) {
+            ODSSlider(value: $value, range: range) {
                 Image(systemName: "speaker.wave.1.fill")
             } maximumLabelView: {
                 Image(systemName: "speaker.wave.3.fill")
@@ -103,8 +101,8 @@ struct SteppedSlider: View {
 
     var body: some View {
 
-        Text("Stepped slider").odsFont(style: .title2)
-        Text("Value : \(Int(value))").odsFont(style: .bodyRegular)
+        Text("Stepped slider").odsFont(.title2)
+        Text("Value : \(Int(value))").odsFont(.bodyRegular)
         VStack(alignment: .center) {
             ODSSlider(value: $value,
                       range: range,

@@ -31,7 +31,7 @@ struct TextSelectionPage: View {
             Image("Text edit menu")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Text Selection is the selection of textual areas leading to the display of buttons allowing interaction")
                 VariantsTitle()
                 TextSelectionInTextField()
@@ -49,11 +49,11 @@ struct TextSelectionInTextField: View {
     var body: some View {
         VStack {
             Text("Text selection in text field")
-                .odsFont(style: .title2)
+                .odsFont(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextField("A text field", text: $textToEdit)
-                .padding(.horizontal, 20)
-                .font(ODSFontStyle.headline.font())
+                .padding(.horizontal, ODSSpacing.m)
+                .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))
         }
@@ -70,11 +70,11 @@ struct TextSelectionInTextEditor: View {
     var body: some View {
         VStack {
             Text("Text selection in text editor")
-                .odsFont(style: .title2)
+                .odsFont(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $textToEdit)
                 .padding(.horizontal, ODSSpacing.m)
-                .font(ODSFontStyle.headline.font())
+                .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))
         }

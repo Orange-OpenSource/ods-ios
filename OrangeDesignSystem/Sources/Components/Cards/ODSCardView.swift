@@ -25,19 +25,19 @@ import SwiftUI
 
 public struct ODSCardModel {
     public var title: String
-    public var image: String
+    public var image: String?
     public var subTitle: String?
     public var description: String?
     public var destination: AnyView?
 
-    public init(title: String, image: String, subTitle: String? = nil, description: String? = nil) {
+    public init(title: String, image: String?, subTitle: String? = nil, description: String? = nil) {
         self.title = title
         self.image = image
         self.subTitle = subTitle
         self.description = description
     }
 
-    public init<Destination>(title: String, image: String, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
+    public init<Destination>(title: String, image: String?, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
         self.title = title
         self.image = image
         self.subTitle = subTitle
@@ -92,15 +92,19 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
 
     var body: some View {
 
-        VStack(alignment: .leading, spacing: 0) {
-            Image(element.image.isEmpty ? "ods_empty" : element.image,
-                  bundle: element.image.isEmpty ? Bundle.ods : Bundle.main)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+        VStack(alignment: .leading, spacing: ODSSpacing.none) {
+            if let image = element.image {
+                Image(image.isEmpty ? "ods_empty" : image,
+                      bundle: image.isEmpty ? Bundle.ods : Bundle.main)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
 
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 Text(element.title)
-                    .font(ODSFontStyle.bodyBold.font())
+                    .odsFont(.bodyBold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
                 if let subTitle = element.subTitle, !subTitle.isEmpty {
                     Text(subTitle)
                 }
@@ -110,7 +114,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
                 buttonContent().padding(.top)
             }
             .layoutPriority(100)
-            .font(ODSFontStyle.bodyRegular.font())
+            .odsFont(.bodyRegular)
             .foregroundColor(.primary)
             .padding()
         }
@@ -123,7 +127,7 @@ struct CardView_Previews: PreviewProvider {
 
     static var previews: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 CardViewCustom(element: ODSCardModel.example) {
                     Button {} label: {
                         ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)

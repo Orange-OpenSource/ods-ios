@@ -44,14 +44,15 @@ struct ColorDetail: View {
                     .frame(width: 300, height: 150)
 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(style: .headline)
+                    Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(.headline)
                     Text(color.rawValue).font(.system(.caption, design: .monospaced))
-                    Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(style: .caption1Regular)
-                    Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(style: .caption1Regular)
+                    Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(.caption1Regular)
+                    Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
 
-                    Text("Usage").odsFont(style: .headline)
+                    Text("Usage")
+                        .odsFont(.headline)
                         .padding(.top, ODSSpacing.l)
-                    Text("Coming soon ...").odsFont(style: .caption1Regular)
+                    Text("Coming soon ...").odsFont(.caption1Regular)
                 }
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.l, trailing: ODSSpacing.m))
             }

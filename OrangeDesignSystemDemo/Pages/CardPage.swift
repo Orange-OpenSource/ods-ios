@@ -26,13 +26,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct CardPage: View {
-    @State var showImage = false
+    @State var showImage = true
     @State var showSubtitle = false
     @State var showDescription = false
     @State var showButton = false
 
     private func resetSwitches() {
-        showImage = false
+        showImage = true
         showSubtitle = false
         showDescription = false
         showButton = false
@@ -41,7 +41,7 @@ struct CardPage: View {
     var example: ODSCardModel {
         ODSCardModel(
             title: "Title",
-            image: showImage ? "Cards" : "",
+            image: showImage ? "Cards" : nil,
             subTitle: showSubtitle ? ODSCardModel.example.subTitle : "",
             description: showDescription ? ODSCardModel.example.description : "")
     }
@@ -52,8 +52,7 @@ struct CardPage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
-            VStack(alignment: .leading, spacing: 20) {
-
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
                 VariantsTitle()
 
@@ -95,7 +94,7 @@ struct CardPage: View {
                     .buttonStyle(ODSFilledButtonStyle())
                 }
                 .padding()
-                .font(ODSFontStyle.bodyRegular.font())
+                .odsFont(.bodyRegular)
                 .foregroundColor(.primary)
             }
             .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))

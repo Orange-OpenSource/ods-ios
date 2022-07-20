@@ -1,10 +1,22 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unrelease]
 
-## [0.4.0] - Unrelease
+- [DemoApp/SDK] #158 Use ods spacings in demo app and SDK components
+- [DemoApp/SDK] #157 Use the ods font on the demo app and SDK components  
+- [SDK] #159 Define ODS Spacings 
+
+## [0.4.1] - 2022-07-19
 
 - [DemoApp/SDK] #159 Add ODSSpacer component and guidelines spacing
+- [SDK] #47 Link code documentation from the DSM without title and description 
+- [SDK] #149 Homogenize documentation structure for all components
+- [SDK] #117 Review documentation introduction
+ 
+## [0.4.0] - 2022-07-08
+
+- [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default
 - [DemoApp/SDK] #36 Add List component
 - [Component] #166 Add Text Selection component and remove Text Edit Menu
 - [Component] #35 Add tab bar page
@@ -26,6 +38,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - [DemoApp] Update text button and shaped button pages with new design specifications
 - [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
+
+## [0.3.0] - 2022-06-10
+### Changed
+- [DemoApp] Update text button and shaped button pages with new design specifications
+- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
+
+### Added
 
 ### Bugs
 - [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color
@@ -58,5 +77,3 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1] - 2022-01-26
 ### Added
 - First version of SDK with demo app
-- Creation of Git Issue template for bug reports
-- Creation of Git Issue template for bug reports

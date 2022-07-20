@@ -30,7 +30,8 @@ struct ComponentDescription: View {
     var text: String
 
     var body: some View {
-        Text(text).odsFont(style: .bodyRegular)
+        Text(text)
+            .odsFont(.bodyRegular)
             .padding(.top, ODSSpacing.xs)
     }
 }
@@ -39,6 +40,6 @@ struct VariantsTitle: View {
 
     var body: some View {
         Text("Variants")
-            .odsFont(style: .title1)
+            .odsFont(.title1)
     }
 }

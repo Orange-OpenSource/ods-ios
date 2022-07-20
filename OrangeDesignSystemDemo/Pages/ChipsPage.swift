@@ -192,7 +192,7 @@ struct ChipsPageInner: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: ODSSpacing.m) {
                 ComponentDescription(text: "Chips are small components containing a number of elements that represent a calendar event or contact.")
 
                 VariantsTitle()
@@ -237,8 +237,8 @@ struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovabl
     let selectionRemovableChips: Binding<ChipRemovable?>
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text(title).font(.title2).frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading, spacing: ODSSpacing.m) {
+            Text(title).odsFont(.title2).frame(maxWidth: .infinity, alignment: .leading)
 
             VStack(spacing: 8) {
                 ODSChipPicker(selection: selection, chips: chips)
