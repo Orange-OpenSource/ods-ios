@@ -23,7 +23,6 @@
 
 import SwiftUI
 
-
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/7559da-sliders/b/253eea" target="_blank">ODS Slider</a>.
 ///
@@ -84,9 +83,9 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
     public var body: some View {
         VStack {
             HStack(alignment: .center) {
-                
+
                 minimumValueLabel()
-                
+
                 GeometryReader { geometry in
                     Slider(
                         value: $value,
@@ -101,10 +100,9 @@ public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Str
                         .frame(
                             width: geometry.size.width,
                             height: geometry.size.height,
-                            alignment: .center
-                        )
+                            alignment: .center)
                 }
-                
+
                 maximumValueLabel()
             }
         }
@@ -120,7 +118,7 @@ struct ODSSlider_Previews: PreviewProvider {
             ODSSlider(
                 value: .constant(50),
                 range: 0 ... 100.0)
-                .padding([.leading, .trailing], 10)
+                .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }
@@ -137,7 +135,7 @@ struct ODSSlider_Previews_with_label: PreviewProvider {
                 } maximumLabelView: {
                     Image(systemName: "speaker.wave.3.fill")
                 }
-                .padding([.leading, .trailing], 10)
+                .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }

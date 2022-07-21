@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071D3EF128884D8200DFD1C9 /* SpacingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D3EF028884D8200DFD1C9 /* SpacingList.swift */; };
 		078ABEBE2862FE4800E328A9 /* ChipsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078ABEBD2862FE4800E328A9 /* ChipsPage.swift */; };
 		07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C53287C7470004397D7 /* ODSColors+extension.swift */; };
 		07973C56287C74CF004397D7 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C55287C74CF004397D7 /* RGB.swift */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
+		071D3EF028884D8200DFD1C9 /* SpacingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingList.swift; sourceTree = "<group>"; };
 		078ABEBD2862FE4800E328A9 /* ChipsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsPage.swift; sourceTree = "<group>"; };
 		07973C53287C7470004397D7 /* ODSColors+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ODSColors+extension.swift"; sourceTree = "<group>"; };
 		07973C55287C74CF004397D7 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
@@ -160,6 +162,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071D3EEF28884D8200DFD1C9 /* Spacings */ = {
+			isa = PBXGroup;
+			children = (
+				071D3EF028884D8200DFD1C9 /* SpacingList.swift */,
+			);
+			path = Spacings;
+			sourceTree = "<group>";
+		};
 		07240127285B656400DFB9A9 /* Typography */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +271,7 @@
 		F90D9762280030A6006D29FC /* Guidelines */ = {
 			isa = PBXGroup;
 			children = (
+				071D3EEF28884D8200DFD1C9 /* Spacings */,
 				07240127285B656400DFB9A9 /* Typography */,
 				F96A3E10280451660086B9BF /* Colors */,
 				F96A3E1C280451FE0086B9BF /* GuidelinesList.swift */,
@@ -666,6 +677,7 @@
 				F90D9768280030A6006D29FC /* FontsList.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
 				079AB7982837CCB400AFDAE9 /* ListPage.swift in Sources */,
+				071D3EF128884D8200DFD1C9 /* SpacingList.swift in Sources */,
 				F0F0C241280FF53700042E41 /* SliderPage.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,
@@ -867,7 +879,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -902,7 +914,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

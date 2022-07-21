@@ -147,14 +147,16 @@ struct ListPage: View {
                 NavigationView {
                     ScrollView {
                         HStack {
-                            VStack(alignment: .leading, spacing: 20) {
+                            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                                 Text("This is a view presented when \"i\" button is clicked")
                                 Text("The toggle in item is \(toggleState ? "ON" : "OFF")")
                             }
 
                             Spacer()
                         }
-                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+                        .padding(.top, ODSSpacing.none)
+                        .padding(.bottom, ODSSpacing.xs)
+                        .padding(.horizontal, ODSSpacing.m)
                     }
                     .navigationTitle("Info")
                     .navigationBarTitleDisplayMode(.inline)

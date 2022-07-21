@@ -33,27 +33,25 @@ public struct AboutView: View {
     public var body: some View {
 
         List {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 Text("About")
                     .odsFont(.largeTitle)
-                    .odsGlobalPadding()
+                    .padding(.all, ODSSpacing.m)
 
                 applicationDescription.imageHeader
                     .resizable()
                     .aspectRatio(contentMode: .fit)
 
-                Spacer().odsSpacerMedium()
                 ApplicationDescriptionView()
-                    .odsLeadingPadding()
-                    .odsTrailingPadding()
-                Spacer().odsSpacerSmall()
+                    .padding(.all, ODSSpacing.m)
             }
             .listRowSeparator(.hidden)
             .listRowInsets(EdgeInsets())
 
             ODSAboutItemView()
-        }.listStyle(PlainListStyle())
-            .background(ODSColor.primaryBackground.color)
+        }
+        .listStyle(PlainListStyle())
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -84,7 +82,10 @@ public struct ODSAboutItem: Identifiable {
         odsType = .safariViewController
     }
 
-    public var id: String { text }
+    public var id: String {
+        text
+    }
+
     public var text: String
     public let nextView: AnyView
     public var url: String?
@@ -128,12 +129,11 @@ public struct ODSAboutItemView: View {
             case .navigation:
                 NavigationLink(destination: item.nextView) {
                     HStack {
-                        Text(item.text)
-                            .odsFont(.bodyBold)
+                        Text(item.text).odsFont(.bodyBold)
                     }
                     .frame(minWidth: 0,
                            maxWidth: .infinity,
-                           minHeight: ODSDim.list_min_height,
+                           minHeight: ODSSpacing.xxl,
                            maxHeight: .infinity,
                            alignment: .leading)
                 }
@@ -144,7 +144,11 @@ public struct ODSAboutItemView: View {
                         HStack {
                             Text(item.text).odsFont(.bodyBold)
                         }
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSDim.list_min_height, maxHeight: .infinity, alignment: .leading)
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity,
+                               minHeight: ODSSpacing.xxl,
+                               maxHeight: .infinity,
+                               alignment: .leading)
                     }
                 }
 
@@ -154,10 +158,15 @@ public struct ODSAboutItemView: View {
                         showSafari.toggle()
                     } label: {
                         Text(item.text).odsFont(.bodyBold)
-
-                    }.sheet(isPresented: $showSafari, content: {
+                            .frame(minWidth: 0,
+                                   maxWidth: .infinity,
+                                   minHeight: ODSSpacing.xxl,
+                                   maxHeight: .infinity,
+                                   alignment: .leading)
+                    }
+                    .sheet(isPresented: $showSafari) {
                         ODSSFSafariViewWrapper(url: urlDestination)
-                    }).frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSDim.list_min_height, maxHeight: .infinity, alignment: .leading)
+                    }
                 }
             }
         }

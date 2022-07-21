@@ -36,14 +36,12 @@ struct FontList: View {
                 Image("Typography")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-
-                Spacer().frame(height: 16.0)
+                    .padding(.bottom, ODSSpacing.m)
 
                 Text("Use the system typeface San Francisco for all Latin, Greek and Cyrillic alphabets.\n\n"
                     + "Use the built-in text styles in order to create a clear distinct visual typographic hierarchy.\n\n"
-                    + "Using the built-in text styles enables users to take advantage of features such as Dynamic Type. Based on the Apple Dynamic Types, Orange defines thoses sizes :").padding(.horizontal, 16.0)
-
-                Spacer().frame(height: 16.0)
+                    + "Using the built-in text styles enables users to take advantage of features such as Dynamic Type. Based on the Apple Dynamic Types, Orange defines thoses sizes :").padding(.horizontal, ODSSpacing.m)
+                    .padding(.bottom, ODSSpacing.m)
 
                 ForEach(fontStyles, id: \.rawValue) { fontStyle in
                     VStack(alignment: .leading) {
@@ -51,10 +49,10 @@ struct FontList: View {
                             .odsFont(fontStyle)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text("style: \(fontStyle.rawValue)").font(.system(.caption, design: .monospaced))
-                        Spacer().frame(height: 16.0)
+                            .padding(.bottom, ODSSpacing.m)
                     }
                 }
-                .padding(.horizontal, 16.0)
+                .padding(.horizontal, ODSSpacing.m)
             }
         }
         .navigationTitle("Typography")

@@ -32,13 +32,15 @@ struct ProgressIndicatorPage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Progress indicators show users that elements or pages are loading.")
                 VariantsTitle()
                 ProgressBar()
                 ProgressIndicator()
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

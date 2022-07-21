@@ -22,6 +22,7 @@
 //
 
 import Foundation
+import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentDescription: View {
@@ -29,8 +30,9 @@ struct ComponentDescription: View {
     var text: String
 
     var body: some View {
-        Spacer().frame(height: 5)
-        Text(text).odsFont(.bodyRegular)
+        Text(text)
+            .odsFont(.bodyRegular)
+            .padding(.top, ODSSpacing.xs)
     }
 }
 

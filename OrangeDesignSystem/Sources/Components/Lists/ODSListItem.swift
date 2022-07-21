@@ -136,26 +136,26 @@ public struct ODSListItem: View {
     }
 
     public var body: some View {
-        HStack(alignment: .center, spacing: 8) {
+        HStack(alignment: .center, spacing: ODSSpacing.s) {
             if let leadingIconModel = model.leadingIconModel {
                 ODSListItemLeadingIcon(model: leadingIconModel, height: model.minHeight.rawValue)
             }
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 Text(LocalizedStringKey(model.title))
-                    .font(.title3)
+                    .odsFont(.bodyRegular)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
 
                 if let subtitle = model.subtitle {
                     Text(LocalizedStringKey(subtitle))
-                        .font(.subheadline)
+                        .odsFont(.footnote)
                         .foregroundColor(.primary)
                         .multilineTextAlignment(.leading)
                 }
             }
-            .padding(.vertical, 8)
+            .padding(.vertical, ODSSpacing.s)
 
             Spacer()
 
@@ -187,7 +187,7 @@ public struct ODSListItemWithToggle: View {
     public var body: some View {
         Toggle(isOn: model.isOn) {
             Text(LocalizedStringKey(model.title))
-                .font(.title3)
+                .odsFont(.bodyRegular)
                 .foregroundColor(.primary)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)

@@ -37,6 +37,9 @@ struct GuidelinesList: View {
                                                  ODSCardModel(title: "Typography", image: "Typography") {
                                                      FontList()
                                                  },
+                                                 ODSCardModel(title: "Spacings", image: "Spacing") {
+                                                     SpacingList()
+                                                 },
                                              ])
         return NavigationView {
             ODSListCardView()

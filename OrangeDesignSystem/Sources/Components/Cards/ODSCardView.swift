@@ -92,7 +92,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
 
     var body: some View {
 
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: ODSSpacing.none) {
             if let image = element.image {
                 Image(image.isEmpty ? "ods_empty" : image,
                       bundle: image.isEmpty ? Bundle.ods : Bundle.main)
@@ -100,7 +100,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
                     .aspectRatio(contentMode: .fill)
             }
 
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 Text(element.title)
                     .odsFont(.bodyBold)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -127,13 +127,14 @@ struct CardView_Previews: PreviewProvider {
 
     static var previews: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 CardViewCustom(element: ODSCardModel.example) {
                     Button {} label: {
                         ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
                     }
                     .buttonStyle(ODSFilledButtonStyle())
-                }.padding()
+                }
+                .padding()
                 ODSCardView(element: ODSCardModel.example).padding()
             }
         }

@@ -45,7 +45,7 @@ public struct ODSListCardView: View {
     public var body: some View {
         ScrollView {
             Spacer().frame(height: 15)
-            LazyVGrid(columns: columns, spacing: ODSDim.ODSSpacing.regular) {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
                 ForEach(list.cards, id: \.title) { card in
                     NavigationLink(destination: card.destination) {
                         ODSCardView(element: card)
