@@ -92,7 +92,7 @@ struct CardPage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
 
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: ODSSpacing.l) {
                     ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
                     VariantsTitle()
 
@@ -106,9 +106,12 @@ struct CardPage: View {
                         }
                     }
                 }
-                .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
+                .padding(.top, ODSSpacing.none)
+                .padding(.bottom, ODSSpacing.m)
+                .padding(.horizontal, ODSSpacing.m)
             }
             .background(ODSColor.componentBackground2.color)
+
             BottomSheet {
                 CardBottomSheetContent()
             }
@@ -122,10 +125,9 @@ struct CardBottomSheetContent: View {
     @EnvironmentObject var model: CardPageModel
 
     var body: some View {
-        VStack(spacing: 30) {
-            ODSChipPicker(title: "Update card content", selection: $model.selectedCardItemFilter, allowZeroSelection: true, chips: model.cardItemFilterChips)
-        }
-        padding(.vertical, 8)
+        ODSChipPicker(title: "Update card content", selection: $model.selectedCardItemFilter, allowZeroSelection: true, chips: model.cardItemFilterChips)
+            .padding(.horizontal, ODSSpacing.none)
+            .padding(.vertical, ODSSpacing.s)
     }
 }
 

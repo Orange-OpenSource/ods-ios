@@ -32,15 +32,16 @@ struct TextButtonPage: View {
             Image("Buttons - Standard")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.")
                 VariantsTitle()
                 IconButton(name: "Icon (add)", imageName: "plus.circle")
                 IconButton(name: "Icon (info)", imageName: "info.circle")
-                LabelButton()
-                Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+                LabelButton().padding(.bottom, ODSSpacing.s)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -55,8 +56,9 @@ private struct LabelButton: View {
                 ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
             }
             .frame(maxWidth: .infinity)
-            .padding([.bottom], 15)
-        }.padding([.leading, .trailing], 45)
+            .padding([.bottom], ODSSpacing.m)
+        }
+        .padding([.leading, .trailing], ODSSpacing.xxl)
     }
 }
 
@@ -73,8 +75,9 @@ private struct IconButton: View {
                 ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))
             }
             .frame(maxWidth: .infinity)
-            .padding([.bottom], 15)
-        }.padding([.leading, .trailing], 45)
+            .padding([.bottom], ODSSpacing.m)
+        }
+        .padding([.leading, .trailing], ODSSpacing.xxl)
     }
 }
 

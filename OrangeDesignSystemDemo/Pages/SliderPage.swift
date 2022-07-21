@@ -32,16 +32,16 @@ struct SliderPage: View {
             Image("Slider")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
                 VariantsTitle()
                 UnlabeledSlider()
                 LabeledSlider()
-                SteppedSlider()
-                Spacer().frame(height: 10)
+                SteppedSlider().padding(.bottom, ODSSpacing.s)
             }
-            .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -69,7 +69,7 @@ struct UnlabeledSlider: View {
                 value: $value,
                 range: range)
         }
-        .padding([.leading, .trailing], 10)
+        .padding(.horizontal, ODSSpacing.s)
     }
 }
 
@@ -89,7 +89,7 @@ struct LabeledSlider: View {
                 Image(systemName: "speaker.wave.3.fill")
             }
         }
-        .padding([.leading, .trailing], 10)
+        .padding([.leading, .trailing], ODSSpacing.s)
     }
 }
 
@@ -111,7 +111,7 @@ struct SteppedSlider: View {
             } maximumLabelView: {
                 Text("100")
             }
-            .padding([.leading, .trailing], 10)
+            .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }

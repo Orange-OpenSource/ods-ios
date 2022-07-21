@@ -163,8 +163,8 @@ private struct ODSButtonLabel: View {
         configuration.label
             .font(.headline)
             .multilineTextAlignment(.center)
-            .padding(.vertical, 14)
-            .padding(.horizontal, 16)
+            .padding(.vertical, ODSSpacing.m)
+            .padding(.horizontal, ODSSpacing.m)
     }
 }
 

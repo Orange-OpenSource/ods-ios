@@ -1,9 +1,17 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-
 ## [Unreleased]
+
 - [DemoApp] #123 Use Cheap component in Card demo page instead of native ios switches
+- [DemoApp/SDK] #158 Use ods spacings in demo app and SDK components
+- [DemoApp/SDK] #157 Use the ods font on the demo app and SDK components  
+- [SDK] #159 Define ODS Spacings 
+
+## [0.4.1] - 2022-07-19
+
+- [SDK] #47 Link code documentation from the DSM without title and description 
+- [SDK] #149 Homogenize documentation structure for all components
 - [SDK] #117 Review documentation introduction
  
 ## [0.4.0] - 2022-07-08
@@ -34,6 +42,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.3.0] - 2022-06-10
 ### Changed
 - [DemoApp] Update text button and shaped button pages with new design specifications
+- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
 ### Added
 
@@ -41,9 +50,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color
 - [DemoApp] Bug #102 Fixed : Card bad display
 - [DemoApp] Bug #101 Fixed : Progress indicator not centered
-
-### Changed
-- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
 ## [0.2.0] - 2022-05-05
 ### Changed

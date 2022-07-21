@@ -1,7 +1,6 @@
 ---
 layout: detail
 title: Typography
-description: How to use ODS Typography
 ---
 ---
 

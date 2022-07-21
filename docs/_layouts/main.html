@@ -26,118 +26,109 @@
 
 </style>
 <head>
-  {% include head.html %}
-  <title>{{ page.title }}</title>
+    {% include head.html %}
+    <title>{{ page.title }}</title>
 </head>
 
-<body >
+<body>
+<div id="outer">
 
-  <div id="outer">
     <div id="header">
-     
-<div class="row align-items-center">
-    <div class="col">
-       <div class="logo ods-intro pt-md-4 ps-lg-4">
-        <img src="https://c.woopic.com/logo-orange.png" alt="ods ios " >
-      </div>
-    </div>
-    <div class="col">
-     
-<p class="text-white bg-dark h1">ODS iOS Documentation</p>
-    </div>
-    <div class="col">
-     
-    </div>
-  </div>
-    </div>
-    <div id="inner">
-        <div id="sidebar">
-          <div class="ods-layout container-xxl">
-            <main class="ods-main order-1">
 
-{% if site.data.data_menus.toc2[0] %}
-  {% for item in site.data.data_menus.toc2 %}
-  <div class="ods-intro pt-md-4 ps-lg-4">
-    <h3>{{ item.title }}</h3>
-  </div>
-      {% if item.subfolderitems[0] %}
-      <div class="ods-content ps-lg-4 mb-3"> 
-        <ul>
-          {% for entry in item.subfolderitems %}
-              <li><a href="{{ entry.url }}">{{ entry.page }}</a>
-                {% if entry.subsubfolderitems[0] %}
-                  <ul>
-                  {% for subentry in entry.subsubfolderitems %}
-                      <li><a href="{{ subentry.url }}">{{ subentry.page }}</a></li>
-                  {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-    {% endfor %}
-{% endif %}
-</main>
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="logo ods-intro pt-md-4 ps-lg-4">
+                    <img src="https://c.woopic.com/logo-orange.png" alt="ods ios">
+                </div>
+            </div>
+            <div class="col">
+                <p class="text-white bg-dark h1">ODS iOS Documentation</p>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="inner">
+
+        <div id="sidebar">
+            <div class="ods-layout container-xxl">
+                <main class="ods-main order-1">
+                    {% if site.data.data_menus.toc2[0] %}
+                    {% for item in site.data.data_menus.toc2 %}
+                    <div class="ods-intro pt-md-4 ps-lg-4">
+                        <h3>{{ item.title }}</h3>
+                    </div>
+                    {% if item.subfolderitems[0] %}
+                    <div class="ods-content ps-lg-4 mb-3">
+                        <ul>
+                            {% for entry in item.subfolderitems %}
+                            <li><a href="{{ site.baseurl }}/{{ entry.url }}">{{ entry.page }}</a>
+                                {% if entry.subsubfolderitems[0] %}
+                                <ul>
+                                    {% for subentry in entry.subsubfolderitems %}
+                                    <li><a href="{{ site.baseurl }}/{{ subentry.url }}">{{ subentry.page }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </main>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="ods-layout container-xxl">
+                <main class="ods-main order-1">
+
+                    {% if page.content_page %}
+
+                    {% for all in site.pages %}
+                    {% if all.name == page.content_page %}
+
+                    <div class="ods-intro pt-md-4 ps-lg-4">
+                        <div class="d-md-flex align-items-center justify-content-between">
+                            <h1 id="ods-title">{{ all.title }}</h1>
+                        </div>
+                        <p class="ods-lead">{{ all.description }}</p>
+                    </div>
+
+                    <div class="ods-content ps-lg-4 mb-3">
+                        {{all.content}}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% else %}
+
+                    <div class="ods-intro pt-md-4 ps-lg-4">
+                        <div class="d-md-flex align-items-center justify-content-between">
+                            <h1 id="ods-title">{{ page.title }}</h1>
+                        </div>
+                        <p class="ods-lead">{{ page.description }}</p>
+                    </div>
+
+                    <div class="ods-content ps-lg-4 mb-3">
+                        {{content}}
+                    </div>
+
+                    {% endif %}
+
+                </main>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
-        </div>  
-        <div id="content">
-          
- <div class="ods-layout container-xxl">
+{% include scripts.html %}
 
-
-    <main class="ods-main order-1">
-
-      
-
-        
-
-{% if page.content_page %}
- 
-  {% for all in site.pages %}
-    {% if all.name contains page.content_page %}
-
-    <div class="ods-intro pt-md-4 ps-lg-4">
-        <div class="d-md-flex align-items-center justify-content-between">
-          <h1 id="ods-title">{{ all.title }}</h1>
-
-        </div>
-        <p class="ods-lead">{{ all.description }}</p>
-      </div>
-
-     <div class="ods-content ps-lg-4 mb-3">
-
-        {{all.content}}
-      </div>
-    {% endif %}
-  {% endfor %}
-{% else %}
-  
-  <div class="ods-intro pt-md-4 ps-lg-4">
-        <div class="d-md-flex align-items-center justify-content-between">
-          <h1 id="ods-title">{{ page.title }}</h1>
-
-        </div>
-        <p class="ods-lead">{{ page.description }}</p>
-      </div>
-
-     <div class="ods-content ps-lg-4 mb-3">
-
-        {{content}}
-      </div>
-
-{% endif %}
-
-       
-    </main>
-  </div>
-
-        </div>  
-    </div>
-</div>  
-
-  {% include scripts.html %}
-  
-</body></html>
+</body>
+</html>

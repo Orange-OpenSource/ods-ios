@@ -42,7 +42,9 @@ struct CardViewDemo: View {
 }
 
 struct CardViewDemoGrid: View {
-    let cards = (1 ... 20).map { ODSCardModel(title: "Title \($0)", image: "empty") }
+    let cards = (1 ... 20).map {
+        ODSCardModel(title: "Title \($0)", image: "empty")
+    }
 
     let columns = [
         GridItem(.adaptive(minimum: 150.0), alignment: .topLeading),
@@ -50,15 +52,14 @@ struct CardViewDemoGrid: View {
 
     var body: some View {
         ScrollView {
-            Spacer().frame(height: 15)
-            LazyVGrid(columns: columns, spacing: 15) {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
                 ForEach(cards, id: \.title) { item in
                     NavigationLink(destination: EmptyView()) {
                         ODSCardView(element: item)
                     }
                 }
-            }.padding([.leading, .trailing])
-            Spacer().frame(height: 15)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
         .navigationTitle("Page title")
         .navigationViewStyle(.stack)
@@ -67,7 +68,9 @@ struct CardViewDemoGrid: View {
 }
 
 struct CardViewDemoList: View {
-    let cards = (1 ... 40).map { ODSCardModel(title: "Title \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)") }
+    let cards = (1 ... 40).map {
+        ODSCardModel(title: "Title \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)")
+    }
 
     var body: some View {
         let model = ODSListCardViewModel(title: "CardViewDemo List", cards: cards)

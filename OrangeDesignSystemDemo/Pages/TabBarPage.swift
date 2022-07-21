@@ -33,16 +33,17 @@ struct TabBarPage: View {
             Image("Tab bar")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
                 VariantsTitle()
                 TabBarVariant(nbItems: 2)
                 TabBarVariant(nbItems: 3)
                 TabBarVariant(nbItems: 4)
-                TabBarVariant(nbItems: 5)
-                Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+                TabBarVariant(nbItems: 5).padding(.bottom, ODSSpacing.s)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

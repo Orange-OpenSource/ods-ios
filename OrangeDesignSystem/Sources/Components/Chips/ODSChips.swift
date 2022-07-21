@@ -32,10 +32,10 @@ public enum ODSChipThumbnail {
     case avatar(Image)
 }
 
-/// <a href="https://zeroheight.com/3b9fee398/p/67a9e8-chips/b/604d19" target="_blank">ODS Chips</a>.
+/// <a href="https://system.design.orange.com/0c1af118d/p/85a52b-components/b/1497a4" target="_blank">ODS Chips</a>.
 ///
 /// Chips are small components containing a number of elements that represent a calendar event or contact.
-
+///
 public typealias ODSChip<Value> = ODSChipPicker<Value>.ODSChipModel where Value: Hashable
 
 /// Create a picker by providing the selection type with a binding to get selected element(s).
@@ -44,14 +44,6 @@ public typealias ODSChip<Value> = ODSChipPicker<Value>.ODSChipModel where Value:
 public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     /// The chip element description.
-    ///  - Parameters
-    ///     - value: The value of the chip
-    ///     - text: Text to display in the chip.
-    ///     - thumbnail: Optional leading thumbnail.
-    ///     - disabled: When disabled, chip will not respond to user input. It will also appear
-    ///       visually disabled and disabled to accessibility services.
-    ///     - removable: To add the remove cross to allow a chip to be removed from a list of chips.
-
     public struct ODSChipModel {
 
         let value: Value
@@ -60,6 +52,15 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         let disabled: Bool
         let removable: Bool
 
+        /// Create a chip model that describes the chip contents.
+        ///
+        /// - Parameters
+        ///     - value: The value of the chip
+        ///     - text: Text of the chip
+        ///     - thumbnail: Optional leading thumbnail
+        ///     - disabled: When disabled, chip will not respond to user input.
+        ///     - removable: A cross to the chip and provides a remove action (remove chip from list).
+        ///
         public init(_ value: Value, text: String, thumbnail: ODSChipThumbnail? = nil, disabled: Bool = false, removable: Bool = false)
         {
             self.value = value
@@ -78,7 +79,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     ///       currently-selected option.
     ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
     ///     - chips: All chips describing elements to be displayed.
-
+    ///
     public init(title: String? = nil, selection: Binding<Value?>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
         self.title = title
         self.chips = chips
@@ -116,6 +117,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     ///       currently-selected option.
     ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
     ///     - chips: All chips describing elements to be displayed.
+    ///
     public init(title: String? = nil, selection: Binding<[Value]>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
         self.title = title
         self.chips = chips
@@ -140,22 +142,22 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     @State var textHeight: CGFloat = 30.0
 
     public var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: ODSSpacing.s) {
             if let title = title {
                 Text(title).odsFont(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 16)
+                    .padding(.leading, ODSSpacing.m)
             }
 
             ScrollView(.horizontal, showsIndicators: false) {
-                VStack(spacing: 0) {
+                VStack(spacing: ODSSpacing.none) {
 
-                    HStack(spacing: 8) {
+                    HStack(spacing: ODSSpacing.s) {
                         ForEach(chips, id: \.value) { chip in
                             Button {
                                 handleSelection(for: chip)
                             } label: {
-                                HStack(alignment: .center, spacing: 0) {
+                                HStack(alignment: .center, spacing: ODSSpacing.none) {
                                     if let thumbnail = chip.thumbnail {
                                         ChipThumbnail(selected: isSelected(chip),
                                                       thumbnail: thumbnail,
@@ -167,18 +169,14 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
                                         .tint(isSelected(chip) ? .black : .primary)
                                         .padding(.vertical, 6)
                                         .padding(.leading, textLeadingPadding(for: chip))
-                                        .padding(.trailing, false /* chip.removable*/ ? 8 : 16)
+                                        .padding(.trailing, chip.removable ? ODSSpacing.s : ODSSpacing.m)
                                         .readSize { size in
                                             textHeight = size.height
                                         }
 
                                     if chip.removable {
                                         ChipRemoveLabel(height: textHeight, selected: isSelected(chip))
-                                            .highPriorityGesture(TapGesture().onEnded {
-                                                // TODO:
-                                                print("TODO")
-                                                // self.onChipRemoved(chip)
-                                            })
+                                            .highPriorityGesture(TapGesture().onEnded {})
                                     }
                                 }
                             }
@@ -187,8 +185,8 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
                             .disabled(chip.disabled)
                         }
                     }
-                    .padding(.trailing, 10)
-                    .padding(.leading, 16)
+                    .padding(.trailing, ODSSpacing.s)
+                    .padding(.leading, ODSSpacing.m)
                 }
             }
         }
@@ -196,10 +194,10 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     func textLeadingPadding(for chip: ODSChipModel) -> CGFloat {
         switch chip.thumbnail {
-        case .icon: return 8.0
-        case .avatar: return isSelected(chip) ? 8 : 6
-        case .iconSystem: return 8
-        case .none: return 16.0
+        case .icon: return ODSSpacing.s
+        case .avatar: return isSelected(chip) ? ODSSpacing.s : ODSSpacing.s - 2
+        case .iconSystem: return ODSSpacing.s
+        case .none: return ODSSpacing.m
         }
     }
 
@@ -284,7 +282,7 @@ struct ChipThumbnail: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: height - 6, height: height - 6, alignment: .center)
                     .clipShape(Circle())
-                    .padding(.leading, 4)
+                    .padding(.leading, ODSSpacing.xs)
             }
         case let .icon(image):
             image
@@ -293,12 +291,12 @@ struct ChipThumbnail: View {
                 .aspectRatio(contentMode: .fill)
                 .tint(selected ? .black : .primary)
                 .frame(width: height - 9, height: height - 9, alignment: .center)
-                .padding(.leading, 7)
+                .padding(.leading, ODSSpacing.s)
 
         case let .iconSystem(name):
             Image(systemName: name)
                 .tint(selected ? .black : .primary)
-                .padding(.leading, 8)
+                .padding(.leading, ODSSpacing.s)
         }
     }
 }
@@ -315,7 +313,7 @@ struct ChipSelectedAvatar: View {
             .background(Color.black)
             .frame(width: height - 6, height: height - 6, alignment: .center)
             .clipShape(Circle())
-            .padding(.leading, 4)
+            .padding(.leading, ODSSpacing.xs)
     }
 }
 
@@ -331,7 +329,7 @@ struct ChipRemoveLabel: View {
             .aspectRatio(contentMode: .fit)
             .tint(selected ? .black : .primary)
             .frame(width: height - 11, height: height - 11, alignment: .center)
-            .padding(.trailing, 7.0)
+            .padding(.trailing, ODSSpacing.s)
     }
 }
 
@@ -370,8 +368,8 @@ struct ODSChips_Previews: PreviewProvider {
 
         var body: some View {
             VStack {
-                VStack(spacing: 10) {
-                    VStack(spacing: 10) {
+                VStack(spacing: ODSSpacing.s) {
+                    VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Single selection",
                                       selection: $selectedChip,
                                       allowZeroSelection: allowZeroSelection,
@@ -379,11 +377,11 @@ struct ODSChips_Previews: PreviewProvider {
                         Text("selected Chip : \(selectedChip?.odsChip.text ?? "")")
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .padding(.horizontal, 0)
-                    .padding(.bottom, 20)
+                    .padding(.horizontal, ODSSpacing.none)
+                    .padding(.bottom, ODSSpacing.l)
                     .background(ODSColor.supportingGreen100.color)
 
-                    VStack(spacing: 10) {
+                    VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Multiple selection",
                                       selection: $selectedChips,
                                       allowZeroSelection: allowZeroSelection,
@@ -391,10 +389,10 @@ struct ODSChips_Previews: PreviewProvider {
 
                         Text("Selected Chip : \(self.selectedChipsText)")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.trailing, 16)
+                            .padding(.trailing, ODSSpacing.m)
                     }
-                    .padding(.horizontal, 0)
-                    .padding(.bottom, 20)
+                    .padding(.horizontal, ODSSpacing.none)
+                    .padding(.bottom, ODSSpacing.l)
                     .background(ODSColor.supportingGreen100.color)
                 }
             }

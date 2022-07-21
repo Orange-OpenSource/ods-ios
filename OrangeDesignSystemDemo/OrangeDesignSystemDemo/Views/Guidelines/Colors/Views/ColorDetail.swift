@@ -49,15 +49,17 @@ struct ColorDetail: View {
                     Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(.caption1Regular)
                     Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
 
-                    Spacer().frame(height: 15)
-
-                    Text("Usage").odsFont(.headline)
+                    Text("Usage")
+                        .odsFont(.headline)
+                        .padding(.top, ODSSpacing.l)
                     Text("Coming soon ...").odsFont(.caption1Regular)
-
-                }.padding(EdgeInsets(top: 10, leading: 15, bottom: 20, trailing: 15))
-            }.background(Color(uiColor: UIColor.systemGray6))
-                .cornerRadius(10)
-        }.onTapGesture {
+                }
+                .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.l, trailing: ODSSpacing.m))
+            }
+            .background(Color(uiColor: UIColor.systemGray6))
+            .cornerRadius(10)
+        }
+        .onTapGesture {
             dismiss()
         }
     }
