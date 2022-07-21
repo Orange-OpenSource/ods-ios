@@ -9,7 +9,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.1] - 2022-07-19
 
-- [DemoApp/SDK] #159 Add ODSSpacer component and guidelines spacing
 - [SDK] #47 Link code documentation from the DSM without title and description 
 - [SDK] #149 Homogenize documentation structure for all components
 - [SDK] #117 Review documentation introduction
