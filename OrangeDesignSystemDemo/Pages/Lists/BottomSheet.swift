@@ -29,10 +29,10 @@ struct BottomSheet: View {
     @State var showContent: Bool = true
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: ODSSpacing.none) {
             Spacer()
 
-            VStack(spacing: 0) {
+            VStack(spacing: ODSSpacing.none) {
                 BottomSheedHeader(showContent: $showContent)
                     .background(Color(.systemGray6))
 
@@ -52,17 +52,17 @@ struct BottomSheedHeader: View {
     @Binding var showContent: Bool
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: ODSSpacing.none) {
             RoundedRectangle(cornerRadius: 4)
                 .frame(width: 55, height: 4, alignment: .center)
-                .padding(.top, 8)
-                .padding(.bottom, 4)
+                .padding(.top, ODSSpacing.s)
+                .padding(.bottom, ODSSpacing.xs)
 
             Button {
                 showContent.toggle()
             } label: {
-                VStack(spacing: 0) {
-                    HStack(spacing: 16) {
+                VStack(spacing: ODSSpacing.none) {
+                    HStack(spacing: ODSSpacing.m) {
                         let imageName = showContent ? "chevron.down" : "chevron.up"
 
                         Image(systemName: imageName)
@@ -74,7 +74,7 @@ struct BottomSheedHeader: View {
                             .foregroundColor(.primary)
                         Spacer()
                     }
-                    .padding(.all, 8)
+                    .padding(.all, ODSSpacing.s)
 
                     Divider()
                 }
@@ -89,7 +89,7 @@ struct BottomSheetContent: View {
     @EnvironmentObject var listPageModel: ListPageModel
 
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: ODSSpacing.m) {
             ODSChipPicker(title: "Second line of text",
                           selection: $listPageModel.selectedSecondLineOfTextChip,
                           allowZeroSelection: true,

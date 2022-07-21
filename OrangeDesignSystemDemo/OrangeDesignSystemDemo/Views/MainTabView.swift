@@ -46,7 +46,7 @@ struct MainTabView: View {
                     Label("About", image: "info_32")
                 }
 //            Text("Search")
-//                .font(ODSFontStyle.largeTitle.font())
+//                .odsFont(.largeTitle)
 //                .tabItem {
 //                    Label("Search", image: "Search_32")
 //                }

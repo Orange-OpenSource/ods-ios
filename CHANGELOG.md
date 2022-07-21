@@ -1,6 +1,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unrelease]
+
+- [DemoApp/SDK] #158 Use ods spacings in demo app and SDK components
+- [DemoApp/SDK] #157 Use the ods font on the demo app and SDK components  
+- [SDK] #159 Define ODS Spacings 
 
 ## [0.4.1] - 2022-07-19
 

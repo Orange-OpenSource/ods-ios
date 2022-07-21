@@ -52,7 +52,7 @@ struct CardPage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
                 VariantsTitle()
 
@@ -83,9 +83,7 @@ struct CardPage: View {
 
                     Toggle(isOn: $showButton) {
                         Text("Show button")
-                    }
-
-                    Spacer().frame(height: 30)
+                    }.padding(.bottom, ODSSpacing.l)
 
                     Button {
                         resetSwitches()
@@ -99,8 +97,9 @@ struct CardPage: View {
                 .odsFont(.bodyRegular)
                 .foregroundColor(.primary)
             }
-            .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

@@ -31,14 +31,15 @@ struct TextSelectionPage: View {
             Image("Text edit menu")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: ODSSpacing.l) {
                 ComponentDescription(text: "Text Selection is the selection of textual areas leading to the display of buttons allowing interaction")
                 VariantsTitle()
                 TextSelectionInTextField()
-                TextSelectionInTextEditor()
-                Spacer().frame(height: 10)
-            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.background(ODSColor.primaryBackground.color)
+                TextSelectionInTextEditor().padding(.bottom, ODSSpacing.s)
+            }
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -51,7 +52,7 @@ struct TextSelectionInTextField: View {
                 .odsFont(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextField("A text field", text: $textToEdit)
-                .padding(.horizontal, 20)
+                .padding(.horizontal, ODSSpacing.m)
                 .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))
@@ -72,7 +73,7 @@ struct TextSelectionInTextEditor: View {
                 .odsFont(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $textToEdit)
-                .padding(.horizontal, 20)
+                .padding(.horizontal, ODSSpacing.m)
                 .odsFont(.headline)
                 .background(Color(.systemGray6))
                 .overlay(Rectangle().stroke(Color(.systemGray2), lineWidth: 1.0))

@@ -47,7 +47,7 @@ struct UnlabeledSlider: View {
         VStack(alignment: .center) {
             ODSSlider(value: $value, range: range)
         }
-        .padding([.leading, .trailing], 10)
+        .padding(.horizontal, ODSSpacing.s)
     }
 }
 ```

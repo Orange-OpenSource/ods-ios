@@ -51,7 +51,7 @@ extension Image {
     func iconModifier(height: CGFloat? = 44) -> some View {
         resizable()
             .aspectRatio(contentMode: .fit)
-            .padding(.vertical, 8)
+            .padding(.vertical, ODSSpacing.s)
             .frame(height: height)
     }
 }
@@ -64,7 +64,7 @@ struct ODSListItemTrailingIcon: View {
         switch iconModel {
         case let .text(text):
             Text(text)
-                .font(.subheadline)
+                .odsFont(.subhead)
                 .foregroundColor(Color(UIColor.systemGray3))
 
         case let .infoButton(onClicked):

@@ -24,43 +24,22 @@
 import Foundation
 import SwiftUI
 
-public enum ODSDim {
-    public static let list_min_height = 42.0
-    public static let list_min_width = 42.0
-    public static let padding = 15.0
-
-    public enum ODSSpacing {
-        static let tiny: Double = 5
-        static let small: Double = 10
-        static let regular: Double = 15
-        static let large: Double = 20
-        static let huge: Double = 30
-    }
-}
-
-extension View {
-
-    public func fullWidthFrame(alignment: Alignment = .leading) -> some View {
-        frame(maxWidth: .infinity, alignment: alignment)
-    }
-
-    public func odsLeadingPadding() -> some View {
-        return padding(.leading, ODSDim.padding)
-    }
-
-    public func odsTrailingPadding() -> some View {
-        return padding(.trailing, ODSDim.padding)
-    }
-
-    public func odsGlobalPadding() -> some View {
-        return padding(ODSDim.padding)
-    }
-
-    public func odsSpacerSmall() -> some View {
-        return frame(height: ODSDim.padding)
-    }
-
-    public func odsSpacerMedium() -> some View {
-        return frame(height: 25)
-    }
+///
+/// Spacing are used to position elements on the screen and layout within components.
+///
+public enum ODSSpacing {
+    /// none: 0
+    public static let none: Double = 0
+    /// xs: 4
+    public static let xs: Double = 4
+    /// s: 8
+    public static let s: Double = 8
+    /// m: 16
+    public static let m: Double = 16
+    /// l: 24
+    public static let l: Double = 24
+    /// xl: 32
+    public static let xl: Double = 32
+    /// xxl: 40
+    public static let xxl: Double = 40
 }
