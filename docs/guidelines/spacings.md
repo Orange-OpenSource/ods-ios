@@ -33,7 +33,7 @@ Button {
     // Add your action here
 } label: {
     Text("ButtonText")
-    .padding(.all, 16)
+    .padding(.all, ODSSpacing.m)
 }
 
 
