@@ -77,46 +77,82 @@ class CardPageModel: ObservableObject {
     }
 }
 
-struct CardPage: View {
+struct CardImageFirst: View {
 
     @ObservedObject var model: CardPageModel
 
-    init() {
-        model = CardPageModel()
-    }
-
     var body: some View {
         ZStack {
+            // Card demonstrator
             ScrollView {
-                Image("Cards_1")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-
-                VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                    ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
-                    VariantsTitle()
-
-                    // Card demonstrator
-                    CardViewCustom(element: model.example) {
-                        if model.showButton {
-                            Button {} label: {
-                                ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
-                            }
-                            .buttonStyle(ODSFilledButtonStyle())
+                ODSCardImageFirst(element: model.example) {
+                    if model.showButton {
+                        Button {} label: {
+                            ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
                         }
+                        .buttonStyle(ODSFilledButtonStyle())
                     }
                 }
-                .padding(.top, ODSSpacing.none)
-                .padding(.bottom, ODSSpacing.m)
                 .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
+                .navigationTitle("Card Image First")
             }
-            .background(ODSColor.componentBackground2.color)
 
             BottomSheet {
                 CardBottomSheetContent()
             }
             .environmentObject(model)
         }
+    }
+}
+
+struct CardPage: View {
+
+    @ObservedObject var model: CardPageModel
+    @State var showCardImageFirst: Bool = false
+
+    init() {
+        model = CardPageModel()
+    }
+
+    var body: some View {
+
+        List {
+            VStack {
+                Image("Cards_1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+
+                ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
+                    .padding(.bottom, ODSSpacing.l)
+                    .padding(.horizontal, ODSSpacing.m)
+            }
+            .listRowInsets(EdgeInsets())
+            .padding(.horizontal, 0)
+
+            NavigationLink {
+                CardImageFirst(model: model)
+            } label: {
+                ODSListItem(model: ODSListItemModel(title: "Card Image First"))
+            }
+
+            NavigationLink {
+                Text("Soon available")
+            } label: {
+                ODSListItem(model: ODSListItemModel(title: "Card Title First"))
+            }
+
+            NavigationLink {
+                Text("Soon available")
+            } label: {
+                ODSListItem(model: ODSListItemModel(title: "Small card"))
+            }
+        }
+        .listRowSeparator(Visibility.visible)
+        .listStyle(.plain)
+        .padding(.top, ODSSpacing.none)
+        .padding(.bottom, ODSSpacing.m)
+        .background(ODSColor.componentBackground2.color)
     }
 }
 
