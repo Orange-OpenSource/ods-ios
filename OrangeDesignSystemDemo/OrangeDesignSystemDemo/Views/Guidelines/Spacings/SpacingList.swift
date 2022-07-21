@@ -76,7 +76,7 @@ struct SpacingList: View {
     let spacings = Spacing.allCases
 
     var body: some View {
-        ScrollView(content: {
+        ScrollView {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
 
                 Image("Spacing")
@@ -94,7 +94,7 @@ struct SpacingList: View {
                 .padding(.horizontal, ODSSpacing.m)
             }
             .padding(.bottom, ODSSpacing.xs)
-        })
+        }
         .navigationTitle("Spacings")
         .navigationViewStyle(.stack)
         .background(ODSColor.primaryBackground.color)

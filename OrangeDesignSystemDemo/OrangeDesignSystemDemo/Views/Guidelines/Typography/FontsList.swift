@@ -30,7 +30,7 @@ struct FontList: View {
     let fontStyles = ODSFontStyle.allCases
 
     var body: some View {
-        ScrollView(content: {
+        ScrollView {
             VStack(alignment: .leading) {
 
                 Image("Typography")
@@ -54,7 +54,7 @@ struct FontList: View {
                 }
                 .padding(.horizontal, ODSSpacing.m)
             }
-        })
+        }
         .navigationTitle("Typography")
         .navigationViewStyle(.stack)
         .background(ODSColor.primaryBackground.color)
