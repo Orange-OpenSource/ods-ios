@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Bug #94 Do not use fully capitalized words in the legal screen
 - [DemoApp] #123 Use Chip component in card demo page instead of native ios switches
 - [DemoApp/SDK] #158 Use ODS spacings in demo app and SDK components
 - [DemoApp/SDK] #157 Use the ODS font on the demo app and SDK components  
