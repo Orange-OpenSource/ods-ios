@@ -26,6 +26,7 @@ import SwiftUI
 /// A thumbnail can be added on the right side of a chip.
 /// - Icon is a simple image with only one color
 /// - Avatar is the a more complex image like contact photo.
+///
 public enum ODSChipThumbnail {
     case icon(Image)
     case iconSystem(name: String)
@@ -102,6 +103,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         self.title = title
         self.chips = chips
         self.allowZeroSelection = allowZeroSelection
+
         singleSelection = nil
         multipleSelection = selection
     }

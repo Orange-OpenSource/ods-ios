@@ -177,7 +177,10 @@ struct ListPageInner: View {
     var body: some View {
         ZStack {
             ListView(model: listPageModel.listModel)
-            BottomSheet().environmentObject(listPageModel)
+            BottomSheet {
+                ListBottomSheetContent()
+            }
+            .environmentObject(listPageModel)
         }
         .background(ODSColor.componentBackground2.color)
     }
