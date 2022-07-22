@@ -88,9 +88,9 @@ struct CardImageFirst: View {
                 ODSCardImageFirst(element: model.example) {
                     if model.showButton {
                         Button {} label: {
-                            ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
+                            ODSGenericButtonContent(topText: "Button")
                         }
-                        .buttonStyle(ODSFilledButtonStyle())
+                        .buttonStyle(ODSBorderedButtonStyle())
                     }
                 }
                 .padding(.horizontal, ODSSpacing.m)
