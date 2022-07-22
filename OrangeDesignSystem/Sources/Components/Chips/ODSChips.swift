@@ -26,6 +26,7 @@ import SwiftUI
 /// A thumbnail can be added on the right side of a chip.
 /// - Icon is a simple image with only one color
 /// - Avatar is the a more complex image like contact photo.
+///
 public enum ODSChipThumbnail {
     case icon(Image)
     case iconSystem(name: String)
@@ -85,29 +86,9 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         self.chips = chips
         self.allowZeroSelection = allowZeroSelection
 
-        toggleSelection = nil
         singleSelection = selection
         multipleSelection = nil
     }
-
-    /// Creates a picker that manage a single selection.
-    ///
-    /// - Parameters:
-    ///     - title: Optional title above the picker
-    ///     - selection: A binding to a property that determines the
-    ///       currently-selected option.
-    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
-    ///     - chip: One chip describing elements to be displayed.
-
-//    public init(title: String? = nil, selection: Binding<Bool>, chip: ODSChipModel) {
-//        self.title = title
-//        chips = [chip]
-//        allowZeroSelection = false
-//
-//        toggleSelection = selection
-//        singleSelection = nil
-//        multipleSelection = nil
-//    }
 
     /// Creates a picker that manage a multiple selection.
     ///
@@ -123,12 +104,10 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         self.chips = chips
         self.allowZeroSelection = allowZeroSelection
 
-        toggleSelection = nil
         singleSelection = nil
         multipleSelection = selection
     }
 
-    typealias ToggleSelection = Binding<Bool>
     typealias SingleSelection = Binding<Value?>
     typealias MultipleSelection = Binding<[Value]>
 
@@ -136,7 +115,6 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     let chips: [ODSChipModel]
     let singleSelection: SingleSelection?
     let multipleSelection: MultipleSelection?
-    let toggleSelection: ToggleSelection?
     let allowZeroSelection: Bool
 
     @State var textHeight: CGFloat = 30.0
@@ -211,10 +189,6 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     func isSelected(_ chip: ODSChipModel) -> Bool {
 
-        if let toggleSelection = toggleSelection {
-            return toggleSelection.wrappedValue
-        }
-
         if let singleSelection = singleSelection {
             return chip.value == singleSelection.wrappedValue
         }
@@ -227,22 +201,13 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     }
 
     func handleSelection(for chip: ODSChipModel) {
-
-        if let toggleSelection = toggleSelection {
-            handle(toggleSelection)
+        if let singleSelection = singleSelection {
+            handle(singleSelection, for: chip)
         } else {
-            if let singleSelection = singleSelection {
-                handle(singleSelection, for: chip)
-            } else {
-                if let multipleSelection = multipleSelection {
-                    handle(multipleSelection, for: chip)
-                }
+            if let multipleSelection = multipleSelection {
+                handle(multipleSelection, for: chip)
             }
         }
-    }
-
-    func handle(_ toggleSelection: ToggleSelection) {
-        toggleSelection.wrappedValue.toggle()
     }
 
     func handle(_ singleSelection: SingleSelection, for chip: ODSChipModel) {

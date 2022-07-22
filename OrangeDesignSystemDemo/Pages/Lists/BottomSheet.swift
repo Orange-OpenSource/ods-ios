@@ -111,6 +111,6 @@ struct ListBottomSheetContent: View {
                           allowZeroSelection: true,
                           chips: listPageModel.trailingImageChips)
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, ODSSpacing.s)
     }
 }

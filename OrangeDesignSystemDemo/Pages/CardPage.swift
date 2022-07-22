@@ -128,7 +128,7 @@ struct CardPage: View {
                     .padding(.horizontal, ODSSpacing.m)
             }
             .listRowInsets(EdgeInsets())
-            .padding(.horizontal, 0)
+            .padding(.horizontal, ODSSpacing.none)
 
             NavigationLink {
                 CardImageFirst(model: model)
