@@ -32,6 +32,8 @@ toc2:
         url: components/slider_docs
       - page: Text selection
         url: components/textSelection_docs
+      - page: Bars - navigation
+        url: components/navigationBar_docs
 
   - title: Modules
     subfolderitems:
