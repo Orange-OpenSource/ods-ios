@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Add Navigation Bar component  
 - [DemoApp] Bug #138 Cards - outline button update
 - [DemoApp] Bug #94 Do not use fully capitalized words in the legal screen
 - [DemoApp] #123 Use Chip component in card demo page instead of native ios switches

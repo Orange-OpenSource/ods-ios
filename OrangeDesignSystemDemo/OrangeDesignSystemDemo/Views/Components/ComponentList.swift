@@ -25,7 +25,7 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentsCardsList: View {
+struct ComponentsList: View {
     // Remark: Components are automatically displayed sorted by their name
     let componentList = [
         ComponentModel(name: "Bars - tab", image: "Tab bar") {
@@ -55,6 +55,9 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Text selection", image: "Text edit menu") {
             TextSelectionPage()
         },
+        ComponentModel(name: "Bars - navigation", image: "Navigation bars") {
+            NavigationBarPage()
+        },
     ]
 
     let columns = [
@@ -83,7 +86,7 @@ struct ComponentsCardsList: View {
 struct ComponentsCardsList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ComponentsCardsList()
+            ComponentsList()
                 .preferredColorScheme($0)
         }
     }
