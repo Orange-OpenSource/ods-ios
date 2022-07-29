@@ -126,6 +126,10 @@ struct CardPage: View {
                 ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
                     .padding(.bottom, ODSSpacing.l)
                     .padding(.horizontal, ODSSpacing.m)
+                VariantsTitle()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, ODSSpacing.m)
+                    .padding(.bottom, ODSSpacing.m)
             }
             .listRowInsets(EdgeInsets())
             .padding(.horizontal, ODSSpacing.none)

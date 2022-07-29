@@ -55,6 +55,9 @@ struct ComponentsList: View {
         ComponentModel(name: "Text selection", image: "Text edit menu") {
             TextSelectionPage()
         },
+        ComponentModel(name: "Bars - navigation", image: "Navigation bars") {
+            NavigationBarPage()
+        },
     ]
 
     let columns = [
