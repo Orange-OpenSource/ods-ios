@@ -1,11 +1,16 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unrelease]
+## [Unreleased]
 
-- [DemoApp/SDK] #158 Use ods spacings in demo app and SDK components
-- [DemoApp/SDK] #157 Use the ods font on the demo app and SDK components  
-- [SDK] #159 Define ODS Spacings 
+- [DemoApp] Bug #103 bad name for card collection in module page
+- [DemoApp] #57 Add Navigation Bar component
+- [DemoApp] Bug #138 Cards - outline button update
+- [DemoApp] Bug #94 Do not use fully capitalized words in the legal screen
+- [DemoApp] #123 Use Chip component in card demo page instead of native ios switches
+- [DemoApp/SDK] #158 Use ODS spacings in demo app and SDK components
+- [DemoApp/SDK] #157 Use the ODS font on the demo app and SDK components  
+- [SDK] #159 Define ODS spacings 
 
 ## [0.4.1] - 2022-07-19
 
@@ -15,10 +20,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
  
 ## [0.4.0] - 2022-07-08
 
-- [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default
+- [DemoApp/SDK] #170 In List component page, use native color for the toggle, and in card page, display image by default
 - [DemoApp/SDK] #36 Add List component
 - [Component] #166 Add Text Selection component and remove Text Edit Menu
-- [Component] #35 Add tab bar page
+- [Component] #35 Add Tab Bar page
 - [DemoApp] Bug #155 Typography style addition, and spacing fix
 - [DemoApp/SDK] #128 Add slider action on bar tap
 - [DemoApp] #161 Design review Sprint 11 (background colours, shadows, ...) 

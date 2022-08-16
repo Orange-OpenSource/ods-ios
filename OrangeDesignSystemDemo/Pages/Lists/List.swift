@@ -82,7 +82,7 @@ struct ListView: View {
             .onMove(perform: move)
             .onDelete(perform: delete)
             .listRowSeparator(Visibility.visible)
-            .padding(.horizontal, 16)
+            .padding(.horizontal, ODSSpacing.m)
         }
         .toolbar { EditButton() }
         .listStyle(.plain)

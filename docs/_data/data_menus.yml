@@ -16,6 +16,8 @@ toc2:
 
   - title: Components
     subfolderitems:
+      - page: Bars - navigation
+        url: components/navigationBar_docs
       - page: Button - standard
         url: components/standardButton_docs
       - page: Button - shape

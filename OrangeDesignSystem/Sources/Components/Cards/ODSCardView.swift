@@ -64,7 +64,7 @@ public struct ODSCardView: View {
     }
 }
 
-public struct CardViewCustom<ButtonContent>: View where ButtonContent: View {
+public struct ODSCardImageFirst<ButtonContent>: View where ButtonContent: View {
     public var element: ODSCardModel
 
     private var buttonContent: () -> ButtonContent
@@ -128,7 +128,7 @@ struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                CardViewCustom(element: ODSCardModel.example) {
+                ODSCardImageFirst(element: ODSCardModel.example) {
                     Button {} label: {
                         ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
                     }

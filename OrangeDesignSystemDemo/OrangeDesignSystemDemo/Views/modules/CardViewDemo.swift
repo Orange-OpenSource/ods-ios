@@ -27,12 +27,12 @@ import SwiftUI
 
 struct CardViewDemo: View {
 
-    let listModel = ODSListCardViewModel(title: "ListCard",
+    let listModel = ODSListCardViewModel(title: "Card View",
                                          cards: [
                                              ODSCardModel(title: "List", image: "Cards") {
                                                  CardViewDemoList()
                                              },
-                                             ODSCardModel(title: "Grid", image: "Card") {
+                                             ODSCardModel(title: "Grid", image: "Cards_1") {
                                                  CardViewDemoGrid()
                                              },
                                          ])
@@ -42,8 +42,8 @@ struct CardViewDemo: View {
 }
 
 struct CardViewDemoGrid: View {
-    let cards = (1 ... 20).map {
-        ODSCardModel(title: "Title \($0)", image: "empty")
+    let cards = (1 ... 10).map {
+        ODSCardModel(title: "Card \($0)", image: "empty")
     }
 
     let columns = [
@@ -61,19 +61,19 @@ struct CardViewDemoGrid: View {
             }
             .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
-        .navigationTitle("Page title")
+        .navigationTitle("CardView - Grid")
         .navigationViewStyle(.stack)
         .background(ODSColor.primaryBackground.color)
     }
 }
 
 struct CardViewDemoList: View {
-    let cards = (1 ... 40).map {
-        ODSCardModel(title: "Title \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)")
+    let cards = (1 ... 5).map {
+        ODSCardModel(title: "Card \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)")
     }
 
     var body: some View {
-        let model = ODSListCardViewModel(title: "CardViewDemo List", cards: cards)
+        let model = ODSListCardViewModel(title: "CardView - List", cards: cards)
         ODSListCardView().environmentObject(model)
     }
 }
