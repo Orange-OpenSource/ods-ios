@@ -30,13 +30,13 @@ Orange Design System Components.
   s.ios.deployment_target = '15.0'
   s.swift_version = '5.0'
 
-  s.source_files = 'OrangeDesignSystem/Sources/**/*.{m,swift}'
+  s.source_files = 'OrangeDesignSystem/Sources/OrangeDesignSystem/**/*.{m,swift}'
   
   s.resource_bundles = {
-     'OrangeDesignSystem' => ['OrangeDesignSystem/Sources/Assets/**/*.{lproj, xcassets,json}']
+     'OrangeDesignSystem' => ['OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/**/*.{lproj,xcassets,json}']
   }
   
-  s.resources = ["OrangeDesignSystem/Sources/Assets/**/*.{lproj,xcassets,json}"]
+  s.resources = ["OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/**/*.{lproj,xcassets,json}"]
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
