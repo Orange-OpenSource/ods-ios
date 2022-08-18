@@ -25,11 +25,11 @@ import SwiftUI
 import UIKit
 
 public enum PrimezonePalette {
-    
+
     public static let Main1 = Color(UIColor(hex: "#ffDE2554")!)
     public static let Main1Pressed = Color(UIColor(hex: "#ffDE2555")!)
     public static let Main2 = Color(UIColor(hex: "#ffFBCD00")!)
-    public static let Blue = Color(UIColor(hex: "#4BB4E6")!)
+    public static let Blue = Color(UIColor(hex: "#FF4BB4E6")!)
 
     public static let White100 = Color(UIColor(hex: "#ffffffff")!)
     public static let Black900 = Color(UIColor(hex: "#ff000000")!)
@@ -76,11 +76,11 @@ public enum PrimezonePalette {
 }
 
 public class PrimezoneTheme: ODSTheme {
-    
+
     public let name: String
     public let colors: ODSThemeColors
-    
-    required public init() {
+
+    public required init() {
         name = "Primezone"
         colors = ODSThemeColors(coreSurface: PrimezonePalette.White100,
                                 coreOnSurface: PrimezonePalette.Black900,

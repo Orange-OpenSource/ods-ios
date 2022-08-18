@@ -60,7 +60,7 @@ public struct ODSThemeColors {
 public protocol ODSTheme {
     var name: String { get }
     var colors: ODSThemeColors { get }
-    
+
     init()
     func font(for style: ODSThemeFontStyle) -> Font
 }

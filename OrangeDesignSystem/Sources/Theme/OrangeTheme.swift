@@ -24,9 +24,9 @@
 import SwiftUI
 
 public enum OrangePalette {
-    
+
     public static let Main1 = Color(UIColor(hex: "#ffDE2554")!)
-    
+
     public static let Orange100 = Color(UIColor(hex: "#ffff7900")!)
     public static let Orange200 = Color(UIColor(hex: "#fff16e00")!)
     public static let White100 = Color(UIColor(hex: "#ffffffff")!)
@@ -74,24 +74,23 @@ public enum OrangePalette {
     public static let Grey500 = Color(UIColor(hex: "#ff999999")!)
     public static let Grey600 = Color(UIColor(hex: "#ff666666")!)
     public static let Grey800 = Color(UIColor(hex: "#ff333333")!)
-
 }
-    
+
 public class OrangeTheme: ODSTheme {
-    
+
     public var name: String
     public let colors: ODSThemeColors
-    
-    required public init() {
+
+    public required init() {
         name = "Orange"
-        
+
         let coreSurface = OrangePalette.White100
         colors = ODSThemeColors(coreSurface: coreSurface,
                                 coreOnSurface: OrangePalette.Black900,
                                 systemStatusBarBackground: coreSurface,
                                 systemNavigationBarBackground: coreSurface,
                                 componentBackgroundDisabled: OrangePalette.Black900.opacity(0.12),
-                                componentContentDisabled:  OrangePalette.Black900.opacity(0.38),
+                                componentContentDisabled: OrangePalette.Black900.opacity(0.38),
                                 topBarBackground: coreSurface,
                                 topBarContent: coreSurface,
                                 bottomNavigationBarBackground: coreSurface,
@@ -100,7 +99,7 @@ public class OrangeTheme: ODSTheme {
                                 cardBackground: coreSurface,
                                 cardContent: coreSurface)
     }
-    
+
     /// Font associated to ODSFontStyle
     public func font(for style: ODSThemeFontStyle) -> Font {
         switch style {

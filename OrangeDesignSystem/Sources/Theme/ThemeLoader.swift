@@ -69,7 +69,7 @@ public class ODSThemeLoader {
             }
         }
     }
-    
+
     public func switchTo(themeName: String) {
         UserDefaults.standard.set(themeName, forKey: "ODSThemeName")
         (theme, assetsBundle) = ODSThemeLoader.loadTheme(themeName: themeName)
