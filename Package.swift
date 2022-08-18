@@ -24,8 +24,5 @@ let package = Package(
         .target(
             name: "OrangeDesignSystem",
             dependencies: [],
-            path: "OrangeDesignSystem/Sources",
-            resources: [.copy("Assets/Colors.xcassets"),
-                        .copy("Assets/Icons.xcassets"),
-                        .copy("Assets/Images.xcassets")]),
+            path: "OrangeDesignSystem/Sources"),
     ])
