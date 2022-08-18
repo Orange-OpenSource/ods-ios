@@ -181,7 +181,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     @ViewBuilder func background(for chip: ODSChipModel) -> some View {
         if isSelected(chip) {
-            Capsule().foregroundColor(ODSColor.coreOrange.color)
+            Capsule().foregroundColor(odsCurrentTheme.colors.bottomNavigationBarContentSelected /* ODSColor.coreOrange.color */ )
         } else {
             Capsule().stroke(lineWidth: 1)
         }

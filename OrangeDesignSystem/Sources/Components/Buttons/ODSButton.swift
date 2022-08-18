@@ -91,7 +91,7 @@ public struct ODSGenericButtonContent: View {
 public struct ODSFilledButtonStyle: ButtonStyle {
     let backgroundColor: Color
 
-    public init(backgroundColor: Color = ODS.coreOrange) {
+    public init(backgroundColor: Color = odsCurrentTheme.colors.bottomNavigationBarContentSelected) {
         self.backgroundColor = backgroundColor
     }
 
@@ -136,7 +136,7 @@ public struct ODSButtonStyle: ButtonStyle {
         if let backgroundColor = backgroundColor {
             self.backgroundColor = backgroundColor
         } else {
-            self.backgroundColor = buttonType.isFilled ? ODS.coreOrange : nil
+            self.backgroundColor = buttonType.isFilled ? odsCurrentTheme.colors.bottomNavigationBarContentSelected : nil
         }
         self.buttonType = buttonType
         self.borderColor = borderColor

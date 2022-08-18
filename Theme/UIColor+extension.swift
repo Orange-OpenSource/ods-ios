@@ -21,19 +21,29 @@
 //
 //
 
-import Foundation
-import SwiftUI
+import UIKit
 
-extension View {
-    /// Sets the font for text in this view defined by the __ODSFontStyle__
-    ///
-    /// - Parameter odsStyle: The default ods font style to use in this view.
-    ///
-    /// - Returns: A view with the default font set to the value you supply.
-    ///
-    /// @see font(_ font: Font?) -> some View
-    @inlinable
-    public func odsFont(_ odsStyle: ODSThemeFontStyle) -> some View {
-        font(odsCurrentTheme.font(for: odsStyle))
+public extension UIColor {
+    convenience init?(hex: String) {
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if cString.hasPrefix("#") {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if cString.count > 8 {
+            return nil
+        }
+
+        var rgbValue: UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        let a = CGFloat((rgbValue & 0xFF000000) >> 24) / 255.0
+        let r = CGFloat((rgbValue & 0x00FF0000) >> 16) / 255.0
+        let g = CGFloat((rgbValue & 0x0000FF00) >> 8) / 255.0
+        let b = CGFloat(rgbValue & 0x000000FF) / 255.0
+        
+        self.init(red: r, green: g, blue: b, alpha: a)
     }
 }
+

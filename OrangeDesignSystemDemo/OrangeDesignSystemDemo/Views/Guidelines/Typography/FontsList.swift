@@ -27,7 +27,7 @@ import SwiftUI
 
 struct FontList: View {
 
-    let fontStyles = ODSFontStyle.allCases
+    let fontStyles = ODSThemeFontStyle.allCases
 
     var body: some View {
         ScrollView {
@@ -61,7 +61,7 @@ struct FontList: View {
     }
 }
 
-extension ODSFontStyle {
+extension ODSThemeFontStyle {
     var description: String {
         switch self {
         case .largeTitle:

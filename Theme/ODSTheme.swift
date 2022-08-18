@@ -24,16 +24,43 @@
 import Foundation
 import SwiftUI
 
-extension View {
-    /// Sets the font for text in this view defined by the __ODSFontStyle__
-    ///
-    /// - Parameter odsStyle: The default ods font style to use in this view.
-    ///
-    /// - Returns: A view with the default font set to the value you supply.
-    ///
-    /// @see font(_ font: Font?) -> some View
-    @inlinable
-    public func odsFont(_ odsStyle: ODSThemeFontStyle) -> some View {
-        font(odsCurrentTheme.font(for: odsStyle))
-    }
+/// Defines all styles supported by Orange application for Text elements.
+public enum ODSThemeFontStyle: String, CaseIterable {
+    case largeTitle
+    case title1
+    case title2
+    case title3
+    case headline
+    case bodyRegular
+    case bodyBold
+    case callout
+    case subhead
+    case footnote
+    case caption1Regular
+    case caption1Bold
+    case caption2
+}
+
+public struct ODSThemeColors {
+    public let coreSurface: Color
+    public let coreOnSurface: Color
+    public let systemStatusBarBackground: Color
+    public let systemNavigationBarBackground: Color
+    public let componentBackgroundDisabled: Color
+    public let componentContentDisabled: Color
+    public let topBarBackground: Color
+    public let topBarContent: Color
+    public let bottomNavigationBarBackground: Color
+    public let bottomNavigationBarContent: Color
+    public let bottomNavigationBarContentSelected: Color
+    public let cardBackground: Color
+    public let cardContent: Color
+}
+
+public protocol ODSTheme {
+    var name: String { get }
+    var colors: ODSThemeColors { get }
+    
+    init()
+    func font(for style: ODSThemeFontStyle) -> Font
 }
