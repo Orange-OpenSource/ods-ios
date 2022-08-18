@@ -24,6 +24,7 @@
 import SwiftUI
 import UIKit
 
+// swiftlint:disable force_unwrapping
 public enum PrimezonePalette {
 
     public static let Main1 = Color(UIColor(hex: "#ffDE2554")!)

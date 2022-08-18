@@ -40,10 +40,11 @@ public class ODSThemeLoader {
         if let selectedTheme = UserDefaults.standard.string(forKey: "ODSThemeName") {
             (theme, assetsBundle) = ODSThemeLoader.loadTheme(themeName: selectedTheme)
         } else {
-            let themeName = Bundle.main.infoDictionary?["ODSThemeName"] as? String
-            assert(themeName != nil)
+            guard let themeName = Bundle.main.infoDictionary?["ODSThemeName"] as? String else {
+                fatalError("No Theme name found in Info.plist")
+            }
 
-            (theme, assetsBundle) = ODSThemeLoader.loadTheme(themeName: themeName!)
+            (theme, assetsBundle) = ODSThemeLoader.loadTheme(themeName: themeName)
         }
     }
 

@@ -23,6 +23,7 @@
 		07C8235528AE68B2003B2C3A /* NavigationBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234928AE68B2003B2C3A /* NavigationBarPage.swift */; };
 		07C8235628AE68B2003B2C3A /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234A28AE68B2003B2C3A /* CardPage.swift */; };
 		07C8235928AE690F003B2C3A /* ComponentTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8235828AE690F003B2C3A /* ComponentTemplate.swift */; };
+		07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */; };
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F90D9768280030A6006D29FC /* FontsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* FontsList.swift */; };
@@ -91,6 +92,7 @@
 		07C8234928AE68B2003B2C3A /* NavigationBarPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarPage.swift; sourceTree = "<group>"; };
 		07C8234A28AE68B2003B2C3A /* CardPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPage.swift; sourceTree = "<group>"; };
 		07C8235828AE690F003B2C3A /* ComponentTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentTemplate.swift; sourceTree = "<group>"; };
+		07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B655A0B148F11BB69BCFF556 /* Pods-OrangeDesignSystemDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +226,15 @@
 			);
 			name = Template;
 			path = OrangeDesignSystemDemo/Views/Components/Template;
+			sourceTree = "<group>";
+		};
+		07C8236628AE823F003B2C3A /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */,
+			);
+			name = Themes;
+			path = OrangeDesignSystemDemo/Themes;
 			sourceTree = "<group>";
 		};
 		174EE48FFD62B367205CFF78 /* Frameworks */ = {
@@ -374,6 +385,7 @@
 		F99FF07C2767AF39006236A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				07C8236628AE823F003B2C3A /* Themes */,
 				F90D976B280030C4006D29FC /* MainTabView.swift */,
 				F90D9762280030A6006D29FC /* Guidelines */,
 				F99FF07B2767AF2B006236A0 /* Components */,
@@ -684,6 +696,7 @@
 				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
 				07C8234F28AE68B2003B2C3A /* TextSelectionPage.swift in Sources */,
 				071D3EF128884D8200DFD1C9 /* SpacingList.swift in Sources */,
+				07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */,
 				07C8235028AE68B2003B2C3A /* ChipsPage.swift in Sources */,
 				07C8235128AE68B2003B2C3A /* TextButtonPage.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
