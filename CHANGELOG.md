@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp/SDK] #199 Refactor sources
 - [DemoApp] Bug #103 bad name for card collection in module page
 - [DemoApp] #57 Add Navigation Bar component
 - [DemoApp] Bug #138 Cards - outline button update
@@ -10,7 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] #123 Use Chip component in card demo page instead of native ios switches
 - [DemoApp/SDK] #158 Use ODS spacings in demo app and SDK components
 - [DemoApp/SDK] #157 Use the ODS font on the demo app and SDK components  
-- [SDK] #159 Define ODS spacings 
+- [SDK] #159 Define ODS spacings
 
 ## [0.4.1] - 2022-07-19
 
