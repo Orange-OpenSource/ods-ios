@@ -25,4 +25,9 @@ let package = Package(
             name: "OrangeDesignSystem",
             dependencies: [],
             path: "OrangeDesignSystem/Sources"),
+        
+        .testTarget(
+            name: "OrangeDesignSystemTests",
+            dependencies: ["OrangeDesignSystem"],
+            path: "OrangeDesignSystem/Tests"),
     ])
