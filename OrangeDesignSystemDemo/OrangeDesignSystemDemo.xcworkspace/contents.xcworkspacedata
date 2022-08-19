@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:..">
+   </FileRef>
+   <FileRef
+      location = "group:../../MyOdsTheme">
+   </FileRef>
+   <FileRef
       location = "group:OrangeDesignSystemDemo.xcodeproj">
    </FileRef>
    <FileRef

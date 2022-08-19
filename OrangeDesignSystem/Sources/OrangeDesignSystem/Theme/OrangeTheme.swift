@@ -23,6 +23,7 @@
 
 import SwiftUI
 
+// swiftlint:disable force_unwrapping
 public enum OrangePalette {
 
     public static let Main1 = Color(UIColor(hex: "#ffDE2554")!)
@@ -91,7 +92,7 @@ public class OrangeTheme: ODSTheme {
                                 systemNavigationBarBackground: coreSurface,
                                 componentBackgroundDisabled: OrangePalette.Black900.opacity(0.12),
                                 componentContentDisabled: OrangePalette.Black900.opacity(0.38),
-                                topBarBackground: coreSurface,
+                                topBarBackground: ODSColor.primaryBackground.color,
                                 topBarContent: coreSurface,
                                 bottomNavigationBarBackground: coreSurface,
                                 bottomNavigationBarContent: coreSurface,

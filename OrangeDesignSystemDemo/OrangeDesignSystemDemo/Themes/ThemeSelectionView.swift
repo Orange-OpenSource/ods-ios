@@ -22,6 +22,7 @@
 //
 
 import Combine
+import MyOdsTheme
 import OrangeDesignSystem
 import SwiftUI
 
@@ -58,9 +59,13 @@ struct ThemeSelectionInner: View {
     @ObservedObject var model: ThemeSelectionModel
 
     var themes: [ODSChip<String>] {
-        ODSCustomThemes.allCases.map { theme in
+        var chips = ODSCustomThemes.allCases.map { theme in
             ODSChip(theme.rawValue, text: theme.rawValue)
         }
+
+        chips.append(ODSChip("MyOds", text: "MyOds"))
+
+        return chips
     }
 
     var body: some View {

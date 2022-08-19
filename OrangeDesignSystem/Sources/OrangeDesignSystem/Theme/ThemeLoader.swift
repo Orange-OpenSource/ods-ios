@@ -21,6 +21,8 @@
 //
 //
 
+import Foundation
+
 public enum ODSCustomThemes: String, CaseIterable {
     case Orange
     case Primezone
@@ -55,15 +57,11 @@ public class ODSThemeLoader {
         case ODSCustomThemes.Primezone.rawValue:
             return (PrimezoneTheme(), Bundle.ods)
         default:
-            let path = "\(themeName)Theme.framework/\(themeName)Theme"
-
-            if let result = dlopen(path, RTLD_LOCAL),
-               let themeClass = NSClassFromString("\(themeName)Theme.\(themeName)Theme"),
+            if let themeClass = NSClassFromString("\(themeName)Theme.\(themeName)Theme"),
                let currentThemeClass = themeClass as? ODSTheme.Type
             {
                 let assetsBundle = Bundle(for: themeClass)
                 let currentTheme = currentThemeClass.init()
-                dlclose(result)
                 return (currentTheme, assetsBundle)
             } else {
                 fatalError("No thme found with name: \(themeName)")

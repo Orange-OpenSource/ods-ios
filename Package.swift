@@ -30,4 +30,5 @@ let package = Package(
             name: "OrangeDesignSystemTests",
             dependencies: ["OrangeDesignSystem"],
             path: "OrangeDesignSystem/Tests"),
-    ])
+    ]
+)

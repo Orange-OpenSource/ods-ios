@@ -51,8 +51,10 @@ struct MainTabView: View {
 //                    Label("Search", image: "Search_32")
 //                }
         }
-        .navigationBarColor(tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
-                            backgroundColor: ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground)
+        .navigationBarColor(
+            tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
+            backgroundColor: UIColor(odsCurrentTheme.colors.topBarBackground))
+        /* ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground) */
         .tabBarStyle(backgroundColor: ODSColor.componentBackground.color, itemColor: Color.primary)
     }
 }

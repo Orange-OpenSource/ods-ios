@@ -42,6 +42,35 @@ public enum ODSThemeFontStyle: String, CaseIterable {
 }
 
 public struct ODSThemeColors {
+    public init(coreSurface: Color,
+                coreOnSurface: Color,
+                systemStatusBarBackground: Color,
+                systemNavigationBarBackground: Color,
+                componentBackgroundDisabled: Color,
+                componentContentDisabled: Color,
+                topBarBackground: Color,
+                topBarContent: Color,
+                bottomNavigationBarBackground: Color,
+                bottomNavigationBarContent: Color,
+                bottomNavigationBarContentSelected: Color,
+                cardBackground: Color,
+                cardContent: Color)
+    {
+        self.coreSurface = coreSurface
+        self.coreOnSurface = coreOnSurface
+        self.systemStatusBarBackground = systemStatusBarBackground
+        self.systemNavigationBarBackground = systemNavigationBarBackground
+        self.componentBackgroundDisabled = componentBackgroundDisabled
+        self.componentContentDisabled = componentContentDisabled
+        self.topBarBackground = topBarBackground
+        self.topBarContent = topBarContent
+        self.bottomNavigationBarBackground = bottomNavigationBarBackground
+        self.bottomNavigationBarContent = bottomNavigationBarContent
+        self.bottomNavigationBarContentSelected = bottomNavigationBarContentSelected
+        self.cardBackground = cardBackground
+        self.cardContent = cardContent
+    }
+
     public let coreSurface: Color
     public let coreOnSurface: Color
     public let systemStatusBarBackground: Color

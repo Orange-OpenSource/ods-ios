@@ -44,7 +44,8 @@ struct GuidelinesList: View {
         return NavigationView {
             ODSListCardView()
                 .environmentObject(listModel)
-                .background(ODSColor.primaryBackground.color)
+//                .background(ODSColor.primaryBackground.color)
+                .background(odsCurrentTheme.colors.bottomNavigationBarBackground)
         }
     }
 }

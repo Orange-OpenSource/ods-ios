@@ -10,6 +10,7 @@
 		071D3EF128884D8200DFD1C9 /* SpacingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D3EF028884D8200DFD1C9 /* SpacingList.swift */; };
 		07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C53287C7470004397D7 /* ODSColors+extension.swift */; };
 		07973C56287C74CF004397D7 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C55287C74CF004397D7 /* RGB.swift */; };
+		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
 		07C8234B28AE68B2003B2C3A /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8233F28AE68B2003B2C3A /* BottomSheet.swift */; };
 		07C8234C28AE68B2003B2C3A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234028AE68B2003B2C3A /* List.swift */; };
 		07C8234D28AE68B2003B2C3A /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234128AE68B2003B2C3A /* ListPage.swift */; };
@@ -24,7 +25,8 @@
 		07C8235628AE68B2003B2C3A /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234A28AE68B2003B2C3A /* CardPage.swift */; };
 		07C8235928AE690F003B2C3A /* ComponentTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8235828AE690F003B2C3A /* ComponentTemplate.swift */; };
 		07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */; };
-		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
+		07E0A1B728AE8D2500CD1C32 /* MyOdsTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B628AE8D2500CD1C32 /* MyOdsTheme */; };
+		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F90D9768280030A6006D29FC /* FontsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* FontsList.swift */; };
 		F90D976A280030B8006D29FC /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9769280030B8006D29FC /* Component.swift */; };
@@ -79,6 +81,7 @@
 		071D3EF028884D8200DFD1C9 /* SpacingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingList.swift; sourceTree = "<group>"; };
 		07973C53287C7470004397D7 /* ODSColors+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ODSColors+extension.swift"; sourceTree = "<group>"; };
 		07973C55287C74CF004397D7 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C8233F28AE68B2003B2C3A /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		07C8234028AE68B2003B2C3A /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		07C8234128AE68B2003B2C3A /* ListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
@@ -144,7 +147,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */,
+				07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */,
+				07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */,
+				07E0A1B728AE8D2500CD1C32 /* MyOdsTheme in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +245,7 @@
 		174EE48FFD62B367205CFF78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */,
 				759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */,
 				E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */,
 			);
@@ -460,6 +466,10 @@
 			dependencies = (
 			);
 			name = OrangeDesignSystemDemo;
+			packageProductDependencies = (
+				07E0A1B628AE8D2500CD1C32 /* MyOdsTheme */,
+				07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */,
+			);
 			productName = "ods-ios-swiftUI-demo";
 			productReference = EB0AA530275652AE0012E192 /* OrangeDesignSystemDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -1080,6 +1090,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07E0A1B628AE8D2500CD1C32 /* MyOdsTheme */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyOdsTheme;
+		};
+		07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OrangeDesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB0AA528275652AE0012E192 /* Project object */;
 }
