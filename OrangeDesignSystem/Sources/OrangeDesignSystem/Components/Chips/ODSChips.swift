@@ -72,7 +72,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         }
     }
 
-    /// Creates a picker that manage a single selection with zero selection allwed..
+    /// Creates a picker manages a single selection that allows no element to be selected.
     ///
     /// - Parameters:
     ///     - title: Optional title above the picker
@@ -89,7 +89,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         multipleSelection = nil
     }
 
-    /// Creates a picker that manage a single selection.
+    /// Creates a picker manages a single selection that avoid to get no element selected (at least one).
     ///
     /// - Parameters:
     ///     - title: Optional title above the picker
@@ -106,13 +106,13 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         multipleSelection = nil
     }
 
-    /// Creates a picker that manage a multiple selection.
+    /// Creates a picker manages multiple selections.
     ///
     /// - Parameters:
     ///     - title: Optional title above the picker
     ///     - selection: A binding to a property that determines the
     ///       currently-selected option.
-    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
+    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected.
     ///     - chips: All chips describing elements to be displayed.
     ///
     public init(title: String? = nil, selection: Binding<[Value]>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
