@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #181 Update Slider Voice Over Accessibility  
 - [DemoApp/SDK] #199 Refactor sources
 - [DemoApp] Bug #103 bad name for card collection in module page
 - [DemoApp] #57 Add Navigation Bar component
