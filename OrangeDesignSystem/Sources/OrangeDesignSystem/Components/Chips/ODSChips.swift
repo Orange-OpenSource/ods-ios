@@ -72,50 +72,67 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
         }
     }
 
-    /// Creates a picker that manage a single selection.
+    /// Creates a picker manages a single selection that allows no element to be selected.
     ///
     /// - Parameters:
     ///     - title: Optional title above the picker
     ///     - selection: A binding to a property that determines the
     ///       currently-selected option.
-    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
     ///     - chips: All chips describing elements to be displayed.
     ///
-    public init(title: String? = nil, selection: Binding<Value?>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
+    public init(title: String? = nil, selection: Binding<Value?>, chips: [ODSChipModel]) {
         self.title = title
         self.chips = chips
-        self.allowZeroSelection = allowZeroSelection
 
-        singleSelection = selection
+        singleSelectionZero = selection
+        singleSelectionOne = nil
         multipleSelection = nil
     }
 
-    /// Creates a picker that manage a multiple selection.
+    /// Creates a picker manages a single selection that avoid to get no element selected (at least one).
     ///
     /// - Parameters:
     ///     - title: Optional title above the picker
     ///     - selection: A binding to a property that determines the
     ///       currently-selected option.
-    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected
+    ///     - chips: All chips describing elements to be displayed.
+    ///
+    public init(title: String? = nil, selection: Binding<Value>, chips: [ODSChipModel]) {
+        self.title = title
+        self.chips = chips
+
+        singleSelectionZero = nil
+        singleSelectionOne = selection
+        multipleSelection = nil
+    }
+
+    /// Creates a picker manages multiple selections.
+    ///
+    /// - Parameters:
+    ///     - title: Optional title above the picker
+    ///     - selection: A binding to a property that determines the
+    ///       currently-selected option.
+    ///     - allowZeroSelection: If set to true mens that no chip can be selected, otherwise almost one chip is always selected.
     ///     - chips: All chips describing elements to be displayed.
     ///
     public init(title: String? = nil, selection: Binding<[Value]>, allowZeroSelection: Bool = false, chips: [ODSChipModel]) {
         self.title = title
         self.chips = chips
-        self.allowZeroSelection = allowZeroSelection
 
-        singleSelection = nil
-        multipleSelection = selection
+        singleSelectionOne = nil
+        singleSelectionZero = nil
+        multipleSelection = (selection, allowZeroSelection)
     }
 
-    typealias SingleSelection = Binding<Value?>
-    typealias MultipleSelection = Binding<[Value]>
+    typealias SingleSelectionZero = Binding<Value?>
+    typealias SingleSelectionOne = Binding<Value>
+    typealias MultipleSelection = (Binding<[Value]>, Bool)
 
     let title: String?
     let chips: [ODSChipModel]
-    let singleSelection: SingleSelection?
+    let singleSelectionZero: SingleSelectionZero?
+    let singleSelectionOne: SingleSelectionOne?
     let multipleSelection: MultipleSelection?
-    let allowZeroSelection: Bool
 
     @State var textHeight: CGFloat = 30.0
 
@@ -189,44 +206,57 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     func isSelected(_ chip: ODSChipModel) -> Bool {
 
-        if let singleSelection = singleSelection {
-            return chip.value == singleSelection.wrappedValue
+        if let singleSelectionZero = singleSelectionZero {
+            return chip.value == singleSelectionZero.wrappedValue
+        }
+
+        if let singleSelectionOne = singleSelectionOne {
+            return chip.value == singleSelectionOne.wrappedValue
         }
 
         if let multipleSelection = multipleSelection {
-            return multipleSelection.wrappedValue.contains(where: { chip.value == $0 })
+            return multipleSelection.0.wrappedValue.contains(where: { chip.value == $0 })
         }
 
         return false
     }
 
     func handleSelection(for chip: ODSChipModel) {
-        if let singleSelection = singleSelection {
-            handle(singleSelection, for: chip)
+        if let singleSelectionZero = singleSelectionZero {
+            handle(singleSelectionZero, for: chip)
         } else {
-            if let multipleSelection = multipleSelection {
-                handle(multipleSelection, for: chip)
+            if let singleSelectionOne = singleSelectionOne {
+                handle(singleSelectionOne, for: chip)
+            } else {
+                if let multipleSelection = multipleSelection {
+                    handle(multipleSelection, for: chip)
+                }
             }
         }
     }
 
-    func handle(_ singleSelection: SingleSelection, for chip: ODSChipModel) {
+    func handle(_ singleSelection: SingleSelectionZero, for chip: ODSChipModel) {
         if singleSelection.wrappedValue == chip.value {
-            if allowZeroSelection {
-                singleSelection.wrappedValue = nil
-            }
+            singleSelection.wrappedValue = nil
+        } else {
+            singleSelection.wrappedValue = chip.value
+        }
+    }
+
+    func handle(_ singleSelection: SingleSelectionOne, for chip: ODSChipModel) {
+        if singleSelection.wrappedValue == chip.value {
         } else {
             singleSelection.wrappedValue = chip.value
         }
     }
 
     func handle(_ multipleSelection: MultipleSelection, for chip: ODSChipModel) {
-        if let index = multipleSelection.wrappedValue.firstIndex(where: { $0 == chip.value }) {
-            if multipleSelection.count != 1 || allowZeroSelection {
-                multipleSelection.wrappedValue.remove(at: index)
+        if let index = multipleSelection.0.wrappedValue.firstIndex(where: { $0 == chip.value }) {
+            if multipleSelection.0.count != 1 || multipleSelection.1 {
+                multipleSelection.0.wrappedValue.remove(at: index)
             }
         } else {
-            multipleSelection.wrappedValue.append(chip.value)
+            multipleSelection.0.wrappedValue.append(chip.value)
         }
     }
 }
@@ -325,21 +355,47 @@ struct ODSChips_Previews: PreviewProvider {
     }
 
     struct ODSChipPickerTest: View {
-        @State var selectedChip: ChipsTest?
-        @State var selectedChips: [ChipsTest] = []
-        let allowZeroSelection = true
 
-        let chips = ChipsTest.allCases.map { $0.odsChip }
+        @State var selectedOneChip: ChipsTest
+        @State var selectedZeroChip: ChipsTest?
+        @State var selectedMultipleChipsZero: [ChipsTest] = []
+        @State var selectedMultipleChipsOne: [ChipsTest] = []
+
+        let chips: [ODSChip<ChipsTest>]
+
+        init(chipsTest: [ChipsTest], defaultSelectedChip: ChipsTest) {
+            chips = chipsTest.map { $0.odsChip }
+            selectedOneChip = defaultSelectedChip
+            selectedMultipleChipsOne = [defaultSelectedChip]
+        }
+
+        var selectedMultipleChipsZeroText: String {
+            let text = selectedMultipleChipsZero.reduce(into: "") { result, chip in
+                result = "\(result)\(chip.odsChip.text),"
+            }
+
+            if text.isEmpty {
+                return "No Chip selected"
+            }
+
+            return text
+        }
+
+        var selectedMultipleChipsOneText: String {
+            return selectedMultipleChipsOne.reduce(into: "") { result, chip in
+                result = "\(result)\(chip.odsChip.text),"
+            }
+        }
 
         var body: some View {
             VStack {
                 VStack(spacing: ODSSpacing.s) {
                     VStack(spacing: ODSSpacing.s) {
-                        ODSChipPicker(title: "Single selection",
-                                      selection: $selectedChip,
-                                      allowZeroSelection: allowZeroSelection,
+                        ODSChipPicker(title: "Single selection with zero allowed",
+                                      selection: $selectedZeroChip,
                                       chips: chips)
-                        Text("selected Chip : \(selectedChip?.odsChip.text ?? "")")
+                        Text("Selected Chip : \(selectedZeroChip?.odsChip.text ?? "None")")
+                            .padding(.horizontal, ODSSpacing.m)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.horizontal, ODSSpacing.none)
@@ -347,14 +403,40 @@ struct ODSChips_Previews: PreviewProvider {
                     .background(ODSColor.supportingGreen100.color)
 
                     VStack(spacing: ODSSpacing.s) {
-                        ODSChipPicker(title: "Multiple selection",
-                                      selection: $selectedChips,
-                                      allowZeroSelection: allowZeroSelection,
+                        ODSChipPicker(title: "Single selection with at least one",
+                                      selection: $selectedOneChip,
+                                      chips: chips)
+                        Text("Selected Chip : \(selectedOneChip.odsChip.text)")
+                            .padding(.horizontal, ODSSpacing.m)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .padding(.horizontal, ODSSpacing.none)
+                    .padding(.bottom, ODSSpacing.l)
+                    .background(ODSColor.supportingGreen100.color)
+
+                    VStack(spacing: ODSSpacing.s) {
+                        ODSChipPicker(title: "Multiple selection with zero allowed",
+                                      selection: $selectedMultipleChipsZero,
+                                      allowZeroSelection: true,
                                       chips: chips)
 
-                        Text("Selected Chip : \(self.selectedChipsText)")
+                        Text("Selected Chip : \(self.selectedMultipleChipsZeroText)")
+                            .padding(.horizontal, ODSSpacing.m)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.trailing, ODSSpacing.m)
+                    }
+                    .padding(.horizontal, ODSSpacing.none)
+                    .padding(.bottom, ODSSpacing.l)
+                    .background(ODSColor.supportingGreen100.color)
+
+                    VStack(spacing: ODSSpacing.s) {
+                        ODSChipPicker(title: "Multiple selection with at least one",
+                                      selection: $selectedMultipleChipsOne,
+                                      allowZeroSelection: false,
+                                      chips: chips)
+
+                        Text("Selected Chip : \(self.selectedMultipleChipsOneText)")
+                            .padding(.horizontal, ODSSpacing.m)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
@@ -362,16 +444,11 @@ struct ODSChips_Previews: PreviewProvider {
                 }
             }
         }
-
-        var selectedChipsText: String {
-            return selectedChips.reduce(into: "") { result, chip in
-                result = "\(result), \(chip.odsChip.text)"
-            }
-        }
     }
 
     static var previews: some View {
-        ODSChipPickerTest()
+        ODSChipPickerTest(chipsTest: ChipsTest.allCases,
+                          defaultSelectedChip: ChipsTest.title1)
     }
 }
 #endif
