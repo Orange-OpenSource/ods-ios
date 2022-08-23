@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #160 Update the Text Field page
 - [DemoApp] #181 Update Slider Voice Over Accessibility  
 - [DemoApp/SDK] #198 Update ODSChipPicker API to seperate zero or one element in the single selection 
 - [DemoApp/SDK] #199 Refactor sources
