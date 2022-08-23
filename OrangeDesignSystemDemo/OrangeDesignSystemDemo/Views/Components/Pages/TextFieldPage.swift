@@ -42,7 +42,7 @@ struct TextFieldPage: View {
                 VariantTextAutocapitalization(style: .words)
                 VariantTextAutocapitalization(style: .sentences)
             }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
         .background(ODSColor.primaryBackground.color)
     }

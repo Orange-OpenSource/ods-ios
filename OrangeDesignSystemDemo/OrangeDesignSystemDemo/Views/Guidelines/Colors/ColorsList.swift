@@ -114,6 +114,7 @@ struct ColorList: View {
                 .padding(.horizontal, ODSSpacing.m)
             }
             .background(screenState.colorScheme == .light ? Color.white : Color.black)
+            .padding(.bottom, ODSSpacing.m)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
