@@ -14,7 +14,7 @@
 		07C8234C28AE68B2003B2C3A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234028AE68B2003B2C3A /* List.swift */; };
 		07C8234D28AE68B2003B2C3A /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234128AE68B2003B2C3A /* ListPage.swift */; };
 		07C8234E28AE68B2003B2C3A /* SliderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234228AE68B2003B2C3A /* SliderPage.swift */; };
-		07C8234F28AE68B2003B2C3A /* TextSelectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234328AE68B2003B2C3A /* TextSelectionPage.swift */; };
+		07C8234F28AE68B2003B2C3A /* TextFieldPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234328AE68B2003B2C3A /* TextFieldPage.swift */; };
 		07C8235028AE68B2003B2C3A /* ChipsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234428AE68B2003B2C3A /* ChipsPage.swift */; };
 		07C8235128AE68B2003B2C3A /* TextButtonPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234528AE68B2003B2C3A /* TextButtonPage.swift */; };
 		07C8235228AE68B2003B2C3A /* ProgressIndicatorPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234628AE68B2003B2C3A /* ProgressIndicatorPage.swift */; };
@@ -82,7 +82,7 @@
 		07C8234028AE68B2003B2C3A /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		07C8234128AE68B2003B2C3A /* ListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
 		07C8234228AE68B2003B2C3A /* SliderPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderPage.swift; sourceTree = "<group>"; };
-		07C8234328AE68B2003B2C3A /* TextSelectionPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionPage.swift; sourceTree = "<group>"; };
+		07C8234328AE68B2003B2C3A /* TextFieldPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldPage.swift; sourceTree = "<group>"; };
 		07C8234428AE68B2003B2C3A /* ChipsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipsPage.swift; sourceTree = "<group>"; };
 		07C8234528AE68B2003B2C3A /* TextButtonPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextButtonPage.swift; sourceTree = "<group>"; };
 		07C8234628AE68B2003B2C3A /* ProgressIndicatorPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorPage.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			children = (
 				07C8233E28AE68B2003B2C3A /* Lists */,
 				07C8234228AE68B2003B2C3A /* SliderPage.swift */,
-				07C8234328AE68B2003B2C3A /* TextSelectionPage.swift */,
+				07C8234328AE68B2003B2C3A /* TextFieldPage.swift */,
 				07C8234428AE68B2003B2C3A /* ChipsPage.swift */,
 				07C8234528AE68B2003B2C3A /* TextButtonPage.swift */,
 				07C8234628AE68B2003B2C3A /* ProgressIndicatorPage.swift */,
@@ -682,7 +682,7 @@
 				F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */,
 				F90D9768280030A6006D29FC /* FontsList.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
-				07C8234F28AE68B2003B2C3A /* TextSelectionPage.swift in Sources */,
+				07C8234F28AE68B2003B2C3A /* TextFieldPage.swift in Sources */,
 				071D3EF128884D8200DFD1C9 /* SpacingList.swift in Sources */,
 				07C8235028AE68B2003B2C3A /* ChipsPage.swift in Sources */,
 				07C8235128AE68B2003B2C3A /* TextButtonPage.swift in Sources */,

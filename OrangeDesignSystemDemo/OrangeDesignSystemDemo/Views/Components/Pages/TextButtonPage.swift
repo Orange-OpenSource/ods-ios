@@ -39,7 +39,7 @@ struct TextButtonPage: View {
                 IconButton(name: "Icon (info)", imageName: "info.circle")
                 LabelButton().padding(.bottom, ODSSpacing.s)
             }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
         .background(ODSColor.primaryBackground.color)
     }
