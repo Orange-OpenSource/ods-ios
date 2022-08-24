@@ -3,7 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-- [DemoApp] Bug #67 Update color descrition for Dynamic font accessibilty (do not truncate text)  
+- [DemoApp] Bug #67 Update color description for Dynamic font accessibility (do not truncate text)
 - [DemoApp] #160 Update the Text Field page
 - [DemoApp] #181 Update Slider Voice Over Accessibility  
 - [DemoApp/SDK] #198 Update ODSChipPicker API to seperate zero or one element in the single selection 
