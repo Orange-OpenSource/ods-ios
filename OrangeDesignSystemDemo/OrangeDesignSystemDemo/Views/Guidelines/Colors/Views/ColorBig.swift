@@ -33,6 +33,10 @@ struct ColorBig: View {
 
     var bordered: Bool
 
+    var colorName: String {
+        color.displayName(forScheme: screenState.colorScheme)
+    }
+
     var body: some View {
 
         let tap = TapGesture().onEnded { _ in showingModal.toggle() }
@@ -48,7 +52,7 @@ struct ColorBig: View {
                     .fill(color.color)
                     .aspectRatio(1.0, contentMode: .fit)
             }
-            Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(.headline)
+            Text(colorName).odsFont(.headline)
             Text(color.rawValue).font(.system(.caption, design: .monospaced))
             Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(.caption1Regular)
             Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
@@ -56,6 +60,10 @@ struct ColorBig: View {
         .background(Color(uiColor: UIColor.systemBackground))
         .colorScheme(screenState.colorScheme)
         .gesture(tap)
+        .accessibilityElement()
+        .accessibilityLabel("The is the \(colorName) color")
+        .accessibilityHint("Tap twice to get more information")
+        .accessibilityAddTraits(.isButton)
         .fullScreenCover(isPresented: $showingModal) { ColorDetail(color: self.color) }
     }
 }
