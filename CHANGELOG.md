@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Bug #70 Voice over, set the name of a group of colors as a section header   
 - [SDK] Bug #76 Allow multiline on labels on the about screen
 - [DemoApp] #160 Update the Text Field page
 - [DemoApp] #181 Update Slider Voice Over Accessibility  

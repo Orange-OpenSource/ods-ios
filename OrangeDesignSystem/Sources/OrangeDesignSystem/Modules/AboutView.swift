@@ -182,15 +182,15 @@ private struct ApplicationDescriptionView: View {
             Text(applicationDescription.applicationName)
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
-            
+
             Text("Version \(applicationDescription.applicationVersion)")
                 .fixedSize(horizontal: false, vertical: true)
-            
+
             if let buildNumber = applicationDescription.applicationBuildNumber {
                 Text("Build \(buildNumber)")
                     .fixedSize(horizontal: false, vertical: true)
             }
-            
+
             if let buildType = applicationDescription.applicationBuildType {
                 Text(buildType)
                     .fixedSize(horizontal: false, vertical: true)
