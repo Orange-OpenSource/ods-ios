@@ -64,6 +64,58 @@ public struct ODSCardView: View {
     }
 }
 
+public struct ODSCardTextFirst<Media>: View where Media: View {
+
+    private var media: () -> Media
+    let title: String
+    let subtitle: String?
+    let description: String?
+
+    public var body: some View {
+        VStack(alignment: .leading, spacing: ODSSpacing.none) {
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                Text(title)
+                    .odsFont(.bodyBold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                if let subtitle = subtitle, !subtitle.isEmpty {
+                    Text(subtitle)
+                }
+            }
+            .foregroundColor(.primary)
+            .padding(.vertical, ODSSpacing.m)
+            .padding(.horizontal, ODSSpacing.m)
+            .layoutPriority(100)
+            .odsFont(.bodyRegular)
+
+            media()
+
+            if let description = description, !description.isEmpty {
+                Text(description)
+                    .padding(.top, ODSSpacing.xs)
+                    .padding(.bottom, ODSSpacing.m)
+                    .padding(.horizontal, ODSSpacing.m)
+            }
+        }
+        .background(ODSColor.componentBackground2.color)
+        .cornerRadius(10)
+        .shadow(radius: 8)
+        .padding()
+
+    }
+
+    public init(title: String,
+                subtitle: String? = nil,
+                description: String? = nil,
+                @ViewBuilder media: @escaping () -> Media)
+    {
+        self.media = media
+        self.title = title
+        self.subtitle = subtitle
+        self.description = description
+    }
+}
+
 public struct ODSCardImageFirst<ButtonContent>: View where ButtonContent: View {
     public var element: ODSCardModel
 
@@ -87,8 +139,6 @@ public struct ODSCardImageFirst<ButtonContent>: View where ButtonContent: View {
 struct CardInnerView<ButtonContent>: View where ButtonContent: View {
     let element: ODSCardModel
     @ViewBuilder var buttonContent: () -> ButtonContent
-
-    @State private var translation = CGSize.zero
 
     var body: some View {
 
@@ -125,6 +175,14 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
 #if DEBUG
 struct CardView_Previews: PreviewProvider {
 
+    struct Media: View {
+        var body: some View {
+            Image("ods_empty", bundle: Bundle.ods)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        }
+    }
+
     static var previews: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
@@ -135,6 +193,12 @@ struct CardView_Previews: PreviewProvider {
                     .buttonStyle(ODSFilledButtonStyle())
                 }
                 .padding()
+
+                ODSCardTextFirst(title: ODSCardModel.example.title,
+                                 subtitle: ODSCardModel.example.subTitle,
+                                 description: ODSCardModel.example.description,
+                                 media: { Media() })
+
                 ODSCardView(element: ODSCardModel.example).padding()
             }
         }
