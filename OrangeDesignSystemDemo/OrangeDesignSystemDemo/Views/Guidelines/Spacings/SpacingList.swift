@@ -93,7 +93,7 @@ struct SpacingList: View {
                 }
                 .padding(.horizontal, ODSSpacing.m)
             }
-            .padding(.bottom, ODSSpacing.xs)
+            .padding(.bottom, ODSSpacing.m)
         }
         .navigationTitle("Spacings")
         .navigationViewStyle(.stack)

@@ -98,17 +98,14 @@ struct ListBottomSheetContent: View {
         VStack(spacing: ODSSpacing.m) {
             ODSChipPicker(title: "Second line of text",
                           selection: $listPageModel.selectedSecondLineOfTextChip,
-                          allowZeroSelection: true,
                           chips: listPageModel.secondLineOfTextChips)
 
             ODSChipPicker(title: "Leading",
                           selection: $listPageModel.selectedLeadingImageChip,
-                          allowZeroSelection: true,
                           chips: listPageModel.leadingImageChips)
 
             ODSChipPicker(title: "Trailing",
                           selection: $listPageModel.selectedTrailingImageChip,
-                          allowZeroSelection: true,
                           chips: listPageModel.trailingImageChips)
         }
         .padding(.vertical, ODSSpacing.s)
