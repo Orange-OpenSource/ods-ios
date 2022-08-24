@@ -179,16 +179,25 @@ private struct ApplicationDescriptionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(applicationDescription.applicationName).odsFont(.largeTitle)
+            Text(applicationDescription.applicationName)
+                .odsFont(.largeTitle)
+                .fixedSize(horizontal: false, vertical: true)
+            
             Text("Version \(applicationDescription.applicationVersion)")
+                .fixedSize(horizontal: false, vertical: true)
+            
             if let buildNumber = applicationDescription.applicationBuildNumber {
                 Text("Build \(buildNumber)")
+                    .fixedSize(horizontal: false, vertical: true)
             }
+            
             if let buildType = applicationDescription.applicationBuildType {
                 Text(buildType)
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
             Text(applicationDescription.copyrightNotice)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
