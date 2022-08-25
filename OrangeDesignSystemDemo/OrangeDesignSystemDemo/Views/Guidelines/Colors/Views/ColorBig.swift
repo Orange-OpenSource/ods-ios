@@ -48,10 +48,22 @@ struct ColorBig: View {
                     .fill(color.color)
                     .aspectRatio(1.0, contentMode: .fit)
             }
-            Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(.headline)
-            Text(color.rawValue).font(.system(.caption, design: .monospaced))
-            Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(.caption1Regular)
-            Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
+
+            Text(color.displayName(forScheme: screenState.colorScheme))
+                .odsFont(.headline)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(color.rawValue)
+                .font(.system(.caption, design: .monospaced))
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(color.rgb(forScheme: screenState.colorScheme).toString())
+                .odsFont(.caption1Regular)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(color.hexa(forScheme: screenState.colorScheme))
+                .odsFont(.caption1Regular)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .background(Color(uiColor: UIColor.systemBackground))
         .colorScheme(screenState.colorScheme)
