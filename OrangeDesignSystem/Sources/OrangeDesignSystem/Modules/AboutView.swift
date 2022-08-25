@@ -41,6 +41,7 @@ public struct AboutView: View {
                 applicationDescription.imageHeader
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .accessibilityHidden(true)
 
                 ApplicationDescriptionView()
                     .padding(.all, ODSSpacing.m)
