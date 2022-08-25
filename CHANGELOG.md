@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Bug #71 Update Voice over for Color screen to group elements 
 - [SDK] Bug #76 Allow multiline on labels on the about screen
 - [DemoApp] Bug #70 Voice Over: Add header section for the name ot a group of colors
 - [DemoApp] Bug #67 Update color description for Dynamic font accessibility (do not truncate text)

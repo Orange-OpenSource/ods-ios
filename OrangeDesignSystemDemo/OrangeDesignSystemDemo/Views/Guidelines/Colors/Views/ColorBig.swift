@@ -33,6 +33,10 @@ struct ColorBig: View {
 
     var bordered: Bool
 
+    var colorName: String {
+        color.displayName(forScheme: screenState.colorScheme)
+    }
+
     var body: some View {
 
         let tap = TapGesture().onEnded { _ in showingModal.toggle() }
@@ -68,6 +72,10 @@ struct ColorBig: View {
         .background(Color(uiColor: UIColor.systemBackground))
         .colorScheme(screenState.colorScheme)
         .gesture(tap)
+        .accessibilityElement()
+        .accessibilityLabel("The is the \(colorName) color")
+        .accessibilityHint("Tap twice to get more information")
+        .accessibilityAddTraits(.isButton)
         .fullScreenCover(isPresented: $showingModal) { ColorDetail(color: self.color) }
     }
 }
