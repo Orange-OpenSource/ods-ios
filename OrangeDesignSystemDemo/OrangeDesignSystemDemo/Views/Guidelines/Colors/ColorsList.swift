@@ -138,7 +138,6 @@ struct SectionTitle: View {
             .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-            .accessibilityAddTraits(.isHeader)
     }
 }
 
