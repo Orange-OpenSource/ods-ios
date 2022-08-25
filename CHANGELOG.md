@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Bug #70 Voice Over: Add header section for the name ot a group of colors
 - [DemoApp] Bug #67 Update color description for Dynamic font accessibility (do not truncate text)
 - [DemoApp] #160 Update the Text Field page
 - [DemoApp] #181 Update Slider Voice Over Accessibility  
