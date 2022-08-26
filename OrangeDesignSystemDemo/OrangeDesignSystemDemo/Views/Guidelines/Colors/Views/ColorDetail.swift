@@ -32,7 +32,7 @@ struct ColorDetail: View {
 
     let color: ODSColor
     let usage = "Coming soon ..."
-    
+
     var colorName: String {
         color.displayName(forScheme: screenState.colorScheme)
     }
@@ -69,9 +69,9 @@ struct ColorDetail: View {
             dismiss()
         }
     }
-    
+
     var accessibilityLabel: String {
         "\(colorName), "
-        + "Usage, \(usage)"
+            + "Usage, \(usage)"
     }
 }

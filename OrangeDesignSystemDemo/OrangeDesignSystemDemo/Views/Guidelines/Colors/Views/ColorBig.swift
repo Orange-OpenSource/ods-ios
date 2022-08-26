@@ -80,8 +80,8 @@ struct ColorBig: View {
 
     var accessibilityLabel: String {
         "\(colorName), "
-            + "Token name is \(color.rawValue), "
-            + "RVB value is \(color.rgb(forScheme: screenState.colorScheme).accessibilityLabel)"
-            + "Hexa value is \(color.hexa(forScheme: screenState.colorScheme))"
+            + "Token name is \(color.rawValue) . "
+            + "RVB value is \(color.rgb(forScheme: screenState.colorScheme).accessibilityLabel) . "
+            + "Hex value is \(color.hexa(forScheme: screenState.colorScheme))"
     }
 }
