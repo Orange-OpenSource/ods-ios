@@ -31,6 +31,10 @@ struct ColorSmall: View {
     @EnvironmentObject var screenState: ScreenState
     @State private var showingModal = false
 
+    var colorName: String {
+        color.displayName(forScheme: screenState.colorScheme)
+    }
+
     var body: some View {
 
         let tap = TapGesture().onEnded { _ in showingModal.toggle() }
@@ -39,11 +43,21 @@ struct ColorSmall: View {
             Rectangle()
                 .fill(color.color)
                 .aspectRatio(1.0, contentMode: .fit)
-            Text(color.displayName(forScheme: screenState.colorScheme)).odsFont(.headline)
+            Text(colorName).odsFont(.headline)
             Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
-        }.background(Color(uiColor: UIColor.systemBackground))
-            .colorScheme(self.screenState.colorScheme)
-            .gesture(tap)
-            .fullScreenCover(isPresented: $showingModal) { ColorDetail(color: self.color) }
+        }
+        .background(Color(uiColor: UIColor.systemBackground))
+        .colorScheme(self.screenState.colorScheme)
+        .accessibilityElement()
+        .accessibilityLabel(Text(accessibilityLabel))
+        .gesture(tap)
+        .fullScreenCover(isPresented: $showingModal) { ColorDetail(color: self.color) }
+    }
+
+    var accessibilityLabel: String {
+        "\(colorName), "
+            + "Token name is \(color.rawValue), "
+            + "RVB value is \(color.rgb(forScheme: screenState.colorScheme).accessibilityLabel)"
+            + "Hexa value is \(color.hexa(forScheme: screenState.colorScheme))"
     }
 }

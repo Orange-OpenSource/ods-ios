@@ -61,7 +61,7 @@ struct ColorBig: View {
                 .font(.system(.caption, design: .monospaced))
                 .fixedSize(horizontal: false, vertical: true)
 
-            Text(color.rgb(forScheme: screenState.colorScheme).toString())
+            Text(color.rgb(forScheme: screenState.colorScheme).displayableValue)
                 .odsFont(.caption1Regular)
                 .fixedSize(horizontal: false, vertical: true)
 
@@ -73,9 +73,15 @@ struct ColorBig: View {
         .colorScheme(screenState.colorScheme)
         .gesture(tap)
         .accessibilityElement()
-        .accessibilityLabel("The is the \(colorName) color")
+        .accessibilityLabel(accessibilityLabel)
         .accessibilityHint("Tap twice to get more information")
-        .accessibilityAddTraits(.isButton)
         .fullScreenCover(isPresented: $showingModal) { ColorDetail(color: self.color) }
+    }
+
+    var accessibilityLabel: String {
+        "\(colorName), "
+            + "Token name is \(color.rawValue), "
+            + "RVB value is \(color.rgb(forScheme: screenState.colorScheme).accessibilityLabel)"
+            + "Hexa value is \(color.hexa(forScheme: screenState.colorScheme))"
     }
 }
