@@ -28,10 +28,14 @@ import SwiftUI
 struct ColorDetail: View {
 
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
     @EnvironmentObject var screenState: ScreenState
 
     let color: ODSColor
+    let usage = "Coming soon ..."
+
+    var colorName: String {
+        color.displayName(forScheme: screenState.colorScheme)
+    }
 
     var body: some View {
         ZStack {
@@ -46,21 +50,28 @@ struct ColorDetail: View {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(.headline)
                     Text(color.rawValue).font(.system(.caption, design: .monospaced))
-                    Text(color.rgb(forScheme: screenState.colorScheme).toString()).odsFont(.caption1Regular)
+                    Text(color.rgb(forScheme: screenState.colorScheme).displayableValue).odsFont(.caption1Regular)
                     Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
 
                     Text("Usage")
                         .odsFont(.headline)
                         .padding(.top, ODSSpacing.l)
-                    Text("Coming soon ...").odsFont(.caption1Regular)
+                    Text(usage).odsFont(.caption1Regular)
                 }
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.l, trailing: ODSSpacing.m))
             }
             .background(Color(uiColor: UIColor.systemGray6))
             .cornerRadius(10)
+            .accessibilityElement()
+            .accessibilityLabel(accessibilityLabel)
         }
         .onTapGesture {
             dismiss()
         }
+    }
+
+    var accessibilityLabel: String {
+        "\(colorName), "
+            + "Usage, \(usage)"
     }
 }

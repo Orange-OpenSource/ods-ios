@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Bug #72 Update vocalized content on color screen 
 - [SDK] Bug #75 Remove Voice Over on illustration image on the About Screen  
 - [DemoApp] Bug #71 Update Voice over for Color screen to group elements 
 - [SDK] Bug #76 Allow multiline on labels on the about screen
