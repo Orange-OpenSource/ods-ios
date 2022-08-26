@@ -101,7 +101,6 @@ public struct ODSCardTextFirst<Media>: View where Media: View {
         .cornerRadius(10)
         .shadow(radius: 8)
         .padding()
-
     }
 
     public init(title: String,
