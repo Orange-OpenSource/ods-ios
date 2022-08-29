@@ -69,6 +69,24 @@ enum Spacing: Double, CaseIterable {
         case .xxl: return "Ratio 5"
         }
     }
+
+    var ratioSpokenValue: String {
+        switch self {
+        case .none: return "0"
+        case .xs: return "0.5"
+        case .s: return "1"
+        case .m: return "2"
+        case .l: return "3"
+        case .xl: return "4"
+        case .xxl: return "5"
+        }
+    }
+
+    var accessibilityLabel: String {
+        "\(Int(rawValue)) \(rawValue < 2 ? "pixel" : "pixels"), "
+            + "Token name: \(name), "
+            + "Ratio: \(ratioSpokenValue))"
+    }
 }
 
 struct SpacingList: View {
@@ -83,6 +101,7 @@ struct SpacingList: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .padding(.bottom, ODSSpacing.m)
+                    .accessibilityHidden(true)
 
                 Text("Spacing tokens are used to position elements on the screen and layout within components. Spacing tokens can be applied as padding and margins.")
                     .padding(.horizontal, ODSSpacing.m)
@@ -126,6 +145,8 @@ struct SpacingItem: View {
 
             Divider()
         }
+        .accessibilityElement()
+        .accessibilityLabel(spacing.accessibilityLabel)
     }
 }
 
