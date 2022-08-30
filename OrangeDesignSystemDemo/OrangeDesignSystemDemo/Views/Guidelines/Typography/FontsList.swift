@@ -37,6 +37,7 @@ struct FontList: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .padding(.bottom, ODSSpacing.m)
+                    .accessibilityHidden(true)
 
                 Text("Use the system typeface San Francisco for all Latin, Greek and Cyrillic alphabets.\n\n"
                     + "Use the built-in text styles in order to create a clear distinct visual typographic hierarchy.\n\n"
@@ -51,6 +52,8 @@ struct FontList: View {
                         Text("style: \(fontStyle.rawValue)").font(.system(.caption, design: .monospaced))
                             .padding(.bottom, ODSSpacing.m)
                     }
+                    .accessibilityElement()
+                    .accessibilityLabel("\(fontStyle.description), token name is \(fontStyle.rawValue)")
                 }
                 .padding(.horizontal, ODSSpacing.m)
             }
