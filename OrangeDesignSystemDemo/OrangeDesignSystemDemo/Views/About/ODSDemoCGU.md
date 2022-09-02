@@ -1,6 +1,6 @@
 #### General Conditions of Use (GCUs)
 
-## «**ODS Demo**» Service for APPLE iOS
+## «**ODS Demo**» Service for Apple iOS
 
 ### Preamble
 
@@ -14,7 +14,7 @@ The Service is provided free-of-charge, without any limitation territory.
 
 Access to and use of the Service are subject to these General Conditions of Use (the « **GCU** »), which the User expressly accepts when registering for the Service.
 
-THE USER AGREES NOT TO USE THE SERVICE FOR ILLEGAL USE OR PROHIBITED BY THESE CGU OR ANY APPLICABLE LAW.
+The user agrees not to use the service for illegal use or prohibited by these CGU or any applicable law.
 
 ### Article 1 - Definitions
 

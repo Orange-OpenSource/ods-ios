@@ -13,6 +13,11 @@ description: Chips are compact elements that represent an input, attribute, or a
 * [Variants](#variants)
 * [Choice selection](#choice-selection)
   * [Single election](#single-selection)
+<<<<<<< HEAD
+=======
+    * [Single selection, One chip selected](#single-selection-one-chip-selected)
+    * [Single selection, No chip selected](#single-selection-no-chip-selected)
+>>>>>>> 21dab2ef6cab0ea513cfd710fd2f9499b88257a9
   * [Multiple selection](#multiple-selection)
 
 ---
@@ -32,6 +37,15 @@ Chips support dynamic types for accessibility.
 According to the `ODSChip` configuration following representations are available.
 
 ```swift
+<<<<<<< HEAD
+=======
+    enum MyChip: Int {
+        case enabled
+        case selected
+        case disabled
+    }
+    
+>>>>>>> 21dab2ef6cab0ea513cfd710fd2f9499b88257a9
     // Text only
     ODSChip(.enabled, text: "Enable")
     
@@ -63,6 +77,7 @@ The selection is managed by the `ODSChipPicker` providing the right type of sele
 
 ### Single selection
 
+<<<<<<< HEAD
 The option allows a single chip selection from a set of options. Depending  on `allowZeroSelection` parameter, it is possible to accept at least one or zero selected chip.
 
 ```swift
@@ -74,6 +89,47 @@ The option allows a single chip selection from a set of options. Depending  on `
                           selection: $singleSelection,
                           allowZeroSelection: true,
                           chips: [ODSChip(.title1, text: "Chips 1"), ODSChip(.title2, text: "Chip 2")]
+=======
+The option allows a single chip selection from a set of options. According to the type of selection (optinal or not), it is possible to accept at least one or zero selected chip.
+
+#### Single selection, One chip selected
+
+
+```swift
+    enum ChipTest Int{  
+        case title1 = 1,
+        case title2 = 2
+    }
+
+    struct ODSChipPickerSingleSelection: View {
+        @State var singleSelection: ChipTest
+        let chips = [ODSChip<ChipTest>]
+
+        var body: some View {
+            ODSChipPicker(title: "Single selection (at least one element)",
+                          selection: $singleSelection,
+                          chips: chips)
+            )
+        }
+        
+        init() {
+            chips = [ODSChip(.title1, text: "Chips 1"), ODSChip(.title2, text: "Chip 2")]
+            singleSelection = .title1
+        }
+    }
+```
+
+#### Single selection, No chip selected
+
+```swift
+    struct ODSChipPickerSingleSelection: View {
+        @State var singleSelection: ChipTest?
+
+        var body: some View {
+            ODSChipPicker(title: "Single selection (No chip seleted allowed)",
+                          selection: $singleSelection,
+                          chips: chips]
+>>>>>>> 21dab2ef6cab0ea513cfd710fd2f9499b88257a9
             )
         }
     }
@@ -91,7 +147,11 @@ The option allows a multiple chips selection from a set of options. Depending  o
             ODSChipPicker(title: "Multiple selection",
                           selection: $multipleSelection,
                           allowZeroSelection: true,
+<<<<<<< HEAD
                           chips: [ODSChip(.title1, text: "Chips 1"), ODSChip(.title2, text: "Chip 2")]
+=======
+                          chips: chips]
+>>>>>>> 21dab2ef6cab0ea513cfd710fd2f9499b88257a9
             )
         }
     }

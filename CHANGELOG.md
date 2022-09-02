@@ -4,16 +4,45 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.1] - 2022-07-19
 
+## [Unreleased]
+
+## [0.5.0] - 2022-09-02
+
+- [DemoApp] Bug #219 Rename Module called Card View to Card Collections 
+- [DemoApp] Bug #216 Add Voice Over on Spacings screen
+- [DemoApp] Bug #214 Add Voice Over on typography screen
+- [DemoApp] Bug #72 Update vocalized content on color screen
+- [DemoApp] Bug #68 Acessibility Voice Over, order of vocalization on Color screen 
+- [SDK] Bug #75 Remove Voice Over on illustration image on the About Screen  
+- [DemoApp] Bug #71 Update Voice over for Color screen to group elements 
+- [SDK] Bug #76 Allow multiline on labels on the about screen
+- [DemoApp] Bug #70 Voice Over: Add header section for the name ot a group of colors
+- [DemoApp] Bug #67 Update color description for Dynamic font accessibility (do not truncate text)
+- [DemoApp] #160 Update the Text Field page
+- [DemoApp] #181 Update Slider Voice Over Accessibility  
+- [DemoApp/SDK] #198 Update ODSChipPicker API to seperate zero or one element in the single selection 
+- [DemoApp/SDK] #199 Refactor sources
+- [DemoApp] Bug #103 bad name for card collection in module page
+- [DemoApp] #57 Add Navigation Bar component
+- [DemoApp] Bug #138 Cards - outline button update
+- [DemoApp] Bug #94 Do not use fully capitalized words in the legal screen
+- [DemoApp] #123 Use Chip component in card demo page instead of native ios switches
+- [DemoApp/SDK] #158 Use ODS spacings in demo app and SDK components
+- [DemoApp/SDK] #157 Use the ODS font on the demo app and SDK components  
+- [SDK] #159 Define ODS spacings
+
+## [0.4.1] - 2022-07-19
+
 - [SDK] #47 Link code documentation from the DSM without title and description 
 - [SDK] #149 Homogenize documentation structure for all components
 - [SDK] #117 Review documentation introduction
  
 ## [0.4.0] - 2022-07-08
 
-- [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default
+- [DemoApp/SDK] #170 In List component page, use native color for the toggle, and in card page, display image by default
 - [DemoApp/SDK] #36 Add List component
 - [Component] #166 Add Text Selection component and remove Text Edit Menu
-- [Component] #35 Add tab bar page
+- [Component] #35 Add Tab Bar page
 - [DemoApp] Bug #155 Typography style addition, and spacing fix
 - [DemoApp/SDK] #128 Add slider action on bar tap
 - [DemoApp] #161 Design review Sprint 11 (background colours, shadows, ...) 
