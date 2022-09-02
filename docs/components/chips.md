@@ -75,7 +75,6 @@ The option allows a single chip selection from a set of options. According to th
 
 #### Single selection, One chip selected
 
-
 ```swift
     enum ChipTest Int{  
         case title1 = 1,
