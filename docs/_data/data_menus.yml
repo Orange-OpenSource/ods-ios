@@ -9,21 +9,15 @@ toc2:
     subfolderitems:
       - page: Colors
         url: guidelines/colors_docs
-<<<<<<< HEAD
-=======
       - page: Spacings
         url: guidelines/spacings_docs
->>>>>>> 21dab2ef6cab0ea513cfd710fd2f9499b88257a9
       - page: Typography
         url: guidelines/typography_docs
 
   - title: Components
     subfolderitems:
-<<<<<<< HEAD
-=======
       - page: Bars - navigation
         url: components/navigationBar_docs
->>>>>>> 21dab2ef6cab0ea513cfd710fd2f9499b88257a9
       - page: Button - standard
         url: components/standardButton_docs
       - page: Button - shape
