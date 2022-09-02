@@ -3,6 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.0] - 2022-09-02
+
 - [DemoApp] Bug #219 Rename Module called Card View to Card Collections 
 - [DemoApp] Bug #216 Add Voice Over on Spacings screen
 - [DemoApp] Bug #214 Add Voice Over on typography screen
