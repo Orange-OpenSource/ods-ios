@@ -39,84 +39,92 @@ struct ColorList: View {
     var body: some View {
         VStack {
             Group {
-                Spacer().frame(height: 10)
                 Picker("Favorite Scheme", selection: $screenState.colorScheme, content: {
                     Text("On Light").tag(ColorScheme.light)
                     Text("On Dark").tag(ColorScheme.dark)
-                }).pickerStyle(.segmented)
-                    .onAppear {
-                        screenState.colorScheme = phoneColorScheme
-                    }.padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
-            }
+                })
+                .pickerStyle(.segmented)
+                .onAppear {
+                    screenState.colorScheme = phoneColorScheme
+                }
+                .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+            }.padding(.top, ODSSpacing.s)
 
             ScrollView {
-                Spacer().frame(height: 5)
                 SectionTitle(title: "Core")
 
                 VStack {
-                    Spacer().frame(height: 30)
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorBig(color: ODSColor.coreOrange, bordered: false)
                         ColorBig(color: ODSColor.coreWhite, bordered: screenState.colorScheme == .light)
                     }
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorBig(color: ODSColor.coreBlack, bordered: screenState.colorScheme == .dark)
                         ColorBig(color: ODSColor.coreObsGrey, bordered: false)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+                }
+                .padding(EdgeInsets(top: ODSSpacing.l, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
-                Spacer().frame(height: 30)
                 SectionTitle(title: "Functional")
+                    .padding(.top, ODSSpacing.l)
 
                 VStack {
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorBig(color: ODSColor.functionalPositive, bordered: false)
                         ColorBig(color: ODSColor.functionalNegative, bordered: false)
                     }
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorBig(color: ODSColor.functionalAlert, bordered: false)
                         ColorBig(color: ODSColor.functionalInfo, bordered: false)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+                }
+                .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
 
-                Spacer().frame(height: 30)
                 SectionTitle(title: "Supporting")
+                    .padding(.top, ODSSpacing.l)
 
                 VStack {
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorSmall(color: ODSColor.supportingBlue100)
                         ColorSmall(color: ODSColor.supportingBlue200)
                         ColorSmall(color: ODSColor.supportingBlue300)
                     }
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorSmall(color: ODSColor.supportingYellow100)
                         ColorSmall(color: ODSColor.supportingYellow200)
                         ColorSmall(color: ODSColor.supportingYellow300)
                     }
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorSmall(color: ODSColor.supportingGreen100)
                         ColorSmall(color: ODSColor.supportingGreen200)
                         ColorSmall(color: ODSColor.supportingGreen300)
                     }
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorSmall(color: ODSColor.supportingPink100)
                         ColorSmall(color: ODSColor.supportingPink200)
                         ColorSmall(color: ODSColor.supportingPink300)
                     }
-                    HStack(spacing: 15) {
+                    HStack(spacing: ODSSpacing.m) {
                         ColorSmall(color: ODSColor.supportingPurple100)
                         ColorSmall(color: ODSColor.supportingPurple200)
                         ColorSmall(color: ODSColor.supportingPurple300)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-            }.background(screenState.colorScheme == .light ? Color.white : Color.black)
-        }.toolbar {
+                }
+                .padding(.vertical, ODSSpacing.xs)
+                .padding(.horizontal, ODSSpacing.m)
+            }
+            .background(screenState.colorScheme == .light ? Color.white : Color.black)
+            .padding(.bottom, ODSSpacing.m)
+        }
+        .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: ColorUsage()) {
                     Text("Usage")
-                }.foregroundColor(ODS.coreOrange)
+                }
+                .foregroundColor(ODS.coreOrange)
             }
-        }.navigationTitle("Palette")
+        }
+        .navigationTitle("Palette")
     }
 }
 
@@ -129,7 +137,8 @@ struct SectionTitle: View {
             .odsFont(.title1)
             .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
+            .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+            .accessibilityAddTraits(.isHeader)
     }
 }
 

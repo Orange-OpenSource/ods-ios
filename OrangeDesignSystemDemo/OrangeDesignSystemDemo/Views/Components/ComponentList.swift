@@ -25,7 +25,7 @@ import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentsCardsList: View {
+struct ComponentsList: View {
     // Remark: Components are automatically displayed sorted by their name
     let componentList = [
         ComponentModel(name: "Bars - tab", image: "Tab bar") {
@@ -52,8 +52,11 @@ struct ComponentsCardsList: View {
         ComponentModel(name: "Sliders", image: "Slider") {
             SliderPage()
         },
-        ComponentModel(name: "Text selection", image: "Text edit menu") {
-            TextSelectionPage()
+        ComponentModel(name: "Text field", image: "Text edit menu") {
+            TextFieldPage()
+        },
+        ComponentModel(name: "Bars - navigation", image: "Navigation bars") {
+            NavigationBarPage()
         },
     ]
 
@@ -64,26 +67,26 @@ struct ComponentsCardsList: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Spacer().frame(height: 15)
-
-                LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList.sorted { $0.name < $1.name }) {
+                LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
+                    ForEach(componentList.sorted {
+                        $0.name < $1.name
+                    }) {
                         Component(component: $0)
                     }
-                }.padding([.leading, .trailing])
-
-                Spacer().frame(height: 15)
+                }
+                .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
-        }.background(ODSColor.primaryBackground.color)
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
 struct ComponentsCardsList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ComponentsCardsList()
+            ComponentsList()
                 .preferredColorScheme($0)
         }
     }
