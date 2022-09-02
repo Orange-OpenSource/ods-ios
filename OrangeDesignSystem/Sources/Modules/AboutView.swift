@@ -34,7 +34,8 @@ public struct AboutView: View {
 
         List {
             VStack(alignment: .leading, spacing: 0) {
-                Text("About").odsFont(style: .largeTitle)
+                Text("About")
+                    .odsFont(.largeTitle)
                     .odsGlobalPadding()
 
                 applicationDescription.imageHeader
@@ -52,6 +53,7 @@ public struct AboutView: View {
 
             ODSAboutItemView()
         }.listStyle(PlainListStyle())
+            .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -92,6 +94,8 @@ public class ApplicationDescription: ObservableObject {
 
     let applicationName: String
     let applicationVersion: String
+    let applicationBuildNumber: String?
+    let applicationBuildType: String?
     let copyrightNotice: String = "Orange property. All rights reserved"
     let imageHeader: Image
 
@@ -101,9 +105,11 @@ public class ApplicationDescription: ObservableObject {
         ODSAboutItem(text: "Web view", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
     ]
 
-    public init(applicationName: String, applicationVersion: String, imageHeader: Image = Image("img_about", bundle: Bundle.bundle)) {
+    public init(applicationName: String, applicationVersion: String, applicationBuildNumber: String? = nil, applicationBuildType: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.ods)) {
         self.applicationName = applicationName
         self.applicationVersion = applicationVersion
+        self.applicationBuildType = applicationBuildType
+        self.applicationBuildNumber = applicationBuildNumber
         self.imageHeader = imageHeader
     }
 }
@@ -123,7 +129,7 @@ public struct ODSAboutItemView: View {
                 NavigationLink(destination: item.nextView) {
                     HStack {
                         Text(item.text)
-                            .odsFont(style: .bodyBold)
+                            .odsFont(.bodyBold)
                     }
                     .frame(minWidth: 0,
                            maxWidth: .infinity,
@@ -136,7 +142,7 @@ public struct ODSAboutItemView: View {
                 if let url = item.url, let urlDestination = URL(string: url) {
                     Link(destination: urlDestination) {
                         HStack {
-                            Text(item.text).odsFont(style: .bodyBold)
+                            Text(item.text).odsFont(.bodyBold)
                         }
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: ODSDim.list_min_height, maxHeight: .infinity, alignment: .leading)
                     }
@@ -147,7 +153,7 @@ public struct ODSAboutItemView: View {
                     Button {
                         showSafari.toggle()
                     } label: {
-                        Text(item.text).odsFont(style: .bodyBold)
+                        Text(item.text).odsFont(.bodyBold)
 
                     }.sheet(isPresented: $showSafari, content: {
                         ODSSFSafariViewWrapper(url: urlDestination)
@@ -164,16 +170,23 @@ private struct ApplicationDescriptionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(applicationDescription.applicationName).odsFont(style: .largeTitle)
-            Text("Version  \(applicationDescription.applicationVersion)").odsFont(style: .bodyRegular)
-            Text(applicationDescription.copyrightNotice).odsFont(style: .bodyRegular)
+            Text(applicationDescription.applicationName).odsFont(.largeTitle)
+            Text("Version \(applicationDescription.applicationVersion)")
+            if let buildNumber = applicationDescription.applicationBuildNumber {
+                Text("Build \(buildNumber)")
+            }
+            if let buildType = applicationDescription.applicationBuildType {
+                Text(buildType)
+            }
+
+            Text(applicationDescription.copyrightNotice)
         }
     }
 }
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        let applicationDescription = ApplicationDescription(applicationName: "APP NAME", applicationVersion: "1.0.0")
+        let applicationDescription = ApplicationDescription(applicationName: "APP NAME", applicationVersion: "1.0.0", applicationBuildNumber: "123456789", applicationBuildType: "PREVIEW")
 
         ForEach(ColorScheme.allCases, id: \.self) {
 

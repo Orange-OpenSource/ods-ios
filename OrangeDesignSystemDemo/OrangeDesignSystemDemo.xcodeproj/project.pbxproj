@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078ABEBE2862FE4800E328A9 /* ChipsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078ABEBD2862FE4800E328A9 /* ChipsPage.swift */; };
+		07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C53287C7470004397D7 /* ODSColors+extension.swift */; };
+		07973C56287C74CF004397D7 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C55287C74CF004397D7 /* RGB.swift */; };
+		079AB7982837CCB400AFDAE9 /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079AB7972837CCB400AFDAE9 /* ListPage.swift */; };
+		07C724B22860746100592F07 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C724B12860746100592F07 /* BottomSheet.swift */; };
+		07C724B62861A64300592F07 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C724B52861A64200592F07 /* List.swift */; };
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		CDA7623B2817F0DA00E691BC /* ProgressIndicatorPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA7623A2817F0DA00E691BC /* ProgressIndicatorPage.swift */; };
@@ -44,8 +50,7 @@
 		F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */; };
 		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
 		F9D1E24028126EC000F2F7CE /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1E23F28126EC000F2F7CE /* CardPage.swift */; };
-		FD8A27A92768932700784B0E /* (null) in Sources */ = {isa = PBXBuildFile; };
-		FD91FD2E281C09A6004D9943 /* EditTextPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91FD2D281C09A6004D9943 /* EditTextPage.swift */; };
+		FD91FD2E281C09A6004D9943 /* TextSelectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91FD2D281C09A6004D9943 /* TextSelectionPage.swift */; };
 		FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +73,12 @@
 
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
+		078ABEBD2862FE4800E328A9 /* ChipsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsPage.swift; sourceTree = "<group>"; };
+		07973C53287C7470004397D7 /* ODSColors+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ODSColors+extension.swift"; sourceTree = "<group>"; };
+		07973C55287C74CF004397D7 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		079AB7972837CCB400AFDAE9 /* ListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
+		07C724B12860746100592F07 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		07C724B52861A64200592F07 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B655A0B148F11BB69BCFF556 /* Pods-OrangeDesignSystemDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,7 +128,7 @@
 		F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITests.swift; sourceTree = "<group>"; };
 		F9D1E23F28126EC000F2F7CE /* CardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPage.swift; sourceTree = "<group>"; };
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		FD91FD2D281C09A6004D9943 /* EditTextPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTextPage.swift; sourceTree = "<group>"; };
+		FD91FD2D281C09A6004D9943 /* TextSelectionPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionPage.swift; sourceTree = "<group>"; };
 		FDC4430B27AD80C30024701B /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = ../docs; sourceTree = "<group>"; };
 		FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +160,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07240127285B656400DFB9A9 /* Typography */ = {
+			isa = PBXGroup;
+			children = (
+				F90D9765280030A6006D29FC /* FontsList.swift */,
+			);
+			path = Typography;
+			sourceTree = "<group>";
+		};
+		07973C57287C74F1004397D7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				07973C55287C74CF004397D7 /* RGB.swift */,
+				07973C53287C7470004397D7 /* ODSColors+extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		07C724B02860744000592F07 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				07C724B52861A64200592F07 /* List.swift */,
+				079AB7972837CCB400AFDAE9 /* ListPage.swift */,
+				07C724B12860746100592F07 /* BottomSheet.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
 		174EE48FFD62B367205CFF78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,13 +237,15 @@
 		F03B800428182A5100F9C802 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				07C724B02860744000592F07 /* Lists */,
 				F0B26B64281A8D5B00A33699 /* TextButtonPage.swift */,
 				F99FF0842767AF77006236A0 /* ShapeButtonPage.swift */,
 				F0F0C240280FF53700042E41 /* SliderPage.swift */,
 				F9D1E23F28126EC000F2F7CE /* CardPage.swift */,
 				CDA7623A2817F0DA00E691BC /* ProgressIndicatorPage.swift */,
-				FD91FD2D281C09A6004D9943 /* EditTextPage.swift */,
+				FD91FD2D281C09A6004D9943 /* TextSelectionPage.swift */,
 				F0B26B68281AC31C00A33699 /* TabBarPage.swift */,
+				078ABEBD2862FE4800E328A9 /* ChipsPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -221,8 +261,8 @@
 		F90D9762280030A6006D29FC /* Guidelines */ = {
 			isa = PBXGroup;
 			children = (
+				07240127285B656400DFB9A9 /* Typography */,
 				F96A3E10280451660086B9BF /* Colors */,
-				F90D9765280030A6006D29FC /* FontsList.swift */,
 				F96A3E1C280451FE0086B9BF /* GuidelinesList.swift */,
 			);
 			name = Guidelines;
@@ -261,6 +301,7 @@
 		F96A3E10280451660086B9BF /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				07973C57287C74F1004397D7 /* Utils */,
 				F96A3E11280451660086B9BF /* ColorsList.swift */,
 				F96A3E12280451660086B9BF /* ColorUsage.swift */,
 				F96A3E13280451660086B9BF /* Views */,
@@ -616,13 +657,15 @@
 				F96A3E23280452960086B9BF /* Bundle+Extension.swift in Sources */,
 				F96A3E26280452960086B9BF /* NavigationBarModifier.swift in Sources */,
 				F90D978728005A4A006D29FC /* ComponentList.swift in Sources */,
-				FD91FD2E281C09A6004D9943 /* EditTextPage.swift in Sources */,
+				07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */,
+				FD91FD2E281C09A6004D9943 /* TextSelectionPage.swift in Sources */,
 				F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */,
 				F96A3E19280451660086B9BF /* ColorDetail.swift in Sources */,
 				CDA7623B2817F0DA00E691BC /* ProgressIndicatorPage.swift in Sources */,
 				F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */,
 				F90D9768280030A6006D29FC /* FontsList.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
+				079AB7982837CCB400AFDAE9 /* ListPage.swift in Sources */,
 				F0F0C241280FF53700042E41 /* SliderPage.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,
@@ -630,18 +673,21 @@
 				F0B26B69281AC31C00A33699 /* TabBarPage.swift in Sources */,
 				F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */,
 				F96A3E1A280451660086B9BF /* ColorBig.swift in Sources */,
+				07C724B62861A64300592F07 /* List.swift in Sources */,
 				F0B26B65281A8D5B00A33699 /* TextButtonPage.swift in Sources */,
 				F96A3E1D280451FE0086B9BF /* GuidelinesList.swift in Sources */,
-				FD8A27A92768932700784B0E /* (null) in Sources */,
 				F059395E28113B3500E1A02A /* ComponentTemplate.swift in Sources */,
 				F96A3E24280452960086B9BF /* View+tabBarStyle.swift in Sources */,
+				07973C56287C74CF004397D7 /* RGB.swift in Sources */,
 				F96A3E25280452960086B9BF /* BackgroundBlurView.swift in Sources */,
 				F90D978228003281006D29FC /* ModulesList.swift in Sources */,
+				07C724B22860746100592F07 /* BottomSheet.swift in Sources */,
 				F96A3E1B280451660086B9BF /* ColorSmall.swift in Sources */,
 				F90D976A280030B8006D29FC /* Component.swift in Sources */,
 				F99FF0872767AF77006236A0 /* ShapeButtonPage.swift in Sources */,
 				F9D1E24028126EC000F2F7CE /* CardPage.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift in Sources */,
+				078ABEBE2862FE4800E328A9 /* ChipsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,7 +867,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -856,7 +902,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

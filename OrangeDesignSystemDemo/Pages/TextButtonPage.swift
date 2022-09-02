@@ -29,7 +29,7 @@ struct TextButtonPage: View {
 
     var body: some View {
         ScrollView {
-            Image("Text_button")
+            Image("Buttons - Standard")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
@@ -40,9 +40,7 @@ struct TextButtonPage: View {
                 LabelButton()
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Text Button")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -51,7 +49,7 @@ private struct LabelButton: View {
     var body: some View {
 
         Text("Label")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         VStack(alignment: .center) {
             Button {} label: {
                 ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
@@ -69,7 +67,7 @@ private struct IconButton: View {
 
     var body: some View {
         Text(name)
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         VStack(alignment: .center) {
             Button {} label: {
                 ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))

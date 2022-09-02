@@ -30,7 +30,7 @@ struct ShapeButtonPage: View {
     let hPadding: CGFloat = 16.0
     var body: some View {
         ScrollView {
-            Image("Shape_button")
+            Image("Buttons - Shape")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack(alignment: .leading, spacing: 20) {
@@ -40,10 +40,7 @@ struct ShapeButtonPage: View {
 
                 Spacer().frame(height: 10)
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Button")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
-            .navigationViewStyle(.stack)
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -53,7 +50,7 @@ private struct ButtonList: View {
         ForEach(DemoButton.buttons, id: \.order) { button in
 
             Text(button.name)
-                .odsFont(style: .title2)
+                .odsFont(.title2)
 
             VStack(alignment: .center) {
                 Button {} label: {

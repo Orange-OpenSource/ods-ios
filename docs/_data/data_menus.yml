@@ -1,30 +1,37 @@
+# Edit this file to update the documentation menu
 toc2:
   - title: Get Started
     subfolderitems:
       - page: Integration
-        url: /ods-ios/index.html
+        url: index.html
     
   - title: Guidelines
     subfolderitems:
       - page: Colors
-        url: /ods-ios/guidelines/colors_docs
+        url: guidelines/colors_docs
       - page: Typography
-        url: /ods-ios/guidelines/typography_docs
+        url: guidelines/typography_docs
 
   - title: Components
     subfolderitems:
-      - page: Standard button
-        url: /ods-ios/components/standardButton_docs
-      - page: Shaped button
-        url: /ods-ios/components/shapedButton_docs
-      - page: Slider
-        url: /ods-ios/components/slider_docs
+      - page: Button - standard
+        url: components/standardButton_docs
+      - page: Button - shape
+        url: components/shapedButton_docs
+      - page: Cards
+        url: components/cards_docs
+      - page: Chips
+        url: components/chips_docs
+      - page: Lists
+        url: components/lists_docs
       - page: Progress indicator
-        url: /ods-ios/components/progressIndicator_docs
-      - page: Edit text
-        url: /ods-ios/components/editText_docs
-      
+        url: components/progressIndicator_docs
+      - page: Slider
+        url: components/slider_docs
+      - page: Text selection
+        url: components/textSelection_docs
+
   - title: Modules
     subfolderitems:
       - page: About
-        url: /ods-ios/modules/about_docs
+        url: modules/about_docs

@@ -21,6 +21,7 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
 struct ProgressIndicatorPage: View {
@@ -37,9 +38,7 @@ struct ProgressIndicatorPage: View {
                 ProgressBar()
                 ProgressIndicator()
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
-        }.navigationTitle("Progress Indicator")
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -56,7 +55,7 @@ struct ProgressBar: View {
 
     var body: some View {
         Text("Progress bar")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
             .onReceive(timer) { _ in
                 if secondsElapsed < maxSeconds {
@@ -71,7 +70,7 @@ struct ProgressBar: View {
 struct ProgressIndicator: View {
     var body: some View {
         Text("Progress indicator")
-            .odsFont(style: .title2)
+            .odsFont(.title2)
         HStack {
             Spacer()
             ProgressView()

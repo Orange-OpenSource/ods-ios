@@ -26,28 +26,34 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsCardsList: View {
+    // Remark: Components are automatically displayed sorted by their name
     let componentList = [
-        ComponentModel(name: "Text button", image: "Text_button") {
+        ComponentModel(name: "Bars - tab", image: "Tab bar") {
+            TabBarPage()
+        },
+        ComponentModel(name: "Buttons - standard", image: "Buttons - Standard") {
             TextButtonPage()
         },
-        ComponentModel(name: "Shape button", image: "Shape_button") {
+        ComponentModel(name: "Buttons - shape", image: "Buttons - Shape") {
             ShapeButtonPage()
         },
-        ComponentModel(name: "Slider", image: "Controls") {
-            SliderPage()
-        },
-
-        ComponentModel(name: "Card", image: "Card") {
+        ComponentModel(name: "Cards", image: "Cards_1") {
             CardPage()
         },
-        ComponentModel(name: "Progress indicator", image: "Progress_indicator") {
+        ComponentModel(name: "Chips", image: "Chips") {
+            ChipsPage()
+        },
+        ComponentModel(name: "Lists", image: "Lists") {
+            ListPage()
+        },
+        ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
             ProgressIndicatorPage()
         },
-        ComponentModel(name: "Edit text", image: "empty") {
-            EditTextPage()
+        ComponentModel(name: "Sliders", image: "Slider") {
+            SliderPage()
         },
-        ComponentModel(name: "Bar", image: "empty") {
-            TabBarPage()
+        ComponentModel(name: "Text selection", image: "Text edit menu") {
+            TextSelectionPage()
         },
     ]
 
@@ -59,17 +65,18 @@ struct ComponentsCardsList: View {
         NavigationView {
             ScrollView {
                 Spacer().frame(height: 15)
+
                 LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(componentList) {
+                    ForEach(componentList.sorted { $0.name < $1.name }) {
                         Component(component: $0)
                     }
                 }.padding([.leading, .trailing])
+
                 Spacer().frame(height: 15)
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray5))
-        }
+        }.background(ODSColor.primaryBackground.color)
     }
 }
 

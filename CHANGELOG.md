@@ -1,9 +1,42 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [0.4.1] - 2022-07-19
+
+- [SDK] #47 Link code documentation from the DSM without title and description 
+- [SDK] #149 Homogenize documentation structure for all components
+- [SDK] #117 Review documentation introduction
+ 
+## [0.4.0] - 2022-07-08
+
+- [DemoApp/SDK] #170 In list component page, use native color for the toggle, and in card page, display image by default
+- [DemoApp/SDK] #36 Add List component
+- [Component] #166 Add Text Selection component and remove Text Edit Menu
+- [Component] #35 Add tab bar page
+- [DemoApp] Bug #155 Typography style addition, and spacing fix
+- [DemoApp/SDK] #128 Add slider action on bar tap
+- [DemoApp] #161 Design review Sprint 11 (background colours, shadows, ...) 
+- [DemoApp/SDK] #150 Add Chip component
+- [DemoApp] #42 Typographie : Update font style list (add id)
+- [DemoApp] #124 Demo App clean-up
+- [DemoApp] Bug #130 Add missing component illustrations
+- [DemoApp] #136 Show build number and build type in about screen 
+- [DemoApp] #131 Add illustration on card detailed page  
+- [DemoApp] #42 Update ODS-Guideline, Typography screen
+- [DemoApp] Bug #129 Displays components sorted by name
+- [DemoApp] Bug #110 Card content with longer text
+- [DemoApp] Bug #97 Update title for cards in components screen
+
 ## [0.3.0] - 2022-06-10
 ### Changed
 - [DemoApp] Update text button and shaped button pages with new design specifications
+- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
+
+## [0.3.0] - 2022-06-10
+### Changed
+- [DemoApp] Update text button and shaped button pages with new design specifications
+- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
 ### Added
 
@@ -11,9 +44,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Bug #107 Fixed : Colour pop-up displays wrong color
 - [DemoApp] Bug #102 Fixed : Card bad display
 - [DemoApp] Bug #101 Fixed : Progress indicator not centered
-
-### Changed
-- [DemoApp] #112 Remove Imagery and Iconography from GuideLines screen
 
 ## [0.2.0] - 2022-05-05
 ### Changed
@@ -41,5 +71,3 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1] - 2022-01-26
 ### Added
 - First version of SDK with demo app
-- Creation of Git Issue template for bug reports
-- Creation of Git Issue template for bug reports
