@@ -1,11 +1,6 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-
-## [0.4.1] - 2022-07-19
-
-## [Unreleased]
-
 ## [0.5.0] - 2022-09-02
 
 - [DemoApp] Bug #219 Rename Module called Card View to Card Collections 
