@@ -193,15 +193,15 @@
 			isa = PBXGroup;
 			children = (
 				07C8233E28AE68B2003B2C3A /* Lists */,
-				07C8234228AE68B2003B2C3A /* SliderPage.swift */,
-				07C8234328AE68B2003B2C3A /* TextFieldPage.swift */,
+				07C8234A28AE68B2003B2C3A /* CardPage.swift */,
 				07C8234428AE68B2003B2C3A /* ChipsPage.swift */,
-				07C8234528AE68B2003B2C3A /* TextButtonPage.swift */,
+				07C8234928AE68B2003B2C3A /* NavigationBarPage.swift */,
 				07C8234628AE68B2003B2C3A /* ProgressIndicatorPage.swift */,
 				07C8234728AE68B2003B2C3A /* ShapeButtonPage.swift */,
+				07C8234228AE68B2003B2C3A /* SliderPage.swift */,
 				07C8234828AE68B2003B2C3A /* TabBarPage.swift */,
-				07C8234928AE68B2003B2C3A /* NavigationBarPage.swift */,
-				07C8234A28AE68B2003B2C3A /* CardPage.swift */,
+				07C8234528AE68B2003B2C3A /* TextButtonPage.swift */,
+				07C8234328AE68B2003B2C3A /* TextFieldPage.swift */,
 			);
 			name = Pages;
 			path = OrangeDesignSystemDemo/Views/Components/Pages;
@@ -885,7 +885,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -920,7 +920,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
