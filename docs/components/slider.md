@@ -27,6 +27,21 @@ description: Sliders allow users to make selections from a range of values.
 
 Please follow [accessibility criteria for development](https://a11y-guidelines.orange.com/en/mobile/ios/)
 
+As the `ODSSlider` is based on the native `Slider`, Voice Over is able to vocalize 
+However, if you want to set a description you need to add it using `.accessibilityLabel` on the `ODSSlider`.
+
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
+
+```swift
+ODSSlider(value: $value,
+          range: range,
+          step: step) {
+    Text("0").accessibilityHidden(true)
+} maximumLabelView: {
+    Text("100").accessibilityHidden(true)
+}
+
+
 ## Variants
 
 Slider is a system Slider component with accent color set to coreOrange.
@@ -47,7 +62,7 @@ struct UnlabeledSlider: View {
         VStack(alignment: .center) {
             ODSSlider(value: $value, range: range)
         }
-        .padding([.leading, .trailing], 10)
+        .padding(.horizontal, ODSSpacing.s)
     }
 }
 ```
@@ -55,36 +70,36 @@ struct UnlabeledSlider: View {
 ### Labeled slider (with images)
 
 ```swift
-    ODSSlider(value: $value, in: 0 ... 100) {
-            Image(systemName: "speaker.wave.1.fill")
-        } maximumValueLabel: {
-            Image(systemName: "speaker.wave.3.fill")
-        }
+ODSSlider(value: $value, in: 0 ... 100) {
+    Image(systemName: "speaker.wave.1.fill")
+} maximumValueLabel: {
+    Image(systemName: "speaker.wave.3.fill")
+}
 ``` 
 
 ### Labeled slider (with text)
 
 ```swift
-    ODSSlider(value: $value, in: 0 ... 100) {
-        Text("  0")
-    } maximumValueLabel: {
-        Text("100")
-    }
+ODSSlider(value: $value, in: 0 ... 100) {
+    Text("  0")
+} maximumValueLabel: {
+    Text("100")
+}
 ``` 
 
 ### Stepped slider (with text and value display)
 
 ```swift
-    Text("Stepped slider").odsFont(.title2)
-    Text("Value : \(Int(value))").odsFont(.bodyRegular)
-    VStack(alignment: .center) {
-        ODSSlider(
-            value: $value,
-            in: 0 ... 100,
-            step: 10) {
-            Text("  0")
-        } maximumValueLabel: {
-            Text("100")
-        }
+Text("Stepped slider").odsFont(.title2)
+Text("Value : \(Int(value))").odsFont(.bodyRegular)
+VStack(alignment: .center) {
+    ODSSlider(
+        value: $value,
+        in: 0 ... 100,
+        step: 10) {
+        Text("  0")
+    } maximumValueLabel: {
+        Text("100")
     }
+}
 ``` 

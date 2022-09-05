@@ -34,7 +34,11 @@ public struct RGB {
         self.blue = blue
     }
 
-    public func toString() -> String {
+    public var displayableValue: String {
         return "rgb(\(red), \(green), \(blue))"
+    }
+
+    public var accessibilityLabel: String {
+        "\(red), \(green), \(blue)"
     }
 }
