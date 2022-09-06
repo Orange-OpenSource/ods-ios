@@ -27,7 +27,7 @@ import SwiftUI
 
 struct CardViewDemo: View {
 
-    let listModel = ODSListCardViewModel(title: "Card View",
+    let listModel = ODSListCardViewModel(title: "Card collections",
                                          cards: [
                                              ODSCardModel(title: "List", image: "Cards") {
                                                  CardViewDemoList()

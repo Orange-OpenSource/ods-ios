@@ -3,6 +3,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.0] - 2022-09-02
+
+- [DemoApp] Bug #219 Rename Module called Card View to Card Collections 
+- [DemoApp] Bug #216 Add Voice Over on Spacings screen
+- [DemoApp] Bug #214 Add Voice Over on typography screen
+- [DemoApp] Bug #72 Update vocalized content on color screen
+- [DemoApp] Bug #68 Acessibility Voice Over, order of vocalization on Color screen 
 - [SDK] Bug #75 Remove Voice Over on illustration image on the About Screen  
 - [DemoApp] Bug #71 Update Voice over for Color screen to group elements 
 - [SDK] Bug #76 Allow multiline on labels on the about screen

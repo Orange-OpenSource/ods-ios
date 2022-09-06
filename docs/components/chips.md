@@ -39,7 +39,7 @@ According to the `ODSChip` configuration following representations are available
         case selected
         case disabled
     }
-    
+
     // Text only
     ODSChip(.enabled, text: "Enable")
     
@@ -74,7 +74,6 @@ The selection is managed by the `ODSChipPicker` providing the right type of sele
 The option allows a single chip selection from a set of options. According to the type of selection (optinal or not), it is possible to accept at least one or zero selected chip.
 
 #### Single selection, One chip selected
-
 
 ```swift
     enum ChipTest Int{  
