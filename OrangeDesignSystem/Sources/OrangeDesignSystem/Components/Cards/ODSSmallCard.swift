@@ -52,16 +52,6 @@ public struct ODSSmallCard: View {
                         .lineLimit(1)
                         .odsFont(.bodyRegular)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                } else {
-                    ZStack {
-                        Text("Subtitle")
-                            .lineLimit(1)
-                            .odsFont(.bodyRegular)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        Rectangle()
-                            .fill(ODSColor.componentBackground2.color)
-                    }
-                    .accessibilityHidden(true)
                 }
             }
             .foregroundColor(.primary)
@@ -77,14 +67,6 @@ public struct ODSSmallCard: View {
 
 #if DEBUG
 struct SmallCardView_Previews: PreviewProvider {
-
-    struct Media: View {
-        var body: some View {
-            Image("ods_empty", bundle: Bundle.ods)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
-    }
 
     let columns = [
         GridItem(.adaptive(minimum: 10.0), spacing: 0, alignment: .topLeading),
