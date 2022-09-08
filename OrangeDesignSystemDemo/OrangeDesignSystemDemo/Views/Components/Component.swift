@@ -61,6 +61,7 @@ struct Component: View {
     }
 }
 
+#if DEBUG
 struct TextButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
         let component = ComponentModel(name: "Text", image: "Buttons - Shape")
@@ -74,3 +75,4 @@ struct TextButtonComponent_Previews: PreviewProvider {
         .background(.gray)
     }
 }
+#endif

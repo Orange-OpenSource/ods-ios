@@ -24,34 +24,21 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct GuidelinesList: View {
-
-    @ObservedObject var screenState = ScreenState()
+struct CardSmall: View {
+    let columns = [
+        GridItem(.adaptive(minimum: 10.0), spacing: 0, alignment: .topLeading),
+    ]
 
     var body: some View {
-        let listModel = ODSCardSmallListModel(
-            title: "Guidelines",
-            items: [
-                ODSCardSmallListItemModel(title: "Colours", image: Image("Colour")) {
-                    ColorList().environmentObject(self.screenState)
-                },
-                ODSCardSmallListItemModel(title: "Typography", image: Image("Typography")) {
-                    FontList()
-                },
-                ODSCardSmallListItemModel(title: "Spacings", image: Image("Spacing")) {
-                    SpacingList()
-                },
-            ])
-
-        return ODSCardSmallList(model: listModel)
-            .background(ODSColor.primaryBackground.color)
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 150.0), spacing: 0, alignment: .top)], spacing: 0) {
+                ODSCardSmall(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
+                ODSCardSmall(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
+                ODSCardSmall(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
+            }
+        }
+        .padding(.horizontal, ODSSpacing.m)
+        .padding(.top, ODSSpacing.m)
+        .navigationTitle("Small card")
     }
 }
-
-#if DEBUG
-struct GuidelinesListView_Previews: PreviewProvider {
-    static var previews: some View {
-        GuidelinesList()
-    }
-}
-#endif

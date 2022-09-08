@@ -44,9 +44,6 @@ public struct ODSCardModel {
         self.description = description
         self.destination = AnyView(destination())
     }
-
-    public static let example = ODSCardModel(title: "Title", image: "", subTitle: "Subtitle", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.")
-    public static let exampleMultiline = ODSCardModel(title: "Et galisum fugiat ex omnis officia et iusto eius et animi consequuntur et distinctio magnam id autem exercitationem a sint quibusdam. Aut ipsa autem aut omnis architecto ex ratione provident eum placeat atque qui veniam quos est rerum molestiae.", image: "", subTitle: "Sed quasi illo in quidem consectetur sit consequatur voluptatibus sed adipisci fuga quo voluptatem similique non quidem magni! Et dolores libero ut voluptatem possimus ea minus necessitatibus qui totam culpa vel maxime distinctio id ullam dolor et optio velit", description: "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit.")
 }
 
 public struct ODSCardView: View {
@@ -56,87 +53,28 @@ public struct ODSCardView: View {
         self.element = element
     }
 
-    public var body: some View {
-
-        CardInnerView(element: element) {}
-            .cornerRadius(10)
-            .shadow(radius: 8)
-    }
-}
-
-public struct ODSCardTextFirst<Media>: View where Media: View {
-
-    private var media: () -> Media
-    let title: String
-    let subtitle: String?
-    let description: String?
-
-    public var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.none) {
-            VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                Text(title)
-                    .odsFont(.bodyBold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                if let subtitle = subtitle, !subtitle.isEmpty {
-                    Text(subtitle)
-                }
-            }
-            .foregroundColor(.primary)
-            .padding(.vertical, ODSSpacing.m)
-            .padding(.horizontal, ODSSpacing.m)
-            .layoutPriority(100)
-            .odsFont(.bodyRegular)
-
-            media()
-
-            if let description = description, !description.isEmpty {
-                Text(description)
-                    .padding(.top, ODSSpacing.xs)
-                    .padding(.bottom, ODSSpacing.m)
-                    .padding(.horizontal, ODSSpacing.m)
-            }
+    var image: Image {
+        if let image = element.image {
+            return Image(image.isEmpty ? "ods_empty" : image,
+                         bundle: image.isEmpty ? Bundle.ods : Bundle.main)
+        } else {
+            return Image("ods_empty", bundle: Bundle.ods)
         }
-        .background(ODSColor.componentBackground2.color)
-        .cornerRadius(10)
-        .shadow(radius: 8)
-        .padding()
-    }
-
-    public init(title: String,
-                subtitle: String? = nil,
-                description: String? = nil,
-                @ViewBuilder media: @escaping () -> Media)
-    {
-        self.media = media
-        self.title = title
-        self.subtitle = subtitle
-        self.description = description
-    }
-}
-
-public struct ODSCardImageFirst<ButtonContent>: View where ButtonContent: View {
-    public var element: ODSCardModel
-
-    private var buttonContent: () -> ButtonContent
-
-    public init(element: ODSCardModel, @ViewBuilder buttonContent: @escaping () -> ButtonContent) {
-        self.element = element
-        self.buttonContent = buttonContent
     }
 
     public var body: some View {
 
-        CardInnerView(element: element) {
-            buttonContent()
-        }
-        .cornerRadius(10)
-        .shadow(radius: 8)
+        let e = ODSCardImageFirstElement(title: element.title,
+                                         subtitle: element.subTitle,
+                                         image: image,
+                                         description: element.description)
+        ODSCardImageFirst(element: e)
     }
 }
 
 struct CardInnerView<ButtonContent>: View where ButtonContent: View {
     let element: ODSCardModel
+
     @ViewBuilder var buttonContent: () -> ButtonContent
 
     var body: some View {
@@ -160,6 +98,7 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
                 if let description = element.description, !description.isEmpty {
                     Text(description).padding(.top)
                 }
+
                 buttonContent().padding(.top)
             }
             .layoutPriority(100)
@@ -172,34 +111,18 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
 }
 
 #if DEBUG
-struct CardView_Previews: PreviewProvider {
 
-    struct Media: View {
-        var body: some View {
-            Image("ods_empty", bundle: Bundle.ods)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
-    }
+extension ODSCardModel {
+
+    public static let example = ODSCardModel(title: "Title", image: "", subTitle: "Subtitle", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.")
+    public static let exampleMultiline = ODSCardModel(title: "Et galisum fugiat ex omnis officia et iusto eius et animi consequuntur et distinctio magnam id autem exercitationem a sint quibusdam. Aut ipsa autem aut omnis architecto ex ratione provident eum placeat atque qui veniam quos est rerum molestiae.", image: "", subTitle: "Sed quasi illo in quidem consectetur sit consequatur voluptatibus sed adipisci fuga quo voluptatem similique non quidem magni! Et dolores libero ut voluptatem possimus ea minus necessitatibus qui totam culpa vel maxime distinctio id ullam dolor et optio velit", description: "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit.")
+}
+
+struct CardView_Previews: PreviewProvider {
 
     static var previews: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                ODSCardImageFirst(element: ODSCardModel.example) {
-                    Button {} label: {
-                        ODSGenericButtonContent(topText: "Button", textColor: ODSColor.coreBlack.color)
-                    }
-                    .buttonStyle(ODSFilledButtonStyle())
-                }
-                .padding()
-
-                ODSCardTextFirst(title: ODSCardModel.example.title,
-                                 subtitle: ODSCardModel.example.subTitle,
-                                 description: ODSCardModel.example.description,
-                                 media: { Media() })
-
-                ODSCardView(element: ODSCardModel.example).padding()
-            }
+            ODSCardView(element: ODSCardModel.example).padding()
         }
     }
 }

@@ -61,7 +61,7 @@ struct ComponentsList: View {
     ]
 
     let columns = [
-        GridItem(.adaptive(minimum: 150), alignment: .topLeading),
+        GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.m, alignment: .topLeading),
     ]
 
     var body: some View {

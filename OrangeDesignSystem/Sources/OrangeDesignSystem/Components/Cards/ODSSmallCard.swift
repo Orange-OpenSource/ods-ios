@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-public struct ODSSmallCard: View {
+public struct ODSCardSmall: View {
 
     let title: String
     let subtitle: String?
@@ -44,25 +44,25 @@ public struct ODSSmallCard: View {
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 Text(title)
                     .lineLimit(1)
-                    .odsFont(.bodyBold)
+                    .odsFont(.subhead)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 if let subtitle = subtitle {
                     Text(subtitle)
                         .lineLimit(1)
-                        .odsFont(.bodyRegular)
+                        .odsFont(.subhead)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                } else {
-                    ZStack {
-                        Text("Subtitle")
-                            .lineLimit(1)
-                            .odsFont(.bodyRegular)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        Rectangle()
-                            .fill(ODSColor.componentBackground2.color)
-                    }
-                    .accessibilityHidden(true)
-                }
+                } /* else {
+                     ZStack {
+                         Text("Subtitle")
+                             .lineLimit(1)
+                             .odsFont(.bodyRegular)
+                             .frame(maxWidth: .infinity, alignment: .leading)
+                         Rectangle()
+                             .fill(ODSColor.componentBackground2.color)
+                     }
+                     .accessibilityHidden(true)
+                 }*/
             }
             .foregroundColor(.primary)
             .padding(.vertical, ODSSpacing.m)
@@ -100,10 +100,10 @@ struct SmallCardView_Previews: PreviewProvider {
                     .padding(.bottom, ODSSpacing.m)
 
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150.0), spacing: 0, alignment: .top)], spacing: 0) {
-                    ODSSmallCard(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
-                    ODSSmallCard(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
-                    ODSSmallCard(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
-                    ODSSmallCard(title: "4 A long long Title", image: Image("ods_empty", bundle: Bundle.ods))
+                    ODSCardSmall(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
+                    ODSCardSmall(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
+                    ODSCardSmall(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
+                    ODSCardSmall(title: "4 A long long Title", image: Image("ods_empty", bundle: Bundle.ods))
                 }
                 .padding(.bottom, ODSSpacing.m)
 
@@ -112,7 +112,7 @@ struct SmallCardView_Previews: PreviewProvider {
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 
-                ODSSmallCard(title: "Title 4", subtitle: "Subtitle 4", image: Image("ods_empty", bundle: Bundle.ods)) // .background(.yellow)
+                ODSCardSmall(title: "Title 4", subtitle: "Subtitle 4", image: Image("ods_empty", bundle: Bundle.ods))
             }
             .padding(.horizontal, 16)
         }
