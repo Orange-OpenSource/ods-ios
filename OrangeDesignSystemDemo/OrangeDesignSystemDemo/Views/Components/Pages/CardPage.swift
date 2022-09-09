@@ -173,12 +173,12 @@ struct CardBottomSheetContent: View {
 
 struct SmallCard: View {
     let columns = [
-        GridItem(.adaptive(minimum: 10.0), spacing: 0, alignment: .topLeading),
+        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
     ]
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 150.0), spacing: 0, alignment: .top)], spacing: 0) {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
                 ODSSmallCard(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
                 ODSSmallCard(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
                 ODSSmallCard(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))

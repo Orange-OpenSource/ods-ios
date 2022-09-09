@@ -60,28 +60,28 @@ public struct ODSSmallCard: View {
         }
         .background(ODSColor.componentBackground2.color)
         .cornerRadius(10)
-        .shadow(radius: 8)
-        .padding(.all, 8)
+        .shadow(radius: ODSSpacing.xs)
+        .padding(.all, ODSSpacing.s)
     }
 }
 
 #if DEBUG
 struct SmallCardView_Previews: PreviewProvider {
 
-    let columns = [
-        GridItem(.adaptive(minimum: 10.0), spacing: 0, alignment: .topLeading),
+    static let columns = [
+        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
     ]
 
     static var previews: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
 
                 Text("Card in Vertical grid")
                     .odsFont(.title1)
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150.0), spacing: 0, alignment: .top)], spacing: 0) {
+                LazyVGrid(columns: SmallCardView_Previews.columns, spacing: ODSSpacing.none) {
                     ODSSmallCard(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
                     ODSSmallCard(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
                     ODSSmallCard(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
@@ -96,7 +96,7 @@ struct SmallCardView_Previews: PreviewProvider {
 
                 ODSSmallCard(title: "Title 4", subtitle: "Subtitle 4", image: Image("ods_empty", bundle: Bundle.ods)) // .background(.yellow)
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, ODSSpacing.m)
         }
     }
 }
