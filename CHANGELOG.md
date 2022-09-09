@@ -3,7 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-- [SDK] Bug #96 Add Small Card
+- [DemoApp/SDK] #222 Update the Button page to list the available button types
+- [SDK] Bug #96 Add Small Card 
 
 ## [0.5.0] - 2022-09-02
 
