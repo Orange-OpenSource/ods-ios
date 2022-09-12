@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components 
 
 - [DemoApp] #235 Rename Module called Card View to Card Collections (2)
 - [SDK] Bug #96 Add Small Card

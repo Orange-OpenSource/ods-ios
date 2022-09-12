@@ -23,7 +23,8 @@
 
 import SwiftUI
 
-public class ODSListCardViewModel: ObservableObject {
+/// Used to describe the list of cards View.
+public class ODSListOfCardsViewModel: ObservableObject {
     public let cards: [ODSCardModel]
     public let title: String
 
@@ -33,19 +34,25 @@ public class ODSListCardViewModel: ObservableObject {
     }
 }
 
-public struct ODSListCardView: View {
-    @EnvironmentObject private var list: ODSListCardViewModel
+/// Diosplay a list of cards in a single column.
+/// A card is clickable and a destination View is open in the native navigation.
+///
+public struct ODSListOfCards: View {
+
+    let model: ODSListOfCardsViewModel
 
     let columns = [
         GridItem(.flexible(), alignment: .topLeading),
     ]
 
-    public init() {}
+    public init(model: ODSListOfCardsViewModel) {
+        self.model = model
+    }
 
     public var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                ForEach(list.cards, id: \.title) { card in
+                ForEach(model.cards, id: \.title) { card in
                     NavigationLink(destination: card.destination) {
                         ODSCardView(element: card)
                     }
@@ -55,8 +62,7 @@ public struct ODSListCardView: View {
             .padding(.vertical, ODSSpacing.m)
         }
         .navigationBarTitleDisplayMode(.large)
-        .navigationTitle(list.title)
+        .navigationTitle(model.title)
         .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
     }
 }

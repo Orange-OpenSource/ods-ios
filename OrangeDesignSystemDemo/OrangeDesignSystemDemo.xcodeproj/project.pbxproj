@@ -26,7 +26,6 @@
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F90D9768280030A6006D29FC /* FontsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* FontsList.swift */; };
-		F90D976A280030B8006D29FC /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9769280030B8006D29FC /* Component.swift */; };
 		F90D976C280030C4006D29FC /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976B280030C4006D29FC /* MainTabView.swift */; };
 		F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976E28003104006D29FC /* ODSDemoAboutView.swift */; };
 		F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */; };
@@ -99,7 +98,6 @@
 		EB0AA540275652AF0012E192 /* OrangeDesignSystemDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90D9765280030A6006D29FC /* FontsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsList.swift; sourceTree = "<group>"; };
-		F90D9769280030B8006D29FC /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Component.swift; path = OrangeDesignSystemDemo/Views/Components/Component.swift; sourceTree = "<group>"; };
 		F90D976B280030C4006D29FC /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabView.swift; path = OrangeDesignSystemDemo/Views/MainTabView.swift; sourceTree = "<group>"; };
 		F90D976E28003104006D29FC /* ODSDemoAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutView.swift; sourceTree = "<group>"; };
 		F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutConfig.swift; sourceTree = "<group>"; };
@@ -354,6 +352,7 @@
 				FDD9DB7B27ECB8C90094B5CE /* Resources */,
 				F99FF07D2767AF4E006236A0 /* Preview Content */,
 				F99FF07C2767AF39006236A0 /* Views */,
+				F90D976B280030C4006D29FC /* MainTabView.swift */,
 				F99FF06E2767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift */,
 				F99FF06F2767AE2A006236A0 /* Assets.xcassets */,
 			);
@@ -366,7 +365,6 @@
 				07C8235728AE690F003B2C3A /* Template */,
 				07C8233D28AE68B2003B2C3A /* Pages */,
 				F90D978628005A4A006D29FC /* ComponentList.swift */,
-				F90D9769280030B8006D29FC /* Component.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -374,7 +372,6 @@
 		F99FF07C2767AF39006236A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F90D976B280030C4006D29FC /* MainTabView.swift */,
 				F90D9762280030A6006D29FC /* Guidelines */,
 				F99FF07B2767AF2B006236A0 /* Components */,
 				F9F0BD1427B27ABA00B36DD8 /* Modules */,
@@ -702,7 +699,6 @@
 				F96A3E25280452960086B9BF /* BackgroundBlurView.swift in Sources */,
 				F90D978228003281006D29FC /* ModulesList.swift in Sources */,
 				F96A3E1B280451660086B9BF /* ColorSmall.swift in Sources */,
-				F90D976A280030B8006D29FC /* Component.swift in Sources */,
 				07C8234B28AE68B2003B2C3A /* BottomSheet.swift in Sources */,
 				07C8235428AE68B2003B2C3A /* TabBarPage.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift in Sources */,

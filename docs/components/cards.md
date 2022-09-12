@@ -39,7 +39,7 @@ According to `ODSCardModel` configuration the card elements are shown or not:
 - Media with title
 - Media, title with subtitle
 - Media, title with supporting text
-- Media, title with button
+- Media, title with buttons
 - Media, title, subtitle with supporting text
 
 ```swift
