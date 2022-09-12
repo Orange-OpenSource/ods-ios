@@ -93,7 +93,6 @@ struct BottomSheedHeader: View {
 struct ListBottomSheetContent: View {
 
     @EnvironmentObject var listPageModel: ListPageModel
-    @State var showSeondLine: Bool
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
@@ -112,9 +111,5 @@ struct ListBottomSheetContent: View {
                           chips: listPageModel.trailingImageChips)
         }
         .padding(.vertical, ODSSpacing.s)
-    }
-
-    init() {
-        showSeondLine = false
     }
 }
