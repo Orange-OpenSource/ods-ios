@@ -53,7 +53,7 @@ public struct ODSSmallCardModel: Identifiable {
 /// It contains a image and a title. An additional subtitle can also be added.
 /// An additional destination view can be provided if the card is added in the `ODSGridOfCards`
 /// to make it clickable and open the destination in native navigation.
-/// 
+///
 public struct ODSSmallCard: View {
 
     let model: ODSSmallCardModel

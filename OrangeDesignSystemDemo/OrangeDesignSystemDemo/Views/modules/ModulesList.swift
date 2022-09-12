@@ -29,23 +29,28 @@ struct ModulesList: View {
         AboutConfigDemo.instance.configure()
 
         let listModel = ODSListOfCardsViewModel(title: "Modules",
-                                                cards: [ODSCardModel(title: "About", image: "AboutImage") {
-                                                    AboutView()
-                                                        .environmentObject(AboutConfigDemo.instance.applicationDescription)
-                                                        .navigationBarTitleDisplayMode(.inline)
-                                                },
-                                                ODSCardModel(title: "Card view", image: "Cards") {
-                                                    CardViewDemo()
-                                                }])
+                                                cards: [
+                                                    ODSCardModel(title: "About", image: "AboutImage") {
+                                                        AboutView()
+                                                            .environmentObject(AboutConfigDemo.instance.applicationDescription)
+                                                            .navigationBarTitleDisplayMode(.inline)
+                                                    },
+                                                    ODSCardModel(title: "Card collections", image: "Cards") {
+                                                        CardViewDemo()
+                                                    },
+                                                ])
 
         return NavigationView {
             ODSListOfCards(model: listModel)
-        }.background(ODSColor.primaryBackground.color)
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
+#if DEBUG
 struct ModulesList_Previews: PreviewProvider {
     static var previews: some View {
         ModulesList()
     }
 }
+#endif

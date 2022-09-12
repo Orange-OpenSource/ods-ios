@@ -31,12 +31,16 @@ public struct ODSGridOfCards: View {
 
     public let cardModels: [ODSSmallCardModel]
 
+    let columns = [
+        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
+    ]
+
     public init(cardModels: [ODSSmallCardModel]) {
         self.cardModels = cardModels
     }
 
     public var body: some View {
-        LazyVGrid(columns: SmallCardView_Previews.columns, spacing: ODSSpacing.none) {
+        LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
             ForEach(cardModels) { cardModel in
                 if let destination = cardModel.destination {
                     NavigationLink(destination: destination) {

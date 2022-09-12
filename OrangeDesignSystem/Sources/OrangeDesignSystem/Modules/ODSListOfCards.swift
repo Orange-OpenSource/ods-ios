@@ -36,7 +36,7 @@ public class ODSListOfCardsViewModel: ObservableObject {
 
 /// Diosplay a list of cards in a single column.
 /// A card is clickable and a destination View is open in the native navigation.
-/// 
+///
 public struct ODSListOfCards: View {
 
     let model: ODSListOfCardsViewModel
@@ -64,6 +64,5 @@ public struct ODSListOfCards: View {
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(model.title)
         .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
     }
 }
