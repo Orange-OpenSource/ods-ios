@@ -61,7 +61,7 @@ struct CardViewDemoGrid: View {
             }
             .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
-        .navigationTitle("CardView - Grid")
+        .navigationTitle("Grid")
         .navigationViewStyle(.stack)
         .background(ODSColor.primaryBackground.color)
     }
@@ -73,7 +73,7 @@ struct CardViewDemoList: View {
     }
 
     var body: some View {
-        let model = ODSListCardViewModel(title: "CardView - List", cards: cards)
+        let model = ODSListCardViewModel(title: "List", cards: cards)
         ODSListCardView().environmentObject(model)
     }
 }
