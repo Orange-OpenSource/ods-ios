@@ -41,32 +41,6 @@ struct CardViewDemo: View {
     }
 }
 
-// struct CardViewDemoGrid: View {
-//    let cards = (1 ... 10).map {
-//        ODSCardModel(title: "Card \($0)", image: "empty")
-//    }
-//
-//    let columns = [
-//        GridItem(.adaptive(minimum: 150.0), alignment: .topLeading),
-//    ]
-//
-//    var body: some View {
-//        ScrollView {
-//            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-//                ForEach(cards, id: \.title) { item in
-//                    NavigationLink(destination: EmptyView()) {
-//                        ODSCardView(element: item)
-//                    }
-//                }
-//            }
-//            .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
-//        }
-//        .navigationTitle("CardView - Grid")
-//        .navigationViewStyle(.stack)
-//        .background(ODSColor.primaryBackground.color)
-//    }
-// }
-
 struct CardViewDemoGrid: View {
     let cardsModels = (1 ... 10).map {
         ODSSmallCardModel(title: "Card \($0)", image: Image("empty", bundle: Bundle.main))
