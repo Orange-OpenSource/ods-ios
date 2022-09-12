@@ -24,17 +24,18 @@
 import SwiftUI
 
 public struct ODSCardModel {
-    public var title: String
-    public var image: String?
-    public var subTitle: String?
-    public var description: String?
-    public var destination: AnyView?
+    public let title: String
+    public let image: String?
+    public let subTitle: String?
+    public let description: String?
+    public let destination: AnyView?
 
     public init(title: String, image: String?, subTitle: String? = nil, description: String? = nil) {
         self.title = title
         self.image = image
         self.subTitle = subTitle
         self.description = description
+        destination = nil
     }
 
     public init<Destination>(title: String, image: String?, subTitle: String? = nil, description: String? = nil, @ViewBuilder destination: () -> Destination) where Destination: View {
@@ -88,8 +89,6 @@ struct CardInnerView<ButtonContent>: View where ButtonContent: View {
     let element: ODSCardModel
     @ViewBuilder var buttonContent: () -> ButtonContent
 
-    @State private var translation = CGSize.zero
-
     var body: some View {
 
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
@@ -135,6 +134,7 @@ struct CardView_Previews: PreviewProvider {
                     .buttonStyle(ODSFilledButtonStyle())
                 }
                 .padding()
+
                 ODSCardView(element: ODSCardModel.example).padding()
             }
         }
