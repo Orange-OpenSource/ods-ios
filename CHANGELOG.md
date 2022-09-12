@@ -3,6 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+
+- [DemoApp] #235 Rename Module called Card View to Card Collections (2)
 - [SDK] Bug #96 Add Small Card
 
 ## [0.5.0] - 2022-09-02
