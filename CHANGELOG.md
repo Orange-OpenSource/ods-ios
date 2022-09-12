@@ -3,7 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-
+- [DemoApp] #228 Change Chip to switch on List screen for "SecondLineOfText" and "LeadingImage" options 
 - [DemoApp] #235 Rename Module called Card View to Card Collections (2)
 - [SDK] Bug #96 Add Small Card
 

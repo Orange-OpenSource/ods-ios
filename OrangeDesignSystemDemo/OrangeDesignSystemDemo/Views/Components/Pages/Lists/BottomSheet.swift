@@ -93,21 +93,28 @@ struct BottomSheedHeader: View {
 struct ListBottomSheetContent: View {
 
     @EnvironmentObject var listPageModel: ListPageModel
+    @State var showSeondLine: Bool
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: "Second line of text",
-                          selection: $listPageModel.selectedSecondLineOfTextChip,
-                          chips: listPageModel.secondLineOfTextChips)
+            Toggle(isOn: $listPageModel.showSecondLine) {
+                Text("Second line of text").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
 
-            ODSChipPicker(title: "Leading",
-                          selection: $listPageModel.selectedLeadingImageChip,
-                          chips: listPageModel.leadingImageChips)
+            Toggle(isOn: $listPageModel.showLeadingImage) {
+                Text("Leading").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
 
             ODSChipPicker(title: "Trailing",
                           selection: $listPageModel.selectedTrailingImageChip,
                           chips: listPageModel.trailingImageChips)
         }
         .padding(.vertical, ODSSpacing.s)
+    }
+
+    init() {
+        showSeondLine = false
     }
 }
