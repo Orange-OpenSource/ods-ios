@@ -49,9 +49,9 @@ public struct ODSSmallCardModel: Identifiable {
     }
 }
 
-/// A small card is a card cab be added in grid with two columns
+/// A small card is a card which can be added in two columns grid.
 /// It contains a image and a title. An additional subtitle can also be added.
-/// An additional destination view can be provided if the card is added in the `ODSGridOfCards`
+/// A destination view can be provided if the card is inserted into the `ODSGridOfCards`
 /// to make it clickable and open the destination in native navigation.
 /// 
 public struct ODSSmallCard: View {
