@@ -27,39 +27,29 @@ import SwiftUI
 
 struct CardViewDemo: View {
 
-    let listModel = ODSListCardViewModel(title: "Card collections",
-                                         cards: [
-                                             ODSCardModel(title: "List", image: "Cards") {
-                                                 CardViewDemoList()
-                                             },
-                                             ODSCardModel(title: "Grid", image: "Cards_1") {
-                                                 CardViewDemoGrid()
-                                             },
-                                         ])
+    let listModel = ODSListOfCardsViewModel(title: "Card collections",
+                                            cards: [
+                                                ODSCardModel(title: "List", image: "Cards") {
+                                                    CardViewDemoList()
+                                                },
+                                                ODSCardModel(title: "Grid", image: "Cards_1") {
+                                                    CardViewDemoGrid()
+                                                },
+                                            ])
     var body: some View {
-        ODSListCardView().environmentObject(listModel)
+        ODSListOfCards(model: listModel)
     }
 }
 
 struct CardViewDemoGrid: View {
-    let cards = (1 ... 10).map {
-        ODSCardModel(title: "Card \($0)", image: "empty")
+    let cardsModels = (1 ... 10).map {
+        ODSSmallCardModel(title: "Card \($0)", image: Image("empty", bundle: Bundle.main))
     }
-
-    let columns = [
-        GridItem(.adaptive(minimum: 150.0), alignment: .topLeading),
-    ]
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                ForEach(cards, id: \.title) { item in
-                    NavigationLink(destination: EmptyView()) {
-                        ODSCardView(element: item)
-                    }
-                }
-            }
-            .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+            ODSGridOfCards(cardModels: cardsModels)
+                .padding(.all, ODSSpacing.m)
         }
         .navigationTitle("Grid")
         .navigationViewStyle(.stack)
@@ -73,8 +63,8 @@ struct CardViewDemoList: View {
     }
 
     var body: some View {
-        let model = ODSListCardViewModel(title: "List", cards: cards)
-        ODSListCardView().environmentObject(model)
+        let model = ODSListOfCardsViewModel(title: "List", cards: cards)
+        ODSListOfCards(model: model)
     }
 }
 
@@ -84,6 +74,7 @@ struct CardViewDemoGrid_Previews: PreviewProvider {
         //
         CardViewDemoGrid()
             .previewInterfaceOrientation(.portrait)
+
         CardViewDemoGrid()
             .previewInterfaceOrientation(.portrait)
             .environment(\.dynamicTypeSize, .accessibility3) // <- CONSTANT

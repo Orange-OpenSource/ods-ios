@@ -26,55 +26,51 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsList: View {
+
     // Remark: Components are automatically displayed sorted by their name
     let componentList = [
-        ComponentModel(name: "Bars - tab", image: "Tab bar") {
-            TabBarPage()
+        ODSSmallCardModel(title: "Bars - tab", image: Image("Tab bar")) {
+            TabBarPage().modifier(ComponentModifier(title: "Bars - tab"))
         },
-        ComponentModel(name: "Buttons - standard", image: "Buttons - Standard") {
-            TextButtonPage()
+        ODSSmallCardModel(title: "Buttons - standard", image: Image("Buttons - Standard")) {
+            TextButtonPage().modifier(ComponentModifier(title: "Buttons - standard"))
         },
-        ComponentModel(name: "Buttons - shape", image: "Buttons - Shape") {
-            ShapeButtonPage()
+        ODSSmallCardModel(title: "Buttons - shape", image: Image("Buttons - Shape")) {
+            ShapeButtonPage().modifier(ComponentModifier(title: "Buttons - shape"))
         },
-        ComponentModel(name: "Cards", image: "Cards_1") {
-            CardPage()
+        ODSSmallCardModel(title: "Cards", image: Image("Cards_1")) {
+            CardPage().modifier(ComponentModifier(title: "Cards"))
         },
-        ComponentModel(name: "Chips", image: "Chips") {
-            ChipsPage()
+        ODSSmallCardModel(title: "Chips", image: Image("Chips")) {
+            ChipsPage().modifier(ComponentModifier(title: "Chips"))
         },
-        ComponentModel(name: "Lists", image: "Lists") {
-            ListPage()
+        ODSSmallCardModel(title: "Lists", image: Image("Lists")) {
+            ListPage().modifier(ComponentModifier(title: "Lists"))
         },
-        ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
-            ProgressIndicatorPage()
+        ODSSmallCardModel(title: "Progress indicators", image: Image("Progress_indicator")) {
+            ProgressIndicatorPage().modifier(ComponentModifier(title: "Progress indicators"))
         },
-        ComponentModel(name: "Sliders", image: "Slider") {
-            SliderPage()
+        ODSSmallCardModel(title: "Sliders", image: Image("Slider")) {
+            SliderPage().modifier(ComponentModifier(title: "Sliders"))
         },
-        ComponentModel(name: "Text field", image: "Text edit menu") {
-            TextFieldPage()
+        ODSSmallCardModel(title: "Text field", image: Image("Text edit menu")) {
+            TextFieldPage().modifier(ComponentModifier(title: "Text field"))
         },
-        ComponentModel(name: "Bars - navigation", image: "Navigation bars") {
-            NavigationBarPage()
+        ODSSmallCardModel(title: "Bars - navigation", image: Image("Navigation bars")) {
+            NavigationBarPage().modifier(ComponentModifier(title: "Bars - navigation"))
         },
     ]
 
     let columns = [
-        GridItem(.adaptive(minimum: 150), alignment: .topLeading),
+        GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.none, alignment: .top),
     ]
 
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                    ForEach(componentList.sorted {
-                        $0.name < $1.name
-                    }) {
-                        Component(component: $0)
-                    }
-                }
-                .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+                ODSGridOfCards(cardModels: componentList)
+                    .padding(.vertical, ODSSpacing.m)
+                    .padding(.horizontal, ODSSpacing.s)
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
@@ -83,6 +79,22 @@ struct ComponentsList: View {
     }
 }
 
+struct ComponentModifier: ViewModifier {
+    init(title: String) {
+        self.title = title
+    }
+
+    let title: String
+
+    func body(content: Content) -> some View {
+        content
+            .navigationTitle(title)
+            .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray6))
+    }
+}
+
+#if DEBUG
 struct ComponentsCardsList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -91,3 +103,4 @@ struct ComponentsCardsList_Previews: PreviewProvider {
         }
     }
 }
+#endif
