@@ -29,21 +29,20 @@ struct GuidelinesList: View {
     @ObservedObject var screenState = ScreenState()
 
     var body: some View {
-        let listModel = ODSListCardViewModel(title: "Guidelines",
-                                             cards: [
-                                                 ODSCardModel(title: "Colours", image: "Colour") {
-                                                     ColorList().environmentObject(self.screenState)
-                                                 },
-                                                 ODSCardModel(title: "Typography", image: "Typography") {
-                                                     FontList()
-                                                 },
-                                                 ODSCardModel(title: "Spacings", image: "Spacing") {
-                                                     SpacingList()
-                                                 },
-                                             ])
+        let listModel = ODSListOfCardsViewModel(title: "Guidelines",
+                                                cards: [
+                                                    ODSCardModel(title: "Colours", image: "Colour") {
+                                                        ColorList().environmentObject(self.screenState)
+                                                    },
+                                                    ODSCardModel(title: "Typography", image: "Typography") {
+                                                        FontList()
+                                                    },
+                                                    ODSCardModel(title: "Spacings", image: "Spacing") {
+                                                        SpacingList()
+                                                    },
+                                                ])
         return NavigationView {
-            ODSListCardView()
-                .environmentObject(listModel)
+            ODSListOfCards(model: listModel)
                 .background(ODSColor.primaryBackground.color)
         }
     }

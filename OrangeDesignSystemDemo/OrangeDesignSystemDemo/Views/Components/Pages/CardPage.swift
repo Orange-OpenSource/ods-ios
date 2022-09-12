@@ -176,12 +176,18 @@ struct SmallCard: View {
         GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
     ]
 
+    let gridModel = [
+        ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
+    ]
+
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-                ODSSmallCard(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
-                ODSSmallCard(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
-                ODSSmallCard(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
+                ForEach(gridModel) { model in
+                    ODSSmallCard(model: model)
+                }
             }
         }
         .padding(.horizontal, ODSSpacing.m)
