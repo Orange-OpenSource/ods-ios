@@ -95,21 +95,24 @@ struct ListBottomSheetContent: View {
     @EnvironmentObject var listPageModel: ListPageModel
 
     var body: some View {
-        VStack(spacing: ODSSpacing.m) {
+        VStack(spacing: ODSSpacing.none) {
             Toggle(isOn: $listPageModel.showSecondLine) {
                 Text("Second line of text").odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $listPageModel.showLeadingImage) {
                 Text("Leading").odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
 
             ODSChipPicker(title: "Trailing",
                           selection: $listPageModel.selectedTrailingImageChip,
                           chips: listPageModel.trailingImageChips)
+                .padding(.vertical, ODSSpacing.s)
         }
-        .padding(.vertical, ODSSpacing.s)
+        .padding(.top, ODSSpacing.s)
     }
 }
