@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct CardSmall: View {
+struct CardSmallPage: View {
     let columns = [
         GridItem(.adaptive(minimum: 10.0), spacing: 0, alignment: .topLeading),
     ]

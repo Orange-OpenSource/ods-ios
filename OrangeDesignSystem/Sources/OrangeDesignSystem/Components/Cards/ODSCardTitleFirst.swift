@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-public struct ODSCardTitleFirstElement {
+public struct ODSCardTitleFirstModel: Identifiable {
     let title: String
     let subtitle: String?
     let thumbnail: Image?
@@ -37,6 +37,10 @@ public struct ODSCardTitleFirstElement {
         self.description = description
         self.image = image
     }
+
+    public var id: String {
+        title
+    }
 }
 
 public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
@@ -44,13 +48,13 @@ public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where Butt
     private var buttonContent1: () -> ButtonContent1
     private var buttonContent2: () -> ButtonContent2
 
-    let element: ODSCardTitleFirstElement
+    let model: ODSCardTitleFirstModel
 
-    public init(element: ODSCardTitleFirstElement,
+    public init(model: ODSCardTitleFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
                 @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
     {
-        self.element = element
+        self.model = model
         self.buttonContent1 = buttonContent1
         self.buttonContent2 = buttonContent2
     }
@@ -58,10 +62,10 @@ public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where Butt
 
 extension ODSCardTitleFirst where ButtonContent2 == EmptyView {
 
-    public init(element: ODSCardTitleFirstElement,
+    public init(model: ODSCardTitleFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
     {
-        self.element = element
+        self.model = model
         self.buttonContent1 = buttonContent1
         buttonContent2 = { EmptyView() }
     }
@@ -69,8 +73,8 @@ extension ODSCardTitleFirst where ButtonContent2 == EmptyView {
 
 extension ODSCardTitleFirst where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
 
-    public init(element: ODSCardTitleFirstElement) {
-        self.element = element
+    public init(model: ODSCardTitleFirstModel) {
+        self.model = model
         buttonContent1 = { EmptyView() }
         buttonContent2 = { EmptyView() }
     }
@@ -81,18 +85,18 @@ extension ODSCardTitleFirst {
     public var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.s) {
-                element.thumbnail?
+                model.thumbnail?
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 44.0, height: 44.0, alignment: .center)
                     .clipShape(Circle())
 
                 VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                    Text(element.title)
+                    Text(model.title)
                         .odsFont(.bodyBold)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    if let subtitle = element.subtitle, !subtitle.isEmpty {
+                    if let subtitle = model.subtitle, !subtitle.isEmpty {
                         Text(subtitle)
                             .odsFont(.bodyRegular)
                     }
@@ -103,12 +107,12 @@ extension ODSCardTitleFirst {
             .padding(.horizontal, ODSSpacing.m)
             .layoutPriority(100)
 
-            element.image
+            model.image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
             VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                if let description = element.description, !description.isEmpty {
+                if let description = model.description, !description.isEmpty {
                     Text(description)
                         .padding(.horizontal, ODSSpacing.m)
                 }
@@ -143,7 +147,7 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
         }
     }
 
-    static let element = ODSCardTitleFirstElement(
+    static let model = ODSCardTitleFirstModel(
         title: ODSCardModel.example.title,
         subtitle: ODSCardModel.example.subTitle,
         thumbnail: Image("ods_empty", bundle: Bundle.ods),
@@ -152,7 +156,7 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
 
     static var previews: some View {
         ScrollView {
-            ODSCardTitleFirst(element: ODSCardTitleFirst_Previews.element) {
+            ODSCardTitleFirst(model: ODSCardTitleFirst_Previews.model) {
                 ButtonAction(text: "Button 1")
             } buttonContent2: {
                 ButtonAction(text: "Button 2")

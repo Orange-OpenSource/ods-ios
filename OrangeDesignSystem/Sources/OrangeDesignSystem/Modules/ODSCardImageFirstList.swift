@@ -110,10 +110,10 @@ struct ODSCardImageFirstList_Previews: PreviewProvider {
 
     static let cards: [ODSCardImageFirstListItemModel] = (1 ... 10).map {
         let title = "Card \($0)"
-        let element = ODSCardImageFirstElement(title: title, subtitle: "Subtitle",
-                                               image: Image("ods_empty", bundle: Bundle.ods))
+        let model = ODSCardImageFirstElement(title: title, subtitle: "Subtitle",
+                                             image: Image("ods_empty", bundle: Bundle.ods))
 
-        return ODSCardImageFirstListItemModel(cardElement: element) {
+        return ODSCardImageFirstListItemModel(cardElement: model) {
             Text("This is the \(title) destination view")
         }
     }

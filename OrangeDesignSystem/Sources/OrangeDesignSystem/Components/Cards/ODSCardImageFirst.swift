@@ -122,7 +122,7 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
         }
     }
 
-    static let element = ODSCardImageFirstElement(
+    static let model = ODSCardImageFirstElement(
         title: ODSCardModel.example.title,
         subtitle: ODSCardModel.example.subTitle,
         image: Image("ods_empty", bundle: Bundle.ods),
@@ -130,7 +130,7 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
 
     static var previews: some View {
         ScrollView {
-            ODSCardImageFirst(element: ODSCardImageFirst_Previews.element) {
+            ODSCardImageFirst(element: ODSCardImageFirst_Previews.model) {
                 ButtonAction(text: "Button 1")
             } buttonContent2: {
                 ButtonAction(text: "Button 2")

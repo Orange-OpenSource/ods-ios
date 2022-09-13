@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardTitleFirstModel: ObservableObject {
+class CardImageFirstModelPage: ObservableObject {
 
     var showSubtitle: Bool {
         selectedCardItemFilter.contains { $0 == .showSubtitle }
@@ -39,7 +39,7 @@ class CardTitleFirstModel: ObservableObject {
     }
 
     enum CardItemFilter: Int {
-        case showSubtitle
+        case showSubtitle = 0
         case showDescription
         case showButton
     }
@@ -61,31 +61,29 @@ class CardTitleFirstModel: ObservableObject {
         selectedCardItemFilter = [.showSubtitle, .showDescription, .showButton]
     }
 
-    var example: ODSCardTitleFirstElement {
-        ODSCardTitleFirstElement(
+    var cardModel: ODSCardImageFirstElement {
+        ODSCardImageFirstElement(
             title: "Title",
-            subtitle: showSubtitle ? ODSCardModel.example.subTitle : "",
-            thumbnail: Image("ods_empty", bundle: Bundle.ods),
+            subtitle: showSubtitle ? ODSCardModel.example.subTitle : nil,
             image: Image("ods_empty", bundle: Bundle.ods),
-            description: showDescription ? ODSCardModel.example.description : "")
+            description: showDescription ? ODSCardModel.example.description : nil)
     }
 }
 
-struct CardTitleFirst: View {
+struct CardImageFirstPage: View {
 
-    @ObservedObject var model: CardTitleFirstModel
+    @ObservedObject var model: CardImageFirstModelPage
 
     var body: some View {
         ZStack {
+            // Card demonstrator
             ScrollView {
-                ODSCardTitleFirst(element: model.example) {
+                ODSCardImageFirst(element: model.cardModel) {
                     if model.showButton {
                         Button {} label: {
                             ODSGenericButtonContent(topText: "Button")
                         }
                         .buttonStyle(ODSBorderedButtonStyle())
-                    } else {
-                        EmptyView()
                     }
                 } buttonContent2: {
                     if model.showButton {
@@ -95,22 +93,22 @@ struct CardTitleFirst: View {
                         .buttonStyle(ODSBorderedButtonStyle())
                     }
                 }
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
+                .navigationTitle("Card Image First")
             }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.top, ODSSpacing.m)
-            .navigationTitle("Card Image First")
 
             BottomSheet(showContent: false) {
-                CardTitleFirstBottomSheetContent()
+                CardImageFirstBottomSheetContent()
             }
             .environmentObject(model)
         }
     }
 }
 
-struct CardTitleFirstBottomSheetContent: View {
+struct CardImageFirstBottomSheetContent: View {
 
-    @EnvironmentObject var model: CardTitleFirstModel
+    @EnvironmentObject var model: CardImageFirstModelPage
 
     var body: some View {
         ODSChipPicker(title: "Update card content", selection: $model.selectedCardItemFilter, allowZeroSelection: true, chips: model.cardItemFilterChips)

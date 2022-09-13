@@ -52,19 +52,19 @@ struct CardPage: View {
             .padding(.horizontal, ODSSpacing.none)
 
             NavigationLink {
-                CardImageFirst(model: CardImageFirstModel())
+                CardImageFirstPage(model: CardImageFirstModelPage())
             } label: {
                 ODSListItem(model: ODSListItemModel(title: "Card Image First"))
             }
 
             NavigationLink {
-                CardTitleFirst(model: CardTitleFirstModel())
+                CardTitleFirstPage(model: CardTitleFirstPageModel())
             } label: {
                 ODSListItem(model: ODSListItemModel(title: "Card Title First"))
             }
 
             NavigationLink {
-                CardSmall()
+                CardSmallPage()
             } label: {
                 ODSListItem(model: ODSListItemModel(title: "Small card"))
             }
