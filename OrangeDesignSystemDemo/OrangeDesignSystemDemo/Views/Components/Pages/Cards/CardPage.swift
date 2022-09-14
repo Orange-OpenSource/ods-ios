@@ -77,42 +77,6 @@ struct CardPage: View {
     }
 }
 
-// struct CardBottomSheetContent: View {
-//
-//    @EnvironmentObject var model: CardPageModel
-//
-//    var body: some View {
-//        ODSChipPicker(title: "Update card content", selection: $model.selectedCardItemFilter, allowZeroSelection: true, chips: model.cardItemFilterChips)
-//            .padding(.horizontal, ODSSpacing.none)
-//            .padding(.vertical, ODSSpacing.s)
-//    }
-// }
-//
-// struct SmallCard: View {
-//    let columns = [
-//        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
-//    ]
-//
-//    let gridModel = [
-//        ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)),
-//        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-//        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-//    ]
-//
-//    var body: some View {
-//        ScrollView {
-//            LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-//                ForEach(gridModel) { model in
-//                    ODSSmallCard(model: model)
-//                }
-//            }
-//        }
-//        .padding(.horizontal, ODSSpacing.m)
-//        .padding(.top, ODSSpacing.m)
-//        .navigationTitle("Small card")
-//    }
-// }
-
 #if DEBUG
 struct CardViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
