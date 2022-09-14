@@ -21,24 +21,48 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct CardSmallPage: View {
+/// Used to describe the list of cards View.
+public class ODSListOfCardsViewModel: ObservableObject {
+    public let cards: [ODSCardModel]
+    public let title: String
+
+    public init(title: String, cards: [ODSCardModel]) {
+        self.title = title
+        self.cards = cards
+    }
+}
+
+/// Diosplay a list of cards in a single column.
+/// A card is clickable and a destination View is open in the native navigation.
+///
+public struct ODSListOfCards: View {
+
+    let model: ODSListOfCardsViewModel
+
     let columns = [
-        GridItem(.adaptive(minimum: 10.0), spacing: 0, alignment: .topLeading),
+        GridItem(.flexible(), alignment: .topLeading),
     ]
 
-    var body: some View {
+    public init(model: ODSListOfCardsViewModel) {
+        self.model = model
+    }
+
+    public var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 150.0), spacing: 0, alignment: .top)], spacing: 0) {
-                ODSCardSmall(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
-                ODSCardSmall(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
-                ODSCardSmall(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
+            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
+                ForEach(model.cards, id: \.title) { card in
+                    NavigationLink(destination: card.destination) {
+                        ODSCardView(element: card)
+                    }
+                }
             }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.m)
         }
-        .padding(.horizontal, ODSSpacing.m)
-        .padding(.top, ODSSpacing.m)
-        .navigationTitle("Small card")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationTitle(model.title)
+        .navigationViewStyle(.stack)
     }
 }

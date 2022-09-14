@@ -24,21 +24,21 @@
 import SwiftUI
 
 public struct ODSCardImageFirstListItemModel: Identifiable {
-    let cardElement: ODSCardImageFirstElement
+    let cardModel: ODSCardImageFirstModel
     let destination: AnyView?
 
-    public init<Destination>(cardElement: ODSCardImageFirstElement, @ViewBuilder destination: () -> Destination) where Destination: View {
-        self.cardElement = cardElement
+    public init<Destination>(cardModel: ODSCardImageFirstModel, @ViewBuilder destination: () -> Destination) where Destination: View {
+        self.cardModel = cardModel
         self.destination = AnyView(destination())
     }
 
-    public init(cardElement: ODSCardImageFirstElement) {
-        self.cardElement = cardElement
-        destination = AnyView(Text(cardElement.title + " to be define"))
+    public init(cardModel: ODSCardImageFirstModel) {
+        self.cardModel = cardModel
+        destination = AnyView(Text(cardModel.title + " to be define"))
     }
 
     public var id: String {
-        cardElement.title
+        cardModel.title
     }
 }
 
@@ -73,7 +73,7 @@ public struct ODSCardImageFirstList: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                     ForEach(model.items) { item in
-                        ODSCardImageFirst(element: item.cardElement) {
+                        ODSCardImageFirst(model: item.cardModel) {
                             Image("lkl")
                         }
                     }
@@ -94,13 +94,11 @@ struct ODSCardImageFirstListItem: View {
     var body: some View {
         NavigationLink {
             model.destination
-                .navigationTitle(model.cardElement.title)
+                .navigationTitle(model.cardModel.title)
                 .navigationViewStyle(.stack)
                 .background(Color(uiColor: .systemGray6))
         } label: {
-            ODSCardImageFirst(element: model.cardElement) {
-                Image("lkl")
-            }
+            ODSCardImageFirst(model: model.cardModel)
         }
     }
 }
@@ -110,10 +108,10 @@ struct ODSCardImageFirstList_Previews: PreviewProvider {
 
     static let cards: [ODSCardImageFirstListItemModel] = (1 ... 10).map {
         let title = "Card \($0)"
-        let model = ODSCardImageFirstElement(title: title, subtitle: "Subtitle",
-                                             image: Image("ods_empty", bundle: Bundle.ods))
+        let model = ODSCardImageFirstModel(title: title, subtitle: "Subtitle",
+                                           image: Image("ods_empty", bundle: Bundle.ods))
 
-        return ODSCardImageFirstListItemModel(cardElement: model) {
+        return ODSCardImageFirstListItemModel(cardModel: model) {
             Text("This is the \(title) destination view")
         }
     }

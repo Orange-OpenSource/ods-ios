@@ -29,22 +29,22 @@ struct GuidelinesList: View {
     @ObservedObject var screenState = ScreenState()
 
     var body: some View {
-        let listModel = ODSCardSmallListModel(
-            title: "Guidelines",
-            items: [
-                ODSCardSmallListItemModel(title: "Colours", image: Image("Colour")) {
-                    ColorList().environmentObject(self.screenState)
-                },
-                ODSCardSmallListItemModel(title: "Typography", image: Image("Typography")) {
-                    FontList()
-                },
-                ODSCardSmallListItemModel(title: "Spacings", image: Image("Spacing")) {
-                    SpacingList()
-                },
-            ])
-
-        return ODSCardSmallList(model: listModel)
-            .background(ODSColor.primaryBackground.color)
+        let listModel = ODSListOfCardsViewModel(title: "Guidelines",
+                                                cards: [
+                                                    ODSCardModel(title: "Colours", image: "Colour") {
+                                                        ColorList().environmentObject(self.screenState)
+                                                    },
+                                                    ODSCardModel(title: "Typography", image: "Typography") {
+                                                        FontList()
+                                                    },
+                                                    ODSCardModel(title: "Spacings", image: "Spacing") {
+                                                        SpacingList()
+                                                    },
+                                                ])
+        return NavigationView {
+            ODSListOfCards(model: listModel)
+                .background(ODSColor.primaryBackground.color)
+        }
     }
 }
 

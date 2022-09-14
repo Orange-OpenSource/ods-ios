@@ -27,33 +27,32 @@ import SwiftUI
 struct MainTabView: View {
 
     var body: some View {
-        ComponentsList()
-//        TabView {
-//            GuidelinesList()
-//                .tabItem {
-//                    Label("Guidelines", image: "Guideline-DNA_32")
-//                }
-//            ComponentsList()
-//                .tabItem {
-//                    Label("Components", image: "component-atom_32")
-//                }
-//            ModulesList()
-//                .tabItem {
-//                    Label("Modules", image: "Module-molecule_32")
-//                }
-//            ODSDemoAboutView()
-//                .tabItem {
-//                    Label("About", image: "info_32")
-//                }
-        ////            Text("Search")
-        ////                .odsFont(.largeTitle)
-        ////                .tabItem {
-        ////                    Label("Search", image: "Search_32")
-        ////                }
-//        }
-//        .navigationBarColor(tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
-//                            backgroundColor: ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground)
-//        .tabBarStyle(backgroundColor: ODSColor.componentBackground.color, itemColor: Color.primary)
+        TabView {
+            GuidelinesList()
+                .tabItem {
+                    Label("Guidelines", image: "Guideline-DNA_32")
+                }
+            ComponentsList()
+                .tabItem {
+                    Label("Components", image: "component-atom_32")
+                }
+            ModulesList()
+                .tabItem {
+                    Label("Modules", image: "Module-molecule_32")
+                }
+            ODSDemoAboutView()
+                .tabItem {
+                    Label("About", image: "info_32")
+                }
+            //            Text("Search")
+            //                .odsFont(.largeTitle)
+            //                .tabItem {
+            //                    Label("Search", image: "Search_32")
+            //                }
+        }
+        .navigationBarColor(tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
+                            backgroundColor: ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground)
+        .tabBarStyle(backgroundColor: ODSColor.componentBackground.color, itemColor: Color.primary)
     }
 }
 

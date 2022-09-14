@@ -21,42 +21,30 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-public class ODSListCardViewModel: ObservableObject {
-    public let cards: [ODSCardModel]
-    public let title: String
-
-    public init(title: String, cards: [ODSCardModel]) {
-        self.title = title
-        self.cards = cards
-    }
-}
-
-public struct ODSListCardView: View {
-    @EnvironmentObject private var list: ODSListCardViewModel
-
+struct SmallCardPage: View {
     let columns = [
-        GridItem(.flexible(), alignment: .topLeading),
+        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
     ]
 
-    public init() {}
+    let gridModel = [
+        ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
+    ]
 
-    public var body: some View {
+    var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                ForEach(list.cards, id: \.title) { card in
-                    NavigationLink(destination: card.destination) {
-                        ODSCardView(element: card)
-                    }
+            LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
+                ForEach(gridModel) { model in
+                    ODSSmallCard(model: model)
                 }
             }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.m)
         }
-        .navigationBarTitleDisplayMode(.large)
-        .navigationTitle(list.title)
-        .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
+        .padding(.horizontal, ODSSpacing.m)
+        .padding(.top, ODSSpacing.m)
+        .navigationTitle("Small card")
     }
 }

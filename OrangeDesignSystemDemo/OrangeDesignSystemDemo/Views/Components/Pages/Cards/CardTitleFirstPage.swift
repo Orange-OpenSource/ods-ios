@@ -30,8 +30,8 @@ class CardTitleFirstPageModel: ObservableObject {
         selectedCardItemFilter.contains { $0 == .showSubtitle }
     }
 
-    var showDescription: Bool {
-        selectedCardItemFilter.contains { $0 == .showDescription }
+    var showSupportingText: Bool {
+        selectedCardItemFilter.contains { $0 == .showSupportingText }
     }
 
     var showButton: Bool {
@@ -40,7 +40,7 @@ class CardTitleFirstPageModel: ObservableObject {
 
     enum CardItemFilter: Int {
         case showSubtitle
-        case showDescription
+        case showSupportingText
         case showButton
     }
 
@@ -50,15 +50,15 @@ class CardTitleFirstPageModel: ObservableObject {
 
     init() {
         cardItemFilterChips = [
-            ODSChip(.showSubtitle, text: "Show Subtitle"),
-            ODSChip(.showDescription, text: "Show Description"),
-            ODSChip(.showButton, text: "Show Button"),
+            ODSChip(.showSubtitle, text: "Show subtitle"),
+            ODSChip(.showSupportingText, text: "Show supporting text"),
+            ODSChip(.showButton, text: "Show buttons"),
         ]
-        selectedCardItemFilter = [.showSubtitle, .showDescription, .showButton]
+        selectedCardItemFilter = [.showSubtitle, .showSupportingText, .showButton]
     }
 
     func resetSwitches() {
-        selectedCardItemFilter = [.showSubtitle, .showDescription, .showButton]
+        selectedCardItemFilter = [.showSubtitle, .showSupportingText, .showButton]
     }
 
     var cardModel: ODSCardTitleFirstModel {
@@ -67,7 +67,7 @@ class CardTitleFirstPageModel: ObservableObject {
             subtitle: showSubtitle ? ODSCardModel.example.subTitle : "",
             thumbnail: Image("ods_empty", bundle: Bundle.ods),
             image: Image("ods_empty", bundle: Bundle.ods),
-            description: showDescription ? ODSCardModel.example.description : "")
+            supportingText: showSupportingText ? ODSCardModel.example.description : "")
     }
 }
 
@@ -84,8 +84,6 @@ struct CardTitleFirstPage: View {
                             ODSGenericButtonContent(topText: "Button")
                         }
                         .buttonStyle(ODSBorderedButtonStyle())
-                    } else {
-                        EmptyView()
                     }
                 } buttonContent2: {
                     if model.showButton {
@@ -95,9 +93,9 @@ struct CardTitleFirstPage: View {
                         .buttonStyle(ODSBorderedButtonStyle())
                     }
                 }
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
             }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.top, ODSSpacing.m)
             .navigationTitle("Card Image First")
 
             BottomSheet(showContent: false) {

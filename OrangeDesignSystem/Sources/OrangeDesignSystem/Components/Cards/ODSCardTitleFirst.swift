@@ -28,13 +28,13 @@ public struct ODSCardTitleFirstModel: Identifiable {
     let subtitle: String?
     let thumbnail: Image?
     let image: Image
-    let description: String?
+    let supportingText: String?
 
-    public init(title: String, subtitle: String? = nil, thumbnail: Image? = nil, image: Image, description: String? = nil) {
+    public init(title: String, subtitle: String? = nil, thumbnail: Image? = nil, image: Image, supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail
-        self.description = description
+        self.supportingText = supportingText
         self.image = image
     }
 
@@ -111,15 +111,17 @@ extension ODSCardTitleFirst {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
-            VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                if let description = model.description, !description.isEmpty {
-                    Text(description)
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                if let supportingText = model.supportingText, !supportingText.isEmpty {
+                    Text(supportingText)
                         .padding(.horizontal, ODSSpacing.m)
                 }
 
+                // Add padding on buttons to avoid to have extra padding on
+                // HStack even if there are no view on buttons.
                 HStack(spacing: ODSSpacing.m) {
-                    buttonContent1()
-                    buttonContent2()
+                    buttonContent1().padding(.top, ODSSpacing.m)
+                    buttonContent2().padding(.top, ODSSpacing.m)
                 }
                 .padding(.horizontal, ODSSpacing.m)
             }
@@ -128,19 +130,38 @@ extension ODSCardTitleFirst {
         }
         .background(ODSColor.componentBackground2.color)
         .cornerRadius(10)
-        .shadow(radius: 8)
-        .padding()
+        .shadow(radius: ODSSpacing.xs)
+        .padding(.all, ODSSpacing.s)
     }
 }
 
 #if DEBUG
 struct ODSCardTitleFirst_Previews: PreviewProvider {
 
-    struct ButtonAction: View {
-        let text: String
+    struct Tost: View {
+        @Binding var showText: String?
 
         var body: some View {
-            Button {} label: {
+            if let showText = self.showText {
+                Text(showText)
+                    .padding().background(.gray).clipShape(Capsule())
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            self.showText = nil
+                        }
+                    }
+            }
+        }
+    }
+
+    struct ButtonAction: View {
+        let text: String
+        let action: () -> Void
+
+        var body: some View {
+            Button {
+                action()
+            } label: {
                 ODSGenericButtonContent(topText: text, textColor: ODSColor.coreBlack.color)
             }
             .buttonStyle(ODSBorderedButtonStyle())
@@ -152,16 +173,35 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
         subtitle: ODSCardModel.example.subTitle,
         thumbnail: Image("ods_empty", bundle: Bundle.ods),
         image: Image("ods_empty", bundle: Bundle.ods),
-        description: ODSCardModel.example.description)
+        supportingText: ODSCardModel.example.description)
 
-    static var previews: some View {
-        ScrollView {
-            ODSCardTitleFirst(model: ODSCardTitleFirst_Previews.model) {
-                ButtonAction(text: "Button 1")
-            } buttonContent2: {
-                ButtonAction(text: "Button 2")
+    struct TestView: View {
+        @State var showTextInTost: String?
+        @State var disableButton1: Bool = false
+
+        var body: some View {
+            ScrollView {
+                ODSCardTitleFirst(model: ODSCardTitleFirst_Previews.model) {
+                    ButtonAction(text: "Button 1") {
+                        showTextInTost = "Button 1 Clicked"
+                    }
+                    .disabled(disableButton1)
+                } buttonContent2: {
+                    ButtonAction(text: "\(disableButton1 ? "Enable" : "Disable") Button 1") {
+                        disableButton1.toggle()
+                    }
+                }
+                .onTapGesture {
+                    showTextInTost = "Card tapped"
+                }
+
+                Tost(showText: $showTextInTost)
             }
         }
+    }
+
+    static var previews: some View {
+        TestView()
     }
 }
 #endif
