@@ -23,26 +23,60 @@
 
 import SwiftUI
 
-public struct ODSCardImageFirstModel {
+/// Model used to configure the `ODSCardImageFirst` card.
+public struct ODSCardImageFirstModel: Identifiable {
     public let title: String
     public let subtitle: String?
     public let image: Image
     public let supportingText: String?
 
+    /// Initialization
+    ///
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - image: The  image to be displayed in the card.
+    ///  - supportingText: Optional text description to be displayed in the card.
+    ///
     public init(title: String, subtitle: String? = nil, image: Image, supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.image = image
         self.supportingText = supportingText
     }
+    
+    /// The identifier based on the title.
+    public var id: String {
+        title
+    }
 }
 
+///
+/// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
+///
+/// This is a full width card displayed with an image as first element.
+/// This card is composed of two parts:
+/// - Media: (actually an image)
+/// - Content: with a title, an optinal subtitle an optinal supporting text and optional buttons (zero up to two)
+
+/// The card is configured using the model `ODSCardImageFirstModel` and optional action buttons
+/// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
+///
+/// Those view builder are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
+///
 public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
 
     private var model: ODSCardImageFirstModel
     private var buttonContent1: () -> ButtonContent1
     private var buttonContent2: () -> ButtonContent2
 
+    /// Initialization with two buttons
+    ///
+    /// - Parameters:
+    ///  - model: The model to configure the card.
+    ///  - buttonContent1: The button1 view builder
+    ///  - buttonContent2: The button2 view builder
+    ///
     public init(model: ODSCardImageFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
                 @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
@@ -51,7 +85,41 @@ public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where Butt
         self.buttonContent1 = buttonContent1
         self.buttonContent2 = buttonContent2
     }
+}
 
+extension ODSCardImageFirst where ButtonContent2 == EmptyView {
+    
+    /// Initialization with one button.
+    ///
+    /// - Parameters:
+    ///  - model: The model to configure the card.
+    ///  - buttonContent1: The button1 view builder
+    ///
+    public init(model: ODSCardImageFirstModel,
+                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
+    {
+        self.model = model
+        self.buttonContent1 = buttonContent1
+        buttonContent2 = { EmptyView() }
+    }
+}
+
+extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
+
+    /// Initialization without any button.
+    ///
+    /// - Parameter model: The model to configure the card.
+    ///
+    public init(model: ODSCardImageFirstModel) {
+        self.model = model
+        buttonContent1 = { EmptyView() }
+        buttonContent2 = { EmptyView() }
+    }
+}
+
+/// View implementation
+extension ODSCardImageFirst {
+    
     public var body: some View {
 
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
@@ -89,26 +157,6 @@ public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where Butt
         .cornerRadius(10)
         .shadow(radius: ODSSpacing.xs)
         .padding(.all, ODSSpacing.s)
-    }
-}
-
-extension ODSCardImageFirst where ButtonContent2 == EmptyView {
-
-    public init(model: ODSCardImageFirstModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
-    {
-        self.model = model
-        self.buttonContent1 = buttonContent1
-        buttonContent2 = { EmptyView() }
-    }
-}
-
-extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
-
-    public init(model: ODSCardImageFirstModel) {
-        self.model = model
-        buttonContent1 = { EmptyView() }
-        buttonContent2 = { EmptyView() }
     }
 }
 

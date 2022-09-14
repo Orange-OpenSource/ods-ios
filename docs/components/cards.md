@@ -30,50 +30,132 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 Cards are a contained and independent element that can display content and actions on a single topic.
 
-### Large cards (Image first)
-
 There are a few ways cards can be presented. Ranging from a single title on its own for a simple card view or with more information shown in a subtitle and supporting text and actions at the bottom of the card.
 
-According to `ODSCardModel` configuration the card elements are shown or not:
 
-- Media with title
-- Media, title with subtitle
-- Media, title with supporting text
-- Media, title with buttons
-- Media, title, subtitle with supporting text
+### Large cards (Image first)
+
+This is a full width card displayed with an image as first element.
+
+This card is composed of two parts:
+- Media: (actually an image)
+- Content: with a title, an optinal subtitle an optinal supporting text and optional buttons (zero up to two)
+
+> **Implementation**
+
+Card is configured using `ODSCardTitleFirstModel` like this:
 
 ```swift
-ODSCardView(element: ODSCardModel(title: "Title", description: "The description", image: Image("ods_empty"))
+let model = ODSCardImageFirstModel(
+    title: "Title",
+    subtitle: "Subtitle",
+    image: Image("ods_empty", bundle: Bundle.ods),
+    supportingText: "A supporting text to describe something")
+    
+ODSCardImageFirst(model: model) {
+    Button {
+        // do something here
+    } label: {
+        ODSGenericButtonContent(topText: "Button 1")
+    }
+    .buttonStyle(ODSBorderedButtonStyle())
+} buttonContent2: {
+    Button {
+        // do something here
+    } label: {
+        ODSGenericButtonContent(topText: "Button 2")
+    }
+    .buttonStyle(ODSBorderedButtonStyle())
+}
 ```
 
-- Media, title, subtitle with button
-
-_Soon available_
-
 ### Large cards (Title first)
-_Soon available_
 
+This is a full width card displaying with a title and a thumbnail on top as first element.
+
+This card is composed of three parts:
+- Header: with a title, an optinal subtitle and an optinal thmubnail
+- Media: (actually an image)
+- Content: with an optinal supporting text and optional buttons (zero up to two)
+
+> **Implementation**
+
+Card is configured using `ODSCardTitleFirstModel` like this:
+
+```swift
+let model = ODSCardTitleFirstModel(
+    title: "Title",
+    subtitle: "Subtitle",
+    thumbnail: Image("ods_empty", bundle: Bundle.ods),
+    image: Image("ods_empty", bundle: Bundle.ods),
+    supportingText: "A supporting text to describe something")
+    
+ODSCardTitleFirst(model: model) {
+    Button {
+        // do something here
+    } label: {
+        ODSGenericButtonContent(topText: "Button 1")
+    }
+    .buttonStyle(ODSBorderedButtonStyle())
+} buttonContent2: {
+    Button {
+        // do something here
+    } label: {
+        ODSGenericButtonContent(topText: "Button 2")
+    }
+    .buttonStyle(ODSBorderedButtonStyle())
+}
+```
 
 ### Small cards
 
 The small card if prefered for two-column portrait mobile screen display.
 As it is smaller than full-width cards, it contains only title and subtitle (optinal) in one line (Truncated tail).
 
+> **Implementation**
+
+Card is configured using `ODSSmallCardModel` like this:
+
 ```swift
-ODSSmallCard(title: "Title", image: Image("ods_empty"))
-ODSSmallCard(title: "Title", subtitle: "Subtitle", image: Image("ods_empty"))
+let model = ODSCardTitleFirstModel(
+    title: "Title",
+    subtitle: "Subtitle",
+    image: Image("ods_empty", bundle: Bundle.ods)) 
+
+ODSSmallCard(model: model)
 ```
 
 How to add Small Card in Grid 
+
 ```swift
+let models = [
+    ODSCardTitleFirstModel(
+        title: "Title 1",
+        subtitle: "Subtitle 1",
+        image: Image("ods_empty", bundle: Bundle.ods)) { 
+            Text("This card has a destination view")
+        },
+    ODSCardTitleFirstModel(
+        title: "Title 2",
+        subtitle: "Subtitle 2",
+        image: Image("ods_empty", bundle: Bundle.ods)) { 
+            Text("This card has a destination view")
+        },
+    //...
+    ]
+
+/// /!\ Don't forget to put the grid into a scrollview
 ScrollView {
-    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150.0), spacing: 0, alignment: .top)], spacing: 0) {
-        ODSSmallCard(title: "Title 1", image: Image("ods_empty", bundle: Bundle.ods))
-        ODSSmallCard(title: "Title 2", subtitle: "Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
-        ODSSmallCard(title: "Title 3", image: Image("ods_empty", bundle: Bundle.ods))
+    LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
+        ForEach(models) { model in
+            ODSSmallCard(model: model)
+        }
+        .padding(.bottom, ODSSpacing.m)
     }
 }
+ 
 ```
+
  
 
 

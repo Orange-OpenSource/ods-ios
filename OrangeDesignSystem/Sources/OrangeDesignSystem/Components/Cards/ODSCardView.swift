@@ -73,44 +73,6 @@ public struct ODSCardView: View {
     }
 }
 
-struct CardInnerView<ButtonContent>: View where ButtonContent: View {
-    let element: ODSCardModel
-
-    @ViewBuilder var buttonContent: () -> ButtonContent
-
-    var body: some View {
-
-        VStack(alignment: .leading, spacing: ODSSpacing.none) {
-            if let image = element.image {
-                Image(image.isEmpty ? "ods_empty" : image,
-                      bundle: image.isEmpty ? Bundle.ods : Bundle.main)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            }
-
-            VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                Text(element.title)
-                    .odsFont(.bodyBold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                if let subTitle = element.subTitle, !subTitle.isEmpty {
-                    Text(subTitle)
-                }
-                if let description = element.description, !description.isEmpty {
-                    Text(description).padding(.top)
-                }
-
-                buttonContent().padding(.top)
-            }
-            .layoutPriority(100)
-            .odsFont(.bodyRegular)
-            .foregroundColor(.primary)
-            .padding()
-        }
-        .background(ODSColor.componentBackground2.color)
-    }
-}
-
 #if DEBUG
 
 extension ODSCardModel {

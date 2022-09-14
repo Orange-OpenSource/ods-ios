@@ -23,6 +23,7 @@
 
 import SwiftUI
 
+/// Model used to configure the `ODSCardTitleFirst` card.
 public struct ODSCardTitleFirstModel: Identifiable {
     let title: String
     let subtitle: String?
@@ -30,19 +31,43 @@ public struct ODSCardTitleFirstModel: Identifiable {
     let image: Image
     let supportingText: String?
 
+    /// Initilize the model
+    ///
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - thumbnail: The optional thumbnail: avatar, logo or icon.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - image: The  image to be displayed in the card.
+    ///  - supportingText Optional text description to be displayed in the card.
+    ///
     public init(title: String, subtitle: String? = nil, thumbnail: Image? = nil, image: Image, supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail
-        self.supportingText = supportingText
         self.image = image
+        self.supportingText = supportingText
     }
 
+    /// The identifier based on the title.
     public var id: String {
         title
     }
 }
 
+///
+/// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
+///
+/// This is a full width card displayed with a title and a thumbnail on top as first element.
+/// This card is composed of three parts:
+/// - Header: with a title, an optinal subtitle and an optinal thmubnail
+/// - Media: (actually an image)
+/// - Content: with an optinal supporting text and optional buttons (zero up to two)
+///
+/// The card is configured using the model `ODSCardTitleFirstModel` and optional action buttons
+/// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
+///
+/// Those view builder are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
+///
 public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
 
     private var buttonContent1: () -> ButtonContent1
@@ -50,6 +75,13 @@ public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where Butt
 
     let model: ODSCardTitleFirstModel
 
+    /// Initialization with two buttons.
+    ///
+    /// - Parameters:
+    ///  - model: The model to configure the card.
+    ///  - buttonContent1: The button1 view builder
+    ///  - buttonContent2: The button2 view builder
+    ///  
     public init(model: ODSCardTitleFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
                 @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
@@ -62,6 +94,12 @@ public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where Butt
 
 extension ODSCardTitleFirst where ButtonContent2 == EmptyView {
 
+    /// Initialization with one button.
+    ///
+    /// - Parameters:
+    ///  - model: The model to configure the card.
+    ///  - buttonContent1: The button1 view builder
+    ///
     public init(model: ODSCardTitleFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
     {
@@ -73,6 +111,10 @@ extension ODSCardTitleFirst where ButtonContent2 == EmptyView {
 
 extension ODSCardTitleFirst where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
 
+    /// Initialization without any button.
+    ///
+    /// - Parameter model: The model to configure the card.
+    ///
     public init(model: ODSCardTitleFirstModel) {
         self.model = model
         buttonContent1 = { EmptyView() }
@@ -80,6 +122,7 @@ extension ODSCardTitleFirst where ButtonContent1 == EmptyView, ButtonContent2 ==
     }
 }
 
+/// View implementation
 extension ODSCardTitleFirst {
 
     public var body: some View {

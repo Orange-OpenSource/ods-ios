@@ -23,13 +23,20 @@
 
 import SwiftUI
 
-/// Used to describe a small card.
+/// Model used to configure the `ODSSmallCard` card.
 public struct ODSSmallCardModel: Identifiable {
     public let title: String
     public let subtitle: String?
     public let image: Image
     public let destination: AnyView?
 
+    /// Initialization.
+    ///
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - image: The  image to be displayed in the card.
+    ///
     public init(title: String, subtitle: String? = nil, image: Image) {
         self.title = title
         self.subtitle = subtitle
@@ -37,6 +44,14 @@ public struct ODSSmallCardModel: Identifiable {
         destination = nil
     }
 
+    /// Initialization with destination view if placed in grid.
+    ///
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - image: The  image to be displayed in the card.
+    ///  - destination: The destiantion view builder, if the small card is inserted into a grid using the `ODSGridsOfCards`.
+    ///
     public init<Destination>(title: String, subtitle: String? = nil, image: Image, @ViewBuilder destination: () -> Destination) where Destination: View {
         self.title = title
         self.subtitle = subtitle
@@ -44,13 +59,18 @@ public struct ODSSmallCardModel: Identifiable {
         self.destination = AnyView(destination())
     }
 
+    /// The identifier based on the title.
     public var id: String {
         title
     }
 }
 
+///
+/// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
+///
 /// A small card is a card which can be added in two columns grid.
-/// It contains a image and a title. An additional subtitle can also be added.
+/// It contains an image and a title, and an optional subtitle placed below.
+/// 
 /// A destination view can be provided if the card is inserted into the `ODSGridOfCards`
 /// to make it clickable and open the destination in native navigation.
 ///
@@ -58,6 +78,10 @@ public struct ODSSmallCard: View {
 
     let model: ODSSmallCardModel
 
+    /// Initialization.
+    ///
+    /// - Parameter model: The model to configure the card.
+    ///
     public init(model: ODSSmallCardModel) {
         self.model = model
     }
