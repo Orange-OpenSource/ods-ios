@@ -3,6 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #228 Change Chip to switch on List screen for "SecondLineOfText" and "LeadingImage" options 
+- [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components
 - [SDK/DemoApp] #182 Add card title first
 - [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components 
 - [DemoApp] #235 Rename Module called Card View to Card Collections (2)
