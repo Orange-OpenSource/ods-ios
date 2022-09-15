@@ -60,7 +60,7 @@ public struct ODSListItemModel {
 
     /// Describe the Item content.
     ///
-    /// - Parameters
+    /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtile: The secondary text of the list item (optional)
     ///     - leadingIconModel: The leading icon of the list item (optional)
@@ -96,7 +96,7 @@ public struct ODSListItemWithToggleModel {
 
     /// Create a model that describes the content of the `ODSListItemWithToggle`.
     ///
-    /// - Parameters
+    /// - Parameters:
     ///    - title: The primary text of the list item
     ///    - isOn: A binding to a property that determines whether the toggle is ON or OFF.
     ///    - minHeight: The minimum height of the list item (medium by default)

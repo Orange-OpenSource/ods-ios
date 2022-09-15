@@ -55,7 +55,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
         /// Create a chip model that describes the chip contents.
         ///
-        /// - Parameters
+        /// - Parameters:
         ///     - value: The value of the chip
         ///     - text: Text of the chip
         ///     - thumbnail: Optional leading thumbnail
