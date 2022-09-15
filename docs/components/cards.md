@@ -38,7 +38,7 @@ There are a few ways cards can be presented. Ranging from a single title on its 
 This is a full width card displayed with an image as first element.
 
 This card is composed of two parts:
-- Media: (actually an image)
+- Media: (today an image)
 - Content: with a title, an optinal subtitle an optinal supporting text and optional buttons (zero up to two)
 
 > **Implementation**
@@ -75,7 +75,7 @@ This is a full width card displaying with a title and a thumbnail on top as firs
 
 This card is composed of three parts:
 - Header: with a title, an optinal subtitle and an optinal thmubnail
-- Media: (actually an image)
+- Media: (today an image)
 - Content: with an optinal supporting text and optional buttons (zero up to two)
 
 > **Implementation**

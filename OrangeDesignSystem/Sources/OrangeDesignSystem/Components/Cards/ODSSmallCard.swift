@@ -35,7 +35,7 @@ public struct ODSSmallCardModel: Identifiable {
     /// - Parameters:
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The  image to be displayed in the card.
+    ///  - image: The image to be displayed in the card.
     ///
     public init(title: String, subtitle: String? = nil, image: Image) {
         self.title = title
@@ -49,7 +49,7 @@ public struct ODSSmallCardModel: Identifiable {
     /// - Parameters:
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The  image to be displayed in the card.
+    ///  - image: The image to be displayed in the card.
     ///  - destination: The destiantion view builder, if the small card is inserted into a grid using the `ODSGridsOfCards`.
     ///
     public init<Destination>(title: String, subtitle: String? = nil, image: Image, @ViewBuilder destination: () -> Destination) where Destination: View {
@@ -70,7 +70,7 @@ public struct ODSSmallCardModel: Identifiable {
 ///
 /// A small card is a card which can be added in two columns grid.
 /// It contains an image and a title, and an optional subtitle placed below.
-/// 
+///
 /// A destination view can be provided if the card is inserted into the `ODSGridOfCards`
 /// to make it clickable and open the destination in native navigation.
 ///

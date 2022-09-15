@@ -37,7 +37,7 @@ public struct ODSCardTitleFirstModel: Identifiable {
     ///  - title: The title to be displayed in the card.
     ///  - thumbnail: The optional thumbnail: avatar, logo or icon.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The  image to be displayed in the card.
+    ///  - image: The image to be displayed in the card.
     ///  - supportingText Optional text description to be displayed in the card.
     ///
     public init(title: String, subtitle: String? = nil, thumbnail: Image? = nil, image: Image, supportingText: String? = nil) {
@@ -60,7 +60,7 @@ public struct ODSCardTitleFirstModel: Identifiable {
 /// This is a full width card displayed with a title and a thumbnail on top as first element.
 /// This card is composed of three parts:
 /// - Header: with a title, an optinal subtitle and an optinal thmubnail
-/// - Media: (actually an image)
+/// - Media: (today an image)
 /// - Content: with an optinal supporting text and optional buttons (zero up to two)
 ///
 /// The card is configured using the model `ODSCardTitleFirstModel` and optional action buttons
@@ -81,7 +81,7 @@ public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where Butt
     ///  - model: The model to configure the card.
     ///  - buttonContent1: The button1 view builder
     ///  - buttonContent2: The button2 view builder
-    ///  
+    ///
     public init(model: ODSCardTitleFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
                 @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
@@ -220,7 +220,7 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
 
     struct TestView: View {
         @State var showTextInTost: String?
-        @State var disableButton1: Bool = false
+        @State var disableButton1 = false
 
         var body: some View {
             ScrollView {

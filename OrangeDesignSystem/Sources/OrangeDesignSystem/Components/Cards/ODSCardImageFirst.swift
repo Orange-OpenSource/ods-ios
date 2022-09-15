@@ -35,7 +35,7 @@ public struct ODSCardImageFirstModel: Identifiable {
     /// - Parameters:
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The  image to be displayed in the card.
+    ///  - image: The image to be displayed in the card.
     ///  - supportingText: Optional text description to be displayed in the card.
     ///
     public init(title: String, subtitle: String? = nil, image: Image, supportingText: String? = nil) {
@@ -44,7 +44,7 @@ public struct ODSCardImageFirstModel: Identifiable {
         self.image = image
         self.supportingText = supportingText
     }
-    
+
     /// The identifier based on the title.
     public var id: String {
         title
@@ -56,13 +56,13 @@ public struct ODSCardImageFirstModel: Identifiable {
 ///
 /// This is a full width card displayed with an image as first element.
 /// This card is composed of two parts:
-/// - Media: (actually an image)
-/// - Content: with a title, an optinal subtitle an optinal supporting text and optional buttons (zero up to two)
-
+/// - Media: (today an image)
+/// - Content: with a title, an optinal subtitle, an optinal supporting text and optional buttons (zero up to two)
+///
 /// The card is configured using the model `ODSCardImageFirstModel` and optional action buttons
 /// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
 ///
-/// Those view builder are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
+/// Those view builders are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
 ///
 public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
 
@@ -70,7 +70,7 @@ public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where Butt
     private var buttonContent1: () -> ButtonContent1
     private var buttonContent2: () -> ButtonContent2
 
-    /// Initialization with two buttons
+    /// Initialization with two buttons.
     ///
     /// - Parameters:
     ///  - model: The model to configure the card.
@@ -88,7 +88,7 @@ public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where Butt
 }
 
 extension ODSCardImageFirst where ButtonContent2 == EmptyView {
-    
+
     /// Initialization with one button.
     ///
     /// - Parameters:
@@ -119,7 +119,7 @@ extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 ==
 
 /// View implementation
 extension ODSCardImageFirst {
-    
+
     public var body: some View {
 
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
