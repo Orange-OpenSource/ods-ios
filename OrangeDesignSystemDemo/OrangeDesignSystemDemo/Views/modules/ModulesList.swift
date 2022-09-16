@@ -28,25 +28,29 @@ struct ModulesList: View {
     var body: some View {
         AboutConfigDemo.instance.configure()
 
-        let listModel = ODSListCardViewModel(title: "Modules",
-                                             cards: [ODSCardModel(title: "About", image: "AboutImage") {
-                                                 AboutView()
-                                                     .environmentObject(AboutConfigDemo.instance.applicationDescription)
-                                                     .navigationBarTitleDisplayMode(.inline)
-                                             },
-                                             ODSCardModel(title: "Card view", image: "Cards") {
-                                                 CardViewDemo()
-                                             }])
+        let listModel = ODSListOfCardsViewModel(title: "Modules",
+                                                cards: [
+                                                    ODSCardModel(title: "About", image: "AboutImage") {
+                                                        AboutView()
+                                                            .environmentObject(AboutConfigDemo.instance.applicationDescription)
+                                                            .navigationBarTitleDisplayMode(.inline)
+                                                    },
+                                                    ODSCardModel(title: "Card collections", image: "Cards") {
+                                                        CardViewDemo()
+                                                    },
+                                                ])
 
         return NavigationView {
-            ODSListCardView()
-                .environmentObject(listModel)
-        }.background(ODSColor.primaryBackground.color)
+            ODSListOfCards(model: listModel)
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 
+#if DEBUG
 struct ModulesList_Previews: PreviewProvider {
     static var previews: some View {
         ModulesList()
     }
 }
+#endif

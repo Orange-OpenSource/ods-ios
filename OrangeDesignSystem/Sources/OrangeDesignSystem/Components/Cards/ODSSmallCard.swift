@@ -23,31 +23,82 @@
 
 import SwiftUI
 
-public struct ODSSmallCard: View {
+/// Model used to configure the `ODSSmallCard` card.
+public struct ODSSmallCardModel: Identifiable {
+    public let title: String
+    public let subtitle: String?
+    public let image: Image
+    public let destination: AnyView?
 
-    let title: String
-    let subtitle: String?
-    let image: Image
-
+    /// Initialization.
+    ///
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - image: The image to be displayed in the card.
+    ///
     public init(title: String, subtitle: String? = nil, image: Image) {
         self.title = title
         self.subtitle = subtitle
         self.image = image
+        destination = nil
+    }
+
+    /// Initialization with destination view if placed in grid.
+    ///
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - image: The image to be displayed in the card.
+    ///  - destination: The destiantion view builder, if the small card is inserted into a grid using the `ODSGridsOfCards`.
+    ///
+    public init<Destination>(title: String, subtitle: String? = nil, image: Image, @ViewBuilder destination: () -> Destination) where Destination: View {
+        self.title = title
+        self.subtitle = subtitle
+        self.image = image
+        self.destination = AnyView(destination())
+    }
+
+    /// The identifier based on the title.
+    public var id: String {
+        title
+    }
+}
+
+///
+/// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
+///
+/// A small card is a card which can be added in two columns grid.
+/// It contains an image and a title, and an optional subtitle placed below.
+///
+/// A destination view can be provided if the card is inserted into the `ODSGridOfCards`
+/// to make it clickable and open the destination in native navigation.
+///
+public struct ODSSmallCard: View {
+
+    let model: ODSSmallCardModel
+
+    /// Initialization.
+    ///
+    /// - Parameter model: The model to configure the card.
+    ///
+    public init(model: ODSSmallCardModel) {
+        self.model = model
     }
 
     public var body: some View {
         VStack {
-            image
+            model.image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                Text(title)
+                Text(model.title)
                     .lineLimit(1)
                     .odsFont(.bodyBold)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                if let subtitle = subtitle {
+                if let subtitle = model.subtitle {
                     Text(subtitle)
                         .lineLimit(1)
                         .odsFont(.bodyRegular)
@@ -72,6 +123,13 @@ struct SmallCardView_Previews: PreviewProvider {
         GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
     ]
 
+    static let gridModel = [
+        ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "4 A long long Title", image: Image("ods_empty", bundle: Bundle.ods)),
+    ]
+
     static var previews: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
@@ -82,10 +140,9 @@ struct SmallCardView_Previews: PreviewProvider {
                     .padding(.bottom, ODSSpacing.m)
 
                 LazyVGrid(columns: SmallCardView_Previews.columns, spacing: ODSSpacing.none) {
-                    ODSSmallCard(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods))
-                    ODSSmallCard(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
-                    ODSSmallCard(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods))
-                    ODSSmallCard(title: "4 A long long Title", image: Image("ods_empty", bundle: Bundle.ods))
+                    ForEach(gridModel) { model in
+                        ODSSmallCard(model: model)
+                    }
                 }
                 .padding(.bottom, ODSSpacing.m)
 
@@ -94,7 +151,7 @@ struct SmallCardView_Previews: PreviewProvider {
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 
-                ODSSmallCard(title: "Title 4", subtitle: "Subtitle 4", image: Image("ods_empty", bundle: Bundle.ods)) // .background(.yellow)
+                ODSSmallCard(model: ODSSmallCardModel(title: "Title 4", subtitle: "Subtitle 4", image: Image("ods_empty", bundle: Bundle.ods)))
             }
             .padding(.horizontal, ODSSpacing.m)
         }

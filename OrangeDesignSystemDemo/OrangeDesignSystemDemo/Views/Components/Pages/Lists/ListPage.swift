@@ -27,33 +27,22 @@ import SwiftUI
 // MARK: Lists Page Model
 class ListPageModel: ObservableObject {
 
-    enum SecondLineOfTextChip {
-        case subtitle
-    }
-
     enum TrailingImageChip {
         case text
         case infoButton
     }
 
-    enum LeadingImageChip {
-        case image
-    }
-
     @Published var listModel: ListModel
 
-    let secondLineOfTextChips: [ODSChip<SecondLineOfTextChip>]
+    @Published var showSecondLine: Bool {
+        didSet { updateListModel() }
+    }
+
+    @Published var showLeadingImage: Bool {
+        didSet { updateListModel() }
+    }
+
     let trailingImageChips: [ODSChip<TrailingImageChip>]
-    let leadingImageChips: [ODSChip<LeadingImageChip>]
-
-    @Published var selectedSecondLineOfTextChip: SecondLineOfTextChip? {
-        didSet { updateListModel() }
-    }
-
-    @Published var selectedLeadingImageChip: LeadingImageChip? {
-        didSet { updateListModel() }
-    }
-
     @Published var selectedTrailingImageChip: TrailingImageChip? {
         didSet { updateListModel() }
     }
@@ -69,12 +58,10 @@ class ListPageModel: ObservableObject {
         self.toogleState = toogleState
         self.showSheetOnIButtonClicked = showSheetOnIButtonClicked
 
-        secondLineOfTextChips = [ODSChip(.subtitle, text: "Subtitle")]
-        leadingImageChips = [ODSChip(.image, text: "Image")]
+        showSecondLine = true
+        showLeadingImage = true
         trailingImageChips = [ODSChip(.infoButton, text: "Button icon"), ODSChip(.text, text: "Text")]
 
-        selectedSecondLineOfTextChip = .subtitle
-        selectedLeadingImageChip = .image
         selectedTrailingImageChip = .text
 
         listModel = ListModel(itemModels: [])
@@ -91,10 +78,10 @@ class ListPageModel: ObservableObject {
     }
 
     func genericItemModel() -> ODSListItemModel {
-        let subTitle = selectedSecondLineOfTextChip == nil ? nil : "Subtitle"
+        let subTitle = showSecondLine ? "Subtitle" : nil
 
         let image = Image("ListIcon", bundle: Bundle.main)
-        let leadingIconModel = selectedLeadingImageChip == nil ? nil : ODSListItemLeadingIconModel.withImage(image)
+        let leadingIconModel = showLeadingImage ? ODSListItemLeadingIconModel.withImage(image) : nil
 
         var trailingIconModel: ODSListItemTrailingIconModel?
         switch selectedTrailingImageChip {
