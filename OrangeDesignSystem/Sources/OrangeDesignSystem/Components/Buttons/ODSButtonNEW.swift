@@ -66,9 +66,9 @@ public struct ODSFunctionalButtonStyle: ButtonStyle {
     public func makeBody(configuration: Self.Configuration) -> some View {
         switch functionType {
         case .positive:
-            return ODSFilledButtonLabel(configuration: configuration, backgroundColor: .green)
+            return ODSFilledButtonLabel(configuration: configuration, backgroundColor: ODSColor.functionalPositive.color, foregroundColor: Color(UIColor.systemBackground))
         case .negative:
-            return ODSFilledButtonLabel(configuration: configuration, backgroundColor: .red)
+            return ODSFilledButtonLabel(configuration: configuration, backgroundColor: ODSColor.functionalNegative.color, foregroundColor: Color(UIColor.systemBackground))
         }
     }
 }
@@ -145,11 +145,28 @@ private struct ODSFilledButtonLabel: View {
     @Environment(\.isEnabled) var isEnabled
     let configuration: ButtonStyle.Configuration
     let backgroundColor: Color?
+    let foregroundColor: Color?
+    var appliedForegroundColor: Color? {
+        if isEnabled {
+            return foregroundColor
+        } else {
+            return Color(UIColor.secondaryLabel)
+        }
+    }
+
+    var appliedBackgroundColor: Color {
+        if isEnabled {
+            return backgroundColor ?? .primary
+        } else {
+            return Color(UIColor.quaternarySystemFill)
+        }
+    }
 
     var body: some View {
         configuration.label
-            .background(backgroundColor ?? .primary)
-            .opacity(configuration.isPressed || !isEnabled ? 0.3 : 1.0)
+            .foregroundColor(appliedForegroundColor)
+            .background(appliedBackgroundColor)
+            .opacity(configuration.isPressed ? 0.3 : 1.0)
             .cornerRadius(8.0)
     }
 }
@@ -165,13 +182,13 @@ struct ODSButtonContent_Previews: PreviewProvider {
                 Button {} label: {
                     ODSButtonContent(text: "Take a tour")
                 }
-                .buttonStyle(ODSFunctionalButtonStyle(functionType: .positive))
+                .buttonStyle(ODSFunctionalButtonStyle(functionType: .negative))
                 .disabled(disable)
 
                 Button {} label: {
                     ODSButtonContent(text: "Take a tour", image: Image(systemName: "pencil.tip.crop.circle"))
                 }
-                .buttonStyle(ODSFunctionalButtonStyle(functionType: .positive))
+                .buttonStyle(ODSFunctionalButtonStyle(functionType: .negative))
                 .disabled(disable)
             }
         }
@@ -180,8 +197,13 @@ struct ODSButtonContent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             buttonsSample(disable: false)
+                .padding(.horizontal, 90)
             buttonsSample(disable: true)
-        }.preferredColorScheme(.light)
+                .padding(.horizontal, 90)
+        }
+        .padding(.vertical, 150)
+        .background(Color(UIColor.quaternaryLabel))
+        .preferredColorScheme(.light)
 
         VStack {
             buttonsSample(disable: false)
