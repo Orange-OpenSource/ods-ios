@@ -25,25 +25,22 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ModulesList: View {
+
     var body: some View {
         AboutConfigDemo.instance.configure()
+        let items = [
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", image: Image("AboutImage"))) {
+                AboutView()
+                    .environmentObject(AboutConfigDemo.instance.applicationDescription)
+                    .navigationBarTitleDisplayMode(.inline)
+            },
 
-        let listModel = ODSListOfCardsViewModel(title: "Modules",
-                                                cards: [
-                                                    ODSCardModel(title: "About", image: "AboutImage") {
-                                                        AboutView()
-                                                            .environmentObject(AboutConfigDemo.instance.applicationDescription)
-                                                            .navigationBarTitleDisplayMode(.inline)
-                                                    },
-                                                    ODSCardModel(title: "Card collections", image: "Cards") {
-                                                        CardViewDemo()
-                                                    },
-                                                ])
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", image: Image("Cards"))) {
+                CardViewDemo()
+            },
+        ]
 
-        return NavigationView {
-            ODSListOfCards(model: listModel)
-        }
-        .background(ODSColor.primaryBackground.color)
+        return ODSListOfCardImageFirst(title: "Modules", itemModels: items)
     }
 }
 

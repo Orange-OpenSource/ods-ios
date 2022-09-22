@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071D3EF128884D8200DFD1C9 /* SpacingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D3EF028884D8200DFD1C9 /* SpacingList.swift */; };
+		071D3EF128884D8200DFD1C9 /* SpacingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D3EF028884D8200DFD1C9 /* SpacingPage.swift */; };
 		07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C53287C7470004397D7 /* ODSColors+extension.swift */; };
 		07973C56287C74CF004397D7 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C55287C74CF004397D7 /* RGB.swift */; };
+		07C52F2028D37A2B0067CFC0 /* CardExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */; };
 		07C8234B28AE68B2003B2C3A /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8233F28AE68B2003B2C3A /* BottomSheet.swift */; };
 		07C8234C28AE68B2003B2C3A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234028AE68B2003B2C3A /* List.swift */; };
 		07C8234D28AE68B2003B2C3A /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234128AE68B2003B2C3A /* ListPage.swift */; };
@@ -28,7 +29,7 @@
 		07E37F6628C745E1003FF740 /* CardImageFirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6528C745E1003FF740 /* CardImageFirstPage.swift */; };
 		36C345D36B11DDB0C9327B11 /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
-		F90D9768280030A6006D29FC /* FontsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* FontsList.swift */; };
+		F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* TypographyPage.swift */; };
 		F90D976C280030C4006D29FC /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976B280030C4006D29FC /* MainTabView.swift */; };
 		F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976E28003104006D29FC /* ODSDemoAboutView.swift */; };
 		F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */; };
@@ -39,7 +40,7 @@
 		F90D978328003281006D29FC /* CardViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978028003281006D29FC /* CardViewDemo.swift */; };
 		F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978428003299006D29FC /* AboutConfigDemo.swift */; };
 		F90D978728005A4A006D29FC /* ComponentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978628005A4A006D29FC /* ComponentList.swift */; };
-		F96A3E17280451660086B9BF /* ColorsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A3E11280451660086B9BF /* ColorsList.swift */; };
+		F96A3E17280451660086B9BF /* ColorsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A3E11280451660086B9BF /* ColorsPage.swift */; };
 		F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A3E12280451660086B9BF /* ColorUsage.swift */; };
 		F96A3E19280451660086B9BF /* ColorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A3E14280451660086B9BF /* ColorDetail.swift */; };
 		F96A3E1A280451660086B9BF /* ColorBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A3E15280451660086B9BF /* ColorBig.swift */; };
@@ -77,9 +78,10 @@
 
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
-		071D3EF028884D8200DFD1C9 /* SpacingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingList.swift; sourceTree = "<group>"; };
+		071D3EF028884D8200DFD1C9 /* SpacingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingPage.swift; sourceTree = "<group>"; };
 		07973C53287C7470004397D7 /* ODSColors+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ODSColors+extension.swift"; sourceTree = "<group>"; };
 		07973C55287C74CF004397D7 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExampleData.swift; sourceTree = "<group>"; };
 		07C8233F28AE68B2003B2C3A /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		07C8234028AE68B2003B2C3A /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		07C8234128AE68B2003B2C3A /* ListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
@@ -103,7 +105,7 @@
 		EB0AA530275652AE0012E192 /* OrangeDesignSystemDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeDesignSystemDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA540275652AF0012E192 /* OrangeDesignSystemDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F90D9765280030A6006D29FC /* FontsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsList.swift; sourceTree = "<group>"; };
+		F90D9765280030A6006D29FC /* TypographyPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypographyPage.swift; sourceTree = "<group>"; };
 		F90D976B280030C4006D29FC /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabView.swift; path = OrangeDesignSystemDemo/Views/MainTabView.swift; sourceTree = "<group>"; };
 		F90D976E28003104006D29FC /* ODSDemoAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutView.swift; sourceTree = "<group>"; };
 		F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutConfig.swift; sourceTree = "<group>"; };
@@ -119,7 +121,7 @@
 		F913B86827679EE9001CB0AA /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
 		F913B86927679EE9001CB0AA /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .swiftformat; path = ../.swiftformat; sourceTree = "<group>"; };
 		F94F90BD28328CAE00F06304 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = OrangeDesignSystemDemo/Info.plist; sourceTree = "<group>"; };
-		F96A3E11280451660086B9BF /* ColorsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsList.swift; sourceTree = "<group>"; };
+		F96A3E11280451660086B9BF /* ColorsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsPage.swift; sourceTree = "<group>"; };
 		F96A3E12280451660086B9BF /* ColorUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUsage.swift; sourceTree = "<group>"; };
 		F96A3E14280451660086B9BF /* ColorDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDetail.swift; sourceTree = "<group>"; };
 		F96A3E15280451660086B9BF /* ColorBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorBig.swift; sourceTree = "<group>"; };
@@ -171,7 +173,7 @@
 		071D3EEF28884D8200DFD1C9 /* Spacings */ = {
 			isa = PBXGroup;
 			children = (
-				071D3EF028884D8200DFD1C9 /* SpacingList.swift */,
+				071D3EF028884D8200DFD1C9 /* SpacingPage.swift */,
 			);
 			path = Spacings;
 			sourceTree = "<group>";
@@ -179,7 +181,7 @@
 		07240127285B656400DFB9A9 /* Typography */ = {
 			isa = PBXGroup;
 			children = (
-				F90D9765280030A6006D29FC /* FontsList.swift */,
+				F90D9765280030A6006D29FC /* TypographyPage.swift */,
 			);
 			path = Typography;
 			sourceTree = "<group>";
@@ -237,6 +239,7 @@
 				07E37F6128C73252003FF740 /* SmallCardPage.swift */,
 				07E37F6328C74540003FF740 /* CardTitleFirstPage.swift */,
 				07E37F6528C745E1003FF740 /* CardImageFirstPage.swift */,
+				07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -333,7 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				07973C57287C74F1004397D7 /* Utils */,
-				F96A3E11280451660086B9BF /* ColorsList.swift */,
+				F96A3E11280451660086B9BF /* ColorsPage.swift */,
 				F96A3E12280451660086B9BF /* ColorUsage.swift */,
 				F96A3E13280451660086B9BF /* Views */,
 			);
@@ -694,11 +697,12 @@
 				F96A3E19280451660086B9BF /* ColorDetail.swift in Sources */,
 				07C8235528AE68B2003B2C3A /* NavigationBarPage.swift in Sources */,
 				F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */,
-				F90D9768280030A6006D29FC /* FontsList.swift in Sources */,
-				F96A3E17280451660086B9BF /* ColorsList.swift in Sources */,
+				F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */,
+				F96A3E17280451660086B9BF /* ColorsPage.swift in Sources */,
 				07C8234F28AE68B2003B2C3A /* TextFieldPage.swift in Sources */,
-				071D3EF128884D8200DFD1C9 /* SpacingList.swift in Sources */,
+				071D3EF128884D8200DFD1C9 /* SpacingPage.swift in Sources */,
 				07C8235028AE68B2003B2C3A /* ChipsPage.swift in Sources */,
+				07C52F2028D37A2B0067CFC0 /* CardExampleData.swift in Sources */,
 				07C8235128AE68B2003B2C3A /* TextButtonPage.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,

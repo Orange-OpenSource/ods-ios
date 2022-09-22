@@ -26,25 +26,22 @@ import SwiftUI
 
 struct GuidelinesList: View {
 
-    @ObservedObject var screenState = ScreenState()
+    let items = [
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
+            ColorPage()
+        },
+
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
+            TypographyPage()
+        },
+
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
+            SpacingPage()
+        },
+    ]
 
     var body: some View {
-        let listModel = ODSListOfCardsViewModel(title: "Guidelines",
-                                                cards: [
-                                                    ODSCardModel(title: "Colours", image: "Colour") {
-                                                        ColorList().environmentObject(self.screenState)
-                                                    },
-                                                    ODSCardModel(title: "Typography", image: "Typography") {
-                                                        FontList()
-                                                    },
-                                                    ODSCardModel(title: "Spacings", image: "Spacing") {
-                                                        SpacingList()
-                                                    },
-                                                ])
-        return NavigationView {
-            ODSListOfCards(model: listModel)
-                .background(ODSColor.primaryBackground.color)
-        }
+        return ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
     }
 }
 

@@ -27,17 +27,17 @@ import SwiftUI
 
 struct CardViewDemo: View {
 
-    let listModel = ODSListOfCardsViewModel(title: "Card collections",
-                                            cards: [
-                                                ODSCardModel(title: "List", image: "Cards") {
-                                                    CardViewDemoList()
-                                                },
-                                                ODSCardModel(title: "Grid", image: "Cards_1") {
-                                                    CardViewDemoGrid()
-                                                },
-                                            ])
+    let items = [
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "List", image: Image("Cards"))) {
+            CardViewDemoList()
+        },
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Grid", image: Image("Cards_1"))) {
+            CardViewDemoList()
+        },
+    ]
+
     var body: some View {
-        ODSListOfCards(model: listModel)
+        return ODSListOfCardImageFirst(title: "Card collections", itemModels: items)
     }
 }
 
@@ -58,13 +58,13 @@ struct CardViewDemoGrid: View {
 }
 
 struct CardViewDemoList: View {
-    let cards = (1 ... 5).map {
-        ODSCardModel(title: "Card \($0)", image: "empty", subTitle: "SubTitle \($0)", description: "Description \($0)")
+    let itemModels = (1 ... 5).map {
+        let cardModel = ODSCardImageFirstModel(title: "Card \($0)", subtitle: "SubTitle \($0)", image: Image("empty"), supportingText: "Description \($0)")
+        return ODSListOfCardImageFirstItemModel(cardModel: cardModel)
     }
 
     var body: some View {
-        let model = ODSListOfCardsViewModel(title: "List", cards: cards)
-        ODSListOfCards(model: model)
+        ODSListOfCardImageFirst(title: "List", itemModels: itemModels)
     }
 }
 
