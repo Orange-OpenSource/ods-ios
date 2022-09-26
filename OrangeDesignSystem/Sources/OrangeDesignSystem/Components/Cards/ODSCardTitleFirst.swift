@@ -212,11 +212,11 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
     }
 
     static let model = ODSCardTitleFirstModel(
-        title: ODSCCardDebugData.title,
-        subtitle: ODSCCardDebugData.subtitle,
-        thumbnail: ODSCCardDebugData.thumbnail,
-        image: ODSCCardDebugData.image,
-        supportingText: ODSCCardDebugData.supportingText)
+        title: ODSCCardPreviewData.title,
+        subtitle: ODSCCardPreviewData.subtitle,
+        thumbnail: ODSCCardPreviewData.thumbnail,
+        image: ODSCCardPreviewData.image,
+        supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {
         @State var showTextInTost: String?

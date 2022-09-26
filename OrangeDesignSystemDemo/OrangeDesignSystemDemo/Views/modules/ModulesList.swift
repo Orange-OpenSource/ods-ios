@@ -40,7 +40,12 @@ struct ModulesList: View {
             },
         ]
 
-        return ODSListOfCardImageFirst(title: "Modules", itemModels: items)
+        return NavigationView {
+            ODSListOfCardImageFirst(title: "Modules", itemModels: items)
+                .navigationTitle("Modules")
+                .navigationViewStyle(.stack)
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

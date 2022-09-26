@@ -57,18 +57,16 @@ public struct ODSListOfCardImageFirst: View {
     }
 
     public var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                    ForEach(itemModels) { itemModel in
-                        ODSCardImageFirstListItem(model: itemModel)
-                    }
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
+                ForEach(itemModels) { itemModel in
+                    ODSCardImageFirstListItem(model: itemModel)
                 }
-                .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
             }
-            .navigationTitle(title)
-            .navigationViewStyle(.stack)
+            .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
+        .navigationTitle(title)
+        .navigationViewStyle(.stack)
         .background(ODSColor.primaryBackground.color)
     }
 }

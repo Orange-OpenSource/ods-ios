@@ -32,7 +32,7 @@ struct CardViewDemo: View {
             CardViewDemoList()
         },
         ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Grid", image: Image("Cards_1"))) {
-            CardViewDemoList()
+            CardViewDemoGrid()
         },
     ]
 

@@ -41,7 +41,12 @@ struct GuidelinesList: View {
     ]
 
     var body: some View {
-        return ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
+        NavigationView {
+            ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
+                .navigationTitle("Guidelines")
+                .navigationViewStyle(.stack)
+        }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

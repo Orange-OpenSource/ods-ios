@@ -24,7 +24,7 @@
 #if DEBUG
 import SwiftUI
 
-enum ODSCCardDebugData {
+enum ODSCCardPreviewData {
     static let title = "Title"
     static let subtitle = "Subtitle"
     static let supportingText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."

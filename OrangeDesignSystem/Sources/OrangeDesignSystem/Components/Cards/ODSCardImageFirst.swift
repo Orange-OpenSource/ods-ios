@@ -175,10 +175,10 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
     }
 
     static let model = ODSCardImageFirstModel(
-        title: ODSCCardDebugData.title,
-        subtitle: ODSCCardDebugData.subtitle,
-        image: ODSCCardDebugData.image,
-        supportingText: ODSCCardDebugData.supportingText)
+        title: ODSCCardPreviewData.title,
+        subtitle: ODSCCardPreviewData.subtitle,
+        image: ODSCCardPreviewData.image,
+        supportingText: ODSCCardPreviewData.supportingText)
 
     static var previews: some View {
         ScrollView {
