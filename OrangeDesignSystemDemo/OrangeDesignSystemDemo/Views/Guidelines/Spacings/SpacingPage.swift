@@ -21,7 +21,6 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
@@ -89,7 +88,7 @@ enum Spacing: Double, CaseIterable {
     }
 }
 
-struct SpacingList: View {
+struct SpacingPage: View {
 
     let spacings = Spacing.allCases
 

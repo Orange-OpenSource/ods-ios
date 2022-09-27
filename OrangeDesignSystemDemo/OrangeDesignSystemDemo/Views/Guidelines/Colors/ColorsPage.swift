@@ -29,6 +29,15 @@ class ScreenState: ObservableObject {
     @Published var colorScheme: ColorScheme = .light
 }
 
+struct ColorPage: View {
+
+    let screenState = ScreenState()
+
+    var body: some View {
+        ColorList().environmentObject(self.screenState)
+    }
+}
+
 struct ColorList: View {
 
     // MARK: - Dark/Light managment
@@ -142,10 +151,12 @@ struct SectionTitle: View {
     }
 }
 
+#if DEBUG
 struct ColorList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ColorList().environmentObject(ScreenState()).preferredColorScheme($0)
+            ColorPage().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }
+#endif
