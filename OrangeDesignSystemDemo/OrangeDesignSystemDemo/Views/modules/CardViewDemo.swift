@@ -58,7 +58,7 @@ struct CardViewDemoGrid: View {
 }
 
 struct CardViewDemoList: View {
-    let itemModels = (1 ... 5).map {
+    let itemModels: [ODSListOfCardImageFirstItemModel] = (1 ... 5).map {
         let cardModel = ODSCardImageFirstModel(title: "Card \($0)", subtitle: "SubTitle \($0)", image: Image("empty"), supportingText: "Description \($0)")
         return ODSListOfCardImageFirstItemModel(cardModel: cardModel)
     }
