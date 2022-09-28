@@ -21,13 +21,10 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
 struct CardPage: View {
-
-    @State var showCardImageFirst: Bool = false
 
     init() {}
 
