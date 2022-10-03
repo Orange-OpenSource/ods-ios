@@ -126,11 +126,15 @@ struct NavigationBarWithActionItem: View {
             .navigationBarTitle("With action item", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
+                    ODSIconButton(image: Image(systemName: "square.and.pencil")) {
                         showAlert = true
-                    } label: {
-                        Image(systemName: "square.and.pencil")
                     }
+                    .background(.red)
+//                    Button {
+//                        showAlert = true
+//                    } label: {
+//                        Image(systemName: "square.and.pencil")
+//                    }
                     .alert("item action", isPresented: $showAlert) {
                         Button("close", role: .cancel) {}
                     }

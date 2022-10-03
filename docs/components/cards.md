@@ -53,19 +53,14 @@ let model = ODSCardImageFirstModel(
     supportingText: "A supporting text to describe something")
     
 ODSCardImageFirst(model: model) {
-    Button {
-        // do something here
-    } label: {
-        ODSGenericButtonContent(topText: "Button 1")
+    ODSButton(text: "Button 1", emphasis: .heighest) {
+            // do something here
+        }
+    } buttonContent2: {
+        ODSButton(text: "Button 1", emphasis: .heighest) {
+            // do something here
+        } 
     }
-    .buttonStyle(ODSBorderedButtonStyle())
-} buttonContent2: {
-    Button {
-        // do something here
-    } label: {
-        ODSGenericButtonContent(topText: "Button 2")
-    }
-    .buttonStyle(ODSBorderedButtonStyle())
 }
 ```
 
@@ -91,19 +86,14 @@ let model = ODSCardTitleFirstModel(
     supportingText: "A supporting text to describe something")
     
 ODSCardTitleFirst(model: model) {
-    Button {
-        // do something here
-    } label: {
-        ODSGenericButtonContent(topText: "Button 1")
+    ODSButton(text: "Button 1", emphasis: .heighest) {
+            // do something here
+        }
+    } buttonContent2: {
+        ODSButton(text: "Button 1", emphasis: .heighest) {
+            // do something here
+        } 
     }
-    .buttonStyle(ODSBorderedButtonStyle())
-} buttonContent2: {
-    Button {
-        // do something here
-    } label: {
-        ODSGenericButtonContent(topText: "Button 2")
-    }
-    .buttonStyle(ODSBorderedButtonStyle())
 }
 ```
 

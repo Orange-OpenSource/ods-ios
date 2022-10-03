@@ -46,8 +46,6 @@ public struct ODSIconButton: View {
             action()
         } label: {
             image
-                .padding(.all, ODSSpacing.m)
-                .frame(minWidth: 50, minHeight: 50)
         }
     }
 }

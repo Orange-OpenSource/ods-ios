@@ -198,11 +198,11 @@ struct IconButtons: View {
                 VStack(alignment: .center, spacing: ODSSpacing.none) {
                     Text("Info button").odsFont(.title2)
 
-                    HStack(alignment: .center) {
+                    HStack(alignment: .center, spacing: ODSSpacing.xl) {
                         Text("Enabled").odsFont(.bodyRegular)
                         ODSIconButton(image: Image(systemName: "info.circle")) {}
                     }
-                    HStack(alignment: .center, spacing: ODSSpacing.none) {
+                    HStack(alignment: .center, spacing: ODSSpacing.xl) {
                         Text("Disbaled").odsFont(.bodyRegular)
                         ODSIconButton(image: Image(systemName: "info.circle")) {}
                             .disabled(true)
@@ -212,11 +212,11 @@ struct IconButtons: View {
                 VStack(alignment: .center, spacing: ODSSpacing.none) {
                     Text("Add button").odsFont(.title2)
 
-                    HStack(alignment: .center) {
+                    HStack(alignment: .center, spacing: ODSSpacing.xl) {
                         Text("Enabled").odsFont(.bodyRegular)
                         ODSIconButton(image: Image(systemName: "plus.circle")) {}
                     }
-                    HStack(alignment: .center, spacing: ODSSpacing.none) {
+                    HStack(alignment: .center, spacing: ODSSpacing.xl) {
                         Text("Disbaled").odsFont(.bodyRegular)
                         ODSIconButton(image: Image(systemName: "plus.circle")) {}
                             .disabled(true)
