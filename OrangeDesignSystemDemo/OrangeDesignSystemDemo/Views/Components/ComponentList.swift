@@ -32,11 +32,8 @@ struct ComponentsList: View {
         ODSSmallCardModel(title: "Bars - tab", image: Image("Tab bar")) {
             TabBarPage().modifier(ComponentModifier(title: "Bars - tab"))
         },
-        ODSSmallCardModel(title: "Buttons - standard", image: Image("Buttons - Standard")) {
-            TextButtonPage().modifier(ComponentModifier(title: "Buttons - standard"))
-        },
-        ODSSmallCardModel(title: "Buttons - shape", image: Image("Buttons - Shape")) {
-            ShapeButtonPage().modifier(ComponentModifier(title: "Buttons - shape"))
+        ODSSmallCardModel(title: "Buttons", image: Image("Buttons - Shape")) {
+            ButtonPage().modifier(ComponentModifier(title: "Buttons"))
         },
         ODSSmallCardModel(title: "Cards", image: Image("Cards_1")) {
             CardPage().modifier(ComponentModifier(title: "Cards"))

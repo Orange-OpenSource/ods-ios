@@ -202,12 +202,7 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
         let action: () -> Void
 
         var body: some View {
-            Button {
-                action()
-            } label: {
-                ODSGenericButtonContent(topText: text, textColor: ODSColor.coreBlack.color)
-            }
-            .buttonStyle(ODSBorderedButtonStyle())
+            ODSButton(text: LocalizedStringKey(text), emphasis: .heighest, largeLayout: false, action: action)
         }
     }
 

@@ -80,17 +80,11 @@ struct CardTitleFirstPage: View {
             ScrollView {
                 ODSCardTitleFirst(model: model.cardModel) {
                     if model.showButton {
-                        Button {} label: {
-                            ODSGenericButtonContent(topText: "Button")
-                        }
-                        .buttonStyle(ODSBorderedButtonStyle())
+                        ODSButton(text: "Button", emphasis: .heighest) {}
                     }
                 } buttonContent2: {
                     if model.showButton {
-                        Button {} label: {
-                            ODSGenericButtonContent(topText: "Button")
-                        }
-                        .buttonStyle(ODSBorderedButtonStyle())
+                        ODSButton(text: "Button", emphasis: .heighest) {}
                     }
                 }
                 .padding(.horizontal, ODSSpacing.m)

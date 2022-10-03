@@ -21,7 +21,7 @@
 //
 //
 
-/////
+////
 //// MIT License
 //// Copyright (c) 2021 Orange
 //// Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,32 +44,71 @@
 ////
 ////
 //
+// import Foundation
+// import OrangeDesignSystem
 // import SwiftUI
 //
-// public enum ODSSystemIcon {
-//    case add
-//    case info
-//
-//    var name: String {
-//        switch self {
-//        case .add: return "add"
-//        case .info: return "info"
-//        }
-//    }
-// }
-//
-// struct ODSStandardButton: View {
-//    var icon: ODSSystemIcon
+// struct TextButtonPage: View {
 //
 //    var body: some View {
-//        Button {} label: {
-//            ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: icon.name).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))
+//        ScrollView {
+//            Image("Buttons - Standard")
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//            VStack(alignment: .leading, spacing: ODSSpacing.l) {
+//                ComponentDescription(text: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.")
+//                VariantsTitle()
+//                IconButton(name: "Icon (add)", imageName: "plus.circle")
+//                IconButton(name: "Icon (info)", imageName: "info.circle")
+//                LabelButton().padding(.bottom, ODSSpacing.s)
+//            }
+//            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
 //        }
+//        .background(ODSColor.primaryBackground.color)
 //    }
 // }
 //
-// struct ODSStandardButton_Previews: PreviewProvider {
+// private struct LabelButton: View {
+//
+//    var body: some View {
+//
+//        Text("Label")
+//            .odsFont(.title2)
+//        VStack(alignment: .center) {
+//            Button {} label: {
+//                ODSGenericButtonContent(topText: "Label button", textColor: ODS.coreOrange)
+//            }
+//            .frame(maxWidth: .infinity)
+//            .padding([.bottom], ODSSpacing.m)
+//        }
+//        .padding([.leading, .trailing], ODSSpacing.xxl)
+//    }
+// }
+//
+// private struct IconButton: View {
+//
+//    let name: String
+//    let imageName: String
+//
+//    var body: some View {
+//        Text(name)
+//            .odsFont(.title2)
+//        VStack(alignment: .center) {
+//            Button {} label: {
+//                ODSGenericButtonContent(imageDescription: ODSImageDescription(image: Image(systemName: imageName).renderingMode(.template), imageWidth: 30, imageHeight: 30, foregroundColor: ODS.coreOrange))
+//            }
+//            .frame(maxWidth: .infinity)
+//            .padding([.bottom], ODSSpacing.m)
+//        }
+//        .padding([.leading, .trailing], ODSSpacing.xxl)
+//    }
+// }
+//
+// struct TextButtonPage_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ODSStandardButton(icon: .add)
+//        ForEach(ColorScheme.allCases, id: \.self) {
+//            TextButtonPage()
+//                .preferredColorScheme($0)
+//        }
 //    }
 // }

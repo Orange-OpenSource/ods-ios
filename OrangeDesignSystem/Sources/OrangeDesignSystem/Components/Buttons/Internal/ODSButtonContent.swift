@@ -21,41 +21,40 @@
 //
 //
 
-import Combine
-import Foundation
-import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarPage: View {
+struct ODSButtonContent: View {
+    let text: LocalizedStringKey
+    let image: Image?
+    let largeLayout: Bool
 
     var body: some View {
-        ScrollView {
-            Image("Tab bar")
+        HStack(alignment: .center, spacing: ODSSpacing.s) {
+            image?
+                .renderingMode(.template)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
-                VariantsTitle()
+                .frame(width: 24, height: 24)
 
-                TabBarVariant(nbItems: 2)
-                TabBarVariant(nbItems: 3)
-                TabBarVariant(nbItems: 4)
-                TabBarVariant(nbItems: 5).padding(.bottom, ODSSpacing.s)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+            Text(text)
+                .odsFont(.bodyBold)
         }
-        .background(ODSColor.primaryBackground.color)
+        .padding(.all, ODSSpacing.m)
+        .frame(minWidth: 50, maxWidth: largeLayout ? .infinity : nil, minHeight: 50)
     }
 }
 
-struct TabBarVariant: View {
-
-    var nbItems: Int
-
-    var body: some View {
-        Text("\(nbItems) entries").odsFont(.title2)
-        Image("TabBar-\(nbItems)-items")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
+#if DEBUG
+struct ODSButtonContent_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), largeLayout: false)
+                .background(.red)
+            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), largeLayout: true)
+                .background(.blue)
+            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), largeLayout: false)
+                .background(.red)
+        }
+        .background(.green)
     }
 }
+#endif
