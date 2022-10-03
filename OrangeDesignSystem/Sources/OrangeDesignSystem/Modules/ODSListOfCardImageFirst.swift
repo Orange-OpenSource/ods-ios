@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-public struct ODSCardImageFirstListItemModel: Identifiable {
+public struct ODSListOfCardImageFirstItemModel: Identifiable {
     let cardModel: ODSCardImageFirstModel
     let destination: AnyView?
 
@@ -42,54 +42,38 @@ public struct ODSCardImageFirstListItemModel: Identifiable {
     }
 }
 
-public struct ODSCardImageFirstListModel: Identifiable {
+public struct ODSListOfCardImageFirst: View {
 
     let title: String
-    let items: [ODSCardImageFirstListItemModel]
+    let itemModels: [ODSListOfCardImageFirstItemModel]
 
-    public var id: String {
-        title
-    }
-
-    public init(title: String, items: [ODSCardImageFirstListItemModel]) {
-        self.title = title
-        self.items = items
-    }
-}
-
-public struct ODSCardImageFirstList: View {
-
-    let model: ODSCardImageFirstListModel
     let columns = [
-        GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.xs, alignment: .topLeading),
+        GridItem(.flexible(), alignment: .topLeading),
     ]
 
-    public init(model: ODSCardImageFirstListModel) {
-        self.model = model
+    public init(title: String, itemModels: [ODSListOfCardImageFirstItemModel]) {
+        self.title = title
+        self.itemModels = itemModels
     }
 
     public var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                    ForEach(model.items) { item in
-                        ODSCardImageFirst(model: item.cardModel) {
-                            Image("lkl")
-                        }
-                    }
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
+                ForEach(itemModels) { itemModel in
+                    ODSCardImageFirstListItem(model: itemModel)
                 }
-                .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
             }
-            .navigationTitle(model.title)
-            .navigationViewStyle(.stack)
+            .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
+        .navigationTitle(title)
+        .navigationViewStyle(.stack)
         .background(ODSColor.primaryBackground.color)
     }
 }
 
 struct ODSCardImageFirstListItem: View {
 
-    let model: ODSCardImageFirstListItemModel
+    let model: ODSListOfCardImageFirstItemModel
 
     var body: some View {
         NavigationLink {
@@ -104,21 +88,21 @@ struct ODSCardImageFirstListItem: View {
 }
 
 #if DEBUG
-struct ODSCardImageFirstList_Previews: PreviewProvider {
+struct ODSListOfCardImageFirst_Previews: PreviewProvider {
 
-    static let cards: [ODSCardImageFirstListItemModel] = (1 ... 10).map {
+    static let itemsModels: [ODSListOfCardImageFirstItemModel] = (1 ... 10).map {
         let title = "Card \($0)"
         let model = ODSCardImageFirstModel(title: title, subtitle: "Subtitle",
                                            image: Image("ods_empty", bundle: Bundle.ods))
 
-        return ODSCardImageFirstListItemModel(cardModel: model) {
+        return ODSListOfCardImageFirstItemModel(cardModel: model) {
             Text("This is the \(title) destination view")
         }
     }
 
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ODSCardImageFirstList(model: ODSCardImageFirstListModel(title: "List of Image First cards", items: cards))
+            ODSListOfCardImageFirst(title: "List of Image First cards", itemModels: itemsModels)
                 .preferredColorScheme($0)
         }
     }

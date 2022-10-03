@@ -21,11 +21,10 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct FontList: View {
+struct TypographyPage: View {
 
     let fontStyles = ODSFontStyle.allCases
 
@@ -97,10 +96,12 @@ extension ODSFontStyle {
     }
 }
 
+#if DEBUG
 struct FontList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            FontList().environmentObject(ScreenState()).preferredColorScheme($0)
+            TypographyPage().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }
+#endif

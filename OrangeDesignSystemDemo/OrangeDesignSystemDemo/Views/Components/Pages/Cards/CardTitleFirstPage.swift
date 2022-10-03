@@ -63,11 +63,11 @@ class CardTitleFirstPageModel: ObservableObject {
 
     var cardModel: ODSCardTitleFirstModel {
         ODSCardTitleFirstModel(
-            title: "Title",
-            subtitle: showSubtitle ? ODSCardModel.example.subTitle : "",
+            title: cardExampleTitle,
+            subtitle: showSubtitle ? cardExampleSubtitle : nil,
             thumbnail: Image("ods_empty", bundle: Bundle.ods),
             image: Image("ods_empty", bundle: Bundle.ods),
-            supportingText: showSupportingText ? ODSCardModel.example.description : "")
+            supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
 }
 

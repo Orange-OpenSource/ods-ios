@@ -63,10 +63,10 @@ class CardImageFirstModelPage: ObservableObject {
 
     var cardModel: ODSCardImageFirstModel {
         ODSCardImageFirstModel(
-            title: "Title",
-            subtitle: showSubtitle ? ODSCardModel.example.subTitle : nil,
+            title: cardExampleTitle,
+            subtitle: showSubtitle ? cardExampleSubtitle : nil,
             image: Image("ods_empty", bundle: Bundle.ods),
-            supportingText: showSupportingText ? ODSCardModel.example.description : nil)
+            supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
 }
 

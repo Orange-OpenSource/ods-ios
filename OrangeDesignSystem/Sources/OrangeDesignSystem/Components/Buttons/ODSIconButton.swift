@@ -23,46 +23,22 @@
 
 import SwiftUI
 
-/// Used to describe the list of cards View.
-public class ODSListOfCardsViewModel: ObservableObject {
-    public let cards: [ODSCardModel]
-    public let title: String
+public struct ODSIconButton: View {
+    let image: Image
+    let action: () -> Void
 
-    public init(title: String, cards: [ODSCardModel]) {
-        self.title = title
-        self.cards = cards
-    }
-}
-
-/// Diosplay a list of cards in a single column.
-/// A card is clickable and a destination View is open in the native navigation.
-///
-public struct ODSListOfCards: View {
-
-    let model: ODSListOfCardsViewModel
-
-    let columns = [
-        GridItem(.flexible(), alignment: .topLeading),
-    ]
-
-    public init(model: ODSListOfCardsViewModel) {
-        self.model = model
+    public init(image: Image, action: @escaping () -> Void) {
+        self.image = image
+        self.action = action
     }
 
     public var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                ForEach(model.cards, id: \.title) { card in
-                    NavigationLink(destination: card.destination) {
-                        ODSCardView(element: card)
-                    }
-                }
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.m)
+        Button {
+            action()
+        } label: {
+            image
+                .padding(.all, ODSSpacing.m)
+                .frame(minWidth: 50, minHeight: 50)
         }
-        .navigationBarTitleDisplayMode(.large)
-        .navigationTitle(model.title)
-        .navigationViewStyle(.stack)
     }
 }
