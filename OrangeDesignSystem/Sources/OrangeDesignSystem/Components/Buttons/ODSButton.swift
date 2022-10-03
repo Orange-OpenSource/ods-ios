@@ -23,7 +23,11 @@
 
 import SwiftUI
 
-/// Define emphasis buttons
+///
+/// <a href="https://system.design.orange.com/0c1af118d/p/278734-buttons-shape/b/536b5f" target="_blank">ODS Buttons</a>.
+///
+/// A button is an interactive element that enables the user to initiate an immediate action. There are a number of different options for how they can be presented.
+///
 public struct ODSButton: View {
     public enum Emphasis: String, CaseIterable {
         case heighest
@@ -38,6 +42,15 @@ public struct ODSButton: View {
     let largeLayout: Bool
     let action: () -> Void
 
+    /// Initialize the button.
+    ///
+    /// - Parameters:
+    ///   - text: Text displayed in the button.
+    ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
+    ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.heighest` for an highlighted button style. To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
+    ///   - largeLayout: Define the size of the button. Set to false, the size of the button is limited to the size of the text added by a padding round it. Set to true means button takes all available space.
+    ///   - action: Will be called when the user clicks the button.
+    ///
     public init(text: LocalizedStringKey,
                 image: Image? = nil,
                 emphasis: Emphasis,
@@ -58,32 +71,6 @@ public struct ODSButton: View {
             ODSButtonContent(text: text, image: image, largeLayout: largeLayout)
         }
         .modifier(ODSButtonStyleModifier(emphasis: emphasis))
-    }
-}
-
-struct ODSButtonStyleModifier: ViewModifier {
-    let emphasis: ODSButton.Emphasis
-
-    @ViewBuilder func body(content: Content) -> some View {
-        switch emphasis {
-        case .heighest:
-            let style = ODSShapedButtonStyle(shapeType: .filled,
-                                             foregroundColor: Color.black,
-                                             backgroundColor: ODSColor.coreOrange.color)
-            content.buttonStyle(style)
-        case .heigh:
-            let style = ODSShapedButtonStyle(shapeType: .filled,
-                                             foregroundColor: Color(UIColor.systemBackground),
-                                             backgroundColor: Color(UIColor.label))
-            content.buttonStyle(style)
-        case .medium:
-            let style = ODSShapedButtonStyle(shapeType: .bordered,
-                                             foregroundColor: Color(UIColor.label),
-                                             backgroundColor: Color.clear)
-            content.buttonStyle(style)
-        case .low:
-            content
-        }
     }
 }
 

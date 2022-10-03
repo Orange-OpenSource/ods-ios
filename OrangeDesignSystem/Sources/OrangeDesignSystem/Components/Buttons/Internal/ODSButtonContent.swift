@@ -23,6 +23,7 @@
 
 import SwiftUI
 
+// MARK: Content of ODS buttons
 struct ODSButtonContent: View {
     let text: LocalizedStringKey
     let image: Image?

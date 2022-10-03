@@ -125,7 +125,7 @@ struct EmphasisButtons: View {
                                   emphasis: emphasis,
                                   largeLayout: model.showLargeLayout) {}
 
-                        ODSButton(text: model.text(disbled: false),
+                        ODSButton(text: model.text(disbled: true),
                                   image: model.icon,
                                   emphasis: emphasis,
                                   largeLayout: model.showLargeLayout) {}
@@ -166,7 +166,7 @@ struct FunctionalButtons: View {
                                             style: style,
                                             largeLayout: model.showLargeLayout) {}
 
-                        ODSFunctionalButton(text: model.text(disbled: false),
+                        ODSFunctionalButton(text: model.text(disbled: true),
                                             image: model.icon,
                                             style: style,
                                             largeLayout: model.showLargeLayout) {}
@@ -197,12 +197,30 @@ struct IconButtons: View {
             VStack(spacing: ODSSpacing.xxl) {
                 VStack(alignment: .center, spacing: ODSSpacing.none) {
                     Text("Info button").odsFont(.title2)
-                    ODSIconButton(image: Image(systemName: "info.circle")) {}
+
+                    HStack(alignment: .center) {
+                        Text("Enabled").odsFont(.bodyRegular)
+                        ODSIconButton(image: Image(systemName: "info.circle")) {}
+                    }
+                    HStack(alignment: .center, spacing: ODSSpacing.none) {
+                        Text("Disbaled").odsFont(.bodyRegular)
+                        ODSIconButton(image: Image(systemName: "info.circle")) {}
+                            .disabled(true)
+                    }
                 }
 
                 VStack(alignment: .center, spacing: ODSSpacing.none) {
                     Text("Add button").odsFont(.title2)
-                    ODSIconButton(image: Image(systemName: "plus.circle")) {}
+
+                    HStack(alignment: .center) {
+                        Text("Enabled").odsFont(.bodyRegular)
+                        ODSIconButton(image: Image(systemName: "plus.circle")) {}
+                    }
+                    HStack(alignment: .center, spacing: ODSSpacing.none) {
+                        Text("Disbaled").odsFont(.bodyRegular)
+                        ODSIconButton(image: Image(systemName: "plus.circle")) {}
+                            .disabled(true)
+                    }
                 }
             }
             .padding(.top, ODSSpacing.m)

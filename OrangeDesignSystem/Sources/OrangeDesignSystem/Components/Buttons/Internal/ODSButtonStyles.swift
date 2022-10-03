@@ -23,6 +23,35 @@
 
 import SwiftUI
 
+// MARK: style modifier
+
+/// Modifier to apply the right style on the button according to the emphais
+struct ODSButtonStyleModifier: ViewModifier {
+    let emphasis: ODSButton.Emphasis
+
+    @ViewBuilder func body(content: Content) -> some View {
+        switch emphasis {
+        case .heighest:
+            let style = ODSShapedButtonStyle(shapeType: .filled,
+                                             foregroundColor: Color.black,
+                                             backgroundColor: ODSColor.coreOrange.color)
+            content.buttonStyle(style)
+        case .heigh:
+            let style = ODSShapedButtonStyle(shapeType: .filled,
+                                             foregroundColor: Color(UIColor.systemBackground),
+                                             backgroundColor: Color(UIColor.label))
+            content.buttonStyle(style)
+        case .medium:
+            let style = ODSShapedButtonStyle(shapeType: .bordered,
+                                             foregroundColor: Color(UIColor.label),
+                                             backgroundColor: Color.clear)
+            content.buttonStyle(style)
+        case .low:
+            content
+        }
+    }
+}
+
 // MARK: Shaped and filled style
 struct ODSShapedButtonStyle: ButtonStyle {
     enum ShapeType {
@@ -68,6 +97,7 @@ private struct ODSFilledButtonLabel: View {
     }
 }
 
+// MARK: Shaped and bordered style
 private struct ODSBorderedButtonLabel: View {
     @Environment(\.isEnabled) var isEnabled
     let configuration: ButtonStyle.Configuration
@@ -84,6 +114,7 @@ private struct ODSBorderedButtonLabel: View {
     }
 }
 
+// MARK: Style for disable state
 private struct ODSDisabledButtonLabel: View {
     let configuration: ButtonStyle.Configuration
 

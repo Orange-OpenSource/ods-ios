@@ -23,10 +23,19 @@
 
 import SwiftUI
 
+///
+/// Simple button with icon.
+///
 public struct ODSIconButton: View {
     let image: Image
     let action: () -> Void
 
+    /// Initialize the button.
+    ///
+    /// - Parameters:
+    ///   - image: The icon to be displayed.
+    ///   - action: Will be called when the user clicks the button.
+    ///
     public init(image: Image, action: @escaping () -> Void) {
         self.image = image
         self.action = action
