@@ -184,7 +184,7 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
         let action: () -> Void
 
         var body: some View {
-            ODSButton(text: LocalizedStringKey(text), emphasis: .heighest, largeLayout: false, action: action)
+            ODSButton(text: LocalizedStringKey(text), emphasis: .heighest, variableWidth: true, action: action)
         }
     }
 

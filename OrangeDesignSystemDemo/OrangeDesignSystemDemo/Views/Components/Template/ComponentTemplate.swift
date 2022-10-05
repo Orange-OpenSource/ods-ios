@@ -41,5 +41,6 @@ struct VariantsTitle: View {
     var body: some View {
         Text("Variants")
             .odsFont(.title1)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

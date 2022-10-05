@@ -33,7 +33,7 @@ public struct ODSFunctionalButton: View {
     let text: LocalizedStringKey
     let image: Image?
     let style: ODSFunctionalButton.Style
-    let largeLayout: Bool
+    let variableWidth: Bool
     let action: () -> Void
 
     /// Initialize the button.
@@ -42,19 +42,19 @@ public struct ODSFunctionalButton: View {
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
     ///   - emphasis: Controls the style of the button. To get a green/red buttons, you can use  `ODSFunctionalButton.Style.positive` or `ODSFunctionalButton.Style.negative`.
-    ///   - largeLayout: Define the size of the button. Set to false, the size of the button is limited to the size of the text added by a padding round it. Set to true means button takes all available space.
+    ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
     ///   - action: Will be called when the user clicks the button.
     ///
     public init(text: LocalizedStringKey,
                 image: Image? = nil,
                 style: ODSFunctionalButton.Style,
-                largeLayout: Bool = false,
+                variableWidth: Bool = true,
                 action: @escaping () -> Void)
     {
         self.text = text
         self.image = image
         self.style = style
-        self.largeLayout = largeLayout
+        self.variableWidth = variableWidth
         self.action = action
     }
 
@@ -62,13 +62,13 @@ public struct ODSFunctionalButton: View {
         Button {
             action()
         } label: {
-            ODSButtonContent(text: text, image: image, largeLayout: largeLayout)
+            ODSButtonContent(text: text, image: image, variableWidth: variableWidth)
         }
         .buttonStyle(ODSShapedButtonStyle(shapeType: .filled, foregroundColor: foregroundColor, backgroundColor: backgroundColor))
     }
 
     var foregroundColor: Color {
-        Color(UIColor.label)
+        Color(UIColor.systemBackground)
     }
 
     var backgroundColor: Color {

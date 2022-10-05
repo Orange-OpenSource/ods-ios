@@ -39,7 +39,7 @@ public struct ODSButton: View {
     let text: LocalizedStringKey
     let image: Image?
     let emphasis: Emphasis
-    let largeLayout: Bool
+    let variableWidth: Bool
     let action: () -> Void
 
     /// Initialize the button.
@@ -48,19 +48,19 @@ public struct ODSButton: View {
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
     ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.heighest` for an highlighted button style. To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
-    ///   - largeLayout: Define the size of the button. Set to false, the size of the button is limited to the size of the text added by a padding round it. Set to true means button takes all available space.
+    ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
     ///   - action: Will be called when the user clicks the button.
     ///
     public init(text: LocalizedStringKey,
                 image: Image? = nil,
                 emphasis: Emphasis,
-                largeLayout: Bool = false,
+                variableWidth: Bool = true,
                 action: @escaping () -> Void)
     {
         self.text = text
         self.image = image
         self.emphasis = emphasis
-        self.largeLayout = largeLayout
+        self.variableWidth = variableWidth
         self.action = action
     }
 
@@ -68,7 +68,7 @@ public struct ODSButton: View {
         Button {
             action()
         } label: {
-            ODSButtonContent(text: text, image: image, largeLayout: largeLayout)
+            ODSButtonContent(text: text, image: image, variableWidth: variableWidth)
         }
         .modifier(ODSButtonStyleModifier(emphasis: emphasis))
     }

@@ -37,11 +37,11 @@ struct CardPage: View {
                     .aspectRatio(contentMode: .fit)
 
                 ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.l)
                     .padding(.horizontal, ODSSpacing.m)
 
                 VariantsTitle()
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.m)
             }

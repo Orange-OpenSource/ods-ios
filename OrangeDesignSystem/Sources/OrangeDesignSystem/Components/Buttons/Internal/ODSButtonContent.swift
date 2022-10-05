@@ -27,7 +27,7 @@ import SwiftUI
 struct ODSButtonContent: View {
     let text: LocalizedStringKey
     let image: Image?
-    let largeLayout: Bool
+    let variableWidth: Bool
 
     var body: some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
@@ -40,7 +40,7 @@ struct ODSButtonContent: View {
                 .odsFont(.bodyBold)
         }
         .padding(.all, ODSSpacing.m)
-        .frame(minWidth: 50, maxWidth: largeLayout ? .infinity : nil, minHeight: 50)
+        .frame(minWidth: 50, maxWidth: variableWidth ? nil : .infinity, minHeight: 50)
     }
 }
 
@@ -48,11 +48,11 @@ struct ODSButtonContent: View {
 struct ODSButtonContent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), largeLayout: false)
+            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), variableWidth: true)
                 .background(.red)
-            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), largeLayout: true)
+            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), variableWidth: false)
                 .background(.blue)
-            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), largeLayout: false)
+            ODSButtonContent(text: "Text", image: Image(systemName: "wrench"), variableWidth: true)
                 .background(.red)
         }
         .background(.green)

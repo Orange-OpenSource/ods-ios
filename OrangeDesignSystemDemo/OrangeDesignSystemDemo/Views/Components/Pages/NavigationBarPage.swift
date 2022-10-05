@@ -39,7 +39,6 @@ struct NavigationBarPage: View {
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.l)
                 VariantsTitle()
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.m)
             }
