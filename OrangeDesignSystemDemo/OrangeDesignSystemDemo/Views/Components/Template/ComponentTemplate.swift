@@ -21,25 +21,99 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentDescription: View {
-
-    var text: String
-
+    let text: String
     var body: some View {
         Text(text)
             .odsFont(.bodyRegular)
+            .fixedSize(horizontal: false, vertical: true)
             .padding(.top, ODSSpacing.xs)
     }
 }
 
 struct VariantsTitle: View {
-
     var body: some View {
         Text("Variants")
             .odsFont(.title1)
+            .accessibilityAddTraits(.isHeader)
     }
 }
+
+struct ComponentPage<VariantEntries>: View where VariantEntries: View {
+    let imageName: String
+    let componentDescription: String
+    let variants: () -> VariantEntries
+
+    var body: some View {
+        List {
+            VStack {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .accessibilityHidden(true)
+
+                VStack(alignment: .leading, spacing: ODSSpacing.m) {
+                    ComponentDescription(text: componentDescription)
+
+                    VariantsTitle()
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.bottom, ODSSpacing.m)
+            }
+            .listRowInsets(EdgeInsets())
+            .padding(.horizontal, ODSSpacing.none)
+            
+            variants()
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(Visibility.hidden)
+                .padding(.horizontal, ODSSpacing.m)
+        }
+        .listRowSeparator(Visibility.hidden)
+        .listStyle(.plain)
+        .padding(.top, ODSSpacing.none)
+        .padding(.bottom, ODSSpacing.m)
+        .background(ODSColor.componentBackground2.color)
+    }
+}
+
+struct VariantEntyItem<VariantPage>: View where VariantPage: View {
+    let itemModel: ODSListItemModel
+    let variantPage: () -> VariantPage
+    
+    var body: some View {
+        NavigationLink(itemModel) {
+            variantPage()
+        }
+    }
+    
+    init(text: String, technicalElement: String, variantPage: @escaping () -> VariantPage) {
+        self.itemModel = ODSListItemModel(title: text, subtitle: technicalElement)
+        self.variantPage = variantPage
+    }
+}
+
+#if DEBUG
+struct ComponentPage_Previews: PreviewProvider {
+    
+    struct Variants: View {
+        var body: some View {
+            VariantEntyItem(text: "Single Selection", technicalElement: "ODSChipPicker") {
+                Text("This is a Variant")
+            }
+        }
+    }
+    static var previews: some View {
+        VStack{
+            ComponentPage(imageName: "Chips", componentDescription: "Chips are small components containing a number of elements that represent a calendar event or contact.") {
+                
+                   Variants()
+            }
+        }
+    }
+
+}
+#endif

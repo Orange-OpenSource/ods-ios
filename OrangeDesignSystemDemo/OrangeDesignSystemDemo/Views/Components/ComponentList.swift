@@ -26,7 +26,7 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsList: View {
-
+    
     // Remark: Components are automatically displayed sorted by their name
     let componentList = [
         ODSSmallCardModel(title: "Bars - tab", image: Image("Tab bar")) {
@@ -60,6 +60,7 @@ struct ComponentsList: View {
             NavigationBarPage().modifier(ComponentModifier(title: "Bars - navigation"))
         },
     ]
+    
 
     let columns = [
         GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.m, alignment: .topLeading),

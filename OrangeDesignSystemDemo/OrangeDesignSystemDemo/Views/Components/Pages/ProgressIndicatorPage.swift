@@ -24,33 +24,27 @@
 import OrangeDesignSystem
 import SwiftUI
 
+
 struct ProgressIndicatorPage: View {
 
     var body: some View {
-        ScrollView {
-            Image("Progress_indicator")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "Progress indicators show users that elements or pages are loading.")
-                VariantsTitle()
-                ProgressBar()
-                ProgressIndicator()
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+        ComponentPage(imageName: "Progress_indicator",
+                      componentDescription: "Progress indicators show users that elements or pages are loading.") {
+            ProgressIndicatorVariants()
         }
-        .background(ODSColor.primaryBackground.color)
     }
 }
 
-struct ProgressIndicator_Previews: PreviewProvider {
-    static var previews: some View {
-        ProgressIndicator()
+struct ProgressIndicatorVariants: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: ODSSpacing.m) {
+            ProgressBarVariant()
+            ProgressIndicatorVariant()
+        }
     }
 }
 
-struct ProgressBar: View {
+struct ProgressBarVariant: View {
     @State private var secondsElapsed = 0.0
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     let maxSeconds: CGFloat = 100.0
@@ -69,7 +63,7 @@ struct ProgressBar: View {
     }
 }
 
-struct ProgressIndicator: View {
+struct ProgressIndicatorVariant: View {
     var body: some View {
         Text("Progress indicator")
             .odsFont(.title2)
@@ -80,3 +74,11 @@ struct ProgressIndicator: View {
         }
     }
 }
+
+#if DEBUG
+struct ProgressIndicatorPage_Previews: PreviewProvider {
+    static var previews: some View {
+        ProgressIndicatorPage()
+    }
+}
+#endif

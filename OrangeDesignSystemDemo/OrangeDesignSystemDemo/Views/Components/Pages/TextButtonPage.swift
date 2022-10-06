@@ -21,27 +21,24 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
 struct TextButtonPage: View {
+    var body: some View {
+        ComponentPage(imageName: "Buttons - Standard",
+                      componentDescription: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.") {
+            TextButtonVariants()
+        }
+    }
+}
+
+struct TextButtonVariants: View {
 
     var body: some View {
-        ScrollView {
-            Image("Buttons - Standard")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.")
-                VariantsTitle()
-                IconButton(name: "Icon (add)", imageName: "plus.circle")
-                IconButton(name: "Icon (info)", imageName: "info.circle")
-                LabelButton().padding(.bottom, ODSSpacing.s)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
-        }
-        .background(ODSColor.primaryBackground.color)
+        IconButton(name: "Icon (add)", imageName: "plus.circle")
+        IconButton(name: "Icon (info)", imageName: "info.circle")
+        LabelButton().padding(.bottom, ODSSpacing.s)
     }
 }
 

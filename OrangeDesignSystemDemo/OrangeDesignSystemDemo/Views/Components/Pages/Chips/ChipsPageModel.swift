@@ -21,7 +21,6 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
@@ -175,93 +174,3 @@ class ChipsPageModel: ObservableObject {
         selectedWithAvatarRemovableChip = .selected
     }
 }
-
-struct ChipsPage: View {
-
-    var body: some View {
-        ChipsPageInner(model: ChipsPageModel())
-    }
-}
-
-struct ChipsPageInner: View {
-    @ObservedObject var model: ChipsPageModel
-
-    var body: some View {
-        ScrollView {
-            Image("Chips")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-
-            VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                ComponentDescription(text: "Chips are small components containing a number of elements that represent a calendar event or contact.")
-
-                VariantsTitle()
-
-                GroupedChips(title: "Text only",
-                             chips: model.textOnlyChips,
-                             removableChips: model.textOnlyRemovableChips,
-                             selection: $model.selectedTextOnlyChip,
-                             selectionRemovableChips: $model.selectedTextOnlyRemovableChip)
-
-                GroupedChips(title: "With icon from image",
-                             chips: model.withIconChips,
-                             removableChips: model.withIconRemovableChips,
-                             selection: $model.selectedWithIconChip,
-                             selectionRemovableChips: $model.selectedWithIconRemovableChip)
-
-                GroupedChips(title: "With system icon",
-                             chips: model.withSystemIconChips,
-                             removableChips: model.withSystemIconRemovableChips,
-                             selection: $model.selectedWithSystemIconChip,
-                             selectionRemovableChips: $model.selectedWithSystemIconRemovableChip)
-
-                GroupedChips(title: "With avatar",
-                             chips: model.withAvatarChips,
-                             removableChips: model.withAvatarRemovableChips,
-                             selection: $model.selectedWithAvatarChip,
-                             selectionRemovableChips: $model.selectedWithAvatarRemovableChip)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
-        }
-        .background(ODSColor.primaryBackground.color)
-    }
-}
-
-struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovable: Hashable, ChipRemovable: Hashable {
-
-    let title: String
-    var chips: [ODSChip<ChipNotRemovable>]
-    var removableChips: [ODSChip<ChipRemovable>]
-
-    let selection: Binding<ChipNotRemovable?>
-    let selectionRemovableChips: Binding<ChipRemovable?>
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            Text(title).odsFont(.title2).frame(maxWidth: .infinity, alignment: .leading)
-
-            VStack(spacing: 8) {
-                ODSChipPicker(selection: selection, chips: chips)
-                ODSChipPicker(selection: selectionRemovableChips, chips: removableChips)
-            }
-            .padding(.horizontal, -ODSSpacing.m)
-        }
-    }
-}
-
-#if DEBUG
-struct ChipsViewDemoSandBox_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ChipsPage()
-                .previewInterfaceOrientation(.portrait)
-        }
-
-        NavigationView {
-            ChipsPage()
-                .previewInterfaceOrientation(.portrait)
-                .environment(\.dynamicTypeSize, .accessibility3)
-        }
-    }
-}
-#endif

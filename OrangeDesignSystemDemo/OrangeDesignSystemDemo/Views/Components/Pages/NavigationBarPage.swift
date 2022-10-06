@@ -28,53 +28,39 @@ import SwiftUI
 struct NavigationBarPage: View {
 
     var body: some View {
-
-        List {
-            VStack {
-                Image("Navigation bars")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-
-                ComponentDescription(text: "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.")
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.l)
-                VariantsTitle()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.m)
-            }
-            .listRowInsets(EdgeInsets())
-            .padding(.horizontal, ODSSpacing.none)
-
-            NavigationLink {
-                NavigationBarStandard()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "Standard"))
-            }
-
-            NavigationLink {
-                NavigationBarLargeTitle()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "Large title"))
-            }
-
-            NavigationLink {
-                NavigationBarWithSearchBar()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "With search bar"))
-            }
-
-            NavigationLink {
-                NavigationBarWithActionItem()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "With action item"))
-            }
+        ComponentPage(imageName: "Navigation bars",
+                      componentDescription: "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.") {
+            NavigationBarVariants()
         }
-        .listRowSeparator(Visibility.visible)
-        .listStyle(.plain)
-        .padding(.top, ODSSpacing.none)
-        .padding(.bottom, ODSSpacing.m)
-        .background(ODSColor.componentBackground2.color)
+    }
+}
+
+struct NavigationBarVariants: View {
+
+    var body: some View {
+        NavigationLink {
+            NavigationBarStandard()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "Standard"))
+        }
+        
+        NavigationLink {
+            NavigationBarLargeTitle()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "Large title"))
+        }
+        
+        NavigationLink {
+            NavigationBarWithSearchBar()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "With search bar"))
+        }
+        
+        NavigationLink {
+            NavigationBarWithActionItem()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "With action item"))
+        }
     }
 }
 
