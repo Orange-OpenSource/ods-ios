@@ -21,32 +21,28 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct ListComponent: Component {
-    let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
+struct ListToggleVariant: View {
+    @State var isOnMedium: Bool = false
+    @State var isOnLarge: Bool = false
     
-    init() {
-        title = "Lists"
-        image = Image("Lists")
-        description = "A list is a continuous vertical group of data entries like text, icons or images."
-        
-        variants = AnyView(ListVariants())
-    }
-}
-
-struct ListVariants: View {
     var body: some View {
-        VariantEntyItem(text: "Item with toggle", technicalElement: "ODSListItemWithToggle()"){
-            ListToggleVariant()
+        List {
+            ODSListItemWithToggle(model: ODSListItemWithToggleModel(title: "Medium item",
+                                                                    isOn: $isOnMedium,
+                                                                    minHeight: .medium)
+            )
+            .listRowSeparator(Visibility.visible)
+            
+            ODSListItemWithToggle(model: ODSListItemWithToggleModel(title: "Large item",
+                                                                    isOn: $isOnLarge,
+                                                                    minHeight: .large)
+            )
+            .listRowSeparator(Visibility.visible)
         }
-
-        VariantEntyItem(text: "Item with lines", technicalElement: "ODSListItem()"){
-            ListLinesVariant()
-        }
+        .listStyle(.plain)
+        .navigationTitle("Item with toggle")
     }
 }
-

@@ -193,6 +193,7 @@ public struct ODSListItemWithToggle: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .multilineTextAlignment(.leading)
         }
+        .padding(.horizontal, ODSSpacing.m)
         .modifier(ODSListItemModifier(minHeight: model.minHeight))
     }
 }

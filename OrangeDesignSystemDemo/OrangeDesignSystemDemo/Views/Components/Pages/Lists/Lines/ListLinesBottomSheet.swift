@@ -24,28 +24,29 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom Sheet - content for list
-struct ListBottomSheetContent: View {
 
-    @EnvironmentObject var listPageModel: ListPageModel
+// MARK: Bottom Sheet - content for list
+struct ListLinesBottomSheet: View {
+
+    @EnvironmentObject var model: ListLinesVariantModel
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $listPageModel.showSecondLine) {
+            Toggle(isOn: $model.showSecondLine) {
                 Text("Second line of text").odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            Toggle(isOn: $listPageModel.showLeadingImage) {
+            Toggle(isOn: $model.showLeadingImage) {
                 Text("Leading").odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
             ODSChipPicker(title: "Trailing",
-                          selection: $listPageModel.selectedTrailingImageChip,
-                          chips: listPageModel.trailingImageChips)
+                          selection: $model.selectedTrailingImageChip,
+                          chips: model.trailingImageChips)
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)

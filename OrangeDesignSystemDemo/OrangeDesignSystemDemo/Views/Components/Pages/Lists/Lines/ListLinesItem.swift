@@ -24,69 +24,56 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// =============
-// MARK: Models
-// =============
-class ListModel: ObservableObject {
-    public enum ItemModelType: Identifiable {
-        case generic(ODSListItemModel)
-        case withToggle(ODSListItemWithToggleModel)
-
-        var id: UUID {
-            switch self {
-            case let .generic(model):
-                return model.id
-            case let .withToggle(model):
-                return model.id
+struct ListLinesVariant: View {
+    let model: ListLinesVariantModel
+    
+    var body: some View {
+        ZStack {
+            ListLinesVariantInner(model: model)
+            BottomSheet {
+                ListLinesBottomSheet()
             }
+            .environmentObject(model)
         }
+        .background(ODSColor.componentBackground2.color)
     }
-
-    @Published var itemModels: [ItemModelType]
-
-    init(itemModels: [ItemModelType]) {
-        self.itemModels = itemModels
-    }
-
-    func delete(at offsets: IndexSet) {
-        itemModels.remove(atOffsets: offsets)
-    }
-
-    func move(from source: IndexSet, to destination: Int) {
-        itemModels.move(fromOffsets: source, toOffset: destination)
+    
+    init() {
+        model = ListLinesVariantModel()
     }
 }
-
-// ============
-// MARK: Views
-// ============
-struct ListView: View {
-    @ObservedObject var model: ListModel
+    
+struct ListLinesVariantInner: View {
+    @ObservedObject var model: ListLinesVariantModel
     @State var multiSelection: Set<UUID>?
+
+    init(model: ListLinesVariantModel) {
+        self.model = model
+    }
 
     var body: some View {
         List /* (selection: $multiSelection) */ {
-            ForEach(model.itemModels, id: \.id) { itemModelType in
-
-                switch itemModelType {
-                case let .generic(model):
-                    NavigationLink(model) {
-                        Text("\(model.title) is clicked")
-                    }
-                    .listRowInsets(EdgeInsets())
-
-                case let .withToggle(model):
-                    ODSListItemWithToggle(model: model)
+            ForEach(model.itemModels, id: \.id) { itemModel in
+                
+                NavigationLink {
+                    Text("\(itemModel.title) is clicked")
+                        .navigationTitle(itemModel.title)
+                } label: {
+                    ODSListItem(model: itemModel)
                 }
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(Visibility.visible)
             }
             .onMove(perform: move)
             .onDelete(perform: delete)
-            .listRowSeparator(Visibility.visible)
             .padding(.horizontal, ODSSpacing.m)
         }
         .toolbar { EditButton() }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $model.showSheetOnIButtonClicked) {
+            ListInfoFromButtonI()
+        }
     }
 
     func delete(at offsets: IndexSet) {
@@ -96,8 +83,28 @@ struct ListView: View {
     func move(from source: IndexSet, to destination: Int) {
         model.move(from: source, to: destination)
     }
+}
 
-    init(model: ListModel) {
-        self.model = model
+struct ListInfoFromButtonI: View {
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                HStack {
+                    VStack(alignment: .leading, spacing: ODSSpacing.l) {
+                        Text("This is a view presented when \"i\" button is clicked")
+                    }
+
+                    Spacer()
+                }
+                .padding(.top, ODSSpacing.none)
+                .padding(.bottom, ODSSpacing.xs)
+                .padding(.horizontal, ODSSpacing.m)
+            }
+            .navigationTitle("Info")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationViewStyle(.stack)
+        }
     }
 }
+
