@@ -24,39 +24,19 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentDescription: View {
-    let text: String
-    var body: some View {
-        Text(text)
-            .odsFont(.bodyRegular)
-            .fixedSize(horizontal: false, vertical: true)
-            .padding(.top, ODSSpacing.xs)
-    }
-}
-
-struct VariantsTitle: View {
-    var body: some View {
-        Text("Variants")
-            .odsFont(.title1)
-            .accessibilityAddTraits(.isHeader)
-    }
-}
-
-struct ComponentPage<VariantEntries>: View where VariantEntries: View {
-    let imageName: String
-    let componentDescription: String
-    let variants: () -> VariantEntries
+struct ComponentPage: View {
+    let component: Component
 
     var body: some View {
         List {
             VStack {
-                Image(imageName)
+                component.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                    ComponentDescription(text: componentDescription)
+                    ComponentDescription(text: component.description)
 
                     VariantsTitle()
                 }
@@ -67,7 +47,7 @@ struct ComponentPage<VariantEntries>: View where VariantEntries: View {
             .listRowInsets(EdgeInsets())
             .padding(.horizontal, ODSSpacing.none)
             
-            variants()
+            component.variants
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(Visibility.hidden)
                 .padding(.horizontal, ODSSpacing.m)
@@ -75,8 +55,29 @@ struct ComponentPage<VariantEntries>: View where VariantEntries: View {
         .listRowSeparator(Visibility.hidden)
         .listStyle(.plain)
         .padding(.top, ODSSpacing.none)
+        .padding(.horizontal, ODSSpacing.none)
         .padding(.bottom, ODSSpacing.m)
         .background(ODSColor.componentBackground2.color)
+        .navigationTitle(component.title)
+        .navigationViewStyle(.stack)
+    }
+}
+
+private struct ComponentDescription: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .odsFont(.bodyRegular)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.top, ODSSpacing.xs)
+    }
+}
+
+private struct VariantsTitle: View {
+    var body: some View {
+        Text("Variants")
+            .odsFont(.title1)
+            .accessibilityAddTraits(.isHeader)
     }
 }
 
@@ -98,20 +99,32 @@ struct VariantEntyItem<VariantPage>: View where VariantPage: View {
 
 #if DEBUG
 struct ComponentPage_Previews: PreviewProvider {
-    
+    struct TestComponent: Component {
+        let title: String
+        let image: Image
+        let description: String
+        let variants: AnyView
+        
+        init() {
+            title = "Test"
+            image = Image("Cards_1")
+            description = "This is a long text to illustrate the description area"
+            
+            variants = AnyView(Variants())
+        }
+    }
+
     struct Variants: View {
         var body: some View {
-            VariantEntyItem(text: "Single Selection", technicalElement: "ODSChipPicker") {
+            VariantEntyItem(text: "Variant 1", technicalElement: "MyTestElement()") {
                 Text("This is a Variant")
             }
         }
     }
+    
     static var previews: some View {
         VStack{
-            ComponentPage(imageName: "Chips", componentDescription: "Chips are small components containing a number of elements that represent a calendar event or contact.") {
-                
-                   Variants()
-            }
+            ComponentPage(component: TestComponent())
         }
     }
 

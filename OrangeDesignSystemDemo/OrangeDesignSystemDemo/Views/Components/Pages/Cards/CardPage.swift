@@ -24,21 +24,23 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct CardPage: View {
-
-    init() {}
-
-    var body: some View {
-        ComponentPage(imageName: "Cards_1",
-                      componentDescription: "Cards are a contained and independent element that can display content and actions on a single topic.") {
-            CardVariants()
-        }
+struct CardComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Cards"
+        image = Image("Cards_1")
+        description = "Cards are a contained and independent element that can display content and actions on a single topic."
+        
+        variants = AnyView(CardVariants())
     }
 }
 
 struct CardVariants: View {
     
-    init() {}
     var body: some View {
         NavigationLink {
             CardImageFirstPage(model: CardImageFirstModelPage())
@@ -64,12 +66,12 @@ struct CardVariants: View {
 struct CardViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CardPage()
+            CardVariants()
                 .previewInterfaceOrientation(.portrait)
         }
 
         NavigationView {
-            CardPage()
+            CardVariants()
                 .previewInterfaceOrientation(.portrait)
                 .environment(\.dynamicTypeSize, .accessibility3)
         }

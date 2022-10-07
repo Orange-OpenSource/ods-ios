@@ -21,16 +21,21 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ShapeButtonPage: View {
-    var body: some View {
-        ComponentPage(imageName: "Buttons - Shape",
-                      componentDescription: "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed") {
-            ShapeButtonVariants()
-        }
+struct ShapeButtonComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Buttons - shape"
+        image = Image("Buttons - Shape")
+        description = "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed"
+        
+        variants = AnyView(ShapeButtonVariants())
     }
 }
 
@@ -108,8 +113,11 @@ private struct DemoButton {
 struct ShapeButtonPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ShapeButtonPage()
-                .preferredColorScheme($0)
+            List {
+                ShapeButtonVariants()
+            }
+            .accentColor(ODSColor.coreOrange.color)
+            .preferredColorScheme($0)
         }
     }
 }

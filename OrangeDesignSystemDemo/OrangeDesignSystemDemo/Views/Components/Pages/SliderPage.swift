@@ -24,12 +24,18 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SliderPage: View {
-    var body: some View {
-        ComponentPage(imageName: "Slider",
-                      componentDescription: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.") {
-            SliderVartants()
-        }
+struct SliderComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Slides"
+        image = Image("Slider")
+        description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
+        
+        variants = AnyView(SliderVartants())
     }
 }
 
@@ -108,8 +114,11 @@ struct SteppedSlider: View {
 struct SliderPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            SliderPage()
-                .preferredColorScheme($0)
+            List {
+                SliderVartants()
+            }
+            .preferredColorScheme($0)
+            .accentColor(ODSColor.coreOrange.color)
         }
     }
 }

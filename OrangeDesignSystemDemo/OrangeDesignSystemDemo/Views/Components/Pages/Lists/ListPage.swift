@@ -123,6 +123,31 @@ class ListPageModel: ObservableObject {
     }
 }
 
+struct ListComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Lists"
+        image = Image("Lists")
+        description = "A list is a continuous vertical group of data entries like text, icons or images."
+        
+        variants = AnyView(ListVariants())
+    }
+}
+
+struct ListVariants: View {
+    var body: some View {
+        NavigationLink {
+            ListPage()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "With toggle"))
+        }
+    }
+}
+
 // MARK: Lists Page Views
 struct ListPage: View {
     @State var toggleState: Bool = false

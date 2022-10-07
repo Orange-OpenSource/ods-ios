@@ -21,17 +21,21 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct NavigationBarPage: View {
-
-    var body: some View {
-        ComponentPage(imageName: "Navigation bars",
-                      componentDescription: "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.") {
-            NavigationBarVariants()
-        }
+struct NavigationBarComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Bars - navigation"
+        image = Image("Navigation bars")
+        description = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens."
+        
+        variants = AnyView(NavigationBarVariants())
     }
 }
 
@@ -129,14 +133,18 @@ struct NavigationBarWithActionItem: View {
 struct NavigationBarPage_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            NavigationBarPage()
-                .previewInterfaceOrientation(.portrait)
+            List {
+                NavigationBarVariants()
+                    .previewInterfaceOrientation(.portrait)
+            }
         }
 
         NavigationView {
-            NavigationBarPage()
-                .previewInterfaceOrientation(.portrait)
-                .environment(\.dynamicTypeSize, .accessibility3)
+            List {
+                NavigationBarVariants()
+            }
+            .previewInterfaceOrientation(.portrait)
+            .environment(\.dynamicTypeSize, .accessibility3)
         }
     }
 }

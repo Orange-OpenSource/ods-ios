@@ -24,12 +24,18 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct TextButtonPage: View {
-    var body: some View {
-        ComponentPage(imageName: "Buttons - Standard",
-                      componentDescription: "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style.") {
-            TextButtonVariants()
-        }
+struct TextButtonComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Buttons - standard"
+        image = Image("Buttons - Standard")
+        description = "Plain buttons are the most ubiquitous component found throughout applications. Consisting of either a text label or an icon, they are the most simple button style."
+        
+        variants = AnyView(TextButtonVariants())
     }
 }
 
@@ -78,11 +84,16 @@ private struct IconButton: View {
     }
 }
 
+#if DEBUG
 struct TextButtonPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            TextButtonPage()
-                .preferredColorScheme($0)
+            List {
+                TextButtonVariants()
+            }
+            .accentColor(ODSColor.coreOrange.color)
+            .preferredColorScheme($0)
         }
     }
 }
+#endif

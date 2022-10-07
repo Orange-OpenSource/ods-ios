@@ -203,6 +203,7 @@ private struct ApplicationDescriptionView: View {
     }
 }
 
+#if DEBUG
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
         let applicationDescription = ApplicationDescription(applicationName: "APP NAME", applicationVersion: "1.0.0", applicationBuildNumber: "123456789", applicationBuildType: "PREVIEW")
@@ -215,3 +216,4 @@ struct AboutView_Previews: PreviewProvider {
         }
     }
 }
+#endif

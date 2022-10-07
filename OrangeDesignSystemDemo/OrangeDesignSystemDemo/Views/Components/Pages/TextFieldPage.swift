@@ -24,12 +24,18 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct TextFieldPage: View {
-    var body: some View {
-        ComponentPage(imageName: "Text edit menu",
-                      componentDescription: "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.") {
-            TextFieldVariants()
-        }
+struct TextFieldComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Text field"
+        image = Image("Text edit menu")
+        description = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native."
+        
+        variants = AnyView(TextFieldVariants())
     }
 }
 
@@ -156,9 +162,13 @@ extension View {
 struct TextFieldPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            TextFieldPage()
-                .preferredColorScheme($0)
+            List {
+                TextFieldVariants()
+            }
+            .accentColor(ODSColor.coreOrange.color)
+            .preferredColorScheme($0)
         }
     }
 }
 #endif
+

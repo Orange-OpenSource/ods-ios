@@ -21,17 +21,21 @@
 //
 //
 
-import Combine
 import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarPage: View {
+struct TabBarComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
     
-    var body: some View {
-        ComponentPage(imageName: "Tab bar",
-                      componentDescription: "A tab bar is a constantly available element which creates an overall navigation for users' experience.") {
-            TabBarVariants()
-        }
+    init() {
+        title = "Bars - tab"
+        image = Image("Tab bar")
+        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
+        
+        variants = AnyView(TabBarVariants())
     }
 }
 

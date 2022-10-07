@@ -21,17 +21,21 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ChipsPage: View {
-
-    var body: some View {
-        ComponentPage(imageName: "Chips",
-                      componentDescription: "Chips are small components containing a number of elements that represent a calendar event or contact.") {
-            ChipsVariants(model: ChipsPageModel())
-        }
+struct ChipsComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Chips"
+        image = Image("Chips")
+        description = "Chips are small components containing a number of elements that represent a calendar event or contact."
+        
+        variants = AnyView(ChipsVariants(model: ChipsPageModel()))
     }
 }
 
@@ -93,12 +97,12 @@ struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovabl
 struct ChipsViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChipsPage()
+            ChipsVariants(model: ChipsPageModel())
                 .previewInterfaceOrientation(.portrait)
         }
 
         NavigationView {
-            ChipsPage()
+            ChipsVariants(model: ChipsPageModel())
                 .previewInterfaceOrientation(.portrait)
                 .environment(\.dynamicTypeSize, .accessibility3)
         }

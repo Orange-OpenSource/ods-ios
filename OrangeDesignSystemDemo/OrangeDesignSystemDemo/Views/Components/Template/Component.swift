@@ -21,26 +21,21 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
+import OrangeDesignSystem
 
-struct ODSDemoAboutView: View {
-    var body: some View {
-        ODSDemoAboutConfig.instance.configure()
-        return NavigationView {
-            AboutView()
-                .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
-                .navigationBarHidden(true)
+protocol Component {
+    var title: String { get }
+    var image: Image { get }
+    var description: String { get }
+    var variants: AnyView { get }
+}
+
+extension Component {
+    var smallCardModel: ODSSmallCardModel {
+        ODSSmallCardModel(title: self.title,
+                          image: self.image) {
+            ComponentPage(component: self)
         }
     }
 }
-
-#if DEBUG
-struct ODSDemoAboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            ODSDemoAboutView().preferredColorScheme($0)
-        }
-    }
-}
-#endif

@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #248 Technical code refactoring for component page presentation 
 - [SDK/DemoApp] #229 Technical update to use Small and ImageFirst cards in demo app and modules 
 - [DemoApp] #228 Change Chip to switch on List screen for "SecondLineOfText" and "LeadingImage" options 
 - [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components

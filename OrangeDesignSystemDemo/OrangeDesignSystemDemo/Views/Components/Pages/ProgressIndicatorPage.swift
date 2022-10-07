@@ -24,14 +24,18 @@
 import OrangeDesignSystem
 import SwiftUI
 
-
-struct ProgressIndicatorPage: View {
-
-    var body: some View {
-        ComponentPage(imageName: "Progress_indicator",
-                      componentDescription: "Progress indicators show users that elements or pages are loading.") {
-            ProgressIndicatorVariants()
-        }
+struct ProgressIndicatorComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Progress indicators"
+        image = Image("Progress_indicator")
+        description =  "Progress indicators show users that elements or pages are loading."
+        
+        variants = AnyView(ProgressIndicatorVariants())
     }
 }
 
@@ -78,7 +82,13 @@ struct ProgressIndicatorVariant: View {
 #if DEBUG
 struct ProgressIndicatorPage_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressIndicatorPage()
+        ForEach(ColorScheme.allCases, id: \.self) {
+            List {
+                ProgressIndicatorVariants()
+            }
+            .accentColor(ODSColor.coreOrange.color)
+            .preferredColorScheme($0)
+        }
     }
 }
 #endif
