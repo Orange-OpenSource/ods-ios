@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-/// Define emphasis buttons
+/// Define functional buttons (positive or negative)
 public struct ODSFunctionalButton: View {
     public enum Style: String, CaseIterable {
         case negative
@@ -41,7 +41,7 @@ public struct ODSFunctionalButton: View {
     /// - Parameters:
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    ///   - emphasis: Controls the style of the button. To get a green/red buttons, you can use  `ODSFunctionalButton.Style.positive` or `ODSFunctionalButton.Style.negative`.
+    ///   - style: Controls the style of the button. To get a green/red buttons, you can use  `ODSFunctionalButton.Style.positive` or `ODSFunctionalButton.Style.negative`.
     ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
     ///   - action: Will be called when the user clicks the button.
     ///
