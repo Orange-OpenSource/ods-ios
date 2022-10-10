@@ -31,13 +31,12 @@ struct ODSButtonContent: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
-            image?
-                .renderingMode(.template)
-                .resizable()
-                .frame(width: 24, height: 24)
+            if let image = image {
+                // /!\ Set to 17 because the size of system font for body is 17
+                ODSIcon(image, size: 17)
+            }
 
-            Text(text)
-                .odsFont(.bodyBold)
+            Text(text).odsFont(.bodyBold)
         }
         .padding(.all, ODSSpacing.m)
         .frame(minWidth: 50, maxWidth: variableWidth ? nil : .infinity, minHeight: 50)

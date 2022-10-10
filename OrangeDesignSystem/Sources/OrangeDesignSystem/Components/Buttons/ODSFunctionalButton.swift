@@ -87,8 +87,8 @@ struct ODSFunctionalButton_Previews: PreviewProvider {
         VStack(spacing: ODSSpacing.xl) {
             VStack {
                 Text("Without image")
-                ODSFunctionalButton(text: "Enabled", style: ODSFunctionalButton.Style.negative) {}
-                ODSFunctionalButton(text: "Disabled", style: ODSFunctionalButton.Style.negative) {}.disabled(true)
+                ODSFunctionalButton(text: "Enabled", style: .negative) {}
+                ODSFunctionalButton(text: "Disabled", style: .negative) {}.disabled(true)
             }
 
             VStack {

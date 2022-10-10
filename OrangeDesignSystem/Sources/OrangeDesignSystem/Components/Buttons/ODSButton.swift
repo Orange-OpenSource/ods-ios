@@ -30,8 +30,8 @@ import SwiftUI
 ///
 public struct ODSButton: View {
     public enum Emphasis: String, CaseIterable {
-        case heighest
-        case heigh
+        case highest
+        case high
         case medium
         case low
     }
@@ -47,7 +47,7 @@ public struct ODSButton: View {
     /// - Parameters:
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.heighest` for an highlighted button style. To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
+    ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.highest` for an highlighted button style. To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
     ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
     ///   - action: Will be called when the user clicks the button.
     ///

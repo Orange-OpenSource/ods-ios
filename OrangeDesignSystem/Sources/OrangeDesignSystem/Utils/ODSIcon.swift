@@ -23,29 +23,39 @@
 
 import SwiftUI
 
-///
-/// Simple button with icon.
-///
-public struct ODSIconButton: View {
-    let image: Image
-    let action: () -> Void
+struct ODSIcon: View {
 
-    /// Initialize the button.
-    ///
-    /// - Parameters:
-    ///   - image: The icon to be displayed.
-    ///   - action: Will be called when the user clicks the button.
-    ///
-    public init(image: Image, action: @escaping () -> Void) {
-        self.image = image
-        self.action = action
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    private let image: Image
+    @ScaledMetric private var width: Double
+    @ScaledMetric private var height: Double
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+    // /!\ Set to 17 because the size of system font for body is 17
+    init(_ image: Image, size: Double = 17) {
+        self.init(image, width: size, height: size)
     }
 
-    public var body: some View {
-        Button {
-            action()
-        } label: {
-            ODSIcon(image)
-        }
+    init(_ image: Image, width: Double, height: Double) {
+        self.image = image
+        _width = ScaledMetric(wrappedValue: width)
+        _height = ScaledMetric(wrappedValue: height)
+    }
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        image
+            .resizable()
+            .renderingMode(.template)
+            .scaledToFill()
+            .frame(width: width, height: height)
     }
 }

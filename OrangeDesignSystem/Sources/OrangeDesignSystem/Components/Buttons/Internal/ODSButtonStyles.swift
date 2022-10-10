@@ -31,12 +31,12 @@ struct ODSButtonStyleModifier: ViewModifier {
 
     @ViewBuilder func body(content: Content) -> some View {
         switch emphasis {
-        case .heighest:
+        case .highest:
             let style = ODSShapedButtonStyle(shapeType: .filled,
                                              foregroundColor: Color.black,
                                              backgroundColor: ODSColor.coreOrange.color)
             content.buttonStyle(style)
-        case .heigh:
+        case .high:
             let style = ODSShapedButtonStyle(shapeType: .filled,
                                              foregroundColor: Color(UIColor.systemBackground),
                                              backgroundColor: Color(UIColor.label))

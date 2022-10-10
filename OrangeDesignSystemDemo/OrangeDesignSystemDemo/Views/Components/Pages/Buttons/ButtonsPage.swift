@@ -24,28 +24,6 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class ButtonContentModel: ObservableObject {
-    @Published var showIcon: Bool
-    @Published var showVariableWidth: Bool
-    @Published var showLongText: Bool
-    @Published var showDisabled: Bool
-
-    init() {
-        showIcon = false
-        showVariableWidth = false
-        showLongText = false
-        showDisabled = false
-    }
-
-    var text: LocalizedStringKey {
-        showLongText ? "Terms and conditions" : (showDisabled ? "Disabled" : "Enabled")
-    }
-
-    var icon: Image? {
-        showIcon ? Image(systemName: "wrench") : nil
-    }
-}
-
 struct ButtonPage: View {
 
     var body: some View {
@@ -85,7 +63,7 @@ struct ButtonPage: View {
             }
 
             NavigationLink {
-                IconButtons()
+                IconVariant(model: IconButtonModel())
                     .navigationTitle("Icon")
             } label: {
                 Item(text: "Icons", objectName: "ODSIconButton")
@@ -138,101 +116,6 @@ struct ButtonVariant<Variant>: View where Variant: View {
             }
             .environmentObject(model)
         }
-
-        .padding(.top, ODSSpacing.none)
-        .padding(.bottom, ODSSpacing.m)
         .background(ODSColor.componentBackground2.color)
-    }
-}
-
-struct EmphasisVariants: View {
-    @ObservedObject var model: ButtonContentModel
-
-    var body: some View {
-        ForEach(ODSButton.Emphasis.allCases, id: \.rawValue) { emphasis in
-            VStack(alignment: .center, spacing: ODSSpacing.s) {
-                HStack {
-                    Text("\(emphasis.rawValue)".capitalized)
-                        .odsFont(.headline)
-                    Spacer()
-                }
-
-                ODSButton(text: model.text,
-                          image: model.icon,
-                          emphasis: emphasis,
-                          variableWidth: model.showVariableWidth) {}
-                    .disabled(model.showDisabled)
-            }
-        }
-    }
-}
-
-struct FunctionalVariants: View {
-    @ObservedObject var model: ButtonContentModel
-
-    var body: some View {
-        Text("If required, colour versions can also be used to inform users of positive or negative destructive actions.")
-            .odsFont(.bodyRegular)
-            .frame(maxWidth: .infinity, alignment: .leading)
-
-        ForEach(ODSFunctionalButton.Style.allCases, id: \.rawValue) { style in
-            VStack(alignment: .center, spacing: ODSSpacing.s) {
-                HStack {
-                    Text("\(style.rawValue)").odsFont(.headline)
-                    Spacer()
-                }
-
-                ODSFunctionalButton(text: model.text,
-                                    image: model.icon,
-                                    style: style,
-                                    variableWidth: model.showVariableWidth) {}
-                    .disabled(model.showDisabled)
-            }
-        }
-    }
-}
-
-struct IconButtons: View {
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                Text("Plain buttons are the most ubiquitous compoent found troughout applications. Consisting of either a text label or a icon, they are the most simple button style.")
-                    .odsFont(.bodyRegular)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                VariantsTitle()
-
-                VStack(alignment: .center, spacing: ODSSpacing.none) {
-                    Text("Icon (add)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
-
-                    ODSIconButton(image: Image(systemName: "info.circle")) {}
-                }
-
-                VStack(alignment: .center, spacing: ODSSpacing.none) {
-                    Text("Icon (info)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
-
-                    ODSIconButton(image: Image(systemName: "plus.circle")) {}
-                }
-            }
-            .padding(.top, ODSSpacing.m)
-            .padding(.horizontal, ODSSpacing.m)
-        }
-    }
-}
-
-struct ButtonsBottomSheetContent: View {
-
-    @EnvironmentObject var model: ButtonContentModel
-
-    var body: some View {
-        VStack {
-            Toggle("Show icon", isOn: $model.showIcon)
-            Toggle("Show variable width", isOn: $model.showVariableWidth)
-            Toggle("Show disabled", isOn: $model.showDisabled)
-            Toggle("Show long text", isOn: $model.showLongText)
-        }
-        .padding(.horizontal, ODSSpacing.m)
-        .padding(.vertical, ODSSpacing.s)
     }
 }
