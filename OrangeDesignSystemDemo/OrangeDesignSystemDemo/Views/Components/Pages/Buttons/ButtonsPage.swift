@@ -34,6 +34,7 @@ struct ButtonPage: View {
                     .aspectRatio(contentMode: .fit)
 
                 ComponentDescription(text: "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed")
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, ODSSpacing.m)
                     .padding(.horizontal, ODSSpacing.m)
 

@@ -26,7 +26,7 @@ import SwiftUI
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/278734-buttons-shape/b/536b5f" target="_blank">ODS Buttons</a>.
 ///
-/// A button is an interactive element that enables the user to initiate an immediate action. 
+/// A button is an interactive element that enables the user to initiate an immediate action.
 ///
 public struct ODSButton: View {
     public enum Emphasis: String, CaseIterable {
