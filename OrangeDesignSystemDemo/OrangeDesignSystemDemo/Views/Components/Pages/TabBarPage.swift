@@ -21,29 +21,33 @@
 //
 //
 
-import Combine
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarPage: View {
+struct TabBarComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Bars - tab"
+        image = Image("Tab bar")
+        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
+        
+        variants = AnyView(TabBarVariants())
+    }
+}
+
+struct TabBarVariants: View {
 
     var body: some View {
-        ScrollView {
-            Image("Tab bar")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "A tab bar is a constantly available element which creates an overall navigation for users' experience.")
-                VariantsTitle()
-                TabBarVariant(nbItems: 2)
-                TabBarVariant(nbItems: 3)
-                TabBarVariant(nbItems: 4)
-                TabBarVariant(nbItems: 5).padding(.bottom, ODSSpacing.s)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+        VStack(spacing: ODSSpacing.l) {
+            TabBarVariant(nbItems: 2)
+            TabBarVariant(nbItems: 3)
+            TabBarVariant(nbItems: 4)
+            TabBarVariant(nbItems: 5)
         }
-        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -52,9 +56,13 @@ struct TabBarVariant: View {
     var nbItems: Int
 
     var body: some View {
-        Text("\(nbItems) entries").odsFont(.title2)
-        Image("TabBar-\(nbItems)-items")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
+        VStack(alignment: .leading, spacing: ODSSpacing.s) {
+            Text("\(nbItems) entries")
+                .odsFont(.title2)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Image("TabBar-\(nbItems)-items")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        }
     }
 }

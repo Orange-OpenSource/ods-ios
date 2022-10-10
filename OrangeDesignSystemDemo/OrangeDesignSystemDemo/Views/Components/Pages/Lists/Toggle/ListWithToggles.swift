@@ -24,23 +24,25 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ODSDemoAboutView: View {
+struct ListToggleVariant: View {
+    @State var isOnMedium: Bool = false
+    @State var isOnLarge: Bool = false
+    
     var body: some View {
-        ODSDemoAboutConfig.instance.configure()
-        return NavigationView {
-            AboutView()
-                .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
-                .navigationBarHidden(true)
+        List {
+            ODSListItemWithToggle(model: ODSListItemWithToggleModel(title: "Medium item",
+                                                                    isOn: $isOnMedium,
+                                                                    minHeight: .medium)
+            )
+            .listRowSeparator(Visibility.visible)
+            
+            ODSListItemWithToggle(model: ODSListItemWithToggleModel(title: "Large item",
+                                                                    isOn: $isOnLarge,
+                                                                    minHeight: .large)
+            )
+            .listRowSeparator(Visibility.visible)
         }
+        .listStyle(.plain)
+        .navigationTitle("Item with toggle")
     }
 }
-
-#if DEBUG
-struct ODSDemoAboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            ODSDemoAboutView().preferredColorScheme($0)
-        }
-    }
-}
-#endif

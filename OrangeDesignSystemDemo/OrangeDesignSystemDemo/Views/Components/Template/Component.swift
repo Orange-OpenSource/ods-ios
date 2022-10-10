@@ -21,25 +21,21 @@
 //
 //
 
-import Foundation
-import OrangeDesignSystem
 import SwiftUI
+import OrangeDesignSystem
 
-struct ComponentDescription: View {
-
-    var text: String
-
-    var body: some View {
-        Text(text)
-            .odsFont(.bodyRegular)
-            .padding(.top, ODSSpacing.xs)
-    }
+protocol Component {
+    var title: String { get }
+    var image: Image { get }
+    var description: String { get }
+    var variants: AnyView { get }
 }
 
-struct VariantsTitle: View {
-
-    var body: some View {
-        Text("Variants")
-            .odsFont(.title1)
+extension Component {
+    var smallCardModel: ODSSmallCardModel {
+        ODSSmallCardModel(title: self.title,
+                          image: self.image) {
+            ComponentPage(component: self)
+        }
     }
 }

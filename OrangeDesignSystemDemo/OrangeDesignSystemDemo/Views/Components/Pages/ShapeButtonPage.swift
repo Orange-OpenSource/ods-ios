@@ -21,30 +21,25 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ShapeButtonPage: View {
-
-    let hPadding: CGFloat = 16.0
-    var body: some View {
-        ScrollView {
-            Image("Buttons - Shape")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed")
-                VariantsTitle()
-                ButtonList().padding(.bottom, ODSSpacing.s)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
-        }
-        .background(ODSColor.primaryBackground.color)
+struct ShapeButtonComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Buttons - shape"
+        image = Image("Buttons - Shape")
+        description = "A custom shape button allows a user to perform an important call to action. This button that contains a text label and a supporting icon can be displayed"
+        
+        variants = AnyView(ShapeButtonVariants())
     }
 }
 
-private struct ButtonList: View {
+struct ShapeButtonVariants: View {
 
     var body: some View {
         ForEach(DemoButton.buttons, id: \.order) { button in
@@ -114,11 +109,17 @@ private struct DemoButton {
     }
 }
 
+#if DEBUG
 struct ShapeButtonPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ShapeButtonPage()
-                .preferredColorScheme($0)
+            List {
+                ShapeButtonVariants()
+            }
+            .accentColor(ODSColor.coreOrange.color)
+            .preferredColorScheme($0)
         }
     }
 }
+#endif
+
