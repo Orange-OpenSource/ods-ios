@@ -78,6 +78,8 @@ struct ButtonVariants: View {
                 .font(.system(.caption, design: .monospaced))
                 .padding(.bottom, ODSSpacing.none)
         }
+        .accessibilityElement()
+        .accessibilityLabel("\(text), Techinal element: \(objectName)")
     }
 }
 

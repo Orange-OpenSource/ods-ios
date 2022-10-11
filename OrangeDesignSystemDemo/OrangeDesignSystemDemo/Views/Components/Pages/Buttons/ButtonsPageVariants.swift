@@ -35,12 +35,14 @@ struct EmphasisVariants: View {
                         .odsFont(.headline)
                     Spacer()
                 }
+                .accessibilityAddTraits(.isHeader)
 
                 ODSButton(text: model.text,
                           image: model.icon,
                           emphasis: emphasis,
                           variableWidth: model.showVariableWidth) {}
                     .disabled(model.showDisabled)
+                    .accessibilityLabel("\(emphasis.rawValue) emphasis button")
             }
         }
     }
@@ -60,12 +62,14 @@ struct FunctionalVariants: View {
                     Text("\(style.rawValue)").odsFont(.headline)
                     Spacer()
                 }
+                .accessibilityAddTraits(.isHeader)
 
                 ODSFunctionalButton(text: model.text,
                                     image: model.icon,
                                     style: style,
                                     variableWidth: model.showVariableWidth) {}
                     .disabled(model.showDisabled)
+                    .accessibilityLabel("\(style.rawValue) functional button")
             }
         }
     }
