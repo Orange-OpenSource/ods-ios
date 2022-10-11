@@ -43,7 +43,6 @@ struct EmphasisVariants: View {
                     .disabled(model.showDisabled)
             }
         }
-        .background(ODSColor.supportingBlue300.color)
     }
 }
 
