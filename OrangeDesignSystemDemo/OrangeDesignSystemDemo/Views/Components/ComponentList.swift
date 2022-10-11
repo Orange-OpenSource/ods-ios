@@ -26,46 +26,37 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsList: View {
-
-    // Remark: Components are automatically displayed sorted by their name
-    let componentList = [
-        ODSSmallCardModel(title: "Bars - tab", image: Image("Tab bar")) {
-            TabBarPage().modifier(ComponentModifier(title: "Bars - tab"))
-        },
-        ODSSmallCardModel(title: "Buttons", image: Image("Buttons - Shape")) {
-            ButtonPage().modifier(ComponentModifier(title: "Buttons"))
-        },
-        ODSSmallCardModel(title: "Cards", image: Image("Cards_1")) {
-            CardPage().modifier(ComponentModifier(title: "Cards"))
-        },
-        ODSSmallCardModel(title: "Chips", image: Image("Chips")) {
-            ChipsPage().modifier(ComponentModifier(title: "Chips"))
-        },
-        ODSSmallCardModel(title: "Lists", image: Image("Lists")) {
-            ListPage().modifier(ComponentModifier(title: "Lists"))
-        },
-        ODSSmallCardModel(title: "Progress indicators", image: Image("Progress_indicator")) {
-            ProgressIndicatorPage().modifier(ComponentModifier(title: "Progress indicators"))
-        },
-        ODSSmallCardModel(title: "Sliders", image: Image("Slider")) {
-            SliderPage().modifier(ComponentModifier(title: "Sliders"))
-        },
-        ODSSmallCardModel(title: "Text field", image: Image("Text edit menu")) {
-            TextFieldPage().modifier(ComponentModifier(title: "Text field"))
-        },
-        ODSSmallCardModel(title: "Bars - navigation", image: Image("Navigation bars")) {
-            NavigationBarPage().modifier(ComponentModifier(title: "Bars - navigation"))
-        },
-    ]
-
+    let components: [Component]
+        
+    init() {
+        // Remark: Components are automatically displayed sorted by their name
+        let components: [Component] = [
+            ButtonComponent(),
+            CardComponent(),
+            ChipsComponent(),
+            ListComponent(),
+            NavigationBarComponent(),
+            ProgressIndicatorComponent(),
+            SliderComponent(),
+            TabBarComponent(),
+            TextFieldComponent(),
+        ]
+        
+        self.components = components.sorted { $0.title < $1.title }
+    }
+    
     let columns = [
         GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.m, alignment: .topLeading),
     ]
+    
+    var sortedComponentCardModels: [ODSSmallCardModel] {
+        return components.map { $0.smallCardModel }
+    }
 
     var body: some View {
         NavigationView {
             ScrollView {
-                ODSGridOfCards(cardModels: componentList)
+                ODSGridOfCards(cardModels: sortedComponentCardModels)
                     .padding(.vertical, ODSSpacing.m)
                     .padding(.horizontal, ODSSpacing.s)
             }
@@ -97,6 +88,7 @@ struct ComponentsCardsList_Previews: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self) {
             ComponentsList()
                 .preferredColorScheme($0)
+                .accentColor(ODSColor.coreOrange.color)
         }
     }
 }

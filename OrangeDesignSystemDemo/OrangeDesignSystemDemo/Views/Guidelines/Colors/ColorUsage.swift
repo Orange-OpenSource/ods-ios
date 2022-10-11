@@ -44,6 +44,7 @@ struct ColorUsage: View {
     }
 }
 
+#if DEBUG
 struct ColorUsage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -51,3 +52,4 @@ struct ColorUsage_Previews: PreviewProvider {
         }
     }
 }
+#endif

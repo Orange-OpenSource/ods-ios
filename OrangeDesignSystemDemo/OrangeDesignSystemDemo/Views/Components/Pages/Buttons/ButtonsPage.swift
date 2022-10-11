@@ -24,57 +24,47 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ButtonPage: View {
+struct ButtonComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Buttons"
+        image = Image("Buttons - Shape")
+        description = "A button allows a user to perform an action or to navigate to another page. It contains a text label and a supporting icon can be displayed."
+        variants = AnyView(ButtonVariants())
+    }
+}
+
+struct ButtonVariants: View {
 
     var body: some View {
-        List {
-            VStack(spacing: ODSSpacing.none) {
-                Image("Buttons - Shape")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-
-                ComponentDescription(text: "A button allows a user to perform an action or to navigate to another page. It contains a text label and a supporting icon can be displayed.")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top, ODSSpacing.m)
-                    .padding(.horizontal, ODSSpacing.m)
-
-                VariantsTitle()
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.top, ODSSpacing.l)
+        NavigationLink {
+            CommonButtonVariant(model: ButtonContentModel()) { model in
+                EmphasisVariants(model: model)
             }
-            .listRowInsets(EdgeInsets())
-            .padding(.horizontal, ODSSpacing.none)
-
-            NavigationLink {
-                ButtonVariant(model: ButtonContentModel()) { model in
-                    EmphasisVariants(model: model)
-                }
-                .navigationTitle("Emphasis")
-            } label: {
-                Item(text: "Emphasis", objectName: "ODSButton")
-            }
-
-            NavigationLink {
-                ButtonVariant(model: ButtonContentModel()) { model in
-                    FunctionalVariants(model: model)
-                }
-                .navigationTitle("Functional")
-            } label: {
-                Item(text: "Functional", objectName: "ODSFunctionalButton")
-            }
-
-            NavigationLink {
-                IconVariant(model: IconButtonModel())
-                    .navigationTitle("Icon")
-            } label: {
-                Item(text: "Icons", objectName: "ODSIconButton")
-            }
+            .navigationTitle("Emphasis")
+        } label: {
+            Item(text: "Emphasis", objectName: "ODSButton")
         }
-        .listRowSeparator(Visibility.visible)
-        .listStyle(.plain)
-        .padding(.top, ODSSpacing.none)
-        .padding(.bottom, ODSSpacing.m)
-        .background(ODSColor.componentBackground2.color)
+        
+        NavigationLink {
+            CommonButtonVariant(model: ButtonContentModel()) { model in
+                FunctionalVariants(model: model)
+            }
+            .navigationTitle("Functional")
+        } label: {
+            Item(text: "Functional", objectName: "ODSFunctionalButton")
+        }
+        
+        NavigationLink {
+            IconVariant(model: IconButtonModel())
+                .navigationTitle("Icon")
+        } label: {
+            Item(text: "Icons", objectName: "ODSIconButton")
+        }
     }
 
     @ViewBuilder func Item(text: String, objectName: String) -> some View {
@@ -91,7 +81,7 @@ struct ButtonPage: View {
     }
 }
 
-struct ButtonVariant<Variant>: View where Variant: View {
+struct CommonButtonVariant<Variant>: View where Variant: View {
     let model: ButtonContentModel
 
     let contentView: (_ model: ButtonContentModel) -> Variant

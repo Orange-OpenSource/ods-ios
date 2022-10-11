@@ -107,7 +107,7 @@ private struct ODSBorderedButtonLabel: View {
     var body: some View {
         if isEnabled {
             configuration.label
-                .overlay(RoundedRectangle(cornerRadius: 8.0).stroke(foregroundColor, lineWidth: 1.0))
+                .overlay(RoundedRectangle(cornerRadius: 8.0).stroke(foregroundColor, lineWidth: 2.0))
         } else {
             ODSDisabledButtonLabel(configuration: configuration)
         }

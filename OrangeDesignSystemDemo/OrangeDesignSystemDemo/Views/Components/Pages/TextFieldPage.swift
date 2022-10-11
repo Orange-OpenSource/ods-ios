@@ -21,30 +21,34 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct TextFieldPage: View {
-    var body: some View {
-        ScrollView {
-            Image("Text edit menu")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.")
-                VariantsTitle()
+struct TextFieldComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Text field"
+        image = Image("Text edit menu")
+        description = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native."
+        
+        variants = AnyView(TextFieldVariants())
+    }
+}
 
-                VariantTextField(type: .standard, title: "Standard text field", defaultTextToEdit: "text to edit")
-                VariantTextField(type: .secure, title: "Secure text field", defaultTextToEdit: "secure text to edit")
-                VariantTextEditor().padding(.bottom, ODSSpacing.s)
-                VariantTextAutocapitalization(style: .characters)
-                VariantTextAutocapitalization(style: .words)
-                VariantTextAutocapitalization(style: .sentences)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+struct TextFieldVariants: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: ODSSpacing.m) {
+            VariantTextField(type: .standard, title: "Standard text field", defaultTextToEdit: "text to edit")
+            VariantTextField(type: .secure, title: "Secure text field", defaultTextToEdit: "secure text to edit")
+            VariantTextEditor().padding(.bottom, ODSSpacing.s)
+            VariantTextAutocapitalization(style: .characters)
+            VariantTextAutocapitalization(style: .words)
+            VariantTextAutocapitalization(style: .sentences)
         }
-        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -154,11 +158,17 @@ extension View {
     }
 }
 
+#if DEBUG
 struct TextFieldPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            TextFieldPage()
-                .preferredColorScheme($0)
+            List {
+                TextFieldVariants()
+            }
+            .accentColor(ODSColor.coreOrange.color)
+            .preferredColorScheme($0)
         }
     }
 }
+#endif
+

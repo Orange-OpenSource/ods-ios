@@ -24,53 +24,42 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct CardPage: View {
+struct CardComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Cards"
+        image = Image("Cards_1")
+        description = "Cards are a contained and independent element that can display content and actions on a single topic."
+        
+        variants = AnyView(CardVariants())
+    }
+}
 
-    init() {}
-
+struct CardVariants: View {
+    
     var body: some View {
 
-        List {
-            VStack {
-                Image("Cards_1")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-
-                ComponentDescription(text: "Cards are a contained and independent element that can display content and actions on a single topic.")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, ODSSpacing.l)
-                    .padding(.horizontal, ODSSpacing.m)
-
-                VariantsTitle()
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.m)
-            }
-            .listRowInsets(EdgeInsets())
-            .padding(.horizontal, ODSSpacing.none)
-
-            NavigationLink {
-                CardImageFirstPage(model: CardImageFirstModelPage())
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "Card Image First"))
-            }
-
-            NavigationLink {
-                CardTitleFirstPage(model: CardTitleFirstPageModel())
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "Card Title First"))
-            }
-
-            NavigationLink {
-                SmallCardPage()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "Small card"))
-            }
+        NavigationLink {
+            CardImageFirstPage(model: CardImageFirstModelPage())
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "Card Image First"))
         }
-        .listRowSeparator(Visibility.visible)
-        .listStyle(.plain)
-        .padding(.top, ODSSpacing.none)
-        .padding(.bottom, ODSSpacing.m)
-        .background(ODSColor.componentBackground2.color)
+
+        NavigationLink {
+            CardTitleFirstPage(model: CardTitleFirstPageModel())
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "Card Title First"))
+        }
+
+        NavigationLink {
+            SmallCardPage()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "Small card"))
+        }
     }
 }
 
@@ -78,12 +67,12 @@ struct CardPage: View {
 struct CardViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CardPage()
+            CardVariants()
                 .previewInterfaceOrientation(.portrait)
         }
 
         NavigationView {
-            CardPage()
+            CardVariants()
                 .previewInterfaceOrientation(.portrait)
                 .environment(\.dynamicTypeSize, .accessibility3)
         }

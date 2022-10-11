@@ -24,23 +24,31 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ODSDemoAboutView: View {
-    var body: some View {
-        ODSDemoAboutConfig.instance.configure()
-        return NavigationView {
-            AboutView()
-                .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
-                .navigationBarHidden(true)
-        }
-    }
-}
 
-#if DEBUG
-struct ODSDemoAboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            ODSDemoAboutView().preferredColorScheme($0)
+// MARK: Bottom Sheet - content for list
+struct ListLinesBottomSheet: View {
+
+    @EnvironmentObject var model: ListLinesVariantModel
+
+    var body: some View {
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showSecondLine) {
+                Text("Second line of text").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            Toggle(isOn: $model.showLeadingImage) {
+                Text("Leading").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Trailing",
+                          selection: $model.selectedTrailingImageChip,
+                          chips: model.trailingImageChips)
+                .padding(.vertical, ODSSpacing.s)
         }
+        .padding(.top, ODSSpacing.s)
     }
 }
-#endif
