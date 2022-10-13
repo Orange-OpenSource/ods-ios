@@ -88,23 +88,14 @@ struct CardImageFirstBottomSheetContent: View {
     @EnvironmentObject var model: CardImageFirstModelPage
 
     var body: some View {
-        VStack(spacing: ODSSpacing.s) {
-             Toggle(isOn: $model.showSubtitle) {
-                 Text("Subtitle").odsFont(.bodyRegular)
-             }
-
-             Toggle(isOn: $model.showSupportingText) {
-                 Text("Text").odsFont(.bodyRegular)
-             }
-
-             Toggle(isOn: $model.showButton1) {
-                 Text("Button 1").odsFont(.bodyRegular)
-             }
-             Toggle(isOn: $model.showButton2) {
-                 Text("Button 2").odsFont(.bodyRegular)
-             }
-         }
-         .padding(.vertical, ODSSpacing.m)
-         .padding(.horizontal, ODSSpacing.m)
+        VStack(spacing: ODSSpacing.m) {
+            Toggle("Subtitle", isOn: $model.showSubtitle)
+            Toggle("Text", isOn: $model.showSupportingText)
+            Toggle("Button 1", isOn: $model.showButton1)
+            Toggle("Button 2", isOn: $model.showButton2)
+        }
+        .odsFont(.bodyRegular)
+        .padding(.vertical, ODSSpacing.m)
+        .padding(.horizontal, ODSSpacing.m)
     }
 }
