@@ -42,6 +42,7 @@ struct CardComponent: Component {
 struct CardVariants: View {
     
     var body: some View {
+
         NavigationLink {
             CardImageFirstVariant(model: CardImageFirstVariantModel())
         } label: {

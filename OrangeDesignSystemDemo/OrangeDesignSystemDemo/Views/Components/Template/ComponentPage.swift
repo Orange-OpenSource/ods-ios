@@ -57,7 +57,6 @@ struct ComponentPage: View {
         .padding(.top, ODSSpacing.none)
         .padding(.horizontal, ODSSpacing.none)
         .padding(.bottom, ODSSpacing.m)
-        .background(ODSColor.componentBackground2.color)
         .navigationTitle(component.title)
         .navigationViewStyle(.stack)
     }
@@ -73,7 +72,7 @@ private struct ComponentDescription: View {
     }
 }
 
-private struct VariantsTitle: View {
+struct VariantsTitle: View {
     var body: some View {
         Text("Variants")
             .odsFont(.title1)
