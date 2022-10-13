@@ -90,25 +90,12 @@ struct CardTitleFirstBottomSheetContent: View {
     @EnvironmentObject var model: CardTitleFirstVariantModel
 
     var body: some View {
-        VStack(spacing: ODSSpacing.s) {
-            Toggle(isOn: $model.showThumbnail) {
-                Text("Thumbnail")
-            }
-            
-            Toggle(isOn: $model.showSubtitle) {
-                Text("Subtitle")
-            }
-            
-            Toggle(isOn: $model.showSupportingText) {
-                Text("Text")
-            }
-            
-            Toggle(isOn: $model.showButton1) {
-                Text("Button 1")
-            }
-            Toggle(isOn: $model.showButton2) {
-                Text("Button 2")
-            }
+        VStack(spacing: ODSSpacing.m) {
+            Toggle("Thumbnail", isOn: $model.showThumbnail)
+            Toggle("Subtitle", isOn: $model.showSubtitle)
+            Toggle("Text", isOn: $model.showSupportingText)
+            Toggle("Button 1", isOn: $model.showButton1)
+            Toggle("Button 2", isOn: $model.showButton2)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
