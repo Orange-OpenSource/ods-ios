@@ -163,14 +163,28 @@ extension ODSCardImageFirst {
 #if DEBUG
 struct ODSCardImageFirst_Previews: PreviewProvider {
 
-    struct ButtonAction: View {
-        let text: String
+    struct Toast: View {
+        @Binding var showText: String?
 
         var body: some View {
-            Button {} label: {
-                ODSGenericButtonContent(topText: text, textColor: ODSColor.coreBlack.color)
+            if let showText = self.showText {
+                Text(showText)
+                    .padding().background(.gray).clipShape(Capsule())
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            self.showText = nil
+                        }
+                    }
             }
-            .buttonStyle(ODSBorderedButtonStyle())
+        }
+    }
+
+    struct ButtonAction: View {
+        let text: String
+        let action: () -> Void
+
+        var body: some View {
+            ODSButton(text: LocalizedStringKey(text), emphasis: .highest, variableWidth: true, action: action)
         }
     }
 
@@ -180,14 +194,33 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
         image: ODSCCardPreviewData.image,
         supportingText: ODSCCardPreviewData.supportingText)
 
-    static var previews: some View {
-        ScrollView {
-            ODSCardImageFirst(model: ODSCardImageFirst_Previews.model) {
-                ButtonAction(text: "Button 1")
-            } buttonContent2: {
-                ButtonAction(text: "Button 2")
+    struct TestView: View {
+        @State var showTextInToast: String?
+        @State var disableButton1 = false
+
+        var body: some View {
+            ScrollView {
+                ODSCardImageFirst(model: ODSCardImageFirst_Previews.model) {
+                    ButtonAction(text: "Button 1") {
+                        showTextInToast = "Button 1 Clicked"
+                    }
+                    .disabled(disableButton1)
+                } buttonContent2: {
+                    ButtonAction(text: "\(disableButton1 ? "Enable" : "Disable") Button 1") {
+                        disableButton1.toggle()
+                    }
+                }
+                .onTapGesture {
+                    showTextInToast = "Card tapped"
+                }
+
+                Toast(showText: $showTextInToast)
             }
         }
+    }
+
+    static var previews: some View {
+        TestView()
     }
 }
 #endif

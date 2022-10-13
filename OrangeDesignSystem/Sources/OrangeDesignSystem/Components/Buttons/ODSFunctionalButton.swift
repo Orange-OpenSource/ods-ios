@@ -23,22 +23,16 @@
 
 import SwiftUI
 
-///
-/// <a href="https://system.design.orange.com/0c1af118d/p/278734-buttons-shape/b/536b5f" target="_blank">ODS Buttons</a>.
-///
-/// A button is an interactive element that enables the user to initiate an immediate action.
-///
-public struct ODSButton: View {
-    public enum Emphasis: String, CaseIterable {
-        case highest
-        case high
-        case medium
-        case low
+/// Define functional buttons (positive or negative)
+public struct ODSFunctionalButton: View {
+    public enum Style: String, CaseIterable {
+        case negative
+        case positive
     }
 
     let text: LocalizedStringKey
     let image: Image?
-    let emphasis: Emphasis
+    let style: ODSFunctionalButton.Style
     let variableWidth: Bool
     let action: () -> Void
 
@@ -47,19 +41,19 @@ public struct ODSButton: View {
     /// - Parameters:
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.highest` for an highlighted button style. To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
+    ///   - style: Controls the style of the button. To get a green/red buttons, you can use  `ODSFunctionalButton.Style.positive` or `ODSFunctionalButton.Style.negative`.
     ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
     ///   - action: Will be called when the user clicks the button.
     ///
     public init(text: LocalizedStringKey,
                 image: Image? = nil,
-                emphasis: Emphasis,
+                style: ODSFunctionalButton.Style,
                 variableWidth: Bool = true,
                 action: @escaping () -> Void)
     {
         self.text = text
         self.image = image
-        self.emphasis = emphasis
+        self.style = style
         self.variableWidth = variableWidth
         self.action = action
     }
@@ -70,42 +64,39 @@ public struct ODSButton: View {
         } label: {
             ODSButtonContent(text: text, image: image, variableWidth: variableWidth)
         }
-        .modifier(ODSButtonStyleModifier(emphasis: emphasis))
+        .buttonStyle(ODSShapedButtonStyle(shapeType: .filled, foregroundColor: foregroundColor, backgroundColor: backgroundColor))
+    }
+
+    var foregroundColor: Color {
+        Color(UIColor.systemBackground)
+    }
+
+    var backgroundColor: Color {
+        switch style {
+        case .negative:
+            return ODSColor.functionalNegative.color
+        case .positive:
+            return ODSColor.functionalPositive.color
+        }
     }
 }
 
 #if DEBUG
-struct ODSButton_Previews: PreviewProvider {
+struct ODSFunctionalButton_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: ODSSpacing.xl) {
+            VStack {
+                Text("Without image")
+                ODSFunctionalButton(text: "Enabled", style: .negative) {}
+                ODSFunctionalButton(text: "Disabled", style: .negative) {}.disabled(true)
+            }
 
-    struct buttonsSample: View {
-
-        var body: some View {
-            ScrollView {
-                VStack {
-                    ForEach(ODSButton.Emphasis.allCases, id: \.rawValue) { emphasis in
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
-                                  emphasis: emphasis) {}
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
-                                  emphasis: emphasis) {}.disabled(true)
-
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
-                                  image: Image(systemName: "pencil.tip.crop.circle"),
-                                  emphasis: emphasis) {}
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
-                                  image: Image(systemName: "pencil.tip.crop.circle"),
-                                  emphasis: emphasis) {}.disabled(true)
-                    }
-                }
+            VStack {
+                Text("Without image")
+                ODSFunctionalButton(text: "Enabled", image: Image(systemName: "pencil.tip"), style: ODSFunctionalButton.Style.negative) {}
+                ODSFunctionalButton(text: "Disabled", image: Image(systemName: "pencil.tip"), style: ODSFunctionalButton.Style.negative) {}.disabled(true)
             }
         }
-    }
-
-    static var previews: some View {
-        buttonsSample()
-            .preferredColorScheme(.light)
-
-        buttonsSample()
-            .preferredColorScheme(.dark)
     }
 }
 #endif

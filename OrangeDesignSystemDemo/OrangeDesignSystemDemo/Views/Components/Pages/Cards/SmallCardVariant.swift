@@ -75,14 +75,10 @@ struct SmallCardBottomSheetContent: View {
     @EnvironmentObject var model: SmallCardVariantModel
 
     var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSubtitle) {
-                Text("Subtitle").odsFont(.bodyBold)
-            }
+        Toggle("Subtitle", isOn: $model.showSubtitle)
+            .odsFont(.bodyRegular)
             .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
-        }
-        .padding(.top, ODSSpacing.s)
+            .padding(.vertical, ODSSpacing.m)
     }
 }
 

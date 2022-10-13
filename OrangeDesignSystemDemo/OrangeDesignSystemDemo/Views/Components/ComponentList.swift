@@ -31,15 +31,14 @@ struct ComponentsList: View {
     init() {
         // Remark: Components are automatically displayed sorted by their name
         let components: [Component] = [
+            ButtonComponent(),
             CardComponent(),
             ChipsComponent(),
             ListComponent(),
             NavigationBarComponent(),
             ProgressIndicatorComponent(),
-            ShapeButtonComponent(),
             SliderComponent(),
             TabBarComponent(),
-            TextButtonComponent(),
             TextFieldComponent(),
         ]
         
