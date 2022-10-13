@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #249 Add bottom sheet to allow the user to show/hide the subtitle in SmallCard Variant Page 
 - [DemoApp/SDK] #222 Update the Button page to list the available button types
 - [SDK] Bug #96 Add Small Card 
 - [DemoApp] #248 Technical code refactoring for component page presentation 
