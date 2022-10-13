@@ -3,8 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-- [DemoApp] #250 Add bottom sheet to allow the user to show/hide the various options 
-- [DemoApp] #249 Add bottom sheet to allow the user to show/hide the subtitle in SmallCard Variant Page 
+- [DemoApp] #250 Add bottom sheet to allow the user to show/hide the various options on CardTitleFirst 
 - [DemoApp] #251 Add bottom sheet to allow the user to show/hide the various options on CardImageFirst
 - [DemoApp] #249 Add bottom sheet to allow the user to show/hide the subtitle in SmallCard Variant Page 
 - [DemoApp/SDK] #222 Update the Button page to list the available button types
