@@ -163,7 +163,7 @@ extension ODSCardImageFirst {
 #if DEBUG
 struct ODSCardImageFirst_Previews: PreviewProvider {
 
-    struct Tost: View {
+    struct Toast: View {
         @Binding var showText: String?
 
         var body: some View {
@@ -195,14 +195,14 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
         supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {
-        @State var showTextInTost: String?
+        @State var showTextInToast: String?
         @State var disableButton1 = false
 
         var body: some View {
             ScrollView {
                 ODSCardImageFirst(model: ODSCardImageFirst_Previews.model) {
                     ButtonAction(text: "Button 1") {
-                        showTextInTost = "Button 1 Clicked"
+                        showTextInToast = "Button 1 Clicked"
                     }
                     .disabled(disableButton1)
                 } buttonContent2: {
@@ -211,10 +211,10 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
                     }
                 }
                 .onTapGesture {
-                    showTextInTost = "Card tapped"
+                    showTextInToast = "Card tapped"
                 }
 
-                Tost(showText: $showTextInTost)
+                Toast(showText: $showTextInToast)
             }
         }
     }

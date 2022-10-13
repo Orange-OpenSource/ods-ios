@@ -66,8 +66,8 @@ If required, colour versions can also be used to inform users of positive or neg
     { /* action: Do something */ }
     
     // To disable the button
-        ODSFunctionalButton(text: "Some text", style: .positive) { /* action: Do something */ }
-        .disabled(true)
+    ODSFunctionalButton(text: "Some text", style: .positive) { /* action: Do something */ }
+    .disabled(true)
 ```
 
 ### Icon button

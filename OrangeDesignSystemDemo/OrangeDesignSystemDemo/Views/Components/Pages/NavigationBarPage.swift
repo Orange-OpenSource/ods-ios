@@ -121,12 +121,6 @@ struct NavigationBarWithActionItem: View {
                     ODSIconButton(image: Image(systemName: "square.and.pencil")) {
                         showAlert = true
                     }
-                    .background(.red)
-//                    Button {
-//                        showAlert = true
-//                    } label: {
-//                        Image(systemName: "square.and.pencil")
-//                    }
                     .alert("item action", isPresented: $showAlert) {
                         Button("close", role: .cancel) {}
                     }
