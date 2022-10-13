@@ -157,6 +157,7 @@ extension ODSCardTitleFirst {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 if let supportingText = model.supportingText, !supportingText.isEmpty {
                     Text(supportingText)
+                        .odsFont(.bodyRegular)
                         .padding(.horizontal, ODSSpacing.m)
                 }
 

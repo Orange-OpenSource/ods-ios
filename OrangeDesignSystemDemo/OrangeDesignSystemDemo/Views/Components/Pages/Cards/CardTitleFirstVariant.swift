@@ -25,47 +25,26 @@ import OrangeDesignSystem
 import SwiftUI
 
 class CardTitleFirstVariantModel: ObservableObject {
-
-    var showSubtitle: Bool {
-        selectedCardItemFilter.contains { $0 == .showSubtitle }
-    }
-
-    var showSupportingText: Bool {
-        selectedCardItemFilter.contains { $0 == .showSupportingText }
-    }
-
-    var showButton: Bool {
-        selectedCardItemFilter.contains { $0 == .showButton }
-    }
-
-    enum CardItemFilter: Int {
-        case showSubtitle
-        case showSupportingText
-        case showButton
-    }
-
-    let cardItemFilterChips: [ODSChip<CardItemFilter>]
-
-    @Published var selectedCardItemFilter: [CardItemFilter]
+    
+    @Published var showThumbnail: Bool
+    @Published var showSubtitle: Bool
+    @Published var showSupportingText: Bool
+    @Published var showButton1: Bool
+    @Published var showButton2: Bool
 
     init() {
-        cardItemFilterChips = [
-            ODSChip(.showSubtitle, text: "Show subtitle"),
-            ODSChip(.showSupportingText, text: "Show supporting text"),
-            ODSChip(.showButton, text: "Show buttons"),
-        ]
-        selectedCardItemFilter = [.showSubtitle, .showSupportingText, .showButton]
-    }
-
-    func resetSwitches() {
-        selectedCardItemFilter = [.showSubtitle, .showSupportingText, .showButton]
+        showThumbnail = true
+        showSubtitle = true
+        showSupportingText = true
+        showButton1 = true
+        showButton2 = true
     }
 
     var cardModel: ODSCardTitleFirstModel {
         ODSCardTitleFirstModel(
             title: cardExampleTitle,
             subtitle: showSubtitle ? cardExampleSubtitle : nil,
-            thumbnail: Image("ods_empty", bundle: Bundle.ods),
+            thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
             image: Image("ods_empty", bundle: Bundle.ods),
             supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
@@ -79,14 +58,14 @@ struct CardTitleFirstVariant: View {
         ZStack {
             ScrollView {
                 ODSCardTitleFirst(model: model.cardModel) {
-                    if model.showButton {
+                    if model.showButton1 {
                         Button {} label: {
                             ODSGenericButtonContent(topText: "Button")
                         }
                         .buttonStyle(ODSBorderedButtonStyle())
                     }
                 } buttonContent2: {
-                    if model.showButton {
+                    if model.showButton2 {
                         Button {} label: {
                             ODSGenericButtonContent(topText: "Button")
                         }
@@ -111,8 +90,27 @@ struct CardTitleFirstBottomSheetContent: View {
     @EnvironmentObject var model: CardTitleFirstVariantModel
 
     var body: some View {
-        ODSChipPicker(title: "Update card content", selection: $model.selectedCardItemFilter, allowZeroSelection: true, chips: model.cardItemFilterChips)
-            .padding(.horizontal, ODSSpacing.none)
-            .padding(.vertical, ODSSpacing.s)
+        VStack(spacing: ODSSpacing.s) {
+            Toggle(isOn: $model.showThumbnail) {
+                Text("Thumbnail").odsFont(.bodyBold)
+            }
+            
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
+            }
+            
+            Toggle(isOn: $model.showSupportingText) {
+                Text("Text").odsFont(.bodyBold)
+            }
+            
+            Toggle(isOn: $model.showButton1) {
+                Text("Button 1").odsFont(.bodyBold)
+            }
+            Toggle(isOn: $model.showButton2) {
+                Text("Button 2").odsFont(.bodyBold)
+            }
+        }
+        .padding(.top, ODSSpacing.s)
+        .padding(.horizontal, ODSSpacing.m)
     }
 }
