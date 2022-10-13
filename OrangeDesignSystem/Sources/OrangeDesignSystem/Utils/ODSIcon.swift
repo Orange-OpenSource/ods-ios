@@ -21,49 +21,41 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarComponent: Component {
-    let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
-    
-    init() {
-        title = "Bars - tab"
-        image = Image("Tab bar")
-        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
-        
-        variants = AnyView(TabBarVariants())
-    }
-}
+struct ODSIcon: View {
 
-struct TabBarVariants: View {
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    private let image: Image
+    @ScaledMetric private var width: Double
+    @ScaledMetric private var height: Double
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+    // /!\ Set to 17 because the size of system font for body is 17
+    init(_ image: Image, size: Double = 17) {
+        self.init(image, width: size, height: size)
+    }
+
+    init(_ image: Image, width: Double, height: Double) {
+        self.image = image
+        _width = ScaledMetric(wrappedValue: width)
+        _height = ScaledMetric(wrappedValue: height)
+    }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-
-        VStack(spacing: ODSSpacing.l) {
-            TabBarVariant(nbItems: 2)
-            TabBarVariant(nbItems: 3)
-            TabBarVariant(nbItems: 4)
-            TabBarVariant(nbItems: 5)
-        }
-    }
-}
-
-struct TabBarVariant: View {
-
-    var nbItems: Int
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.s) {
-            Text("\(nbItems) entries")
-                .odsFont(.title2)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Image("TabBar-\(nbItems)-items")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
+        image
+            .resizable()
+            .renderingMode(.template)
+            .scaledToFill()
+            .frame(width: width, height: height)
     }
 }

@@ -181,7 +181,7 @@ extension ODSCardTitleFirst {
 #if DEBUG
 struct ODSCardTitleFirst_Previews: PreviewProvider {
 
-    struct Tost: View {
+    struct Toast: View {
         @Binding var showText: String?
 
         var body: some View {
@@ -202,12 +202,7 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
         let action: () -> Void
 
         var body: some View {
-            Button {
-                action()
-            } label: {
-                ODSGenericButtonContent(topText: text, textColor: ODSColor.coreBlack.color)
-            }
-            .buttonStyle(ODSBorderedButtonStyle())
+            ODSButton(text: LocalizedStringKey(text), emphasis: .highest, variableWidth: true, action: action)
         }
     }
 
@@ -219,14 +214,14 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
         supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {
-        @State var showTextInTost: String?
+        @State var showTextInToast: String?
         @State var disableButton1 = false
 
         var body: some View {
             ScrollView {
                 ODSCardTitleFirst(model: ODSCardTitleFirst_Previews.model) {
                     ButtonAction(text: "Button 1") {
-                        showTextInTost = "Button 1 Clicked"
+                        showTextInToast = "Button 1 Clicked"
                     }
                     .disabled(disableButton1)
                 } buttonContent2: {
@@ -235,10 +230,10 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
                     }
                 }
                 .onTapGesture {
-                    showTextInTost = "Card tapped"
+                    showTextInToast = "Card tapped"
                 }
 
-                Tost(showText: $showTextInTost)
+                Toast(showText: $showTextInToast)
             }
         }
     }

@@ -21,49 +21,31 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarComponent: Component {
-    let title: String
+///
+/// Simple button with icon.
+///
+public struct ODSIconButton: View {
     let image: Image
-    let description: String
-    let variants: AnyView
-    
-    init() {
-        title = "Bars - tab"
-        image = Image("Tab bar")
-        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
-        
-        variants = AnyView(TabBarVariants())
+    let action: () -> Void
+
+    /// Initialize the button.
+    ///
+    /// - Parameters:
+    ///   - image: The icon to be displayed.
+    ///   - action: Will be called when the user clicks the button.
+    ///
+    public init(image: Image, action: @escaping () -> Void) {
+        self.image = image
+        self.action = action
     }
-}
 
-struct TabBarVariants: View {
-
-    var body: some View {
-
-        VStack(spacing: ODSSpacing.l) {
-            TabBarVariant(nbItems: 2)
-            TabBarVariant(nbItems: 3)
-            TabBarVariant(nbItems: 4)
-            TabBarVariant(nbItems: 5)
-        }
-    }
-}
-
-struct TabBarVariant: View {
-
-    var nbItems: Int
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.s) {
-            Text("\(nbItems) entries")
-                .odsFont(.title2)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Image("TabBar-\(nbItems)-items")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+    public var body: some View {
+        Button {
+            action()
+        } label: {
+            ODSIcon(image)
         }
     }
 }

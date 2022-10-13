@@ -24,46 +24,52 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarComponent: Component {
-    let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
-    
+// MARK: Bottom sheet for Emphasis and Functionnal
+
+class ButtonContentModel: ObservableObject {
+    @Published var showIcon: Bool
+    @Published var showVariableWidth: Bool
+    @Published var showLongText: Bool
+    @Published var showDisabled: Bool
+
     init() {
-        title = "Bars - tab"
-        image = Image("Tab bar")
-        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
-        
-        variants = AnyView(TabBarVariants())
+        showIcon = false
+        showVariableWidth = false
+        showLongText = false
+        showDisabled = false
+    }
+
+    var text: LocalizedStringKey {
+        showLongText ? "Terms and conditions" : (showDisabled ? "Disabled" : "Enabled")
+    }
+
+    var icon: Image? {
+        showIcon ? Image("Add") : nil
     }
 }
 
-struct TabBarVariants: View {
+struct ButtonsBottomSheetContent: View {
+
+    @EnvironmentObject var model: ButtonContentModel
 
     var body: some View {
-
-        VStack(spacing: ODSSpacing.l) {
-            TabBarVariant(nbItems: 2)
-            TabBarVariant(nbItems: 3)
-            TabBarVariant(nbItems: 4)
-            TabBarVariant(nbItems: 5)
+        VStack {
+            Toggle("Show icon", isOn: $model.showIcon)
+            Toggle("Show variable width", isOn: $model.showVariableWidth)
+            Toggle("Show disabled", isOn: $model.showDisabled)
+            Toggle("Show long text", isOn: $model.showLongText)
         }
+        .padding(.horizontal, ODSSpacing.m)
+        .padding(.vertical, ODSSpacing.s)
     }
 }
 
-struct TabBarVariant: View {
+// MARK: Bottom sheet for IconButton
 
-    var nbItems: Int
+class IconButtonModel: ObservableObject {
+    @Published var showDisabled: Bool
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.s) {
-            Text("\(nbItems) entries")
-                .odsFont(.title2)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Image("TabBar-\(nbItems)-items")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
+    init() {
+        showDisabled = false
     }
 }
