@@ -24,7 +24,6 @@
 import OrangeDesignSystem
 import SwiftUI
 
-
 // MARK: Bottom Sheet - content for list
 struct ListLinesBottomSheet: View {
 

@@ -18,10 +18,8 @@ toc2:
     subfolderitems:
       - page: Bars - navigation
         url: components/navigationBar_docs
-      - page: Button - standard
-        url: components/standardButton_docs
-      - page: Button - shape
-        url: components/shapedButton_docs
+      - page: Buttons
+        url: components/button_docs
       - page: Cards
         url: components/cards_docs
       - page: Chips

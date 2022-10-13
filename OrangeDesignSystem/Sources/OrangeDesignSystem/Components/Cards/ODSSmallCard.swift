@@ -123,7 +123,7 @@ struct SmallCardView_Previews: PreviewProvider {
         GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
     ]
 
-    static let gridModel = [
+    static let smallCardModels = [
         ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)),
         ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
         ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
@@ -140,7 +140,7 @@ struct SmallCardView_Previews: PreviewProvider {
                     .padding(.bottom, ODSSpacing.m)
 
                 LazyVGrid(columns: SmallCardView_Previews.columns, spacing: ODSSpacing.none) {
-                    ForEach(gridModel) { model in
+                    ForEach(smallCardModels) { model in
                         ODSSmallCard(model: model)
                     }
                 }

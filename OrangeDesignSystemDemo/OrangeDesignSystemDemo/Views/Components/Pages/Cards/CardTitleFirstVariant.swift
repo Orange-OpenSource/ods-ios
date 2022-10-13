@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardTitleFirstPageModel: ObservableObject {
+class CardTitleFirstVariantModel: ObservableObject {
 
     var showSubtitle: Bool {
         selectedCardItemFilter.contains { $0 == .showSubtitle }
@@ -71,26 +71,20 @@ class CardTitleFirstPageModel: ObservableObject {
     }
 }
 
-struct CardTitleFirstPage: View {
+struct CardTitleFirstVariant: View {
 
-    @ObservedObject var model: CardTitleFirstPageModel
+    @ObservedObject var model: CardTitleFirstVariantModel
 
     var body: some View {
         ZStack {
             ScrollView {
                 ODSCardTitleFirst(model: model.cardModel) {
                     if model.showButton {
-                        Button {} label: {
-                            ODSGenericButtonContent(topText: "Button")
-                        }
-                        .buttonStyle(ODSBorderedButtonStyle())
+                        ODSButton(text: "Button", emphasis: .highest) {}
                     }
                 } buttonContent2: {
                     if model.showButton {
-                        Button {} label: {
-                            ODSGenericButtonContent(topText: "Button")
-                        }
-                        .buttonStyle(ODSBorderedButtonStyle())
+                        ODSButton(text: "Button", emphasis: .highest) {}
                     }
                 }
                 .padding(.horizontal, ODSSpacing.m)
@@ -108,7 +102,7 @@ struct CardTitleFirstPage: View {
 
 struct CardTitleFirstBottomSheetContent: View {
 
-    @EnvironmentObject var model: CardTitleFirstPageModel
+    @EnvironmentObject var model: CardTitleFirstVariantModel
 
     var body: some View {
         ODSChipPicker(title: "Update card content", selection: $model.selectedCardItemFilter, allowZeroSelection: true, chips: model.cardItemFilterChips)

@@ -24,27 +24,52 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SmallCardPage: View {
-    let columns = [
-        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
-    ]
+// MARK: Bottom sheet for Emphasis and Functionnal
 
-    let gridModel = [
-        ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)),
-        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-    ]
+class ButtonContentModel: ObservableObject {
+    @Published var showIcon: Bool
+    @Published var showVariableWidth: Bool
+    @Published var showLongText: Bool
+    @Published var showDisabled: Bool
+
+    init() {
+        showIcon = false
+        showVariableWidth = false
+        showLongText = false
+        showDisabled = false
+    }
+
+    var text: LocalizedStringKey {
+        showLongText ? "Terms and conditions" : (showDisabled ? "Disabled" : "Enabled")
+    }
+
+    var icon: Image? {
+        showIcon ? Image("Add") : nil
+    }
+}
+
+struct ButtonsBottomSheetContent: View {
+
+    @EnvironmentObject var model: ButtonContentModel
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-                ForEach(gridModel) { model in
-                    ODSSmallCard(model: model)
-                }
-            }
+        VStack {
+            Toggle("Show icon", isOn: $model.showIcon)
+            Toggle("Show variable width", isOn: $model.showVariableWidth)
+            Toggle("Show disabled", isOn: $model.showDisabled)
+            Toggle("Show long text", isOn: $model.showLongText)
         }
         .padding(.horizontal, ODSSpacing.m)
-        .padding(.top, ODSSpacing.m)
-        .navigationTitle("Small card")
+        .padding(.vertical, ODSSpacing.s)
+    }
+}
+
+// MARK: Bottom sheet for IconButton
+
+class IconButtonModel: ObservableObject {
+    @Published var showDisabled: Bool
+
+    init() {
+        showDisabled = false
     }
 }

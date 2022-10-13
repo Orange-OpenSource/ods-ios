@@ -42,20 +42,21 @@ struct CardComponent: Component {
 struct CardVariants: View {
     
     var body: some View {
+
         NavigationLink {
-            CardImageFirstPage(model: CardImageFirstModelPage())
+            CardImageFirstVariant(model: CardImageFirstVariantModel())
         } label: {
             ODSListItem(model: ODSListItemModel(title: "Card Image First"))
         }
 
         NavigationLink {
-            CardTitleFirstPage(model: CardTitleFirstPageModel())
+            CardTitleFirstVariant(model: CardTitleFirstVariantModel())
         } label: {
             ODSListItem(model: ODSListItemModel(title: "Card Title First"))
         }
 
         NavigationLink {
-            SmallCardPage()
+            SmallCardVariant(model: SmallCardVariantModel())
         } label: {
             ODSListItem(model: ODSListItemModel(title: "Small card"))
         }

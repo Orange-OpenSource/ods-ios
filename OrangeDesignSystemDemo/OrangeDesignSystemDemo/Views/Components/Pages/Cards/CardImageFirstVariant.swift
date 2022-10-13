@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardImageFirstModelPage: ObservableObject {
+class CardImageFirstVariantModel: ObservableObject {
 
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
@@ -46,10 +46,8 @@ class CardImageFirstModelPage: ObservableObject {
     }
 }
 
-
-struct CardImageFirstPage: View {
-
-    @ObservedObject var model: CardImageFirstModelPage
+struct CardImageFirstVariant: View {
+    @ObservedObject var model: CardImageFirstVariantModel
 
     var body: some View {
         ZStack {
@@ -57,17 +55,11 @@ struct CardImageFirstPage: View {
             ScrollView {
                 ODSCardImageFirst(model: model.cardModel) {
                     if model.showButton1 {
-                        Button {} label: {
-                            ODSGenericButtonContent(topText: "Button")
-                        }
-                        .buttonStyle(ODSBorderedButtonStyle())
+                        ODSButton(text: LocalizedStringKey("Button 1"), emphasis: .highest, variableWidth: true) {}
                     }
                 } buttonContent2: {
                     if model.showButton2 {
-                        Button {} label: {
-                            ODSGenericButtonContent(topText: "Button")
-                        }
-                        .buttonStyle(ODSBorderedButtonStyle())
+                        ODSButton(text: LocalizedStringKey("Button 2"), emphasis: .highest, variableWidth: true) {}
                     }
                 }
                 .padding(.horizontal, ODSSpacing.s)
@@ -85,7 +77,7 @@ struct CardImageFirstPage: View {
 
 struct CardImageFirstBottomSheetContent: View {
 
-    @EnvironmentObject var model: CardImageFirstModelPage
+    @EnvironmentObject var model: CardImageFirstVariantModel
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
