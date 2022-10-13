@@ -47,6 +47,7 @@ class CardImageFirstVariantModel: ObservableObject {
 }
 
 struct CardImageFirstVariant: View {
+
     @ObservedObject var model: CardImageFirstVariantModel
 
     var body: some View {
