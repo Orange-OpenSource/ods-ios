@@ -92,25 +92,26 @@ struct CardTitleFirstBottomSheetContent: View {
     var body: some View {
         VStack(spacing: ODSSpacing.s) {
             Toggle(isOn: $model.showThumbnail) {
-                Text("Thumbnail").odsFont(.bodyBold)
+                Text("Thumbnail")
             }
             
             Toggle(isOn: $model.showSubtitle) {
-                Text("Subtitle").odsFont(.bodyBold)
+                Text("Subtitle")
             }
             
             Toggle(isOn: $model.showSupportingText) {
-                Text("Text").odsFont(.bodyBold)
+                Text("Text")
             }
             
             Toggle(isOn: $model.showButton1) {
-                Text("Button 1").odsFont(.bodyBold)
+                Text("Button 1")
             }
             Toggle(isOn: $model.showButton2) {
-                Text("Button 2").odsFont(.bodyBold)
+                Text("Button 2")
             }
         }
-        .padding(.top, ODSSpacing.s)
+        .odsFont(.bodyRegular)
+        .padding(.vertical, ODSSpacing.m)
         .padding(.horizontal, ODSSpacing.m)
     }
 }
