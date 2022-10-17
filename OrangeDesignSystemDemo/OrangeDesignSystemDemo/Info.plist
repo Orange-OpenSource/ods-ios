@@ -8,7 +8,5 @@
 	<string>Orange Design System Demonstration</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<key>ODSThemeName</key>
-	<string>Orange</string>
 </dict>
 </plist>

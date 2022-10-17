@@ -103,6 +103,9 @@ struct ODSButton_Previews: PreviewProvider {
     static var previews: some View {
         buttonsSample()
             .preferredColorScheme(.light)
+
+        buttonsSample()
+            .preferredColorScheme(.dark)
     }
 }
 #endif

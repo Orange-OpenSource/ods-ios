@@ -21,10 +21,23 @@
 //
 //
 
-import Foundation
+import SwiftUI
 
-/// Themes provides by ODS library
-public enum ODSCustomThemes: String, CaseIterable {
-    case Orange
-    case Primezone
+// MARK: Theme EnvironmentKey
+private struct ThemeKey: EnvironmentKey {
+
+    static let defaultValue: ODSTheme = ODSTheme()
+}
+
+// MARK: Theme Environment value 
+
+extension EnvironmentValues {
+    public var theme: ODSTheme {
+        get {
+            self[ThemeKey.self]
+        }
+        set {
+            self[ThemeKey.self] = newValue
+        }
+    }
 }
