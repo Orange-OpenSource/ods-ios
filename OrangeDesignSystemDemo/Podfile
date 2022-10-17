@@ -8,7 +8,7 @@ target 'OrangeDesignSystemDemo' do
     inherit! :search_paths
     
     pod 'SwiftGen'
-    pod 'SwiftLint'
+    pod 'SwiftLint', '0.48.0'
     pod 'SwiftFormat/CLI'
     
   end

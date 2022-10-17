@@ -21,40 +21,31 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct SliderPage: View {
+struct SliderComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Slides"
+        image = Image("Slider")
+        description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
+        
+        variants = AnyView(SliderVartants())
+    }
+}
 
+struct SliderVartants: View {
     var body: some View {
-        ScrollView {
-            Image("Slider")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
-                VariantsTitle()
-                UnlabeledSlider()
-                LabeledSlider()
-                SteppedSlider().padding(.bottom, ODSSpacing.s)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-        }
-        .background(ODSColor.primaryBackground.color)
+        UnlabeledSlider()
+        LabeledSlider()
+        SteppedSlider()
     }
 }
-
-#if DEBUG
-struct SliderPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            SliderPage()
-                .preferredColorScheme($0)
-        }
-    }
-}
-#endif
 
 struct UnlabeledSlider: View {
 
@@ -81,13 +72,14 @@ struct LabeledSlider: View {
     var body: some View {
 
         Text("Labeled slider").odsFont(.title2)
-        Text("Value : \(Int(value))").odsFont(.bodyRegular)
+        Text("Value : \(Int(value))").odsFont(.bodyRegular).accessibilityHidden(true)
         VStack(alignment: .center) {
             ODSSlider(value: $value, range: range) {
-                Image(systemName: "speaker.wave.1.fill")
+                Image(systemName: "speaker.wave.1.fill").accessibilityHidden(true)
             } maximumLabelView: {
-                Image(systemName: "speaker.wave.3.fill")
+                Image(systemName: "speaker.wave.3.fill").accessibilityHidden(true)
             }
+            .accessibilityLabel(Text("Volume"))
         }
         .padding([.leading, .trailing], ODSSpacing.s)
     }
@@ -102,16 +94,32 @@ struct SteppedSlider: View {
     var body: some View {
 
         Text("Stepped slider").odsFont(.title2)
-        Text("Value : \(Int(value))").odsFont(.bodyRegular)
+        Text("Value : \(Int(value))").odsFont(.bodyRegular).accessibilityHidden(true)
+
         VStack(alignment: .center) {
             ODSSlider(value: $value,
                       range: range,
                       step: step) {
-                Text("0")
+                Text("0").accessibilityHidden(true)
             } maximumLabelView: {
-                Text("100")
+                Text("100").accessibilityHidden(true)
             }
             .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
 }
+
+
+#if DEBUG
+struct SliderPage_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self) {
+            List {
+                SliderVartants()
+            }
+            .preferredColorScheme($0)
+            .accentColor(ODSColor.coreOrange.color)
+        }
+    }
+}
+#endif

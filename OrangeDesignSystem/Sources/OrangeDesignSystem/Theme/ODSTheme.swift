@@ -42,54 +42,67 @@ public enum ODSThemeFontStyle: String, CaseIterable {
 }
 
 public struct ODSThemeColors {
-    public init(coreSurface: Color,
-                coreOnSurface: Color,
-                systemStatusBarBackground: Color,
-                systemNavigationBarBackground: Color,
-                componentBackgroundDisabled: Color,
-                componentContentDisabled: Color,
-                topBarBackground: Color,
-                topBarContent: Color,
-                bottomNavigationBarBackground: Color,
-                bottomNavigationBarContent: Color,
-                bottomNavigationBarContentSelected: Color,
-                cardBackground: Color,
-                cardContent: Color)
-    {
-        self.coreSurface = coreSurface
-        self.coreOnSurface = coreOnSurface
-        self.systemStatusBarBackground = systemStatusBarBackground
-        self.systemNavigationBarBackground = systemNavigationBarBackground
-        self.componentBackgroundDisabled = componentBackgroundDisabled
-        self.componentContentDisabled = componentContentDisabled
-        self.topBarBackground = topBarBackground
-        self.topBarContent = topBarContent
-        self.bottomNavigationBarBackground = bottomNavigationBarBackground
-        self.bottomNavigationBarContent = bottomNavigationBarContent
-        self.bottomNavigationBarContentSelected = bottomNavigationBarContentSelected
-        self.cardBackground = cardBackground
-        self.cardContent = cardContent
+    
+    public var accent: Color
+
+    public init() {
+        self.accent = .pink
     }
-
-    public let coreSurface: Color
-    public let coreOnSurface: Color
-    public let systemStatusBarBackground: Color
-    public let systemNavigationBarBackground: Color
-    public let componentBackgroundDisabled: Color
-    public let componentContentDisabled: Color
-    public let topBarBackground: Color
-    public let topBarContent: Color
-    public let bottomNavigationBarBackground: Color
-    public let bottomNavigationBarContent: Color
-    public let bottomNavigationBarContentSelected: Color
-    public let cardBackground: Color
-    public let cardContent: Color
 }
 
-public protocol ODSTheme {
-    var name: String { get }
-    var colors: ODSThemeColors { get }
+public struct ODSTheme: Identifiable, Hashable {
 
-    init()
-    func font(for style: ODSThemeFontStyle) -> Font
+    public var name: String
+    public var colors: ODSThemeColors
+    public var font: (_ style: ODSThemeFontStyle) -> Font
+
+    public init() {
+        name = "FakeTheme"
+        colors = ODSThemeColors()
+        font = { style in
+            switch style {
+            case .largeTitle:
+                return Font.largeTitle.bold()
+            case .title1:
+                return Font.title.bold()
+            case .title2:
+                return Font.title2.bold()
+            case .title3:
+                return Font.title3.bold()
+            case .headline:
+                return Font.headline.bold()
+            case .bodyRegular:
+                return Font.body
+            case .bodyBold:
+                return Font.body.bold()
+            case .callout:
+                return Font.callout
+            case .subhead:
+                return Font.subheadline.bold()
+            case .footnote:
+                return Font.footnote
+            case .caption1Regular:
+                return Font.caption
+            case .caption1Bold:
+                return Font.caption.bold()
+            case .caption2:
+                return Font.caption2
+            }
+        }
+    }
+    
+    // MARK: Identifiable
+    public var id: String {
+        name
+    }
+    
+    // MARK: Hashable
+    public static func == (lhs: ODSTheme, rhs: ODSTheme) -> Bool {
+        lhs.name == rhs.name
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
 }
+

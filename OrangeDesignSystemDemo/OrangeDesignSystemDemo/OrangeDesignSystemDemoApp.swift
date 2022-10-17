@@ -26,12 +26,17 @@ import SwiftUI
 
 @main
 struct ods_ios_swiftUI_demoApp: App {
+    @StateObject var themeProvider = ThemeProvider()
+    
     var body: some Scene {
         WindowGroup {
             MainTabView()
                 .accentColor(ODSColor.coreOrange.color)
                 .navigationBarColor(tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
                                     backgroundColor: ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground)
+                .environmentObject(themeProvider)
+                .environment(\.theme, themeProvider.currentTheme)
         }
     }
 }
+

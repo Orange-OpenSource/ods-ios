@@ -26,57 +26,36 @@ import MyOdsTheme
 import OrangeDesignSystem
 import SwiftUI
 
-class ThemeSelectionModel: ObservableObject {
-
-    @Published var selectedThmeName: String?
-
-    private var subscriptions = Set<AnyCancellable>()
-
+class ThemeProvider: ObservableObject {
+    
+    @Published var currentTheme: ODSTheme
+    
+    let themes: [ODSTheme]
     init() {
-        selectedThmeName = ODSThemeLoader.shared.theme.name
+        let orangeTheme = OrangeThemeFactory().theme
+        themes = [orangeTheme,
+                  MyOdsThemeFactory().theme,
+                  PrimezoneThemeFactory().theme]
 
-        $selectedThmeName.sink { _ in
-        } receiveValue: { themeName in
-            guard let themeName = themeName else {
-                return
-            }
-
-            ODSThemeLoader.shared.switchTo(themeName: themeName)
-        }
-        .store(in: &subscriptions)
+        self.currentTheme = orangeTheme
     }
 }
 
 struct ThemeSelection: View {
-
-    var body: some View {
-        ThemeSelectionInner(model: ThemeSelectionModel())
-    }
-}
-
-struct ThemeSelectionInner: View {
-
-    @ObservedObject var model: ThemeSelectionModel
-
-    var themes: [ODSChip<String>] {
-        var chips = ODSCustomThemes.allCases.map { theme in
-            ODSChip(theme.rawValue, text: theme.rawValue)
-        }
-
-        chips.append(ODSChip("MyOds", text: "MyOds"))
-
-        return chips
-    }
+    @EnvironmentObject var themeProvider: ThemeProvider
 
     var body: some View {
         VStack {
             ODSChipPicker(title: "Theme selection",
-                          selection: $model.selectedThmeName,
-                          chips: themes)
-
+                          selection: $themeProvider.currentTheme,
+                          chips: themeProvider.themes.map { theme in
+                ODSChip(theme, text: theme.name)
+            })
+            
+            
             Text("Selected theme")
                 .odsFont(.bodyRegular)
-                .foregroundColor(odsCurrentTheme.colors.bottomNavigationBarContentSelected)
+                .foregroundColor(themeProvider.currentTheme.colors.accent)
 
             Spacer()
         }

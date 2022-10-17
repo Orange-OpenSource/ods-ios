@@ -32,8 +32,8 @@ extension View {
     /// - Returns: A view with the default font set to the value you supply.
     ///
     /// @see font(_ font: Font?) -> some View
-    @inlinable
     public func odsFont(_ odsStyle: ODSThemeFontStyle) -> some View {
-        font(odsCurrentTheme.font(for: odsStyle))
+        @Environment(\.theme) var theme
+        return font(theme.font(odsStyle))
     }
 }

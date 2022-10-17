@@ -26,27 +26,27 @@ import SwiftUI
 
 struct GuidelinesList: View {
 
-    @ObservedObject var screenState = ScreenState()
+    let items = [
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
+            ColorPage()
+        },
+
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
+            TypographyPage()
+        },
+
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
+            SpacingPage()
+        },
+    ]
 
     var body: some View {
-        let listModel = ODSListCardViewModel(title: "Guidelines",
-                                             cards: [
-                                                 ODSCardModel(title: "Colours", image: "Colour") {
-                                                     ColorList().environmentObject(self.screenState)
-                                                 },
-                                                 ODSCardModel(title: "Typography", image: "Typography") {
-                                                     FontList()
-                                                 },
-                                                 ODSCardModel(title: "Spacings", image: "Spacing") {
-                                                     SpacingList()
-                                                 },
-                                             ])
-        return NavigationView {
-            ODSListCardView()
-                .environmentObject(listModel)
-//                .background(ODSColor.primaryBackground.color)
-                .background(odsCurrentTheme.colors.bottomNavigationBarBackground)
+        NavigationView {
+            ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
+                .navigationTitle("Guidelines")
+                .navigationViewStyle(.stack)
         }
+        .background(ODSColor.primaryBackground.color)
     }
 }
 

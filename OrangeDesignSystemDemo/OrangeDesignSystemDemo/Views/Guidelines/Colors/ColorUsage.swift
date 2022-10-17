@@ -39,11 +39,12 @@ struct ColorUsage: View {
                 // TO-DO : make component
             }
         }
-        .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
+        .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         .navigationTitle("Usage")
     }
 }
 
+#if DEBUG
 struct ColorUsage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -51,3 +52,4 @@ struct ColorUsage_Previews: PreviewProvider {
         }
     }
 }
+#endif

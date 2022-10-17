@@ -26,6 +26,8 @@ import SwiftUI
 
 struct MainTabView: View {
 
+    @Environment(\.theme) private var theme
+    
     var body: some View {
 
         TabView {
@@ -53,12 +55,13 @@ struct MainTabView: View {
         }
         .navigationBarColor(
             tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
-            backgroundColor: UIColor(odsCurrentTheme.colors.topBarBackground))
+            backgroundColor: UIColor(theme.colors.accent))
         /* ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground) */
         .tabBarStyle(backgroundColor: ODSColor.componentBackground.color, itemColor: Color.primary)
     }
 }
 
+#if DEBUG
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -66,3 +69,5 @@ struct TabView_Previews: PreviewProvider {
         }
     }
 }
+#endif
+

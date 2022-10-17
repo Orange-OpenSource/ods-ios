@@ -3,6 +3,35 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #250 Add bottom sheet to allow the user to show/hide the various options on CardTitleFirst 
+- [DemoApp] #251 Add bottom sheet to allow the user to show/hide the various options on CardImageFirst
+- [DemoApp] #249 Add bottom sheet to allow the user to show/hide the subtitle in SmallCard Variant Page 
+- [DemoApp/SDK] #222 Update the Button page to list the available button types
+- [SDK] Bug #96 Add Small Card 
+- [DemoApp] #248 Technical code refactoring for component page presentation 
+- [SDK/DemoApp] #229 Technical update to use Small and ImageFirst cards in demo app and modules 
+- [DemoApp] #228 Change Chip to switch on List screen for "SecondLineOfText" and "LeadingImage" options 
+- [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components
+- [SDK/DemoApp] #182 Add card title first
+- [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components 
+- [DemoApp] #235 Rename Module called Card View to Card Collections (2)
+- [SDK] Bug #96 Add Small Card
+
+## [0.5.0] - 2022-09-02
+
+- [DemoApp] Bug #219 Rename Module called Card View to Card Collections 
+- [DemoApp] Bug #216 Add Voice Over on Spacings screen
+- [DemoApp] Bug #214 Add Voice Over on typography screen
+- [DemoApp] Bug #72 Update vocalized content on color screen
+- [DemoApp] Bug #68 Acessibility Voice Over, order of vocalization on Color screen 
+- [SDK] Bug #75 Remove Voice Over on illustration image on the About Screen  
+- [DemoApp] Bug #71 Update Voice over for Color screen to group elements 
+- [SDK] Bug #76 Allow multiline on labels on the about screen
+- [DemoApp] Bug #70 Voice Over: Add header section for the name ot a group of colors
+- [DemoApp] Bug #67 Update color description for Dynamic font accessibility (do not truncate text)
+- [DemoApp] #160 Update the Text Field page
+- [DemoApp] #181 Update Slider Voice Over Accessibility  
+- [DemoApp/SDK] #198 Update ODSChipPicker API to seperate zero or one element in the single selection 
 - [DemoApp/SDK] #199 Refactor sources
 - [DemoApp] Bug #103 bad name for card collection in module page
 - [DemoApp] #57 Add Navigation Bar component
