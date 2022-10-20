@@ -88,6 +88,7 @@ private struct ODSFilledButtonLabel: View {
     var body: some View {
         if isEnabled {
             configuration.label
+            Color.primary
                 .foregroundColor(foregroundColor)
                 .background(backgroundColor)
                 .cornerRadius(8.0)

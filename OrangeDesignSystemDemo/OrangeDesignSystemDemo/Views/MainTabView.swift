@@ -23,13 +23,13 @@
 
 import OrangeDesignSystem
 import SwiftUI
+import InnovationCupTheme
 
 struct MainTabView: View {
-
-    @Environment(\.theme) private var theme
+//    @EnvironmentObject var themeProvider: ThemeProvider
+    @Environment(\.theme) var theme: ODSTheme
     
     var body: some View {
-
         TabView {
             GuidelinesList()
                 .tabItem {
@@ -47,17 +47,14 @@ struct MainTabView: View {
                 .tabItem {
                     Label("About", image: "info_32")
                 }
-//            Text("Search")
-//                .odsFont(.largeTitle)
-//                .tabItem {
-//                    Label("Search", image: "Search_32")
-//                }
+            //            Text("Search")
+            //                .odsFont(.largeTitle)
+            //                .tabItem {
+            //                    Label("Search", image: "Search_32")
+            //                }
         }
-        .navigationBarColor(
-            tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
-            backgroundColor: UIColor(theme.colors.accent))
-        /* ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground) */
-        .tabBarStyle(backgroundColor: ODSColor.componentBackground.color, itemColor: Color.primary)
+        .tabBarColor(theme: theme)
+        .navigationBarColors(for: theme)
     }
 }
 

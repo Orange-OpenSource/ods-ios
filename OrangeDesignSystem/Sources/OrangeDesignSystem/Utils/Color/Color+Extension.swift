@@ -21,21 +21,12 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
-import OrangeTheme
 
-@main
-struct ods_ios_swiftUI_demoApp: App {
-    @StateObject var themeProvider = ThemeProvider()
-    
-    var body: some Scene {
-        WindowGroup {
-            MainTabView()
-//                .accentColor(themeProvider.currentTheme.colors.accent)
-                .environmentObject(themeProvider)
-                .environment(\.theme, themeProvider.currentTheme)
-        }
+extension Color {
+
+    // UIKit color representation
+    var uiColor: UIColor {
+        return UIColor(self)
     }
 }
-

@@ -21,7 +21,6 @@
 //
 //
 
-import Foundation
 import SwiftUI
 
 public struct AboutView: View {

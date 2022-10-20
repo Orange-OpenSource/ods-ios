@@ -22,22 +22,31 @@
 //
 
 import Combine
-import MyOdsTheme
 import OrangeDesignSystem
+import InnovationCupTheme
+import MyOdsTheme
+import OrangeTheme
 import SwiftUI
 
 class ThemeProvider: ObservableObject {
-    
-    @Published var currentTheme: ODSTheme
+        
+    @Published var currentTheme: ODSTheme {
+        didSet { UserDefaults.standard.set(currentTheme.name, forKey: "themeName") }
+    }
     
     let themes: [ODSTheme]
     init() {
         let orangeTheme = OrangeThemeFactory().theme
         themes = [orangeTheme,
                   MyOdsThemeFactory().theme,
-                  PrimezoneThemeFactory().theme]
+                  InnovationCupThemeFactory().theme]
 
-        self.currentTheme = orangeTheme
+        if let themeName = UserDefaults.standard.value(forKey: "themeName") as? String,
+            let theme = themes.first( where: { $0.name == themeName } ) {
+            self.currentTheme = theme
+        } else {
+            self.currentTheme = orangeTheme
+        }
     }
 }
 

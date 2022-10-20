@@ -23,17 +23,19 @@
 
 import SwiftUI
 
-extension Color {
-    var uiColor: UIColor? {
-        return UIColor(self)
-    }
-}
-
 extension View {
-    func tabBarStyle(backgroundColor: Color? = nil,
-                     itemColor: Color? = nil,
-                     selectedItemColor: Color? = nil,
-                     badgeColor: Color? = nil) -> some View
+    public func tabBarColor(theme: ODSTheme) -> some View {
+        tabBarStyle(backgroundColor: theme.colors.navigationBarBackground,
+                    itemColor: Color.gray,
+                    selectedItemColor: theme.colors.navigationBarForeground,
+                    badgeColor: .red)
+    }
+
+
+    public func tabBarStyle(backgroundColor: Color? = nil,
+                            itemColor: Color? = nil,
+                            selectedItemColor: Color? = nil,
+                            badgeColor: Color? = nil) -> some View
     {
         onAppear {
             let itemAppearance = UITabBarItemAppearance()
@@ -53,15 +55,15 @@ extension View {
                 itemAppearance.normal.badgeBackgroundColor = uiBadgeColor
                 itemAppearance.selected.badgeBackgroundColor = uiBadgeColor
             }
-
+            
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = backgroundColor?.uiColor
-
+            
             appearance.stackedLayoutAppearance = itemAppearance
             appearance.inlineLayoutAppearance = itemAppearance
             appearance.compactInlineLayoutAppearance = itemAppearance
-
+            
             UITabBar.appearance().standardAppearance = appearance
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }

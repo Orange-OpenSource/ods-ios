@@ -24,7 +24,7 @@
 import SwiftUI
 
 // MARK: Theme EnvironmentKey
-private struct ThemeKey: EnvironmentKey {
+private struct Theme: EnvironmentKey {
 
     static let defaultValue: ODSTheme = ODSTheme()
 }
@@ -34,10 +34,29 @@ private struct ThemeKey: EnvironmentKey {
 extension EnvironmentValues {
     public var theme: ODSTheme {
         get {
-            self[ThemeKey.self]
+            self[Theme.self]
         }
         set {
-            self[ThemeKey.self] = newValue
+            self[Theme.self] = newValue
+        }
+    }
+}
+
+// MARK: Theme EnvironmentKey
+private struct ThemeName: EnvironmentKey {
+
+    static let defaultValue: String = "Default"
+}
+
+// MARK: Theme Environment value
+
+extension EnvironmentValues {
+    public var themeName: String {
+        get {
+            self[ThemeName.self]
+        }
+        set {
+            self[ThemeName.self] = newValue
         }
     }
 }

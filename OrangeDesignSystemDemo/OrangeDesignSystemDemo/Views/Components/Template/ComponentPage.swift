@@ -26,7 +26,8 @@ import SwiftUI
 
 struct ComponentPage: View {
     let component: Component
-
+    @EnvironmentObject var themeProvider: ThemeProvider
+    
     var body: some View {
         List {
             VStack {

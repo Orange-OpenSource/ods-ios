@@ -21,49 +21,21 @@
 //
 //
 
-import Foundation
 import SwiftUI
+import OrangeDesignSystem
 
-/// Defines all styles supported by Orange application for Text elements.
-public enum ODSThemeFontStyle: String, CaseIterable {
-    case largeTitle
-    case title1
-    case title2
-    case title3
-    case headline
-    case bodyRegular
-    case bodyBold
-    case callout
-    case subhead
-    case footnote
-    case caption1Regular
-    case caption1Bold
-    case caption2
-}
-
-public struct ODSThemeColors {
-
-    public var accent: Color
-    public var navigationBarBackground: Color
-    public var navigationBarForeground: Color
+public struct OrangeThemeFactory {
+    public let theme: ODSTheme
 
     public init() {
-        self.accent = .pink
-        self.navigationBarBackground = .green
-        self.navigationBarForeground = .pink
-    }
-}
+        var theme = ODSTheme()
 
-public struct ODSTheme: Identifiable, Hashable {
+        theme.name = "OrangeTheme"
+        theme.colors.accent = Color("coreOrange", bundle: Bundle.module)
+        theme.colors.navigationBarBackground = Color("componentBackground", bundle: Bundle.module)
+        theme.colors.navigationBarForeground = Color("coreOrange", bundle: Bundle.module)
 
-    public var name: String
-    public var colors: ODSThemeColors
-    public var font: (_ style: ODSThemeFontStyle) -> Font
-
-    public init() {
-        name = "FakeTheme"
-        colors = ODSThemeColors()
-        font = { style in
+        theme.font = { style in
             switch style {
             case .largeTitle:
                 return Font.largeTitle.bold()
@@ -93,19 +65,7 @@ public struct ODSTheme: Identifiable, Hashable {
                 return Font.caption2
             }
         }
-    }
 
-    // MARK: Identifiable
-    public var id: String {
-        name
-    }
-
-    // MARK: Hashable
-    public static func == (lhs: ODSTheme, rhs: ODSTheme) -> Bool {
-        lhs.name == rhs.name
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
+        self.theme = theme
     }
 }

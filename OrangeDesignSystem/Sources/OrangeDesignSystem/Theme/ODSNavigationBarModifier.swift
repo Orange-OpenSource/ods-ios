@@ -22,15 +22,34 @@
 //
 
 import SwiftUI
-import UIKit
 
-struct NavigationBarColor: ViewModifier {
+extension View {
+    public func navigationBarColors(for theme: ODSTheme) -> some View {
+        navigationBarColors(
+            tintColor: theme.colors.navigationBarForeground,
+            backgroundColor: theme.colors.navigationBarBackground
+        )
+    }
+    
+    public func navigationBarColors(tintColor: Color, backgroundColor: Color) -> some View {
+        modifier(
+            NavigationBarColors(tintColor: UIColor(tintColor),
+                                backgroundColor: UIColor(backgroundColor))
+        )
+    }
+}
 
+struct NavigationBarColors: ViewModifier {
     init(tintColor: UIColor, backgroundColor: UIColor = .systemBackground) {
+
         let coloredAppearance = UINavigationBarAppearance()
         coloredAppearance.configureWithDefaultBackground()
         coloredAppearance.backgroundColor = backgroundColor
+
         coloredAppearance.shadowColor = .separator
+        coloredAppearance.titleTextAttributes = [.foregroundColor: tintColor]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
+        coloredAppearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: tintColor]
 
         let button = UIBarButtonItemAppearance(style: .plain)
         button.normal.titleTextAttributes = [.foregroundColor: tintColor]
@@ -43,16 +62,12 @@ struct NavigationBarColor: ViewModifier {
         UINavigationBar.appearance().standardAppearance = coloredAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
         UINavigationBar.appearance().compactAppearance = coloredAppearance
+        UINavigationBar.appearance().compactScrollEdgeAppearance = coloredAppearance
+
         UINavigationBar.appearance().tintColor = tintColor
     }
 
     func body(content: Content) -> some View {
         content
-    }
-}
-
-extension View {
-    func navigationBarColor(tintColor: UIColor, backgroundColor: UIColor) -> some View {
-        modifier(NavigationBarColor(tintColor: tintColor, backgroundColor: backgroundColor))
     }
 }
