@@ -26,14 +26,40 @@ import SwiftUI
 
 extension View {
     /// Sets the font for text in this view defined by the __ODSFontStyle__
+    /// provided by theme.
+    ///
+    /// - Parameters
+    ///     - odsStyle: The default ods font style to use in this view.
+    ///     - thme: The theme where the style is defined.
+    ///
+    /// - Returns: A view with the default font set to the value you supply.
+    ///
+    /// @see font(_ font: Font?) -> some View
+    public func odsFont(_ odsStyle: ODSFontStyle, from theme: ODSTheme) -> some View {
+        return font(theme.font(odsStyle))
+    }
+
+    /// Sets the font for text in this view defined by the __ODSFontStyle__
     ///
     /// - Parameter odsStyle: The default ods font style to use in this view.
     ///
     /// - Returns: A view with the default font set to the value you supply.
     ///
     /// @see font(_ font: Font?) -> some View
-    public func odsFont(_ odsStyle: ODSThemeFontStyle) -> some View {
-        @Environment(\.theme) var theme
-        return font(theme.font(odsStyle))
+    public func odsFont(_ odsStyle: ODSFontStyle) -> some View {
+        modifier(FontModifier(fontStyle: odsStyle))
+    }
+}
+
+struct FontModifier: ViewModifier {
+    @Environment(\.theme) var theme
+    let fontStyle: ODSFontStyle
+
+    init(fontStyle: ODSFontStyle) {
+        self.fontStyle = fontStyle
+    }
+
+    func body(content: Content) -> some View {
+        content.odsFont(self.fontStyle, from: theme)
     }
 }

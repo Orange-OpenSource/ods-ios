@@ -26,14 +26,27 @@ import OrangeDesignSystem
 
 public struct OrangeThemeFactory {
     public let theme: ODSTheme
+    public static let themeName = "OrangeTheme"
 
     public init() {
         var theme = ODSTheme()
 
-        theme.name = "OrangeTheme"
+        theme.name = OrangeThemeFactory.themeName
         theme.colors.accent = Color("coreOrange", bundle: Bundle.module)
+
+        // Navigation bar
+        theme.colors.navigationBarTitle = Color.primary
         theme.colors.navigationBarBackground = Color("componentBackground", bundle: Bundle.module)
-        theme.colors.navigationBarForeground = Color("coreOrange", bundle: Bundle.module)
+        theme.colors.navigationBarForeground = theme.colors.accent
+
+        // Tab bar
+        theme.colors.tabBarBackground = Color("componentBackground", bundle: Bundle.module)
+        theme.colors.tabBarItem = .primary
+        theme.colors.tabBarSelectedItem = theme.colors.accent
+
+        theme.colors.highestEmphasisText = Color(UIColor.systemBackground)
+        theme.colors.functionalNegative = Color("functionalNegative", bundle: Bundle.module)
+        theme.colors.functionalPositive = Color("functionalPositive", bundle: Bundle.module)
 
         theme.font = { style in
             switch style {

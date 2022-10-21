@@ -26,13 +26,13 @@ import SwiftUI
 
 struct ComponentPage: View {
     let component: Component
-    @EnvironmentObject var themeProvider: ThemeProvider
     
     var body: some View {
         List {
             VStack {
                 component.image
                     .resizable()
+                    .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
 

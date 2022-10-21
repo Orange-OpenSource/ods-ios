@@ -26,7 +26,7 @@ import SwiftUI
 
 struct TypographyPage: View {
 
-    let fontStyles = ODSThemeFontStyle.allCases
+    let fontStyles = ODSFontStyle.allCases
 
     var body: some View {
         ScrollView {
@@ -63,7 +63,7 @@ struct TypographyPage: View {
     }
 }
 
-extension ODSThemeFontStyle {
+extension ODSFontStyle {
     var description: String {
         switch self {
         case .largeTitle:

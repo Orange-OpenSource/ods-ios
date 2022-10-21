@@ -23,22 +23,34 @@
 
 import OrangeDesignSystem
 import SwiftUI
+import OrangeTheme
 
 struct GuidelinesList: View {
+    
+    @Environment(\.theme) private var theme
+    
+    private var items: [ODSListOfCardImageFirstItemModel] {
+        var items: [ODSListOfCardImageFirstItemModel] = []
+        
+        if theme.name == OrangeThemeFactory.themeName {
+            items = [ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
+                ColorPage()
+            }]
+        }
 
-    let items = [
-        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
-            ColorPage()
-        },
-
-        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
-            TypographyPage()
-        },
-
-        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
-            SpacingPage()
-        },
-    ]
+        items.append(contentsOf:
+            [ ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
+                TypographyPage()
+            },
+              
+              ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
+                  SpacingPage()
+              },
+            ]
+        )
+        
+        return items
+    }
 
     var body: some View {
         NavigationView {
@@ -48,6 +60,7 @@ struct GuidelinesList: View {
         }
         .background(ODSColor.primaryBackground.color)
     }
+    
 }
 
 #if DEBUG

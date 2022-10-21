@@ -198,7 +198,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     @ViewBuilder func background(for chip: ODSChipModel) -> some View {
         if isSelected(chip) {
-            Capsule().foregroundColor(ODSColor.coreOrange.color)
+            Capsule().foregroundColor(Color.accentColor)
         } else {
             Capsule().stroke(lineWidth: 1)
         }
@@ -304,7 +304,7 @@ struct ChipSelectedAvatar: View {
             .resizable()
             .renderingMode(.template)
             .aspectRatio(contentMode: .fit)
-            .tint(ODSColor.coreOrange.color)
+            .tint(Color.accentColor)
             .background(Color.black)
             .frame(width: height - 6, height: height - 6, alignment: .center)
             .clipShape(Circle())

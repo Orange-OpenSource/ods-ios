@@ -23,10 +23,9 @@
 
 import OrangeDesignSystem
 import SwiftUI
-import InnovationCupTheme
 
 struct MainTabView: View {
-//    @EnvironmentObject var themeProvider: ThemeProvider
+
     @Environment(\.theme) var theme: ODSTheme
     
     var body: some View {

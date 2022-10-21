@@ -32,9 +32,21 @@ public struct InnovationCupThemeFactory {
         theme.name = "InnovationCup"
 
         theme.colors.accent = Color("accent", bundle: Bundle.module)
+
+        // Navigation bar
+        theme.colors.navigationBarTitle = Color.white
         theme.colors.navigationBarBackground = theme.colors.accent
         theme.colors.navigationBarForeground = Color.white
         
+        // tab bar
+        theme.colors.tabBarBackground = theme.colors.accent
+        theme.colors.tabBarItem = Color("tabBarItem", bundle: Bundle.module)
+        theme.colors.tabBarSelectedItem = .white
+                
+        theme.colors.highestEmphasisText = .white
+        theme.colors.functionalNegative = Color("functionalNegative", bundle: Bundle.module)
+        theme.colors.functionalPositive = Color("functionalPositive", bundle: Bundle.module)
+/*
         theme.font = { style in
             switch style {
             case .largeTitle:
@@ -65,6 +77,7 @@ public struct InnovationCupThemeFactory {
                 return Font.custom("Snell Roundhand", size: 11)
             }
         }
+ */
 
         self.theme = theme
     }

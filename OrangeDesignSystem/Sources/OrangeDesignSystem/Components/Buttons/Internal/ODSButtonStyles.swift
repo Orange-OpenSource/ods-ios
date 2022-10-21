@@ -28,13 +28,14 @@ import SwiftUI
 /// Modifier to apply the right style on the button according to the emphais
 struct ODSButtonStyleModifier: ViewModifier {
     let emphasis: ODSButton.Emphasis
-
+    @Environment(\.theme) var theme
+    
     @ViewBuilder func body(content: Content) -> some View {
         switch emphasis {
         case .highest:
             let style = ODSShapedButtonStyle(shapeType: .filled,
-                                             foregroundColor: Color.black,
-                                             backgroundColor: ODSColor.coreOrange.color)
+                                             foregroundColor: theme.colors.highestEmphasisText,
+                                             backgroundColor: theme.colors.accent)
             content.buttonStyle(style)
         case .high:
             let style = ODSShapedButtonStyle(shapeType: .filled,
@@ -88,7 +89,6 @@ private struct ODSFilledButtonLabel: View {
     var body: some View {
         if isEnabled {
             configuration.label
-            Color.primary
                 .foregroundColor(foregroundColor)
                 .background(backgroundColor)
                 .cornerRadius(8.0)

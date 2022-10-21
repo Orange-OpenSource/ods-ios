@@ -51,6 +51,12 @@ class ThemeProvider: ObservableObject {
 }
 
 struct ThemeSelection: View {
+    var body: some View {
+        ThemeSelectionInner()
+    }
+}
+
+struct ThemeSelectionInner: View {
     @EnvironmentObject var themeProvider: ThemeProvider
 
     var body: some View {
@@ -60,6 +66,7 @@ struct ThemeSelection: View {
                           chips: themeProvider.themes.map { theme in
                 ODSChip(theme, text: theme.name)
             })
+            .tint(themeProvider.currentTheme.colors.accent)
             
             
             Text("Selected theme")

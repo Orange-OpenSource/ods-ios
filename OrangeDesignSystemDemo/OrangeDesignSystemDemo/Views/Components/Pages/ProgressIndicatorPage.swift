@@ -48,15 +48,19 @@ struct ProgressIndicatorVariants: View {
     }
 }
 
+
 struct ProgressBarVariant: View {
     @State private var secondsElapsed = 0.0
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     let maxSeconds: CGFloat = 100.0
 
+    @Environment(\.theme) private var theme
+    
     var body: some View {
         Text("Progress bar")
             .odsFont(.title2)
         ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
+            .tint(theme.colors.accent)
             .onReceive(timer) { _ in
                 if secondsElapsed < maxSeconds {
                     secondsElapsed += 1

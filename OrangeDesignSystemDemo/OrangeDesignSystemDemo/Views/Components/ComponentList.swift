@@ -53,9 +53,7 @@ struct ComponentsList: View {
         return components.map { $0.smallCardModel }
     }
 
-    @EnvironmentObject var themeProvider: ThemeProvider
     var body: some View {
-
         NavigationView {
             ScrollView {
                 ODSGridOfCards(cardModels: sortedComponentCardModels)

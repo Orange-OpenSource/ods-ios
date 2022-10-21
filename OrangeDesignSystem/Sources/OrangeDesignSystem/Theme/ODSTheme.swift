@@ -25,7 +25,7 @@ import Foundation
 import SwiftUI
 
 /// Defines all styles supported by Orange application for Text elements.
-public enum ODSThemeFontStyle: String, CaseIterable {
+public enum ODSFontStyle: String, CaseIterable {
     case largeTitle
     case title1
     case title2
@@ -41,28 +41,52 @@ public enum ODSThemeFontStyle: String, CaseIterable {
     case caption2
 }
 
-public struct ODSThemeColors {
+public struct ODSColors {
 
     public var accent: Color
+
+    // Navigation bar
+    public var navigationBarTitle: Color
     public var navigationBarBackground: Color
     public var navigationBarForeground: Color
 
+    // tab bar
+    public var tabBarBackground: Color
+    public var tabBarItem: Color
+    public var tabBarSelectedItem: Color
+    
+    // Buttons
+    public var highestEmphasisText: Color
+    public var functionalPositive: Color
+    public var functionalNegative: Color
+    
     public init() {
         self.accent = .pink
+        
+        self.navigationBarTitle = .pink
         self.navigationBarBackground = .green
         self.navigationBarForeground = .pink
+        
+        // tab bar
+        self.tabBarBackground = .green
+        self.tabBarItem = .pink
+        self.tabBarSelectedItem = .primary
+
+        self.highestEmphasisText = Color(UIColor.systemBackground)
+        self.functionalNegative = .red
+        self.functionalPositive = .green
     }
 }
 
 public struct ODSTheme: Identifiable, Hashable {
 
     public var name: String
-    public var colors: ODSThemeColors
-    public var font: (_ style: ODSThemeFontStyle) -> Font
+    public var colors: ODSColors
+    public var font: (_ style: ODSFontStyle) -> Font
 
     public init() {
         name = "FakeTheme"
-        colors = ODSThemeColors()
+        colors = ODSColors()
         font = { style in
             switch style {
             case .largeTitle:

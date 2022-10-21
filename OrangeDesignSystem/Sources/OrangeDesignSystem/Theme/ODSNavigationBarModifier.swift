@@ -26,31 +26,36 @@ import SwiftUI
 extension View {
     public func navigationBarColors(for theme: ODSTheme) -> some View {
         navigationBarColors(
+            titleColor: theme.colors.navigationBarTitle,
             tintColor: theme.colors.navigationBarForeground,
             backgroundColor: theme.colors.navigationBarBackground
         )
     }
     
-    public func navigationBarColors(tintColor: Color, backgroundColor: Color) -> some View {
+    public func navigationBarColors(titleColor: Color, tintColor: Color, backgroundColor: Color) -> some View {
         modifier(
-            NavigationBarColors(tintColor: UIColor(tintColor),
+            NavigationBarColors(titleColor: UIColor(titleColor),
+                                tintColor: UIColor(tintColor),
                                 backgroundColor: UIColor(backgroundColor))
         )
     }
 }
 
 struct NavigationBarColors: ViewModifier {
-    init(tintColor: UIColor, backgroundColor: UIColor = .systemBackground) {
+    
+    init(titleColor: UIColor,
+         tintColor: UIColor,
+         backgroundColor: UIColor = .systemBackground) {
 
         let coloredAppearance = UINavigationBarAppearance()
         coloredAppearance.configureWithDefaultBackground()
         coloredAppearance.backgroundColor = backgroundColor
 
         coloredAppearance.shadowColor = .separator
-        coloredAppearance.titleTextAttributes = [.foregroundColor: tintColor]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
+        coloredAppearance.titleTextAttributes = [.foregroundColor: titleColor]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: titleColor]
         coloredAppearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: tintColor]
-
+        
         let button = UIBarButtonItemAppearance(style: .plain)
         button.normal.titleTextAttributes = [.foregroundColor: tintColor]
         coloredAppearance.buttonAppearance = button
