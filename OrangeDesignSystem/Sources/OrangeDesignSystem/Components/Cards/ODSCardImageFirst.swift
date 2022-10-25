@@ -119,7 +119,7 @@ extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 ==
 
 /// View implementation
 extension ODSCardImageFirst {
-
+    
     public var body: some View {
 
         VStack(alignment: .leading, spacing: ODSSpacing.none) {

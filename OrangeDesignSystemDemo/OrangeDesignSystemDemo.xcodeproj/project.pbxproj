@@ -34,7 +34,6 @@
 		07C8235628AE68B2003B2C3A /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234A28AE68B2003B2C3A /* CardPage.swift */; };
 		07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8235828AE690F003B2C3A /* ComponentPage.swift */; };
 		07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */; };
-		07E0A1B728AE8D2500CD1C32 /* MyOdsTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B628AE8D2500CD1C32 /* MyOdsTheme */; };
 		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
 		07E37F6228C73252003FF740 /* SmallCardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6128C73252003FF740 /* SmallCardVariant.swift */; };
 		07E37F6428C74540003FF740 /* CardTitleFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */; };
@@ -168,7 +167,6 @@
 				07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */,
 				07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */,
 				0789B3F52901300000D34C55 /* OrangeTheme in Frameworks */,
-				07E0A1B728AE8D2500CD1C32 /* MyOdsTheme in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +532,6 @@
 			);
 			name = OrangeDesignSystemDemo;
 			packageProductDependencies = (
-				07E0A1B628AE8D2500CD1C32 /* MyOdsTheme */,
 				07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */,
 				0789B3F42901300000D34C55 /* OrangeTheme */,
 				0789B3F62901302000D34C55 /* InnovationCupTheme */,
@@ -1181,10 +1178,6 @@
 		0789B3F62901302000D34C55 /* InnovationCupTheme */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InnovationCupTheme;
-		};
-		07E0A1B628AE8D2500CD1C32 /* MyOdsTheme */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MyOdsTheme;
 		};
 		07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;

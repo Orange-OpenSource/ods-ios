@@ -24,7 +24,6 @@
 import Combine
 import OrangeDesignSystem
 import InnovationCupTheme
-import MyOdsTheme
 import OrangeTheme
 import SwiftUI
 
@@ -38,7 +37,6 @@ class ThemeProvider: ObservableObject {
     init() {
         let orangeTheme = OrangeThemeFactory().theme
         themes = [orangeTheme,
-                  MyOdsThemeFactory().theme,
                   InnovationCupThemeFactory().theme]
 
         if let themeName = UserDefaults.standard.value(forKey: "themeName") as? String,

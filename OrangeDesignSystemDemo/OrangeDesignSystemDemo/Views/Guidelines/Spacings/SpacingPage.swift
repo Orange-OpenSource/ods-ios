@@ -115,7 +115,6 @@ struct SpacingPage: View {
         }
         .navigationTitle("Spacings")
         .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
     }
 }
 

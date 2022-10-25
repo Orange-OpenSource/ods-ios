@@ -38,47 +38,19 @@ public struct InnovationCupThemeFactory {
         theme.colors.navigationBarBackground = theme.colors.accent
         theme.colors.navigationBarForeground = Color.white
         
-        // tab bar
+        // Tab bar
         theme.colors.tabBarBackground = theme.colors.accent
         theme.colors.tabBarItem = Color("tabBarItem", bundle: Bundle.module)
         theme.colors.tabBarSelectedItem = .white
                 
+        // Buttons
         theme.colors.highestEmphasisText = .white
         theme.colors.functionalNegative = Color("functionalNegative", bundle: Bundle.module)
         theme.colors.functionalPositive = Color("functionalPositive", bundle: Bundle.module)
-/*
-        theme.font = { style in
-            switch style {
-            case .largeTitle:
-                return Font.custom("Snell Roundhand", size: 34).bold()
-            case .title1:
-                return Font.custom("Snell Roundhand", size: 28).bold()
-            case .title2:
-                return Font.custom("Snell Roundhand", size: 22).bold()
-            case .title3:
-                return Font.custom("Snell Roundhand", size: 20).bold()
-            case .headline:
-                return Font.custom("Snell Roundhand", size: 17).bold()
-            case .bodyRegular:
-                return Font.custom("Snell Roundhand", size: 17)
-            case .bodyBold:
-                return Font.custom("Snell Roundhand", size: 17).bold()
-            case .callout:
-                return Font.custom("Snell Roundhand", size: 16)
-            case .subhead:
-                return Font.custom("Snell Roundhand", size: 15)
-            case .footnote:
-                return Font.custom("Snell Roundhand", size: 13)
-            case .caption1Regular:
-                return Font.custom("Snell Roundhand", size: 12)
-            case .caption1Bold:
-                return Font.custom("Snell Roundhand", size: 12).bold()
-            case .caption2:
-                return Font.custom("Snell Roundhand", size: 11)
-            }
-        }
- */
 
+        // Fonts: use the default ones
+        // theme.font = { style in }
+    
         self.theme = theme
     }
 }

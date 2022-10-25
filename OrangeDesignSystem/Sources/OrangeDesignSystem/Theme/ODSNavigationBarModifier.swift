@@ -55,6 +55,11 @@ struct NavigationBarColors: ViewModifier {
         coloredAppearance.titleTextAttributes = [.foregroundColor: titleColor]
         coloredAppearance.largeTitleTextAttributes = [.foregroundColor: titleColor]
         coloredAppearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: tintColor]
+
+        if #available(iOS 16.0, *) {
+            let image = UIImage(systemName: "chevron.backward")?.withTintColor(tintColor, renderingMode: .alwaysOriginal) // fix indicator color
+            coloredAppearance.setBackIndicatorImage(image, transitionMaskImage: image)
+        }
         
         let button = UIBarButtonItemAppearance(style: .plain)
         button.normal.titleTextAttributes = [.foregroundColor: tintColor]

@@ -58,6 +58,8 @@ extension Image {
 
 struct ODSListItemTrailingIcon: View {
 
+    @Environment(\.theme) private var theme
+    
     let iconModel: ODSListItemTrailingIconModel
 
     var body: some View {
@@ -70,7 +72,7 @@ struct ODSListItemTrailingIcon: View {
         case let .infoButton(onClicked):
             Image(systemName: "info.circle")
                 .frame(width: 16, height: 16, alignment: .center)
-                .foregroundColor(ODSColor.coreOrange.color)
+                .foregroundColor(theme.colors.accent)
                 .onTapGesture {
                     onClicked()
                 }

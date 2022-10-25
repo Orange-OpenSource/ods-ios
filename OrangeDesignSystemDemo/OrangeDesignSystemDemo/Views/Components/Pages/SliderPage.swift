@@ -31,7 +31,7 @@ struct SliderComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "Slides"
+        title = "Sliders"
         image = Image("Slider")
         description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
         
@@ -111,6 +111,8 @@ struct SteppedSlider: View {
 
 
 #if DEBUG
+import OrangeTheme
+
 struct SliderPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -118,7 +120,7 @@ struct SliderPage_Previews: PreviewProvider {
                 SliderVartants()
             }
             .preferredColorScheme($0)
-            .accentColor(ODSColor.coreOrange.color)
+            .environment(\.theme, OrangeThemeFactory().theme)
         }
     }
 }

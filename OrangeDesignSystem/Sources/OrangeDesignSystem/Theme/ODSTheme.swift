@@ -54,7 +54,7 @@ public struct ODSColors {
     public var tabBarBackground: Color
     public var tabBarItem: Color
     public var tabBarSelectedItem: Color
-    
+
     // Buttons
     public var highestEmphasisText: Color
     public var functionalPositive: Color

@@ -51,7 +51,6 @@ public struct AboutView: View {
             ODSAboutItemView()
         }
         .listStyle(PlainListStyle())
-        .background(ODSColor.primaryBackground.color)
     }
 }
 

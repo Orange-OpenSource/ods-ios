@@ -32,9 +32,9 @@ struct ComponentPage: View {
             VStack {
                 component.image
                     .resizable()
-                    .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
+
 
                 VStack(alignment: .leading, spacing: ODSSpacing.m) {
                     ComponentDescription(text: component.description)

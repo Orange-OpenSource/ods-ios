@@ -51,6 +51,8 @@ extension View {
     }
 }
 
+// MARK: - Internal font modifier
+
 struct FontModifier: ViewModifier {
     @Environment(\.theme) var theme
     let fontStyle: ODSFontStyle

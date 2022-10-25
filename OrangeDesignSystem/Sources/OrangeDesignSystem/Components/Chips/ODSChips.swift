@@ -412,7 +412,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
 
                     VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Multiple selection with zero allowed",
@@ -426,7 +426,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
 
                     VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Multiple selection with at least one",
@@ -440,7 +440,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
                 }
             }
         }

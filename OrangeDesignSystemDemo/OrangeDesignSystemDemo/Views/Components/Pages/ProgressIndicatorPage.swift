@@ -84,14 +84,16 @@ struct ProgressIndicatorVariant: View {
 }
 
 #if DEBUG
+import OrangeTheme
+
 struct ProgressIndicatorPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
             List {
                 ProgressIndicatorVariants()
             }
-            .accentColor(ODSColor.coreOrange.color)
             .preferredColorScheme($0)
+            .environment(\.theme, OrangeThemeFactory().theme)
         }
     }
 }

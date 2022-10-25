@@ -58,7 +58,6 @@ struct GuidelinesList: View {
                 .navigationTitle("Guidelines")
                 .navigationViewStyle(.stack)
         }
-        .background(ODSColor.primaryBackground.color)
     }
     
 }
