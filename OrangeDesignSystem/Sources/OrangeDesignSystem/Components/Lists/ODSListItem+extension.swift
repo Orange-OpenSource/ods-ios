@@ -72,7 +72,7 @@ struct ODSListItemTrailingIcon: View {
         case let .infoButton(onClicked):
             Image(systemName: "info.circle")
                 .frame(width: 16, height: 16, alignment: .center)
-                .foregroundColor(theme.colors.accent)
+                .foregroundColor(theme.componentColors.accent)
                 .onTapGesture {
                     onClicked()
                 }

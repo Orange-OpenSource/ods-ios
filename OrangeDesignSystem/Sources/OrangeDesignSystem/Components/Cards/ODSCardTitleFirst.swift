@@ -172,7 +172,7 @@ extension ODSCardTitleFirst {
             .padding(.top, ODSSpacing.xs)
             .padding(.bottom, ODSSpacing.m)
         }
-        .background(ODSColor.componentBackground2.color)
+        .background(ODSInternalColor.cardBackground.color)
         .cornerRadius(10)
         .shadow(radius: ODSSpacing.xs)
         .padding(.all, ODSSpacing.s)

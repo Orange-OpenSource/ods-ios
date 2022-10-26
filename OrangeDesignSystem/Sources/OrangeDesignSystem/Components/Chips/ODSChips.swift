@@ -400,7 +400,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
 
                     VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Single selection with at least one",

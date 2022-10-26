@@ -26,9 +26,9 @@ import SwiftUI
 extension View {
     public func navigationBarColors(for theme: ODSTheme) -> some View {
         navigationBarColors(
-            titleColor: theme.colors.navigationBarTitle,
-            tintColor: theme.colors.navigationBarForeground,
-            backgroundColor: theme.colors.navigationBarBackground
+            titleColor: theme.componentColors.navigationBarTitle,
+            tintColor: theme.componentColors.navigationBarForeground,
+            backgroundColor: theme.componentColors.navigationBarBackground
         )
     }
     
@@ -42,7 +42,7 @@ extension View {
 }
 
 struct NavigationBarColors: ViewModifier {
-    
+
     init(titleColor: UIColor,
          tintColor: UIColor,
          backgroundColor: UIColor = .systemBackground) {
@@ -60,7 +60,7 @@ struct NavigationBarColors: ViewModifier {
             let image = UIImage(systemName: "chevron.backward")?.withTintColor(tintColor, renderingMode: .alwaysOriginal) // fix indicator color
             coloredAppearance.setBackIndicatorImage(image, transitionMaskImage: image)
         }
-        
+
         let button = UIBarButtonItemAppearance(style: .plain)
         button.normal.titleTextAttributes = [.foregroundColor: tintColor]
         coloredAppearance.buttonAppearance = button

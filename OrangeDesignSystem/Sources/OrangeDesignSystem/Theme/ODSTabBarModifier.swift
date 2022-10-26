@@ -25,9 +25,9 @@ import SwiftUI
 
 extension View {
     public func tabBarColor(theme: ODSTheme) -> some View {
-        tabBarStyle(backgroundColor: theme.colors.tabBarBackground,
-                    itemColor: theme.colors.tabBarItem,
-                    selectedItemColor: theme.colors.tabBarSelectedItem,
+        tabBarStyle(backgroundColor: theme.componentColors.tabBarBackground,
+                    itemColor: theme.componentColors.tabBarItem,
+                    selectedItemColor: theme.componentColors.tabBarSelectedItem,
                     badgeColor: .red)
     }
 

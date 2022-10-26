@@ -48,7 +48,7 @@ public struct ODSIconButton: View {
             action()
         } label: {
             ODSIcon(image)
-                .foregroundColor(theme.colors.accent)
+                .foregroundColor(theme.componentColors.accent)
         }
     }
 }

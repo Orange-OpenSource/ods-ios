@@ -153,7 +153,7 @@ extension ODSCardImageFirst {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.bottom, ODSSpacing.m)
         }
-        .background(ODSColor.componentBackground2.color)
+        .background(ODSInternalColor.cardBackground.color)
         .cornerRadius(10)
         .shadow(radius: ODSSpacing.xs)
         .padding(.all, ODSSpacing.s)

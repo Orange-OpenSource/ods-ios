@@ -113,7 +113,7 @@ struct IconVariant: View {
             }
             .environmentObject(model)
         }
-        .background(ODSColor.componentBackground2.color)
+        .background(Color("componentBackground2"))
     }
 }
 

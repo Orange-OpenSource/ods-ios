@@ -27,30 +27,31 @@ import OrangeTheme
 
 struct GuidelinesList: View {
     
+    // ============================
+    // MARK: Store properties
+    // ============================
+
     @Environment(\.theme) private var theme
     
     private var items: [ODSListOfCardImageFirstItemModel] {
-        var items: [ODSListOfCardImageFirstItemModel] = []
-        
-        if theme.name == OrangeThemeFactory.themeName {
-            items = [ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
+        [
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
                 ColorPage()
-            }]
-        }
-
-        items.append(contentsOf:
-            [ ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
+            },
+            
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
                 TypographyPage()
             },
-              
-              ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
-                  SpacingPage()
-              },
-            ]
-        )
-        
-        return items
+            
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
+                SpacingPage()
+            },
+        ]
     }
+    
+    // ============================
+    // MARK: Body
+    // ============================
 
     var body: some View {
         NavigationView {
@@ -59,7 +60,6 @@ struct GuidelinesList: View {
                 .navigationViewStyle(.stack)
         }
     }
-    
 }
 
 #if DEBUG

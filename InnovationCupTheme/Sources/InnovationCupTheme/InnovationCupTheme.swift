@@ -24,6 +24,27 @@
 import SwiftUI
 import OrangeDesignSystem
 
+enum InnovationCupThemeColors: String, CaseIterable {
+    // MARK: - Core
+    case accent
+    
+    // MARK: - Functional
+    case functionalPositive // 2 tints (Dark & Light)
+    case functionalNegative // 2 tints (Dark & Light)
+    case functionalInfo // 2 tints (Dark & Light)
+    case functionalAlert // 2 tints (Dark & Light)
+    
+    // MARK: Component
+    case tabBarItem
+
+    /// Get the color values from resources with its name
+    public var colorDecription: ODSColorDecription {
+        ODSColorDecription(assetName: rawValue, bundle: Bundle.module)
+    }
+    
+    static let palette: ODSColorPalette = Self.allCases.map { $0.colorDecription }
+}
+
 public struct InnovationCupThemeFactory {
     public let theme: ODSTheme
 
@@ -31,22 +52,26 @@ public struct InnovationCupThemeFactory {
         var theme = ODSTheme()
         theme.name = "InnovationCup"
 
-        theme.colors.accent = Color("accent", bundle: Bundle.module)
+        theme.colorPalette = InnovationCupThemeColors.palette
+        theme.componentColors.accent = InnovationCupThemeColors.accent.colorDecription.color
 
         // Navigation bar
-        theme.colors.navigationBarTitle = Color.white
-        theme.colors.navigationBarBackground = theme.colors.accent
-        theme.colors.navigationBarForeground = Color.white
+        theme.componentColors.navigationBarTitle = Color.white
+        theme.componentColors.navigationBarBackground = theme.componentColors.accent
+        theme.componentColors.navigationBarForeground = Color.white
         
         // Tab bar
-        theme.colors.tabBarBackground = theme.colors.accent
-        theme.colors.tabBarItem = Color("tabBarItem", bundle: Bundle.module)
-        theme.colors.tabBarSelectedItem = .white
+        theme.componentColors.tabBarBackground = theme.componentColors.accent
+        theme.componentColors.tabBarItem = InnovationCupThemeColors.tabBarItem.colorDecription.color
+        theme.componentColors.tabBarSelectedItem = .white
                 
         // Buttons
-        theme.colors.highestEmphasisText = .white
-        theme.colors.functionalNegative = Color("functionalNegative", bundle: Bundle.module)
-        theme.colors.functionalPositive = Color("functionalPositive", bundle: Bundle.module)
+        theme.componentColors.highestEmphasisText = .white
+        
+        theme.componentColors.functionalNegative = InnovationCupThemeColors.functionalNegative.colorDecription.color
+        theme.componentColors.functionalPositive = InnovationCupThemeColors.functionalPositive.colorDecription.color
+        theme.componentColors.functionalInfo = InnovationCupThemeColors.functionalInfo.colorDecription.color
+        theme.componentColors.functionalAlert = InnovationCupThemeColors.functionalAlert.colorDecription.color
 
         // Fonts: use the default ones
         // theme.font = { style in }

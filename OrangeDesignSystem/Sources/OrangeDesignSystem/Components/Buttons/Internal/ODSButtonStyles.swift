@@ -34,8 +34,8 @@ struct ODSButtonStyleModifier: ViewModifier {
         switch emphasis {
         case .highest:
             let style = ODSShapedButtonStyle(shapeType: .filled,
-                                             foregroundColor: theme.colors.highestEmphasisText,
-                                             backgroundColor: theme.colors.accent)
+                                             foregroundColor: theme.componentColors.highestEmphasisText,
+                                             backgroundColor: theme.componentColors.accent)
             content.buttonStyle(style)
         case .high:
             let style = ODSShapedButtonStyle(shapeType: .filled,

@@ -21,7 +21,6 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
@@ -40,11 +39,23 @@ struct ColorPage: View {
 
 struct ColorList: View {
 
-    // MARK: - Dark/Light managment
-    @Environment(\.colorScheme) var phoneColorScheme: ColorScheme
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @Environment(\.theme) private var theme
+    @Environment(\.colorScheme) private var phoneColorScheme
     @EnvironmentObject var screenState: ScreenState
 
-    // MARK: - Body
+    private let columns = [
+        GridItem(.flexible(minimum: 50.0)),
+        GridItem(.flexible(minimum: 50.0))
+    ]
+    
+    // =======================
+    // MARK: Body
+    // =======================
+
     var body: some View {
         VStack {
             Group {
@@ -57,89 +68,53 @@ struct ColorList: View {
                     screenState.colorScheme = phoneColorScheme
                 }
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-            }.padding(.top, ODSSpacing.s)
+            }
+            .padding(.top, ODSSpacing.s)
 
             ScrollView {
-                SectionTitle(title: "Core")
-
-                VStack {
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorBig(color: ODSColor.coreOrange, bordered: false)
-                        ColorBig(color: ODSColor.coreWhite, bordered: screenState.colorScheme == .light)
-                    }
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorBig(color: ODSColor.coreBlack, bordered: screenState.colorScheme == .dark)
-                        ColorBig(color: ODSColor.coreObsGrey, bordered: false)
+                LazyVGrid(columns: columns) {
+                    ForEach(theme.colorPalette, id: \.assetName) { colorDescription in
+                        ColorIllustration(colorDescription: colorDescription,
+                                          bordered: colorDescription.uiColor.rgba() == backGroundColor.rgba())
                     }
                 }
-                .padding(EdgeInsets(top: ODSSpacing.l, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-
-                SectionTitle(title: "Functional")
-                    .padding(.top, ODSSpacing.l)
-
-                VStack {
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorBig(color: ODSColor.functionalPositive, bordered: false)
-                        ColorBig(color: ODSColor.functionalNegative, bordered: false)
-                    }
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorBig(color: ODSColor.functionalAlert, bordered: false)
-                        ColorBig(color: ODSColor.functionalInfo, bordered: false)
-                    }
-                }
-                .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-
-                SectionTitle(title: "Supporting")
-                    .padding(.top, ODSSpacing.l)
-
-                VStack {
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorSmall(color: ODSColor.supportingBlue100)
-                        ColorSmall(color: ODSColor.supportingBlue200)
-                        ColorSmall(color: ODSColor.supportingBlue300)
-                    }
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorSmall(color: ODSColor.supportingYellow100)
-                        ColorSmall(color: ODSColor.supportingYellow200)
-                        ColorSmall(color: ODSColor.supportingYellow300)
-                    }
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorSmall(color: ODSColor.supportingGreen100)
-                        ColorSmall(color: ODSColor.supportingGreen200)
-                        ColorSmall(color: ODSColor.supportingGreen300)
-                    }
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorSmall(color: ODSColor.supportingPink100)
-                        ColorSmall(color: ODSColor.supportingPink200)
-                        ColorSmall(color: ODSColor.supportingPink300)
-                    }
-                    HStack(spacing: ODSSpacing.m) {
-                        ColorSmall(color: ODSColor.supportingPurple100)
-                        ColorSmall(color: ODSColor.supportingPurple200)
-                        ColorSmall(color: ODSColor.supportingPurple300)
-                    }
-                }
-                .padding(.vertical, ODSSpacing.xs)
                 .padding(.horizontal, ODSSpacing.m)
+                .padding(.vertical, ODSSpacing.m)
             }
-            .background(screenState.colorScheme == .light ? Color.white : Color.black)
-            .padding(.bottom, ODSSpacing.m)
+            .background(Color(backGroundColor))
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: ColorUsage()) {
                     Text("Usage")
                 }
-                .foregroundColor(ODS.coreOrange)
+                .foregroundColor(theme.componentColors.accent)
             }
         }
         .navigationTitle("Palette")
     }
+    
+    // ============================
+    // MARK: Private Implementation
+    // ============================
+
+    private var backGroundColor: UIColor {
+        screenState.colorScheme == .light ? .white : .black
+    }
 }
 
 struct SectionTitle: View {
-    var title: String
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @EnvironmentObject var screenState: ScreenState
+    let title: String
+
+    // =======================
+    // MARK: Body
+    // =======================
 
     var body: some View {
         Text(title)

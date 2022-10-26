@@ -49,8 +49,12 @@ class ThemeProvider: ObservableObject {
 }
 
 struct ThemeSelection: View {
+    let title: String
+    
     var body: some View {
         ThemeSelectionInner()
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -58,18 +62,22 @@ struct ThemeSelectionInner: View {
     @EnvironmentObject var themeProvider: ThemeProvider
 
     var body: some View {
-        VStack {
-            ODSChipPicker(title: "Theme selection",
+        VStack(spacing: ODSSpacing.l) {
+            ODSChipPicker(title: "",
                           selection: $themeProvider.currentTheme,
                           chips: themeProvider.themes.map { theme in
                 ODSChip(theme, text: theme.name)
             })
-            .tint(themeProvider.currentTheme.colors.accent)
-            
-            
-            Text("Selected theme")
-                .odsFont(.bodyRegular)
-                .foregroundColor(themeProvider.currentTheme.colors.accent)
+
+            VStack {
+                Text("Selected theme:")
+                    .odsFont(.bodyRegular)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Text(themeProvider.currentTheme.name)
+                    .foregroundColor(themeProvider.currentTheme.componentColors.accent)
+            }
+            .padding(.horizontal, ODSSpacing.m)
 
             Spacer()
         }

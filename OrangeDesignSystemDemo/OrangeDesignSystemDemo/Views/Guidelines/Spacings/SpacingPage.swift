@@ -158,11 +158,11 @@ struct SpacingVisual: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(ODSColor.coreObsGrey.color)
+                .foregroundColor(Color("spacingBackground"))
                 .frame(height: 16, alignment: .topLeading)
 
             Rectangle()
-                .foregroundColor(ODSColor.supportingBlue200.color)
+                .foregroundColor(Color("supportingIndicator"))
                 .frame(width: spacingWidth, alignment: .center)
         }
         .frame(width: 60, height: 50)

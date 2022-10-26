@@ -60,7 +60,7 @@ struct ProgressBarVariant: View {
         Text("Progress bar")
             .odsFont(.title2)
         ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
-            .tint(theme.colors.accent)
+            .tint(theme.componentColors.accent)
             .onReceive(timer) { _ in
                 if secondsElapsed < maxSeconds {
                     secondsElapsed += 1

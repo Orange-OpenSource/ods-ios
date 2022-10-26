@@ -109,7 +109,7 @@ public struct ODSSmallCard: View {
             .padding(.vertical, ODSSpacing.m)
             .padding(.horizontal, ODSSpacing.m)
         }
-        .background(ODSColor.componentBackground2.color)
+        .background(ODSInternalColor.cardBackground.color)
         .cornerRadius(10)
         .shadow(radius: ODSSpacing.xs)
         .padding(.all, ODSSpacing.s)

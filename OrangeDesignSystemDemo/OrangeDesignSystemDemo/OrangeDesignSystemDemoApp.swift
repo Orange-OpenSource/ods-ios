@@ -32,7 +32,7 @@ struct ods_ios_swiftUI_demoApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .accentColor(themeProvider.currentTheme.colors.accent)
+                .accentColor(themeProvider.currentTheme.componentColors.accent)
                 .environmentObject(themeProvider)
                 .environment(\.theme, themeProvider.currentTheme)
         }

@@ -76,9 +76,9 @@ public struct ODSFunctionalButton: View {
     var backgroundColor: Color {
         switch style {
         case .negative:
-            return theme.colors.functionalNegative
+            return theme.componentColors.functionalNegative
         case .positive:
-            return theme.colors.functionalPositive
+            return theme.componentColors.functionalPositive
         }
     }
 }

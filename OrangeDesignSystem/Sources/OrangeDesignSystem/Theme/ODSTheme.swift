@@ -24,6 +24,8 @@
 import Foundation
 import SwiftUI
 
+// MARK: Fonts
+
 /// Defines all styles supported by Orange application for Text elements.
 public enum ODSFontStyle: String, CaseIterable {
     case largeTitle
@@ -41,7 +43,36 @@ public enum ODSFontStyle: String, CaseIterable {
     case caption2
 }
 
-public struct ODSColors {
+// MARK: Colors
+public struct ODSColorDecription {
+    public let assetName: String
+    public let bundle: Bundle
+    public let nameForLightScheme: String?
+    public let nameForDarkScheme: String?
+    
+    public init(assetName: String,
+                bundle: Bundle,
+                nameForLightScheme: String? = nil,
+                nameForDarkScheme: String? = nil) {
+        self.assetName = assetName
+        self.bundle = bundle
+        self.nameForLightScheme = nameForLightScheme
+        self.nameForDarkScheme = nameForDarkScheme
+    }
+
+    public var color: Color {
+        Color(assetName, bundle: bundle)
+    }
+
+    public var uiColor: UIColor {
+        UIColor(named: assetName, in: bundle, compatibleWith: nil) ?? .clear
+    }
+}
+
+public typealias ODSColorPalette = [ODSColorDecription]
+
+/// Used to define colors for components
+public struct ODSComponentColors {
 
     public var accent: Color
 
@@ -50,7 +81,7 @@ public struct ODSColors {
     public var navigationBarBackground: Color
     public var navigationBarForeground: Color
 
-    // tab bar
+    // Tab bar
     public var tabBarBackground: Color
     public var tabBarItem: Color
     public var tabBarSelectedItem: Color
@@ -59,34 +90,44 @@ public struct ODSColors {
     public var highestEmphasisText: Color
     public var functionalPositive: Color
     public var functionalNegative: Color
+    public var functionalAlert: Color
+    public var functionalInfo: Color
     
     public init() {
         self.accent = .pink
-        
+
+        // Navigation bar
         self.navigationBarTitle = .pink
         self.navigationBarBackground = .green
         self.navigationBarForeground = .pink
-        
-        // tab bar
+
+        // Tab bar
         self.tabBarBackground = .green
         self.tabBarItem = .pink
         self.tabBarSelectedItem = .primary
 
+        // Buttons
         self.highestEmphasisText = Color(UIColor.systemBackground)
         self.functionalNegative = .red
         self.functionalPositive = .green
+        self.functionalInfo = .blue
+        self.functionalAlert = .yellow
     }
 }
 
+// MARK: Theme
 public struct ODSTheme: Identifiable, Hashable {
 
     public var name: String
-    public var colors: ODSColors
+    public var colorPalette: ODSColorPalette
+    public var componentColors: ODSComponentColors
     public var font: (_ style: ODSFontStyle) -> Font
 
     public init() {
-        name = "FakeTheme"
-        colors = ODSColors()
+        name = "Default"
+        colorPalette = ODSColorPalette()
+        
+        componentColors = ODSComponentColors()
         font = { style in
             switch style {
             case .largeTitle:
