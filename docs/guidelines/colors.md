@@ -10,7 +10,7 @@ title: Colors
 * [Theme colors](#theme-colors)
 * [How to use](#how-to-use)
   * [Using the color name](#using-the-color-name)
-  * [Using the components token](#using-the-components-token)
+  * [Using components token](#using-components-token)
 ---
 
 ## Specifications references
@@ -41,7 +41,7 @@ You can get color in theme using its name like this:
  MyView().background(theme.color("functionalInfo"))
 ```
 
-### Using the components token
+### Using components token
 
 You can get color in theme using components token like this:
 
