@@ -25,8 +25,6 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct MainTabView: View {
-
-    @Environment(\.theme) var theme: ODSTheme
     
     var body: some View {
         TabView {
@@ -46,14 +44,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("About", image: "info_32")
                 }
-            //            Text("Search")
-            //                .odsFont(.largeTitle)
-            //                .tabItem {
-            //                    Label("Search", image: "Search_32")
-            //                }
         }
-        .tabBarColor(theme: theme)
-        .navigationBarColors(for: theme)
     }
 }
 

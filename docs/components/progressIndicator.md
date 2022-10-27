@@ -31,7 +31,7 @@ Progress indicators show users that elements or pages are loading.
 
 ### Labeled progress bar
 
-To display the indicator as progress bar with the a specific color use the `tint`.
+To display the indicator as progress bar with a specific color use the `tint`.
 We recommend to use the theme for that using the accent color as shown in following exemple.  
  
 ```swift

@@ -21,7 +21,7 @@ title: Colors
 Colors are defined in theme and described using `ODSColorDecription`, by setting :
 - the asset name, 
 - the bundle containing the asset 
-- the color names for light and dark mode (used by demo application)
+- the color names for light and dark modes (used by demo application)
 
 Colors will be different depending on whether they are displayed in light or in dark mode.
 

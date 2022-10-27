@@ -33,6 +33,21 @@ struct YourApplication: App {
 }
 ```
 
+If your application uses navigation bar and/or tab bar you can use the `ODSThemeableView` directly like this:
+
+```swift
+@main
+struct YourApplication: App {
+    
+    var body: some Scene {
+        WindowGroup {
+            ODSThemeableView(theme: OrangeThemeFactory().theme) {
+                ContentView()
+            }
+        }
+    }
+}
+```
 
 
   

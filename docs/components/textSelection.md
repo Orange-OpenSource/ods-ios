@@ -33,4 +33,4 @@ TextField("A text field", text: $textToEdit)
         .accentColor(theme.componentColors.accent)
 ```
 
-**Remark:** If the accent color is set a top level of views, no need to apply it again. 
+**Remark:** If the accent color is set on the root view, no need to apply it again. 

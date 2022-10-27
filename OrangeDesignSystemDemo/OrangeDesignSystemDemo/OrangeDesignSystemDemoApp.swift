@@ -23,7 +23,6 @@
 
 import OrangeDesignSystem
 import SwiftUI
-import OrangeTheme
 
 @main
 struct ods_ios_swiftUI_demoApp: App {

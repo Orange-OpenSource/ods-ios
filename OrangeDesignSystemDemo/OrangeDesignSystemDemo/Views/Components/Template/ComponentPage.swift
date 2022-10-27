@@ -35,7 +35,6 @@ struct ComponentPage: View {
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
 
-
                 VStack(alignment: .leading, spacing: ODSSpacing.m) {
                     ComponentDescription(text: component.description)
 
