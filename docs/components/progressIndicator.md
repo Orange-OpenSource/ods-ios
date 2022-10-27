@@ -31,13 +31,15 @@ Progress indicators show users that elements or pages are loading.
 
 ### Labeled progress bar
 
+To display the indicator as progress bar with the a specific color use the `tint`.
+We recommend to use the theme for that using the accent color as shown in following exemple.  
+ 
 ```swift
 ProgressView("Downloading…", value: $value, total: 100)
-    .accentColor(ODSColor.coreOrange.color)
+    .tint(theme.componentColors.accent)
 ```
 
 ### Unlabeled progress indicator
 ```swift
 ProgressView()
-    .accentColor(ODSColor.coreOrange.color)
 ``` 

@@ -36,9 +36,9 @@ struct ColorDetail: View {
     let colorDescription: ODSColorDecription
     let usage = "Coming soon ..."
 
-    // ============================
+    // ==========
     // MARK: Body
-    // ============================
+    // ==========
 
     var body: some View {
         ZStack {

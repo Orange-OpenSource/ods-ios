@@ -49,9 +49,9 @@ struct GuidelinesList: View {
         ]
     }
     
-    // ============================
+    // ==========
     // MARK: Body
-    // ============================
+    // ==========
 
     var body: some View {
         NavigationView {

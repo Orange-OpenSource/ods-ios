@@ -52,9 +52,9 @@ struct ColorList: View {
         GridItem(.flexible(minimum: 50.0))
     ]
     
-    // =======================
+    // ==========
     // MARK: Body
-    // =======================
+    // ==========
 
     var body: some View {
         VStack {
@@ -112,9 +112,9 @@ struct SectionTitle: View {
     @EnvironmentObject var screenState: ScreenState
     let title: String
 
-    // =======================
+    // ==========
     // MARK: Body
-    // =======================
+    // ==========
 
     var body: some View {
         Text(title)

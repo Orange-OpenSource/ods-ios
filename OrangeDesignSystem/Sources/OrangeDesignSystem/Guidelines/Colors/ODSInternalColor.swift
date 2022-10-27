@@ -24,11 +24,9 @@
 import SwiftUI
 import UIKit
 
-// ==================
-// MARK: - ODS Colors
-// ==================
-
+///
 /// Defines all internal colors
+///
 enum ODSInternalColor: String {
     case cardBackground
     case primaryBackground

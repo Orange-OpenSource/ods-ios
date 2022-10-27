@@ -37,9 +37,9 @@ public struct AboutView: View {
 
     public init() {}
 
-    // ==================
+    // ==========
     // MARK: Body
-    // ==================
+    // ==========
 
     public var body: some View {
         List {
@@ -160,9 +160,9 @@ public struct ODSAboutItemView: View {
 
     public init() {}
 
-    // =======================
+    // ==========
     // MARK: Body
-    // =======================
+    // ==========
 
     public var body: some View {
         ForEach(applicationDescription.menuList) { item in
@@ -223,9 +223,9 @@ private struct ApplicationDescriptionView: View {
 
     @EnvironmentObject var applicationDescription: ApplicationDescription
 
-    // =======================
+    // ==========
     // MARK: Body
-    // =======================
+    // ==========
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {

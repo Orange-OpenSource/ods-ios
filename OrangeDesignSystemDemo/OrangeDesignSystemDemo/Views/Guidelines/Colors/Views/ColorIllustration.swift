@@ -35,10 +35,10 @@ struct ColorIllustration: View {
     let colorDescription: ODSColorDecription
     let bordered: Bool
     
-    // =======================
+    // ==========
     // MARK: Body
-    // =======================
-    
+    // ==========
+
     var body: some View {
         
         let tap = TapGesture().onEnded { _ in showingModal.toggle() }

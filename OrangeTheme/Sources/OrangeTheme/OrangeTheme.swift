@@ -174,7 +174,6 @@ enum OrangeColors: String, CaseIterable {
     static let palette: ODSColorPalette = Self.allCases.map { $0.colorDecription }
 }
 
-
 public struct OrangeThemeFactory {
     public let theme: ODSTheme
     public static let themeName = "OrangeTheme"
@@ -202,7 +201,6 @@ public struct OrangeThemeFactory {
         theme.componentColors.functionalPositive = OrangeColors.functionalPositive.colorDecription.color
         theme.componentColors.functionalInfo = OrangeColors.functionalInfo.colorDecription.color
         theme.componentColors.functionalAlert = OrangeColors.functionalAlert.colorDecription.color
-
 
         theme.font = { style in
             switch style {

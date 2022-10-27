@@ -7,7 +7,7 @@ title: Colors
 **Page Summary**
 
 * [Specifications references](#specifications-references)
-* [Implementation](#implementation)
+* [Theme colors](#theme-colors)
 
 ---
 
@@ -16,19 +16,41 @@ title: Colors
 - [Design System Manager - Colour](https://system.design.orange.com/0c1af118d/p/73fa17-colour/b/025652)
 - [Apple guideline - The color system](https://developer.apple.com/design/human-interface-guidelines/foundations/color)
 
-## Implementation
+## Theme colors
 
-Four categories of colors:
-- Core
-- Functional
-- Supporting
-- Not classified
+Colors are defined in theme and described using `ODSColorDecription`, by setting :
+- the asset name, 
+- the bundle containing the asset 
+- the color names for light and dark mode (used by demo application)
 
 Colors will be different depending on whether they are displayed in light or in dark mode.
 
-You can use ODSColor like this:
+## How to use
+
+### Using the color name
+
+You can get color in theme using its name like this:
 
 ``` swift
-    Image(systemName: "checkmark").foregroundColor(ODSColor.coreOrange.color)
-    MyView().background(ODSColor.primaryBackground.color)
+ // Don't forget get theme from environment  
+ @Environment(\.theme) var theme
+
+ Image(systemName: "checkmark").foregroundColor(theme.color("coreOrange"))
+ MyView().background(theme.color("functionalInfo"))
+```
+
+### Using the component token
+
+You can get color in theme using components token like this:
+
+``` swift
+// Don't forget get theme from environment
+@Environment(\.theme) var theme
+
+Button {
+} label: {
+    Text("Cancel")
+    .padding(ODSSpacing.m)
+}
+.background(theme.componentColors.functionalNegative)
 ```

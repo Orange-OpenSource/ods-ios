@@ -21,19 +21,32 @@
 //
 //
 
-import Combine
 import OrangeDesignSystem
 import InnovationCupTheme
 import OrangeTheme
 import SwiftUI
 
+///
+/// Theme provider that propose all supported themes for the
+/// demo application.
+/// It also stores the current theme, selected by user.
+///
 class ThemeProvider: ObservableObject {
         
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @Published var currentTheme: ODSTheme {
         didSet { UserDefaults.standard.set(currentTheme.name, forKey: "themeName") }
     }
     
     let themes: [ODSTheme]
+    
+    // ==================
+    // MARK: Initializers
+    // ==================
+
     init() {
         let orangeTheme = OrangeThemeFactory().theme
         themes = [orangeTheme,
@@ -48,38 +61,46 @@ class ThemeProvider: ObservableObject {
     }
 }
 
+///
+/// Theme selection view that allows the user to change
+/// the current theme.
+///
 struct ThemeSelection: View {
-    let title: String
     
-    var body: some View {
-        ThemeSelectionInner()
-            .navigationTitle(title)
-            .navigationBarTitleDisplayMode(.inline)
-    }
-}
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-struct ThemeSelectionInner: View {
+    let title: String
     @EnvironmentObject var themeProvider: ThemeProvider
 
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
-        VStack(spacing: ODSSpacing.l) {
-            ODSChipPicker(title: "",
-                          selection: $themeProvider.currentTheme,
-                          chips: themeProvider.themes.map { theme in
-                ODSChip(theme, text: theme.name)
-            })
-
-            VStack {
-                Text("Selected theme:")
-                    .odsFont(.bodyRegular)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+        ODSThemeableView(theme: themeProvider.currentTheme){
+            VStack(spacing: ODSSpacing.l) {
+                ODSChipPicker(title: "",
+                              selection: $themeProvider.currentTheme,
+                              chips: themeProvider.themes.map { theme in
+                    ODSChip(theme, text: theme.name)
+                })
                 
-                Text(themeProvider.currentTheme.name)
-                    .foregroundColor(themeProvider.currentTheme.componentColors.accent)
+                VStack {
+                    Text("Selected theme:")
+                        .odsFont(.bodyRegular)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(themeProvider.currentTheme.name)
+                        .foregroundColor(themeProvider.currentTheme.componentColors.accent)
+                }
+                .padding(.horizontal, ODSSpacing.m)
+                
+                Spacer()
             }
-            .padding(.horizontal, ODSSpacing.m)
-
-            Spacer()
         }
+        .navigationTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

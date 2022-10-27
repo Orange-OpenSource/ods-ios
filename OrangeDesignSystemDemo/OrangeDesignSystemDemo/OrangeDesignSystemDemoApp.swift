@@ -31,10 +31,9 @@ struct ods_ios_swiftUI_demoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainTabView()
-                .accentColor(themeProvider.currentTheme.componentColors.accent)
-                .environmentObject(themeProvider)
-                .environment(\.theme, themeProvider.currentTheme)
+            ODSThemeableView(theme: themeProvider.currentTheme) {
+                MainTabView().environmentObject(themeProvider)
+            }
         }
     }
 }
