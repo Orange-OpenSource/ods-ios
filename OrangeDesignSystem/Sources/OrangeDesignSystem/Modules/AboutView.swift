@@ -25,12 +25,23 @@ import SwiftUI
 
 public struct AboutView: View {
 
-    public init() {}
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
     @EnvironmentObject var applicationDescription: ApplicationDescription
 
-    public var body: some View {
+    // ==================
+    // MARK: Initializers
+    // ==================
 
+    public init() {}
+
+    // ==================
+    // MARK: Body
+    // ==================
+
+    public var body: some View {
         List {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 Text("About")
@@ -51,59 +62,79 @@ public struct AboutView: View {
             ODSAboutItemView()
         }
         .listStyle(PlainListStyle())
+        .background(ODSInternalColor.primaryBackground.color)
     }
 }
 
 public struct ODSAboutItem: Identifiable {
-    //
-    var odsType: ODSTypeLink = .navigation
 
-    enum ODSTypeLink {
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    public let odsType: ODSTypeLink
+    public let text: String
+    public let nextView: AnyView
+    public let url: String?
+
+    public enum ODSTypeLink {
         case externalBrower
         case navigation
         case safariViewController
     }
 
+    // ==================
+    // MARK: Initializers
+    // ==================
+
     public init(text: String, nextView: AnyView) {
         self.text = text
         self.nextView = nextView
+        self.odsType = .navigation
+        self.url = nil
     }
 
     public init(text: String, nextView: AnyView, url: String) {
-        self.init(text: text, nextView: nextView)
+        self.text = text
+        self.nextView = nextView
         self.url = url
-        odsType = .externalBrower
+        self.odsType = .externalBrower
     }
 
     public init(text: String, nextView: AnyView, safari: String) {
-        self.init(text: text, nextView: nextView)
-        url = safari
-        odsType = .safariViewController
+        self.text = text
+        self.nextView = nextView
+        self.url = safari
+        self.odsType = .safariViewController
     }
 
     public var id: String {
         text
     }
-
-    public var text: String
-    public let nextView: AnyView
-    public var url: String?
 }
 
 public class ApplicationDescription: ObservableObject {
 
-    let applicationName: String
-    let applicationVersion: String
-    let applicationBuildNumber: String?
-    let applicationBuildType: String?
-    let copyrightNotice: String = "Orange property. All rights reserved"
-    let imageHeader: Image
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    public let applicationName: String
+    public let applicationVersion: String
+    public let applicationBuildNumber: String?
+    public let applicationBuildType: String?
+    public let copyrightNotice: String = "Orange property. All rights reserved"
+    public let imageHeader: Image
 
     public var menuList = [
         ODSAboutItem(text: "What's new", nextView: AnyView(Text("What's new application..."))),
         ODSAboutItem(text: "External web browser", nextView: AnyView(EmptyView()), url: "https://system.design.orange.com/"),
         ODSAboutItem(text: "Web view", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
     ]
+
+    // ==================
+    // MARK: Initializers
+    // ==================
 
     public init(applicationName: String, applicationVersion: String, applicationBuildNumber: String? = nil, applicationBuildType: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.ods)) {
         self.applicationName = applicationName
@@ -116,10 +147,22 @@ public class ApplicationDescription: ObservableObject {
 
 public struct ODSAboutItemView: View {
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @State private var showSafari = false
     @EnvironmentObject var applicationDescription: ApplicationDescription
 
+    // ==================
+    // MARK: Initializers
+    // ==================
+
     public init() {}
+
+    // =======================
+    // MARK: Body
+    // =======================
 
     public var body: some View {
         ForEach(applicationDescription.menuList) { item in
@@ -174,7 +217,15 @@ public struct ODSAboutItemView: View {
 
 private struct ApplicationDescriptionView: View {
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @EnvironmentObject var applicationDescription: ApplicationDescription
+
+    // =======================
+    // MARK: Body
+    // =======================
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {

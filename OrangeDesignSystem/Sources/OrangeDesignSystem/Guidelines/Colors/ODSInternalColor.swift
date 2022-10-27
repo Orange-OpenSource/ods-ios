@@ -31,6 +31,7 @@ import UIKit
 /// Defines all internal colors
 enum ODSInternalColor: String {
     case cardBackground
+    case primaryBackground
 
     /// Get the color values from resources with its name
     var color: Color {
