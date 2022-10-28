@@ -143,7 +143,6 @@
 		F96A3E1C280451FE0086B9BF /* GuidelinesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelinesList.swift; sourceTree = "<group>"; };
 		F96A3E1F280452960086B9BF /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		F96A3E21280452960086B9BF /* BackgroundBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlurView.swift; sourceTree = "<group>"; };
-		F99FF06A2767ACD1006236A0 /* OrangeDesignSystem.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = OrangeDesignSystem.podspec; path = ../OrangeDesignSystem.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F99FF06E2767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoApp.swift; path = OrangeDesignSystemDemo/OrangeDesignSystemDemoApp.swift; sourceTree = "<group>"; };
 		F99FF06F2767AE2A006236A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = OrangeDesignSystemDemo/Assets.xcassets; sourceTree = "<group>"; };
 		F99FF07E2767AF62006236A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Preview Assets.xcassets"; path = "OrangeDesignSystemDemo/Preview Content/Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -382,7 +381,6 @@
 			children = (
 				FD347D2C28D4C00B00F451B8 /* Podfile */,
 				F913B85F2767969E001CB0AA /* Package.swift */,
-				F99FF06A2767ACD1006236A0 /* OrangeDesignSystem.podspec */,
 				F913B86327679A32001CB0AA /* fastlane */,
 			);
 			name = Scripts;
@@ -733,6 +731,7 @@
 		};
 		F913B86D2767A147001CB0AA /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -747,7 +746,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    echo \"swiftlint skiped\"\n    #${PODS_ROOT}/SwiftLint/swiftlint ../OrangeDesignSystem\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint ../OrangeDesignSystem\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -31,7 +31,6 @@ extension View {
                     badgeColor: .red)
     }
 
-
     public func tabBarStyle(backgroundColor: Color? = nil,
                             itemColor: Color? = nil,
                             selectedItemColor: Color? = nil,
