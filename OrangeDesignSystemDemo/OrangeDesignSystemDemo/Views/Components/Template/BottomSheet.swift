@@ -21,8 +21,8 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
+import OrangeDesignSystem
 
 // MARK: Button sheet with header and content
 struct BottomSheet<ContentView>: View where ContentView: View {
@@ -86,28 +86,5 @@ struct BottomSheedHeader: View {
                 }
             }
         }
-    }
-}
-
-// MARK: Bottom Sheet - content for list
-struct ListBottomSheetContent: View {
-
-    @EnvironmentObject var listPageModel: ListPageModel
-
-    var body: some View {
-        VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: "Second line of text",
-                          selection: $listPageModel.selectedSecondLineOfTextChip,
-                          chips: listPageModel.secondLineOfTextChips)
-
-            ODSChipPicker(title: "Leading",
-                          selection: $listPageModel.selectedLeadingImageChip,
-                          chips: listPageModel.leadingImageChips)
-
-            ODSChipPicker(title: "Trailing",
-                          selection: $listPageModel.selectedTrailingImageChip,
-                          chips: listPageModel.trailingImageChips)
-        }
-        .padding(.vertical, ODSSpacing.s)
     }
 }

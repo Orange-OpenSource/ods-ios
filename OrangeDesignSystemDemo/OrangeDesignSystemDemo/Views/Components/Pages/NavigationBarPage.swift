@@ -21,60 +21,52 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct NavigationBarPage: View {
+struct NavigationBarComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Bars - navigation"
+        image = Image("Navigation bars")
+        description = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens."
+        
+        variants = AnyView(NavigationBarVariants())
+    }
+}
+
+struct NavigationBarVariants: View {
 
     var body: some View {
 
-        List {
-            VStack {
-                Image("Navigation bars")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-
-                ComponentDescription(text: "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.")
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.l)
-                VariantsTitle()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.m)
-            }
-            .listRowInsets(EdgeInsets())
-            .padding(.horizontal, ODSSpacing.none)
-
-            NavigationLink {
-                NavigationBarStandard()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "Standard"))
-            }
-
-            NavigationLink {
-                NavigationBarLargeTitle()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "Large title"))
-            }
-
-            NavigationLink {
-                NavigationBarWithSearchBar()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "With search bar"))
-            }
-
-            NavigationLink {
-                NavigationBarWithActionItem()
-            } label: {
-                ODSListItem(model: ODSListItemModel(title: "With action item"))
-            }
+        NavigationLink {
+            NavigationBarStandard()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "Standard"))
         }
-        .listRowSeparator(Visibility.visible)
-        .listStyle(.plain)
-        .padding(.top, ODSSpacing.none)
-        .padding(.bottom, ODSSpacing.m)
-        .background(ODSColor.componentBackground2.color)
+        
+        NavigationLink {
+            NavigationBarLargeTitle()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "Large title"))
+        }
+        
+        NavigationLink {
+            NavigationBarWithSearchBar()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "With search bar"))
+        }
+        
+        NavigationLink {
+            NavigationBarWithActionItem()
+        } label: {
+            ODSListItem(model: ODSListItemModel(title: "With action item"))
+
+        }
     }
 }
 
@@ -126,10 +118,8 @@ struct NavigationBarWithActionItem: View {
             .navigationBarTitle("With action item", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
+                    ODSIconButton(image: Image(systemName: "square.and.pencil")) {
                         showAlert = true
-                    } label: {
-                        Image(systemName: "square.and.pencil")
                     }
                     .alert("item action", isPresented: $showAlert) {
                         Button("close", role: .cancel) {}
@@ -143,14 +133,18 @@ struct NavigationBarWithActionItem: View {
 struct NavigationBarPage_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            NavigationBarPage()
-                .previewInterfaceOrientation(.portrait)
+            List {
+                NavigationBarVariants()
+                    .previewInterfaceOrientation(.portrait)
+            }
         }
 
         NavigationView {
-            NavigationBarPage()
-                .previewInterfaceOrientation(.portrait)
-                .environment(\.dynamicTypeSize, .accessibility3)
+            List {
+                NavigationBarVariants()
+            }
+            .previewInterfaceOrientation(.portrait)
+            .environment(\.dynamicTypeSize, .accessibility3)
         }
     }
 }

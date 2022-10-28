@@ -26,55 +26,39 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsList: View {
-    // Remark: Components are automatically displayed sorted by their name
-    let componentList = [
-        ComponentModel(name: "Bars - tab", image: "Tab bar") {
-            TabBarPage()
-        },
-        ComponentModel(name: "Buttons - standard", image: "Buttons - Standard") {
-            TextButtonPage()
-        },
-        ComponentModel(name: "Buttons - shape", image: "Buttons - Shape") {
-            ShapeButtonPage()
-        },
-        ComponentModel(name: "Cards", image: "Cards_1") {
-            CardPage()
-        },
-        ComponentModel(name: "Chips", image: "Chips") {
-            ChipsPage()
-        },
-        ComponentModel(name: "Lists", image: "Lists") {
-            ListPage()
-        },
-        ComponentModel(name: "Progress indicators", image: "Progress_indicator") {
-            ProgressIndicatorPage()
-        },
-        ComponentModel(name: "Sliders", image: "Slider") {
-            SliderPage()
-        },
-        ComponentModel(name: "Text field", image: "Text edit menu") {
-            TextFieldPage()
-        },
-        ComponentModel(name: "Bars - navigation", image: "Navigation bars") {
-            NavigationBarPage()
-        },
-    ]
-
+    let components: [Component]
+        
+    init() {
+        // Remark: Components are automatically displayed sorted by their name
+        let components: [Component] = [
+            ButtonComponent(),
+            CardComponent(),
+            ChipsComponent(),
+            ListComponent(),
+            NavigationBarComponent(),
+            ProgressIndicatorComponent(),
+            SliderComponent(),
+            TabBarComponent(),
+            TextFieldComponent(),
+        ]
+        
+        self.components = components.sorted { $0.title < $1.title }
+    }
+    
     let columns = [
-        GridItem(.adaptive(minimum: 150), alignment: .topLeading),
+        GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.m, alignment: .topLeading),
     ]
+    
+    var sortedComponentCardModels: [ODSSmallCardModel] {
+        return components.map { $0.smallCardModel }
+    }
 
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                    ForEach(componentList.sorted {
-                        $0.name < $1.name
-                    }) {
-                        Component(component: $0)
-                    }
-                }
-                .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
+                ODSGridOfCards(cardModels: sortedComponentCardModels)
+                    .padding(.vertical, ODSSpacing.m)
+                    .padding(.horizontal, ODSSpacing.s)
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
@@ -83,11 +67,29 @@ struct ComponentsList: View {
     }
 }
 
+struct ComponentModifier: ViewModifier {
+    init(title: String) {
+        self.title = title
+    }
+
+    let title: String
+
+    func body(content: Content) -> some View {
+        content
+            .navigationTitle(title)
+            .navigationViewStyle(.stack)
+            .background(Color(uiColor: .systemGray6))
+    }
+}
+
+#if DEBUG
 struct ComponentsCardsList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
             ComponentsList()
                 .preferredColorScheme($0)
+                .accentColor(ODSColor.coreOrange.color)
         }
     }
 }
+#endif

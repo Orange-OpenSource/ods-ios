@@ -22,41 +22,20 @@
 //
 
 import SwiftUI
+import OrangeDesignSystem
 
-public class ODSListCardViewModel: ObservableObject {
-    public let cards: [ODSCardModel]
-    public let title: String
-
-    public init(title: String, cards: [ODSCardModel]) {
-        self.title = title
-        self.cards = cards
-    }
+protocol Component {
+    var title: String { get }
+    var image: Image { get }
+    var description: String { get }
+    var variants: AnyView { get }
 }
 
-public struct ODSListCardView: View {
-    @EnvironmentObject private var list: ODSListCardViewModel
-
-    let columns = [
-        GridItem(.flexible(), alignment: .topLeading),
-    ]
-
-    public init() {}
-
-    public var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: ODSSpacing.m) {
-                ForEach(list.cards, id: \.title) { card in
-                    NavigationLink(destination: card.destination) {
-                        ODSCardView(element: card)
-                    }
-                }
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.m)
+extension Component {
+    var smallCardModel: ODSSmallCardModel {
+        ODSSmallCardModel(title: self.title,
+                          image: self.image) {
+            ComponentPage(component: self)
         }
-        .navigationBarTitleDisplayMode(.large)
-        .navigationTitle(list.title)
-        .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
     }
 }

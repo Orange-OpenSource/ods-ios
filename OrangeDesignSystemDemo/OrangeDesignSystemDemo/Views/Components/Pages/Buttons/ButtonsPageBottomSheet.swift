@@ -21,25 +21,55 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct ComponentDescription: View {
+// MARK: Bottom sheet for Emphasis and Functionnal
 
-    var text: String
+class ButtonContentModel: ObservableObject {
+    @Published var showIcon: Bool
+    @Published var showVariableWidth: Bool
+    @Published var showLongText: Bool
+    @Published var showDisabled: Bool
 
-    var body: some View {
-        Text(text)
-            .odsFont(.bodyRegular)
-            .padding(.top, ODSSpacing.xs)
+    init() {
+        showIcon = false
+        showVariableWidth = false
+        showLongText = false
+        showDisabled = false
+    }
+
+    var text: LocalizedStringKey {
+        showLongText ? "Terms and conditions" : (showDisabled ? "Disabled" : "Enabled")
+    }
+
+    var icon: Image? {
+        showIcon ? Image("Add") : nil
     }
 }
 
-struct VariantsTitle: View {
+struct ButtonsBottomSheetContent: View {
+
+    @EnvironmentObject var model: ButtonContentModel
 
     var body: some View {
-        Text("Variants")
-            .odsFont(.title1)
+        VStack {
+            Toggle("Show icon", isOn: $model.showIcon)
+            Toggle("Show variable width", isOn: $model.showVariableWidth)
+            Toggle("Show disabled", isOn: $model.showDisabled)
+            Toggle("Show long text", isOn: $model.showLongText)
+        }
+        .padding(.horizontal, ODSSpacing.m)
+        .padding(.vertical, ODSSpacing.s)
+    }
+}
+
+// MARK: Bottom sheet for IconButton
+
+class IconButtonModel: ObservableObject {
+    @Published var showDisabled: Bool
+
+    init() {
+        showDisabled = false
     }
 }

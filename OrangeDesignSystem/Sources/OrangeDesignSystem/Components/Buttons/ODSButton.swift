@@ -23,172 +23,89 @@
 
 import SwiftUI
 
-// =================
-// MARK: PUBLIC API
-// =================
-
-// MARK: Button configuration
-
-public struct ODSImageDescription {
-    let image: Image
-    let imageWidth: CGFloat
-    let imageHeight: CGFloat
-    let foregroundColor: Color
-
-    public init(image: Image, imageWidth: CGFloat, imageHeight: CGFloat, foregroundColor: Color = .primary) {
-        self.image = image
-        self.imageWidth = imageWidth
-        self.imageHeight = imageHeight
-        self.foregroundColor = foregroundColor
+///
+/// <a href="https://system.design.orange.com/0c1af118d/p/278734-buttons-shape/b/536b5f" target="_blank">ODS Buttons</a>.
+///
+/// A button is an interactive element that enables the user to initiate an immediate action.
+///
+public struct ODSButton: View {
+    public enum Emphasis: String, CaseIterable {
+        case highest
+        case high
+        case medium
+        case low
     }
-}
 
-// MARK: Button label configuration
+    let text: LocalizedStringKey
+    let image: Image?
+    let emphasis: Emphasis
+    let variableWidth: Bool
+    let action: () -> Void
 
-public struct ODSGenericButtonContent: View {
-    let topText: String?
-    let bottomText: String?
-    let textColor: Color
-    let imageDescription: ODSImageDescription?
-    @Environment(\.isEnabled) var isEnabled
-
-    public init(imageDescription: ODSImageDescription? = nil, topText: String? = nil, bottomText: String? = nil, textColor: Color = .primary) {
-        self.imageDescription = imageDescription
-        self.topText = topText
-        self.bottomText = bottomText
-        self.textColor = textColor
+    /// Initialize the button.
+    ///
+    /// - Parameters:
+    ///   - text: Text displayed in the button.
+    ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
+    ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.highest` for an highlighted button style. To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
+    ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
+    ///   - action: Will be called when the user clicks the button.
+    ///
+    public init(text: LocalizedStringKey,
+                image: Image? = nil,
+                emphasis: Emphasis,
+                variableWidth: Bool = true,
+                action: @escaping () -> Void)
+    {
+        self.text = text
+        self.image = image
+        self.emphasis = emphasis
+        self.variableWidth = variableWidth
+        self.action = action
     }
 
     public var body: some View {
-        HStack(alignment: .center) {
-            if let imageDescription = imageDescription {
-                imageDescription.image
-                    .renderingMode(.template)
-                    .resizable()
-                    .foregroundColor(imageDescription.foregroundColor)
-                    .frame(width: imageDescription.imageWidth, height: imageDescription.imageHeight)
-            }
+        Button {
+            action()
+        } label: {
+            ODSButtonContent(text: text, image: image, variableWidth: variableWidth)
+        }
+        .modifier(ODSButtonStyleModifier(emphasis: emphasis))
+    }
+}
 
-            VStack(alignment: imageDescription == nil ? .center : .leading) {
-                if let topText = topText {
-                    Text(topText)
-                        .odsFont(.bodyBold)
-                        .foregroundColor(isEnabled ? textColor : .primary)
+#if DEBUG
+struct ODSButton_Previews: PreviewProvider {
+
+    struct buttonsSample: View {
+
+        var body: some View {
+            ScrollView {
+                VStack {
+                    ForEach(ODSButton.Emphasis.allCases, id: \.rawValue) { emphasis in
+                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
+                                  emphasis: emphasis) {}
+                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
+                                  emphasis: emphasis) {}.disabled(true)
+
+                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
+                                  image: Image(systemName: "pencil.tip.crop.circle"),
+                                  emphasis: emphasis) {}
+                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
+                                  image: Image(systemName: "pencil.tip.crop.circle"),
+                                  emphasis: emphasis) {}.disabled(true)
+                    }
                 }
-
-                if let bottomText = bottomText {
-                    Text(bottomText)
-                        .odsFont(.caption1Regular)
-                        .foregroundColor(isEnabled ? textColor : .primary)
-                }
             }
         }
     }
-}
 
-// MARK: Filled Button style
+    static var previews: some View {
+        buttonsSample()
+            .preferredColorScheme(.light)
 
-public struct ODSFilledButtonStyle: ButtonStyle {
-    let backgroundColor: Color
-
-    public init(backgroundColor: Color = ODS.coreOrange) {
-        self.backgroundColor = backgroundColor
-    }
-
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        return ODSFilledButtonLabel(configuration: configuration, backgroundColor: backgroundColor)
+        buttonsSample()
+            .preferredColorScheme(.dark)
     }
 }
-
-// MARK: Bordered Button style
-
-public struct ODSBorderedButtonStyle: ButtonStyle {
-    let borderColor: Color
-
-    public init(borderColor: Color = .primary) {
-        self.borderColor = borderColor
-    }
-
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        ODSBorderedButtonLabel(configuration: configuration, borderColor: borderColor)
-    }
-}
-
-// MARK: Main Button style
-public enum ButtonType {
-    case filled
-    case bordered
-
-    public var isFilled: Bool {
-        switch self {
-        case .filled: return true
-        case .bordered: return false
-        }
-    }
-}
-
-public struct ODSButtonStyle: ButtonStyle {
-    let borderColor: Color?
-    let backgroundColor: Color?
-    let buttonType: ButtonType
-
-    public init(borderColor: Color? = nil, backgroundColor: Color? = nil, buttonType: ButtonType = .filled) {
-        if let backgroundColor = backgroundColor {
-            self.backgroundColor = backgroundColor
-        } else {
-            self.backgroundColor = buttonType.isFilled ? ODS.coreOrange : nil
-        }
-        self.buttonType = buttonType
-        self.borderColor = borderColor
-    }
-
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        switch buttonType {
-        case .filled:
-            return AnyView(ODSFilledButtonLabel(configuration: configuration, backgroundColor: backgroundColor))
-        case .bordered:
-            return AnyView(ODSBorderedButtonLabel(configuration: configuration, borderColor: borderColor))
-        }
-    }
-}
-
-// =====================
-// MARK: PRIVATE HELPERS
-// =====================
-
-private struct ODSButtonLabel: View {
-    let configuration: ButtonStyle.Configuration
-
-    var body: some View {
-        configuration.label
-            .font(.headline)
-            .multilineTextAlignment(.center)
-            .padding(.vertical, ODSSpacing.m)
-            .padding(.horizontal, ODSSpacing.m)
-    }
-}
-
-private struct ODSBorderedButtonLabel: View {
-    @Environment(\.isEnabled) var isEnabled
-    let configuration: ButtonStyle.Configuration
-    let borderColor: Color?
-
-    var body: some View {
-        ODSButtonLabel(configuration: configuration)
-            .overlay(RoundedRectangle(cornerRadius: 8.0).stroke(isEnabled ? (borderColor ?? .primary) : Color(.secondaryLabel), lineWidth: 1.0))
-            .opacity(configuration.isPressed ? 0.2 : (isEnabled ? 1.0 : 0.5))
-    }
-}
-
-private struct ODSFilledButtonLabel: View {
-    @Environment(\.isEnabled) var isEnabled
-    let configuration: ButtonStyle.Configuration
-    let backgroundColor: Color?
-
-    var body: some View {
-        ODSButtonLabel(configuration: configuration)
-            .background(backgroundColor ?? .primary)
-            .opacity(configuration.isPressed || !isEnabled ? 0.3 : 1.0)
-            .cornerRadius(8.0)
-    }
-}
+#endif
