@@ -29,7 +29,7 @@ extension UIColor {
         
         var color = self
         
-        if let colorScheme {
+        if let colorScheme = colorScheme {
             let currentTrait = UITraitCollection(userInterfaceStyle: colorScheme == .light ? .light : .dark)
 
             color = self.resolvedColor(with: currentTrait)
