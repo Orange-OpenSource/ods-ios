@@ -9,7 +9,7 @@ The colors of the brand are specified and some of theme are used for graphics el
 - tab bar (items, selected item, and background)
 - components: buttons, sliders, progress indicators...
 
-The theme also define the spacings and fonts for specified styles.
+The theme also defines the spacings and fonts for specified styles.
 
 # How to use it
 

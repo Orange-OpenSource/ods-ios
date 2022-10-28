@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-/// Define functional buttons (positive or negative)
+/// Defines functional buttons (positive or negative)
 public struct ODSFunctionalButton: View {
     @Environment(\.theme) var theme
     

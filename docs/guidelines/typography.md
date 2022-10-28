@@ -20,7 +20,7 @@ title: Typography
 
 ## Implementation 
 
-ODS library define its own font style. The font associated to the style is defined in the theme set in the environment.
+ODS library defines its own font style. The font associated to the style is defined in the theme set in the environment.
 
 ### Apply font style on text
 

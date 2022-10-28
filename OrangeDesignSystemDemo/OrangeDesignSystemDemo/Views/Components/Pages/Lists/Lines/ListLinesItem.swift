@@ -26,7 +26,6 @@ import SwiftUI
 
 struct ListLinesVariant: View {
     
-    @Environment(\.theme) private var theme
     let model: ListLinesVariantModel
     
     var body: some View {

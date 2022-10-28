@@ -26,7 +26,7 @@ import SwiftUI
 public typealias ODSColorPalette = [ODSColorDecription]
 
 ///
-/// Define elements for an ODS Theme.
+/// Defines elements for an ODS Theme.
 /// Default values are provided to define a `Default` fake theme
 ///
 public struct ODSTheme: Identifiable, Hashable {

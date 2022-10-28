@@ -11,7 +11,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] #251 Add bottom sheet to allow the user to show/hide the various options on CardImageFirst
 - [DemoApp] #249 Add bottom sheet to allow the user to show/hide the subtitle in SmallCard Variant Page 
 - [DemoApp/SDK] #222 Update the Button page to list the available button types
-- [SDK] Bug #96 Add Small Card 
 - [DemoApp] #248 Technical code refactoring for component page presentation 
 - [SDK/DemoApp] #229 Technical update to use Small and ImageFirst cards in demo app and modules 
 - [DemoApp] #228 Change Chip to switch on List screen for "SecondLineOfText" and "LeadingImage" options 
