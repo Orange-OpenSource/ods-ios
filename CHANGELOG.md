@@ -1,9 +1,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.6.0] - 2022-10-07
+## [Unreleased]
 
 - [DemoApp/SDK] #113 Add theme management and create Orange and InnovationCup themes
+
+## [0.6.0] - 2022-10-07
+
 - [DemoApp] #250 Add bottom sheet to allow the user to show/hide the various options on CardTitleFirst 
 - [DemoApp] #251 Add bottom sheet to allow the user to show/hide the various options on CardImageFirst
 - [DemoApp] #249 Add bottom sheet to allow the user to show/hide the subtitle in SmallCard Variant Page 
