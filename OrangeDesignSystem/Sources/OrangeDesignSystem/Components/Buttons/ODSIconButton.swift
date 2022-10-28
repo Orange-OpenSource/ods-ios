@@ -27,6 +27,8 @@ import SwiftUI
 /// Simple button with icon.
 ///
 public struct ODSIconButton: View {
+    @Environment(\.theme) private var theme
+    
     let image: Image
     let action: () -> Void
 
@@ -46,6 +48,7 @@ public struct ODSIconButton: View {
             action()
         } label: {
             ODSIcon(image)
+                .foregroundColor(theme.componentColors.accent)
         }
     }
 }

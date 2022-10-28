@@ -23,8 +23,10 @@
 
 import SwiftUI
 
-/// Define functional buttons (positive or negative)
+/// Defines functional buttons (positive or negative)
 public struct ODSFunctionalButton: View {
+    @Environment(\.theme) var theme
+    
     public enum Style: String, CaseIterable {
         case negative
         case positive
@@ -74,9 +76,9 @@ public struct ODSFunctionalButton: View {
     var backgroundColor: Color {
         switch style {
         case .negative:
-            return ODSColor.functionalNegative.color
+            return theme.componentColors.functionalNegative
         case .positive:
-            return ODSColor.functionalPositive.color
+            return theme.componentColors.functionalPositive
         }
     }
 }

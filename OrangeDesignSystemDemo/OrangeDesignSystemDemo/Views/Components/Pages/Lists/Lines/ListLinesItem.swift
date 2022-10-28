@@ -25,6 +25,7 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ListLinesVariant: View {
+    
     let model: ListLinesVariantModel
     
     var body: some View {
@@ -35,7 +36,6 @@ struct ListLinesVariant: View {
             }
             .environmentObject(model)
         }
-        .background(ODSColor.componentBackground2.color)
     }
     
     init() {

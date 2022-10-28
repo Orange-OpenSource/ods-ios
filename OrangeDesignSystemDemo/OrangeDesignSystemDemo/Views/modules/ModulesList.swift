@@ -45,7 +45,6 @@ struct ModulesList: View {
                 .navigationTitle("Modules")
                 .navigationViewStyle(.stack)
         }
-        .background(ODSColor.primaryBackground.color)
     }
 }
 

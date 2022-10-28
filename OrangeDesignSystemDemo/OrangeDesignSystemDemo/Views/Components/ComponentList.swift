@@ -63,7 +63,6 @@ struct ComponentsList: View {
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
         }
-        .background(ODSColor.primaryBackground.color)
     }
 }
 
@@ -83,12 +82,14 @@ struct ComponentModifier: ViewModifier {
 }
 
 #if DEBUG
+import OrangeTheme
+
 struct ComponentsCardsList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
             ComponentsList()
                 .preferredColorScheme($0)
-                .accentColor(ODSColor.coreOrange.color)
+                .environment(\.theme, OrangeThemeFactory().theme)
         }
     }
 }

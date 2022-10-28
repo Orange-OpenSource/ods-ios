@@ -1,4 +1,4 @@
 ---
 layout: main
-content_page: button.md
+content_page: buttons.md
 ---

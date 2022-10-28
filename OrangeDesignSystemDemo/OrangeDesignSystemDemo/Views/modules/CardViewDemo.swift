@@ -53,7 +53,6 @@ struct CardViewDemoGrid: View {
         }
         .navigationTitle("Grid")
         .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
     }
 }
 

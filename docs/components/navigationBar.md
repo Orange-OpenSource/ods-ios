@@ -28,7 +28,7 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 ## Standard navigation bar
 
-When using a navigation view, basic navigation is using 'inline' display mode by default. Use the accent color to conform to ODS style.
+When using a navigation view, basic navigation is using 'inline' display mode by default. 
 
 ```swift
 NavigationView {
@@ -36,7 +36,6 @@ NavigationView {
         Text("Main view")
     }
     .navigationBarTitle("Standard", displayMode: .inline)
-    .accentColor(ODSColor.coreOrange.color)
 }
 
 ```
@@ -51,7 +50,6 @@ NavigationView {
         Text("Main view")
     }
     .navigationBarTitle("Standard", displayMode: .large)
-    .accentColor(ODSColor.coreOrange.color)
 }
 
 ```
@@ -69,7 +67,6 @@ NavigationView {
     }
     .navigationBarTitle("With search bar", displayMode: .inline)
     .searchable(text: $searchQuery, placement: .navigationBarDrawer(displayMode: .always))
-    .accentColor(ODSColor.coreOrange.color)
 }
 
 ```
@@ -93,7 +90,6 @@ NavigationView {
             }
         }
     }
-    .accentColor(ODSColor.coreOrange.color)
 }
 
 ```

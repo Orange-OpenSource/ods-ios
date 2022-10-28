@@ -19,7 +19,7 @@ toc2:
       - page: Bars - navigation
         url: components/navigationBar_docs
       - page: Buttons
-        url: components/button_docs
+        url: components/buttons_docs
       - page: Cards
         url: components/cards_docs
       - page: Chips

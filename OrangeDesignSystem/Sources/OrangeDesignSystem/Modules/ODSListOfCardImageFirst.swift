@@ -67,7 +67,6 @@ public struct ODSListOfCardImageFirst: View {
         }
         .navigationTitle(title)
         .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
     }
 }
 
