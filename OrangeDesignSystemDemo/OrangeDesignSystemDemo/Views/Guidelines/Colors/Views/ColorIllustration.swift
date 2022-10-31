@@ -94,7 +94,7 @@ struct ColorName: View {
     // ============================
 
     var body: some View {
-        if let colorName {
+        if let colorName = colorName {
             Text(colorName).odsFont(.headline)
         }
     }
