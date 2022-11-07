@@ -36,7 +36,8 @@ struct ODSButtonContent: View {
                 ODSIcon(image, size: 17)
             }
 
-            Text(text).odsFont(.bodyBold)
+            Text(text)
+                .odsFont(.bodyBold)
         }
         .padding(.all, ODSSpacing.m)
         .frame(minWidth: 50, maxWidth: variableWidth ? nil : .infinity, minHeight: 50)

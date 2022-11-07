@@ -1,7 +1,7 @@
 ---
 layout: detail
 title: Text edit menu
-description: Text selection with Orange branding
+description: Text selection with theme colors
 ---
 
 ---
@@ -26,9 +26,11 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 ## Text selection example
 
-Text selection is available when text field or text editor is entering in edition mode. This is not a custom component but just a way to customize the component with coreOrange accent color.
+Text selection is available when text field or text editor is entering in edition mode. This is not a custom component but just a way to customize the component with color provided by theme.
 
 ```swift
 TextField("A text field", text: $textToEdit)
-    .accentColor(ODSColor.coreOrange.color)
+        .accentColor(theme.componentColors.accent)
 ```
+
+**Remark:** If the accent color is set on the root view, no need to apply it again. 

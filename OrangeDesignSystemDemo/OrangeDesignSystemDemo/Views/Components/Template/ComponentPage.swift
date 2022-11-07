@@ -26,7 +26,7 @@ import SwiftUI
 
 struct ComponentPage: View {
     let component: Component
-
+    
     var body: some View {
         List {
             VStack {

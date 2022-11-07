@@ -159,13 +159,15 @@ extension View {
 }
 
 #if DEBUG
+import OrangeTheme
+
 struct TextFieldPage_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
             List {
                 TextFieldVariants()
             }
-            .accentColor(ODSColor.coreOrange.color)
+            .environment(\.theme, OrangeThemeFactory().theme)
             .preferredColorScheme($0)
         }
     }

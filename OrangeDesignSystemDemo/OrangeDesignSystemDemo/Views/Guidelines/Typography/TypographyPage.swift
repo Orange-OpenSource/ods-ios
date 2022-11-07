@@ -59,7 +59,6 @@ struct TypographyPage: View {
         }
         .navigationTitle("Typography")
         .navigationViewStyle(.stack)
-        .background(ODSColor.primaryBackground.color)
     }
 }
 

@@ -10,14 +10,22 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "OrangeDesignSystem",
-            targets: ["OrangeDesignSystem"]),
+            targets: ["OrangeDesignSystem"]
+        ),
+        .library(
+            name: "OrangeTheme",
+            targets: ["OrangeTheme"]
+        ),
+        .library(
+            name: "InnovationCupTheme",
+            targets: ["InnovationCupTheme"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
 
     ],
-
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
@@ -25,9 +33,17 @@ let package = Package(
             name: "OrangeDesignSystem",
             dependencies: [],
             path: "OrangeDesignSystem/Sources"),
-        
+        .target(
+            name: "OrangeTheme",
+            dependencies: ["OrangeDesignSystem"],
+            path: "OrangeTheme/Sources"),
+        .target(
+            name: "InnovationCupTheme",
+            dependencies: ["OrangeDesignSystem"],
+            path: "InnovationCupTheme/Sources"),
         .testTarget(
             name: "OrangeDesignSystemTests",
             dependencies: ["OrangeDesignSystem"],
             path: "OrangeDesignSystem/Tests"),
-    ])
+    ]
+)
