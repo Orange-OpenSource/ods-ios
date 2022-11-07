@@ -3,6 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #258 Add the play icon to the component's variant lists
+
 ## [0.7.0] - 2022-11-07
 
 - [DemoApp/SDK] #113 Add theme management and create Orange and InnovationCup themes
