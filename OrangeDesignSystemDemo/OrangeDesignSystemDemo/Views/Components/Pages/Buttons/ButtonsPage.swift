@@ -38,48 +38,28 @@ struct ButtonComponent: Component {
     }
 }
 
-struct ButtonVariants: View {
 
+struct ButtonVariants: View {
     var body: some View {
-        NavigationLink {
+        VariantEntyItem(text: "Emphasis", technicalElement: "ODSButton()") {
             CommonButtonVariant(model: ButtonContentModel()) { model in
                 EmphasisVariants(model: model)
             }
             .navigationTitle("Emphasis")
-        } label: {
-            Item(text: "Emphasis", objectName: "ODSButton")
         }
         
-        NavigationLink {
+        VariantEntyItem(text: "Functional", technicalElement: "ODSFunctionalButton()") {
+            
             CommonButtonVariant(model: ButtonContentModel()) { model in
                 FunctionalVariants(model: model)
             }
             .navigationTitle("Functional")
-        } label: {
-            Item(text: "Functional", objectName: "ODSFunctionalButton")
         }
         
-        NavigationLink {
+        VariantEntyItem(text: "Icons", technicalElement: "ODSIconButton()") {
             IconVariant(model: IconButtonModel())
                 .navigationTitle("Icon")
-        } label: {
-            Item(text: "Icons", objectName: "ODSIconButton")
         }
-    }
-
-    @ViewBuilder func Item(text: String, objectName: String) -> some View {
-        VStack(alignment: .leading) {
-            Text(text)
-                .odsFont(.bodyRegular)
-                .foregroundColor(.primary)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
-            Text(objectName)
-                .font(.system(.caption, design: .monospaced))
-                .padding(.bottom, ODSSpacing.none)
-        }
-        .accessibilityElement()
-        .accessibilityLabel("\(text), Techinal element: \(objectName)")
     }
 }
 
