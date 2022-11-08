@@ -65,7 +65,6 @@ struct SmallCardVariant: View {
             }
             .environmentObject(model)
         }
-        .navigationTitle("Small card")
     }
 }
 

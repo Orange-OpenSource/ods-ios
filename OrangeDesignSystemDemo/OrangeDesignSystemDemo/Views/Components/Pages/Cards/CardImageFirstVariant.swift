@@ -66,7 +66,6 @@ struct CardImageFirstVariant: View {
                 .padding(.horizontal, ODSSpacing.s)
                 .padding(.top, ODSSpacing.m)
             }
-            .navigationTitle("Card Image First")
 
             BottomSheet(showContent: false) {
                 CardImageFirstBottomSheetContent()
