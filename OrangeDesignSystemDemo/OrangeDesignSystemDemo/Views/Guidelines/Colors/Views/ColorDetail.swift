@@ -26,9 +26,9 @@ import SwiftUI
 
 struct ColorDetail: View {
     
-    // ============================
+    // ======================
     // MARK: Store properties
-    // ============================
+    // ======================
 
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var screenState: ScreenState

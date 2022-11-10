@@ -27,9 +27,9 @@ import OrangeTheme
 
 struct GuidelinesList: View {
     
-    // ============================
+    // ======================
     // MARK: Store properties
-    // ============================
+    // ======================
 
     @Environment(\.theme) private var theme
     
