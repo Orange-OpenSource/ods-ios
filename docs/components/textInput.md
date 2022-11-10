@@ -23,7 +23,7 @@ description: Text fields and text editor let users enter and edit text.
 - [Design System Manager - Text fields](https://system.design.orange.com/0c1af118d/p/47d389-text-fields/b/461794)
 - [Apple guideline - Text fields](https://developer.apple.com/design/human-interface-guidelines/components/selection-and-input/text-fields)
 - [Apple guideline - Edit Menu](https://developer.apple.com/design/human-interface-guidelines/components/menus-and-actions/edit-menus)
-- [Apple doc - Text input] (https://developer.apple.com/documentation/swiftui/text-input-and-output)
+- [Apple doc - Text input](https://developer.apple.com/documentation/swiftui/text-input-and-output)
 - [Apple doc - Text Field](https://developer.apple.com/documentation/swiftui/textfield)
 - [Apple doc - Secure Text Field](https://developer.apple.com/documentation/swiftui/securefield)
 - [Apple doc - Text Editor](https://developer.apple.com/documentation/swiftui/i/texteditor)
