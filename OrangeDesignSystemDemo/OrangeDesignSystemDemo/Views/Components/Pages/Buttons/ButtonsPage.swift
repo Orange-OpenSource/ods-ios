@@ -33,7 +33,7 @@ struct ButtonComponent: Component {
     init() {
         title = "Buttons"
         image = Image("Buttons - Shape")
-        description = "A button allows a user to perform an action or to navigate to another page. It contains a text label and a supporting icon can be displayed."
+        description = "A custom button allows a user to perform an important call to action. This button that contains a text"
         variants = AnyView(ButtonVariants())
     }
 }
@@ -41,14 +41,14 @@ struct ButtonComponent: Component {
 
 struct ButtonVariants: View {
     var body: some View {
-        VariantEntyItem(text: "Emphasis", technicalElement: "ODSButton()") {
+        VariantEntryItem(text: "Emphasis", technicalElement: "ODSButton()") {
             CommonButtonVariant(model: ButtonContentModel()) { model in
                 EmphasisVariants(model: model)
             }
             .navigationTitle("Emphasis")
         }
         
-        VariantEntyItem(text: "Functional", technicalElement: "ODSFunctionalButton()") {
+        VariantEntryItem(text: "Functional", technicalElement: "ODSFunctionalButton()") {
             
             CommonButtonVariant(model: ButtonContentModel()) { model in
                 FunctionalVariants(model: model)
@@ -56,7 +56,7 @@ struct ButtonVariants: View {
             .navigationTitle("Functional")
         }
         
-        VariantEntyItem(text: "Icons", technicalElement: "ODSIconButton()") {
+        VariantEntryItem(text: "Icons", technicalElement: "ODSIconButton()") {
             IconVariant(model: IconButtonModel())
                 .navigationTitle("Icon")
         }

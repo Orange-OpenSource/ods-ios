@@ -40,11 +40,11 @@ struct ListComponent: Component {
 
 struct ListVariants: View {
     var body: some View {
-        VariantEntyItem(text: "Item with toggle", technicalElement: "ODSListItemWithToggle()"){
+        VariantEntryItem(text: "Item with toggle", technicalElement: "ODSListItemWithToggle()"){
             ListToggleVariant()
         }
 
-        VariantEntyItem(text: "Item with lines", technicalElement: "ODSListItem()"){
+        VariantEntryItem(text: "Item with lines", technicalElement: "ODSListItem()"){
             ListLinesVariant()
         }
     }

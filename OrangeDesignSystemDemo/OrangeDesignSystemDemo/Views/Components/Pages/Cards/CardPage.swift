@@ -43,17 +43,17 @@ struct CardComponent: Component {
 struct CardVariants: View {
     
     var body: some View {
-        VariantEntyItem(text: "Card Image First", technicalElement: "ODSCardImageFirst()") {
+        VariantEntryItem(text: "Card Image First", technicalElement: "ODSCardImageFirst()") {
             CardImageFirstVariant(model: CardImageFirstVariantModel())
                 .navigationTitle("Card Image First")
         }
         
-        VariantEntyItem(text: "Card Title First", technicalElement: "ODSCardTitleFirst()") {
+        VariantEntryItem(text: "Card Title First", technicalElement: "ODSCardTitleFirst()") {
             CardTitleFirstVariant(model: CardTitleFirstVariantModel())
                 .navigationTitle("Card Title First")
         }
 
-        VariantEntyItem(text: "Small card", technicalElement: "ODSSmallCard") {
+        VariantEntryItem(text: "Small card", technicalElement: "ODSSmallCard") {
             SmallCardVariant(model: SmallCardVariantModel())
                 .navigationTitle("Small card")
         }

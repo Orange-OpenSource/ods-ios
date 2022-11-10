@@ -80,7 +80,7 @@ struct VariantsTitle: View {
     }
 }
 
-struct VariantEntyItem<VariantPage>: View where VariantPage: View {
+struct VariantEntryItem<VariantPage>: View where VariantPage: View {
     let itemModel: ODSListItemModel
     let variantPage: () -> VariantPage
     
@@ -118,7 +118,7 @@ struct ComponentPage_Previews: PreviewProvider {
 
     struct Variants: View {
         var body: some View {
-            VariantEntyItem(text: "Variant 1", technicalElement: "MyTestElement()") {
+            VariantEntryItem(text: "Variant 1", technicalElement: "MyTestElement()") {
                 Text("This is a Variant")
             }
         }
