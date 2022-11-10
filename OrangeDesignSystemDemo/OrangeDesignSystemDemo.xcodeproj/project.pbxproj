@@ -14,6 +14,7 @@
 		07387C6328F062D900D8721F /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C6228F062D900D8721F /* ListPage.swift */; };
 		07387C6728F063E100D8721F /* ListLinesBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C6628F063E100D8721F /* ListLinesBottomSheet.swift */; };
 		07387C6928F0641400D8721F /* ListLinesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C6828F0641400D8721F /* ListLinesModel.swift */; };
+		07389AD1291AB90E000D7F4C /* TextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07389AD0291AB90E000D7F4C /* TextFieldModel.swift */; };
 		0752EC2828EDBB540029A7BE /* ChipsPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0752EC2728EDBB540029A7BE /* ChipsPageModel.swift */; };
 		0752EC2A28EDD7A80029A7BE /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0752EC2928EDD7A80029A7BE /* BottomSheet.swift */; };
 		075462FA28F474CC002E2E40 /* ButtonsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075462F728F474CC002E2E40 /* ButtonsPage.swift */; };
@@ -92,6 +93,7 @@
 		07387C6228F062D900D8721F /* ListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
 		07387C6628F063E100D8721F /* ListLinesBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLinesBottomSheet.swift; sourceTree = "<group>"; };
 		07387C6828F0641400D8721F /* ListLinesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLinesModel.swift; sourceTree = "<group>"; };
+		07389AD0291AB90E000D7F4C /* TextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldModel.swift; path = ../../../../../../../../../../../../Applications/TextFieldModel.swift; sourceTree = "<group>"; };
 		0752EC2728EDBB540029A7BE /* ChipsPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsPageModel.swift; sourceTree = "<group>"; };
 		0752EC2928EDD7A80029A7BE /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		075462F728F474CC002E2E40 /* ButtonsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsPage.swift; sourceTree = "<group>"; };
@@ -219,6 +221,15 @@
 			path = Toggle;
 			sourceTree = "<group>";
 		};
+		07389ACF291AB8DE000D7F4C /* TextFileds */ = {
+			isa = PBXGroup;
+			children = (
+				07C8234328AE68B2003B2C3A /* TextFieldPage.swift */,
+				07389AD0291AB90E000D7F4C /* TextFieldModel.swift */,
+			);
+			path = TextFileds;
+			sourceTree = "<group>";
+		};
 		0752EC2628EDBB3E0029A7BE /* Chips */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,11 +265,11 @@
 				07E37F6028C73234003FF740 /* Cards */,
 				0752EC2628EDBB3E0029A7BE /* Chips */,
 				07C8233E28AE68B2003B2C3A /* Lists */,
+				07389ACF291AB8DE000D7F4C /* TextFileds */,
 				07C8234928AE68B2003B2C3A /* NavigationBarPage.swift */,
 				07C8234628AE68B2003B2C3A /* ProgressIndicatorPage.swift */,
 				07C8234228AE68B2003B2C3A /* SliderPage.swift */,
 				07C8234828AE68B2003B2C3A /* TabBarPage.swift */,
-				07C8234328AE68B2003B2C3A /* TextFieldPage.swift */,
 			);
 			name = Pages;
 			path = OrangeDesignSystemDemo/Views/Components/Pages;
@@ -789,6 +800,7 @@
 				0752EC2828EDBB540029A7BE /* ChipsPageModel.swift in Sources */,
 				F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */,
 				07C8235228AE68B2003B2C3A /* ProgressIndicatorPage.swift in Sources */,
+				07389AD1291AB90E000D7F4C /* TextFieldModel.swift in Sources */,
 				F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */,
 				07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */,
 				07387C6328F062D900D8721F /* ListPage.swift in Sources */,
