@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp: SDK] #267 Update the list of Text fields variants
 - [DemoApp] #258 Add the play icon to the component's variant lists
 
 ## [0.7.0] - 2022-11-07

@@ -82,7 +82,7 @@ struct VariantSecureTextField: View {
     var body: some View {
         VStack {
             SecureField("secure text to edit", text: $textToEdit)
-                .customStyle()
+                .odsTextFieldStyle()
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
             
@@ -133,7 +133,7 @@ private struct VariantCapitalizedText: View {
             VStack {
                 textField
                     .textInputAutocapitalization(model.selectedCapitalizationType.textInputAutocapitalization)
-                    .customStyle()
+                    .odsTextFieldStyle()
                     .id(model.selectedCapitalizationType.description)
                     .padding(.horizontal, ODSSpacing.s)
                     .padding(.top, ODSSpacing.m)
@@ -187,23 +187,6 @@ private struct VariantTextFieldBottomSheet: View {
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)
-    }
-}
-
-// MARK: Apply style on TextField
-private struct CustomTextFieldStyle: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding(.all, ODSSpacing.s)
-            .odsFont(.bodyRegular)
-            .background(Color(.tertiarySystemFill), in: RoundedRectangle(cornerRadius: 8.0))
-    }
-}
-
-extension View {
-    
-    func customStyle() -> some View {
-        modifier(CustomTextFieldStyle())
     }
 }
 
