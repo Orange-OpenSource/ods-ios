@@ -25,9 +25,23 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct EmphasisVariants: View {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @ObservedObject var model: ButtonContentModel
 
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
+        Text("High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.")
+            .odsFont(.bodyRegular)
+            .padding(.bottom, ODSSpacing.xs)
+            .frame(maxWidth: .infinity, alignment: .leading)
+
         ForEach(ODSButton.Emphasis.allCases, id: \.rawValue) { emphasis in
             VStack(alignment: .center, spacing: ODSSpacing.s) {
                 HStack {
@@ -49,17 +63,27 @@ struct EmphasisVariants: View {
 }
 
 struct FunctionalVariants: View {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @ObservedObject var model: ButtonContentModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         Text("If required, colour versions can also be used to inform users of positive or negative destructive actions.")
             .odsFont(.bodyRegular)
+            .padding(.bottom, ODSSpacing.xs)
             .frame(maxWidth: .infinity, alignment: .leading)
 
         ForEach(ODSFunctionalButton.Style.allCases, id: \.rawValue) { style in
             VStack(alignment: .center, spacing: ODSSpacing.s) {
                 HStack {
-                    Text("\(style.rawValue)").odsFont(.headline)
+                    Text(description(for: style)).odsFont(.headline)
                     Spacer()
                 }
                 .accessibilityAddTraits(.isHeader)
@@ -73,10 +97,30 @@ struct FunctionalVariants: View {
             }
         }
     }
+    
+    // ====================
+    // MARK: Private helper
+    // ====================
+
+    private func description(for style: ODSFunctionalButton.Style) -> String {
+        switch style {
+        case .negative: return "Negative"
+        case .positive: return "Positive"
+        }
+    }
 }
 
 struct IconVariant: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @ObservedObject var model: IconButtonModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         ZStack {
@@ -86,7 +130,8 @@ struct IconVariant: View {
                         .odsFont(.bodyRegular)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    VariantsTitle()
+                    VariantsTitle().frame(maxWidth: .infinity, alignment: .leading)
+                    
                     VStack(alignment: .center, spacing: ODSSpacing.l) {
                         VStack(alignment: .center, spacing: ODSSpacing.s) {
                             Text("Icon (add)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
@@ -119,7 +164,15 @@ struct IconVariant: View {
 
 struct IconButtonBottomSheetContent: View {
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @EnvironmentObject var model: IconButtonModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack {
