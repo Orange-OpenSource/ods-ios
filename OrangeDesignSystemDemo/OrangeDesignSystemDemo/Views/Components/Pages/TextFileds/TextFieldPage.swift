@@ -52,15 +52,15 @@ struct TextFieldComponent: Component {
 struct TextFieldVariants: View {
 
     var body: some View {
-        VariantEntyItem(text: "Secure text field", technicalElement: "SecureField()") {
+        VariantEntryItem(text: "Secure text field", technicalElement: "SecureField()") {
             VariantSecureTextField().navigationTitle("Secure text field")
         }
 
-        VariantEntyItem(text: "Text field", technicalElement: "TextField()") {
+        VariantEntryItem(text: "Text field", technicalElement: "TextField()") {
             VariantTextField().navigationTitle("Text field")
         }
 
-        VariantEntyItem(text: "Text editor", technicalElement: "TextEditor()") {
+        VariantEntryItem(text: "Text editor", technicalElement: "TextEditor()") {
             VariantTextEditor().navigationTitle("Text editor")
         }
     }
