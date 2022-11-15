@@ -14,7 +14,6 @@
 		07387C6328F062D900D8721F /* ListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C6228F062D900D8721F /* ListPage.swift */; };
 		07387C6728F063E100D8721F /* ListLinesBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C6628F063E100D8721F /* ListLinesBottomSheet.swift */; };
 		07387C6928F0641400D8721F /* ListLinesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C6828F0641400D8721F /* ListLinesModel.swift */; };
-		07389AD1291AB90E000D7F4C /* TextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07389AD0291AB90E000D7F4C /* TextFieldModel.swift */; };
 		0752EC2828EDBB540029A7BE /* ChipsPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0752EC2728EDBB540029A7BE /* ChipsPageModel.swift */; };
 		0752EC2A28EDD7A80029A7BE /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0752EC2928EDD7A80029A7BE /* BottomSheet.swift */; };
 		075462FA28F474CC002E2E40 /* ButtonsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075462F728F474CC002E2E40 /* ButtonsPage.swift */; };
@@ -35,6 +34,7 @@
 		07C8235628AE68B2003B2C3A /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234A28AE68B2003B2C3A /* CardPage.swift */; };
 		07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8235828AE690F003B2C3A /* ComponentPage.swift */; };
 		07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */; };
+		07CC452729238A91008BE71F /* TextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC452629238A90008BE71F /* TextFieldModel.swift */; };
 		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
 		07E37F6228C73252003FF740 /* SmallCardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6128C73252003FF740 /* SmallCardVariant.swift */; };
 		07E37F6428C74540003FF740 /* CardTitleFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */; };
@@ -93,7 +93,6 @@
 		07387C6228F062D900D8721F /* ListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPage.swift; sourceTree = "<group>"; };
 		07387C6628F063E100D8721F /* ListLinesBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLinesBottomSheet.swift; sourceTree = "<group>"; };
 		07387C6828F0641400D8721F /* ListLinesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLinesModel.swift; sourceTree = "<group>"; };
-		07389AD0291AB90E000D7F4C /* TextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldModel.swift; path = ../../../../../../../../../../../../Applications/TextFieldModel.swift; sourceTree = "<group>"; };
 		0752EC2728EDBB540029A7BE /* ChipsPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsPageModel.swift; sourceTree = "<group>"; };
 		0752EC2928EDD7A80029A7BE /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		075462F728F474CC002E2E40 /* ButtonsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsPage.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		07C8234A28AE68B2003B2C3A /* CardPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPage.swift; sourceTree = "<group>"; };
 		07C8235828AE690F003B2C3A /* ComponentPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentPage.swift; sourceTree = "<group>"; };
 		07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
+		07CC452629238A90008BE71F /* TextFieldModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldModel.swift; sourceTree = "<group>"; };
 		07E37F6128C73252003FF740 /* SmallCardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCardVariant.swift; sourceTree = "<group>"; };
 		07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleFirstVariant.swift; sourceTree = "<group>"; };
 		07E37F6528C745E1003FF740 /* CardImageFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageFirstVariant.swift; sourceTree = "<group>"; };
@@ -224,8 +224,8 @@
 		07389ACF291AB8DE000D7F4C /* TextFileds */ = {
 			isa = PBXGroup;
 			children = (
+				07CC452629238A90008BE71F /* TextFieldModel.swift */,
 				07C8234328AE68B2003B2C3A /* TextFieldPage.swift */,
-				07389AD0291AB90E000D7F4C /* TextFieldModel.swift */,
 			);
 			path = TextFileds;
 			sourceTree = "<group>";
@@ -800,7 +800,7 @@
 				0752EC2828EDBB540029A7BE /* ChipsPageModel.swift in Sources */,
 				F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */,
 				07C8235228AE68B2003B2C3A /* ProgressIndicatorPage.swift in Sources */,
-				07389AD1291AB90E000D7F4C /* TextFieldModel.swift in Sources */,
+				07CC452729238A91008BE71F /* TextFieldModel.swift in Sources */,
 				F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */,
 				07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */,
 				07387C6328F062D900D8721F /* ListPage.swift in Sources */,
