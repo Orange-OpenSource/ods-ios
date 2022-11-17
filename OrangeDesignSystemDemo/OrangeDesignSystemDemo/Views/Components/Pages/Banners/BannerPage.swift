@@ -86,7 +86,7 @@ struct BannerVariantInnner: View {
     
     var body: some View {
         VStack {
-            ODSBanner(text: "Two line text string with two actions. One to two lines is preferable on mobile and tablet.",
+            ODSBanner(text: model.text,
                       image: model.image,
                       button1: model.button1,
                       button2: model.button2)

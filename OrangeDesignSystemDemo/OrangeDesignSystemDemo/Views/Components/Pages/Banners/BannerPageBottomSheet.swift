@@ -29,7 +29,8 @@ class BannerVariantModel: ObservableObject {
     // =======================
     // MARK: Stored Properties
     // =======================
-
+    
+    @Published var showLongText: Bool
     @Published var showImage: Bool
     @Published var showButton1: Bool
     @Published var showButton2: Bool
@@ -39,6 +40,7 @@ class BannerVariantModel: ObservableObject {
     // =================
 
     init() {
+        self.showLongText = true
         self.showImage = true
         self.showButton1 = true
         self.showButton2 = true
@@ -48,6 +50,13 @@ class BannerVariantModel: ObservableObject {
     // MARK: Helpers
     // =============
 
+    var text: LocalizedStringKey {
+        let longText = "Two lines text string with two actions. One to two lines is preferable on mobile."
+        let shortText = "One line text string with one action."
+        
+        return LocalizedStringKey(showLongText ? longText : shortText)
+    }
+    
     var image: Image? {
         showImage ? Image("ods_empty", bundle: Bundle.ods) : nil
     }
@@ -79,6 +88,7 @@ struct BannerBottomSheet: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
+            Toggle("Long Text", isOn: $model.showLongText)
             Toggle("Image", isOn: $model.showImage)
             Toggle("Button 1", isOn: $model.showButton1)
             Toggle("Button 2", isOn: $model.showButton2)

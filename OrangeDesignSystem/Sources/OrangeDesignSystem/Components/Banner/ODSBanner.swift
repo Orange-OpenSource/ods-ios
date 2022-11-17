@@ -67,7 +67,9 @@ public struct ODSBanner: View {
                     .frame(width: 40.0, height: 40.0, alignment: .center)
                     .clipShape(Circle())
 
-                Text(text).odsFont(.subhead)
+                Text(text)
+                    .odsFont(.subhead)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
 
             if button1 != nil || button2 != nil {
