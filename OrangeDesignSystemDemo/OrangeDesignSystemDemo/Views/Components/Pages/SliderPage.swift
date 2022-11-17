@@ -111,16 +111,13 @@ struct SteppedSlider: View {
 
 
 #if DEBUG
-import OrangeTheme
 
 struct SliderPage_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
+        ThemeablePreviews {
             List {
                 SliderVartants()
             }
-            .preferredColorScheme($0)
-            .environment(\.theme, OrangeThemeFactory().theme)
         }
     }
 }

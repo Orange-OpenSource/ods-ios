@@ -191,19 +191,15 @@ private struct VariantTextFieldBottomSheet: View {
 }
 
 #if DEBUG
-import OrangeTheme
 
 struct TextFieldPage_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
-            ODSThemeableView(theme: OrangeThemeFactory().theme) {
-                NavigationView {
-                    List {
-                        TextFieldVariants()
-                    }
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    TextFieldVariants()
                 }
             }
-            .preferredColorScheme(colorScheme)
         }
     }
 }
