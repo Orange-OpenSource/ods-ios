@@ -10,7 +10,7 @@ description: A banner displays an important message which requires an action to 
 
 * [Specifications references](#specifications-references)
 * [Accessibility](#accessibility)
-* [Variant](#variants)
+* [Variants](#variants)
     * [No button](#no_button)
     * [One button](#one_button)
     * [Two buttons](#two_buttons)
@@ -25,7 +25,8 @@ description: A banner displays an important message which requires an action to 
 
 Please follow [accessibility criteria for development](https://a11y-guidelines.orange.com/en/mobile/ios/)
 
-## Usage
+## Variants
+
 ### No button
 
 ```swift
