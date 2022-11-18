@@ -27,31 +27,73 @@ import SwiftUI
 /// action to be dismissed.
 ///
 public struct ODSBanner: View {
-    
-    let text: LocalizedStringKey
-    let image: Image?
-    let button1: ODSButton?
-    let button2: ODSButton?
-    
-    /// Initialize the banner.
+
+    public enum OneButtonPosition {
+        case trailing
+        case bottom
+    }
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    private let text: LocalizedStringKey
+    private let image: Image?
+    private let buttonOptions: ButtonsOptions?
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    /// Initialize the simpliest banner with no buttons.
     ///
     /// - Parameters:
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    ///   - button1: The first button.
-    ///   - button2: The second button.
+    public init(text: LocalizedStringKey, image: Image? = nil) {
+        self.text = text
+        self.image = image
+        self.buttonOptions = nil
+    }
+
+    /// Initialize the banner with one button. This button
+    /// can be palaced under or next to the text.
+    ///
+    /// - Parameters:
+    ///   - text: Text to be displayed.
+    ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
+    ///   - button: The button
+    ///   - position: The positiobn of the button
+    ///
+    /// - Remarks: The default low emphasis is automatically applied on buttons.
+    public init(text: LocalizedStringKey,
+                image: Image? = nil,
+                button: ODSButton,
+                position: OneButtonPosition
+    ) {
+        self.text = text
+        self.image = image
+        self.buttonOptions = .oneButton(button, position)
+    }
+
+    /// Initialize the banner with two buttons palaced under the text.
+    ///
+    /// - Parameters:
+    ///   - text: Text displayed in the button.
+    ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
+    ///   - leadingButton: The first button.
+    ///   - trailingButton: The second button.
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
     ///
     public init(text: LocalizedStringKey,
                 image: Image? = nil,
-                button1: ODSButton? = nil,
-                button2: ODSButton? = nil)
-    {
+                leadingButton: ODSButton,
+                trailingButton: ODSButton
+    ) {
         self.text = text
         self.image = image
-        self.button1 = button1
-        self.button2 = button2
+        self.buttonOptions = .twoButtons(leadingButton, trailingButton)
     }
     
     // ==========
@@ -70,18 +112,50 @@ public struct ODSBanner: View {
                 Text(text)
                     .odsFont(.subhead)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
+                nextToTextButton()
             }
 
-            if button1 != nil || button2 != nil {
-                HStack(spacing: ODSSpacing.s) {
-                    Spacer()
-                    button1?.modifier(ODSButtonStyleModifier(emphasis: .low))
-                    button2?.modifier(ODSButtonStyleModifier(emphasis: .low))
-                }
-            }
+            bottomButtons()
         }
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)
+    }
+
+    // =============
+    // MARK: Helpers
+    // =============
+
+    @ViewBuilder
+    private func nextToTextButton() -> some View {
+        if case let .oneButton(button, position) = buttonOptions,
+           position == .trailing {
+            button.modifier(ODSButtonStyleModifier(emphasis: .low))
+        }
+    }
+
+    @ViewBuilder
+    private func bottomButtons() -> some View {
+        if case let .oneButton(button, position) = buttonOptions,
+           position == .bottom {
+            HStack {
+                Spacer()
+                button.modifier(ODSButtonStyleModifier(emphasis: .low))
+            }
+        } else {
+            if case let .twoButtons(leadingButton, tralingButton) = buttonOptions {
+                HStack(spacing: ODSSpacing.s) {
+                    Spacer()
+                    leadingButton.modifier(ODSButtonStyleModifier(emphasis: .low))
+                    tralingButton.modifier(ODSButtonStyleModifier(emphasis: .low))
+                }
+            }
+        }
+    }
+
+    private enum ButtonsOptions {
+        case oneButton(ODSButton, OneButtonPosition)
+        case twoButtons(ODSButton, ODSButton)
     }
 }
 

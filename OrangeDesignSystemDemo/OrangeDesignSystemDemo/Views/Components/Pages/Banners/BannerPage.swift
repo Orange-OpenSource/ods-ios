@@ -54,25 +54,25 @@ struct BannerVariant: View {
     // =======================
     // MARK: Stored Properties
     // =======================
-
+    
     let model: BannerVariantModel
-
+    
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
         ZStack {
-            BannerVariantInnner(model: model)
+            BannerVariantContent(model: model)
             BottomSheet {
-                BannerBottomSheet()
+                BannerVariantBottomSheet()
             }
             .environmentObject(model)
         }
     }
 }
-        
-struct BannerVariantInnner: View {
+    
+struct BannerVariantContent: View {
     
     // =======================
     // MARK: Stored Properties
@@ -86,10 +86,23 @@ struct BannerVariantInnner: View {
     
     var body: some View {
         VStack {
-            ODSBanner(text: model.text,
-                      image: model.image,
-                      button1: model.button1,
-                      button2: model.button2)
+            Group {
+                switch model.buttonsOption {
+                case .none:
+                    ODSBanner(text: model.text, image: model.image)
+                case .oneButtonNextToText:
+                    ODSBanner(text: model.text, image: model.image,
+                              button: model.button, position: .trailing)
+                case .oneButtonUnderText:
+                    ODSBanner(text: model.text, image: model.image,
+                              button: model.button, position: .bottom)
+                case .twoButtons:
+                    ODSBanner(text: model.text, image: model.image,
+                              leadingButton: model.leadingButton,
+                              trailingButton: model.trailingButton)
+                }
+            }
+            .border(.red)
             
             Spacer()
         }

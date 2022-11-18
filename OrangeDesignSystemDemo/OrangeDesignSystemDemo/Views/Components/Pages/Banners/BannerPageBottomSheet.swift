@@ -32,8 +32,35 @@ class BannerVariantModel: ObservableObject {
     
     @Published var showLongText: Bool
     @Published var showImage: Bool
-    @Published var showButton1: Bool
-    @Published var showButton2: Bool
+    @Published var buttonsOption: ButtonsOption
+    
+    enum ButtonsOption: Int, CaseIterable {
+        case none = 0
+        case oneButtonNextToText
+        case oneButtonUnderText
+        case twoButtons
+        
+        var description: String {
+            switch self {
+            case .none:
+                return "None"
+            case .oneButtonNextToText:
+                return "One next to text"
+            case .oneButtonUnderText:
+                return "One under text"
+            case .twoButtons:
+                return "Two"
+            }
+        }
+        
+        var chip: ODSChip<Self> {
+            ODSChip(self, text: self.description)
+        }
+        
+        static var chips: [ODSChip<Self>] {
+            Self.allCases.map { $0.chip }
+        }
+    }
 
     // =================
     // MARK: Initializer
@@ -42,8 +69,7 @@ class BannerVariantModel: ObservableObject {
     init() {
         self.showLongText = true
         self.showImage = true
-        self.showButton1 = true
-        self.showButton2 = true
+        self.buttonsOption = .none
     }
     
     // =============
@@ -61,20 +87,26 @@ class BannerVariantModel: ObservableObject {
         showImage ? Image("ods_empty", bundle: Bundle.ods) : nil
     }
     
-    var button1: ODSButton? {
-        showButton1 ? ODSButton(text: "Button 1", emphasis: .low) {
+    var button: ODSButton {
+        ODSButton(text: "Button", emphasis: .low) {
             // do something
-        } : nil
+        }
     }
     
-    var button2: ODSButton? {
-        showButton2 ? ODSButton(text: "Button 2", emphasis: .low) {
+    var trailingButton: ODSButton {
+        ODSButton(text: "Button 1", emphasis: .low) {
             // do something
-        } : nil
+        }
+    }
+    
+    var leadingButton: ODSButton {
+        ODSButton(text: "Button 2", emphasis: .low) {
+            // do something
+        }
     }
 }
 
-struct BannerBottomSheet: View {
+struct BannerVariantBottomSheet: View {
     
     // =======================
     // MARK: Stored Properties
@@ -88,13 +120,18 @@ struct BannerBottomSheet: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("Long Text", isOn: $model.showLongText)
-            Toggle("Image", isOn: $model.showImage)
-            Toggle("Button 1", isOn: $model.showButton1)
-            Toggle("Button 2", isOn: $model.showButton2)
+            Group {
+                Toggle("Long Text", isOn: $model.showLongText)
+                Toggle("Image", isOn: $model.showImage)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .odsFont(.bodyBold)
+            
+            ODSChipPicker(title: "Button options",
+                          selection: $model.buttonsOption,
+                          chips: BannerVariantModel.ButtonsOption.chips)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
     }
 }
