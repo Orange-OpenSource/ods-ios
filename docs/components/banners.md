@@ -11,9 +11,9 @@ description: A banner displays an important message which requires an action to 
 * [Specifications references](#specifications-references)
 * [Accessibility](#accessibility)
 * [Variants](#variants)
-    * [No button](#no_button)
-    * [One button](#one_button)
-    * [Two buttons](#two_buttons)
+    * [No button](#no-button)
+    * [One button](#on-button)
+    * [Two buttons](#two-buttons)
 
 ---
 
