@@ -24,6 +24,7 @@
 		079821C729262C4400BE3116 /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 079821C629262C4400BE3116 /* InnovationCupTheme */; };
 		079821C92926340B00BE3116 /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 079821C82926340B00BE3116 /* OrangeTheme */; };
 		079821CB29263C1200BE3116 /* ThemeablePreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079821CA29263C1200BE3116 /* ThemeablePreviews.swift */; };
+		079821CD2927BC3700BE3116 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079821CC2927BC3700BE3116 /* Colors.xcassets */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
 		07C52F2028D37A2B0067CFC0 /* CardExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */; };
 		07C8234E28AE68B2003B2C3A /* SliderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234228AE68B2003B2C3A /* SliderPage.swift */; };
@@ -104,6 +105,7 @@
 		07973C53287C7470004397D7 /* ODSColors+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ODSColors+extension.swift"; sourceTree = "<group>"; };
 		07973C55287C74CF004397D7 /* RGBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBA.swift; sourceTree = "<group>"; };
 		079821CA29263C1200BE3116 /* ThemeablePreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeablePreviews.swift; sourceTree = "<group>"; };
+		079821CC2927BC3700BE3116 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = OrangeDesignSystemDemo/Colors.xcassets; sourceTree = "<group>"; };
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExampleData.swift; sourceTree = "<group>"; };
 		07C8234228AE68B2003B2C3A /* SliderPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderPage.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 				F90D976B280030C4006D29FC /* MainTabView.swift */,
 				F99FF06E2767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift */,
 				F99FF06F2767AE2A006236A0 /* Assets.xcassets */,
+				079821CC2927BC3700BE3116 /* Colors.xcassets */,
 			);
 			name = OrangeDesignSystemDemo;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				F90D977C2800311E006D29FC /* ODSDemoPrivacyNotice.md in Resources */,
 				FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */,
 				F99FF07F2767AF62006236A0 /* Preview Assets.xcassets in Resources */,
+				079821CD2927BC3700BE3116 /* Colors.xcassets in Resources */,
 				F90D977D2800311E006D29FC /* ODSDemoCGU.md in Resources */,
 				F99FF0742767AE2A006236A0 /* Assets.xcassets in Resources */,
 			);
