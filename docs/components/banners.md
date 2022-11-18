@@ -10,7 +10,10 @@ description: A banner displays an important message which requires an action to 
 
 * [Specifications references](#specifications-references)
 * [Accessibility](#accessibility)
-* [Usage](#usage)
+* [Variant](#variants)
+    * [No button](#no_button)
+    * [One button](#one_button)
+    * [Two buttons](#two_buttons)
 
 ---
 
@@ -23,10 +26,40 @@ description: A banner displays an important message which requires an action to 
 Please follow [accessibility criteria for development](https://a11y-guidelines.orange.com/en/mobile/ios/)
 
 ## Usage
+### No button
 
 ```swift
 ODSBanner(text: "Two line text string with two actions. One to two lines is preferable on mobile and tablet.",
-        image: Image("ods_empty", bundle: Bundle.ods),
-        button1: ODSButton(text: "Button 1", emphasis: .low) {},
-        button2: ODSButton(text: "Button 2", emphasis: .low) {})
+         image: Image("ods_empty", bundle: Bundle.ods))
 ```
+
+### One button
+
+* Placed next to the text
+
+```swift
+ODSBanner(text: "Two line text string with two actions. One to two lines is preferable on mobile and tablet.",
+         image: Image("ods_empty", bundle: Bundle.ods),
+         button: ODSButton(text: "Button", emphasis: .low) {}, 
+         position: .trailing)
+```
+
+* Placed under the text
+
+```swift
+ODSBanner(text: "Two line text string with two actions. One to two lines is preferable on mobile and tablet.",
+         image: Image("ods_empty", bundle: Bundle.ods),
+         button: ODSButton(text: "Button", emphasis: .low) {}, 
+         position: .bottom)
+```
+
+### Two buttons
+
+```swift
+ODSBanner(text: "Two line text string with two actions. One to two lines is preferable on mobile and tablet.",
+         image: Image("ods_empty", bundle: Bundle.ods),
+         leadingButton: ODSButton(text: "Button 1", emphasis: .low) {},
+         trailingButton: ODSButton(text: "Button 2", emphasis: .low) {})
+```
+
+

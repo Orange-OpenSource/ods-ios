@@ -95,7 +95,7 @@ public struct ODSBanner: View {
         self.image = image
         self.buttonOptions = .twoButtons(leadingButton, trailingButton)
     }
-    
+
     // ==========
     // MARK: Body
     // ==========
@@ -108,18 +108,19 @@ public struct ODSBanner: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40.0, height: 40.0, alignment: .center)
                     .clipShape(Circle())
+                    .accessibilityHidden(true)
 
                 Text(text)
                     .odsFont(.subhead)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                
+
                 nextToTextButton()
             }
 
             bottomButtons()
         }
         .padding(.horizontal, ODSSpacing.m)
-        .padding(.vertical, ODSSpacing.s)
+        .padding(.vertical, ODSSpacing.m)
     }
 
     // =============

@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp/SDK] #51 Add banners component
 - [DemoApp] #257 Guidelines - Typography text description updates 
 - [DemoApp/SDK] #267 Update the list of Text fields variants
 - [DemoApp] #258 Add the play icon to the component's variant lists

@@ -1,4 +1,4 @@
 ---
 layout: main
-content_page: borders.md
+content_page: banners.md
 ---
