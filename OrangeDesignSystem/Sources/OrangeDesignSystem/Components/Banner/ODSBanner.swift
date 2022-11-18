@@ -145,7 +145,7 @@ public struct ODSBanner: View {
             }
         } else {
             if case let .twoButtons(leadingButton, tralingButton) = buttonOptions {
-                HStack(spacing: ODSSpacing.s) {
+                HStack(spacing: ODSSpacing.xs) {
                     Spacer()
                     leadingButton.modifier(ODSButtonStyleModifier(emphasis: .low))
                     tralingButton.modifier(ODSButtonStyleModifier(emphasis: .low))
@@ -165,9 +165,32 @@ struct ODSBanner_Previews: PreviewProvider {
 
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ODSBanner(text: "Title",
-                      image: Image("ods_empty", bundle: Bundle.ods))
-                .preferredColorScheme($0)
+            ODSThemeableView(theme: ODSTheme()) {
+                VStack {
+                    ODSBanner(text: "A short desciption to see text",
+                              image: Image("ods_empty", bundle: Bundle.ods))
+                    .border(.gray)
+                    
+                    ODSBanner(text: "A short desciption to see text",
+                              image: Image("ods_empty", bundle: Bundle.ods),
+                              button: ODSButton(text: "Button", emphasis: .low) {},
+                              position: .trailing)
+                    .border(.gray)
+                    
+                    ODSBanner(text: "A short desciption to see text",
+                              image: Image("ods_empty", bundle: Bundle.ods),
+                              button: ODSButton(text: "Button", emphasis: .low) {},
+                              position: .bottom)
+                    .border(.gray)
+                    
+                    ODSBanner(text: "A short desciption to see text",
+                              image: Image("ods_empty", bundle: Bundle.ods),
+                              leadingButton: ODSButton(text: "Button", emphasis: .low) {},
+                              trailingButton: ODSButton(text: "Button", emphasis: .low) {})
+                    .border(.gray)
+                }
+            }
+            .preferredColorScheme($0)
         }
     }
 }
