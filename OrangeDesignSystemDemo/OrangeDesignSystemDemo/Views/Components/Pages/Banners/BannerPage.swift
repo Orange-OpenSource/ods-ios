@@ -32,7 +32,7 @@ struct BannerComponent: Component {
     
     init() {
         title = "Banners Demo"
-        image = Image("Buttons - Shape")
+        image = Image("Banners")
         description = "A banner displays an important message which requires an action to be dismissed."
         
         variants = AnyView(BannerVariants())
