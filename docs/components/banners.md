@@ -19,7 +19,7 @@ description: A banner displays an important message which requires an action to 
 
 ## Specifications references
 
-- [Design System Manager - Banners](https://zeroheight.com/3b9fee398/v/latest/p/31627a-banners/b/3652e7)
+- [Design System Manager - Banners](https://system.design.orange.com/0c1af118d/p/85a52b-components/b/1497a4)
 
 ## Accessibility
 

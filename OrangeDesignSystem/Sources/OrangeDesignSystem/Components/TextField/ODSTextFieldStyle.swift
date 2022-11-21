@@ -24,7 +24,7 @@
 import SwiftUI
 
 ///
-/// <a href="https://zeroheight.com/3b9fee398/v/latest/p/06b82d-text-fields/b/54c34f" target="_blank">ODS Text Field</a>.
+/// <a href="https://system.design.orange.com/0c1af118d/p/47d389-text-fields/b/461794" target="_blank">ODS Text Field</a>.
 ///
 /// The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.
 ///
