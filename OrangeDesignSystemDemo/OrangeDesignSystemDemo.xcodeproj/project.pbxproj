@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07000FB5292B6D5300CE537A /* NavigatinBarPageBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07000FB4292B6D5300CE537A /* NavigatinBarPageBottomSheet.swift */; };
+		07000FB7292B7B0700CE537A /* NavigatinBarSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07000FB6292B7B0700CE537A /* NavigatinBarSearchModel.swift */; };
 		071D3EF128884D8200DFD1C9 /* SpacingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D3EF028884D8200DFD1C9 /* SpacingPage.swift */; };
 		07387C5D28F0068B00D8721F /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C5C28F0068B00D8721F /* Component.swift */; };
 		07387C5F28F02F4F00D8721F /* ListWithToggles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C5E28F02F4F00D8721F /* ListWithToggles.swift */; };
@@ -90,6 +92,8 @@
 
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
+		07000FB4292B6D5300CE537A /* NavigatinBarPageBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinBarPageBottomSheet.swift; sourceTree = "<group>"; };
+		07000FB6292B7B0700CE537A /* NavigatinBarSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinBarSearchModel.swift; sourceTree = "<group>"; };
 		071D3EF028884D8200DFD1C9 /* SpacingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingPage.swift; sourceTree = "<group>"; };
 		07387C5C28F0068B00D8721F /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		07387C5E28F02F4F00D8721F /* ListWithToggles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithToggles.swift; sourceTree = "<group>"; };
@@ -195,6 +199,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07000FB3292B6D1D00CE537A /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				07C8234928AE68B2003B2C3A /* NavigationBarPage.swift */,
+				07000FB4292B6D5300CE537A /* NavigatinBarPageBottomSheet.swift */,
+				07000FB6292B7B0700CE537A /* NavigatinBarSearchModel.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		071D3EEF28884D8200DFD1C9 /* Spacings */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,13 +283,13 @@
 		07C8233D28AE68B2003B2C3A /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				07000FB3292B6D1D00CE537A /* NavigationBar */,
 				07CC452A2923CF9C008BE71F /* Banners */,
 				075462F628F474CC002E2E40 /* Buttons */,
 				07E37F6028C73234003FF740 /* Cards */,
 				0752EC2628EDBB3E0029A7BE /* Chips */,
 				07C8233E28AE68B2003B2C3A /* Lists */,
 				07389ACF291AB8DE000D7F4C /* TextFileds */,
-				07C8234928AE68B2003B2C3A /* NavigationBarPage.swift */,
 				07C8234628AE68B2003B2C3A /* ProgressIndicatorPage.swift */,
 				07C8234228AE68B2003B2C3A /* SliderPage.swift */,
 				07C8234828AE68B2003B2C3A /* TabBarPage.swift */,
@@ -816,6 +830,8 @@
 				079821CB29263C1200BE3116 /* ThemeablePreviews.swift in Sources */,
 				075462FC28F474CC002E2E40 /* ButtonsPageVariants.swift in Sources */,
 				07C8235028AE68B2003B2C3A /* ChipsPage.swift in Sources */,
+				07000FB7292B7B0700CE537A /* NavigatinBarSearchModel.swift in Sources */,
+				07000FB5292B6D5300CE537A /* NavigatinBarPageBottomSheet.swift in Sources */,
 				0752EC2A28EDD7A80029A7BE /* BottomSheet.swift in Sources */,
 				07C52F2028D37A2B0067CFC0 /* CardExampleData.swift in Sources */,
 				07387C6728F063E100D8721F /* ListLinesBottomSheet.swift in Sources */,

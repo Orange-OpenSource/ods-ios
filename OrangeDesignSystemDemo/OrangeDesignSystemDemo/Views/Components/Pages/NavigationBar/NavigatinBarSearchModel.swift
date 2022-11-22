@@ -21,34 +21,32 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-///
-/// Simple button with icon.
-///
-public struct ODSIconButton: View {
-    @Environment(\.theme) private var theme
-
-    let image: Image
-    let action: () -> Void
-
-    /// Initialize the button.
-    ///
-    /// - Parameters:
-    ///   - image: The icon to be displayed.
-    ///   - action: Will be called when the user clicks the button.
-    ///
-    public init(image: Image, action: @escaping () -> Void) {
-        self.image = image
-        self.action = action
+// MARK: Bottom sheet for NavigationBar
+class NavigationBarSearchModel: ObservableObject {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+    
+    @Published var searchQuery: String
+    private var listItems: [String]
+        
+    // ==================
+    // MARK: Initializers
+    // ==================
+    init() {
+        searchQuery = ""
+        listItems = (1 ... 10).map { "Item #\($0)" }
     }
-
-    public var body: some View {
-        Button {
-            action()
-        } label: {
-            ODSIcon(image)
-                .foregroundColor(theme.componentColors.accent)
+        
+    var filteredListItems: [String] {
+        if searchQuery.isEmpty {
+            return listItems
+        } else {
+            return listItems.filter { $0.contains(searchQuery) }
         }
     }
 }

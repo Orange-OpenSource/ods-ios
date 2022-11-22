@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #259 Update the Bar Navigation variant list selection 
 - [DemoApp/SDK] #51 Add banners component
 - [SDK] #289 Add documentation for bars-tab component
 - [DemoApp] #257 Guidelines - Typography text description updates 
