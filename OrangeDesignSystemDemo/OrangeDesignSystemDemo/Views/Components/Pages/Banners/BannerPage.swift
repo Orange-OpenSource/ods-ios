@@ -102,7 +102,6 @@ struct BannerVariantContent: View {
                               trailingButton: model.trailingButton)
                 }
             }
-            .border(.red)
             
             Spacer()
         }
