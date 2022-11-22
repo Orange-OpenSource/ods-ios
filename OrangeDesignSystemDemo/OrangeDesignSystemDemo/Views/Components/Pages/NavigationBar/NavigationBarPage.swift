@@ -132,6 +132,7 @@ struct NavigationBarVariant: View {
     // ==========
     // MARK: Body
     // ==========
+    
     var body: some View {
         ZStack {
             navigationContent()
@@ -196,19 +197,12 @@ struct ListExample: View {
 #if DEBUG
 struct NavigationBarPage_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            List {
-                NavigationBarVariants()
-                    .previewInterfaceOrientation(.portrait)
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    NavigationBarVariants()
+                }
             }
-        }
-
-        NavigationView {
-            List {
-                NavigationBarVariants()
-            }
-            .previewInterfaceOrientation(.portrait)
-            .environment(\.dynamicTypeSize, .accessibility3)
         }
     }
 }
