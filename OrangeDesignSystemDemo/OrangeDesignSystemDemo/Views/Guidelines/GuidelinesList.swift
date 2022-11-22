@@ -23,7 +23,6 @@
 
 import OrangeDesignSystem
 import SwiftUI
-import OrangeTheme
 
 struct GuidelinesList: View {
     
@@ -63,9 +62,12 @@ struct GuidelinesList: View {
 }
 
 #if DEBUG
+
 struct GuidelinesListView_Previews: PreviewProvider {
     static var previews: some View {
-        GuidelinesList()
+        ThemeablePreviews {
+            GuidelinesList()
+        }
     }
 }
 #endif
