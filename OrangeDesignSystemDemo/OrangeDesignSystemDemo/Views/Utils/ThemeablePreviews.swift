@@ -22,43 +22,47 @@
 //
 
 import SwiftUI
+import OrangeDesignSystem
 
-///
-/// <a href="https://system.design.orange.com/0c1af118d/p/47d389-text-fields/b/461794" target="_blank">ODS Text Field</a>.
-///
-/// The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.
-///
-
-extension View {
-    /// Sets the ods style on __TextField__ and __TextEditor__
-    public func odsTextFieldStyle() -> some View {
-        modifier(ODSTextFieldStyle())
-    }
-}
-
-// MARK: - Internal font modifier
-
-///
-/// Private modifier to get the theme in environment.
-///
-
-private struct ODSTextFieldStyle: ViewModifier {
-
+struct ThemeablePreviews<Content>: View where Content: View {
+    
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @Environment(\.theme) private var theme
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    func body(content: Content) -> some View {
-        content
-            .accentColor(theme.componentColors.accent)
-            .padding(.all, ODSSpacing.s)
-            .odsFont(.bodyRegular)
-            .background(Color(.tertiarySystemFill), in: RoundedRectangle(cornerRadius: 8.0))
+    private let content: () -> Content
+    private let colorSchemes: [ColorScheme]
+    
+    // ==================
+    // MARK: Initializers
+    // ==================
+    
+    /// Creates an instance with the theme find in ThemeProvider.
+    ///
+    /// - Parameters:
+    ///   - colorSchemes: All cases must be provided for previews
+    ///   - content: A view builder that creates the content of this stack.
+    ///
+    public init(colorSchemes: [ColorScheme] = ColorScheme.allCases,
+                @ViewBuilder content: @escaping () -> Content){
+        self.colorSchemes = colorSchemes
+        self.content = content
+    }
+    
+    public var body: some View {
+        if !colorSchemes.isEmpty {
+            ForEach(colorSchemes, id: \.self) {
+                themeableView().preferredColorScheme($0)
+            }
+        } else {
+            themeableView()
+        }
+    }
+    
+    func themeableView() -> some View {
+        ODSThemeableView(theme: ThemeProvider().currentTheme) {
+            content()
+        }
     }
 }
+

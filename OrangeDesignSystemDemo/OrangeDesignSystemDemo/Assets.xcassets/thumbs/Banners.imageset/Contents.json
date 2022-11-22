@@ -1,0 +1,13 @@
+{
+  "images" : [
+    {
+      "filename" : "DSM-iOS-Components-Banners.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
