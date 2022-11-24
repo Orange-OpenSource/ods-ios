@@ -49,14 +49,15 @@ class ThemeProvider: ObservableObject {
 
     init() {
         let orangeTheme = OrangeThemeFactory().theme
-        themes = [orangeTheme,
-                  InnovationCupThemeFactory().theme]
+        let innovationCupTheme = InnovationCupThemeFactory().theme
+        let defaultTheme = innovationCupTheme
+        themes = [orangeTheme, innovationCupTheme]
 
         if let themeName = UserDefaults.standard.value(forKey: "themeName") as? String,
             let theme = themes.first( where: { $0.name == themeName } ) {
             self.currentTheme = theme
         } else {
-            self.currentTheme = orangeTheme
+            self.currentTheme = defaultTheme
         }
     }
 }

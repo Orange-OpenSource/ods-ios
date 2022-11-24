@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 - [SDK] Bug #276,#275,#279 [Accessibility] Do not vocalize images in ODSSmallCard, ODSCardTitleFirst and ODSCardImageFirst
+- [DemoApp] #259 Update the Bar Navigation variant list selection 
+- [DemoApp/SDK] #51 Add banners component
 - [SDK] #289 Add documentation for bars-tab component
 - [DemoApp] #257 Guidelines - Typography text description updates 
 - [DemoApp/SDK] #267 Update the list of Text fields variants

@@ -21,44 +21,32 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-///
-/// <a href="https://system.design.orange.com/0c1af118d/p/47d389-text-fields/b/461794" target="_blank">ODS Text Field</a>.
-///
-/// The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.
-///
-
-extension View {
-    /// Sets the ods style on __TextField__ and __TextEditor__
-    public func odsTextFieldStyle() -> some View {
-        modifier(ODSTextFieldStyle())
+// MARK: Bottom sheet for NavigationBar
+class NavigationBarSearchModel: ObservableObject {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+    
+    @Published var searchQuery: String
+    private var listItems: [String]
+        
+    // ==================
+    // MARK: Initializers
+    // ==================
+    init() {
+        searchQuery = ""
+        listItems = (1 ... 10).map { "Item #\($0)" }
     }
-}
-
-// MARK: - Internal font modifier
-
-///
-/// Private modifier to get the theme in environment.
-///
-
-private struct ODSTextFieldStyle: ViewModifier {
-
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @Environment(\.theme) private var theme
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    func body(content: Content) -> some View {
-        content
-            .accentColor(theme.componentColors.accent)
-            .padding(.all, ODSSpacing.s)
-            .odsFont(.bodyRegular)
-            .background(Color(.tertiarySystemFill), in: RoundedRectangle(cornerRadius: 8.0))
+        
+    var filteredListItems: [String] {
+        if searchQuery.isEmpty {
+            return listItems
+        } else {
+            return listItems.filter { $0.contains(searchQuery) }
+        }
     }
 }

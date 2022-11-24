@@ -28,7 +28,7 @@ import SwiftUI
 ///
 public struct ODSIconButton: View {
     @Environment(\.theme) private var theme
-    
+
     let image: Image
     let action: () -> Void
 
