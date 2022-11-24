@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [SDK] Bug #276,#275,#279 [Accessibility] Do not vocalize images in ODSSmallCard, ODSCardTitleFirst and ODSCardImageFirst
 - [DemoApp] #259 Update the Bar Navigation variant list selection 
 - [DemoApp/SDK] #51 Add banners component
 - [SDK] #289 Add documentation for bars-tab component
@@ -23,7 +24,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] #248 Technical code refactoring for component page presentation 
 - [SDK/DemoApp] #229 Technical update to use Small and ImageFirst cards in demo app and modules 
 - [DemoApp] #228 Change Chip to switch on List screen for "SecondLineOfText" and "LeadingImage" options 
-- [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components
 - [SDK/DemoApp] #182 Add card title first
 - [SDK/DemoApp] #237 Define a Grid of small cards module and use it in application for components 
 - [DemoApp] #235 Rename Module called Card View to Card Collections (2)

@@ -26,6 +26,8 @@ description: Cards contain content and actions about a single subject.
 
 Please follow [accessibility criteria for development](https://a11y-guidelines.orange.com/en/mobile/ios/)
 
+Images in cards are considered as decorative, so they are ignored by Voice Over.
+
 ## Variants
 
 Cards are a contained and independent element that can display content and actions on a single topic.
