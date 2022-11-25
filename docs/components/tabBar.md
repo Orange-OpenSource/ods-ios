@@ -27,7 +27,7 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 Tab bar is a standard iOS component. It use bar items to navigate between differents views.
 
-Bar Item contains an icon and a title.
+Bar Item contains an icon and a title. An additonal badge can be added with a count value or a text.
 
 Example with 4 bar items :
 
@@ -37,6 +37,7 @@ TabView {
         .tabItem {
             Label("Guidelines", image: "Guideline-DNA_32")
         }
+        .badge("Text")
     ComponentsList()
         .tabItem {
             Label("Components", image: "component-atom_32")
@@ -45,6 +46,7 @@ TabView {
         .tabItem {
             Label("Modules", image: "Module-molecule_32")
         }
+        .badge(10)
     ODSDemoAboutView()
         .tabItem {
             Label("About", image: "info_32")
