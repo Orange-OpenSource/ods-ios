@@ -40,20 +40,20 @@ struct SliderComponent: Component {
 
 struct SliderVariants: View {
     var body: some View {
-        VariantEntryItem(text: "Unlabeled slider", technicalElement: "ODSSlider()") {
-            UnlabeledSlider()
-            .navigationTitle("Unlabeled slider")
+        VariantEntryItem(text: "Sliders demo", technicalElement: "ODSSlider()") {
+            SliderVariant(model: SliderVariantModel())
+            .navigationTitle("Sliders demo")
         }
         
-        VariantEntryItem(text: "Labeled slider", technicalElement: "ODSSlider()") {
-            LabeledSlider()
-            .navigationTitle("Labeled slider")
-        } 
-        
-        VariantEntryItem(text: "Stepped slider", technicalElement: "ODSSlider()") {
-            SteppedSlider()
-            .navigationTitle("Stepped slider")
-        } 
+//        VariantEntryItem(text: "Labeled slider", technicalElement: "ODSSlider()") {
+//            LabeledSlider()
+//            .navigationTitle("Labeled slider")
+//        } 
+//        
+//        VariantEntryItem(text: "Stepped slider", technicalElement: "ODSSlider()") {
+//            SteppedSlider()
+//            .navigationTitle("Stepped slider")
+//        } 
     }
 }
 
