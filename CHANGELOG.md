@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] #266 Update slider variants
 - [SDK] Bug #276,#275,#279 [Accessibility] Do not vocalize images in ODSSmallCard, ODSCardTitleFirst and ODSCardImageFirst
 - [DemoApp] #259 Update the Bar Navigation variant list selection 
 - [DemoApp/SDK] #51 Add banners component

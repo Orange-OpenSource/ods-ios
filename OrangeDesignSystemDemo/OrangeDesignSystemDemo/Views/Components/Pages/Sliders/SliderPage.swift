@@ -34,16 +34,26 @@ struct SliderComponent: Component {
         title = "Sliders"
         image = Image("Slider")
         description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
-        
-        variants = AnyView(SliderVartants())
+        variants = AnyView(SliderVariants())
     }
 }
 
-struct SliderVartants: View {
+struct SliderVariants: View {
     var body: some View {
-        UnlabeledSlider()
-        LabeledSlider()
-        SteppedSlider()
+        VariantEntryItem(text: "Unlabeled slider", technicalElement: "ODSSlider()") {
+            UnlabeledSlider()
+            .navigationTitle("Unlabeled slider")
+        }
+        
+        VariantEntryItem(text: "Labeled slider", technicalElement: "ODSSlider()") {
+            LabeledSlider()
+            .navigationTitle("Labeled slider")
+        } 
+        
+        VariantEntryItem(text: "Stepped slider", technicalElement: "ODSSlider()") {
+            SteppedSlider()
+            .navigationTitle("Stepped slider")
+        } 
     }
 }
 
@@ -116,7 +126,7 @@ struct SliderPage_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {
             List {
-                SliderVartants()
+                SliderVariants()
             }
         }
     }
