@@ -41,7 +41,7 @@ struct TabBarVariantBottomSheet: View {
             Group {
                 Stepper("Number of items: \(model.itemsCount)",
                         value: $model.itemsCount,
-                        in: 1 ... model.numberOfItems)
+                        in: 2 ... model.numberOfItems)
             }
             .padding(.horizontal, ODSSpacing.m)
             .odsFont(.bodyBold)
@@ -62,30 +62,38 @@ class TabBarVariantModel: ObservableObject {
     // ======================
 
     @Published var itemsCount: Int
-    @Published var badgeOption: BadgeOption
+    @Published var badgeOption: BadgeOption {
+        didSet {
+            updateItems()
+        }
+    }
     
-    let itemDescriptions: [ItemDescription]
+    var itemDescriptions: [ItemDescription]
 
     // =================
     // MARK: Initializer
     // =================
 
     init() {
-        itemsCount = 1
+        itemsCount = 2
         badgeOption = .none
-        
-        itemDescriptions = [
-            ItemDescription(iconName: "star.fill", text: "Item 1", contentText: "Content view 1"),
-            ItemDescription(iconName: "star.fill", text: "Item 2", contentText: "Content view 2"),
-            ItemDescription(iconName: "star.fill", text: "Item 3", contentText: "Content view 3"),
-            ItemDescription(iconName: "star.fill", text: "Item 4", contentText: "Content view 4"),
-            ItemDescription(iconName: "star.fill", text: "Item 5", contentText: "Content view 5"),
-        ]
+        itemDescriptions = []
+        updateItems()
     }
     
     // =============
     // MARK: Helpers
     // =============
+    private func updateItems() {
+        itemDescriptions = [
+            // Display the badge only on the first item
+            ItemDescription(iconName: "star.fill", text: "Item 1", contentText: "Content view 1", badgeOption: self.badgeOption),
+            ItemDescription(iconName: "star.fill", text: "Item 2", contentText: "Content view 2", badgeOption: .none),
+            ItemDescription(iconName: "star.fill", text: "Item 3", contentText: "Content view 3", badgeOption: .none),
+            ItemDescription(iconName: "star.fill", text: "Item 4", contentText: "Content view 4", badgeOption: .none),
+            ItemDescription(iconName: "star.fill", text: "Item 5", contentText: "Content view 5", badgeOption: .none),
+        ]
+    }
     
     var availableItems: [ItemDescription] {
         Array(itemDescriptions.prefix(itemsCount))
@@ -99,6 +107,7 @@ class TabBarVariantModel: ObservableObject {
         let iconName: String
         let text: String
         let contentText: String
+        let badgeOption: BadgeOption
     }
     
     enum BadgeOption: Int, CaseIterable {

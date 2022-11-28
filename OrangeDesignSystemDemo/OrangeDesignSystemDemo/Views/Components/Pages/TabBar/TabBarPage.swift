@@ -68,7 +68,7 @@ private struct TabBarVariant: View {
                     TabView {
                         ForEach(model.availableItems, id: \.text) { itemDescription in
                             tabBarItem(from: itemDescription)
-                                .modifier(BadgeModifier(badgeOption: model.badgeOption))
+                                .modifier(BadgeModifier(badgeOption: itemDescription.badgeOption))
                         }
                     }
                 }
@@ -115,7 +115,7 @@ private struct BadgeModifier: ViewModifier {
             content
         }
         if badgeOption == .text {
-            content.badge("Text")
+            content.badge("?")
         }
         if badgeOption == .count {
             content.badge(10)
