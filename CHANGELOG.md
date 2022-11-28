@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [SDK] #295 Add NOTICE.txt file for Orange Images usage 
 - [DemoApp] #260 Update the Bar Tab variant list selection 
 - [SDK] Bug #276,#275,#279 [Accessibility] Do not vocalize images in ODSSmallCard, ODSCardTitleFirst and ODSCardImageFirst
 - [DemoApp] #259 Update the Bar Navigation variant list selection 
