@@ -39,94 +39,93 @@ struct SliderComponent: Component {
 }
 
 struct SliderVariants: View {
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         VariantEntryItem(text: "Sliders demo", technicalElement: "ODSSlider()") {
             SliderVariant(model: SliderVariantModel())
             .navigationTitle("Sliders demo")
         }
-        
-//        VariantEntryItem(text: "Labeled slider", technicalElement: "ODSSlider()") {
-//            LabeledSlider()
-//            .navigationTitle("Labeled slider")
-//        } 
-//        
-//        VariantEntryItem(text: "Stepped slider", technicalElement: "ODSSlider()") {
-//            SteppedSlider()
-//            .navigationTitle("Stepped slider")
-//        } 
     }
 }
 
-struct UnlabeledSlider: View {
 
+struct SliderVariant: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: SliderVariantModel
     @State private var value = 50.0
     let range = 0 ... 100.0
 
-    var body: some View {
-        Text("Unlabeled slider")
-            .odsFont(.title2)
-        VStack(alignment: .center) {
-            ODSSlider(
-                value: $value,
-                range: range)
-        }
-        .padding(.horizontal, ODSSpacing.s)
-    }
-}
-
-struct LabeledSlider: View {
-
-    @State private var value = 80.0
-    let range = 0 ... 100.0
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-
-        Text("Labeled slider").odsFont(.title2)
-        Text("Value : \(Int(value))").odsFont(.bodyRegular).accessibilityHidden(true)
-        VStack(alignment: .center) {
-            ODSSlider(value: $value, range: range) {
-                Image(systemName: "speaker.wave.1.fill").accessibilityHidden(true)
-            } maximumLabelView: {
-                Image(systemName: "speaker.wave.3.fill").accessibilityHidden(true)
+        ZStack {
+            ScrollView {
+                VStack {
+                    if model.showValue {
+                        Text(String(format: "%.2f", value))
+                            .odsFont(.bodyRegular)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .accessibilityHidden(true)
+                    }
+                    
+                    ODSSlider(value: $value, range: range, step: step) {
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
+                    } maximumLabelView: {
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                    }
+                    .accessibilityLabel(Text("Volume"))
+                }
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
             }
-            .accessibilityLabel(Text("Volume"))
-        }
-        .padding([.leading, .trailing], ODSSpacing.s)
-    }
-}
 
-struct SteppedSlider: View {
-
-    @State private var value = 30.0
-    let range = 0.0 ... 100.0
-    let step = 10.0
-
-    var body: some View {
-
-        Text("Stepped slider").odsFont(.title2)
-        Text("Value : \(Int(value))").odsFont(.bodyRegular).accessibilityHidden(true)
-
-        VStack(alignment: .center) {
-            ODSSlider(value: $value,
-                      range: range,
-                      step: step) {
-                Text("0").accessibilityHidden(true)
-            } maximumLabelView: {
-                Text("100").accessibilityHidden(true)
+            BottomSheet(showContent: false) {
+                SliderBottomSheetContent()
             }
-            .padding([.leading, .trailing], ODSSpacing.s)
+            .environmentObject(model)
+        }
+    }
+    
+    // =====================
+    // MARK: Private Helpers
+    // =====================
+    
+    var step: Double {
+        return model.stepped ? 5.0 : 1.0
+    }
+}
+
+struct SliderLabel: View {
+    let show: Bool
+    let systemName: String
+    
+    var body: some View {
+        if show {
+            Image(systemName: systemName).accessibilityHidden(true)
         }
     }
 }
+    
 
 
 #if DEBUG
-
 struct SliderPage_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {
-            List {
-                SliderVariants()
+            NavigationView {
+                List {
+                    SliderVariants()
+                }
             }
         }
     }

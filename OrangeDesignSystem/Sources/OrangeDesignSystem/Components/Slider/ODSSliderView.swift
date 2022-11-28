@@ -117,7 +117,11 @@ struct ODSSlider_Previews: PreviewProvider {
         VStack {
             ODSSlider(
                 value: .constant(50),
-                range: 0 ... 100.0)
+                range: 0 ... 100.0) {
+                    EmptyView()
+                } maximumLabelView: {
+                    EmptyView()
+                }
                 .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
