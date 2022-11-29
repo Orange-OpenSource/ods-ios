@@ -100,22 +100,21 @@ struct SliderVariant: View {
     // MARK: Private Helpers
     // =====================
     
-    var step: Double {
+    private var step: Double {
         return model.stepped ? 5.0 : 1.0
     }
-}
-
-struct SliderLabel: View {
-    let show: Bool
-    let systemName: String
     
-    var body: some View {
-        if show {
-            Image(systemName: systemName).accessibilityHidden(true)
+    struct SliderLabel: View {
+        let show: Bool
+        let systemName: String
+        
+        var body: some View {
+            if show {
+                Image(systemName: systemName).accessibilityHidden(true)
+            }
         }
     }
 }
-    
 
 
 #if DEBUG
