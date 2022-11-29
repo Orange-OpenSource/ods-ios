@@ -87,7 +87,7 @@ private struct ProgressBarVariant: View {
     }
 }
 
-struct ProgressIndicatorVariant: View {
+private struct ProgressIndicatorVariant: View {
 
     // ==========
     // MARK: Body
