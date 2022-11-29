@@ -39,57 +39,79 @@ struct ProgressIndicatorComponent: Component {
     }
 }
 
-struct ProgressIndicatorVariants: View {
+private struct ProgressIndicatorVariants: View {
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.m) {
+        VariantEntryItem(text: "Progress bar", technicalElement: "ProgressView(value:, total:)") {
             ProgressBarVariant()
+                .navigationTitle("Progress bar")
+        }
+        VariantEntryItem(text: "Progress indicator", technicalElement: "ProgressView()") {
             ProgressIndicatorVariant()
+                .navigationTitle("Progress indicator")
         }
     }
 }
 
 
-struct ProgressBarVariant: View {
-    @State private var secondsElapsed = 0.0
-    @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-    let maxSeconds: CGFloat = 100.0
+private struct ProgressBarVariant: View {
 
+    // ======================
+    // MARK: Store properties
+    // ======================
     @Environment(\.theme) private var theme
     
+    @State private var secondsElapsed = 0.0
+    @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    private let maxSeconds: CGFloat = 100.0
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
-        Text("Progress bar")
-            .odsFont(.title2)
-        ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
-            .tint(theme.componentColors.accent)
-            .onReceive(timer) { _ in
-                if secondsElapsed < maxSeconds {
-                    secondsElapsed += 1
-                } else {
-                    secondsElapsed = 0
+        VStack {
+            ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
+                .tint(theme.componentColors.accent)
+                .onReceive(timer) { _ in
+                    if secondsElapsed < maxSeconds {
+                        secondsElapsed += 1
+                    } else {
+                        secondsElapsed = 0
+                    }
                 }
-            }
+            
+            Spacer()
+        }
+        .padding(.all, ODSSpacing.m)
     }
 }
 
 struct ProgressIndicatorVariant: View {
+
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
-        Text("Progress indicator")
-            .odsFont(.title2)
-        HStack {
-            Spacer()
-            ProgressView()
+        VStack {
+            ProgressView() {
+                Text("Loading...")
+            }
             Spacer()
         }
+        .padding(.all, ODSSpacing.m)
     }
 }
 
 #if DEBUG
-
 struct ProgressIndicatorPage_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {
-            List {
-                ProgressIndicatorVariants()
+            NavigationView {
+                List {
+                    ProgressIndicatorVariants()
+                }
             }
         }
     }
