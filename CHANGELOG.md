@@ -1,7 +1,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.8.0] - 2022-11-30
 
 - [SDK] #295 Add NOTICE.txt file for Orange Images usage 
 - [DemoApp] #260 Update the Bar Tab variant list selection 
