@@ -64,8 +64,8 @@ struct ListLinesVariantInner: View {
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(Visibility.visible)
             }
-            .onMove(perform: move)
-            .onDelete(perform: delete)
+            .onMove(perform: model.move)
+            .onDelete(perform: model.delete)
             .padding(.horizontal, ODSSpacing.m)
         }
         .toolbar { EditButton() }
@@ -74,14 +74,6 @@ struct ListLinesVariantInner: View {
         .sheet(isPresented: $model.showSheetOnIButtonClicked) {
             ListInfoFromButtonI()
         }
-    }
-
-    func delete(at offsets: IndexSet) {
-        model.delete(at: offsets)
-    }
-
-    func move(from source: IndexSet, to destination: Int) {
-        model.move(from: source, to: destination)
     }
 }
 

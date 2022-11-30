@@ -91,10 +91,10 @@ struct VariantEntryItem<VariantPage>: View where VariantPage: View {
     }
     
     init(text: String, technicalElement: String, variantPage: @escaping () -> VariantPage) {
-        let playIcon = ODSListItemLeadingIconModel.withImage(Image(systemName: "play.circle"))
+        let playIcon = ODSListItemIcon.icon(Image(systemName: "play.circle"))
         self.itemModel = ODSListItemModel(title: text,
                                           subtitle: technicalElement,
-                                          leadingIconModel: playIcon)
+                                          leadingIcon: playIcon)
         self.variantPage = variantPage
     }
 }

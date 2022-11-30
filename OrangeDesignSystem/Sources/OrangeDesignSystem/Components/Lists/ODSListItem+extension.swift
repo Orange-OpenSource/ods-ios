@@ -25,25 +25,42 @@ import SwiftUI
 
 struct ODSListItemLeadingIcon: View {
 
-    let model: ODSListItemLeadingIconModel
-    let height: CGFloat?
+    let model: ODSListItemIcon
 
     var body: some View {
         switch model {
-        case let .withImage(image):
-            image.iconModifier(height: height)
-        case let .withUrl(url, placeHolder):
-            AsyncImage(url: url) { image in
-                image.iconModifier(height: height)
-            } placeholder: {
-                placeHolder.iconModifier(height: height)
-            }
+        case .icon(let image):
+            image
+        case .circularImage(let source):
+            ODSListAsyncIcon(source: source)
+                .clipShape(Circle())
+        case .squareImage(let source):
+            ODSListAsyncIcon(source: source)
+                .clipShape(Rectangle())
+        case .wideImage(let source):
+            ODSListAsyncIcon(source: source)
         }
     }
 
-    init(model: ODSListItemLeadingIconModel, height: CGFloat?) {
+    init(model: ODSListItemIcon) {
         self.model = model
-        self.height = height
+    }
+}
+
+private struct ODSListAsyncIcon: View {
+    let source: ODSListItemIcon.Source
+
+    var body: some View {
+        switch source {
+        case let .asyncImage(url, placeHolder):
+            AsyncImage(url: url) { image in
+                image.iconModifier()
+            } placeholder: {
+                placeHolder.iconModifier()
+            }
+        case let .image(image):
+            image.iconModifier()
+        }
     }
 }
 
@@ -51,7 +68,6 @@ extension Image {
     func iconModifier(height: CGFloat? = 44) -> some View {
         resizable()
             .aspectRatio(contentMode: .fit)
-            .padding(.vertical, ODSSpacing.s)
             .frame(height: height)
     }
 }

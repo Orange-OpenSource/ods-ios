@@ -37,15 +37,14 @@ struct ListLinesBottomSheet: View {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            Toggle(isOn: $model.showLeadingImage) {
-                Text("Leading").odsFont(.bodyBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
+            ODSChipPicker(title: "Leading",
+                          selection: $model.leadingIconOption,
+                          chips: LeadingIconOption.chips)
+                .padding(.vertical, ODSSpacing.s)
 
             ODSChipPicker(title: "Trailing",
-                          selection: $model.selectedTrailingImageChip,
-                          chips: model.trailingImageChips)
+                          selection: $model.trailingOption,
+                          chips: TrailingOption.chips)
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)

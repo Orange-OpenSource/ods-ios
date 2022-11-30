@@ -50,3 +50,17 @@ struct ListVariants: View {
     }
 }
 
+
+#if DEBUG
+struct ListPage_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    ListVariants()
+                }
+            }
+        }
+    }
+}
+#endif

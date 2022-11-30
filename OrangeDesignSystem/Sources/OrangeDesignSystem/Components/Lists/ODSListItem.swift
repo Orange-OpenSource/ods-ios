@@ -23,16 +23,25 @@
 
 import SwiftUI
 
+/// Describes the leading icon of the list item __ODSListItem__.
+/// Image can be loaded from resources or asynchronously from the specified URL.
+/// Until the image loads, the placeholder image is displayed.
+public enum ODSListItemIcon {
+    case icon(Image)                    // A standard icon.
+    case circularImage(source: Source)  // An image cropped into a circle.
+    case squareImage(source: Source)    // An image cropped into a square.
+    case wideImage(source: Source)      // An image cropped into a rectangle.
+    
+    public enum Source {
+        case image(Image)
+        case asyncImage(URL, Image)
+    }
+}
+
+
 // =============
 // MARK: Models
 // =============
-/// Model describes the leading icon of the list item.
-/// Image can be loaded from resources or asynchronously from the specified URL.
-/// Until the image loads, the placeholder image is displayed.
-public enum ODSListItemLeadingIconModel {
-    case withImage(Image)
-    case withUrl(URL, Image)
-}
 
 /// Model describes the trailing icon of the list item.
 /// A text or an "i" button are available.
@@ -54,7 +63,7 @@ public struct ODSListItemModel {
     public let id: UUID
     public let title: String
     public let subtitle: String?
-    public let leadingIconModel: ODSListItemLeadingIconModel?
+    public let leadingIcon: ODSListItemIcon?
     public let trailingIconModel: ODSListItemTrailingIconModel?
     public let minHeight: ODSListItemMinHeight
 
@@ -63,20 +72,20 @@ public struct ODSListItemModel {
     /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIconModel: The leading icon of the list item (optional)
+    ///     - leadingIcon: The leading icon of the list item (optional)
     ///     - trailingIconModel: The trailing meta text, info button
     ///     - minHeight: The minimum height of the list item (medium by default)
     ///
     public init(
         title: String,
         subtitle: String? = nil,
-        leadingIconModel: ODSListItemLeadingIconModel? = nil,
+        leadingIcon: ODSListItemIcon? = nil,
         trailingIconModel: ODSListItemTrailingIconModel? = nil,
         minHeight: ODSListItemMinHeight = .medium)
     {
         self.title = title
         self.subtitle = subtitle
-        self.leadingIconModel = leadingIconModel
+        self.leadingIcon = leadingIcon
         self.trailingIconModel = trailingIconModel
         self.minHeight = minHeight
 
@@ -137,8 +146,8 @@ public struct ODSListItem: View {
 
     public var body: some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
-            if let leadingIconModel = model.leadingIconModel {
-                ODSListItemLeadingIcon(model: leadingIconModel, height: model.minHeight.rawValue)
+            if let leadingIcon = model.leadingIcon {
+                ODSListItemLeadingIcon(model: leadingIcon)
             }
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
