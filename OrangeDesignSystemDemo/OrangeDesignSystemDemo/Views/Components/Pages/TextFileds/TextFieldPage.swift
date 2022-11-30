@@ -53,21 +53,21 @@ struct TextFieldVariants: View {
 
     var body: some View {
         VariantEntryItem(text: "Secure text field", technicalElement: "SecureField()") {
-            VariantSecureTextField().navigationTitle("Secure text field")
+            SecureTextFieldVariant().navigationTitle("Secure text field")
         }
 
         VariantEntryItem(text: "Text field", technicalElement: "TextField()") {
-            VariantTextField().navigationTitle("Text field")
+            TextFieldVariant().navigationTitle("Text field")
         }
 
         VariantEntryItem(text: "Text editor", technicalElement: "TextEditor()") {
-            VariantTextEditor().navigationTitle("Text editor")
+            TextEditorVariant().navigationTitle("Text editor")
         }
     }
 }
 
 // MARK: Variants
-struct VariantSecureTextField: View {
+struct SecureTextFieldVariant: View {
     
     // ======================
     // MARK: Store properties
@@ -91,30 +91,30 @@ struct VariantSecureTextField: View {
     }
 }
 
-struct VariantTextEditor: View {
+struct TextEditorVariant: View {
 
     var body: some View {
-        VariantCapitalizedText(model: VariantTextFieldModel(textInputType: .textEditor))
+        CapitalizedTextInputsVariant(model: TextInputsVariantModel(inputType: .textEditor))
     }
 }
 
-struct VariantTextField: View {
+struct TextFieldVariant: View {
     var body: some View {
-        VariantCapitalizedText(model: VariantTextFieldModel(textInputType: .textField))
+        CapitalizedTextInputsVariant(model: TextInputsVariantModel(inputType: .textField))
     }
 }
 
 
-private struct VariantCapitalizedText: View {
+private struct CapitalizedTextInputsVariant: View {
     
     // ======================
     // MARK: Store properties
     // ======================
 
-    @ObservedObject var model: VariantTextFieldModel
+    @ObservedObject var model: TextInputsVariantModel
     
     @ViewBuilder var textField: some View {
-        switch model.textInputType {
+        switch model.inputType {
         case .textField:
             TextField(model.defaultText, text: $model.textToEdit)
         case .textEditor:
@@ -146,7 +146,7 @@ private struct VariantCapitalizedText: View {
             }
             
             BottomSheet(showContent: false) {
-                VariantTextFieldBottomSheet()
+                TextInputsVariantBottomSheet()
             }
             .environmentObject(model)
         }
@@ -156,42 +156,16 @@ private struct VariantCapitalizedText: View {
     // MARK: Initializers
     // ==================
 
-    init(model: VariantTextFieldModel) {
+    init(model: TextInputsVariantModel) {
         self.model = model
         
-        if case .textEditor = model.textInputType {
+        if case .textEditor = model.inputType {
             UITextView.appearance().backgroundColor = .clear
         }
     }
 }
 
-
-// MARK: Bottom Sheet
-private struct VariantTextFieldBottomSheet: View {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @EnvironmentObject var model: VariantTextFieldModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            ODSChipPicker(title: "Capitalization",
-                          selection: $model.selectedCapitalizationType,
-                          chips: model.capitalizationTypeChips)
-                .padding(.vertical, ODSSpacing.s)
-        }
-        .padding(.top, ODSSpacing.s)
-    }
-}
-
 #if DEBUG
-
 struct TextFieldPage_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {
