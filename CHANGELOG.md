@@ -3,7 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-
+- [DemoApp] #307 Update default text in TextFields according to the selected capitalization
+ 
 ## [0.8.0] - 2022-11-30
 
 - [SDK] #295 Add NOTICE.txt file for Orange Images usage 
