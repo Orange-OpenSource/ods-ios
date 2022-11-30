@@ -22,33 +22,47 @@
 //
 
 import SwiftUI
+import OrangeDesignSystem
 
-///
-/// Simple button with icon.
-///
-public struct ODSIconButton: View {
-    @Environment(\.theme) private var theme
+struct ThemeablePreviews<Content>: View where Content: View {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    let image: Image
-    let action: () -> Void
-
-    /// Initialize the button.
+    private let content: () -> Content
+    private let colorSchemes: [ColorScheme]
+    
+    // ==================
+    // MARK: Initializers
+    // ==================
+    
+    /// Creates an instance with the theme find in ThemeProvider.
     ///
     /// - Parameters:
-    ///   - image: The icon to be displayed.
-    ///   - action: Will be called when the user clicks the button.
+    ///   - colorSchemes: All cases must be provided for previews
+    ///   - content: A view builder that creates the content of this stack.
     ///
-    public init(image: Image, action: @escaping () -> Void) {
-        self.image = image
-        self.action = action
+    public init(colorSchemes: [ColorScheme] = ColorScheme.allCases,
+                @ViewBuilder content: @escaping () -> Content){
+        self.colorSchemes = colorSchemes
+        self.content = content
     }
-
+    
     public var body: some View {
-        Button {
-            action()
-        } label: {
-            ODSIcon(image)
-                .foregroundColor(theme.componentColors.accent)
+        if !colorSchemes.isEmpty {
+            ForEach(colorSchemes, id: \.self) {
+                themeableView().preferredColorScheme($0)
+            }
+        } else {
+            themeableView()
+        }
+    }
+    
+    func themeableView() -> some View {
+        ODSThemeableView(theme: ThemeProvider().currentTheme) {
+            content()
         }
     }
 }
+

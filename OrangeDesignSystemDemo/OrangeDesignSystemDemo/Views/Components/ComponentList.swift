@@ -31,6 +31,7 @@ struct ComponentsList: View {
     init() {
         // Remark: Components are automatically displayed sorted by their name
         let components: [Component] = [
+            BannerComponent(),
             ButtonComponent(),
             CardComponent(),
             ChipsComponent(),
@@ -86,10 +87,8 @@ import OrangeTheme
 
 struct ComponentsCardsList_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
+        ThemeablePreviews {
             ComponentsList()
-                .preferredColorScheme($0)
-                .environment(\.theme, OrangeThemeFactory().theme)
         }
     }
 }

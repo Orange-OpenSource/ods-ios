@@ -166,6 +166,6 @@ struct SpacingVisual: View {
                 .frame(width: spacingWidth, alignment: .center)
         }
         .frame(width: 60, height: 50)
-        .background(Color(UIColor.tertiarySystemGroupedBackground))
+        .background(Color(UIColor.tertiarySystemFill))
     }
 }

@@ -133,6 +133,7 @@ extension ODSCardTitleFirst {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 44.0, height: 44.0, alignment: .center)
                     .clipShape(Circle())
+                    .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: ODSSpacing.none) {
                     Text(model.title)
@@ -153,6 +154,7 @@ extension ODSCardTitleFirst {
             model.image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 if let supportingText = model.supportingText, !supportingText.isEmpty {

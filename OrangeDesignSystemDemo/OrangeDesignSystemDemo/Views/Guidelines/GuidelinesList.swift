@@ -23,13 +23,12 @@
 
 import OrangeDesignSystem
 import SwiftUI
-import OrangeTheme
 
 struct GuidelinesList: View {
     
-    // ============================
+    // ======================
     // MARK: Store properties
-    // ============================
+    // ======================
 
     @Environment(\.theme) private var theme
     
@@ -63,9 +62,12 @@ struct GuidelinesList: View {
 }
 
 #if DEBUG
+
 struct GuidelinesListView_Previews: PreviewProvider {
     static var previews: some View {
-        GuidelinesList()
+        ThemeablePreviews {
+            GuidelinesList()
+        }
     }
 }
 #endif

@@ -80,7 +80,7 @@ struct VariantsTitle: View {
     }
 }
 
-struct VariantEntyItem<VariantPage>: View where VariantPage: View {
+struct VariantEntryItem<VariantPage>: View where VariantPage: View {
     let itemModel: ODSListItemModel
     let variantPage: () -> VariantPage
     
@@ -91,7 +91,10 @@ struct VariantEntyItem<VariantPage>: View where VariantPage: View {
     }
     
     init(text: String, technicalElement: String, variantPage: @escaping () -> VariantPage) {
-        self.itemModel = ODSListItemModel(title: text, subtitle: technicalElement)
+        let playIcon = ODSListItemLeadingIconModel.withImage(Image(systemName: "play.circle"))
+        self.itemModel = ODSListItemModel(title: text,
+                                          subtitle: technicalElement,
+                                          leadingIconModel: playIcon)
         self.variantPage = variantPage
     }
 }
@@ -115,7 +118,7 @@ struct ComponentPage_Previews: PreviewProvider {
 
     struct Variants: View {
         var body: some View {
-            VariantEntyItem(text: "Variant 1", technicalElement: "MyTestElement()") {
+            VariantEntryItem(text: "Variant 1", technicalElement: "MyTestElement()") {
                 Text("This is a Variant")
             }
         }

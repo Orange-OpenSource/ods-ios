@@ -127,6 +127,7 @@ extension ODSCardImageFirst {
             model.image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 Text(model.title)

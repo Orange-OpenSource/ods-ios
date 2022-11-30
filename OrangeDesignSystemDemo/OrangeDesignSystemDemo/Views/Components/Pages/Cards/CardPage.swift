@@ -39,26 +39,23 @@ struct CardComponent: Component {
     }
 }
 
+
 struct CardVariants: View {
     
     var body: some View {
-
-        NavigationLink {
+        VariantEntryItem(text: "Card Image First", technicalElement: "ODSCardImageFirst()") {
             CardImageFirstVariant(model: CardImageFirstVariantModel())
-        } label: {
-            ODSListItem(model: ODSListItemModel(title: "Card Image First"))
+                .navigationTitle("Card Image First")
         }
-
-        NavigationLink {
+        
+        VariantEntryItem(text: "Card Title First", technicalElement: "ODSCardTitleFirst()") {
             CardTitleFirstVariant(model: CardTitleFirstVariantModel())
-        } label: {
-            ODSListItem(model: ODSListItemModel(title: "Card Title First"))
+                .navigationTitle("Card Title First")
         }
 
-        NavigationLink {
+        VariantEntryItem(text: "Small card", technicalElement: "ODSSmallCard") {
             SmallCardVariant(model: SmallCardVariantModel())
-        } label: {
-            ODSListItem(model: ODSListItemModel(title: "Small card"))
+                .navigationTitle("Small card")
         }
     }
 }
