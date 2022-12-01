@@ -16,12 +16,14 @@ toc2:
 
   - title: Components
     subfolderitems:
+      - page: Banners
+        url: components/banners_docs
       - page: Bars - navigation
         url: components/navigationBar_docs
-      - page: Button - standard
-        url: components/standardButton_docs
-      - page: Button - shape
-        url: components/shapedButton_docs
+      - page: Bars - tab
+        url: components/tabBar_docs
+      - page: Buttons
+        url: components/buttons_docs
       - page: Cards
         url: components/cards_docs
       - page: Chips
@@ -32,8 +34,8 @@ toc2:
         url: components/progressIndicator_docs
       - page: Slider
         url: components/slider_docs
-      - page: Text selection
-        url: components/textSelection_docs
+      - page: Text fields
+        url: components/textInput_docs
 
   - title: Modules
     subfolderitems:

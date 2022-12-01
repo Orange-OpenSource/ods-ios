@@ -21,41 +21,31 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
-struct SliderPage: View {
+struct SliderComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Sliders"
+        image = Image("Slider")
+        description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
+        
+        variants = AnyView(SliderVartants())
+    }
+}
 
+struct SliderVartants: View {
     var body: some View {
-        ScrollView {
-            Image("Slider")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                ComponentDescription(text: "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.")
-                VariantsTitle()
-                UnlabeledSlider()
-                LabeledSlider()
-                SteppedSlider().padding(.bottom, ODSSpacing.s)
-            }
-            .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
-        }
-        .background(ODSColor.primaryBackground.color)
+        UnlabeledSlider()
+        LabeledSlider()
+        SteppedSlider()
     }
 }
-
-#if DEBUG
-struct SliderPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            SliderPage()
-                .preferredColorScheme($0)
-        }
-    }
-}
-#endif
 
 struct UnlabeledSlider: View {
 
@@ -118,3 +108,17 @@ struct SteppedSlider: View {
         }
     }
 }
+
+
+#if DEBUG
+
+struct SliderPage_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            List {
+                SliderVartants()
+            }
+        }
+    }
+}
+#endif

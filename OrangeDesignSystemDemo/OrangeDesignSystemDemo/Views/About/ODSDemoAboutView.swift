@@ -35,6 +35,7 @@ struct ODSDemoAboutView: View {
     }
 }
 
+#if DEBUG
 struct ODSDemoAboutView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -42,3 +43,4 @@ struct ODSDemoAboutView_Previews: PreviewProvider {
         }
     }
 }
+#endif

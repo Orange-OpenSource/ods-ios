@@ -47,6 +47,7 @@ struct ShowMarkdownView: View {
     }
 }
 
+#if DEBUG
 struct ShowMarkdownView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -54,3 +55,4 @@ struct ShowMarkdownView_Previews: PreviewProvider {
         }
     }
 }
+#endif

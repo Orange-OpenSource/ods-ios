@@ -55,7 +55,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
         /// Create a chip model that describes the chip contents.
         ///
-        /// - Parameters
+        /// - Parameters:
         ///     - value: The value of the chip
         ///     - text: Text of the chip
         ///     - thumbnail: Optional leading thumbnail
@@ -198,7 +198,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
 
     @ViewBuilder func background(for chip: ODSChipModel) -> some View {
         if isSelected(chip) {
-            Capsule().foregroundColor(ODSColor.coreOrange.color)
+            Capsule().foregroundColor(Color.accentColor)
         } else {
             Capsule().stroke(lineWidth: 1)
         }
@@ -304,7 +304,7 @@ struct ChipSelectedAvatar: View {
             .resizable()
             .renderingMode(.template)
             .aspectRatio(contentMode: .fit)
-            .tint(ODSColor.coreOrange.color)
+            .tint(Color.accentColor)
             .background(Color.black)
             .frame(width: height - 6, height: height - 6, alignment: .center)
             .clipShape(Circle())
@@ -400,7 +400,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
 
                     VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Single selection with at least one",
@@ -412,7 +412,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
 
                     VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Multiple selection with zero allowed",
@@ -426,7 +426,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
 
                     VStack(spacing: ODSSpacing.s) {
                         ODSChipPicker(title: "Multiple selection with at least one",
@@ -440,7 +440,7 @@ struct ODSChips_Previews: PreviewProvider {
                     }
                     .padding(.horizontal, ODSSpacing.none)
                     .padding(.bottom, ODSSpacing.l)
-                    .background(ODSColor.supportingGreen100.color)
+                    .background(.green)
                 }
             }
         }

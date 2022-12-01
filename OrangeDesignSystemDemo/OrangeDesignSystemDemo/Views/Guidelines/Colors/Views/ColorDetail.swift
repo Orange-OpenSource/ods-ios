@@ -21,21 +21,24 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
 struct ColorDetail: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
 
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var screenState: ScreenState
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var screenState: ScreenState
 
-    let color: ODSColor
+    let colorDescription: ODSColorDecription
     let usage = "Coming soon ..."
 
-    var colorName: String {
-        color.displayName(forScheme: screenState.colorScheme)
-    }
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         ZStack {
@@ -44,14 +47,13 @@ struct ColorDetail: View {
 
             VStack(alignment: .leading) {
 
-                Rectangle().fill(color.color(forScheme: screenState.colorScheme))
+                Rectangle().fill(colorDescription.color)
                     .frame(width: 300, height: 150)
 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(color.displayName(forScheme: self.screenState.colorScheme)).odsFont(.headline)
-                    Text(color.rawValue).font(.system(.caption, design: .monospaced))
-                    Text(color.rgb(forScheme: screenState.colorScheme).displayableValue).odsFont(.caption1Regular)
-                    Text(color.hexa(forScheme: screenState.colorScheme)).odsFont(.caption1Regular)
+                    Text(colorDescription.assetName).odsFont(.headline)
+                    Text(colorDescription.uiColor.rgba(colorScheme: screenState.colorScheme).displayableValue).odsFont(.caption1Regular)
+                    Text(colorDescription.uiColor.hexa(colorScheme: screenState.colorScheme)).odsFont(.caption1Regular)
 
                     Text("Usage")
                         .odsFont(.headline)
@@ -61,6 +63,7 @@ struct ColorDetail: View {
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.l, trailing: ODSSpacing.m))
             }
             .background(Color(uiColor: UIColor.systemGray6))
+            .colorScheme(screenState.colorScheme)
             .cornerRadius(10)
             .accessibilityElement()
             .accessibilityLabel(accessibilityLabel)
@@ -70,8 +73,12 @@ struct ColorDetail: View {
         }
     }
 
+    // ============================
+    // MARK: Private Implementation
+    // ============================
+
     var accessibilityLabel: String {
-        "\(colorName), "
+        "\(colorDescription.assetName), "
             + "Usage, \(usage)"
     }
 }

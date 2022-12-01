@@ -25,34 +25,49 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct GuidelinesList: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
 
-    @ObservedObject var screenState = ScreenState()
+    @Environment(\.theme) private var theme
+    
+    private var items: [ODSListOfCardImageFirstItemModel] {
+        [
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
+                ColorPage()
+            },
+            
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
+                TypographyPage()
+            },
+            
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
+                SpacingPage()
+            },
+        ]
+    }
+    
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-        let listModel = ODSListCardViewModel(title: "Guidelines",
-                                             cards: [
-                                                 ODSCardModel(title: "Colours", image: "Colour") {
-                                                     ColorList().environmentObject(self.screenState)
-                                                 },
-                                                 ODSCardModel(title: "Typography", image: "Typography") {
-                                                     FontList()
-                                                 },
-                                                 ODSCardModel(title: "Spacings", image: "Spacing") {
-                                                     SpacingList()
-                                                 },
-                                             ])
-        return NavigationView {
-            ODSListCardView()
-                .environmentObject(listModel)
-                .background(ODSColor.primaryBackground.color)
+        NavigationView {
+            ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
+                .navigationTitle("Guidelines")
+                .navigationViewStyle(.stack)
         }
     }
 }
 
 #if DEBUG
+
 struct GuidelinesListView_Previews: PreviewProvider {
     static var previews: some View {
-        GuidelinesList()
+        ThemeablePreviews {
+            GuidelinesList()
+        }
     }
 }
 #endif

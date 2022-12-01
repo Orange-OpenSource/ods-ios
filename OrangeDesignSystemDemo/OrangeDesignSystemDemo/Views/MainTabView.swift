@@ -25,9 +25,8 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct MainTabView: View {
-
+    
     var body: some View {
-
         TabView {
             GuidelinesList()
                 .tabItem {
@@ -45,18 +44,11 @@ struct MainTabView: View {
                 .tabItem {
                     Label("About", image: "info_32")
                 }
-//            Text("Search")
-//                .odsFont(.largeTitle)
-//                .tabItem {
-//                    Label("Search", image: "Search_32")
-//                }
         }
-        .navigationBarColor(tintColor: ODSColor.coreOrange.color.uiColor ?? UIColor.orange,
-                            backgroundColor: ODSColor.componentBackground.color.uiColor ?? UIColor.systemBackground)
-        .tabBarStyle(backgroundColor: ODSColor.componentBackground.color, itemColor: Color.primary)
     }
 }
 
+#if DEBUG
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
@@ -64,3 +56,5 @@ struct TabView_Previews: PreviewProvider {
         }
     }
 }
+#endif
+
