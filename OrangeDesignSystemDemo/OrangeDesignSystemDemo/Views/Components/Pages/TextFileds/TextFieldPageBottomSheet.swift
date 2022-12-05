@@ -24,7 +24,7 @@
 import SwiftUI
 import OrangeDesignSystem
 
-class VariantTextFieldModel: ObservableObject {
+class TextInputsVariantModel: ObservableObject {
     
     // ====================
     // MARK: Internal types
@@ -36,7 +36,7 @@ class VariantTextFieldModel: ObservableObject {
         case words
         case sentences
         
-        public var textInputAutocapitalization: TextInputAutocapitalization {
+        var textInputAutocapitalization: TextInputAutocapitalization {
             switch self {
             case .never: return .never
             case .characters: return .characters
@@ -45,7 +45,7 @@ class VariantTextFieldModel: ObservableObject {
             }
         }
         
-        public var description: String {
+        var description: String {
             switch self {
             case .never: return "none"
             case .characters: return "characters"
@@ -53,9 +53,17 @@ class VariantTextFieldModel: ObservableObject {
             case .sentences: return "sentences"
             }
         }
+        
+        var chip: ODSChip<Self> {
+            ODSChip(self, text: self.description)
+        }
+        
+        static var chips: [ODSChip<Self>] {
+            Self.allCases.map { $0.chip }
+        }
     }
     
-    enum TextInputType {
+    enum InputType {
         case textField
         case textEditor
     }
@@ -69,35 +77,64 @@ class VariantTextFieldModel: ObservableObject {
     }
     
     @Published var textToEdit: String = ""
+    
     var defaultText: String  {
-        return "text to edit"
+        let text = "text to edit."
+        switch selectedCapitalizationType {
+        case .never:
+            return text
+        case .characters:
+            return text.uppercased()
+        case .words:
+            return text.capitalized
+        case .sentences:
+            return "Text to edit."
+        }
     }
     
-    let capitalizationTypeChips: [ODSChip<CapitalizationType>]
-    let textInputType: TextInputType
+    let inputType: InputType
     
     // ==================
     // MARK: Initializers
     // ==================
 
-    init(textInputType: TextInputType) {
+    init(inputType: InputType) {
         
-        self.textInputType = textInputType
-        
-        capitalizationTypeChips = CapitalizationType.allCases.map { type in
-            ODSChip(type, text: type.description)
-        }
+        self.inputType = inputType
         selectedCapitalizationType = CapitalizationType.never
         
         reseetTextToEdit()
     }
     
     private func reseetTextToEdit() {
-        switch textInputType {
+        switch inputType {
         case .textField:
             textToEdit = ""
         case .textEditor:
-            textToEdit = "text to edit"
+            textToEdit = defaultText
         }
+    }
+}
+
+struct TextInputsVariantBottomSheet: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @EnvironmentObject var model: TextInputsVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        VStack(spacing: ODSSpacing.none) {
+            ODSChipPicker(title: "Capitalization",
+                          selection: $model.selectedCapitalizationType,
+                          chips: TextInputsVariantModel.CapitalizationType.chips)
+                .padding(.vertical, ODSSpacing.s)
+        }
+        .padding(.top, ODSSpacing.s)
     }
 }

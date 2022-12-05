@@ -40,7 +40,7 @@
 		07C8235628AE68B2003B2C3A /* CardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234A28AE68B2003B2C3A /* CardPage.swift */; };
 		07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8235828AE690F003B2C3A /* ComponentPage.swift */; };
 		07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */; };
-		07CC452729238A91008BE71F /* TextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC452629238A90008BE71F /* TextFieldModel.swift */; };
+		07CC452729238A91008BE71F /* TextFieldPageBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC452629238A90008BE71F /* TextFieldPageBottomSheet.swift */; };
 		07CC45292923CAAD008BE71F /* BannerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC45282923CAAD008BE71F /* BannerPage.swift */; };
 		07CC452C2923CFD3008BE71F /* BannerPageBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC452B2923CFD3008BE71F /* BannerPageBottomSheet.swift */; };
 		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
@@ -125,7 +125,7 @@
 		07C8234A28AE68B2003B2C3A /* CardPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPage.swift; sourceTree = "<group>"; };
 		07C8235828AE690F003B2C3A /* ComponentPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentPage.swift; sourceTree = "<group>"; };
 		07C8236728AE823F003B2C3A /* ThemeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
-		07CC452629238A90008BE71F /* TextFieldModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldModel.swift; sourceTree = "<group>"; };
+		07CC452629238A90008BE71F /* TextFieldPageBottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldPageBottomSheet.swift; sourceTree = "<group>"; };
 		07CC45282923CAAD008BE71F /* BannerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPage.swift; sourceTree = "<group>"; };
 		07CC452B2923CFD3008BE71F /* BannerPageBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPageBottomSheet.swift; sourceTree = "<group>"; };
 		07E37F6128C73252003FF740 /* SmallCardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCardVariant.swift; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 		07389ACF291AB8DE000D7F4C /* TextFileds */ = {
 			isa = PBXGroup;
 			children = (
-				07CC452629238A90008BE71F /* TextFieldModel.swift */,
+				07CC452629238A90008BE71F /* TextFieldPageBottomSheet.swift */,
 				07C8234328AE68B2003B2C3A /* TextFieldPage.swift */,
 			);
 			path = TextFileds;
@@ -864,7 +864,7 @@
 				0752EC2828EDBB540029A7BE /* ChipsPageModel.swift in Sources */,
 				F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */,
 				07C8235228AE68B2003B2C3A /* ProgressIndicatorPage.swift in Sources */,
-				07CC452729238A91008BE71F /* TextFieldModel.swift in Sources */,
+				07CC452729238A91008BE71F /* TextFieldPageBottomSheet.swift in Sources */,
 				F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */,
 				07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */,
 				07387C6328F062D900D8721F /* ListPage.swift in Sources */,
@@ -1058,7 +1058,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.0;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1093,7 +1093,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.0;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
