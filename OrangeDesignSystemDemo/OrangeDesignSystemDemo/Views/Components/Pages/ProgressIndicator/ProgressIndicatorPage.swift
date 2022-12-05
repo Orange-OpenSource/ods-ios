@@ -42,13 +42,14 @@ struct ProgressIndicatorComponent: Component {
 private struct ProgressIndicatorVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "Progress bar", technicalElement: "ProgressView(value:, total:)") {
-            ProgressBarVariant()
-                .navigationTitle("Progress bar")
+        VariantEntryItem(text: "Progress bar demo", technicalElement: "ProgressView(value:, total:)") {
+            ProgressBarVariant(model: ProgressBarVariantModel())
+                .navigationTitle("Progress bar demo")
         }
-        VariantEntryItem(text: "Progress indicator", technicalElement: "ProgressView()") {
-            ProgressIndicatorVariant()
-                .navigationTitle("Progress indicator")
+        
+        VariantEntryItem(text: "Activity indicator", technicalElement: "ProgressView()") {
+            ActivityIndicatorVariant(model: ActivityIndicatorModel())
+                .navigationTitle("Activity indicator")
         }
     }
 }
@@ -61,17 +62,34 @@ private struct ProgressBarVariant: View {
     // ======================
     @Environment(\.theme) private var theme
     
+    @ObservedObject var model: ProgressBarVariantModel
+    
     @State private var secondsElapsed = 0.0
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     private let maxSeconds: CGFloat = 100.0
-    
+
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        VStack {
-            ProgressView("Downloading…", value: secondsElapsed, total: maxSeconds)
+        ZStack {
+            VStack {
+                ProgressView(value: secondsElapsed, total: maxSeconds) {
+                    if model.showLabel {
+                        Label(title: {Text("Downloading...")}, icon: {
+                            if model.showIconInLabel {
+                                Image(systemName: "tray.and.arrow.down")
+                            }
+                        })
+                    }
+                } currentValueLabel: {
+                    if model.showCurrentValue {
+                        let percent = String(format: "%0.2f", secondsElapsed)
+                        Text("\(percent) %")
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+                }
                 .tint(theme.componentColors.accent)
                 .onReceive(timer) { _ in
                     if secondsElapsed < maxSeconds {
@@ -80,27 +98,48 @@ private struct ProgressBarVariant: View {
                         secondsElapsed = 0
                     }
                 }
+                
+                Spacer()
+            }
+            .padding(.all, ODSSpacing.m)
             
-            Spacer()
+            BottomSheet() {
+                ProgressBarVariantBottomSheet()
+            }
+            .environmentObject(model)
         }
-        .padding(.all, ODSSpacing.m)
     }
 }
 
-private struct ProgressIndicatorVariant: View {
+private struct ActivityIndicatorVariant: View {
 
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: ActivityIndicatorModel
+    
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        VStack {
-            ProgressView() {
-                Text("Loading...")
+        ZStack {
+            VStack {
+                ProgressView {
+                    if model.showLabel {
+                        Text("Loading...")
+                    }
+                }
+                Spacer()
             }
-            Spacer()
+            .padding(.all, ODSSpacing.m)
         }
-        .padding(.all, ODSSpacing.m)
+
+        BottomSheet {
+            ActivityIndicatorBottomSheet()
+        }
+        .environmentObject(model)
     }
 }
 
