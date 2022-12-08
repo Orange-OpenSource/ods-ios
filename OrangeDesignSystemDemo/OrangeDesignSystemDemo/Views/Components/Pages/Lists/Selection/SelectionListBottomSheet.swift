@@ -25,14 +25,22 @@ import OrangeDesignSystem
 import SwiftUI
 
 // MARK: Bottom Sheet - content for list
-struct ListLinesBottomSheet: View {
+struct SelectionListBottomSheet: View {
 
-    @EnvironmentObject var model: ListLinesVariantModel
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @EnvironmentObject var model: SelectionListVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSecondLine) {
-                Text("Second line of text").odsFont(.bodyBold)
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
@@ -44,9 +52,30 @@ struct ListLinesBottomSheet: View {
 
             ODSChipPicker(title: "Trailing",
                           selection: $model.trailingOption,
-                          chips: TrailingOption.chips)
+                          chips: ODSListItemTrailingSelection.chips)
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)
+    }
+}
+
+
+extension ODSListItemTrailingSelection {
+
+    private var description: String {
+        switch self {
+        case .checkmark:
+            return "checkmark"
+        case .toggle:
+            return "switch"
+        }
+    }
+        
+    private var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+        
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }

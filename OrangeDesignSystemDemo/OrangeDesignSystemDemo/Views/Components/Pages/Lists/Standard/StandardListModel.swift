@@ -77,46 +77,17 @@ enum TrailingOption: Int, CaseIterable {
     }
 }
 
-struct Receipe {
-    let title: String
-    let subtitle: String
-    let url: URL
-    let iconName: String
-}
-
-let defaultReceipes: [Receipe] = [
-    Receipe(title: "Summer Salad",
-            subtitle: "20min",
-            url: URL(string: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")!,
-            iconName: "iconsCommunicationRUIcRestaurant"),
-    Receipe(title: "Brocoli Soup",
-            subtitle: "12min",
-            url: URL(string: "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80")!,
-            iconName: "iconsCommunicationDIcCookingPot"),
-    Receipe(title: "Fig Sponge Cake",
-            subtitle: "1h20",
-            url: URL(string: "https://images.unsplash.com/photo-1565661834013-d196ca46e14e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80")!,
-            iconName: "iconsCommunicationDIcCafe"),
-    Receipe(title: "Raspberry Cake",
-            subtitle: "45min",
-            url: URL(string: "https://images.unsplash.com/photo-1615735487485-e52b9af610c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80")!,
-            iconName: "iconsCommunicationDIIcIceCream"),
-    Receipe(title: "Easy Noodles",
-            subtitle: "17min",
-            url: URL(string:"https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80")!,
-            iconName: "iconsCommunicationRUIcRestaurant"),
-]
-
 // =============
 // MARK: Models
 // =============
-class ListLinesVariantModel: ObservableObject {
+
+class StandardListVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties
     // =======================
 
-    @Published var showSecondLine: Bool {
+    @Published var showSubtitle: Bool {
         didSet { updateItems() }
     }
 
@@ -124,25 +95,23 @@ class ListLinesVariantModel: ObservableObject {
         didSet { updateItems() }
     }
         
-    @Published var trailingOption: TrailingOption? {
+    @Published var trailingOptions: [TrailingOption] {
         didSet { updateItems() }
     }
 
     @Published var itemModels: [ODSListItemModel] = []
-    
-    @Published var minHeight: ODSListItemMinHeight = .large
 
-    private var recipes: [Receipe] = []
+    private var recipes: [Recipe] = []
     
     // ==================
     // MARK: Initializers
     // ==================
     init() {
-        self.recipes = defaultReceipes
+        self.recipes = RecipeLoader.shared.recipes
                 
-        showSecondLine = true
+        showSubtitle = true
         leadingIconOption = .circle
-        trailingOption = .text
+        trailingOptions = []
         
         updateItems()
     }
@@ -167,15 +136,21 @@ class ListLinesVariantModel: ObservableObject {
         itemModels = recipes.map { item(from: $0) }
     }
 
-    private func item(from recipe: Receipe) -> ODSListItemModel {
-        ODSListItemModel(title: recipe.title,
-                         subtitle: showSecondLine ? recipe.subtitle : nil,
-                         leadingIcon: leadingIcon(from: recipe),
-                         trailingIconModel: trailingIconModel(),
-                         minHeight: .medium)
+    private func item(from recipe: Recipe) -> ODSListItemModel {
+        let trailingActions = trailingActions()
+        if let trailingActions = trailingActions {
+            return ODSListItemModel(title: recipe.title,
+                                    subtitle: showSubtitle ? recipe.subtitle : nil,
+                                    leadingIcon: leadingIcon(from: recipe),
+                                    trailingActions: trailingActions)
+        } else {
+            return ODSListItemModel(title: recipe.title,
+                                    subtitle: showSubtitle ? recipe.subtitle : nil,
+                                    leadingIcon: leadingIcon(from: recipe))
+        }
     }
     
-    private func leadingIcon(from recipe: Receipe) -> ODSListItemIcon? {
+    private func leadingIcon(from recipe: Recipe) -> ODSListItemLeadingIcon? {
         let emptyImage = Image("ods_empty", bundle: Bundle.ods)
         switch leadingIconOption {
         case .none:
@@ -191,13 +166,19 @@ class ListLinesVariantModel: ObservableObject {
         }
     }
     
-    private func trailingIconModel() -> ODSListItemTrailingIconModel? {
-        switch trailingOption {
-        case .infoButton:
-            return .infoButton(onClicked: onIButtonClicked)
-        case .text:
-            return .text("Details")
-        case .none:
+    private func trailingActions() -> ODSListItemTrailingActions? {
+
+        let showText = trailingOptions.contains { $0 == .text }
+        let showIButton = trailingOptions.contains { $0 == .infoButton }
+        
+        switch (showText, showIButton) {
+        case (true, true):
+            return ODSListItemTrailingActions(displayText: "Details", onIButtionClicked: onIButtonClicked)
+        case (true, false):
+            return ODSListItemTrailingActions(displayText: "Details")
+        case (false, true):
+            return ODSListItemTrailingActions(onIButtionClicked: onIButtonClicked)
+        default:
             return nil
         }
     }
@@ -210,4 +191,3 @@ class ListLinesVariantModel: ObservableObject {
         showSheetOnIButtonClicked = true
     }
 }
-

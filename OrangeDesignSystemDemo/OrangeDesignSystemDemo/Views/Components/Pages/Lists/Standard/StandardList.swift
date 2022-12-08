@@ -24,32 +24,41 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ListLinesVariant: View {
+struct StandardListVariant: View {
     
-    let model: ListLinesVariantModel
+    // =======================
+    // MARK: Stored Properties
+    // =======================
     
+    let model: StandardListVariantModel
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         ZStack {
-            ListLinesVariantInner(model: model)
+            StandardListVariantInner(model: model)
             BottomSheet {
-                ListLinesBottomSheet()
+                StandardListBottomSheet()
             }
             .environmentObject(model)
         }
     }
-    
-    init() {
-        model = ListLinesVariantModel()
-    }
 }
     
-struct ListLinesVariantInner: View {
-    @ObservedObject var model: ListLinesVariantModel
-    @State var multiSelection: Set<UUID>?
+private struct StandardListVariantInner: View {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    init(model: ListLinesVariantModel) {
-        self.model = model
-    }
+    @ObservedObject var model: StandardListVariantModel
+    @State var multiSelection: Set<UUID>? = nil
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         List /* (selection: $multiSelection) */ {
@@ -71,32 +80,8 @@ struct ListLinesVariantInner: View {
         .toolbar { EditButton() }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $model.showSheetOnIButtonClicked) {
-            ListInfoFromButtonI()
+        .alert("Hello World!", isPresented: $model.showSheetOnIButtonClicked) {
+            Button("close", role: .cancel) {}
         }
     }
 }
-
-struct ListInfoFromButtonI: View {
-    
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                HStack {
-                    VStack(alignment: .leading, spacing: ODSSpacing.l) {
-                        Text("This is a view presented when \"i\" button is clicked")
-                    }
-
-                    Spacer()
-                }
-                .padding(.top, ODSSpacing.none)
-                .padding(.bottom, ODSSpacing.xs)
-                .padding(.horizontal, ODSSpacing.m)
-            }
-            .navigationTitle("Info")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationViewStyle(.stack)
-        }
-    }
-}
-

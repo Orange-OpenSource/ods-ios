@@ -26,46 +26,82 @@ import SwiftUI
 /// Describes the leading icon of the list item __ODSListItem__.
 /// Image can be loaded from resources or asynchronously from the specified URL.
 /// Until the image loads, the placeholder image is displayed.
-public enum ODSListItemIcon {
+public enum ODSListItemLeadingIcon {
     case icon(Image)                    // A standard icon.
     case circularImage(source: Source)  // An image cropped into a circle.
     case squareImage(source: Source)    // An image cropped into a square.
     case wideImage(source: Source)      // An image cropped into a rectangle.
-    
+
     public enum Source {
         case image(Image)
         case asyncImage(URL, Image)
     }
 }
 
-
 // =============
 // MARK: Models
 // =============
 
-/// Model describes the trailing icon of the list item.
+/// Describes the trailing icon of the list item
+/// for additional actions.
 /// A text or an "i" button are available.
-public enum ODSListItemTrailingIconModel {
-    case text(String)
-    case infoButton(onClicked: () -> Void)
+public struct ODSListItemTrailingActions {
+
+    public typealias OnIButtionClicked = () -> Void
+    let displayText: String?
+    let onIButtionClicked: OnIButtionClicked?
+    let id: UUID
+
+    /// Use to display a text
+    ///
+    /// - Parameter displayText: Text to dsiplay
+    ///
+    public init(displayText: String) {
+        self.displayText = displayText
+        self.onIButtionClicked = nil
+        self.id = UUID()
+    }
+
+    /// Use to display "i" button providing callback to handle action
+    ///
+    /// - Parameter onIButtionClicked: callback to be invoked when "i" button is being clicked.
+    ///
+    public init(onIButtionClicked: @escaping OnIButtionClicked) {
+        self.displayText = nil
+        self.onIButtionClicked = onIButtionClicked
+        self.id = UUID()
+    }
+
+    /// Use to display a text and display "i" button
+    ///
+    /// - Parameters:
+    ///     - displayText: Text to dsiplay
+    ///     - onIButtionClicked: callback to be invoked when "i" button is being clicked.
+    ///
+    public init(displayText: String, onIButtionClicked: @escaping OnIButtionClicked) {
+        self.displayText = displayText
+        self.onIButtionClicked = onIButtionClicked
+        self.id = UUID()
+    }
 }
 
-/// To sepecify the minimum height of the list item.
-public enum ODSListItemMinHeight: CGFloat {
-    case medium = 44.0
-    case large = 60.0
+/// Describes the trailing icon of the list item.
+public enum ODSListItemTrailingSelection: Int, CaseIterable {
+    case toggle
+    case checkmark
 }
 
 /// This model can be used to achieve the list item templates existing in the spec.
 ///
-public struct ODSListItemModel {
+public class ODSListItemModel: ObservableObject {
 
     public let id: UUID
     public let title: String
     public let subtitle: String?
-    public let leadingIcon: ODSListItemIcon?
-    public let trailingIconModel: ODSListItemTrailingIconModel?
-    public let minHeight: ODSListItemMinHeight
+    public let leadingIcon: ODSListItemLeadingIcon?
+    public let trailingActions: ODSListItemTrailingActions?
+    public let trailingSelection: ODSListItemTrailingSelection?
+    @Published var isSelected: Bool
 
     /// Describe the Item content.
     ///
@@ -73,47 +109,68 @@ public struct ODSListItemModel {
     ///     - title: The primary text of the list item
     ///     - subtile: The secondary text of the list item (optional)
     ///     - leadingIcon: The leading icon of the list item (optional)
-    ///     - trailingIconModel: The trailing meta text, info button
+    ///
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        leadingIcon: ODSListItemLeadingIcon? = nil)
+    {
+        self.title = title
+        self.subtitle = subtitle
+        self.leadingIcon = leadingIcon
+        self.trailingActions = nil
+        self.trailingSelection = nil
+        self.isSelected = false
+        
+        id = UUID()
+    }
+    
+    /// Describe the Item content.
+    ///
+    /// - Parameters:
+    ///     - title: The primary text of the list item
+    ///     - subtile: The secondary text of the list item (optional)
+    ///     - leadingIcon: The leading icon of the list item (optional)
+    ///     - trailingActions: The trailing meta text or info button actions
+    ///
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        leadingIcon: ODSListItemLeadingIcon? = nil,
+        trailingActions: ODSListItemTrailingActions)
+    {
+        self.title = title
+        self.subtitle = subtitle
+        self.leadingIcon = leadingIcon
+        self.trailingActions = trailingActions
+        self.trailingSelection = nil
+        self.isSelected = false
+        
+        id = UUID()
+    }
+
+    /// Describe the Item content.
+    ///
+    /// - Parameters:
+    ///     - title: The primary text of the list item
+    ///     - subtile: The secondary text of the list item (optional)
+    ///     - leadingIcon: The leading icon of the list item (optional)
+    ///     - trailingSelection: The trailing selection item
     ///     - minHeight: The minimum height of the list item (medium by default)
     ///
     public init(
         title: String,
         subtitle: String? = nil,
-        leadingIcon: ODSListItemIcon? = nil,
-        trailingIconModel: ODSListItemTrailingIconModel? = nil,
-        minHeight: ODSListItemMinHeight = .medium)
+        leadingIcon: ODSListItemLeadingIcon? = nil,
+        trailingSelection: ODSListItemTrailingSelection,
+        isSelected: Bool = false)
     {
         self.title = title
         self.subtitle = subtitle
         self.leadingIcon = leadingIcon
-        self.trailingIconModel = trailingIconModel
-        self.minHeight = minHeight
-
-        id = UUID()
-    }
-}
-
-///
-/// This model can be used to achieve the list item templates existing in the spec.
-///
-public struct ODSListItemWithToggleModel {
-
-    public let id: UUID
-    public let title: String
-    public let isOn: Binding<Bool>
-    public let minHeight: ODSListItemMinHeight
-
-    /// Create a model that describes the content of the `ODSListItemWithToggle`.
-    ///
-    /// - Parameters:
-    ///    - title: The primary text of the list item
-    ///    - isOn: A binding to a property that determines whether the toggle is ON or OFF.
-    ///    - minHeight: The minimum height of the list item (medium by default)
-    ///
-    public init(title: String, isOn: Binding<Bool>, minHeight: ODSListItemMinHeight = .medium) {
-        self.title = title
-        self.minHeight = minHeight
-        self.isOn = isOn
+        self.trailingActions = nil
+        self.trailingSelection = trailingSelection
+        self.isSelected = isSelected
 
         id = UUID()
     }
@@ -134,7 +191,7 @@ public struct ODSListItemWithToggleModel {
 ///
 public struct ODSListItem: View {
 
-    let model: ODSListItemModel
+    @ObservedObject var model: ODSListItemModel
 
     /// Create the `ODSListItem` view with content described by the `ODSListItemModel`.
     ///
@@ -144,10 +201,11 @@ public struct ODSListItem: View {
         self.model = model
     }
 
-    public var body: some View {
+    func content() -> some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
             if let leadingIcon = model.leadingIcon {
-                ODSListItemLeadingIcon(model: leadingIcon)
+                LeadingIcon(model: leadingIcon)
+                    .padding(.vertical, ODSSpacing.s)
             }
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
@@ -168,41 +226,20 @@ public struct ODSListItem: View {
 
             Spacer()
 
-            if let trailingIconModel = model.trailingIconModel {
-                ODSListItemTrailingIcon(iconModel: trailingIconModel)
-            }
+            TrailingIcons(model: model)
         }
-        .modifier(ODSListItemModifier(minHeight: model.minHeight))
-    }
-}
-
-/// You can use this view to add item with toggle in list.
-///
-/// Do not use it in a NavigationLink because a chevron will be added next the the toggle
-/// which it in not allowed by Orange design rules..
-///
-public struct ODSListItemWithToggle: View {
-
-    let model: ODSListItemWithToggleModel
-
-    /// Create the `ODSListItemWithToggle` view with content discribed by the `ODSListItemWithToggleModel`.
-    ///
-    /// - Parameter model: The model describing the item.
-    ///
-    public init(model: ODSListItemWithToggleModel) {
-        self.model = model
+        .frame(minHeight: 44)
     }
 
     public var body: some View {
-        Toggle(isOn: model.isOn) {
-            Text(LocalizedStringKey(model.title))
-                .odsFont(.bodyRegular)
-                .foregroundColor(.primary)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
+        if model.trailingSelection == .checkmark {
+            content()
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    model.isSelected.toggle()
+                }
+        } else {
+            content()
         }
-        .padding(.horizontal, ODSSpacing.m)
-        .modifier(ODSListItemModifier(minHeight: model.minHeight))
     }
 }

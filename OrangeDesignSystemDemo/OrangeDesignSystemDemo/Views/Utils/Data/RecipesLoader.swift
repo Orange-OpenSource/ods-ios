@@ -21,46 +21,46 @@
 //
 //
 
-import SwiftUI
+import Foundation
 
-struct ListComponent: Component {
+struct Recipe: Decodable {
     let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
+    let subtitle: String
+    let url: URL
+    let iconName: String
+}
+
+class RecipeLoader {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    static let shared: RecipeLoader = RecipeLoader()
+    let recipes: [Recipe]
     
-    init() {
-        title = "Lists"
-        image = Image("Lists")
-        description = "A list is a continuous vertical group of data entries like text, icons or images."
-        
-        variants = AnyView(ListVariants())
+    // =================
+    // MARK: Initializer
+    // =================
+    
+    private init() {
+        self.recipes = Self.recipes(from: "Recipes")
     }
-}
+    
+    // ====================
+    // MARK: Private Helper
+    // ====================
 
-struct ListVariants: View {
-    var body: some View {
-        VariantEntryItem(text: "List with selection", technicalElement: "ODSListItemWithToggle()"){
-            SelectionListVariant(model: SelectionListVariantModel())
-        }
-
-        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListItem()"){
-            StandardListVariant(model: StandardListVariantModel())
-        }
-    }
-}
-
-
-#if DEBUG
-struct ListPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeablePreviews {
-            NavigationView {
-                List {
-                    ListVariants()
-                }
+    private static func recipes(from fileName: String) -> [Recipe] {
+        do {
+            if let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json"),
+               let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
+               return try JSONDecoder().decode([Recipe].self, from: jsonData)
             }
+        } catch {
         }
+        
+        return []
     }
 }
-#endif
+

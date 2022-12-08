@@ -21,46 +21,41 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct ListComponent: Component {
-    let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
-    
-    init() {
-        title = "Lists"
-        image = Image("Lists")
-        description = "A list is a continuous vertical group of data entries like text, icons or images."
-        
-        variants = AnyView(ListVariants())
-    }
-}
+// MARK: Bottom Sheet - content for list
+struct StandardListBottomSheet: View {
 
-struct ListVariants: View {
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @EnvironmentObject var model: StandardListVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
-        VariantEntryItem(text: "List with selection", technicalElement: "ODSListItemWithToggle()"){
-            SelectionListVariant(model: SelectionListVariantModel())
-        }
-
-        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListItem()"){
-            StandardListVariant(model: StandardListVariantModel())
-        }
-    }
-}
-
-
-#if DEBUG
-struct ListPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeablePreviews {
-            NavigationView {
-                List {
-                    ListVariants()
-                }
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
             }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Leading",
+                          selection: $model.leadingIconOption,
+                          chips: LeadingIconOption.chips)
+                .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Trailing",
+                          selection: $model.trailingOptions,
+                          allowZeroSelection: true,
+                          chips: TrailingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
         }
+        .padding(.top, ODSSpacing.s)
     }
 }
-#endif

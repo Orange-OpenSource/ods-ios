@@ -23,86 +23,167 @@
 
 import SwiftUI
 
-struct ODSListItemLeadingIcon: View {
+struct LeadingIcon: View {
 
-    let model: ODSListItemIcon
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let model: ODSListItemLeadingIcon
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         switch model {
         case .icon(let image):
-            image
+            image.renderingMode(.template)
         case .circularImage(let source):
-            ODSListAsyncIcon(source: source)
+            AsyncIcon(source: source)
+                .frame(width: width, height: height)
                 .clipShape(Circle())
         case .squareImage(let source):
-            ODSListAsyncIcon(source: source)
+            AsyncIcon(source: source)
+                .frame(width: width, height: height)
                 .clipShape(Rectangle())
         case .wideImage(let source):
-            ODSListAsyncIcon(source: source)
+            AsyncIcon(source: source)
+                .frame(width: width, height: height)
+                .clipShape(Rectangle())
         }
     }
 
-    init(model: ODSListItemIcon) {
-        self.model = model
+    // =====================
+    // MARK: Private helpers
+    // =====================
+
+    private var width: CGFloat {
+        switch model {
+        case  .icon, .circularImage, .squareImage:
+            return 44
+        case .wideImage:
+            return 80
+        }
+    }
+
+    private var height: CGFloat {
+        return 44
     }
 }
 
-private struct ODSListAsyncIcon: View {
-    let source: ODSListItemIcon.Source
+private struct AsyncIcon: View {
+
+    // ======================
+    // MARK: Store Properties
+    // ======================
+
+    let source: ODSListItemLeadingIcon.Source
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         switch source {
         case let .asyncImage(url, placeHolder):
             AsyncImage(url: url) { image in
-                image.iconModifier()
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
             } placeholder: {
-                placeHolder.iconModifier()
+                placeHolder
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
             }
+
         case let .image(image):
-            image.iconModifier()
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
     }
 }
 
-extension Image {
-    func iconModifier(height: CGFloat? = 44) -> some View {
-        resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: height)
-    }
-}
+struct TrailingActions: View {
 
-struct ODSListItemTrailingIcon: View {
+    // ======================
+    // MARK: Store Properties
+    // ======================
 
-    @Environment(\.theme) private var theme
-    
-    let iconModel: ODSListItemTrailingIconModel
+    let model: ODSListItemTrailingActions
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-        switch iconModel {
-        case let .text(text):
-            Text(text)
-                .odsFont(.subhead)
-                .foregroundColor(Color(UIColor.systemGray3))
+        HStack {
+            if let text = model.displayText {
+                Text(text)
+                    .odsFont(.subhead)
+                    .foregroundColor(Color(UIColor.systemGray3))
+            }
 
-        case let .infoButton(onClicked):
-            Image(systemName: "info.circle")
-                .frame(width: 16, height: 16, alignment: .center)
-                .foregroundColor(theme.componentColors.accent)
-                .onTapGesture {
-                    onClicked()
-                }
+            if let onIButtionClicked = model.onIButtionClicked {
+                ODSIconButton(image: Image(systemName: "info.circle"), action: onIButtionClicked)
+            }
         }
     }
 }
 
-struct ODSListItemModifier: ViewModifier {
+struct TrailingIcons: View {
 
-    let minHeight: ODSListItemMinHeight
+    // ======================
+    // MARK: Store Properties
+    // ======================
 
-    func body(content: Content) -> some View {
-        content
-            .listRowInsets(EdgeInsets())
-            .frame(minHeight: minHeight.rawValue)
+    @ObservedObject var model: ODSListItemModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        if let actions = model.trailingActions {
+            TrailingActions(model: actions)
+        } else {
+            if let selection = model.trailingSelection {
+                TrailingSelectionIcons(selection: selection, isSelected: $model.isSelected)
+            }
+        }
+    }
+}
+
+struct TrailingSelectionIcons: View {
+
+    // ======================
+    // MARK: Store Properties
+    // ======================
+    @Environment(\.theme) var theme
+
+    let selection: ODSListItemTrailingSelection
+    let isSelected: Binding<Bool>
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        switch selection {
+        case .toggle:
+            Toggle(isOn: isSelected) {
+                EmptyView()
+            }
+        case .checkmark:
+            if isSelected.wrappedValue {
+                Image("controlsTableViewRowXCheckmark", bundle: Bundle.ods)
+                    .resizable()
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(theme.componentColors.accent)
+                    .frame(height: 44)
+            }
+        }
     }
 }
