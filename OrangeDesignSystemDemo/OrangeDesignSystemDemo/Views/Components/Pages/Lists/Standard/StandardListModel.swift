@@ -24,6 +24,10 @@
 import OrangeDesignSystem
 import SwiftUI
 
+// =============
+// MARK: Options
+// =============
+
 enum LeadingIconOption: Int, CaseIterable {
     case none = 0
     case icon
@@ -77,9 +81,9 @@ enum TrailingOption: Int, CaseIterable {
     }
 }
 
-// =============
-// MARK: Models
-// =============
+// ==============
+// MARK: - Models
+// ==============
 
 class StandardListVariantModel: ObservableObject {
 
@@ -106,6 +110,7 @@ class StandardListVariantModel: ObservableObject {
     // ==================
     // MARK: Initializers
     // ==================
+    
     init() {
         self.recipes = RecipeLoader.shared.recipes
                 
@@ -119,6 +124,7 @@ class StandardListVariantModel: ObservableObject {
     //======================
     // MARK: Edition actions
     // =====================
+    
     func delete(at offsets: IndexSet) {
         recipes.remove(atOffsets: offsets)
         updateItems()
@@ -132,22 +138,16 @@ class StandardListVariantModel: ObservableObject {
     // =====================
     // MARK: Private helpers
     // =====================
+    
     private func updateItems() {
         itemModels = recipes.map { item(from: $0) }
     }
 
     private func item(from recipe: Recipe) -> ODSListItemModel {
-        let trailingActions = trailingActions()
-//        if let trailingActions = trailingActions {
-            return ODSListStandardItemModel(title: recipe.title,
-                                            subtitle: showSubtitle ? recipe.subtitle : nil,
-                                            leadingIcon: leadingIcon(from: recipe),
-                                            trailingActions: trailingActions)
-//        } else {
-//            return ODSListItemModel(title: recipe.title,
-//                                            subtitle: showSubtitle ? recipe.subtitle : nil,
-//                                            leadingIcon: leadingIcon(from: recipe))
-//        }
+        return ODSListStandardItemModel(title: recipe.title,
+                                        subtitle: showSubtitle ? recipe.subtitle : nil,
+                                        leadingIcon: leadingIcon(from: recipe),
+                                        trailingActions: trailingActions)
     }
     
     private func leadingIcon(from recipe: Recipe) -> ODSListItemLeadingIcon? {
@@ -166,7 +166,7 @@ class StandardListVariantModel: ObservableObject {
         }
     }
     
-    private func trailingActions() -> ODSListItemTrailingActions? {
+    private var trailingActions: ODSListItemTrailingActions? {
 
         let showText = trailingOptions.contains { $0 == .text }
         let showIButton = trailingOptions.contains { $0 == .infoButton }
@@ -184,9 +184,14 @@ class StandardListVariantModel: ObservableObject {
     }
     
     
-    // MARK: Manage Info button added in navigation bar
+    // =====================
+    // MARK: Buttons actions
+    // =====================
+
+    // Add button in navigation bar action
     @Published var showSheetOnIButtonClicked: Bool = false
     
+    // Info button action
     func onIButtonClicked() {
         showSheetOnIButtonClicked = true
     }
