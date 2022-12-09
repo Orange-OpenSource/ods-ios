@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp/SDK] #263 Refactor the lists variant list selection
 - [DemoApp] #265 Update the Progress indicator variant list selection
 - [DemoApp] #266 Update the Slider variant list selection
 - [DemoApp] #307 Update default text in TextFields according to the selected capitalization
