@@ -81,7 +81,7 @@ struct VariantsTitle: View {
 }
 
 struct VariantEntryItem<VariantPage>: View where VariantPage: View {
-    let itemModel: ODSListItemModel
+    let itemModel: ODSListStandardItemModel
     let variantPage: () -> VariantPage
     
     var body: some View {
@@ -92,9 +92,9 @@ struct VariantEntryItem<VariantPage>: View where VariantPage: View {
     
     init(text: String, technicalElement: String, variantPage: @escaping () -> VariantPage) {
         let playIcon = ODSListItemLeadingIcon.icon(Image(systemName: "play.circle"))
-        self.itemModel = ODSListItemModel(title: text,
-                                          subtitle: technicalElement,
-                                          leadingIcon: playIcon)
+        self.itemModel = ODSListStandardItemModel(title: text,
+                                                  subtitle: technicalElement,
+                                                  leadingIcon: playIcon)
         self.variantPage = variantPage
     }
 }

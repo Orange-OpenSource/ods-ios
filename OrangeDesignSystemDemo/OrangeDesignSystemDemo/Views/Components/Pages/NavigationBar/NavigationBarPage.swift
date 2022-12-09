@@ -184,7 +184,7 @@ struct ListExample: View {
     var body: some View {
         List {
             ForEach(model.filteredListItems, id: \.self) { item in
-                ODSListItem(model: ODSListItemModel(title: item))
+                ODSListItem(model: ODSListStandardItemModel(title: item))
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(Visibility.visible)

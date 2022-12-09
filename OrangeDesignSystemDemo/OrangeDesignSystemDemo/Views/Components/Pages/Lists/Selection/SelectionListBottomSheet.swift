@@ -52,7 +52,7 @@ struct SelectionListBottomSheet: View {
 
             ODSChipPicker(title: "Trailing",
                           selection: $model.trailingOption,
-                          chips: ODSListItemTrailingSelection.chips)
+                          chips: ODSListSelectionItemModel.TrailingSelection.chips)
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)
@@ -60,7 +60,7 @@ struct SelectionListBottomSheet: View {
 }
 
 
-extension ODSListItemTrailingSelection {
+extension ODSListSelectionItemModel.TrailingSelection {
 
     private var description: String {
         switch self {

@@ -23,175 +23,28 @@
 
 import SwiftUI
 
-/// Describes the leading icon of the list item __ODSListItem__.
-/// Image can be loaded from resources or asynchronously from the specified URL.
-/// Until the image loads, the placeholder image is displayed.
-public enum ODSListItemLeadingIcon {
-    case icon(Image)                    // A standard icon.
-    case circularImage(source: Source)  // An image cropped into a circle.
-    case squareImage(source: Source)    // An image cropped into a square.
-    case wideImage(source: Source)      // An image cropped into a rectangle.
-
-    public enum Source {
-        case image(Image)
-        case asyncImage(URL, Image)
-    }
-}
-
-// =============
-// MARK: Models
-// =============
-
-/// Describes the trailing icon of the list item
-/// for additional actions.
-/// A text or an "i" button are available.
-public struct ODSListItemTrailingActions {
-
-    public typealias OnIButtionClicked = () -> Void
-    let displayText: String?
-    let onIButtionClicked: OnIButtionClicked?
-    let id: UUID
-
-    /// Use to display a text
-    ///
-    /// - Parameter displayText: Text to dsiplay
-    ///
-    public init(displayText: String) {
-        self.displayText = displayText
-        self.onIButtionClicked = nil
-        self.id = UUID()
-    }
-
-    /// Use to display "i" button providing callback to handle action
-    ///
-    /// - Parameter onIButtionClicked: callback to be invoked when "i" button is being clicked.
-    ///
-    public init(onIButtionClicked: @escaping OnIButtionClicked) {
-        self.displayText = nil
-        self.onIButtionClicked = onIButtionClicked
-        self.id = UUID()
-    }
-
-    /// Use to display a text and display "i" button
-    ///
-    /// - Parameters:
-    ///     - displayText: Text to dsiplay
-    ///     - onIButtionClicked: callback to be invoked when "i" button is being clicked.
-    ///
-    public init(displayText: String, onIButtionClicked: @escaping OnIButtionClicked) {
-        self.displayText = displayText
-        self.onIButtionClicked = onIButtionClicked
-        self.id = UUID()
-    }
-}
-
-/// Describes the trailing icon of the list item.
-public enum ODSListItemTrailingSelection: Int, CaseIterable {
-    case toggle
-    case checkmark
-}
-
-/// This model can be used to achieve the list item templates existing in the spec.
-///
-public class ODSListItemModel: ObservableObject {
-
-    public let id: UUID
-    public let title: String
-    public let subtitle: String?
-    public let leadingIcon: ODSListItemLeadingIcon?
-    public let trailingActions: ODSListItemTrailingActions?
-    public let trailingSelection: ODSListItemTrailingSelection?
-    @Published var isSelected: Bool
-
-    /// Describe the Item content.
-    ///
-    /// - Parameters:
-    ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIcon: The leading icon of the list item (optional)
-    ///
-    public init(
-        title: String,
-        subtitle: String? = nil,
-        leadingIcon: ODSListItemLeadingIcon? = nil)
-    {
-        self.title = title
-        self.subtitle = subtitle
-        self.leadingIcon = leadingIcon
-        self.trailingActions = nil
-        self.trailingSelection = nil
-        self.isSelected = false
-        
-        id = UUID()
-    }
-    
-    /// Describe the Item content.
-    ///
-    /// - Parameters:
-    ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIcon: The leading icon of the list item (optional)
-    ///     - trailingActions: The trailing meta text or info button actions
-    ///
-    public init(
-        title: String,
-        subtitle: String? = nil,
-        leadingIcon: ODSListItemLeadingIcon? = nil,
-        trailingActions: ODSListItemTrailingActions)
-    {
-        self.title = title
-        self.subtitle = subtitle
-        self.leadingIcon = leadingIcon
-        self.trailingActions = trailingActions
-        self.trailingSelection = nil
-        self.isSelected = false
-        
-        id = UUID()
-    }
-
-    /// Describe the Item content.
-    ///
-    /// - Parameters:
-    ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIcon: The leading icon of the list item (optional)
-    ///     - trailingSelection: The trailing selection item
-    ///     - minHeight: The minimum height of the list item (medium by default)
-    ///
-    public init(
-        title: String,
-        subtitle: String? = nil,
-        leadingIcon: ODSListItemLeadingIcon? = nil,
-        trailingSelection: ODSListItemTrailingSelection,
-        isSelected: Bool = false)
-    {
-        self.title = title
-        self.subtitle = subtitle
-        self.leadingIcon = leadingIcon
-        self.trailingActions = nil
-        self.trailingSelection = trailingSelection
-        self.isSelected = isSelected
-
-        id = UUID()
-    }
-}
-
-// ============
-// MARK: Views
-// ============
 /// A list is a continuous vertical group of data entries like text, icons or images.
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/63daa5-lists/b/47ebec" target="_blank">ODS Lists</a>.
 ///
 /// You can use this view in the NavigationLink providing the right model:
 ///
-///     NavigationLink(ODSListItemModel(title: "Title", subtitle: "Subtitle")) {
+///     NavigationLink(ODSListStandardItemModel(title: "Title", subtitle: "Subtitle")) {
 ///         Text("The destination View")
 ///     }
 ///
+///
 public struct ODSListItem: View {
 
-    @ObservedObject var model: ODSListItemModel
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let model: ODSListItemModel
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     /// Create the `ODSListItem` view with content described by the `ODSListItemModel`.
     ///
@@ -201,45 +54,57 @@ public struct ODSListItem: View {
         self.model = model
     }
 
-    func content() -> some View {
-        HStack(alignment: .center, spacing: ODSSpacing.s) {
-            if let leadingIcon = model.leadingIcon {
-                LeadingIcon(model: leadingIcon)
-                    .padding(.vertical, ODSSpacing.s)
-            }
-
-            VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                Text(LocalizedStringKey(model.title))
-                    .odsFont(.bodyRegular)
-                    .foregroundColor(.primary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-
-                if let subtitle = model.subtitle {
-                    Text(LocalizedStringKey(subtitle))
-                        .odsFont(.footnote)
-                        .foregroundColor(.primary)
-                        .multilineTextAlignment(.leading)
-                }
-            }
-            .padding(.vertical, ODSSpacing.s)
-
-            Spacer()
-
-            TrailingIcons(model: model)
-        }
-        .frame(minHeight: 44)
-    }
+    // ==========
+    // MARK: Body
+    // ==========
 
     public var body: some View {
-        if model.trailingSelection == .checkmark {
-            content()
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    model.isSelected.toggle()
-                }
+        if let standardModel = model as? ODSListStandardItemModel {
+            ODSStandardListItem(model: standardModel)
         } else {
-            content()
+            if let selectionModel = model as? ODSListSelectionItemModel {
+                ODSSelectionListItem(model: selectionModel)
+            }
+        }
+    }
+}
+
+extension NavigationLink where Label == ODSListItem {
+
+    /// Creates a navigation link that presents a destination view, with a ODSListItem label.
+    /// - Parameters:
+    ///   - model: A model describing each element of the item.
+    ///   - destination: A view for the navigation link to present.
+    public init(_ model: ODSListStandardItemModel, @ViewBuilder destination: () -> Destination) {
+        self.init(destination: destination) {
+            ODSListItem(model: model)
+        }
+    }
+
+    /// Creates a navigation link that presents the destination view when active.
+    /// - Parameters:
+    ///   - model: A model describing each element of the item.
+    ///   - isActive: A binding to a Boolean value that indicates whether
+    ///   `destination` is currently presented.
+    ///   - destination: A view for the navigation link to present.
+    public init(_ model: ODSListStandardItemModel, isActive: Binding<Bool>, @ViewBuilder destination: () -> Destination) {
+        self.init(isActive: isActive, destination: destination) {
+            ODSListItem(model: model)
+        }
+    }
+
+    /// Creates a navigation link that presents the destination view when
+    /// a bound selection variable equals a given tag value.
+    /// - Parameters:
+    ///   - model: A model describing each element of the item.
+    ///   - tag: The value of `selection` that causes the link to present
+    ///   `destination`.
+    ///   - selection: A bound variable that causes the link to present
+    ///   `destination` when `selection` becomes equal to `tag`.
+    ///   - destination: A view for the navigation link to present.
+    public init<V>(_ model: ODSListStandardItemModel, tag: V, selection: Binding<V?>, @ViewBuilder destination: () -> Destination) where V: Hashable {
+        self.init(tag: tag, selection: selection, destination: destination) {
+            ODSListItem(model: model)
         }
     }
 }

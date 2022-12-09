@@ -42,7 +42,7 @@ class SelectionListVariantModel: ObservableObject {
         didSet { updateItems() }
     }
         
-    @Published var trailingOption: ODSListItemTrailingSelection {
+    @Published var trailingOption: ODSListSelectionItemModel.TrailingSelection {
         didSet { updateItems() }
     }
 
@@ -83,12 +83,12 @@ class SelectionListVariantModel: ObservableObject {
         itemModels = recipes.map { item(from: $0) }
     }
 
-    private func item(from recipe: Recipe) -> ODSListItemModel {
-        ODSListItemModel(title: recipe.title,
-                         subtitle: showSubtitle ? recipe.subtitle : nil,
-                         leadingIcon: leadingIcon(from: recipe),
-                         trailingSelection: self.trailingOption,
-                         isSelected: false)
+    private func item(from recipe: Recipe) -> ODSListSelectionItemModel {
+        ODSListSelectionItemModel(title: recipe.title,
+                                  subtitle: showSubtitle ? recipe.subtitle : nil,
+                                  leadingIcon: leadingIcon(from: recipe),
+                                  trailingSelection: self.trailingOption,
+                                  isSelected: false)
     }
     
     private func leadingIcon(from recipe: Recipe) -> ODSListItemLeadingIcon? {

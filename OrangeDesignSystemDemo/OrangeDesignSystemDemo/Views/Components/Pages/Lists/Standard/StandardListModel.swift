@@ -138,16 +138,16 @@ class StandardListVariantModel: ObservableObject {
 
     private func item(from recipe: Recipe) -> ODSListItemModel {
         let trailingActions = trailingActions()
-        if let trailingActions = trailingActions {
-            return ODSListItemModel(title: recipe.title,
-                                    subtitle: showSubtitle ? recipe.subtitle : nil,
-                                    leadingIcon: leadingIcon(from: recipe),
-                                    trailingActions: trailingActions)
-        } else {
-            return ODSListItemModel(title: recipe.title,
-                                    subtitle: showSubtitle ? recipe.subtitle : nil,
-                                    leadingIcon: leadingIcon(from: recipe))
-        }
+//        if let trailingActions = trailingActions {
+            return ODSListStandardItemModel(title: recipe.title,
+                                            subtitle: showSubtitle ? recipe.subtitle : nil,
+                                            leadingIcon: leadingIcon(from: recipe),
+                                            trailingActions: trailingActions)
+//        } else {
+//            return ODSListItemModel(title: recipe.title,
+//                                            subtitle: showSubtitle ? recipe.subtitle : nil,
+//                                            leadingIcon: leadingIcon(from: recipe))
+//        }
     }
     
     private func leadingIcon(from recipe: Recipe) -> ODSListItemLeadingIcon? {
