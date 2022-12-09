@@ -85,7 +85,7 @@ private struct ProgressBarVariant: View {
                     }
                 } currentValueLabel: {
                     if model.showCurrentValue {
-                        let percent = String(format: "%0.2f", secondsElapsed)
+                        let percent = String(format: "%.0f", secondsElapsed)
                         Text("\(percent) %")
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
