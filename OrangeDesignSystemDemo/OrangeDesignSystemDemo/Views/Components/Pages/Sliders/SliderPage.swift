@@ -72,7 +72,7 @@ struct SliderVariant: View {
             ScrollView {
                 VStack {
                     if model.showValue {
-                        Text(String(format: "%.2f", value))
+                        Text(String(format: "%.0f", value))
                             .odsFont(.bodyRegular)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .accessibilityHidden(true)
