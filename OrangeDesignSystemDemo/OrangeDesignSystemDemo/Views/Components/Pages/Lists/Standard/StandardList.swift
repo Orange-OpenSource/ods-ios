@@ -54,8 +54,8 @@ private struct StandardListVariantInner: View {
     // =======================
 
     @ObservedObject var model: StandardListVariantModel
-    @State var multiSelection: Set<UUID>? = nil
-
+    @State private var multiSelection: Set<UUID>? = nil
+    
     // ==========
     // MARK: Body
     // ==========
@@ -63,19 +63,23 @@ private struct StandardListVariantInner: View {
     var body: some View {
         List /* (selection: $multiSelection) */ {
             ForEach(model.itemModels, id: \.id) { itemModel in
-                
-                NavigationLink {
-                    Text("\(itemModel.title) is clicked")
-                        .navigationTitle(itemModel.title)
-                } label: {
-                    ODSListItem(model: itemModel)
+                if model.withDetails {
+                    NavigationLink(itemModel) {
+                        Text("\(itemModel.title) is clicked")
+                            .navigationTitle(itemModel.title)
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(Visibility.visible)
+                    .padding(.leading, ODSSpacing.s)
+                } else {
+                    ODSStandardListItem(model: itemModel)
+                        .padding(.horizontal, ODSSpacing.m)
+                        .listRowInsets(EdgeInsets())
+                        .listRowSeparator(Visibility.visible)
                 }
-                .listRowInsets(EdgeInsets())
-                .listRowSeparator(Visibility.visible)
             }
             .onMove(perform: model.move)
             .onDelete(perform: model.delete)
-            .padding(.horizontal, ODSSpacing.m)
         }
         .toolbar { EditButton() }
         .listStyle(.plain)

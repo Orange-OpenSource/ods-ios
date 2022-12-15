@@ -46,7 +46,7 @@ class SelectionListVariantModel: ObservableObject {
         didSet { updateItems() }
     }
 
-    @Published var itemModels: [ODSListItemModel] = []
+    @Published var itemModels: [ODSListSelectionItemModel] = []
     private var recipes: [Recipe] = []
 
     
@@ -105,12 +105,5 @@ class SelectionListVariantModel: ObservableObject {
         case .wide:
             return .wideImage(source: .asyncImage(recipe.url, emptyImage))
         }
-    }
-    
-    // MARK: Manage Info button added in navigation bar
-    @Published var showSheetOnIButtonClicked: Bool = false
-    
-    func onIButtonClicked() {
-        showSheetOnIButtonClicked = true
     }
 }

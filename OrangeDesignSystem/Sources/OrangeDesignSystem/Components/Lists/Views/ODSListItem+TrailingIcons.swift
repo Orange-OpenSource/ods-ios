@@ -59,15 +59,16 @@ struct TrailingActions: View {
     // ==========
 
     var body: some View {
-        HStack {
+        HStack(spacing: ODSSpacing.s) {
             if let text = model.displayText {
                 Text(text)
                     .odsFont(.subhead)
                     .foregroundColor(Color(UIColor.systemGray3))
             }
 
-            if let onIButtionClicked = model.onIButtionClicked {
-                ODSIconButton(image: Image(systemName: "info.circle"), action: onIButtionClicked)
+            if let onIButtonClicked = model.onIButtonClicked {
+                ODSIconButton(image: Image(systemName: "info.circle"), action: onIButtonClicked)
+                    .buttonStyle(PlainButtonStyle())
             }
         }
     }
@@ -94,10 +95,10 @@ struct TrailingSelections: View {
             }
         case .checkmark:
             if model.isSelected {
-                Image("controlsTableViewRowXCheckmark", bundle: Bundle.ods)
-                    .resizable()
+                Image(systemName: "checkmark")
                     .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
+                    .font(.body.bold())
                     .foregroundColor(theme.componentColors.accent)
                     .frame(height: 44)
             }

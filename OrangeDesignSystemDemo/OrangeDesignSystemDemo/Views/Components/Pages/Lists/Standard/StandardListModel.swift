@@ -103,8 +103,10 @@ class StandardListVariantModel: ObservableObject {
         didSet { updateItems() }
     }
 
-    @Published var itemModels: [ODSListItemModel] = []
-
+    @Published var itemModels: [ODSListStandardItemModel] = []
+    
+    @Published var withDetails: Bool
+    
     private var recipes: [Recipe] = []
     
     // ==================
@@ -116,7 +118,8 @@ class StandardListVariantModel: ObservableObject {
                 
         showSubtitle = true
         leadingIconOption = .circle
-        trailingOptions = []
+        trailingOptions = [.text, .infoButton]
+        withDetails = true
         
         updateItems()
     }
@@ -143,7 +146,7 @@ class StandardListVariantModel: ObservableObject {
         itemModels = recipes.map { item(from: $0) }
     }
 
-    private func item(from recipe: Recipe) -> ODSListItemModel {
+    private func item(from recipe: Recipe) -> ODSListStandardItemModel {
         return ODSListStandardItemModel(title: recipe.title,
                                         subtitle: showSubtitle ? recipe.subtitle : nil,
                                         leadingIcon: leadingIcon(from: recipe),

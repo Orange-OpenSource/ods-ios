@@ -23,18 +23,20 @@
 
 import SwiftUI
 
+// ================================
+// MARK: Common list items elements
+// ================================
+
 /// Defines a the generic protocol to achieve the list item templates.
 ///
-public protocol ODSListItemModel {
-
+protocol ODSListItemModel {
     var id: UUID { get } // Unic identifier of item
     var title: String { get } // The mandatory title of the list item
     var subtitle: String? { get } // Optional subtitle of the list item
     var leadingIcon: ODSListItemLeadingIcon? { get } // Optional leading icon
-    
 }
 
-/// Describes the leading icon of the list item __ODSListItem__.
+/// Describes the leading icon of the list items.
 ///
 /// Images can be loaded from resources or asynchronously from the specified URL.
 /// Until the image loads, the placeholder image is displayed.
@@ -54,9 +56,87 @@ public enum ODSListItemLeadingIcon {
     }
 }
 
-// =============
-// MARK: Models
-// =============
+// ===============================
+// MARK: Standard List items model
+// ===============================
+
+public class ODSListStandardItemModel: ODSListItemModel {
+
+    public let id: UUID
+    public let title: String
+    public let subtitle: String?
+    public let leadingIcon: ODSListItemLeadingIcon?
+    public let trailingActions: ODSListItemTrailingActions?
+
+    /// Describe the Item content.
+    ///
+    /// - Parameters:
+    ///     - title: The primary text of the list item
+    ///     - subtile: The secondary text of the list item (optional)
+    ///     - leadingIcon: The leading icon of the list item (optional)
+    ///     - trailingActions: The trailing actions (optional)
+    ///
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        leadingIcon: ODSListItemLeadingIcon? = nil,
+        trailingActions: ODSListItemTrailingActions? = nil)
+    {
+        self.title = title
+        self.subtitle = subtitle
+        self.leadingIcon = leadingIcon
+        self.trailingActions = trailingActions
+
+        id = UUID()
+    }
+}
+
+/// Describes the trailing icon of the list item for additional actions.
+/// A text or an "i" button are available.
+public struct ODSListItemTrailingActions {
+
+    public typealias OnIButtonClicked = () -> Void
+    let displayText: String?
+    let onIButtonClicked: OnIButtonClicked?
+    let id: UUID
+
+    /// Use to display a text
+    ///
+    /// - Parameter displayText: Text to dsiplay
+    ///
+    public init(displayText: String) {
+        self.displayText = displayText
+        self.onIButtonClicked = nil
+        self.id = UUID()
+    }
+
+    /// Use to display "i" button providing callback to handle action
+    ///
+    /// - Parameter onIButtionClicked: callback to be invoked when "i" button is being clicked.
+    ///
+    public init(onIButtionClicked: @escaping OnIButtonClicked) {
+        self.displayText = nil
+        self.onIButtonClicked = onIButtionClicked
+        self.id = UUID()
+    }
+
+    /// Use to display a text and display "i" button
+    ///
+    /// - Parameters:
+    ///     - displayText: Text to dsiplay
+    ///     - onIButtionClicked: callback to be invoked when "i" button is being clicked.
+    ///
+    public init(displayText: String, onIButtionClicked: @escaping OnIButtonClicked) {
+        self.displayText = displayText
+        self.onIButtonClicked = onIButtionClicked
+        self.id = UUID()
+    }
+}
+
+
+// ================================
+// MARK: Selection List items model
+// ================================
 
 public class ODSListSelectionItemModel: ODSListItemModel, ObservableObject {
 
@@ -79,8 +159,8 @@ public class ODSListSelectionItemModel: ODSListItemModel, ObservableObject {
     ///     - title: The primary text of the list item
     ///     - subtile: The secondary text of the list item (optional)
     ///     - leadingIcon: The leading icon of the list item (optional)
-    ///     - trailingSelection: The trailing selection item
-    ///     - minHeight: The minimum height of the list item (medium by default)
+    ///     - trailingSelection: The trailing selection
+    ///     - isSelected: State to know if element is selected.
     ///
     public init(
         title: String,
@@ -99,76 +179,3 @@ public class ODSListSelectionItemModel: ODSListItemModel, ObservableObject {
     }
 }
 
-public class ODSListStandardItemModel: ODSListItemModel {
-
-    public let id: UUID
-    public let title: String
-    public let subtitle: String?
-    public let leadingIcon: ODSListItemLeadingIcon?
-    public let trailingActions: ODSListItemTrailingActions?
-
-    /// Describe the Item content.
-    ///
-    /// - Parameters:
-    ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIcon: The leading icon of the list item (optional)
-    ///     - trailingActions: The trailing meta text or info button actions
-    ///
-    public init(
-        title: String,
-        subtitle: String? = nil,
-        leadingIcon: ODSListItemLeadingIcon? = nil,
-        trailingActions: ODSListItemTrailingActions? = nil)
-    {
-        self.title = title
-        self.subtitle = subtitle
-        self.leadingIcon = leadingIcon
-        self.trailingActions = trailingActions
-
-        id = UUID()
-    }
-}
-
-/// Describes the trailing icon of the list item
-/// for additional actions.
-/// A text or an "i" button are available.
-public struct ODSListItemTrailingActions {
-
-    public typealias OnIButtionClicked = () -> Void
-    let displayText: String?
-    let onIButtionClicked: OnIButtionClicked?
-    let id: UUID
-
-    /// Use to display a text
-    ///
-    /// - Parameter displayText: Text to dsiplay
-    ///
-    public init(displayText: String) {
-        self.displayText = displayText
-        self.onIButtionClicked = nil
-        self.id = UUID()
-    }
-
-    /// Use to display "i" button providing callback to handle action
-    ///
-    /// - Parameter onIButtionClicked: callback to be invoked when "i" button is being clicked.
-    ///
-    public init(onIButtionClicked: @escaping OnIButtionClicked) {
-        self.displayText = nil
-        self.onIButtionClicked = onIButtionClicked
-        self.id = UUID()
-    }
-
-    /// Use to display a text and display "i" button
-    ///
-    /// - Parameters:
-    ///     - displayText: Text to dsiplay
-    ///     - onIButtionClicked: callback to be invoked when "i" button is being clicked.
-    ///
-    public init(displayText: String, onIButtionClicked: @escaping OnIButtionClicked) {
-        self.displayText = displayText
-        self.onIButtionClicked = onIButtionClicked
-        self.id = UUID()
-    }
-}

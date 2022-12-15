@@ -23,61 +23,15 @@
 
 import SwiftUI
 
-/// A list is a continuous vertical group of data entries like text, icons or images.
-///
-/// <a href="https://system.design.orange.com/0c1af118d/p/63daa5-lists/b/47ebec" target="_blank">ODS Lists</a>.
-///
-/// You can use this view in the NavigationLink providing the right model:
-///
-///     NavigationLink(ODSListStandardItemModel(title: "Title", subtitle: "Subtitle")) {
-///         Text("The destination View")
-///     }
-///
-///
-public struct ODSListItem: View {
+extension NavigationLink where Label == ODSStandardListItem {
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    let model: ODSListItemModel
-
-    // =================
-    // MARK: Initializer
-    // =================
-
-    /// Create the `ODSListItem` view with content described by the `ODSListItemModel`.
-    ///
-    /// - Parameter model: The model describing the item.
-    ///
-    public init(model: ODSListItemModel) {
-        self.model = model
-    }
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    public var body: some View {
-        if let standardModel = model as? ODSListStandardItemModel {
-            ODSStandardListItem(model: standardModel)
-        } else {
-            if let selectionModel = model as? ODSListSelectionItemModel {
-                ODSSelectionListItem(model: selectionModel)
-            }
-        }
-    }
-}
-
-extension NavigationLink where Label == ODSListItem {
-
-    /// Creates a navigation link that presents a destination view, with a ODSListItem label.
+    /// Creates a navigation link that presents a destination view, with a __ODSListStandardItem__ label.
     /// - Parameters:
     ///   - model: A model describing each element of the item.
     ///   - destination: A view for the navigation link to present.
     public init(_ model: ODSListStandardItemModel, @ViewBuilder destination: () -> Destination) {
         self.init(destination: destination) {
-            ODSListItem(model: model)
+            ODSStandardListItem(model: model)
         }
     }
 
@@ -89,7 +43,7 @@ extension NavigationLink where Label == ODSListItem {
     ///   - destination: A view for the navigation link to present.
     public init(_ model: ODSListStandardItemModel, isActive: Binding<Bool>, @ViewBuilder destination: () -> Destination) {
         self.init(isActive: isActive, destination: destination) {
-            ODSListItem(model: model)
+            ODSStandardListItem(model: model)
         }
     }
 
@@ -104,7 +58,7 @@ extension NavigationLink where Label == ODSListItem {
     ///   - destination: A view for the navigation link to present.
     public init<V>(_ model: ODSListStandardItemModel, tag: V, selection: Binding<V?>, @ViewBuilder destination: () -> Destination) where V: Hashable {
         self.init(tag: tag, selection: selection, destination: destination) {
-            ODSListItem(model: model)
+            ODSStandardListItem(model: model)
         }
     }
 }

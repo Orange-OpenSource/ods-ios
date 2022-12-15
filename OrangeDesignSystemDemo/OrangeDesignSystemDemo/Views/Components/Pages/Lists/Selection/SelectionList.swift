@@ -64,7 +64,7 @@ private struct SelectionListVariantInner: View {
     var body: some View {
         List /* (selection: $multiSelection) */ {
             ForEach(model.itemModels, id: \.id) { itemModel in
-                ODSListItem(model: itemModel)
+                ODSSelectionListItem(model: itemModel)
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(Visibility.visible)
             }
@@ -75,8 +75,5 @@ private struct SelectionListVariantInner: View {
         .toolbar { EditButton() }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Hello World!", isPresented: $model.showSheetOnIButtonClicked) {
-            Button("close", role: .cancel) {}
-        }
     }
 }

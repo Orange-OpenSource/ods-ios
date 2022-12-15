@@ -23,52 +23,6 @@
 
 import SwiftUI
 
-struct ODSStandardListItem: View {
-
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    let model: ODSListStandardItemModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        ODSListItemContent(model: model)
-    }
-}
-
-// MARK: - 
-
-struct ODSSelectionListItem: View {
-
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @ObservedObject var model: ODSListSelectionItemModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        if model.trailingSelection == .checkmark {
-            ODSListItemContent(model: model)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    model.isSelected.toggle()
-                }
-        } else {
-            ODSListItemContent(model: model)
-        }
-    }
-}
-
-// MARK: -
-
 struct ODSListItemContent: View {
 
     // =======================
