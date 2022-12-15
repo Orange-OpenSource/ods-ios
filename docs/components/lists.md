@@ -11,11 +11,8 @@ description: Lists are continuous, vertical indexes of text or images.
 * [Specifications references](#specifications-references)
 * [Accessibility](#accessibility)
 * [Variants](#variants)
-   * [Standard list item with title](#standard-list-item-with-title)
-   * [List item with title and toggle](#interaction-and-animation)
-* [Interaction and animation](#interaction-and-animation)
-    *  [Selection](#selection)
-    *  [Interaction](#interaction)
+   * [Standard list item](#standard-list-item)
+   * [Selection list item](#selection-list-item)
 
 ---
 
@@ -29,83 +26,83 @@ description: Lists are continuous, vertical indexes of text or images.
 Please follow [accessibility criteria for development](https://a11y-guidelines.orange.com/en/mobile/ios/)
 
 ## Variants
-
-The native List behaviour is prefered. Here we just propose a configuration for two types of list items:
-- Standard with title, subtitle, left image, right icon
-- Title with toggle 
-
-Those items can olso define a minimum height (`ODSListItemMinHeight`):
-- medium
-- large
-
-
-### Standard list item with title
- 
-It is composed with:
-- Title only
+   
+Here we just propose a configuration for two types of list items:
+- Standard with trailing actions
+- Selection with trailing icons (selection indicators) 
+  
+All items are composed with:
+- Title
 - Subtitle (optional)
-- Leading Icon (optional)
-- Trailing Icon (optional)
-    - with info button (action)
+- Leading icon (optional)
+
+The leading icon is :
+- icon or image from resources
+- Image from url. During image loading a placeholder Image is needed. Three time of shape are proposed (circular, square or wide)
+    
+ 
+### Standard list item 
+ 
+ For standard items, trailing icons can be added. Two types of icons are proposed:
+    - with info button to make an action
     - with text (no action, only information)
     
-The leading icon is :
-- Image from resources
-- Image from url. During image loading a placeholder Image is needed  
-    
+The standard item can be used in a `NavigationLink` (for example, display more details)
+
 ```swift
 // Create list items models
-let image = Image(systemName: "heart")
-let leadingIconModel = ODSListItemLeadingIconModel.withImage(image)
-let trailingIconModel = ODSListItemTrailingIconModel.text("Details")
 
 let itemsModels = [ 
-                    ODSListItemModel(title: "Title Only"),
-                    ODSListItemModel(title: "Title with subtitle", subtitle: "subtitle"),    
-                    ODSListItemModel(title: "Title with leadingImage", leadingIconModel: leadingIconModel),
-                    ODSListItemModel(title: "Title with trailingIcon", trailingIconModel: trailingIconModel),
+                    ODSListStandardItemModel(title: "Title Only"),
+                    ODSListStandardItemModel(title: "Title with subtitle", subtitle: "subtitle"),    
+                    ODSListStandardItemModel(title: "Title with leading icon", leadingIcon: .icon(Image(systemName: "heart"))),
+                    ODSListStandardItemModel(title: "Title with trailing action", ODSListItemTrailingActions(displayText: "Details")),
                 ]
 
-// Build the List view using ODSListItem with model
+// Build the List view using ODSListStandardItemModel.
 List {
     ForEach(itemModels, id: \.id) { itemModel in
         NavigationLink {
             Text("The destination view")
         } label: {
-            ODSListItem(model: itemModel)
+            ODSListStandardItemModel(model: itemModel)
         }
     }
 }
 ```
 
-### List item with title and toggle
+### Selection list item
 
-**Note:** Don’t forget, if item is set in a NavigationLink, a chevron is automatically added on right by the system. For design purpose it is NOT recommended to add ODSListItemWithToggle in a NavigationLink.
+The selection list items can be used to enumerate data as list in order to select elements.
 
-```swift      
-@State var isOn: Bool = false
-        
-let itemModel = [ODSListItemWithToggleModel(title: "Title: cell with toggle", isOn: $isOn)]
-        
-    List {
-        ForEach(itemModels, id: \.id) { itemModel in
-            ODSListItemWithToggle(model: itemModel)
+```swift
+struct YourView: View {
+    let models: [ODSListSelectionItemModel]
+
+    init() {
+        let iconImage = Image(systemName: "heart")
+        models = [
+            ODSListSelectionItemModel(
+                title: "Title 1",
+                subtitle: "Subtitle 1",
+                leadingIcon: .icon(iconImage),
+                trailingSelection: .checkmark),
+            ODSListSelectionItemModel(
+                title: "Title 2",
+                subtitle: "Subtitle 2",
+                trailingSelection: .checkmark)
+        ]
+    }
+
+    var body: some View {
+        List {
+            ForEach(models, id: \.id) { model in
+                ODSSelectionListItem(model: model)
+            }
         }
     }
+}     
 ```
 
-
-## Selection and Interaction animations
-
-### Selection
-
-Signle or multiple selection are handled by the system natively. 
-So, animations for selection follow the standard iOS guidelines.
-
-### Interaction
-
-Don't forget, if item is set in a `NavigationLink`, a chevron is automatically added on right by the system.
-For design purpose it is NOT recomanded to add `ODSListItemWithToggle` in a `NavigationLink`.
-
-In other case, animation for control follows the standard iOS guidelines.
+**Note:** Don’t forget, if item is used in a `NavigationLink`, a chevron is automatically added by the system. For design purpose it is NOT recommended to add `ODSSelectionListItem` in a `NavigationLink`.
 

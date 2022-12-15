@@ -46,7 +46,7 @@ import SwiftUI
 // =========================
 
 ///
-/// The standard list items can be used enumerate data as list
+/// The standard list items can be used to enumerate data in list
 /// and to navigate to new screens showing more details.
 ///
 /// The following example shows how to build a List with standard elements:
@@ -114,7 +114,7 @@ public struct ODSStandardListItem: View {
 // ==========================
 
 ///
-/// The selection list items can be used enumerate data as list in order to select elements.
+/// The selection list items can be used to enumerate data as list in order to select elements.
 ///
 /// Remarks: This list item should never be used in a NavigationLink.
 ///
