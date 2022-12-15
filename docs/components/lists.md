@@ -31,7 +31,7 @@ Here we just propose a configuration for two types of list items:
 - Standard with trailing actions
 - Selection with trailing icons (selection indicators) 
   
-All items are composed with:
+All items are composed of:
 - Title
 - Subtitle (optional)
 - Leading icon (optional)

@@ -31,14 +31,14 @@ import SwiftUI
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/63daa5-lists/b/47ebec" target="_blank">ODS Lists</a>.
 ///
-/// Two type of list can be considered :
+/// Two types of list item can be considered :
 ///
-/// - standard: with leading icons, title, subtile and trailing actions that
-/// allow to make actions (get information, display details or navigate to a new
-/// page (see NavigationLink extension)
+/// - standard: composed of leading icons, title, subtile and trailing actions.
+/// This item allows to enumerate data and offers actions (get information, display details or navigate to a new
+/// page.
 ///
-/// - selection: with leading icons, title, subtile and trailing indicator or switch to select the element.
-///   Click on the list item with select or unselect the item.
+/// - selection: composed of leading icons, title, subtile and trailing indicator or switch to select the element.
+/// Click on the list item with select or unselect the item.
 ///
 
 // =========================
@@ -47,7 +47,7 @@ import SwiftUI
 
 ///
 /// The standard list items can be used to enumerate data in list
-/// and to navigate to new screens showing more details.
+/// and to navigate to new screen showing more details.
 ///
 /// The following example shows how to build a List with standard elements:
 ///
@@ -116,7 +116,7 @@ public struct ODSStandardListItem: View {
 ///
 /// The selection list items can be used to enumerate data as list in order to select elements.
 ///
-/// Remarks: This list item should never be used in a NavigationLink.
+/// Remarks: This list item should never be used in a __NavigationLink__.
 ///
 /// The following example shows how to build a List with elements for selection:
 ///

@@ -112,11 +112,11 @@ public struct ODSListItemTrailingActions {
 
     /// Use to display "i" button providing callback to handle action
     ///
-    /// - Parameter onIButtionClicked: callback to be invoked when "i" button is being clicked.
+    /// - Parameter onIButtonClicked: callback to be invoked when "i" button is being clicked.
     ///
-    public init(onIButtionClicked: @escaping OnIButtonClicked) {
+    public init(onIButtonClicked: @escaping OnIButtonClicked) {
         self.displayText = nil
-        self.onIButtonClicked = onIButtionClicked
+        self.onIButtonClicked = onIButtonClicked
         self.id = UUID()
     }
 
@@ -124,15 +124,14 @@ public struct ODSListItemTrailingActions {
     ///
     /// - Parameters:
     ///     - displayText: Text to dsiplay
-    ///     - onIButtionClicked: callback to be invoked when "i" button is being clicked.
+    ///     - onIButtonClicked: callback to be invoked when "i" button is being clicked.
     ///
-    public init(displayText: String, onIButtionClicked: @escaping OnIButtonClicked) {
+    public init(displayText: String, onIButtonClicked: @escaping OnIButtonClicked) {
         self.displayText = displayText
-        self.onIButtonClicked = onIButtionClicked
+        self.onIButtonClicked = onIButtonClicked
         self.id = UUID()
     }
 }
-
 
 // ================================
 // MARK: Selection List items model
@@ -160,7 +159,7 @@ public class ODSListSelectionItemModel: ODSListItemModel, ObservableObject {
     ///     - subtile: The secondary text of the list item (optional)
     ///     - leadingIcon: The leading icon of the list item (optional)
     ///     - trailingSelection: The trailing selection
-    ///     - isSelected: State to know if element is selected.
+    ///     - isSelected: State to know if item is selected
     ///
     public init(
         title: String,
