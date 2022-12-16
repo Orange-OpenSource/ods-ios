@@ -1,32 +1,95 @@
 <!DOCTYPE html>
 <html>
-<style type="text/css">
-  html {
-    height: 100%;
-  }
-  body {
-    min-height: 100%;
-  }
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
 
-#outer {width:100%;height:100%;margin:0 auto;}
-#inner {overflow:hidden;}
-#header {min-height:80px;background:black;padding-bottom: 30px;}
-#content {width:80%;float:left;background:white}
-#sidebar{width:20%;height:100%;float:left;background:white;
- border-right: 2px solid #eee;}
-
-.logo {
-    height:100px;
-    width: 100px;
-}
-
-</style>
 <head>
     {% include head.html %}
+
+    <style type="text/css">
+
+    html {
+        height: 100%;
+    }
+    body {
+        min-height: 100%;
+    }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #outer {
+        width:100%;
+        height:100%;
+        margin:0 auto;
+        }
+
+    #inner {
+        overflow:hidden;
+        }
+
+    #header {
+        min-height:80px;
+        background:black;
+        padding-bottom: 30px;
+        }
+
+    #content {
+        width:80%;
+        float:left;
+        background:white
+        }
+
+    #sidebar {
+        width:20%;
+        height:100%;
+        float:left;
+        background:white;
+        border-right: 2px solid #eee;
+        }
+
+    .logo {
+        height:100px;
+        width: 100px;
+    }
+
+    nav {
+        width: 50%;
+        margin: 0px auto 40px auto;
+        background-color: white;
+        position: sticky;
+        top: 0px;
+    }
+
+    nav ul {
+        list-style-type: none;
+    }
+
+    nav li {
+        float: left;
+        width: 25%;
+        text-align: center;
+    }
+
+    /*Avoid menu with null height*/
+    nav ul::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    nav a {
+        display: block; /*All surface will be clickable*/
+        text-decoration: none;
+        color: black;
+        border-bottom: 2px solid transparent;/*Avoid elements gap below the menu caused by border in :hover*/
+        padding: 10px 0px;/*Enlarge menu and text border*/
+    }
+
+      border-bottom: 2px solid gold;
+    }
+
+    </style>
+
     <title>{{ page.title }}</title>
 </head>
 
