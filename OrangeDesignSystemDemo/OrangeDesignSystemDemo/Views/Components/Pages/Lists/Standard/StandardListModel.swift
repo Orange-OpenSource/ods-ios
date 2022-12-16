@@ -105,7 +105,7 @@ class StandardListVariantModel: ObservableObject {
 
     @Published var itemModels: [ODSListStandardItemModel] = []
     
-    @Published var withDetails: Bool
+    @Published var showDetails: Bool
     
     private var recipes: [Recipe] = []
     
@@ -119,7 +119,7 @@ class StandardListVariantModel: ObservableObject {
         showSubtitle = true
         leadingIconOption = .circle
         trailingOptions = [.text, .infoButton]
-        withDetails = true
+        showDetails = true
         
         updateItems()
     }

@@ -56,8 +56,8 @@ struct StandardListBottomSheet: View {
                           chips: TrailingOption.chips)
                 .padding(.vertical, ODSSpacing.s)
             
-            Toggle(isOn: $model.withDetails) {
-                Text("WithD etails").odsFont(.bodyBold)
+            Toggle(isOn: $model.showDetails) {
+                Text("Navigate").odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)

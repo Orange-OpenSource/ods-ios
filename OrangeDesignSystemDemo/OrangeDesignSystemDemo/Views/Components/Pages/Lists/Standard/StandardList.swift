@@ -63,19 +63,19 @@ private struct StandardListVariantInner: View {
     var body: some View {
         List /* (selection: $multiSelection) */ {
             ForEach(model.itemModels, id: \.id) { itemModel in
-                if model.withDetails {
+                if model.showDetails {
                     NavigationLink(itemModel) {
                         Text("\(itemModel.title) is clicked")
                             .navigationTitle(itemModel.title)
                     }
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(Visibility.visible)
-                    .padding(.leading, ODSSpacing.s)
+                    .padding(.horizontal, ODSSpacing.s)
                 } else {
-                    ODSStandardListItem(model: itemModel)
-                        .padding(.horizontal, ODSSpacing.m)
+                    ODSListStandardItem(model: itemModel)
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(Visibility.visible)
+                        .padding(.horizontal, ODSSpacing.s)
                 }
             }
             .onMove(perform: model.move)

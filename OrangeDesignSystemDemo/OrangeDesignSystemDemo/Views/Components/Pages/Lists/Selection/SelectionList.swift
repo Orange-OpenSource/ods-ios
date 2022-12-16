@@ -64,7 +64,7 @@ private struct SelectionListVariantInner: View {
     var body: some View {
         List /* (selection: $multiSelection) */ {
             ForEach(model.itemModels, id: \.id) { itemModel in
-                ODSSelectionListItem(model: itemModel)
+                ODSListSelectionItem(model: itemModel)
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(Visibility.visible)
             }

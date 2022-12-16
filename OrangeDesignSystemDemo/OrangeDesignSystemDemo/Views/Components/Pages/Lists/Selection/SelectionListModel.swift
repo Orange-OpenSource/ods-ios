@@ -47,18 +47,18 @@ class SelectionListVariantModel: ObservableObject {
     }
 
     @Published var itemModels: [ODSListSelectionItemModel] = []
-    private var recipes: [Recipe] = []
-
+    private var recipes: [SelectedRecipe] = []
+    typealias SelectedRecipe = (recipe: Recipe, selected: Bool)
     
     // ==================
     // MARK: Initializers
     // ==================
     init() {
-        self.recipes = RecipeLoader.shared.recipes
+        self.recipes = RecipeLoader.shared.recipes.map { (recipe: $0, selected: Bool.random()) }
                 
         showSubtitle = true
         leadingIconOption = .circle
-        trailingOption = .toggle
+        trailingOption = .checkmark
         
         updateItems()
     }
@@ -80,15 +80,21 @@ class SelectionListVariantModel: ObservableObject {
     // MARK: Private helpers
     // =====================
     private func updateItems() {
-        itemModels = recipes.map { item(from: $0) }
+        
+        itemModels = recipes.map {
+            item(from: $0)
+        }
     }
 
-    private func item(from recipe: Recipe) -> ODSListSelectionItemModel {
-        ODSListSelectionItemModel(title: recipe.title,
+    private func item(from selectedRecipe: SelectedRecipe) -> ODSListSelectionItemModel {
+        let isSelected = selectedRecipe.selected
+        let recipe = selectedRecipe.recipe
+        
+        return ODSListSelectionItemModel(title: recipe.title,
                                   subtitle: showSubtitle ? recipe.subtitle : nil,
                                   leadingIcon: leadingIcon(from: recipe),
                                   trailingSelection: self.trailingOption,
-                                  isSelected: false)
+                                  isSelected: isSelected)
     }
     
     private func leadingIcon(from recipe: Recipe) -> ODSListItemLeadingIcon? {

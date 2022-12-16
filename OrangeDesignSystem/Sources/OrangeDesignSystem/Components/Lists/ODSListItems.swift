@@ -73,14 +73,21 @@ import SwiftUI
 ///                     NavigationLink(modelWithDetails) {
 ///                         Text("Your details here")
 ///                     }
+///                     .listRowInsets(EdgeInsets())
+///                     .listRowSeparator(Visibility.visible)
+///                     .padding(.horizontal, ODSSpacing.s)
 ///
-///                     ODSStandardListItem(model: modelWithoutDetails)
+///                     ODSListStandardItem(model: modelWithoutDetails)
+///                         .listRowInsets(EdgeInsets())
+///                         .listRowSeparator(Visibility.visible)
+///                         .padding(.horizontal, ODSSpacing.s)
+///
 ///                 }
 ///             }
 ///         }
 ///     }
 ///
-public struct ODSStandardListItem: View {
+public struct ODSListStandardItem: View {
 
     // =======================
     // MARK: Stored Properties
@@ -92,7 +99,7 @@ public struct ODSStandardListItem: View {
     // MARK: Initializer
     // =================
 
-    /// Create the `ODSStandardListItem` view with content described by the `ODSListStandardItemModel`.
+    /// Create the `ODSListStandardItem` view with content described by the `ODSListStandardItemModel`.
     ///
     /// - Parameter model: The model describing the item.
     ///
@@ -141,13 +148,16 @@ public struct ODSStandardListItem: View {
 ///         var body: some View {
 ///             List {
 ///                 ForEach(models, id: \.id) { model in
-///                     ODSSelectionListItem(model: model)
+///                     ODSListSelectionItem(model: model)
+///                         .listRowInsets(EdgeInsets())
+///                         .listRowSeparator(Visibility.visible)
+///                         .padding(.horizontal, ODSSpacing.s)
 ///                 }
 ///             }
 ///         }
 ///     }
 ///
-public struct ODSSelectionListItem: View {
+public struct ODSListSelectionItem: View {
 
     // =======================
     // MARK: Stored Properties
@@ -155,7 +165,7 @@ public struct ODSSelectionListItem: View {
 
     @ObservedObject var model: ODSListSelectionItemModel
 
-    /// Create the `ODSSelectionListItem` view with content described by the `ODSListSelectionItemModel`.
+    /// Create the `ODSListSelectionItem` view with content described by the `ODSListSelectionItemModel`.
     ///
     /// - Parameter model: The model describing the item.
     ///

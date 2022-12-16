@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-extension NavigationLink where Label == ODSStandardListItem {
+extension NavigationLink where Label == ODSListStandardItem {
 
     /// Creates a navigation link that presents a destination view, with a __ODSListStandardItem__ label.
     /// - Parameters:
@@ -31,7 +31,7 @@ extension NavigationLink where Label == ODSStandardListItem {
     ///   - destination: A view for the navigation link to present.
     public init(_ model: ODSListStandardItemModel, @ViewBuilder destination: () -> Destination) {
         self.init(destination: destination) {
-            ODSStandardListItem(model: model)
+            ODSListStandardItem(model: model)
         }
     }
 
@@ -43,7 +43,7 @@ extension NavigationLink where Label == ODSStandardListItem {
     ///   - destination: A view for the navigation link to present.
     public init(_ model: ODSListStandardItemModel, isActive: Binding<Bool>, @ViewBuilder destination: () -> Destination) {
         self.init(isActive: isActive, destination: destination) {
-            ODSStandardListItem(model: model)
+            ODSListStandardItem(model: model)
         }
     }
 
@@ -58,7 +58,7 @@ extension NavigationLink where Label == ODSStandardListItem {
     ///   - destination: A view for the navigation link to present.
     public init<V>(_ model: ODSListStandardItemModel, tag: V, selection: Binding<V?>, @ViewBuilder destination: () -> Destination) where V: Hashable {
         self.init(tag: tag, selection: selection, destination: destination) {
-            ODSStandardListItem(model: model)
+            ODSListStandardItem(model: model)
         }
     }
 }

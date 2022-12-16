@@ -65,7 +65,7 @@ List {
         NavigationLink {
             Text("The destination view")
         } label: {
-            ODSListStandardItemModel(model: itemModel)
+            ODSListStandardItem(model: itemModel)
         }
     }
 }
@@ -97,12 +97,12 @@ struct YourView: View {
     var body: some View {
         List {
             ForEach(models, id: \.id) { model in
-                ODSSelectionListItem(model: model)
+                ODSListSelectionItem(model: model)
             }
         }
     }
 }     
 ```
 
-**Note:** Don’t forget, if item is used in a `NavigationLink`, a chevron is automatically added by the system. For design purpose it is NOT recommended to add `ODSSelectionListItem` in a `NavigationLink`.
+**Note:** Don’t forget, if item is used in a `NavigationLink`, a chevron is automatically added by the system. For design purpose it is NOT recommended to add `ODSListSelectionItem` in a `NavigationLink`.
 

@@ -40,11 +40,11 @@ struct ListComponent: Component {
 
 struct ListVariants: View {
     var body: some View {
-        VariantEntryItem(text: "List with selection", technicalElement: "ODSSelectionListItem()"){
+        VariantEntryItem(text: "List with selection", technicalElement: "ODSListSelectionItem()"){
             SelectionListVariant(model: SelectionListVariantModel())
         }
 
-        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSStandardListItem()"){
+        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
             StandardListVariant(model: StandardListVariantModel())
         }
     }
