@@ -38,7 +38,7 @@ All items are composed of:
 
 The leading icon is :
 - icon or image from resources
-- Image from url. During image loading a placeholder Image is needed. Three time of shape are proposed (circular, square or wide)
+- Image from url. During image loading a placeholder Image is needed. Three kinds of shape are proposed (circular, square or wide).
     
  
 ### Standard list item 
