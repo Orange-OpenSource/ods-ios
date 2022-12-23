@@ -1,3 +1,4 @@
+
 //
 // MIT License
 // Copyright (c) 2021 Orange
@@ -56,29 +57,48 @@ private struct TabBarVariant: View {
     // ======================
 
     @ObservedObject var model: TabBarVariantModel
+    @State var spacerHeight: CGFloat
     
+    // =================
+    // MARK: Initializer
+    // =================
+    init(model: TabBarVariantModel) {
+        self.model = model
+        self.spacerHeight = Self.computeSpacerHeight()
+        
+    }
+    
+    private static func computeSpacerHeight() -> CGFloat {
+        return UIDevice.current.orientation.isLandscape ? 100.0 : 350.0
+    }
+
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
         ZStack {
-            VStack(alignment: .center, spacing: 0) {
-                VStack {
-                    TabView {
-                        ForEach(model.availableItems, id: \.text) { itemDescription in
-                            tabBarItem(from: itemDescription)
-                                .modifier(BadgeModifier(badgeOption: itemDescription.badgeOption))
+            GeometryReader { reader in
+                VStack(alignment: .center, spacing: 0) {
+                    VStack {
+                        TabView {
+                            ForEach(model.availableItems, id: \.text) { itemDescription in
+                                tabBarItem(from: itemDescription)
+                                    .modifier(BadgeModifier(badgeOption: itemDescription.badgeOption))
+                            }
                         }
                     }
+                    .border(.gray)
+                    
+                    Spacer().frame(height: spacerHeight)
                 }
-                .border(.gray)
-                
-                Spacer().frame(height: 350)
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.s)
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                spacerHeight = Self.computeSpacerHeight()
             }
 
-            .padding(.horizontal, ODSSpacing.m)
-            
             BottomSheet {
                 TabBarVariantBottomSheet()
             }
