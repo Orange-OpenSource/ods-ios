@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [SDK] #319 Manage Tap on Action area 1 of a card 
 - [Doc] #286 Use ODS Jekyll theme header to display favicons on documentation github pages
 - [DemoApp] #265 Update the Progress indicator variant list selection
 - [DemoApp] #266 Update the Slider variant list selection

@@ -30,19 +30,30 @@ class CardImageFirstVariantModel: ObservableObject {
     @Published var showSupportingText: Bool
     @Published var showButton1: Bool
     @Published var showButton2: Bool
+    @Published var showAlert: Bool
+    var alertText: String = ""
 
     init() {
         showSubtitle = true
         showSupportingText = true
         showButton1 = true
         showButton2 = true
+        showAlert = false
     }
 
     var cardModel: ODSCardImageFirstModel {
         ODSCardImageFirstModel(title: cardExampleTitle,
                                subtitle: showSubtitle ? cardExampleSubtitle : nil,
                                image: Image("ods_empty", bundle: Bundle.ods),
-                               supportingText: showSupportingText ? cardExampleSupportingText : nil)
+                               supportingText: showSupportingText ? cardExampleSupportingText : nil,
+                               onCardClick: {
+            self.displayAlert(text: "Card container clicked")
+        })
+    }
+    
+    func displayAlert(text: String) {
+        self.alertText = text
+        self.showAlert = true
     }
 }
 
@@ -56,15 +67,22 @@ struct CardImageFirstVariant: View {
             ScrollView {
                 ODSCardImageFirst(model: model.cardModel) {
                     if model.showButton1 {
-                        ODSButton(text: LocalizedStringKey("Button 1"), emphasis: .highest, variableWidth: true) {}
+                        ODSButton(text: LocalizedStringKey("Button 1"), emphasis: .highest, variableWidth: true) {
+                            model.displayAlert(text: "Button 1 clisked")
+                        }
                     }
                 } buttonContent2: {
                     if model.showButton2 {
-                        ODSButton(text: LocalizedStringKey("Button 2"), emphasis: .highest, variableWidth: true) {}
+                        ODSButton(text: LocalizedStringKey("Button 2"), emphasis: .highest, variableWidth: true) {
+                            model.displayAlert(text: "Button 2 clisked")
+                        }
                     }
                 }
                 .padding(.horizontal, ODSSpacing.s)
                 .padding(.top, ODSSpacing.m)
+            }
+            .alert(model.alertText, isPresented: $model.showAlert) {
+                Button("close", role: .cancel) {}
             }
 
             BottomSheet(showContent: false) {
