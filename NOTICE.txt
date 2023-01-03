@@ -15,6 +15,7 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/Close.ima
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@2x.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@3x.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/ods_empty.imageset/ods_nopicture.png
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/controlsTableViewRowXCheckmark/controlsTableViewRowXCheckmark.svg
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/AboutImage.imageset/AboutImage.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Add.imageset/Add.png
@@ -51,5 +52,11 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Tab bar.imageset/T
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Text edit menu.imageset/Text edit menu.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Typography.imageset/Typography.svg
 
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationDIIcIceCream.imageset/iconsCommunicationDIIcIceCream.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationDIcCafe.imageset/iconsCommunicationDIcCafe.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationDIcCookingPot.imageset/iconsCommunicationDIcCookingPot.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationRUIcRestaurant.imageset/iconsCommunicationRUIcRestaurant.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationDIIcIceCream.imageset/iconsCommunicationDIIcIceCream.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationDIcCafe.imageset/iconsCommunicationDIcCafe.svg
 End of the parts list under Orange SA Copyright
 

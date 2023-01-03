@@ -30,7 +30,8 @@ struct ODSButtonStyleModifier: ViewModifier {
     let emphasis: ODSButton.Emphasis
     @Environment(\.theme) var theme
     
-    @ViewBuilder func body(content: Content) -> some View {
+    @ViewBuilder
+    func body(content: Content) -> some View {
         switch emphasis {
         case .highest:
             let style = ODSShapedButtonStyle(shapeType: .filled,

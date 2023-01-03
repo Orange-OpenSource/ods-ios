@@ -21,33 +21,46 @@
 //
 //
 
-import OrangeDesignSystem
-import SwiftUI
+import Foundation
 
-// MARK: Bottom Sheet - content for list
-struct ListLinesBottomSheet: View {
+struct Recipe: Decodable {
+    let title: String
+    let subtitle: String
+    let url: URL
+    let iconName: String
+}
 
-    @EnvironmentObject var model: ListLinesVariantModel
+class RecipeLoader {
 
-    var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSecondLine) {
-                Text("Second line of text").odsFont(.bodyBold)
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    static let shared: RecipeLoader = RecipeLoader()
+    let recipes: [Recipe]
+    
+    // =================
+    // MARK: Initializer
+    // =================
+    
+    private init() {
+        self.recipes = Self.recipes(from: "Recipes")
+    }
+    
+    // ====================
+    // MARK: Private Helper
+    // ====================
+
+    private static func recipes(from fileName: String) -> [Recipe] {
+        do {
+            if let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json"),
+               let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
+               return try JSONDecoder().decode([Recipe].self, from: jsonData)
             }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
-
-            Toggle(isOn: $model.showLeadingImage) {
-                Text("Leading").odsFont(.bodyBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
-
-            ODSChipPicker(title: "Trailing",
-                          selection: $model.selectedTrailingImageChip,
-                          chips: model.trailingImageChips)
-                .padding(.vertical, ODSSpacing.s)
+        } catch {
         }
-        .padding(.top, ODSSpacing.s)
+        
+        return []
     }
 }
+
