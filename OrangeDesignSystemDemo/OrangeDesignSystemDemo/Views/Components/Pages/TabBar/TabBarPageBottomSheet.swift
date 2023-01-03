@@ -87,11 +87,11 @@ class TabBarVariantModel: ObservableObject {
     private func updateItems() {
         itemDescriptions = [
             // Display the badge only on the first item
-            ItemDescription(iconName: "heart", text: "Favorites", contentText: "Favorites Content view", badgeOption: badgeOption),
-            ItemDescription(iconName: "magnifyingglass", text: "Search", contentText: "Search Content view", badgeOption: .none),
-            ItemDescription(iconName: "info.circle.fill", text: "Information", contentText: "Information Content view", badgeOption: .none),
-            ItemDescription(iconName: "bell.fill", text: "Notification", contentText: "Notification Content view", badgeOption: .none),
-            ItemDescription(iconName: "gearshape.fill", text: "Settings", contentText: "Settings Content view", badgeOption: .none),
+            ItemDescription(iconName: "Heart_19371", text: "Favorites", contentText: "Favorites Content view", badgeOption: badgeOption),
+            ItemDescription(iconName: "Search_19371", text: "Search", contentText: "Search Content view", badgeOption: .none),
+            ItemDescription(iconName: "Info_19371", text: "Information", contentText: "Information Content view", badgeOption: .none),
+            ItemDescription(iconName: "Notification_Alert_19371", text: "Notification", contentText: "Notification Content view", badgeOption: .none),
+            ItemDescription(iconName: "Settings_19371", text: "Settings", contentText: "Settings Content view", badgeOption: .none),
         ]
     }
     

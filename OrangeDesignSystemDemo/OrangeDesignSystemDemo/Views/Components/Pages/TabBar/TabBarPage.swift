@@ -113,7 +113,7 @@ private struct TabBarVariant: View {
     private func tabBarItem(from itemDescription: TabBarVariantModel.ItemDescription) -> some View {
         Text(itemDescription.contentText)
             .tabItem {
-                Label(itemDescription.text, systemImage: itemDescription.iconName)
+                Label(itemDescription.text, image: itemDescription.iconName)
             }
     }
 }

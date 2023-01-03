@@ -24,10 +24,17 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/chips/iconsFunctio
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/chips/iconsFunctionalUiEMIcHeartRecommend.imageset/iconsFunctionalUiEMIcHeartRecommend@3x.png
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/empty.imageset/nopicture.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBarIcon/component-atom_32.imageset/component-atom_32.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBarIcon/Guideline-DNA_32.imageset/Guideline-DNA_32.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBarIcon/info_32.imageset/info_32.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBarIcon/Module-molecule_32.imageset/Module-molecule_32.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/appTabBar/component-atom_32.imageset/component-atom_32.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/appTabBar/Guideline-DNA_32.imageset/Guideline-DNA_32.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/appTabBar/info_32.imageset/info_32.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/appTabBar/Module-molecule_32.imageset/Module-molecule_32.svg
+
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Heart_19371.imageset/Heart_19371.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Info_19371.imageset/Info_19371.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Notification_Alert_19371.imageset/Notification_Alert_19371.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Search_19371.imageset/Search_19371.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Settings_19371.imageset/Settings_19371.svg
+
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Banners.imageset/DSM-iOS-Components-Banners.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Buttons - Shape.imageset/Buttons - Shape.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Cards_1.imageset/Cards_1.png
