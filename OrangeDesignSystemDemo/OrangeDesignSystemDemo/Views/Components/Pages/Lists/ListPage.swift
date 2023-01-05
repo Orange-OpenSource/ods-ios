@@ -40,13 +40,27 @@ struct ListComponent: Component {
 
 struct ListVariants: View {
     var body: some View {
-        VariantEntryItem(text: "Item with toggle", technicalElement: "ODSListItemWithToggle()"){
-            ListToggleVariant()
+        VariantEntryItem(text: "List with selection", technicalElement: "ODSListSelectionItem()"){
+            SelectionListVariant(model: SelectionListVariantModel())
         }
 
-        VariantEntryItem(text: "Item with lines", technicalElement: "ODSListItem()"){
-            ListLinesVariant()
+        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
+            StandardListVariant(model: StandardListVariantModel())
         }
     }
 }
 
+
+#if DEBUG
+struct ListPage_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    ListVariants()
+                }
+            }
+        }
+    }
+}
+#endif

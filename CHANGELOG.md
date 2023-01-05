@@ -1,9 +1,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.9.0] - 2023-01-05
 
 - [SDK] #319 Manage Tap on Action area 1 of a card 
+- [DemoApp/SDK] #263 Refactor the lists variant list selection
+- [DemoApp] #304 Update Bar tab component illustration in landscape 
 - [Doc] #286 Use ODS Jekyll theme header to display favicons on documentation github pages
 - [DemoApp] #265 Update the Progress indicator variant list selection
 - [DemoApp] #266 Update the Slider variant list selection
