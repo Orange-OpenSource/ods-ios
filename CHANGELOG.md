@@ -1,7 +1,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.9.0] - 2023-01-05
 
 - [DemoApp/SDK] #263 Refactor the lists variant list selection
 - [DemoApp] #304 Update Bar tab component illustration in landscape 
