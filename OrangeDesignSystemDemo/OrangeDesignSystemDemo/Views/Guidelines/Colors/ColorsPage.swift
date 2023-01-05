@@ -85,7 +85,9 @@ struct ColorList: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: ColorUsage()) {
+                NavigationLink(destination: {
+                    ColorUsage()
+                } ) {
                     Text("Usage")
                 }
                 .foregroundColor(theme.componentColors.accent)

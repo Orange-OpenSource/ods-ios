@@ -11,8 +11,8 @@ description: Progress indicators show users that elements or pages are loading
 * [Specifications references](#specifications-references)
 * [Accessibility](#accessibility)
 * [Variants](#variants)
-    * [Labeled progress bar](#labeled-progress-bar)
-    * [Unlabeled activity indicator](#unlabeled-activity-indicator)
+    * [Progress bar](#progress-bar)
+    * [Activity indicator](#activity-indicator)
 
 ---
 
@@ -29,17 +29,43 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 Progress indicators show users that elements or pages are loading.
 
-### Labeled progress bar
+### Progress bars
+
+Progres bar is used to display **determinate** operations. It display the indicator increasing in width from 0 to 100% of the track, in sync with the process’s progress. 
 
 To display the indicator as progress bar with a specific color use the `tint`.
+
 We recommend to use the theme for that using the accent color as shown in following exemple.  
  
 ```swift
-ProgressView("Downloading…", value: $value, total: 100)
+ProgressView("Downloading...", value: value, total: 100)
     .tint(theme.componentColors.accent)
 ```
 
-### Unlabeled progress indicator
+It is possible to display the current value to provide more context.
+
+```swift
+ProgressView(value: value, total: 100) {
+    Text("Downloading...")
+} currentValueLabel: {
+    let percent = String(format: "%0.2f", value)
+    Text("\(percent) %").frame(maxWidth: .infinity, alignment: .trailing)
+}
+.tint(theme.componentColors.accent)
+```
+
+### Activity indicators
+
+Activity indicator is used to display **Indeterminate** operations. It spins while a task is performed. 
+
 ```swift
 ProgressView()
 ``` 
+
+An additional label can be added to provide more context.
+
+```swift
+ProgressView {
+   Text("Loading...")
+}
+```

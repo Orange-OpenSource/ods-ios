@@ -23,15 +23,15 @@
 
 import SwiftUI
 
-extension NavigationLink where Label == ODSListItem {
+extension NavigationLink where Label == ODSListStandardItem {
 
-    /// Creates a navigation link that presents a destination view, with a ODSListItem label.
+    /// Creates a navigation link that presents a destination view, with a __ODSListStandardItem__ label.
     /// - Parameters:
     ///   - model: A model describing each element of the item.
     ///   - destination: A view for the navigation link to present.
-    public init(_ model: ODSListItemModel, @ViewBuilder destination: () -> Destination) {
+    public init(_ model: ODSListStandardItemModel, @ViewBuilder destination: () -> Destination) {
         self.init(destination: destination) {
-            ODSListItem(model: model)
+            ODSListStandardItem(model: model)
         }
     }
 
@@ -41,9 +41,9 @@ extension NavigationLink where Label == ODSListItem {
     ///   - isActive: A binding to a Boolean value that indicates whether
     ///   `destination` is currently presented.
     ///   - destination: A view for the navigation link to present.
-    public init(_ model: ODSListItemModel, isActive: Binding<Bool>, @ViewBuilder destination: () -> Destination) {
+    public init(_ model: ODSListStandardItemModel, isActive: Binding<Bool>, @ViewBuilder destination: () -> Destination) {
         self.init(isActive: isActive, destination: destination) {
-            ODSListItem(model: model)
+            ODSListStandardItem(model: model)
         }
     }
 
@@ -56,9 +56,9 @@ extension NavigationLink where Label == ODSListItem {
     ///   - selection: A bound variable that causes the link to present
     ///   `destination` when `selection` becomes equal to `tag`.
     ///   - destination: A view for the navigation link to present.
-    public init<V>(_ model: ODSListItemModel, tag: V, selection: Binding<V?>, @ViewBuilder destination: () -> Destination) where V: Hashable {
+    public init<V>(_ model: ODSListStandardItemModel, tag: V, selection: Binding<V?>, @ViewBuilder destination: () -> Destination) where V: Hashable {
         self.init(tag: tag, selection: selection, destination: destination) {
-            ODSListItem(model: model)
+            ODSListStandardItem(model: model)
         }
     }
 }

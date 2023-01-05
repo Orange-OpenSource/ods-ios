@@ -24,25 +24,47 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ListToggleVariant: View {
-    @State var isOnMedium: Bool = false
-    @State var isOnLarge: Bool = false
+class SliderVariantModel: ObservableObject {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @Published var showSideIcons: Bool
+    @Published var showValue: Bool
+    @Published var stepped: Bool
+
+    // ==================
+    // MARK: Initializers
+    // ==================
     
+    init() {
+        showSideIcons = true
+        showValue = true
+        stepped = false
+    }
+}
+
+struct SliderBottomSheetContent: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @EnvironmentObject var model: SliderVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
-        List {
-            ODSListItemWithToggle(model: ODSListItemWithToggleModel(title: "Medium item",
-                                                                    isOn: $isOnMedium,
-                                                                    minHeight: .medium)
-            )
-            .listRowSeparator(Visibility.visible)
-            
-            ODSListItemWithToggle(model: ODSListItemWithToggleModel(title: "Large item",
-                                                                    isOn: $isOnLarge,
-                                                                    minHeight: .large)
-            )
-            .listRowSeparator(Visibility.visible)
+        VStack(spacing: ODSSpacing.m) {
+            Toggle("Side icons", isOn: $model.showSideIcons)
+            Toggle("Display value", isOn: $model.showValue)
+            Toggle("Stepped", isOn: $model.stepped)
         }
-        .listStyle(.plain)
-        .navigationTitle("Item with toggle")
+        .odsFont(.bodyRegular)
+        .padding(.vertical, ODSSpacing.m)
+        .padding(.horizontal, ODSSpacing.m)
     }
 }
