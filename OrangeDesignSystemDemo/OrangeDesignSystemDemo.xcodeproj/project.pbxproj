@@ -179,7 +179,6 @@
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD347D2C28D4C00B00F451B8 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FD88B6382930CE0600F58924 /* SlidersPageBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidersPageBottomSheet.swift; sourceTree = "<group>"; };
-		FDC4430B27AD80C30024701B /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = ../docs; sourceTree = "<group>"; };
 		FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -416,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */,
-				FDC4430B27AD80C30024701B /* docs */,
 				F913B86727679DCC001CB0AA /* codeQuality */,
 				F913B86227679A13001CB0AA /* Scripts */,
 				F99FF06D2767ADF0006236A0 /* OrangeDesignSystemDemo */,
@@ -900,7 +898,6 @@
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,
 				0752EC2828EDBB540029A7BE /* ChipsPageModel.swift in Sources */,
 				F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */,
-				07C8235228AE68B2003B2C3A /* ProgressIndicatorPage.swift in Sources */,
 				075E5D6D29378735009A801B /* RecipesLoader.swift in Sources */,
 				07CC452729238A91008BE71F /* TextFieldPageBottomSheet.swift in Sources */,
 				F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */,
