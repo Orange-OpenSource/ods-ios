@@ -31,6 +31,8 @@ class CardTitleFirstVariantModel: ObservableObject {
     @Published var showSupportingText: Bool
     @Published var showButton1: Bool
     @Published var showButton2: Bool
+    @Published var showAlert: Bool
+    var alertText: String = ""
 
     init() {
         showThumbnail = true
@@ -38,6 +40,7 @@ class CardTitleFirstVariantModel: ObservableObject {
         showSupportingText = true
         showButton1 = true
         showButton2 = true
+        showAlert = false
     }
 
     var cardModel: ODSCardTitleFirstModel {
@@ -46,7 +49,15 @@ class CardTitleFirstVariantModel: ObservableObject {
             subtitle: showSubtitle ? cardExampleSubtitle : nil,
             thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
             image: Image("ods_empty", bundle: Bundle.ods),
-            supportingText: showSupportingText ? cardExampleSupportingText : nil)
+            supportingText: showSupportingText ? cardExampleSupportingText : nil,
+            onCardClick: {
+                self.displayAlert(text: "Card container clicked")
+            })
+    }
+
+    func displayAlert(text: String) {
+        self.alertText = text
+        self.showAlert = true
     }
 }
 
@@ -59,15 +70,22 @@ struct CardTitleFirstVariant: View {
             ScrollView {
                 ODSCardTitleFirst(model: model.cardModel) {
                     if model.showButton1 {
-                        ODSButton(text: "Button 1", emphasis: .highest) {}
+                        ODSButton(text: "Button 1", emphasis: .highest) {
+                            model.displayAlert(text: "Button 1 clicked")
+                        }
                     }
                 } buttonContent2: {
                     if model.showButton2 {
-                        ODSButton(text: "Button 2", emphasis: .highest) {}
+                        ODSButton(text: "Button 2", emphasis: .highest) {
+                            model.displayAlert(text: "Button 2 clicked")
+                        }
                     }
                 }
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
+            }
+            .alert(model.alertText, isPresented: $model.showAlert) {
+                Button("close", role: .cancel) {}
             }
 
             BottomSheet(showContent: false) {
