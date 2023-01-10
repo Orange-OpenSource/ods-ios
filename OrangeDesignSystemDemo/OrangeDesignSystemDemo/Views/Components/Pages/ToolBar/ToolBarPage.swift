@@ -136,7 +136,7 @@ private struct ToolBarVariant: View {
             .padding(.all, ODSSpacing.m)
         }
     }
-        
+    
     var labelItems: (ODSToolbarLabeledItems) {
        
         let (item1, item2, item3) = model.availableLableItems

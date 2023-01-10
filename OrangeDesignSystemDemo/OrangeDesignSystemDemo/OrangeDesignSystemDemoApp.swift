@@ -33,53 +33,6 @@ struct ods_ios_swiftUI_demoApp: App {
             ODSThemeableView(theme: themeProvider.currentTheme) {
                 MainTabView().environmentObject(themeProvider)
             }
-//            MyView()
         }
     }
 }
-
-struct MyView: View {
-    init() {
-        let coloredAppearance = UIToolbarAppearance()
-         coloredAppearance.configureWithOpaqueBackground()
-         coloredAppearance.backgroundColor = .systemRed
-                
-        UIToolbar.appearance().standardAppearance = coloredAppearance
-        UIToolbar.appearance().compactAppearance = coloredAppearance
-        UIToolbar.appearance().scrollEdgeAppearance = coloredAppearance
-         
-         UIToolbar.appearance().tintColor = .white
-    }
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                
-            }
-            .navigationTitle("coucou")
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Button {
-                        
-                    } label: {
-                        Text("First")
-                    }
-                }
-            }
-            .modifier(MyModifier())
-
-        }
-    }
-}
-
-struct MyModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        if #available(iOS 16.0, *) {
-            content
-                .toolbarBackground(.red, for: .bottomBar)
-        } else {
-            content
-        }
-    }
-}
-

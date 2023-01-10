@@ -75,6 +75,7 @@ struct ODSToolbarIconContent: ToolbarContent {
         } label: {
             Image(systemName: description.systemName)
         }
+        .frame(width: 44.0, height: 44.0)
         .tint(theme.componentColors.toolBarItem)
     }
 }
