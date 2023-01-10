@@ -58,8 +58,6 @@ NavigationView {
 A tool bar can display 2 to 5 icon controls
 ```swift
 
-        iconItems = ["plus", , , ", ""]
-        
 let description1 = ODSToolbarIconDesription(systemName: "plus") { }
 let description2 = ODSToolbarIconDesription(systemName: "square.and.arrow.up") { }
 let description3 = ODSToolbarIconDesription(systemName: "square.and.pencil") { }
@@ -85,6 +83,7 @@ As toolbar colors depends on theme, don't forget to add it to enviroment and cal
 Two solutions:
 
 - Directy on the root view
+
 ```swift
 let theme = YourTheme()
 
