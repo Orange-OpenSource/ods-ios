@@ -3,6 +3,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [SDK] #31 Add tool bar component
 - [SDK] #319 Manage Tap on Action area 1 of a card
 
 ## [0.9.0] - 2023-01-05

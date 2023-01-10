@@ -45,6 +45,8 @@
 		07CC452729238A91008BE71F /* TextFieldPageBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC452629238A90008BE71F /* TextFieldPageBottomSheet.swift */; };
 		07CC45292923CAAD008BE71F /* BannerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC45282923CAAD008BE71F /* BannerPage.swift */; };
 		07CC452C2923CFD3008BE71F /* BannerPageBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC452B2923CFD3008BE71F /* BannerPageBottomSheet.swift */; };
+		07D3AEE02968143700B36C3F /* ToolBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3AEDF2968143700B36C3F /* ToolBarPage.swift */; };
+		07D3AEE22968169600B36C3F /* ToolBarPageBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3AEE12968169600B36C3F /* ToolBarPageBottomSheet.swift */; };
 		07DF838C293A5A2300DFBE31 /* StandardListBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF838B293A5A2300DFBE31 /* StandardListBottomSheet.swift */; };
 		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
 		07E37F6228C73252003FF740 /* SmallCardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6128C73252003FF740 /* SmallCardVariant.swift */; };
@@ -135,6 +137,8 @@
 		07CC452629238A90008BE71F /* TextFieldPageBottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldPageBottomSheet.swift; sourceTree = "<group>"; };
 		07CC45282923CAAD008BE71F /* BannerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPage.swift; sourceTree = "<group>"; };
 		07CC452B2923CFD3008BE71F /* BannerPageBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPageBottomSheet.swift; sourceTree = "<group>"; };
+		07D3AEDF2968143700B36C3F /* ToolBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPage.swift; sourceTree = "<group>"; };
+		07D3AEE12968169600B36C3F /* ToolBarPageBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPageBottomSheet.swift; sourceTree = "<group>"; };
 		07DF838B293A5A2300DFBE31 /* StandardListBottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardListBottomSheet.swift; sourceTree = "<group>"; };
 		07E37F6128C73252003FF740 /* SmallCardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCardVariant.swift; sourceTree = "<group>"; };
 		07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleFirstVariant.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 		07C8233D28AE68B2003B2C3A /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				07D3AEDE296813DA00B36C3F /* ToolBar */,
 				07CC452A2923CF9C008BE71F /* Banners */,
 				075462F628F474CC002E2E40 /* Buttons */,
 				07E37F6028C73234003FF740 /* Cards */,
@@ -375,6 +380,15 @@
 				07CC452B2923CFD3008BE71F /* BannerPageBottomSheet.swift */,
 			);
 			path = Banners;
+			sourceTree = "<group>";
+		};
+		07D3AEDE296813DA00B36C3F /* ToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				07D3AEDF2968143700B36C3F /* ToolBarPage.swift */,
+				07D3AEE12968169600B36C3F /* ToolBarPageBottomSheet.swift */,
+			);
+			path = ToolBar;
 			sourceTree = "<group>";
 		};
 		07E37F6028C73234003FF740 /* Cards */ = {
@@ -858,6 +872,7 @@
 				F90D977828003104006D29FC /* ShowMarkdownView.swift in Sources */,
 				0735F63E293DF13200280AD4 /* SelectionListModel.swift in Sources */,
 				F96A3E23280452960086B9BF /* Bundle+Extension.swift in Sources */,
+				07D3AEE02968143700B36C3F /* ToolBarPage.swift in Sources */,
 				07387C5D28F0068B00D8721F /* Component.swift in Sources */,
 				F90D978728005A4A006D29FC /* ComponentList.swift in Sources */,
 				07387C6928F0641400D8721F /* StandardListModel.swift in Sources */,
@@ -868,6 +883,7 @@
 				07A187B9293F531700E1AD72 /* SelectionListBottomSheet.swift in Sources */,
 				07000FBC292FD9D700CE537A /* TabBarPageBottomSheet.swift in Sources */,
 				07CC452C2923CFD3008BE71F /* BannerPageBottomSheet.swift in Sources */,
+				07D3AEE22968169600B36C3F /* ToolBarPageBottomSheet.swift in Sources */,
 				07F343862943458D0043335A /* ProgressIndicatorPage.swift in Sources */,
 				07C8235528AE68B2003B2C3A /* NavigationBarPage.swift in Sources */,
 				0789AB972934C33200796B82 /* TabBarPage.swift in Sources */,
