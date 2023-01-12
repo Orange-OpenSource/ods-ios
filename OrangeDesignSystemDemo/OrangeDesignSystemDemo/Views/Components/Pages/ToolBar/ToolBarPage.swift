@@ -104,6 +104,7 @@ private struct ToolBarVariant: View {
     
     @ObservedObject private var model: ToolBarVariantModel
     @Environment(\.dismiss) private var dismiss
+    @State private var showTextInToast: String?
     
     // =================
     // MARK: Initializer
@@ -119,34 +120,66 @@ private struct ToolBarVariant: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: ODSSpacing.m) {
-                switch model.itemType {
-                case .label:
-                    Text("Tool Bar with labels")
-                        .odsToolBar(items: labelItems)
-                case .icon:
-                    Text("Tool Bar with icons")
-                        .odsToolBar(items: iconItems)
+            ZStack {
+                // Add a toast to see which item is clicked
+                VStack {
+                    Spacer()
+                    Toast(showText: $showTextInToast).padding(.bottom, 50)
                 }
-                
-                ODSButton(text: "Close", emphasis: .highest, variableWidth: false) {
-                    dismiss()
+
+                // The Content view with right items in tool bar
+                VStack(spacing: ODSSpacing.m) {
+                    
+                    RoundedRectangle(cornerRadius: 4)
+                        .frame(width: 55, height: 4, alignment: .center)
+                        .padding(.top, ODSSpacing.s)
+                        .padding(.bottom, ODSSpacing.xs)
+                    
+                    Spacer()
+                    
+                    ODSButton(text: "Close sheet", emphasis: .highest, variableWidth: false) {
+                        dismiss()
+                    }
+
+                    Spacer()
+                    
+                    switch model.itemType {
+                    case .label:
+                        Text("Tool Bar with labels")
+                            .odsToolBar(items: labelItems)
+                    case .icon:
+                        Text("Tool Bar with icons")
+                            .odsToolBar(items: iconItems)
+                    }
                 }
             }
-            .padding(.all, ODSSpacing.m)
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.bottom, ODSSpacing.m)
         }
+    }
+    
+    private func showToast(with text: String) {
+        showTextInToast = "\(text): clicked"
     }
     
     var labelItems: (ODSToolbarLabeledItems) {
        
         let (item1, item2, item3) = model.availableLableItems
-        let description1 = ODSToolbarLabelDesription(text: item1) { }
-        let description2 = ODSToolbarLabelDesription(text: item2) { }
+        let description1 = ODSToolbarLabelDesription(text: item1) {
+            showToast(with: item1)
+        }
+        let description2 = ODSToolbarLabelDesription(text: item2) {
+            showToast(with: item2)
+        }
+        
         var description3: ODSToolbarLabelDesription?
         
         if let item3 = item3 {
-            description3 = ODSToolbarLabelDesription(text: item3) { }
+            description3 = ODSToolbarLabelDesription(text: item3) {
+                showToast(with: item3)
+            }
         }
+        
         return ODSToolbarLabeledItems(description1: description1,
                                       description2: description2,
                                       description3: description3)
@@ -155,20 +188,30 @@ private struct ToolBarVariant: View {
     var iconItems: (ODSToolbarIconsItems) {
        
         let (item1, item2, item3, item4, item5) = model.availableIconItems
-        let description1 = ODSToolbarIconDesription(systemName: item1) { }
-        let description2 = ODSToolbarIconDesription(systemName: item2) { }
+        let description1 = ODSToolbarIconDesription(systemName: item1) {
+            showToast(with: "icon 1")
+        }
+        let description2 = ODSToolbarIconDesription(systemName: item2) {
+            showToast(with: "icon 2")
+        }
         var description3: ODSToolbarIconDesription?
         var description4: ODSToolbarIconDesription?
         var description5: ODSToolbarIconDesription?
         
         if let item3 = item3 {
-            description3 = ODSToolbarIconDesription(systemName: item3) { }
+            description3 = ODSToolbarIconDesription(systemName: item3) {
+                showToast(with: "icon 3")
+            }
         }
         if let item4 = item4 {
-            description4 = ODSToolbarIconDesription(systemName: item4) { }
+            description4 = ODSToolbarIconDesription(systemName: item4) {
+                showToast(with: "icon 4")
+            }
         }
         if let item5 = item5 {
-            description5 = ODSToolbarIconDesription(systemName: item5) { }
+            description5 = ODSToolbarIconDesription(systemName: item5) {
+                showToast(with: "icon 5")
+            }
         }
         
         return ODSToolbarIconsItems(description1: description1,
@@ -178,8 +221,6 @@ private struct ToolBarVariant: View {
                                     description5: description5)
     }
 }
-
-
 
 #if DEBUG
 struct ToolBarPage_Previews: PreviewProvider {

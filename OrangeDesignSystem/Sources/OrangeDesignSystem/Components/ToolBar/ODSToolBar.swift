@@ -60,14 +60,14 @@ public struct ODSToolbarLabelDesription {
     // MARK: Stored Properties
     // =======================
 
-    let text: LocalizedStringKey
+    let text: String
     let action: () -> Void
 
     // ==================
     // MARK: Initializers
     // ==================
 
-    public init(text: LocalizedStringKey, action: @escaping () -> Void) {
+    public init(text: String, action: @escaping () -> Void) {
         self.text = text
         self.action = action
     }

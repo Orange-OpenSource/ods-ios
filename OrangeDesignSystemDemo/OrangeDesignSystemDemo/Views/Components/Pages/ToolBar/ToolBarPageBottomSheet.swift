@@ -95,7 +95,7 @@ class ToolBarVariantModel: ObservableObject {
         }
     }
 
-    var labelItems: [LocalizedStringKey]
+    var labelItems: [String]
     var iconItems: [String]
 
     // =================
@@ -115,9 +115,9 @@ class ToolBarVariantModel: ObservableObject {
     // =============
     // MARK: Helpers
     // =============
-    var availableLableItems: (item1: LocalizedStringKey,
-                              item2: LocalizedStringKey,
-                              item3: LocalizedStringKey?) {
+    var availableLableItems: (item1: String,
+                              item2: String,
+                              item3: String?) {
         let item1 = labelItems[0]
         let item2 = labelItems[1]
         let item3 = labelItemsCount == 3 ? labelItems[2] : nil
