@@ -135,7 +135,7 @@ private struct BadgeModifier: ViewModifier {
             content
         }
         if badgeOption == .text {
-            content.badge("?")
+            content.badge("!")
         }
         if badgeOption == .count {
             content.badge(10)
