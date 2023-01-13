@@ -3,7 +3,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-- [SDK] #31 Add tool bar component
+- [DemoApp/SDK] #31 Add tool bar component
+- [OrangeTheme] #334 Update to black color (light and dark modes) the Highest emphasis Button text 
+- [DemoApp] #332 Change question mark to exclamation mark in text of badge in tab bar
 - [SDK] #319 Manage Tap on Action area 1 of a card
 
 ## [0.9.0] - 2023-01-05

@@ -200,7 +200,8 @@ public struct OrangeThemeFactory {
         theme.componentColors.toolBarBackground = Color(UIColor.systemBackground)
         theme.componentColors.toolBarItem = theme.componentColors.accent
 
-        theme.componentColors.highestEmphasisText = Color(UIColor.systemBackground)
+        // Buttons
+        theme.componentColors.highestEmphasisText = .black
         theme.componentColors.functionalNegative = OrangeColors.functionalNegative.colorDecription.color
         theme.componentColors.functionalPositive = OrangeColors.functionalPositive.colorDecription.color
         theme.componentColors.functionalInfo = OrangeColors.functionalInfo.colorDecription.color
