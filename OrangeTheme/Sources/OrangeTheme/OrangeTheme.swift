@@ -196,6 +196,11 @@ public struct OrangeThemeFactory {
         theme.componentColors.tabBarItem = .primary
         theme.componentColors.tabBarSelectedItem = theme.componentColors.accent
 
+        // Tool bar
+        theme.componentColors.toolBarBackground = Color(UIColor.systemBackground)
+        theme.componentColors.toolBarItem = theme.componentColors.accent
+
+        // Buttons
         theme.componentColors.highestEmphasisText = .black
         theme.componentColors.functionalNegative = OrangeColors.functionalNegative.colorDecription.color
         theme.componentColors.functionalPositive = OrangeColors.functionalPositive.colorDecription.color

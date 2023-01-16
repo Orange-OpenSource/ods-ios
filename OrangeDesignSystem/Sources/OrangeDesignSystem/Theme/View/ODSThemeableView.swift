@@ -81,6 +81,7 @@ public struct ODSThemeableView<Content>: View where Content: View {
             .accentColor(theme.componentColors.accent)
             .environment(\.theme, theme)
             .navigationBarColors(for: theme)
-            .tabBarColor(theme: theme)
+            .tabBarColors(for: theme)
+            .toolBarColors(for: theme)
     }
 }

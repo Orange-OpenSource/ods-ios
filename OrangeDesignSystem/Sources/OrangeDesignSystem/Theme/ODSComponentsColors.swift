@@ -42,6 +42,10 @@ public struct ODSComponentColors {
     public var tabBarItem: Color
     public var tabBarSelectedItem: Color
 
+    // Tool bar
+    public var toolBarBackground: Color
+    public var toolBarItem: Color
+
     // Buttons
     public var highestEmphasisText: Color
     public var functionalPositive: Color
@@ -65,6 +69,10 @@ public struct ODSComponentColors {
         self.tabBarBackground = .green
         self.tabBarItem = .pink
         self.tabBarSelectedItem = .primary
+
+        // Tool bar
+        self.toolBarBackground = .pink
+        self.toolBarItem = .green
 
         // Buttons
         self.highestEmphasisText = Color(UIColor.systemBackground)

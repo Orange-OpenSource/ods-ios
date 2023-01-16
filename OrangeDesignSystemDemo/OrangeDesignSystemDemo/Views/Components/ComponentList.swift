@@ -40,6 +40,7 @@ struct ComponentsList: View {
             ProgressIndicatorComponent(),
             SliderComponent(),
             TabBarComponent(),
+            ToolBarComponent(),
             TextFieldComponent(),
         ]
         

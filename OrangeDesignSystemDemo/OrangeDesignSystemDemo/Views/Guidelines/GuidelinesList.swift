@@ -29,8 +29,6 @@ struct GuidelinesList: View {
     // ======================
     // MARK: Store properties
     // ======================
-
-    @Environment(\.theme) private var theme
     
     private var items: [ODSListOfCardImageFirstItemModel] {
         [
