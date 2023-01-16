@@ -144,7 +144,6 @@ private struct ToolBarVariant: View {
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.bottom, ODSSpacing.m)
-            .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
             .modifier(ToolBarModifier(model: model))
         }

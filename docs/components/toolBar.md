@@ -54,7 +54,6 @@ NavigationView {
 }
 
 //  To remove navigation bar, use following modifiers
-//  .navigationBarTitle("", displayMode: .inline)
 //  .navigationBarHidden(true)
 
 ```
@@ -83,7 +82,6 @@ NavigationView {
 }
 
 //  To remove navigation bar, use following modifiers
-//  .navigationBarTitle("", displayMode: .inline)
 //  .navigationBarHidden(true)
 
 ```

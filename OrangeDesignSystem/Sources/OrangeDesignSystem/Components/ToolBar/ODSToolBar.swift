@@ -37,7 +37,6 @@ import SwiftUI
 ///         var body: some View {
 ///            NavigationView {
 ///                ContentView()
-///                .navigationBarTitle("", displayMode: .inline)
 ///                .navigationBarHidden(true)
 ///                .odsToolBar(items: labelItems)
 ///             }
