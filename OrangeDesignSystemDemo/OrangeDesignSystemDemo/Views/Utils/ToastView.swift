@@ -24,7 +24,7 @@
 import SwiftUI
 import OrangeDesignSystem
 
-struct Toatable<Content>: View where Content: View {
+struct Toastable<Content>: View where Content: View {
 
     // =======================
     // MARK: Stored Properties
