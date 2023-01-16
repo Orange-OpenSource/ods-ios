@@ -73,6 +73,9 @@ class ToolBarVariantModel: ObservableObject {
     @Published var iconItemsCount: Int
     @Published var itemType: ItemType
     
+    @Published var showAlert: Bool
+    var alertText: String
+    
     enum ItemType: Int, CaseIterable {
         case label
         case icon
@@ -95,53 +98,79 @@ class ToolBarVariantModel: ObservableObject {
         }
     }
 
-    var labelItems: [String]
-    var iconItems: [String]
+    private var labelDescriptions: [ODSToolbarLabelDesription] = []
+    private var iconDescriptions: [ODSToolbarIconDesription] = []
 
     // =================
     // MARK: Initializer
     // =================
 
     init() {
-        labelItemsCount = 2
-        labelItems = ["Action 1", "Action 2", "Action 3"]
-        
-        iconItemsCount = 2
-        iconItems = ["plus", "square.and.arrow.up", "square.and.pencil", "folder", "trash"]
-        
         itemType = .label
+        
+        showAlert = false
+        alertText = ""
+
+        labelItemsCount = 2
+        iconItemsCount = 2
+        
+        labelDescriptions = ["Action 1", "Action 2", "Action 3"].map { str in
+            ODSToolbarLabelDesription(text: str) {
+                self.showAlert(with: str)
+            }
+        }
+
+        iconDescriptions = ["plus", "square.and.arrow.up", "square.and.pencil", "folder", "trash"]
+            .enumerated().map { (index, str) in
+                ODSToolbarIconDesription(systemName: str) {
+                    self.showAlert(with: "icon \(index+1)")
+                }
+        }
+    }
+
+    // =====================
+    // MARK: Computed values
+    // =====================
+
+    var labelItems: ODSToolbarLabeledItems {
+        let description1 = labelDescriptions[0]
+        let description2 = labelDescriptions[1]
+        let description3 = labelItemsCount == 3 ? labelDescriptions[2] : nil
+
+        return ODSToolbarLabeledItems(description1: description1,
+                                      description2: description2,
+                                      description3: description3)
+    }
+    
+    var numberOfLabelItems: Int {
+        labelDescriptions.count
+    }
+    
+    var iconItems: ODSToolbarIconsItems {
+        let description1 = iconDescriptions[0]
+        let description2 = iconDescriptions[1]
+        let description3 = iconItemsCount >= 3 ? iconDescriptions[2] : nil
+        let description4 = iconItemsCount >= 4 ? iconDescriptions[3] : nil
+        let description5 = iconItemsCount >= 5 ? iconDescriptions[4] : nil
+        
+        return ODSToolbarIconsItems(description1: description1,
+                                    description2: description2,
+                                    description3: description3,
+                                    description4: description4,
+                                    description5: description5)
+    }
+        
+    var numberOfIconItems: Int {
+        iconDescriptions.count
     }
     
     // =============
     // MARK: Helpers
     // =============
-    var availableLableItems: (item1: String,
-                              item2: String,
-                              item3: String?) {
-        let item1 = labelItems[0]
-        let item2 = labelItems[1]
-        let item3 = labelItemsCount == 3 ? labelItems[2] : nil
-        
-        return (item1: item1, item2: item2, item3: item3)
+
+    private func showAlert(with text: String) {
+        alertText = "\(text): clicked"
+        showAlert = true
     }
-    
-    var numberOfLabelItems: Int {
-        labelItems.count
-    }
-    
-    var availableIconItems: (item1: String, item2: String,
-                             item3: String?, item4: String?, item5: String?) {
-        let item1 = iconItems[0]
-        let item2 = iconItems[1]
-        let item3 = iconItemsCount >= 3 ? iconItems[2] : nil
-        let item4 = iconItemsCount >= 4 ? iconItems[3] : nil
-        let item5 = iconItemsCount >= 5 ? iconItems[4] : nil
-        
-        return (item1: item1, item2: item2,
-                item3: item3, item4: item4, item5: item5)
-    }
-    
-    var numberOfIconItems: Int {
-        iconItems.count
-    }
+
 }

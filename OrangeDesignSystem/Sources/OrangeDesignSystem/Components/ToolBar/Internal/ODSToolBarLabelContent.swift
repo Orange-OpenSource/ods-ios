@@ -29,7 +29,6 @@ struct ODSToolbarLabelContent: ToolbarContent {
     // MARK: Stored Properties
     // =======================
 
-    @Environment(\.theme) private var theme
     private let items: ODSToolbarLabeledItems
 
     // ==================
@@ -46,23 +45,33 @@ struct ODSToolbarLabelContent: ToolbarContent {
 
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .bottomBar) {
-            button(for: items.description1)
+            ToolBarButton(description: items.description1)
 
             Spacer()
-            button(for: items.description2)
+            ToolBarButton(description: items.description2)
 
             if let description3 = items.description3 {
                 Spacer()
-                button(for: description3)
+                ToolBarButton(description: description3)
             }
         }
     }
+}
 
-    // =============
-    // MARK: Helpers
-    // =============
+private struct ToolBarButton: View {
 
-    private func button(for description: ODSToolbarLabelDesription) -> some View {
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @Environment(\.theme) private var theme
+    let description: ODSToolbarLabelDesription
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
         Button(description.text, action: { description.action() })
             .tint(theme.componentColors.toolBarItem)
     }
@@ -83,7 +92,7 @@ struct ODSToolbarLabelContent_Previews: PreviewProvider {
 
         @State private var labelItemsCount: Int = 2
 
-        var iconItems: ODSToolbarLabeledItems {
+        var iconDescriptions: ODSToolbarLabeledItems {
             ODSToolbarLabeledItems(
                 description1: Self.description1,
                 description2: Self.description2,
@@ -100,7 +109,7 @@ struct ODSToolbarLabelContent_Previews: PreviewProvider {
                     Spacer()
                 }
                 .padding(.horizontal, ODSSpacing.m)
-                .odsToolBar(items: self.iconItems)
+                .odsToolBar(items: self.iconDescriptions)
             }
             .toolBarColors(for: ODSTheme())
         }

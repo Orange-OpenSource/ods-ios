@@ -28,7 +28,6 @@ struct ODSToolbarIconContent: ToolbarContent {
     // MARK: Stored Properties
     // =======================
 
-    @Environment(\.theme) private var theme
     private let items: ODSToolbarIconsItems
 
     // ==================
@@ -45,31 +44,41 @@ struct ODSToolbarIconContent: ToolbarContent {
 
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .bottomBar) {
-            button(for: items.description1)
+            ToolBarButton(description: items.description1)
 
             Spacer()
-            button(for: items.description2)
+            ToolBarButton(description: items.description2)
 
             if let description3 = items.description3 {
                 Spacer()
-                button(for: description3)
+                ToolBarButton(description: description3)
             }
             if let description4 = items.description4 {
                 Spacer()
-                button(for: description4)
+                ToolBarButton(description: description4)
             }
             if let description5 = items.description5 {
                 Spacer()
-                button(for: description5)
+                ToolBarButton(description: description5)
             }
         }
     }
+}
 
-    // =============
-    // MARK: Helpers
-    // =============
+private struct ToolBarButton: View {
 
-    private func button(for description: ODSToolbarIconDesription) -> some View {
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @Environment(\.theme) private var theme
+    let description: ODSToolbarIconDesription
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
         Button {
             description.action()
         } label: {
@@ -82,12 +91,11 @@ struct ODSToolbarIconContent: ToolbarContent {
 
 #if DEBUG
 struct ODSToolbarIconContent_Previews: PreviewProvider {
-   
+
     static var previews: some View {
-           DemoView()
-               .toolBarColors(for: ODSTheme())
+        DemoView().toolBarColors(for: ODSTheme())
     }
-        
+
     struct DemoView: View {
         static let description1 = ODSToolbarIconDesription(systemName: "plus", action: {})
         static let description2 = ODSToolbarIconDesription(systemName: "square.and.arrow.up", action: {})
@@ -97,7 +105,7 @@ struct ODSToolbarIconContent_Previews: PreviewProvider {
 
         @State private var labelItemsCount: Int = 2
 
-        var iconItems: ODSToolbarIconsItems {
+        var iconDescriptions: ODSToolbarIconsItems {
             ODSToolbarIconsItems(
                 description1: Self.description1,
                 description2: Self.description2,
@@ -116,7 +124,7 @@ struct ODSToolbarIconContent_Previews: PreviewProvider {
                     Spacer()
                 }
                 .padding(.horizontal , ODSSpacing.m)
-                .odsToolBar(items: self.iconItems)
+                .odsToolBar(items: self.iconDescriptions)
             }
             .toolBarColors(for: ODSTheme())
         }
