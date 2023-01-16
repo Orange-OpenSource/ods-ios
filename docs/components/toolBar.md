@@ -48,8 +48,14 @@ let labelItems = ODSToolbarLabeledItems(description1: description1,
                                         description3: description3)
 NavigationView {
     ContentView()
+    .navigationBarTitle("", displayMode: .inline)
+    .navigationBarHidden(true)
     .odsToolBar(items: labelItems)
 }
+
+//  To remove navigation bar, use following modifiers
+//  .navigationBarTitle("", displayMode: .inline)
+//  .navigationBarHidden(true)
 
 ```
 
@@ -71,8 +77,14 @@ let iconItems = ODSToolbarIconsItems(description1: description1,
                                      description5: description5)
 NavigationView {
     ContentView()
+    .navigationBarTitle("", displayMode: .inline)
+    .navigationBarHidden(true)
     .odsToolBar(items: iconItems)
 }
+
+//  To remove navigation bar, use following modifiers
+//  .navigationBarTitle("", displayMode: .inline)
+//  .navigationBarHidden(true)
 
 ```
 

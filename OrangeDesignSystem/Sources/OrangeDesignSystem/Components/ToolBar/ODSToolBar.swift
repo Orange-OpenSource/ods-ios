@@ -27,6 +27,23 @@ import SwiftUI
 ///
 /// A toolbar allows users to do specific actions regarding the entire page. It is placed at the bottom of the screen.
 ///
+/// The following example shows how to build a `odsToolBar` with 2 labeled items:
+///
+///     struct YourView: View {
+///         let description1 = ODSToolbarLabelDesription(text: "Action 1") { /* do something here */ }
+///         let description2 = ODSToolbarLabelDesription(text: "Action 2") { /* do something here */ }
+///         let labelItems = ODSToolbarLabeledItems(description1: description1, description2: description2)
+///
+///         var body: some View {
+///            NavigationView {
+///                ContentView()
+///                .navigationBarTitle("", displayMode: .inline)
+///                .navigationBarHidden(true)
+///                .odsToolBar(items: labelItems)
+///             }
+///         }
+///     }
+///
 
 extension View {
     /// Sets labeled items (2 up to 3) in tool bar.

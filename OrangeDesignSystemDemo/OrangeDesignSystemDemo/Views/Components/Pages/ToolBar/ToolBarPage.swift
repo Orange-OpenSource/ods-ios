@@ -155,8 +155,17 @@ private struct ToolBarVariant: View {
 }
 
 private struct ToolBarModifier: ViewModifier {
+    
+    // =======================
+    // MARK: Stoerd properties
+    // =======================
+
     @ObservedObject var model: ToolBarVariantModel
     
+    // ==========
+    // MARK: Body
+    // ==========
+
     func body(content: Content) -> some View {
         switch model.itemType {
         case .label:
