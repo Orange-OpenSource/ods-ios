@@ -24,35 +24,109 @@
 import OrangeDesignSystem
 import Parma
 import SwiftUI
+import WebKit
 
 struct ShowMarkdownView: View {
 
-    let title: String
-    let markDownFileName: String
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    @State var markdown: String = ""
+    private let title: String
+    private let filename: String
+    private let fileExtension: String
+    private let contentType: ContentType?
 
-    var body: some View {
-        ScrollView {
-            Parma(markdown)
-                .padding(.top, ODSSpacing.s)
-                .padding(.horizontal, ODSSpacing.l)
+    enum ContentType {
+        case html(String)
+        case markdown(String)
+        
+        var content: String {
+            switch self {
+            case .html(let content), .markdown(let content):
+                return content
+            }
         }
-        .onAppear {
-            if let url = Bundle.main.url(forResource: markDownFileName, withExtension: "md") {
-                markdown = try! String(contentsOf: url)
+    }
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(title: String,
+         fileName: String,
+         fileExtension: String = "md",
+         convertToHtml: Bool = false) {
+        self.title = title
+        self.filename = fileName
+        self.fileExtension = fileExtension
+        
+        // Load content from file and convert to html if needed
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension),
+              let fileContent = try? String(contentsOf: url) else {
+            contentType = nil
+            return
+        }
+        
+        if convertToHtml {
+            if let html = try? fileContent.toHTML() {
+                contentType = .html(html)
+            } else {
+                contentType = nil
+            }
+        } else {
+            contentType = .markdown(fileContent)
+        }
+    }
+   
+    // ==========
+    // MARK: Body
+    // ==========
+    
+    var body: some View {
+        VStack {
+            if let contentType = contentType,
+               !contentType.content.isEmpty {
+                showContent(contentType: contentType)
+            } else {
+                Text("Unable to load \(filename).\(fileExtension)")
+                    .padding(.top, ODSSpacing.s)
+                    .padding(.horizontal, ODSSpacing.l)
             }
         }
         .navigationTitle(title)
     }
-}
+    
+    // ====================
+    // MARK: Private Helper
+    // ====================
 
-#if DEBUG
-struct ShowMarkdownView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            ShowMarkdownView(title: "Privacy Policy", markDownFileName: "ODSDemoPrivacyNotice").preferredColorScheme($0)
+    @ViewBuilder
+    func showContent(contentType: ContentType) -> some View {
+        switch contentType {
+        case .markdown(let markdown):
+            ScrollView {
+                Parma(markdown)
+                    .padding(.top, ODSSpacing.s)
+                    .padding(.horizontal, ODSSpacing.m)
+            }
+        case .html(let html):
+            WebView(html: html)
+                .padding(.top, ODSSpacing.s)
+                .padding(.leading, ODSSpacing.m)
         }
     }
 }
-#endif
+
+private struct WebView: UIViewRepresentable {
+
+    let html: String
+
+    func makeUIView(context: Context) -> WKWebView  {
+        return WKWebView()
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.loadHTMLString(html, baseURL: nil)
+    }
+}
