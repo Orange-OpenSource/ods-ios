@@ -61,7 +61,6 @@ class CardTitleFirstVariantModel: ObservableObject {
 struct CardTitleFirstVariant: View {
 
     @ObservedObject var model: CardTitleFirstVariantModel
-    @State private var showAlert: Bool = false
     
     var body: some View {
         ZStack {
