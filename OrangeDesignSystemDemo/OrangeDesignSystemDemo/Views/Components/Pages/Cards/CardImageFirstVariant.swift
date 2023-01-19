@@ -45,10 +45,7 @@ class CardImageFirstVariantModel: ObservableObject {
         ODSCardImageFirstModel(title: cardExampleTitle,
                                subtitle: showSubtitle ? cardExampleSubtitle : nil,
                                image: Image("ods_empty", bundle: Bundle.ods),
-                               supportingText: showSupportingText ? cardExampleSupportingText : nil,
-                               onCardClick: {
-            self.displayAlert(text: "Card container clicked")
-        })
+                               supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
     
     func displayAlert(text: String) {
@@ -80,6 +77,9 @@ struct CardImageFirstVariant: View {
                 }
                 .padding(.horizontal, ODSSpacing.s)
                 .padding(.top, ODSSpacing.m)
+                .onTapGesture {
+                    model.displayAlert(text: "Card container clicked")
+                }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("close", role: .cancel) {}

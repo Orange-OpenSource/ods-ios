@@ -49,10 +49,7 @@ class CardTitleFirstVariantModel: ObservableObject {
             subtitle: showSubtitle ? cardExampleSubtitle : nil,
             thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
             image: Image("ods_empty", bundle: Bundle.ods),
-            supportingText: showSupportingText ? cardExampleSupportingText : nil,
-            onCardClick: {
-                self.displayAlert(text: "Card container clicked")
-            })
+            supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
 
     func displayAlert(text: String) {
@@ -64,7 +61,7 @@ class CardTitleFirstVariantModel: ObservableObject {
 struct CardTitleFirstVariant: View {
 
     @ObservedObject var model: CardTitleFirstVariantModel
-
+    
     var body: some View {
         ZStack {
             ScrollView {
@@ -83,6 +80,9 @@ struct CardTitleFirstVariant: View {
                 }
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
+                .onTapGesture {
+                    model.displayAlert(text: "Card container clicked")
+                }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("close", role: .cancel) {}
