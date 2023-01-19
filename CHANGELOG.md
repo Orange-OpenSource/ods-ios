@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## \[Unreleased\]
 
+- \[DemoApp/SDK\] Update the Card primary action coverage ([#333] (https://github.com/Orange-OpenSource/ods-ios/issues/329) [#331] (https://github.com/Orange-OpenSource/ods-ios/issues/331)) 
 - \[DemoApp\] Update changelog file to add url to issues and and update component to see changelog content with links ([#329](https://github.com/Orange-OpenSource/ods-ios/issues/329)) 
 - \[DemoApp\] Add tool bar component ([#31](https://github.com/Orange-OpenSource/ods-ios/issues/31))
 - \[OrangeTheme\] Update to black color (light and dark modes) the Highest emphasis Button text ([#334](https://github.com/Orange-OpenSource/ods-ios/issues/334))

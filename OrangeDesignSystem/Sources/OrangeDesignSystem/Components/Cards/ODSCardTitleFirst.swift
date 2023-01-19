@@ -30,7 +30,6 @@ public struct ODSCardTitleFirstModel: Identifiable {
     let thumbnail: Image?
     let image: Image
     let supportingText: String?
-    let onCardClick: (() -> Void)?
 
     /// Initilize the model
     ///
@@ -40,20 +39,17 @@ public struct ODSCardTitleFirstModel: Identifiable {
     ///  - subtitle: Optional subtitle to be displayed in the card.
     ///  - image: The image to be displayed in the card.
     ///  - supportingText Optional text description to be displayed in the card.
-    ///  - onCardClick: Optional callback called when action area 1 is clicked
     ///
     public init(title: String,
                 subtitle: String? = nil,
                 thumbnail: Image? = nil,
                 image: Image,
-                supportingText: String? = nil,
-                onCardClick: (() -> Void)? = nil) {
+                supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail
         self.image = image
         self.supportingText = supportingText
-        self.onCardClick = onCardClick
     }
 
     /// The identifier based on the title.
@@ -163,18 +159,12 @@ extension ODSCardTitleFirst {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .accessibilityHidden(true)
-                .onTapGesture {
-                    model.onCardClick?()
-                }
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 if let supportingText = model.supportingText, !supportingText.isEmpty {
                     Text(supportingText)
                         .odsFont(.bodyRegular)
                         .padding(.horizontal, ODSSpacing.m)
-                        .onTapGesture {
-                            model.onCardClick?()
-                        }
                 }
 
                 // Add padding on buttons to avoid to have extra padding on
