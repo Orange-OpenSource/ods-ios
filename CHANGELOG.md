@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [Delivery] Update Changelog file to fix delivery issue ([#340](https://github.com/Orange-OpenSource/ods-ios/issues/340))
 - [DemoApp] List Trailing icon action, update text in opened screen ([#326](https://github.com/Orange-OpenSource/ods-ios/issues/326))
 - [DemoApp/SDK] Update the Card primary action coverage ([#333](https://github.com/Orange-OpenSource/ods-ios/issues/333) [#331](https://github.com/Orange-OpenSource/ods-ios/issues/331)) 
 - [DemoApp] Update changelog file to add url to issues and and update component to see changelog content with links ([#329](https://github.com/Orange-OpenSource/ods-ios/issues/329)) 
