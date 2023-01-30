@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [DemoApp] Add a button in Navigation bar to select theme ([#324](https://github.com/Orange-OpenSource/ods-ios/issues/324))
 - [Delivery] Update Changelog file to fix delivery issue ([#340](https://github.com/Orange-OpenSource/ods-ios/issues/340))
 - [DemoApp] List Trailing icon action, update text in opened screen ([#326](https://github.com/Orange-OpenSource/ods-ios/issues/326))
 - [DemoApp/SDK] Update the Card primary action coverage ([#333](https://github.com/Orange-OpenSource/ods-ios/issues/333) [#331](https://github.com/Orange-OpenSource/ods-ios/issues/331)) 

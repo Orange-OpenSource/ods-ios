@@ -62,46 +62,43 @@ class ThemeProvider: ObservableObject {
     }
 }
 
+extension View {
+    func navigationbarMenuForThemeSelection() -> some View {
+        self.toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ThemeSelectionButton()
+            }
+        }
+    }
+}
+
 ///
-/// Theme selection view that allows the user to change
-/// the current theme.
+/// Button is added in navigation bar to allow,
+/// the user to change the current theme.
 ///
-struct ThemeSelection: View {
+struct ThemeSelectionButton: View {
     
     // =======================
-    // MARK: Stored Properties
+    // MARK: Stored properties
     // =======================
-
-    let title: String
-    @EnvironmentObject var themeProvider: ThemeProvider
-
+    
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
-        ODSThemeableView(theme: themeProvider.currentTheme){
-            VStack(spacing: ODSSpacing.l) {
-                ODSChipPicker(title: "",
-                              selection: $themeProvider.currentTheme,
-                              chips: themeProvider.themes.map { theme in
-                    ODSChip(theme, text: theme.name)
-                })
-                
-                VStack {
-                    Text("Selected theme:")
-                        .odsFont(.bodyRegular)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text(themeProvider.currentTheme.name)
-                        .foregroundColor(themeProvider.currentTheme.componentColors.accent)
+        Menu {
+            Picker(selection: $themeProvider.currentTheme, label: EmptyView()) {
+                ForEach(themeProvider.themes, id: \.id) { theme in
+                    Text(theme.name).tag(theme)
                 }
-                .padding(.horizontal, ODSSpacing.m)
-                
-                Spacer()
             }
+            .pickerStyle(.automatic)
+        } label: {
+            Image(systemName: "paintpalette")
         }
-        .navigationTitle(title)
-        .navigationBarTitleDisplayMode(.inline)
+        .foregroundColor(themeProvider.currentTheme.componentColors.navigationBarForeground)
     }
 }

@@ -115,6 +115,7 @@ struct SpacingPage: View {
         }
         .navigationTitle("Spacings")
         .navigationViewStyle(.stack)
+        .navigationbarMenuForThemeSelection()
     }
 }
 

@@ -46,9 +46,9 @@ class NavigationBarBottomSheetModel: ObservableObject {
         actionIconCount = 0
         showBackButton = true
         actions = [
-            Action(iconName: "square.and.pencil", actionText: "Edit action"),
-            Action(iconName: "square.and.arrow.up", actionText: "Share action"),
-            Action(iconName: "plus", actionText: "Add action"),
+            Action.showThemeSelection,
+            Action.showAlert(iconName: "square.and.pencil", actionText: "Edit action"),
+            Action.showAlert(iconName: "square.and.arrow.up", actionText: "Share action"),
         ]
     }
 
@@ -94,9 +94,18 @@ class NavigationBarBottomSheetModel: ObservableObject {
         }
     }
     
-    struct Action {
-        let iconName: String
-        let actionText: String
+    enum Action: Identifiable {
+        case showThemeSelection
+        case showAlert(iconName: String, actionText: String)
+        
+        var id: String {
+            switch self {
+            case .showThemeSelection:
+                return UUID().uuidString
+            case .showAlert(let iconName, _):
+                return iconName
+            }
+        }
     }
 }
 

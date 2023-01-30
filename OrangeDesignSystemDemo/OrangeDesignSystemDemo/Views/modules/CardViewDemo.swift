@@ -37,7 +37,8 @@ struct CardViewDemo: View {
     ]
 
     var body: some View {
-        return ODSListOfCardImageFirst(title: "Card collections", itemModels: items)
+        ODSListOfCardImageFirst(title: "Card collections", itemModels: items)
+            .navigationbarMenuForThemeSelection()
     }
 }
 
@@ -53,6 +54,7 @@ struct CardViewDemoGrid: View {
         }
         .navigationTitle("Grid")
         .navigationViewStyle(.stack)
+        .navigationbarMenuForThemeSelection()
     }
 }
 
@@ -64,6 +66,7 @@ struct CardViewDemoList: View {
 
     var body: some View {
         ODSListOfCardImageFirst(title: "List", itemModels: itemModels)
+            .navigationbarMenuForThemeSelection()
     }
 }
 

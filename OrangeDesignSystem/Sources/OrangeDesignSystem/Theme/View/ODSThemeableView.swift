@@ -74,6 +74,7 @@ public struct ODSThemeableView<Content>: View where Content: View {
                 @ViewBuilder content: @escaping () -> Content){
         self.theme = theme
         self.content = content
+        self.navigationBarColors(for: theme)
     }
     
     public var body: some View {

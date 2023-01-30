@@ -40,7 +40,6 @@ public final class ODSDemoAboutConfig: NSObject {
 
     public func configure() {
         let appMenu = [
-            ODSAboutItem(text: "Theme Selection", nextView: AnyView(ThemeSelection(title: "Theme Selection"))),
             ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(title: "Privacy policy", fileName: "ODSDemoPrivacyNotice", convertToHtml: true))),
             ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(title: "Terms of service", fileName: "ODSDemoCGU"))),
             ODSAboutItem(text: "Change log",

@@ -55,6 +55,7 @@ struct GuidelinesList: View {
             ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
                 .navigationTitle("Guidelines")
                 .navigationViewStyle(.stack)
+                .navigationbarMenuForThemeSelection()
         }
     }
 }
