@@ -52,7 +52,7 @@ public struct ODSComponentColors {
     public var functionalNegative: Color
     public var functionalAlert: Color
     public var functionalInfo: Color
-    
+
     // ==================
     // MARK: Initializers
     // ==================

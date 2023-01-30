@@ -44,9 +44,6 @@ public struct AboutView: View {
     public var body: some View {
         List {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                Text("About")
-                    .odsFont(.largeTitle)
-                    .padding(.all, ODSSpacing.m)
 
                 applicationDescription.imageHeader
                     .resizable()
@@ -62,6 +59,8 @@ public struct AboutView: View {
             ODSAboutItemView()
         }
         .listStyle(PlainListStyle())
+        .navigationTitle("About")
+        .navigationBarTitleDisplayMode(.large)
         .background(ODSInternalColor.primaryBackground.color)
     }
 }

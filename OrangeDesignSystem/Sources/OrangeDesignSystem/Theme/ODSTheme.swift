@@ -47,7 +47,7 @@ public struct ODSTheme: Identifiable, Hashable {
     public init() {
         name = "Default"
         colorPalette = ODSColorPalette()
-        
+
         componentColors = ODSComponentColors()
         font = { style in
             switch style {

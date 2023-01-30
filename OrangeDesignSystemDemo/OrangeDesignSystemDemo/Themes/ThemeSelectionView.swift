@@ -37,10 +37,16 @@ class ThemeProvider: ObservableObject {
     // MARK: Stored Properties
     // =======================
 
-    @Published var currentTheme: ODSTheme {
-        didSet { UserDefaults.standard.set(currentTheme.name, forKey: "themeName") }
+    var currentTheme: ODSTheme {
+        didSet {
+            if currentTheme != oldValue {
+                hotSwitchWarningIndicator.showAlert = true
+            }
+            UserDefaults.standard.set(currentTheme.name, forKey: "themeName")
+        }
     }
     
+    var hotSwitchWarningIndicator: HotSwitchWarningIndicator
     let themes: [ODSTheme]
     
     // ==================
@@ -59,49 +65,81 @@ class ThemeProvider: ObservableObject {
         } else {
             self.currentTheme = defaultTheme
         }
+        
+        self.hotSwitchWarningIndicator = HotSwitchWarningIndicator()
+    }
+}
+
+extension View {
+    func navigationbarMenuForThemeSelection() -> some View {
+        self.toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ThemeSelectionButton()
+            }
+        }
     }
 }
 
 ///
-/// Theme selection view that allows the user to change
-/// the current theme.
+/// Button is added in navigation bar to allow,
+/// the user to change the current theme.
 ///
-struct ThemeSelection: View {
+struct ThemeSelectionButton: View {
+    
+    // =======================
+    // MARK: Stored properties
+    // =======================
+    
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    
+    // ==========
+    // MARK: Body
+    // ==========
+    
+    var body: some View {
+        Menu {
+            Picker(selection: $themeProvider.currentTheme, label: EmptyView()) {
+                ForEach(themeProvider.themes, id: \.id) { theme in
+                    Text(theme.name).tag(theme)
+                }
+            }
+            .pickerStyle(.automatic)
+        } label: {
+            Image(systemName: "paintpalette")
+        }
+        .foregroundColor(themeProvider.currentTheme.componentColors.navigationBarForeground)
+        .modifier(HotSwhitchIndicatorModifier(hotSwitchWarningIndicator: themeProvider.hotSwitchWarningIndicator))
+    }
+}
+
+// MARK: - Hot switch Warning
+
+/// Will be removed when hot switch will be supported
+class HotSwitchWarningIndicator: ObservableObject {
+    @Published var showAlert: Bool = false
+}
+
+struct HotSwhitchIndicatorModifier: ViewModifier {
     
     // =======================
     // MARK: Stored Properties
     // =======================
-
-    let title: String
-    @EnvironmentObject var themeProvider: ThemeProvider
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        ODSThemeableView(theme: themeProvider.currentTheme){
-            VStack(spacing: ODSSpacing.l) {
-                ODSChipPicker(title: "",
-                              selection: $themeProvider.currentTheme,
-                              chips: themeProvider.themes.map { theme in
-                    ODSChip(theme, text: theme.name)
-                })
-                
-                VStack {
-                    Text("Selected theme:")
-                        .odsFont(.bodyRegular)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text(themeProvider.currentTheme.name)
-                        .foregroundColor(themeProvider.currentTheme.componentColors.accent)
-                }
-                .padding(.horizontal, ODSSpacing.m)
-                
-                Spacer()
+    
+    @ObservedObject var hotSwitchWarningIndicator: HotSwitchWarningIndicator
+    
+    // ==================
+    // MARK: Initializers
+    // ==================
+    
+    init(hotSwitchWarningIndicator: HotSwitchWarningIndicator) {
+        self.hotSwitchWarningIndicator = hotSwitchWarningIndicator
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .alert("Warning", isPresented: $hotSwitchWarningIndicator.showAlert) {
+            } message: {
+                Text("You need to restart application to see deseign with new theme").odsFont(.title2)
             }
-        }
-        .navigationTitle(title)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
