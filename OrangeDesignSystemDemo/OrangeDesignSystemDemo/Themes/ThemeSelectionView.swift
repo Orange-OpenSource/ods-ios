@@ -37,10 +37,16 @@ class ThemeProvider: ObservableObject {
     // MARK: Stored Properties
     // =======================
 
-    @Published var currentTheme: ODSTheme {
-        didSet { UserDefaults.standard.set(currentTheme.name, forKey: "themeName") }
+    var currentTheme: ODSTheme {
+        didSet {
+            if currentTheme != oldValue {
+                hotSwitchWarningIndicator.showAlert = true
+            }
+            UserDefaults.standard.set(currentTheme.name, forKey: "themeName")
+        }
     }
     
+    var hotSwitchWarningIndicator: HotSwitchWarningIndicator
     let themes: [ODSTheme]
     
     // ==================
@@ -59,6 +65,8 @@ class ThemeProvider: ObservableObject {
         } else {
             self.currentTheme = defaultTheme
         }
+        
+        self.hotSwitchWarningIndicator = HotSwitchWarningIndicator()
     }
 }
 
@@ -100,5 +108,38 @@ struct ThemeSelectionButton: View {
             Image(systemName: "paintpalette")
         }
         .foregroundColor(themeProvider.currentTheme.componentColors.navigationBarForeground)
+        .modifier(HotSwhitchIndicatorModifier(hotSwitchWarningIndicator: themeProvider.hotSwitchWarningIndicator))
+    }
+}
+
+// MARK: - Hot switch Warning
+
+/// Will be removed when hot switch will be supported
+class HotSwitchWarningIndicator: ObservableObject {
+    @Published var showAlert: Bool = false
+}
+
+struct HotSwhitchIndicatorModifier: ViewModifier {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+    
+    @ObservedObject var hotSwitchWarningIndicator: HotSwitchWarningIndicator
+    
+    // ==================
+    // MARK: Initializers
+    // ==================
+    
+    init(hotSwitchWarningIndicator: HotSwitchWarningIndicator) {
+        self.hotSwitchWarningIndicator = hotSwitchWarningIndicator
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .alert("Warning", isPresented: $hotSwitchWarningIndicator.showAlert) {
+            } message: {
+                Text("You need to restart application to see deseign with new theme").odsFont(.title2)
+            }
     }
 }
