@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - [DemoApp] Keep the number of expected items when switching item type option(Bug [#347]((https://github.com/Orange-OpenSource/ods-ios/issues/347)))
 - [DemoApp] Spelling click acknowledgement (Bug [#345](https://github.com/Orange-OpenSource/ods-ios/issues/345))
+- [DemoApp] Spelling click acknowledgement ([#345](https://github.com/Orange-OpenSource/ods-ios/issues/345))
 - [DemoApp] Add new links in the about section ([#342](https://github.com/Orange-OpenSource/ods-ios/issues/342))
 - [DemoApp] Add a button in Navigation bar to select theme ([#324](https://github.com/Orange-OpenSource/ods-ios/issues/324))
 - [Delivery] Update Changelog file to fix delivery issue ([#340](https://github.com/Orange-OpenSource/ods-ios/issues/340))
