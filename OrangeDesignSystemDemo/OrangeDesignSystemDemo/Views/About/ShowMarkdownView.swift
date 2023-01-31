@@ -70,7 +70,8 @@ struct ShowMarkdownView: View {
         
         if convertToHtml {
             if let html = try? fileContent.toHTML() {
-                contentType = .html(html)
+                let withCss = Self.addHeader(to: html)
+                contentType = .html(withCss)
             } else {
                 contentType = nil
             }
@@ -116,6 +117,70 @@ struct ShowMarkdownView: View {
                 .padding(.leading, ODSSpacing.m)
         }
     }
+
+        public static func addHeader(to partialHTMLText: String) -> String {
+            if partialHTMLText.contains("<html") {
+                return partialHTMLText
+            }
+            var result = "<html>"
+            result += "<head>"
+            result += "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>"
+            result += "<style>"
+            result += Self.css
+            result += "</style>"
+
+            result += "</head>"
+            if partialHTMLText.contains("<body") {
+                result += partialHTMLText
+            } else {
+                result += "<body><p dir=\"auto\">\(partialHTMLText)</p></body>"
+            }
+            result += "</html>"
+            return result
+        }
+
+        static let css =
+            """
+        html, body {
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        font-family: -apple-system, sans-serif;
+        }
+
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            font: -apple-system-body;
+            background-color: clear;
+        }
+
+        h1 {
+            font: -apple-system-short-headline;
+            margin-top: 1em ;
+            margin-bottom: 0.3em;
+        }
+
+        h2 {
+            font: -apple-system-short-subheadline;
+            margin-top: 1em;
+            margin-bottom: 0.3em;
+        }
+
+        p {
+            font: -apple-system-body;
+        }
+
+        a:link, a:visited {
+            color: #FF7900;
+            text-decoration: none;
+        }
+
+        a:hover, a:active, a:focus {
+            color: #527EDB;
+        }
+        """
 }
 
 private struct WebView: UIViewRepresentable {
