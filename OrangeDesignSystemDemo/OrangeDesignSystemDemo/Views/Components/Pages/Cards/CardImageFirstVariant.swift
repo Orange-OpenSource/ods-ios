@@ -65,13 +65,13 @@ struct CardImageFirstVariant: View {
                 ODSCardImageFirst(model: model.cardModel) {
                     if model.showButton1 {
                         ODSButton(text: LocalizedStringKey("Button 1"), emphasis: .highest, variableWidth: true) {
-                            model.displayAlert(text: "Button 1 clisked")
+                            model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
                     if model.showButton2 {
                         ODSButton(text: LocalizedStringKey("Button 2"), emphasis: .highest, variableWidth: true) {
-                            model.displayAlert(text: "Button 2 clisked")
+                            model.displayAlert(text: "Button 2 clicked")
                         }
                     }
                 }
