@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.9.0...qualif)
 
+- [DemoApp] Support darkmode in about changelog screen (Bug [#346]((https://github.com/Orange-OpenSource/ods-ios/issues/346)))
 - [DemoApp] Keep the number of expected items when switching item type option(Bug [#347]((https://github.com/Orange-OpenSource/ods-ios/issues/347)))
 - [DemoApp] Spelling click acknowledgement (Bug [#345](https://github.com/Orange-OpenSource/ods-ios/issues/345))
 - [DemoApp] Spelling click acknowledgement ([#345](https://github.com/Orange-OpenSource/ods-ios/issues/345))
