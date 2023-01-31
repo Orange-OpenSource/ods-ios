@@ -45,13 +45,13 @@ struct ToolBarVariantBottomSheet: View {
                 
                 switch model.itemType {
                 case .label:
-                    Stepper("Number of items: \(model.labelItemsCount)",
-                            value: $model.labelItemsCount,
+                    Stepper("Number of items: \(model.itemsCount)",
+                            value: $model.itemsCount,
                             in: 2 ... model.numberOfLabelItems)
                     .padding(.horizontal, ODSSpacing.m)
                 case .icon:
-                    Stepper("Number of items: \(model.iconItemsCount)",
-                            value: $model.iconItemsCount,
+                    Stepper("Number of items: \(model.itemsCount)",
+                            value: $model.itemsCount,
                             in: 2 ... model.numberOfIconItems)
                     .padding(.horizontal, ODSSpacing.m)
                 }
@@ -69,9 +69,17 @@ class ToolBarVariantModel: ObservableObject {
     // MARK: Store properties
     // ======================
 
-    @Published var labelItemsCount: Int
-    @Published var iconItemsCount: Int
-    @Published var itemType: ItemType
+    @Published var itemsCount: Int
+    @Published var itemType: ItemType {
+        didSet {
+            switch itemType {
+            case .label:
+                self.itemsCount = min(itemsCount, numberOfLabelItems)
+            case .icon:
+                break
+            }
+        }
+    }
     
     @Published var showAlert: Bool
     var alertText: String
@@ -111,8 +119,7 @@ class ToolBarVariantModel: ObservableObject {
         showAlert = false
         alertText = ""
 
-        labelItemsCount = 2
-        iconItemsCount = 2
+        itemsCount = 2
         
         labelDescriptions = ["Action 1", "Action 2", "Action 3"].map { str in
             ODSToolbarLabelDesription(text: str) {
@@ -135,7 +142,7 @@ class ToolBarVariantModel: ObservableObject {
     var labelItems: ODSToolbarLabeledItems {
         let description1 = labelDescriptions[0]
         let description2 = labelDescriptions[1]
-        let description3 = labelItemsCount == 3 ? labelDescriptions[2] : nil
+        let description3 = itemsCount == 3 ? labelDescriptions[2] : nil
 
         return ODSToolbarLabeledItems(description1: description1,
                                       description2: description2,
@@ -149,9 +156,9 @@ class ToolBarVariantModel: ObservableObject {
     var iconItems: ODSToolbarIconsItems {
         let description1 = iconDescriptions[0]
         let description2 = iconDescriptions[1]
-        let description3 = iconItemsCount >= 3 ? iconDescriptions[2] : nil
-        let description4 = iconItemsCount >= 4 ? iconDescriptions[3] : nil
-        let description5 = iconItemsCount >= 5 ? iconDescriptions[4] : nil
+        let description3 = itemsCount >= 3 ? iconDescriptions[2] : nil
+        let description4 = itemsCount >= 4 ? iconDescriptions[3] : nil
+        let description5 = itemsCount >= 5 ? iconDescriptions[4] : nil
         
         return ODSToolbarIconsItems(description1: description1,
                                     description2: description2,
