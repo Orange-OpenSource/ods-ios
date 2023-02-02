@@ -82,6 +82,7 @@ struct VariantsTitle: View {
 }
 
 struct VariantEntryItem<VariantPage>: View where VariantPage: View {
+
     private let itemModel: ODSListStandardItemModel
     private let variantPage: () -> VariantPage
     private let showThemeSelectionInNavigationBar: Bool
@@ -101,12 +102,10 @@ struct VariantEntryItem<VariantPage>: View where VariantPage: View {
          @ViewBuilder variantPage: @escaping () -> VariantPage) {
         
         self.showThemeSelectionInNavigationBar = showThemeSelectionInNavigationBar
-        
         let playIcon = ODSListItemLeadingIcon.icon(Image(systemName: "play.circle"))
         self.itemModel = ODSListStandardItemModel(title: text,
                                                   subtitle: technicalElement,
                                                   leadingIcon: playIcon)
-        
         self.variantPage = variantPage
     }
 }

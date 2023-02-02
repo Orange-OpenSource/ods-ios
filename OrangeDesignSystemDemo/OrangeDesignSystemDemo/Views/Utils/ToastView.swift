@@ -20,7 +20,6 @@
 // SOFTWARE.
 //
 //
-
 import SwiftUI
 import OrangeDesignSystem
 
@@ -29,14 +28,12 @@ struct Toastable<Content>: View where Content: View {
     // =======================
     // MARK: Stored Properties
     // =======================
-
     @Binding var showText: String?
     private let content: () -> Content
 
     // ==========
     // MARK: Body
     // ==========
-
     var body: some View {
         ZStack {
             content()
@@ -50,13 +47,11 @@ struct Toast: View {
     // =======================
     // MARK: Stored Properties
     // =======================
-
     @Binding var showText: String?
 
     // ==========
     // MARK: Body
     // ==========
-
     var body: some View {
         if let showText = self.showText {
             Text(showText)

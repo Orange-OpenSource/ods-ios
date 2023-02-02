@@ -29,6 +29,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Update the Slider variant list selection ([#266](https://github.com/Orange-OpenSource/ods-ios/issues/266))
 - [DemoApp] Update default text in TextFields according to the selected capitalization ([#307](https://github.com/Orange-OpenSource/ods-ios/issues/307))
 
+## [0.9.0] - 2023-01-05
+
+- [DemoApp/SDK] #263 Refactor the lists variant list selection
+- [DemoApp] #304 Update Bar tab component illustration in landscape 
+- [Doc] #286 Use ODS Jekyll theme header to display favicons on documentation github pages
+- [DemoApp] #265 Update the Progress indicator variant list selection
+- [DemoApp] #266 Update the Slider variant list selection
+- [DemoApp] #307 Update default text in TextFields according to the selected capitalization
+ 
 ## [0.8.0] - 2022-11-30
 
 - [SDK] Add NOTICE.txt file for Orange Images usage ([#295](https://github.com/Orange-OpenSource/ods-ios/issues/295))
