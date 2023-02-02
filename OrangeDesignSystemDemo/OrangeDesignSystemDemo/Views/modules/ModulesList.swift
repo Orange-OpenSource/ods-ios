@@ -33,6 +33,7 @@ struct ModulesList: View {
                 AboutView()
                     .environmentObject(AboutConfigDemo.instance.applicationDescription)
                     .navigationBarTitleDisplayMode(.inline)
+                    .navigationbarMenuForThemeSelection()
             },
 
             ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", image: Image("Cards"))) {
@@ -44,6 +45,7 @@ struct ModulesList: View {
             ODSListOfCardImageFirst(title: "Modules", itemModels: items)
                 .navigationTitle("Modules")
                 .navigationViewStyle(.stack)
+                .navigationbarMenuForThemeSelection()
         }
     }
 }

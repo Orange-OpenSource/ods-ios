@@ -40,7 +40,11 @@ public struct ODSCardTitleFirstModel: Identifiable {
     ///  - image: The image to be displayed in the card.
     ///  - supportingText Optional text description to be displayed in the card.
     ///
-    public init(title: String, subtitle: String? = nil, thumbnail: Image? = nil, image: Image, supportingText: String? = nil) {
+    public init(title: String,
+                subtitle: String? = nil,
+                thumbnail: Image? = nil,
+                image: Image,
+                supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail

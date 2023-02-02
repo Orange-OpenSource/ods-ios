@@ -24,35 +24,174 @@
 import OrangeDesignSystem
 import Parma
 import SwiftUI
+import WebKit
 
 struct ShowMarkdownView: View {
 
-    let title: String
-    let markDownFileName: String
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    @State var markdown: String = ""
+    private let title: String
+    private let filename: String
+    private let fileExtension: String
+    private let contentType: ContentType?
 
-    var body: some View {
-        ScrollView {
-            Parma(markdown)
-                .padding(.top, ODSSpacing.s)
-                .padding(.horizontal, ODSSpacing.l)
+    enum ContentType {
+        case html(String)
+        case markdown(String)
+        
+        var content: String {
+            switch self {
+            case .html(let content), .markdown(let content):
+                return content
+            }
         }
-        .onAppear {
-            if let url = Bundle.main.url(forResource: markDownFileName, withExtension: "md") {
-                markdown = try! String(contentsOf: url)
+    }
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(title: String,
+         fileName: String,
+         fileExtension: String = "md",
+         convertToHtml: Bool = false) {
+        self.title = title
+        self.filename = fileName
+        self.fileExtension = fileExtension
+        
+        // Load content from file and convert to html if needed
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension),
+              let fileContent = try? String(contentsOf: url) else {
+            contentType = nil
+            return
+        }
+        
+        if convertToHtml {
+            if let html = try? fileContent.toHTML() {
+                let withCss = Self.addHeader(to: html)
+                contentType = .html(withCss)
+            } else {
+                contentType = nil
+            }
+        } else {
+            contentType = .markdown(fileContent)
+        }
+    }
+   
+    // ==========
+    // MARK: Body
+    // ==========
+    
+    var body: some View {
+        VStack {
+            if let contentType = contentType,
+               !contentType.content.isEmpty {
+                showContent(contentType: contentType)
+            } else {
+                Text("Unable to load \(filename).\(fileExtension)")
+                    .padding(.top, ODSSpacing.s)
+                    .padding(.horizontal, ODSSpacing.l)
             }
         }
         .navigationTitle(title)
     }
-}
+    
+    // ====================
+    // MARK: Private Helper
+    // ====================
 
-#if DEBUG
-struct ShowMarkdownView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            ShowMarkdownView(title: "Privacy Policy", markDownFileName: "ODSDemoPrivacyNotice").preferredColorScheme($0)
+    @ViewBuilder
+    func showContent(contentType: ContentType) -> some View {
+        switch contentType {
+        case .markdown(let markdown):
+            ScrollView {
+                Parma(markdown)
+                    .padding(.top, ODSSpacing.s)
+                    .padding(.horizontal, ODSSpacing.m)
+            }
+        case .html(let html):
+            WebView(html: html)
+                .padding(.top, ODSSpacing.s)
+                .padding(.leading, ODSSpacing.m)
         }
     }
+
+        public static func addHeader(to partialHTMLText: String) -> String {
+            if partialHTMLText.contains("<html") {
+                return partialHTMLText
+            }
+            var result = "<html>"
+            result += "<head>"
+            result += "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>"
+            result += "<style>"
+            result += Self.css
+            result += "</style>"
+
+            result += "</head>"
+            if partialHTMLText.contains("<body") {
+                result += partialHTMLText
+            } else {
+                result += "<body><p dir=\"auto\">\(partialHTMLText)</p></body>"
+            }
+            result += "</html>"
+            return result
+        }
+
+        static let css =
+            """
+        html, body {
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        font-family: -apple-system, sans-serif;
+        }
+
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            font: -apple-system-body;
+            background-color: clear;
+        }
+
+        h1 {
+            font: -apple-system-short-headline;
+            margin-top: 1em ;
+            margin-bottom: 0.3em;
+        }
+
+        h2 {
+            font: -apple-system-short-subheadline;
+            margin-top: 1em;
+            margin-bottom: 0.3em;
+        }
+
+        p {
+            font: -apple-system-body;
+        }
+
+        a:link, a:visited {
+            color: #FF7900;
+            text-decoration: none;
+        }
+
+        a:hover, a:active, a:focus {
+            color: #527EDB;
+        }
+        """
 }
-#endif
+
+private struct WebView: UIViewRepresentable {
+
+    let html: String
+
+    func makeUIView(context: Context) -> WKWebView  {
+        return WKWebView()
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.loadHTMLString(html, baseURL: nil)
+    }
+}

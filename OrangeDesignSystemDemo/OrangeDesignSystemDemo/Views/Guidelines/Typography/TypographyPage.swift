@@ -68,6 +68,7 @@ struct TypographyPage: View {
         }
         .navigationTitle("Typography")
         .navigationViewStyle(.stack)
+        .navigationbarMenuForThemeSelection()
     }
 }
 

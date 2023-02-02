@@ -84,7 +84,7 @@ private struct StandardListVariantInner: View {
         .toolbar { EditButton() }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Hello World!", isPresented: $model.showSheetOnIButtonClicked) {
+        .alert("Information icon tapped! Bon appétit", isPresented: $model.showSheetOnIButtonClicked) {
             Button("close", role: .cancel) {}
         }
     }

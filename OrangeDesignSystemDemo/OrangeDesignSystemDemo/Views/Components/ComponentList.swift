@@ -40,6 +40,7 @@ struct ComponentsList: View {
             ProgressIndicatorComponent(),
             SliderComponent(),
             TabBarComponent(),
+            ToolBarComponent(),
             TextFieldComponent(),
         ]
         
@@ -63,22 +64,8 @@ struct ComponentsList: View {
             }
             .navigationTitle("Components")
             .navigationViewStyle(.stack)
+            .navigationbarMenuForThemeSelection()
         }
-    }
-}
-
-struct ComponentModifier: ViewModifier {
-    init(title: String) {
-        self.title = title
-    }
-
-    let title: String
-
-    func body(content: Content) -> some View {
-        content
-            .navigationTitle(title)
-            .navigationViewStyle(.stack)
-            .background(Color(uiColor: .systemGray6))
     }
 }
 

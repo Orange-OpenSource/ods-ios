@@ -40,10 +40,12 @@ public final class ODSDemoAboutConfig: NSObject {
 
     public func configure() {
         let appMenu = [
-            ODSAboutItem(text: "Theme Selection", nextView: AnyView(ThemeSelection(title: "Theme Selection"))),
-            ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(title: "Privacy policy", markDownFileName: "ODSDemoPrivacyNotice"))),
-            ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(title: "Terms of service", markDownFileName: "ODSDemoCGU"))),
-            ODSAboutItem(text: "Change log", nextView: AnyView(ShowMarkdownView(title: "Change log", markDownFileName: "CHANGELOG"))),
+            ODSAboutItem(text: "Design guidelines", nextView: AnyView(EmptyView()), url:  "https://system.design.orange.com/0c1af118d/p/95b685-ios/"),
+            ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(title: "Privacy policy", fileName: "ODSDemoPrivacyNotice", convertToHtml: true))),
+            ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(title: "Terms of service", fileName: "ODSDemoCGU"))),
+            ODSAboutItem(text: "Change log",
+                         nextView: AnyView(ShowMarkdownView(title: "Change log", fileName: "CHANGELOG", convertToHtml: true))),
+            ODSAboutItem(text: "Report an issue", nextView: AnyView(EmptyView()), url: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")   
         ]
 
         applicationDescription.menuList = appMenu

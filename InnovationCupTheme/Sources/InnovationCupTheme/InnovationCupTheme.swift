@@ -64,7 +64,11 @@ public struct InnovationCupThemeFactory {
         theme.componentColors.tabBarBackground = theme.componentColors.accent
         theme.componentColors.tabBarItem = InnovationCupThemeColors.tabBarItem.colorDecription.color
         theme.componentColors.tabBarSelectedItem = .white
-                
+
+        // Tool bar
+        theme.componentColors.toolBarBackground = theme.componentColors.accent
+        theme.componentColors.toolBarItem = .white
+
         // Buttons
         theme.componentColors.highestEmphasisText = .white
         

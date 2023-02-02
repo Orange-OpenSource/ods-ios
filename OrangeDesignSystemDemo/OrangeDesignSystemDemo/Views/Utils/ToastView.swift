@@ -20,27 +20,47 @@
 // SOFTWARE.
 //
 //
-
-import OrangeDesignSystem
 import SwiftUI
+import OrangeDesignSystem
 
-struct ODSDemoAboutView: View {
+struct Toastable<Content>: View where Content: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+    @Binding var showText: String?
+    private let content: () -> Content
+
+    // ==========
+    // MARK: Body
+    // ==========
     var body: some View {
-        ODSDemoAboutConfig.instance.configure()
-        return NavigationView {
-            AboutView()
-                .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
-                .navigationbarMenuForThemeSelection()
+        ZStack {
+            content()
+            Toast(showText: $showText)
         }
     }
 }
 
-#if DEBUG
-struct ODSDemoAboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            ODSDemoAboutView().preferredColorScheme($0)
+struct Toast: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+    @Binding var showText: String?
+
+    // ==========
+    // MARK: Body
+    // ==========
+    var body: some View {
+        if let showText = self.showText {
+            Text(showText)
+                .padding().background(Color(UIColor.systemGray4)).clipShape(Capsule())
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.showText = nil
+                    }
+                }
         }
     }
 }
-#endif
