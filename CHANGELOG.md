@@ -3,10 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.9.0...qualif)
+## [0.10.0](https://github.com/Orange-OpenSource/ods-android/compare/0.9.0...0.10.0) - 2023-02-02
 
-- [DemoApp] Support darkmode in about changelog screen (Bug [#346]((https://github.com/Orange-OpenSource/ods-ios/issues/346)))
-- [DemoApp] Keep the number of expected items when switching item type option(Bug [#347]((https://github.com/Orange-OpenSource/ods-ios/issues/347)))
+- [DemoApp] Support darkmode in about changelog screen (Bug [#346](https://github.com/Orange-OpenSource/ods-ios/issues/346))
+- [DemoApp] Keep the number of expected items when switching item type option(Bug [#347](https://github.com/Orange-OpenSource/ods-ios/issues/347))
 - [DemoApp] Spelling click acknowledgement (Bug [#345](https://github.com/Orange-OpenSource/ods-ios/issues/345))
 - [DemoApp] Spelling click acknowledgement ([#345](https://github.com/Orange-OpenSource/ods-ios/issues/345))
 - [DemoApp] Add new links in the about section ([#342](https://github.com/Orange-OpenSource/ods-ios/issues/342))
