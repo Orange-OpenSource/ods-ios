@@ -39,10 +39,14 @@ struct CardComponent: Component {
     }
 }
 
-
 struct CardVariants: View {
     
     var body: some View {
+        VariantEntryItem(text: "Side by side", technicalElement: "ODSCardSideBySide") {
+            CardSideBySideVariant(model: CardSideBySideVariantModel())
+                .navigationTitle("Side by side card")
+        }
+
         VariantEntryItem(text: "Card Image First", technicalElement: "ODSCardImageFirst()") {
             CardImageFirstVariant(model: CardImageFirstVariantModel())
                 .navigationTitle("Card Image First")
