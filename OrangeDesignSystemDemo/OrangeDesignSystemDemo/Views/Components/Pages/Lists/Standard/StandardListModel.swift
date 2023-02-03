@@ -114,7 +114,7 @@ class StandardListVariantModel: ObservableObject {
     // ==================
     
     init() {
-        self.recipes = RecipeLoader.shared.recipes
+        self.recipes = RecipeBook.shared.recipes
                 
         showSubtitle = true
         leadingIconOption = .circle

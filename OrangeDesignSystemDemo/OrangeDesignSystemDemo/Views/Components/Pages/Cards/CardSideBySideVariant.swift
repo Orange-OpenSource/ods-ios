@@ -25,7 +25,11 @@ import OrangeDesignSystem
 import SwiftUI
 
 class CardSideBySideVariantModel: ObservableObject {
-    
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
     @Published var buttonCount: Int
@@ -33,20 +37,31 @@ class CardSideBySideVariantModel: ObservableObject {
     var alertText: String = ""
     let buttonsText = ["Button 1", "Button 2"]
 
-    init() {
+    var recipe: Recipe {
+        RecipeBook.shared.recipes[0]
+    }
+    
+    // =================
+    // MARK: Initializer
+    // =================
 
+    init() {
         showSubtitle = true
         showSupportingText = true
         buttonCount = 0
         showAlert = false
     }
 
+    // =============
+    // MARK: Helpers
+    // =============
+
     var cardModel: ODSCardSideBySideModel {
         ODSCardSideBySideModel(
-            title: cardExampleTitle,
-            subtitle: showSubtitle ? cardExampleSubtitle : nil,
-            image: Image("ods_empty", bundle: Bundle.ods),
-            supportingText: showSupportingText ? cardExampleSupportingText : nil)
+            title: recipe.title,
+            subtitle: showSubtitle ? recipe.subtitle : nil,
+            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+            supportingText: showSupportingText ? recipe.description : nil)
     }
 
     func displayAlert(text: String) {
@@ -68,8 +83,16 @@ class CardSideBySideVariantModel: ObservableObject {
 
 struct CardSideBySideVariant: View {
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @ObservedObject var model: CardSideBySideVariantModel
-    
+
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         ZStack {
             ScrollView {
@@ -106,7 +129,15 @@ struct CardSideBySideVariant: View {
 
 struct CardSideBySideBottomSheetContent: View {
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @EnvironmentObject var model: CardSideBySideVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {

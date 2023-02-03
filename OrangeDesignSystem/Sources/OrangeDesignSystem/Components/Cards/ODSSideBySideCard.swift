@@ -27,7 +27,7 @@ import SwiftUI
 public struct ODSCardSideBySideModel: Identifiable {
     let title: String
     let subtitle: String?
-    let image: Image
+    let imageSource: ODSImage.Source
     let supportingText: String?
 
     /// Initialization
@@ -35,16 +35,16 @@ public struct ODSCardSideBySideModel: Identifiable {
     /// - Parameters:
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The image to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
     ///  - supportingText: Optional text description to be displayed in the card.
     ///
     public init(title: String,
                 subtitle: String? = nil,
-                image: Image,
+                imageSource: ODSImage.Source,
                 supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
-        self.image = image
+        self.imageSource = imageSource
         self.supportingText = supportingText
     }
 
@@ -86,9 +86,7 @@ public struct ODSCardSideBySide<ButtonContent1, ButtonContent2>: View where Butt
         VStack(spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.none) {
                 Group {
-                    model.image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                    ODSImage(source: model.imageSource)
                         .accessibilityHidden(true)
                         .frame(width: 128)
                         .clipped()
@@ -104,6 +102,7 @@ public struct ODSCardSideBySide<ButtonContent1, ButtonContent2>: View where Butt
                         }
                         if let supportingText = model.supportingText, !supportingText.isEmpty {
                             Text(supportingText)
+                                .lineLimit(2)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     }
@@ -194,7 +193,7 @@ struct ODSCardSideBySide_Previews: PreviewProvider {
     static let model = ODSCardSideBySideModel(
         title: ODSCCardPreviewData.title,
         subtitle: ODSCCardPreviewData.subtitle,
-        image: ODSCCardPreviewData.image,
+        imageSource: .image(ODSCCardPreviewData.image),
         supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {
