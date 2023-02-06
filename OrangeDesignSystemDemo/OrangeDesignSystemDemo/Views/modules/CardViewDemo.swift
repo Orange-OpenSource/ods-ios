@@ -28,10 +28,10 @@ import SwiftUI
 struct CardViewDemo: View {
 
     let items = [
-        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "List", image: Image("Cards"))) {
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "List", imageSource: .image(Image("Cards")))) {
             CardViewDemoList()
         },
-        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Grid", image: Image("Cards_1"))) {
+        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Grid", imageSource: .image(Image("Cards_1")))) {
             CardViewDemoGrid()
         },
     ]
@@ -43,9 +43,15 @@ struct CardViewDemo: View {
 }
 
 struct CardViewDemoGrid: View {
-    let cardsModels = (1 ... 10).map {
-        ODSSmallCardModel(title: "Card \($0)", image: Image("empty", bundle: Bundle.main))
+    let cardsModelsOLD = (1 ... 10).map {
+        ODSSmallCardModel(title: "Card \($0)",
+                          imageSource: .image(Image("empty", bundle: Bundle.main)))
     }
+
+    let cardsModels = RecipeBook.shared.recipes.map { recipe in
+            return ODSSmallCardModel(title: recipe.title,
+                              imageSource: .asyncImage(recipe.url, Image("empty", bundle: Bundle.main))
+                              )}
 
     var body: some View {
         ScrollView {
@@ -59,8 +65,18 @@ struct CardViewDemoGrid: View {
 }
 
 struct CardViewDemoList: View {
-    let itemModels: [ODSListOfCardImageFirstItemModel] = (1 ... 5).map {
-        let cardModel = ODSCardImageFirstModel(title: "Card \($0)", subtitle: "SubTitle \($0)", image: Image("empty"), supportingText: "Description \($0)")
+    let itemModels: [ODSListOfCardImageFirstItemModel] =
+    RecipeBook.shared.recipes.map { recipe in
+        let cardModel = ODSCardImageFirstModel(title: recipe.title,
+                                               subtitle: recipe.subtitle,
+                                               imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                                               supportingText: recipe.description)
+        
+        return ODSListOfCardImageFirstItemModel(cardModel: cardModel)
+    }
+    
+    let itemModelsOld: [ODSListOfCardImageFirstItemModel] = (1 ... 5).map {
+        let cardModel = ODSCardImageFirstModel(title: "Card \($0)", subtitle: "SubTitle \($0)", imageSource: .image(Image("empty")), supportingText: "Description \($0)")
         return ODSListOfCardImageFirstItemModel(cardModel: cardModel)
     }
 

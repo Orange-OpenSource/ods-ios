@@ -29,14 +29,14 @@ struct ModulesList: View {
     var body: some View {
         AboutConfigDemo.instance.configure()
         let items = [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", image: Image("AboutImage"))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", imageSource: .image(Image("AboutImage")))) {
                 AboutView()
                     .environmentObject(AboutConfigDemo.instance.applicationDescription)
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationbarMenuForThemeSelection()
             },
 
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", image: Image("Cards"))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", imageSource: .image(Image("Cards")))) {
                 CardViewDemo()
             },
         ]

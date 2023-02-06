@@ -80,9 +80,43 @@ public struct ODSCardSideBySide<ButtonContent1, ButtonContent2>: View where Butt
         self.buttonContent1 = buttonContent1
         self.buttonContent2 = buttonContent2
     }
+}
 
+extension ODSCardSideBySide where ButtonContent2 == EmptyView {
+
+    /// Initialization with one button.
+    ///
+    /// - Parameters:
+    ///  - model: The model to configure the card.
+    ///  - buttonContent1: The button1 view builder
+    ///
+    public init(model: ODSCardSideBySideModel,
+                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
+    {
+        self.model = model
+        self.buttonContent1 = buttonContent1
+        buttonContent2 = { EmptyView() }
+    }
+}
+
+extension ODSCardSideBySide where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
+
+    /// Initialization without any button.
+    ///
+    /// - Parameter model: The model to configure the card.
+    ///
+    public init(model: ODSCardSideBySideModel) {
+        self.model = model
+        buttonContent1 = { EmptyView() }
+        buttonContent2 = { EmptyView() }
+    }
+}
+
+// MARK: View body implementation
+
+extension ODSCardSideBySide {
+    
     public var body: some View {
-
         VStack(spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.none) {
                 Group {
@@ -125,40 +159,7 @@ public struct ODSCardSideBySide<ButtonContent1, ButtonContent2>: View where Butt
             }
             .padding(.horizontal, ODSSpacing.m)
         }
-        .background(ODSInternalColor.cardBackground.color)
-        .cornerRadius(10)
-        .shadow(radius: ODSSpacing.xs)
-        .padding(.all, ODSSpacing.s)
-    }
-}
-
-extension ODSCardSideBySide where ButtonContent2 == EmptyView {
-
-    /// Initialization with one button.
-    ///
-    /// - Parameters:
-    ///  - model: The model to configure the card.
-    ///  - buttonContent1: The button1 view builder
-    ///
-    public init(model: ODSCardSideBySideModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
-    {
-        self.model = model
-        self.buttonContent1 = buttonContent1
-        buttonContent2 = { EmptyView() }
-    }
-}
-
-extension ODSCardSideBySide where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
-
-    /// Initialization without any button.
-    ///
-    /// - Parameter model: The model to configure the card.
-    ///
-    public init(model: ODSCardSideBySideModel) {
-        self.model = model
-        buttonContent1 = { EmptyView() }
-        buttonContent2 = { EmptyView() }
+        .modifier(CardShadowModifier())
     }
 }
 

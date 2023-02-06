@@ -48,7 +48,7 @@ class CardTitleFirstVariantModel: ObservableObject {
             title: cardExampleTitle,
             subtitle: showSubtitle ? cardExampleSubtitle : nil,
             thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
-            image: Image("ods_empty", bundle: Bundle.ods),
+            imageSource: cardExampleImage,
             supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
 

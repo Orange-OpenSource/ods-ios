@@ -19,23 +19,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
-//
 
 import SwiftUI
-import OrangeDesignSystem
 
-protocol Component {
-    var title: String { get }
-    var image: Image { get }
-    var description: String { get }
-    var variants: AnyView { get }
-}
+struct CardShadowModifier: ViewModifier {
 
-extension Component {
-    var smallCardModel: ODSSmallCardModel {
-        ODSSmallCardModel(title: self.title,
-                          imageSource: .image(self.image)) {
-            ComponentPage(component: self)
-        }
+    func body(content: Content) -> some View {
+        content
+            .background(ODSInternalColor.cardBackground.color)
+            .cornerRadius(10)
+            .shadow(radius: ODSSpacing.xs)
+            .padding(.all, ODSSpacing.s)
     }
 }
+
+#if DEBUG
+struct CardShadowModifier_Previews: PreviewProvider {
+    static var previews: some View {
+        Text("Hello, world!")
+            .modifier(CardShadowModifier())
+    }
+}
+#endif

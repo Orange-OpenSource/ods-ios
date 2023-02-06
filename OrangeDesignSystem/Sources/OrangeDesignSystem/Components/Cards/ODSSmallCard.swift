@@ -27,7 +27,7 @@ import SwiftUI
 public struct ODSSmallCardModel: Identifiable {
     public let title: String
     public let subtitle: String?
-    public let image: Image
+    public let imageSource: ODSImage.Source
     public let destination: AnyView?
 
     /// Initialization.
@@ -35,12 +35,12 @@ public struct ODSSmallCardModel: Identifiable {
     /// - Parameters:
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The image to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
     ///
-    public init(title: String, subtitle: String? = nil, image: Image) {
+    public init(title: String, subtitle: String? = nil, imageSource: ODSImage.Source) {
         self.title = title
         self.subtitle = subtitle
-        self.image = image
+        self.imageSource = imageSource
         destination = nil
     }
 
@@ -49,13 +49,13 @@ public struct ODSSmallCardModel: Identifiable {
     /// - Parameters:
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The image to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
     ///  - destination: The destiantion view builder, if the small card is inserted into a grid using the `ODSGridsOfCards`.
     ///
-    public init<Destination>(title: String, subtitle: String? = nil, image: Image, @ViewBuilder destination: () -> Destination) where Destination: View {
+    public init<Destination>(title: String, subtitle: String? = nil, imageSource: ODSImage.Source, @ViewBuilder destination: () -> Destination) where Destination: View {
         self.title = title
         self.subtitle = subtitle
-        self.image = image
+        self.imageSource = imageSource
         self.destination = AnyView(destination())
     }
 
@@ -87,9 +87,8 @@ public struct ODSSmallCard: View {
     }
 
     public var body: some View {
-        VStack {
-            model.image
-                .resizable()
+        VStack(spacing: 0) {
+            ODSImage(source: model.imageSource)
                 .aspectRatio(contentMode: .fill)
                 .accessibilityHidden(true)
 
@@ -110,10 +109,7 @@ public struct ODSSmallCard: View {
             .padding(.vertical, ODSSpacing.m)
             .padding(.horizontal, ODSSpacing.m)
         }
-        .background(ODSInternalColor.cardBackground.color)
-        .cornerRadius(10)
-        .shadow(radius: ODSSpacing.xs)
-        .padding(.all, ODSSpacing.s)
+        .modifier(CardShadowModifier())
     }
 }
 
@@ -125,10 +121,10 @@ struct SmallCardView_Previews: PreviewProvider {
     ]
 
     static let smallCardModels = [
-        ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)),
-        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-        ODSSmallCardModel(title: "4 A long long Title", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSSmallCardModel(title: "1 Title",imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
+        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
+        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
+        ODSSmallCardModel(title: "4 A long long Title", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
     ]
 
     static var previews: some View {
@@ -152,7 +148,7 @@ struct SmallCardView_Previews: PreviewProvider {
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 
-                ODSSmallCard(model: ODSSmallCardModel(title: "Title 4", subtitle: "Subtitle 4", image: Image("ods_empty", bundle: Bundle.ods)))
+                ODSSmallCard(model: ODSSmallCardModel(title: "Title 4", subtitle: "Subtitle 4", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))))
             }
             .padding(.horizontal, ODSSpacing.m)
         }

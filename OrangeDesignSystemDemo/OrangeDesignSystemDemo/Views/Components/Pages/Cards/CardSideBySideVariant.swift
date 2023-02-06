@@ -35,9 +35,9 @@ class CardSideBySideVariantModel: ObservableObject {
     @Published var buttonCount: Int
     @Published var showAlert: Bool
     var alertText: String = ""
-    let buttonsText = ["Button 1", "Button 2"]
-
-    var recipe: Recipe {
+    
+    private let buttonsText = ["Button 1", "Button 2"]
+    private var recipe: Recipe {
         RecipeBook.shared.recipes[0]
     }
     
@@ -77,7 +77,7 @@ class CardSideBySideVariantModel: ObservableObject {
     }
 
     var numberOfButtons: Int {
-        return buttonsText.count
+        buttonsText.count
     }
 }
 

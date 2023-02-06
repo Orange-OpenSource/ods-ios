@@ -29,9 +29,9 @@ class SmallCardVariantModel: ObservableObject {
     
     var smallCardModels: [ODSSmallCardModel] {
         [
-            ODSSmallCardModel(title: "Title",
-                              subtitle: showSubtitle ? "Subtitle" : nil,
-                              image: Image("ods_empty", bundle: Bundle.ods))
+            ODSSmallCardModel(title: cardExampleTitle,
+                              subtitle: showSubtitle ? cardExampleSubtitle : nil,
+                              imageSource: cardExampleImage)
         ]
     }
     
