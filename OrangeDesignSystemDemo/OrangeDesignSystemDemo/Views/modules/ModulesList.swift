@@ -31,7 +31,7 @@ struct ModulesList: View {
         let items = [
             ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", image: Image("AboutImage"))) {
                 AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationDescription)
+                    .environmentObject(AboutConfigDemo.instance.applicationInformation)
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationbarMenuForThemeSelection()
             },
