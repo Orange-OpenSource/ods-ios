@@ -40,6 +40,7 @@ struct ChipsComponent: Component {
 }
 
 struct ChipsVariants: View {
+
     @ObservedObject var model: ChipsVariantModel
 
     var body: some View {
