@@ -26,12 +26,20 @@ import SwiftUI
 
 class CardImageFirstVariantModel: ObservableObject {
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
     @Published var showButton1: Bool
     @Published var showButton2: Bool
     @Published var showAlert: Bool
     var alertText: String = ""
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     init() {
         showSubtitle = true
@@ -40,6 +48,10 @@ class CardImageFirstVariantModel: ObservableObject {
         showButton2 = true
         showAlert = false
     }
+    
+    // =============
+    // MARK: Helpers
+    // =============
 
     var cardModel: ODSCardImageFirstModel {
         ODSCardImageFirstModel(title: cardExampleTitle,
@@ -56,7 +68,15 @@ class CardImageFirstVariantModel: ObservableObject {
 
 struct CardImageFirstVariant: View {
 
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     @ObservedObject var model: CardImageFirstVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         ZStack {
@@ -64,13 +84,13 @@ struct CardImageFirstVariant: View {
             ScrollView {
                 ODSCardImageFirst(model: model.cardModel) {
                     if model.showButton1 {
-                        ODSButton(text: LocalizedStringKey("Button 1"), emphasis: .highest, variableWidth: true) {
+                        ODSButton(text: LocalizedStringKey("Button 1"), emphasis: .medium, variableWidth: true) {
                             model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
                     if model.showButton2 {
-                        ODSButton(text: LocalizedStringKey("Button 2"), emphasis: .highest, variableWidth: true) {
+                        ODSButton(text: LocalizedStringKey("Button 2"), emphasis: .medium, variableWidth: true) {
                             model.displayAlert(text: "Button 2 clicked")
                         }
                     }
@@ -86,16 +106,23 @@ struct CardImageFirstVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardImageFirstBottomSheetContent()
+                CardImageFirstVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }
 
-struct CardImageFirstBottomSheetContent: View {
+private struct CardImageFirstVariantOptions: View {
 
-    @EnvironmentObject var model: CardImageFirstVariantModel
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @ObservedObject var model: CardImageFirstVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {

@@ -23,51 +23,48 @@
 
 import SwiftUI
 
-struct LeadingIcon: View {
+///
+/// As image can be loaded from resources (sync) or
+/// from url (Async), this desplays image accrding to the
+/// source __ODSImage.Source__.
+///
+/// For Async image, until the image loads, the view displays a standard placeholder that fills the available space.
+/// For more detail see __AsyncImage__.
+///
+public struct ODSImage: View {
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
+    // ======================
+    // MARK: Store Properties
+    // ======================
 
-    let model: ODSListItemLeadingIcon
+    public enum Source {
+        case image(Image)
+        case asyncImage(URL, Image)
+    }
+
+    let source: Source
 
     // ==========
     // MARK: Body
     // ==========
 
-    var body: some View {
-        switch model {
-        case .icon(let image):
-            image.renderingMode(.template)
-        case .circularImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Circle())
-        case .squareImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
-        case .wideImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
+    public var body: some View {
+        switch source {
+        case let .asyncImage(url, placeHolder):
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                placeHolder
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
+
+        case let .image(image):
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
-    }
-
-    // =====================
-    // MARK: Private helpers
-    // =====================
-
-    private var width: CGFloat {
-        switch model {
-        case  .icon, .circularImage, .squareImage:
-            return 44
-        case .wideImage:
-            return 80
-        }
-    }
-
-    private var height: CGFloat {
-        return 44
     }
 }

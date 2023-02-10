@@ -21,53 +21,59 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct LeadingIcon: View {
+struct SelectionListVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let model: ODSListItemLeadingIcon
+    @ObservedObject var model: SelectionListVariantModel
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        switch model {
-        case .icon(let image):
-            image.renderingMode(.template)
-        case .circularImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Circle())
-        case .squareImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
-        case .wideImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Leading",
+                          selection: $model.leadingIconOption,
+                          chips: LeadingIconOption.chips)
+                .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Trailing",
+                          selection: $model.trailingOption,
+                          chips: ODSListSelectionItemModel.TrailingSelection.chips)
+                .padding(.vertical, ODSSpacing.s)
+        }
+        .padding(.top, ODSSpacing.s)
+    }
+}
+
+extension ODSListSelectionItemModel.TrailingSelection {
+
+    private var description: String {
+        switch self {
+        case .checkmark:
+            return "checkmark"
+        case .toggle:
+            return "switch"
         }
     }
-
-    // =====================
-    // MARK: Private helpers
-    // =====================
-
-    private var width: CGFloat {
-        switch model {
-        case  .icon, .circularImage, .squareImage:
-            return 44
-        case .wideImage:
-            return 80
-        }
+        
+    private var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
     }
-
-    private var height: CGFloat {
-        return 44
+        
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }

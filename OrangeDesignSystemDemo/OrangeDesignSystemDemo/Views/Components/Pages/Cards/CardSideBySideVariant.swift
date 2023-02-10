@@ -24,59 +24,96 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardTitleFirstVariantModel: ObservableObject {
+extension ODSCardSideBySideModel.ImagePosition: CaseIterable {
+    public static var allCases: [ODSCardSideBySideModel.ImagePosition] = [.left, .right]
     
+    var description: String {
+        switch self {
+        case .left:
+            return "Left"
+        case .right:
+            return "Right"
+        }
+    }
+    
+    var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+    
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
+    }
+}
+
+class CardSideBySideVariantModel: ObservableObject {
+
     // =======================
-    // MARK: Stored properties
+    // MARK: Stored Properties
     // =======================
 
-    @Published var showThumbnail: Bool
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
-    @Published var showButton1: Bool
-    @Published var showButton2: Bool
+    @Published var buttonCount: Int
     @Published var showAlert: Bool
+    @Published var imagePosition: ODSCardSideBySideModel.ImagePosition
+    
     var alertText: String = ""
-
+    private let buttonsText = ["Button 1", "Button 2"]
+    
     // =================
     // MARK: Initializer
     // =================
 
     init() {
-        showThumbnail = true
         showSubtitle = true
         showSupportingText = true
-        showButton1 = true
-        showButton2 = true
+        buttonCount = 0
         showAlert = false
+        imagePosition = .left
     }
-    
+
     // =============
     // MARK: Helpers
     // =============
 
-    var cardModel: ODSCardTitleFirstModel {
-        ODSCardTitleFirstModel(
-            title: cardExampleTitle,
-            subtitle: showSubtitle ? cardExampleSubtitle : nil,
-            thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
-            image: Image("ods_empty", bundle: Bundle.ods),
-            supportingText: showSupportingText ? cardExampleSupportingText : nil)
+    var recipe: Recipe {
+        RecipeBook.shared.recipes[0]
+    }
+
+    var cardModel: ODSCardSideBySideModel {
+        ODSCardSideBySideModel(
+            title: recipe.title,
+            subtitle: showSubtitle ? recipe.subtitle : nil,
+            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+            imagePosition: imagePosition,
+            supportingText: showSupportingText ? recipe.description : nil)
     }
 
     func displayAlert(text: String) {
         self.alertText = text
         self.showAlert = true
     }
+    
+    var button1Text: String? {
+        buttonCount >= 1 ? buttonsText[0] : nil
+    }
+    
+    var button2Text: String? {
+        buttonCount >= 2 ? buttonsText[1] : nil
+    }
+
+    var numberOfButtons: Int {
+        return buttonsText.count
+    }
 }
 
-struct CardTitleFirstVariant: View {
+struct CardSideBySideVariant: View {
 
     // =======================
-    // MARK: Stored properties
+    // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: CardTitleFirstVariantModel
+    @ObservedObject var model: CardSideBySideVariantModel
 
     // ==========
     // MARK: Body
@@ -85,15 +122,15 @@ struct CardTitleFirstVariant: View {
     var body: some View {
         ZStack {
             ScrollView {
-                ODSCardTitleFirst(model: model.cardModel) {
-                    if model.showButton1 {
-                        ODSButton(text: "Button 1", emphasis: .medium) {
+                ODSCardSideBySide(model: model.cardModel) {
+                    if let text = model.button1Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
-                    if model.showButton2 {
-                        ODSButton(text: "Button 2", emphasis: .medium) {
+                    if let text = model.button2Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 2 clicked")
                         }
                     }
@@ -109,19 +146,19 @@ struct CardTitleFirstVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardTitleFirstVariantOptions(model: model)
+                CardSideBySideVariantOptions(model: model)
             }
         }
     }
 }
 
-private struct CardTitleFirstVariantOptions: View {
+private struct CardSideBySideVariantOptions: View {
 
     // =======================
-    // MARK: Stored properties
+    // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: CardTitleFirstVariantModel
+    @ObservedObject var model: CardSideBySideVariantModel
 
     // ==========
     // MARK: Body
@@ -129,14 +166,21 @@ private struct CardTitleFirstVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("Thumbnail", isOn: $model.showThumbnail)
             Toggle("Subtitle", isOn: $model.showSubtitle)
+                .padding(.horizontal, ODSSpacing.m)
             Toggle("Text", isOn: $model.showSupportingText)
-            Toggle("Button 1", isOn: $model.showButton1)
-            Toggle("Button 2", isOn: $model.showButton2)
+                .padding(.horizontal, ODSSpacing.m)
+            
+            ODSChipPicker(title: "Image position",
+                          selection: $model.imagePosition,
+                          chips: ODSCardSideBySideModel.ImagePosition.chips)
+            
+            Stepper("Number of buttons: \(model.buttonCount)",
+                    value: $model.buttonCount,
+                    in: 0 ... model.numberOfButtons)
+            .padding(.horizontal, ODSSpacing.m)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
     }
 }

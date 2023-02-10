@@ -21,53 +21,60 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct LeadingIcon: View {
-
+struct SelectionListVariant: View {
+    
+    
     // =======================
     // MARK: Stored Properties
     // =======================
-
-    let model: ODSListItemLeadingIcon
-
+    
+    let model: SelectionListVariantModel
+    
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
-        switch model {
-        case .icon(let image):
-            image.renderingMode(.template)
-        case .circularImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Circle())
-        case .squareImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
-        case .wideImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
+        ZStack {
+            
+            SelectionListVariantInner(model: model)
+            
+            BottomSheet {
+                SelectionListVariantOptions(model: model)
+            }
         }
     }
+}
 
-    // =====================
-    // MARK: Private helpers
-    // =====================
-
-    private var width: CGFloat {
-        switch model {
-        case  .icon, .circularImage, .squareImage:
-            return 44
-        case .wideImage:
-            return 80
+private struct SelectionListVariantInner: View {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+    
+    @ObservedObject var model: SelectionListVariantModel
+    @State var multiSelection: Set<UUID>? = nil
+    
+    // ==========
+    // MARK: Body
+    // ==========
+    
+    var body: some View {
+        List /* (selection: $multiSelection) */ {
+            ForEach(model.itemModels, id: \.id) { itemModel in
+                ODSListSelectionItem(model: itemModel)
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(Visibility.visible)
+            }
+            .onMove(perform: model.move)
+            .onDelete(perform: model.delete)
+            .padding(.horizontal, ODSSpacing.m)
         }
-    }
-
-    private var height: CGFloat {
-        return 44
+        .toolbar { EditButton() }
+        .listStyle(.plain)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

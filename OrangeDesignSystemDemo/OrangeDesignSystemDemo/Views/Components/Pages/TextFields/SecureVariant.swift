@@ -21,50 +21,29 @@
 //
 //
 
-import Foundation
+import OrangeDesignSystem
+import SwiftUI
 
-class RecipeLoader {
+struct SecureTextFieldVariant: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
 
+    @State private var textToEdit: String = ""
     
-    // =================
-    // MARK: Initializer
-    // =================
+    // ==========
+    // MARK: Body
+    // ==========
     
-    init() { }
-    
-    enum Error: Swift.Error {
-        case resourceNotFound
-        case noJsonData
-    }
-    
-    // ====================
-    // MARK: Private Helper
-    // ====================
-
-    func loadBook(from fileName: String) throws -> RecipeBook {
-        
-        guard let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json") else {
-            throw Error.resourceNotFound
+    var body: some View {
+        VStack {
+            SecureField("secure text to edit", text: $textToEdit)
+                .odsTextFieldStyle()
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
+            
+            Spacer()
         }
-        
-        guard let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) else {
-            throw Error.noJsonData
-        }
-        
-        return try JSONDecoder().decode(RecipeBook.self, from: jsonData)
     }
 }
-
-extension RecipeBook {
-    init() {
-        guard let book = try? RecipeLoader().loadBook(from: "Recipes") else {
-            recipes = []
-            foods = []
-            return
-        }
-        
-        self = book
-    }
-}
-
-

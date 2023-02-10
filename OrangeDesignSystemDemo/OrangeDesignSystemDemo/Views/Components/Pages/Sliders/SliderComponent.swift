@@ -21,50 +21,47 @@
 //
 //
 
-import Foundation
+import OrangeDesignSystem
+import SwiftUI
 
-class RecipeLoader {
-
+struct SliderComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
     
-    // =================
-    // MARK: Initializer
-    // =================
-    
-    init() { }
-    
-    enum Error: Swift.Error {
-        case resourceNotFound
-        case noJsonData
-    }
-    
-    // ====================
-    // MARK: Private Helper
-    // ====================
-
-    func loadBook(from fileName: String) throws -> RecipeBook {
-        
-        guard let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json") else {
-            throw Error.resourceNotFound
-        }
-        
-        guard let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) else {
-            throw Error.noJsonData
-        }
-        
-        return try JSONDecoder().decode(RecipeBook.self, from: jsonData)
-    }
-}
-
-extension RecipeBook {
     init() {
-        guard let book = try? RecipeLoader().loadBook(from: "Recipes") else {
-            recipes = []
-            foods = []
-            return
-        }
-        
-        self = book
+        title = "Sliders"
+        image = Image("Slider")
+        description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
+        variants = AnyView(SliderVariants())
     }
 }
 
+struct SliderVariants: View {
+    
+    // ==========
+    // MARK: Body
+    // ==========
 
+    var body: some View {
+        VariantEntryItem(text: "Sliders demo", technicalElement: "ODSSlider()") {
+            SliderVariant(model: SliderVariantModel())
+            .navigationTitle("Sliders demo")
+        }
+    }
+}
+
+#if DEBUG
+struct SliderComponent_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    SliderVariants()
+                }
+            }
+        }
+    }
+}
+#endif

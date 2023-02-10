@@ -21,50 +21,46 @@
 //
 //
 
-import Foundation
+import SwiftUI
 
-class RecipeLoader {
-
+struct ListComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
     
-    // =================
-    // MARK: Initializer
-    // =================
-    
-    init() { }
-    
-    enum Error: Swift.Error {
-        case resourceNotFound
-        case noJsonData
-    }
-    
-    // ====================
-    // MARK: Private Helper
-    // ====================
-
-    func loadBook(from fileName: String) throws -> RecipeBook {
-        
-        guard let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json") else {
-            throw Error.resourceNotFound
-        }
-        
-        guard let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) else {
-            throw Error.noJsonData
-        }
-        
-        return try JSONDecoder().decode(RecipeBook.self, from: jsonData)
-    }
-}
-
-extension RecipeBook {
     init() {
-        guard let book = try? RecipeLoader().loadBook(from: "Recipes") else {
-            recipes = []
-            foods = []
-            return
-        }
+        title = "Lists"
+        image = Image("Lists")
+        description = "A list is a continuous vertical group of data entries like text, icons or images."
         
-        self = book
+        variants = AnyView(ListVariants())
+    }
+}
+
+struct ListVariants: View {
+    var body: some View {
+        VariantEntryItem(text: "List with selection", technicalElement: "ODSListSelectionItem()"){
+            SelectionListVariant(model: SelectionListVariantModel())
+        }
+
+        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
+            StandardListVariant(model: StandardListVariantModel())
+        }
     }
 }
 
 
+#if DEBUG
+struct ListComponent_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    ListVariants()
+                }
+            }
+        }
+    }
+}
+#endif

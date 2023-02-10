@@ -21,53 +21,46 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct LeadingIcon: View {
+struct StandardListVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let model: ODSListItemLeadingIcon
+    @ObservedObject var model: StandardListVariantModel
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        switch model {
-        case .icon(let image):
-            image.renderingMode(.template)
-        case .circularImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Circle())
-        case .squareImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
-        case .wideImage(let source):
-            ODSImage(source: source)
-                .frame(width: width, height: height)
-                .clipShape(Rectangle())
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Leading",
+                          selection: $model.leadingIconOption,
+                          chips: LeadingIconOption.chips)
+                .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Trailing",
+                          selection: $model.trailingOptions,
+                          allowZeroSelection: true,
+                          chips: TrailingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
+            
+            Toggle(isOn: $model.showDetails) {
+                Text("Navigate").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
         }
-    }
-
-    // =====================
-    // MARK: Private helpers
-    // =====================
-
-    private var width: CGFloat {
-        switch model {
-        case  .icon, .circularImage, .squareImage:
-            return 44
-        case .wideImage:
-            return 80
-        }
-    }
-
-    private var height: CGFloat {
-        return 44
+        .padding(.top, ODSSpacing.s)
     }
 }

@@ -13,7 +13,9 @@ description: Cards contain content and actions about a single subject.
 * [Variants](#variants)
     * [Large cards (Image first)](#large-cards-image-first)
     * [Large cards (Title first)](#large-cards-title-first)
+    * [Large cards (Side by side)](#large-cards-side-by-side)
     * [Small cards](#small-cards)
+    
 * [Component specific tokens](#component-specific-tokens)
 
 ---
@@ -55,11 +57,11 @@ let model = ODSCardImageFirstModel(
     supportingText: "A supporting text to describe something")
     
 ODSCardImageFirst(model: model) {
-    ODSButton(text: "Button 1", emphasis: .highest) {
+    ODSButton(text: "Button 1", emphasis: .medium) {
             // do something here
         }
     } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .highest) {
+        ODSButton(text: "Button 1", emphasis: .medium) {
             // do something here
         } 
     }
@@ -88,11 +90,44 @@ let model = ODSCardTitleFirstModel(
     supportingText: "A supporting text to describe something")
     
 ODSCardTitleFirst(model: model) {
-    ODSButton(text: "Button 1", emphasis: .highest) {
+    ODSButton(text: "Button 1", emphasis: .medium) {
             // do something here
         }
     } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .highest) {
+        ODSButton(text: "Button 1", emphasis: .medium) {
+            // do something here
+        } 
+    }
+}
+```
+
+### Large cards (Side by side)
+
+This is a full width card displaying with image on left and content with texts on the right. Additonal action buttons can be added at the bottom of the card. 
+
+Thes content is composed by:
+- a title
+- an optional subtitle
+- an optional supporting text for larger description
+
+> **Implementation**
+
+Card is configured using `ODSCardSideBySideModel` like this:
+
+```swift
+let model = ODSCardSideBySideModel(
+    title: "Title",
+    subtitle: "Subtitle",
+    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    imagePosition: .left,
+    supportingText: "A supporting text to describe something")
+    
+ODSCardSideBySide(model: model) {
+    ODSButton(text: "Button 1", emphasis: .medium) {
+            // do something here
+        }
+    } buttonContent2: {
+        ODSButton(text: "Button 1", emphasis: .medium) {
             // do something here
         } 
     }

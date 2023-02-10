@@ -3,8 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unrelase] (https://github.com/Orange-OpenSource/ods-ios/compare/0.10.0...qualif)
+## [Unrelase](https://github.com/Orange-OpenSource/ods-ios/compare/0.10.0...qualif)
 
+- [DemoApp/SDK] Add SideBySide card component ([#56](https://github.com/Orange-OpenSource/ods-ios/issues/56))
 - [DemoApp/SDK] Add application description in about module and add demo app description ([#348](https://github.com/Orange-OpenSource/ods-ios/issues/348))
 
 ## [0.10.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.9.0...0.10.0) - 2023-02-02
