@@ -32,6 +32,7 @@ struct ComponentsList: View {
         // Remark: Components are automatically displayed sorted by their name
         let components: [Component] = [
             BannerComponent(),
+            BottomSheetComponent(),
             ButtonComponent(),
             CardComponent(),
             ChipsComponent(),

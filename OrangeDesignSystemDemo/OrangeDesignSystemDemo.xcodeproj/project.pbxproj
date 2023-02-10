@@ -53,6 +53,8 @@
 		07E37F6228C73252003FF740 /* SmallCardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6128C73252003FF740 /* SmallCardVariant.swift */; };
 		07E37F6428C74540003FF740 /* CardTitleFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */; };
 		07E37F6628C745E1003FF740 /* CardImageFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6528C745E1003FF740 /* CardImageFirstVariant.swift */; };
+		07F141C829928B96007C8575 /* BottomSheetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F141C629928B96007C8575 /* BottomSheetPage.swift */; };
+		07F141C929928B96007C8575 /* BottomSheetPageVariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F141C729928B96007C8575 /* BottomSheetPageVariants.swift */; };
 		07F343862943458D0043335A /* ProgressIndicatorPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F343852943458C0043335A /* ProgressIndicatorPage.swift */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* TypographyPage.swift */; };
@@ -145,6 +147,8 @@
 		07E37F6128C73252003FF740 /* SmallCardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCardVariant.swift; sourceTree = "<group>"; };
 		07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleFirstVariant.swift; sourceTree = "<group>"; };
 		07E37F6528C745E1003FF740 /* CardImageFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageFirstVariant.swift; sourceTree = "<group>"; };
+		07F141C629928B96007C8575 /* BottomSheetPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetPage.swift; sourceTree = "<group>"; };
+		07F141C729928B96007C8575 /* BottomSheetPageVariants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetPageVariants.swift; sourceTree = "<group>"; };
 		07F343852943458C0043335A /* ProgressIndicatorPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorPage.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +333,7 @@
 		07C8233D28AE68B2003B2C3A /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				07F141C529928B96007C8575 /* BottomSheet */,
 				07D3AEDE296813DA00B36C3F /* ToolBar */,
 				07CC452A2923CF9C008BE71F /* Banners */,
 				075462F628F474CC002E2E40 /* Buttons */,
@@ -403,6 +408,15 @@
 				07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */,
 			);
 			path = Cards;
+			sourceTree = "<group>";
+		};
+		07F141C529928B96007C8575 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				07F141C629928B96007C8575 /* BottomSheetPage.swift */,
+				07F141C729928B96007C8575 /* BottomSheetPageVariants.swift */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		174EE48FFD62B367205CFF78 /* Frameworks */ = {
@@ -895,8 +909,10 @@
 				F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsPage.swift in Sources */,
 				07C8234F28AE68B2003B2C3A /* TextFieldPage.swift in Sources */,
+				07F141C829928B96007C8575 /* BottomSheetPage.swift in Sources */,
 				071D3EF128884D8200DFD1C9 /* SpacingPage.swift in Sources */,
 				07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */,
+				07F141C929928B96007C8575 /* BottomSheetPageVariants.swift in Sources */,
 				F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */,
 				07387C5F28F02F4F00D8721F /* SelectionList.swift in Sources */,
 				075462FB28F474CC002E2E40 /* ButtonsPageBottomSheet.swift in Sources */,
