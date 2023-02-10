@@ -24,6 +24,27 @@
 import OrangeDesignSystem
 import SwiftUI
 
+extension ODSCardSideBySideModel.ImagePosition: CaseIterable {
+    public static var allCases: [ODSCardSideBySideModel.ImagePosition] = [.left, .right]
+    
+    var description: String {
+        switch self {
+        case .left:
+            return "Left"
+        case .right:
+            return "Right"
+        }
+    }
+    
+    var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+    
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
+    }
+}
+
 class CardSideBySideVariantModel: ObservableObject {
 
     // =======================
@@ -34,6 +55,8 @@ class CardSideBySideVariantModel: ObservableObject {
     @Published var showSupportingText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
+    @Published var imagePosition: ODSCardSideBySideModel.ImagePosition
+    
     var alertText: String = ""
     private let buttonsText = ["Button 1", "Button 2"]
     
@@ -46,6 +69,7 @@ class CardSideBySideVariantModel: ObservableObject {
         showSupportingText = true
         buttonCount = 0
         showAlert = false
+        imagePosition = .left
     }
 
     // =============
@@ -61,6 +85,7 @@ class CardSideBySideVariantModel: ObservableObject {
             title: recipe.title,
             subtitle: showSubtitle ? recipe.subtitle : nil,
             imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+            imagePosition: imagePosition,
             supportingText: showSupportingText ? recipe.description : nil)
     }
 
@@ -142,13 +167,20 @@ private struct CardSideBySideVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("Subtitle", isOn: $model.showSubtitle)
+                .padding(.horizontal, ODSSpacing.m)
             Toggle("Text", isOn: $model.showSupportingText)
-            Stepper("Number of items: \(model.buttonCount)",
+                .padding(.horizontal, ODSSpacing.m)
+            
+            ODSChipPicker(title: "Image position",
+                          selection: $model.imagePosition,
+                          chips: ODSCardSideBySideModel.ImagePosition.chips)
+            
+            Stepper("Number of buttons: \(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
+            .padding(.horizontal, ODSSpacing.m)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
     }
 }
