@@ -24,14 +24,13 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom Sheet - content for list
-struct SelectionListBottomSheet: View {
+struct SelectionListVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var model: SelectionListVariantModel
+    @ObservedObject var model: SelectionListVariantModel
 
     // ==========
     // MARK: Body
@@ -58,7 +57,6 @@ struct SelectionListBottomSheet: View {
         .padding(.top, ODSSpacing.s)
     }
 }
-
 
 extension ODSListSelectionItemModel.TrailingSelection {
 

@@ -24,52 +24,44 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom sheet for Emphasis and Functionnal
-
-class ButtonContentModel: ObservableObject {
-    @Published var showIcon: Bool
-    @Published var showVariableWidth: Bool
-    @Published var showLongText: Bool
-    @Published var showDisabled: Bool
-
+struct SliderComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
     init() {
-        showIcon = false
-        showVariableWidth = false
-        showLongText = false
-        showDisabled = false
-    }
-
-    var text: LocalizedStringKey {
-        showLongText ? "Terms and conditions" : (showDisabled ? "Disabled" : "Enabled")
-    }
-
-    var icon: Image? {
-        showIcon ? Image("Add") : nil
+        title = "Sliders"
+        image = Image("Slider")
+        description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
+        variants = AnyView(SliderVariants())
     }
 }
 
-struct ButtonsBottomSheetContent: View {
-
-    @EnvironmentObject var model: ButtonContentModel
+struct SliderVariants: View {
+    
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-        VStack {
-            Toggle("Show icon", isOn: $model.showIcon)
-            Toggle("Show variable width", isOn: $model.showVariableWidth)
-            Toggle("Show disabled", isOn: $model.showDisabled)
-            Toggle("Show long text", isOn: $model.showLongText)
+        VariantEntryItem(text: "Sliders demo", technicalElement: "ODSSlider()") {
+            SliderVariant(model: SliderVariantModel())
+            .navigationTitle("Sliders demo")
         }
-        .padding(.horizontal, ODSSpacing.m)
-        .padding(.vertical, ODSSpacing.s)
     }
 }
 
-// MARK: Bottom sheet for IconButton
-
-class IconButtonModel: ObservableObject {
-    @Published var showDisabled: Bool
-
-    init() {
-        showDisabled = false
+#if DEBUG
+struct SliderComponent_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    SliderVariants()
+                }
+            }
+        }
     }
 }
+#endif

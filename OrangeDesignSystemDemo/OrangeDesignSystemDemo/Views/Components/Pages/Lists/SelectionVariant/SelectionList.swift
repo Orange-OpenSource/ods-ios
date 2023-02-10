@@ -39,11 +39,12 @@ struct SelectionListVariant: View {
     
     var body: some View {
         ZStack {
+            
             SelectionListVariantInner(model: model)
+            
             BottomSheet {
-                SelectionListBottomSheet()
+                SelectionListVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }

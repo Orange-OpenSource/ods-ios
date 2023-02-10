@@ -26,6 +26,10 @@ import SwiftUI
 
 class CardTitleFirstVariantModel: ObservableObject {
     
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     @Published var showThumbnail: Bool
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
@@ -33,6 +37,10 @@ class CardTitleFirstVariantModel: ObservableObject {
     @Published var showButton2: Bool
     @Published var showAlert: Bool
     var alertText: String = ""
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     init() {
         showThumbnail = true
@@ -42,6 +50,10 @@ class CardTitleFirstVariantModel: ObservableObject {
         showButton2 = true
         showAlert = false
     }
+    
+    // =============
+    // MARK: Helpers
+    // =============
 
     var cardModel: ODSCardTitleFirstModel {
         ODSCardTitleFirstModel(
@@ -60,20 +72,28 @@ class CardTitleFirstVariantModel: ObservableObject {
 
 struct CardTitleFirstVariant: View {
 
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     @ObservedObject var model: CardTitleFirstVariantModel
-    
+
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         ZStack {
             ScrollView {
                 ODSCardTitleFirst(model: model.cardModel) {
                     if model.showButton1 {
-                        ODSButton(text: "Button 1", emphasis: .highest) {
+                        ODSButton(text: "Button 1", emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
                     if model.showButton2 {
-                        ODSButton(text: "Button 2", emphasis: .highest) {
+                        ODSButton(text: "Button 2", emphasis: .medium) {
                             model.displayAlert(text: "Button 2 clicked")
                         }
                     }
@@ -89,16 +109,23 @@ struct CardTitleFirstVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardTitleFirstBottomSheetContent()
+                CardTitleFirstVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }
 
-struct CardTitleFirstBottomSheetContent: View {
+private struct CardTitleFirstVariantOptions: View {
 
-    @EnvironmentObject var model: CardTitleFirstVariantModel
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @ObservedObject var model: CardTitleFirstVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {

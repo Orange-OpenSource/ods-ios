@@ -106,13 +106,13 @@ class BannerVariantModel: ObservableObject {
     }
 }
 
-struct BannerVariantBottomSheet: View {
+struct BannerVariantOptions: View {
     
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var model: BannerVariantModel
+    @ObservedObject var model: BannerVariantModel
 
     // ==========
     // MARK: Body

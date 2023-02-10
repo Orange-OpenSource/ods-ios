@@ -21,46 +21,62 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct ListComponent: Component {
+// MARK: Component
+struct TextFieldComponent: Component {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
     let title: String
     let image: Image
     let description: String
     let variants: AnyView
     
+    // =================
+    // MARK: Initilizers
+    // =================
+
     init() {
-        title = "Lists"
-        image = Image("Lists")
-        description = "A list is a continuous vertical group of data entries like text, icons or images."
+        title = "Text field"
+        image = Image("Text edit menu")
+        description = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native."
         
-        variants = AnyView(ListVariants())
+        variants = AnyView(TextFieldVariants())
     }
 }
 
-struct ListVariants: View {
+struct TextFieldVariants: View {
+
     var body: some View {
-        VariantEntryItem(text: "List with selection", technicalElement: "ODSListSelectionItem()"){
-            SelectionListVariant(model: SelectionListVariantModel())
+        VariantEntryItem(text: "Secure text field", technicalElement: "SecureField()") {
+            SecureTextFieldVariant().navigationTitle("Secure text field")
         }
 
-        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
-            StandardListVariant(model: StandardListVariantModel())
+        VariantEntryItem(text: "Text field", technicalElement: "TextField()") {
+            TextFieldVariant().navigationTitle("Text field")
+        }
+
+        VariantEntryItem(text: "Text editor", technicalElement: "TextEditor()") {
+            TextEditorVariant().navigationTitle("Text editor")
         }
     }
 }
-
 
 #if DEBUG
-struct ListPage_Previews: PreviewProvider {
+struct TextFieldComponent_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {
             NavigationView {
                 List {
-                    ListVariants()
+                    TextFieldVariants()
                 }
             }
         }
     }
 }
 #endif
+

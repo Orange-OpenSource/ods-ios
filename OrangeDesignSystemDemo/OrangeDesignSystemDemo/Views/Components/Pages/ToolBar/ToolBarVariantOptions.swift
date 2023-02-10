@@ -24,44 +24,6 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ToolBarVariantBottomSheet: View {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @EnvironmentObject var model: ToolBarVariantModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        VStack(spacing: ODSSpacing.m) {
-            Group {
-                ODSChipPicker(title: "Items type",
-                              selection: $model.itemType,
-                              chips: ToolBarVariantModel.ItemType.chips)
-                
-                switch model.itemType {
-                case .label:
-                    Stepper("Number of items: \(model.itemsCount)",
-                            value: $model.itemsCount,
-                            in: 2 ... model.numberOfLabelItems)
-                    .padding(.horizontal, ODSSpacing.m)
-                case .icon:
-                    Stepper("Number of items: \(model.itemsCount)",
-                            value: $model.itemsCount,
-                            in: 2 ... model.numberOfIconItems)
-                    .padding(.horizontal, ODSSpacing.m)
-                }
-            }
-            .odsFont(.bodyBold)            
-        }
-        .odsFont(.bodyRegular)
-        .padding(.vertical, ODSSpacing.m)
-    }
-}
 
 class ToolBarVariantModel: ObservableObject {
         
@@ -179,5 +141,39 @@ class ToolBarVariantModel: ObservableObject {
         alertText = "\(text): clicked"
         showAlert = true
     }
+}
 
+struct ToolBarVariantOptions: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: ToolBarVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        VStack(spacing: ODSSpacing.m) {
+                ODSChipPicker(title: "Items type",
+                              selection: $model.itemType,
+                              chips: ToolBarVariantModel.ItemType.chips)
+                
+            switch model.itemType {
+            case .label:
+                Stepper("Number of items: \(model.itemsCount)",
+                        value: $model.itemsCount,
+                        in: 2 ... model.numberOfLabelItems)
+                .padding(.horizontal, ODSSpacing.m)
+            case .icon:
+                Stepper("Number of items: \(model.itemsCount)",
+                        value: $model.itemsCount,
+                        in: 2 ... model.numberOfIconItems)
+                .padding(.horizontal, ODSSpacing.m)
+            }
+        }
+        .odsFont(.bodyBold)
+    }
 }

@@ -66,6 +66,7 @@ class SelectionListVariantModel: ObservableObject {
     //======================
     // MARK: Edition actions
     // =====================
+
     func delete(at offsets: IndexSet) {
         recipes.remove(atOffsets: offsets)
         updateItems()
@@ -79,6 +80,7 @@ class SelectionListVariantModel: ObservableObject {
     // =====================
     // MARK: Private helpers
     // =====================
+
     private func updateItems() {
         
         itemModels = recipes.map {

@@ -63,11 +63,12 @@ struct BannerVariant: View {
     
     var body: some View {
         ZStack {
+            
             BannerVariantContent(model: model)
+            
             BottomSheet {
-                BannerVariantBottomSheet()
+                BannerVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }

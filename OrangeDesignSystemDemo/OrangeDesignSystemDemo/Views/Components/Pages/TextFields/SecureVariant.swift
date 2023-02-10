@@ -24,29 +24,26 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom sheet for NavigationBar
-class NavigationBarSearchModel: ObservableObject {
+struct SecureTextFieldVariant: View {
     
     // ======================
     // MARK: Store properties
     // ======================
+
+    @State private var textToEdit: String = ""
     
-    @Published var searchQuery: String
-    private var listItems: [String]
-        
-    // ==================
-    // MARK: Initializers
-    // ==================
-    init() {
-        searchQuery = ""
-        listItems = (1 ... 10).map { "Item #\($0)" }
-    }
-        
-    var filteredListItems: [String] {
-        if searchQuery.isEmpty {
-            return listItems
-        } else {
-            return listItems.filter { $0.contains(searchQuery) }
+    // ==========
+    // MARK: Body
+    // ==========
+    
+    var body: some View {
+        VStack {
+            SecureField("secure text to edit", text: $textToEdit)
+                .odsTextFieldStyle()
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
+            
+            Spacer()
         }
     }
 }

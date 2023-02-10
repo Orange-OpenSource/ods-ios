@@ -24,13 +24,105 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarVariantBottomSheet: View {
+struct TabBarVariant: View {
 
     // ======================
     // MARK: Store properties
     // ======================
 
-    @EnvironmentObject var model: TabBarVariantModel
+    @ObservedObject var model: TabBarVariantModel
+    @State var spacerHeight: CGFloat
+    
+    // =================
+    // MARK: Initializer
+    // =================
+    init(model: TabBarVariantModel) {
+        self.model = model
+        self.spacerHeight = Self.computeSpacerHeight()
+        
+    }
+    
+    private static func computeSpacerHeight() -> CGFloat {
+        return UIDevice.current.orientation.isLandscape ? 100.0 : 350.0
+    }
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        ZStack {
+            GeometryReader { reader in
+                VStack(alignment: .center, spacing: 0) {
+                    VStack {
+                        TabView {
+                            ForEach(model.availableItems, id: \.text) { itemDescription in
+                                tabBarItem(from: itemDescription)
+                                    .modifier(BadgeModifier(badgeOption: itemDescription.badgeOption))
+                            }
+                        }
+                    }
+                    .border(.gray)
+                    
+                    Spacer().frame(height: spacerHeight)
+                }
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.s)
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                spacerHeight = Self.computeSpacerHeight()
+            }
+
+            BottomSheet {
+                TabBarVariantOptions(model: model)
+            }
+        }
+    }
+    
+    // =============
+    // MARK: Helpers
+    // =============
+    
+    private func tabBarItem(from itemDescription: TabBarVariantModel.ItemDescription) -> some View {
+        Text(itemDescription.contentText)
+            .tabItem {
+                Label(itemDescription.text, image: itemDescription.iconName)
+            }
+    }
+}
+
+private struct BadgeModifier: ViewModifier {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    let badgeOption: TabBarVariantModel.BadgeOption
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    func body(content: Content) -> some View {
+        if badgeOption == .none {
+            content
+        }
+        if badgeOption == .text {
+            content.badge("!")
+        }
+        if badgeOption == .count {
+            content.badge(10)
+        }
+    }
+}
+
+struct TabBarVariantOptions: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: TabBarVariantModel
 
     // ==========
     // MARK: Body

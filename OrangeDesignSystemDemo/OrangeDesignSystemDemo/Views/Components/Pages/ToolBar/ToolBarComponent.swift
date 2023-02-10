@@ -71,32 +71,30 @@ private struct ToolBarVariantHome: View {
     // ==========
     
     var body: some View {
-        ZStack {
+        ScrollView {
             VStack {
                 Text("Customize the tool bar before opening sheet to see it.")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, ODSSpacing.m)
+                
+                ToolBarVariantOptions(model: model)
+                    .padding(.top, ODSSpacing.m)
+                    .padding(.bottom, ODSSpacing.xl)
                 
                 ODSButton(text: "Open sheet", emphasis: .highest, variableWidth: false) {
                     showToolBar = true
                 }
-                
-                Spacer()
+                .padding(.horizontal, ODSSpacing.m)
             }
-            .padding(.all, ODSSpacing.m)
-
-            BottomSheet {
-                ToolBarVariantBottomSheet()
-            }
-            .environmentObject(model)
+            .padding(.top, ODSSpacing.m)
         }
         .sheet(isPresented: $showToolBar) {
-            ToolBarVariant(model: model)
+            ToolBarVariantContent(model: model)
         }
     }
 }
 
-
-private struct ToolBarVariant: View {
+private struct ToolBarVariantContent: View {
     
     // ======================
     // MARK: Store properties
@@ -145,7 +143,7 @@ private struct ToolBarVariant: View {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.bottom, ODSSpacing.m)
             .navigationBarHidden(true)
-            .modifier(ToolBarModifier(model: model))
+            .modifier(ToolBarVariantContentModifier(model: model))
         }
         .alert(model.alertText, isPresented: $model.showAlert) {
             Button("close", role: .cancel) {}
@@ -153,7 +151,7 @@ private struct ToolBarVariant: View {
     }
 }
 
-private struct ToolBarModifier: ViewModifier {
+private struct ToolBarVariantContentModifier: ViewModifier {
     
     // =======================
     // MARK: Stoerd properties
@@ -177,7 +175,7 @@ private struct ToolBarModifier: ViewModifier {
         
 
 #if DEBUG
-struct ToolBarPage_Previews: PreviewProvider {
+struct ToolBarComponent_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {
             NavigationView {

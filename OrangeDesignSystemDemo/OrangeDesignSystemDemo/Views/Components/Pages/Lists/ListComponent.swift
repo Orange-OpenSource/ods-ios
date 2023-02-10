@@ -21,50 +21,46 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-class SliderVariantModel: ObservableObject {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @Published var showSideIcons: Bool
-    @Published var showValue: Bool
-    @Published var stepped: Bool
-
-    // ==================
-    // MARK: Initializers
-    // ==================
+struct ListComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
     
     init() {
-        showSideIcons = true
-        showValue = true
-        stepped = false
+        title = "Lists"
+        image = Image("Lists")
+        description = "A list is a continuous vertical group of data entries like text, icons or images."
+        
+        variants = AnyView(ListVariants())
     }
 }
 
-struct SliderBottomSheetContent: View {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @EnvironmentObject var model: SliderVariantModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
+struct ListVariants: View {
     var body: some View {
-        VStack(spacing: ODSSpacing.m) {
-            Toggle("Side icons", isOn: $model.showSideIcons)
-            Toggle("Display value", isOn: $model.showValue)
-            Toggle("Stepped", isOn: $model.stepped)
+        VariantEntryItem(text: "List with selection", technicalElement: "ODSListSelectionItem()"){
+            SelectionListVariant(model: SelectionListVariantModel())
         }
-        .odsFont(.bodyRegular)
-        .padding(.vertical, ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
+
+        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
+            StandardListVariant(model: StandardListVariantModel())
+        }
     }
 }
+
+
+#if DEBUG
+struct ListComponent_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    ListVariants()
+                }
+            }
+        }
+    }
+}
+#endif

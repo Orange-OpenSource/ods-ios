@@ -36,7 +36,7 @@ public struct ODSCardSideBySideModel: Identifiable {
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
     ///  - imageSource: The image to be displayed in the card.
-    ///  - supportingText: Optional text description to be displayed in the card.
+    ///  - supportingText: Optional text description to be displayed in the card. The text displaying is limited to two lines (truncated tail).
     ///
     public init(title: String,
                 subtitle: String? = nil,

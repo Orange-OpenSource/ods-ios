@@ -35,11 +35,7 @@ class CardSideBySideVariantModel: ObservableObject {
     @Published var buttonCount: Int
     @Published var showAlert: Bool
     var alertText: String = ""
-    let buttonsText = ["Button 1", "Button 2"]
-
-    var recipe: Recipe {
-        RecipeBook.shared.recipes[0]
-    }
+    private let buttonsText = ["Button 1", "Button 2"]
     
     // =================
     // MARK: Initializer
@@ -55,6 +51,10 @@ class CardSideBySideVariantModel: ObservableObject {
     // =============
     // MARK: Helpers
     // =============
+
+    var recipe: Recipe {
+        RecipeBook.shared.recipes[0]
+    }
 
     var cardModel: ODSCardSideBySideModel {
         ODSCardSideBySideModel(
@@ -72,6 +72,7 @@ class CardSideBySideVariantModel: ObservableObject {
     var button1Text: String? {
         buttonCount >= 1 ? buttonsText[0] : nil
     }
+    
     var button2Text: String? {
         buttonCount >= 2 ? buttonsText[1] : nil
     }
@@ -120,20 +121,19 @@ struct CardSideBySideVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardSideBySideBottomSheetContent()
+                CardSideBySideVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }
 
-struct CardSideBySideBottomSheetContent: View {
+private struct CardSideBySideVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var model: CardSideBySideVariantModel
+    @ObservedObject var model: CardSideBySideVariantModel
 
     // ==========
     // MARK: Body

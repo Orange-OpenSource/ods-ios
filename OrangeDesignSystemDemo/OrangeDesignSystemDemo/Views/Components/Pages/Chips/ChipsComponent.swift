@@ -35,12 +35,12 @@ struct ChipsComponent: Component {
         image = Image("Chips")
         description = "Chips are small components containing a number of elements that represent a calendar event or contact."
         
-        variants = AnyView(ChipsVariants(model: ChipsPageModel()))
+        variants = AnyView(ChipsVariants(model: ChipsVaraintModel()))
     }
 }
 
 struct ChipsVariants: View {
-    @ObservedObject var model: ChipsPageModel
+    @ObservedObject var model: ChipsVaraintModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
@@ -97,12 +97,12 @@ struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovabl
 struct ChipsViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChipsVariants(model: ChipsPageModel())
+            ChipsVariants(model: ChipsVaraintModel())
                 .previewInterfaceOrientation(.portrait)
         }
 
         NavigationView {
-            ChipsVariants(model: ChipsPageModel())
+            ChipsVariants(model: ChipsVaraintModel())
                 .previewInterfaceOrientation(.portrait)
                 .environment(\.dynamicTypeSize, .accessibility3)
         }

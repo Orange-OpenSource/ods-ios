@@ -40,38 +40,51 @@ struct ButtonComponent: Component {
 
 
 struct ButtonVariants: View {
+
     var body: some View {
         VariantEntryItem(text: "Emphasis", technicalElement: "ODSButton()") {
-            CommonButtonVariant(model: ButtonContentModel()) { model in
-                EmphasisVariants(model: model)
+            CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
+                EmphasisVariant(model: model)
             }
             .navigationTitle("Emphasis")
         }
         
         VariantEntryItem(text: "Functional", technicalElement: "ODSFunctionalButton()") {
             
-            CommonButtonVariant(model: ButtonContentModel()) { model in
-                FunctionalVariants(model: model)
+            CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
+                FunctionalVariant(model: model)
             }
             .navigationTitle("Functional")
         }
         
         VariantEntryItem(text: "Icons", technicalElement: "ODSIconButton()") {
-            IconVariant(model: IconButtonModel())
+            IconVariant(model: IconVariantModel())
                 .navigationTitle("Icon")
         }
     }
 }
 
 struct CommonButtonVariant<Variant>: View where Variant: View {
-    let model: ButtonContentModel
 
-    let contentView: (_ model: ButtonContentModel) -> Variant
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    init(model: ButtonContentModel, @ViewBuilder contentView: @escaping (_ model: ButtonContentModel) -> Variant) {
+    let model: EmphasisAndFunctionnalVariantModel
+    let contentView: (_ model: EmphasisAndFunctionnalVariantModel) -> Variant
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(model: EmphasisAndFunctionnalVariantModel, @ViewBuilder contentView: @escaping (_ model: EmphasisAndFunctionnalVariantModel) -> Variant) {
         self.model = model
         self.contentView = contentView
     }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         ZStack {
@@ -85,9 +98,8 @@ struct CommonButtonVariant<Variant>: View where Variant: View {
             .padding(.bottom, 55)
 
             BottomSheet(showContent: false) {
-                ButtonsBottomSheetContent()
+                EmphasisAndFunctionalVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
         .background(Color("componentBackground2"))
     }
