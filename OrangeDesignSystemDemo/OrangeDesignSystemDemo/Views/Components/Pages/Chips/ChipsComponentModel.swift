@@ -27,7 +27,7 @@ import SwiftUI
 let avatarImage = Image("avatar", bundle: Bundle.main)
 let iconImage = Image("iconsFunctionalUiEMIcHeartRecommend", bundle: Bundle.main)
 
-class ChipsVaraintModel: ObservableObject {
+class ChipsVariantModel: ObservableObject {
 
     // Text only section
     enum TextOnlyChip: Int {
