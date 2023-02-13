@@ -32,10 +32,10 @@ class CardImageFirstVariantModel: ObservableObject {
 
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
-    @Published var showButton1: Bool
-    @Published var showButton2: Bool
+    @Published var buttonCount: Int
     @Published var showAlert: Bool
     var alertText: String = ""
+    private let buttonsText = ["Button 1", "Button 2"]
 
     // =================
     // MARK: Initializer
@@ -44,25 +44,36 @@ class CardImageFirstVariantModel: ObservableObject {
     init() {
         showSubtitle = true
         showSupportingText = true
-        showButton1 = true
-        showButton2 = true
+        buttonCount = 2
         showAlert = false
     }
-    
+
     // =============
     // MARK: Helpers
     // =============
-
+    
     var cardModel: ODSCardImageFirstModel {
         ODSCardImageFirstModel(title: cardExampleTitle,
                                subtitle: showSubtitle ? cardExampleSubtitle : nil,
-                               image: Image("ods_empty", bundle: Bundle.ods),
+                               imageSource: cardExampleImage,
                                supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
     
     func displayAlert(text: String) {
         self.alertText = text
         self.showAlert = true
+    }
+    
+    var button1Text: String? {
+        buttonCount >= 1 ? buttonsText[0] : nil
+    }
+
+    var button2Text: String? {
+        buttonCount >= 2 ? buttonsText[1] : nil
+    }
+
+    var numberOfButtons: Int {
+        buttonsText.count
     }
 }
 
@@ -83,14 +94,14 @@ struct CardImageFirstVariant: View {
             // Card demonstrator
             ScrollView {
                 ODSCardImageFirst(model: model.cardModel) {
-                    if model.showButton1 {
-                        ODSButton(text: LocalizedStringKey("Button 1"), emphasis: .medium, variableWidth: true) {
+                    if let text = model.button1Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
-                    if model.showButton2 {
-                        ODSButton(text: LocalizedStringKey("Button 2"), emphasis: .medium, variableWidth: true) {
+                    if let text = model.button2Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 2 clicked")
                         }
                     }
@@ -115,7 +126,7 @@ struct CardImageFirstVariant: View {
 private struct CardImageFirstVariantOptions: View {
 
     // =======================
-    // MARK: Stored properties
+    // MARK: Stored Properties
     // =======================
 
     @ObservedObject var model: CardImageFirstVariantModel
@@ -128,8 +139,10 @@ private struct CardImageFirstVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("Subtitle", isOn: $model.showSubtitle)
             Toggle("Text", isOn: $model.showSupportingText)
-            Toggle("Button 1", isOn: $model.showButton1)
-            Toggle("Button 2", isOn: $model.showButton2)
+            
+            Stepper("Number of buttons: \(model.buttonCount)",
+                    value: $model.buttonCount,
+                    in: 0 ... model.numberOfButtons)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)

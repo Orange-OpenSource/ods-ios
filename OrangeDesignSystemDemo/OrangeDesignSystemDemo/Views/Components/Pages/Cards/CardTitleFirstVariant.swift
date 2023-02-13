@@ -33,11 +33,12 @@ class CardTitleFirstVariantModel: ObservableObject {
     @Published var showThumbnail: Bool
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
-    @Published var showButton1: Bool
-    @Published var showButton2: Bool
+    @Published var buttonCount: Int
     @Published var showAlert: Bool
     var alertText: String = ""
 
+    private let buttonsText = ["Button 1", "Button 2"]
+    
     // =================
     // MARK: Initializer
     // =================
@@ -46,8 +47,7 @@ class CardTitleFirstVariantModel: ObservableObject {
         showThumbnail = true
         showSubtitle = true
         showSupportingText = true
-        showButton1 = true
-        showButton2 = true
+        buttonCount = 2
         showAlert = false
     }
     
@@ -60,8 +60,20 @@ class CardTitleFirstVariantModel: ObservableObject {
             title: cardExampleTitle,
             subtitle: showSubtitle ? cardExampleSubtitle : nil,
             thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
-            image: Image("ods_empty", bundle: Bundle.ods),
+            imageSource: cardExampleImage,
             supportingText: showSupportingText ? cardExampleSupportingText : nil)
+    }
+    
+    var button1Text: String? {
+        buttonCount >= 1 ? buttonsText[0] : nil
+    }
+
+    var button2Text: String? {
+        buttonCount >= 2 ? buttonsText[1] : nil
+    }
+
+    var numberOfButtons: Int {
+        buttonsText.count
     }
 
     func displayAlert(text: String) {
@@ -86,14 +98,14 @@ struct CardTitleFirstVariant: View {
         ZStack {
             ScrollView {
                 ODSCardTitleFirst(model: model.cardModel) {
-                    if model.showButton1 {
-                        ODSButton(text: "Button 1", emphasis: .medium) {
+                    if let text = model.button1Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
-                    if model.showButton2 {
-                        ODSButton(text: "Button 2", emphasis: .medium) {
+                    if let text = model.button2Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 2 clicked")
                         }
                     }
@@ -132,8 +144,10 @@ private struct CardTitleFirstVariantOptions: View {
             Toggle("Thumbnail", isOn: $model.showThumbnail)
             Toggle("Subtitle", isOn: $model.showSubtitle)
             Toggle("Text", isOn: $model.showSupportingText)
-            Toggle("Button 1", isOn: $model.showButton1)
-            Toggle("Button 2", isOn: $model.showButton2)
+            
+            Stepper("Number of buttons: \(model.buttonCount)",
+                    value: $model.buttonCount,
+                    in: 0 ... model.numberOfButtons)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)

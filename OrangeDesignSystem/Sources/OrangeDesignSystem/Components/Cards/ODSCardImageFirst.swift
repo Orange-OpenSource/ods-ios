@@ -19,7 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
-//
 
 import SwiftUI
 
@@ -27,7 +26,7 @@ import SwiftUI
 public struct ODSCardImageFirstModel: Identifiable {
     let title: String
     let subtitle: String?
-    let image: Image
+    let imageSource: ODSImage.Source
     let supportingText: String?
 
     /// Initialization
@@ -35,16 +34,16 @@ public struct ODSCardImageFirstModel: Identifiable {
     /// - Parameters:
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The image to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
     ///  - supportingText: Optional text description to be displayed in the card.
     ///
     public init(title: String,
                 subtitle: String? = nil,
-                image: Image,
+                imageSource: ODSImage.Source,
                 supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
-        self.image = image
+        self.imageSource = imageSource
         self.supportingText = supportingText
     }
 
@@ -69,9 +68,9 @@ public struct ODSCardImageFirstModel: Identifiable {
 ///
 public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
 
-    private var model: ODSCardImageFirstModel
-    private var buttonContent1: () -> ButtonContent1
-    private var buttonContent2: () -> ButtonContent2
+    var model: ODSCardImageFirstModel
+    var buttonContent1: () -> ButtonContent1
+    var buttonContent2: () -> ButtonContent2
 
     /// Initialization with two buttons.
     ///
@@ -120,15 +119,14 @@ extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 ==
     }
 }
 
-/// View implementation
+// MARK: View body implementation
 extension ODSCardImageFirst {
 
     public var body: some View {
 
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
             Group {
-                model.image
-                    .resizable()
+                ODSImage(source: model.imageSource)
                     .aspectRatio(contentMode: .fill)
                     .accessibilityHidden(true)
 
@@ -139,15 +137,18 @@ extension ODSCardImageFirst {
 
                     if let subtitle = model.subtitle, !subtitle.isEmpty {
                         Text(subtitle)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     if let supportingText = model.supportingText, !supportingText.isEmpty {
                         Text(supportingText)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 .foregroundColor(.primary)
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
             }
+            .multilineTextAlignment(.leading)
 
             // Add padding on buttons to avoid to have extra padding on
             // HStack even if there are no view on buttons.
@@ -158,13 +159,11 @@ extension ODSCardImageFirst {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.bottom, ODSSpacing.m)
         }
-        .background(ODSInternalColor.cardBackground.color)
-        .cornerRadius(10)
-        .shadow(radius: ODSSpacing.xs)
-        .padding(.all, ODSSpacing.s)
+        .modifier(CardShadowModifier())
     }
 }
 
+// MARK: Previews
 #if DEBUG
 struct ODSCardImageFirst_Previews: PreviewProvider {
 
@@ -196,7 +195,7 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
     static let model = ODSCardImageFirstModel(
         title: ODSCCardPreviewData.title,
         subtitle: ODSCCardPreviewData.subtitle,
-        image: ODSCCardPreviewData.image,
+        imageSource: .image(ODSCCardPreviewData.image),
         supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {

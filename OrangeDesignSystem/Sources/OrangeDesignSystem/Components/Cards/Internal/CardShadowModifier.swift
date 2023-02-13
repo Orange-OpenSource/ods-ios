@@ -19,41 +19,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
-//
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct ModulesList: View {
+struct CardShadowModifier: ViewModifier {
 
-    var body: some View {
-        AboutConfigDemo.instance.configure()
-        let items = [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", imageSource: .image(Image("AboutImage")))) {
-                AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationInformation)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationbarMenuForThemeSelection()
-            },
-
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", imageSource: .image(Image("Cards")))) {
-                CardViewDemo()
-            },
-        ]
-
-        return NavigationView {
-            ODSListOfCardImageFirst(title: "Modules", itemModels: items)
-                .navigationTitle("Modules")
-                .navigationViewStyle(.stack)
-                .navigationbarMenuForThemeSelection()
-        }
+    func body(content: Content) -> some View {
+        content
+            .background(ODSInternalColor.cardBackground.color)
+            .cornerRadius(10)
+            .shadow(radius: ODSSpacing.xs)
+            .padding(.all, ODSSpacing.s)
     }
 }
 
 #if DEBUG
-struct ModulesList_Previews: PreviewProvider {
+struct CardShadowModifier_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesList()
+        Text("Hello, world!")
+            .modifier(CardShadowModifier())
     }
 }
 #endif

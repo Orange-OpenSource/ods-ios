@@ -91,8 +91,10 @@ struct ODSListOfCardImageFirst_Previews: PreviewProvider {
 
     static let itemsModels: [ODSListOfCardImageFirstItemModel] = (1 ... 10).map {
         let title = "Card \($0)"
-        let model = ODSCardImageFirstModel(title: title, subtitle: "Subtitle",
-                                           image: Image("ods_empty", bundle: Bundle.ods))
+        let model = ODSCardImageFirstModel(
+            title: title,
+            subtitle: "Subtitle",
+            imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
 
         return ODSListOfCardImageFirstItemModel(cardModel: model) {
             Text("This is the \(title) destination view")

@@ -97,7 +97,42 @@ public struct ODSCardSideBySide<ButtonContent1, ButtonContent2>: View where Butt
         self.buttonContent1 = buttonContent1
         self.buttonContent2 = buttonContent2
     }
+}
 
+extension ODSCardSideBySide where ButtonContent2 == EmptyView {
+
+    /// Initialization with one button.
+    ///
+    /// - Parameters:
+    ///  - model: The model to configure the card.
+    ///  - buttonContent1: The button1 view builder
+    ///
+    public init(model: ODSCardSideBySideModel,
+                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
+    {
+        self.model = model
+        self.buttonContent1 = buttonContent1
+        buttonContent2 = { EmptyView() }
+    }
+}
+
+extension ODSCardSideBySide where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
+
+    /// Initialization without any button.
+    ///
+    /// - Parameter model: The model to configure the card.
+    ///
+    public init(model: ODSCardSideBySideModel) {
+        self.model = model
+        buttonContent1 = { EmptyView() }
+        buttonContent2 = { EmptyView() }
+    }
+}
+
+// MARK: View body implementation
+
+extension ODSCardSideBySide {
+    
     public var body: some View {
 
         VStack(spacing: ODSSpacing.none) {
@@ -156,36 +191,6 @@ public struct ODSCardSideBySide<ButtonContent1, ButtonContent2>: View where Butt
             .accessibilityHidden(true)
             .frame(width: 128)
             .clipped()
-    }
-}
-
-extension ODSCardSideBySide where ButtonContent2 == EmptyView {
-
-    /// Initialization with one button.
-    ///
-    /// - Parameters:
-    ///  - model: The model to configure the card.
-    ///  - buttonContent1: The button1 view builder
-    ///
-    public init(model: ODSCardSideBySideModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
-    {
-        self.model = model
-        self.buttonContent1 = buttonContent1
-        buttonContent2 = { EmptyView() }
-    }
-}
-
-extension ODSCardSideBySide where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
-
-    /// Initialization without any button.
-    ///
-    /// - Parameter model: The model to configure the card.
-    ///
-    public init(model: ODSCardSideBySideModel) {
-        self.model = model
-        buttonContent1 = { EmptyView() }
-        buttonContent2 = { EmptyView() }
     }
 }
 

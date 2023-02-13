@@ -34,7 +34,7 @@ protocol Component {
 extension Component {
     var smallCardModel: ODSSmallCardModel {
         ODSSmallCardModel(title: self.title,
-                          image: self.image) {
+                          imageSource: .image(self.image)) {
             ComponentPage(component: self)
         }
     }

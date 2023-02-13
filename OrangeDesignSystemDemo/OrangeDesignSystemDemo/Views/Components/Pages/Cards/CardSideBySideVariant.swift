@@ -59,26 +59,25 @@ class CardSideBySideVariantModel: ObservableObject {
     
     var alertText: String = ""
     private let buttonsText = ["Button 1", "Button 2"]
+    private var recipe: Recipe {
+        RecipeBook.shared.recipes[0]
+    }
     
     // =================
     // MARK: Initializer
     // =================
-
+    
     init() {
         showSubtitle = true
         showSupportingText = true
+        imagePosition = .left
         buttonCount = 0
         showAlert = false
-        imagePosition = .left
     }
 
     // =============
     // MARK: Helpers
     // =============
-
-    var recipe: Recipe {
-        RecipeBook.shared.recipes[0]
-    }
 
     var cardModel: ODSCardSideBySideModel {
         ODSCardSideBySideModel(
@@ -97,13 +96,13 @@ class CardSideBySideVariantModel: ObservableObject {
     var button1Text: String? {
         buttonCount >= 1 ? buttonsText[0] : nil
     }
-    
+
     var button2Text: String? {
         buttonCount >= 2 ? buttonsText[1] : nil
     }
 
     var numberOfButtons: Int {
-        return buttonsText.count
+        buttonsText.count
     }
 }
 

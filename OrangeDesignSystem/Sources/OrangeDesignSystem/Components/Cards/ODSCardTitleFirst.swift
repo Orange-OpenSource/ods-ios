@@ -28,7 +28,7 @@ public struct ODSCardTitleFirstModel: Identifiable {
     let title: String
     let subtitle: String?
     let thumbnail: Image?
-    let image: Image
+    let imageSource: ODSImage.Source
     let supportingText: String?
 
     /// Initilize the model
@@ -37,18 +37,18 @@ public struct ODSCardTitleFirstModel: Identifiable {
     ///  - title: The title to be displayed in the card.
     ///  - thumbnail: The optional thumbnail: avatar, logo or icon.
     ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - image: The image to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
     ///  - supportingText Optional text description to be displayed in the card.
     ///
     public init(title: String,
                 subtitle: String? = nil,
                 thumbnail: Image? = nil,
-                image: Image,
+                imageSource: ODSImage.Source,
                 supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail
-        self.image = image
+        self.imageSource = imageSource
         self.supportingText = supportingText
     }
 
@@ -76,8 +76,7 @@ public struct ODSCardTitleFirst<ButtonContent1, ButtonContent2>: View where Butt
 
     private var buttonContent1: () -> ButtonContent1
     private var buttonContent2: () -> ButtonContent2
-
-    let model: ODSCardTitleFirstModel
+    private let model: ODSCardTitleFirstModel
 
     /// Initialization with two buttons.
     ///
@@ -126,7 +125,8 @@ extension ODSCardTitleFirst where ButtonContent1 == EmptyView, ButtonContent2 ==
     }
 }
 
-/// View implementation
+// MARK: View body implementation
+
 extension ODSCardTitleFirst {
 
     public var body: some View {
@@ -150,13 +150,13 @@ extension ODSCardTitleFirst {
                     }
                 }
             }
+            .multilineTextAlignment(.leading)
             .foregroundColor(.primary)
             .padding(.vertical, ODSSpacing.m)
             .padding(.horizontal, ODSSpacing.m)
             .layoutPriority(100)
 
-            model.image
-                .resizable()
+            ODSImage(source: model.imageSource)
                 .aspectRatio(contentMode: .fill)
                 .accessibilityHidden(true)
 
@@ -164,7 +164,9 @@ extension ODSCardTitleFirst {
                 if let supportingText = model.supportingText, !supportingText.isEmpty {
                     Text(supportingText)
                         .odsFont(.bodyRegular)
+                        .multilineTextAlignment(.leading)
                         .padding(.horizontal, ODSSpacing.m)
+                        .padding(.top, ODSSpacing.s)
                 }
 
                 // Add padding on buttons to avoid to have extra padding on
@@ -175,16 +177,37 @@ extension ODSCardTitleFirst {
                 }
                 .padding(.horizontal, ODSSpacing.m)
             }
-            .padding(.top, ODSSpacing.xs)
-            .padding(.bottom, ODSSpacing.m)
+            .modifier(PaddingModifier())
         }
-        .background(ODSInternalColor.cardBackground.color)
-        .cornerRadius(10)
-        .shadow(radius: ODSSpacing.xs)
-        .padding(.all, ODSSpacing.s)
+        .modifier(CardShadowModifier())
     }
 }
 
+// MARK: Padding modifier
+
+private struct PaddingModifier: ViewModifier {
+    @State private var height: CGFloat?
+
+    private var bottomPadding: CGFloat {
+        height == 0 ? ODSSpacing.none : ODSSpacing.m
+    }
+
+    private var topPadding: CGFloat {
+        height == 0 ? ODSSpacing.none : ODSSpacing.xs
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .readSize { size in
+                print("size\(size.height)")
+                height = size.height
+            }
+            .padding(.top, topPadding)
+            .padding(.bottom, bottomPadding)
+    }
+}
+
+// MARK: Previews
 #if DEBUG
 struct ODSCardTitleFirst_Previews: PreviewProvider {
 
@@ -217,7 +240,7 @@ struct ODSCardTitleFirst_Previews: PreviewProvider {
         title: ODSCCardPreviewData.title,
         subtitle: ODSCCardPreviewData.subtitle,
         thumbnail: ODSCCardPreviewData.thumbnail,
-        image: ODSCCardPreviewData.image,
+        imageSource: .image(ODSCCardPreviewData.image),
         supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {

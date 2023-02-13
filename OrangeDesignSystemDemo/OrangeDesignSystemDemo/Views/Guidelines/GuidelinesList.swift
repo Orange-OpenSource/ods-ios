@@ -32,15 +32,15 @@ struct GuidelinesList: View {
     
     private var items: [ODSListOfCardImageFirstItemModel] {
         [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", imageSource: .image(Image("Colour")))) {
                 ColorPage()
             },
             
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", imageSource: .image(Image("Typography")))) {
                 TypographyPage()
             },
             
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", imageSource: .image(Image("Spacing")))) {
                 SpacingPage()
             },
         ]
