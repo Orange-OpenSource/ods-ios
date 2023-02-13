@@ -24,56 +24,71 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SelectionListVariant: View {
-    
-    
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-    
-    let model: SelectionListVariantModel
+struct ActivityIndicatorVariant: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: ActivityIndicatorModel
     
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         ZStack {
-            SelectionListVariantInner(model: model)
-            BottomSheet {
-                SelectionListBottomSheet()
+            VStack {
+                ProgressView {
+                    if model.showLabel {
+                        Text("Loading...")
+                    }
+                }
+                Spacer()
             }
-            .environmentObject(model)
+            .padding(.all, ODSSpacing.m)
+        }
+
+        BottomSheet {
+            ActivityIndicatorVariantOptions(model: model)
         }
     }
 }
 
-private struct SelectionListVariantInner: View {
+class ActivityIndicatorModel: ObservableObject {
     
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-    
-    @ObservedObject var model: SelectionListVariantModel
-    @State var multiSelection: Set<UUID>? = nil
-    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @Published var showLabel: Bool
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init() {
+        showLabel = true
+    }
+}
+
+private struct ActivityIndicatorVariantOptions: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: ActivityIndicatorModel
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
-        List /* (selection: $multiSelection) */ {
-            ForEach(model.itemModels, id: \.id) { itemModel in
-                ODSListSelectionItem(model: itemModel)
-                .listRowInsets(EdgeInsets())
-                .listRowSeparator(Visibility.visible)
-            }
-            .onMove(perform: model.move)
-            .onDelete(perform: model.delete)
-            .padding(.horizontal, ODSSpacing.m)
+        VStack(spacing: ODSSpacing.m) {
+            Toggle("Label", isOn: $model.showLabel)
+                .odsFont(.bodyRegular)
+                .padding(.all, ODSSpacing.m)
         }
-        .toolbar { EditButton() }
-        .listStyle(.plain)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }

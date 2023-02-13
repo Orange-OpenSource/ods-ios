@@ -26,22 +26,34 @@ import SwiftUI
 
 class CardTitleFirstVariantModel: ObservableObject {
     
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     @Published var showThumbnail: Bool
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
-    @Published var showButton1: Bool
-    @Published var showButton2: Bool
+    @Published var buttonCount: Int
     @Published var showAlert: Bool
     var alertText: String = ""
+
+    private let buttonsText = ["Button 1", "Button 2"]
+    
+    // =================
+    // MARK: Initializer
+    // =================
 
     init() {
         showThumbnail = true
         showSubtitle = true
         showSupportingText = true
-        showButton1 = true
-        showButton2 = true
+        buttonCount = 2
         showAlert = false
     }
+    
+    // =============
+    // MARK: Helpers
+    // =============
 
     var cardModel: ODSCardTitleFirstModel {
         ODSCardTitleFirstModel(
@@ -50,6 +62,18 @@ class CardTitleFirstVariantModel: ObservableObject {
             thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
             imageSource: cardExampleImage,
             supportingText: showSupportingText ? cardExampleSupportingText : nil)
+    }
+    
+    var button1Text: String? {
+        buttonCount >= 1 ? buttonsText[0] : nil
+    }
+
+    var button2Text: String? {
+        buttonCount >= 2 ? buttonsText[1] : nil
+    }
+
+    var numberOfButtons: Int {
+        buttonsText.count
     }
 
     func displayAlert(text: String) {
@@ -60,20 +84,28 @@ class CardTitleFirstVariantModel: ObservableObject {
 
 struct CardTitleFirstVariant: View {
 
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     @ObservedObject var model: CardTitleFirstVariantModel
-    
+
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         ZStack {
             ScrollView {
                 ODSCardTitleFirst(model: model.cardModel) {
-                    if model.showButton1 {
-                        ODSButton(text: "Button 1", emphasis: .highest) {
+                    if let text = model.button1Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
-                    if model.showButton2 {
-                        ODSButton(text: "Button 2", emphasis: .highest) {
+                    if let text = model.button2Text {
+                        ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 2 clicked")
                         }
                     }
@@ -89,24 +121,33 @@ struct CardTitleFirstVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardTitleFirstBottomSheetContent()
+                CardTitleFirstVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }
 
-struct CardTitleFirstBottomSheetContent: View {
+private struct CardTitleFirstVariantOptions: View {
 
-    @EnvironmentObject var model: CardTitleFirstVariantModel
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @ObservedObject var model: CardTitleFirstVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("Thumbnail", isOn: $model.showThumbnail)
             Toggle("Subtitle", isOn: $model.showSubtitle)
             Toggle("Text", isOn: $model.showSupportingText)
-            Toggle("Button 1", isOn: $model.showButton1)
-            Toggle("Button 2", isOn: $model.showButton2)
+            
+            Stepper("Number of buttons: \(model.buttonCount)",
+                    value: $model.buttonCount,
+                    in: 0 ... model.numberOfButtons)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)

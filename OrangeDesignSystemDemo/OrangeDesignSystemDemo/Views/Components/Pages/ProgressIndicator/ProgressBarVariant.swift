@@ -24,46 +24,13 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ProgressIndicatorComponent: Component {
-    let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
-    
-    init() {
-        title = "Progress indicators"
-        image = Image("Progress_indicator")
-        description =  "Progress indicators show users that elements or pages are loading."
-        
-        variants = AnyView(ProgressIndicatorVariants())
-    }
-}
-
-private struct ProgressIndicatorVariants: View {
-    
-    var body: some View {
-        VariantEntryItem(text: "Progress bar demo", technicalElement: "ProgressView(value:, total:)") {
-            ProgressBarVariant(model: ProgressBarVariantModel())
-                .navigationTitle("Progress bar demo")
-        }
-        
-        VariantEntryItem(text: "Activity indicator", technicalElement: "ProgressView()") {
-            ActivityIndicatorVariant(model: ActivityIndicatorModel())
-                .navigationTitle("Activity indicator")
-        }
-    }
-}
-
-
-private struct ProgressBarVariant: View {
+struct ProgressBarVariant: View {
 
     // ======================
     // MARK: Store properties
     // ======================
     @Environment(\.theme) private var theme
-    
     @ObservedObject var model: ProgressBarVariantModel
-    
     @State private var secondsElapsed = 0.0
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     private let maxSeconds: CGFloat = 100.0
@@ -104,55 +71,54 @@ private struct ProgressBarVariant: View {
             .padding(.all, ODSSpacing.m)
             
             BottomSheet() {
-                ProgressBarVariantBottomSheet()
+                ProgressBarVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }
 
-private struct ActivityIndicatorVariant: View {
+class ProgressBarVariantModel: ObservableObject {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @Published var showLabel: Bool
+    @Published var showCurrentValue: Bool
+    @Published var showIconInLabel: Bool
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init() {
+        showLabel = true
+        showIconInLabel = true
+        showCurrentValue = true
+    }
+}
+
+private struct ProgressBarVariantOptions: View {
 
     // ======================
     // MARK: Store properties
     // ======================
 
-    @ObservedObject var model: ActivityIndicatorModel
-    
+    @ObservedObject var model: ProgressBarVariantModel
+
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        ZStack {
-            VStack {
-                ProgressView {
-                    if model.showLabel {
-                        Text("Loading...")
-                    }
-                }
-                Spacer()
+        VStack(spacing: ODSSpacing.m) {
+            Toggle("Label", isOn: $model.showLabel)
+            if model.showLabel {
+                Toggle("Icon", isOn: $model.showIconInLabel)
             }
-            .padding(.all, ODSSpacing.m)
+            Toggle("Current value", isOn: $model.showCurrentValue)
         }
-
-        BottomSheet {
-            ActivityIndicatorBottomSheet()
-        }
-        .environmentObject(model)
+        .odsFont(.bodyRegular)
+        .padding(.all, ODSSpacing.m)
     }
 }
-
-#if DEBUG
-struct ProgressIndicatorPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeablePreviews {
-            NavigationView {
-                List {
-                    ProgressIndicatorVariants()
-                }
-            }
-        }
-    }
-}
-#endif

@@ -25,8 +25,17 @@ import OrangeDesignSystem
 import SwiftUI
 
 class SmallCardVariantModel: ObservableObject {
-    @Published var showSubtitle: Bool
     
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @Published var showSubtitle: Bool = true
+
+    // =============
+    // MARK: Helpers
+    // =============
+
     var smallCardModels: [ODSSmallCardModel] {
         [
             ODSSmallCardModel(title: cardExampleTitle,
@@ -34,13 +43,14 @@ class SmallCardVariantModel: ObservableObject {
                               imageSource: cardExampleImage)
         ]
     }
-    
-    init() {
-        showSubtitle = true
-    }
 }
 
 struct SmallCardVariant: View {
+    
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     @ObservedObject var model: SmallCardVariantModel
     @State private var showAlert: Bool = false
     
@@ -48,6 +58,10 @@ struct SmallCardVariant: View {
         GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
         GridItem(.flexible(minimum: 50.0))
     ]
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         ZStack {
@@ -68,17 +82,24 @@ struct SmallCardVariant: View {
             }
             
             BottomSheet {
-                SmallCardBottomSheetContent()
+                SmallCardVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }
 
 // MARK: Bottom Sheet content
-struct SmallCardBottomSheetContent: View {
+private struct SmallCardVariantOptions: View {
 
-    @EnvironmentObject var model: SmallCardVariantModel
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @ObservedObject var model: SmallCardVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         Toggle("Subtitle", isOn: $model.showSubtitle)

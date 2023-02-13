@@ -24,29 +24,46 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom sheet for NavigationBar
-class NavigationBarSearchModel: ObservableObject {
+struct ProgressIndicatorComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
     
-    // ======================
-    // MARK: Store properties
-    // ======================
-    
-    @Published var searchQuery: String
-    private var listItems: [String]
-        
-    // ==================
-    // MARK: Initializers
-    // ==================
     init() {
-        searchQuery = ""
-        listItems = (1 ... 10).map { "Item #\($0)" }
-    }
+        title = "Progress indicators"
+        image = Image("Progress_indicator")
+        description =  "Progress indicators show users that elements or pages are loading."
         
-    var filteredListItems: [String] {
-        if searchQuery.isEmpty {
-            return listItems
-        } else {
-            return listItems.filter { $0.contains(searchQuery) }
+        variants = AnyView(ProgressIndicatorVariants())
+    }
+}
+
+private struct ProgressIndicatorVariants: View {
+    
+    var body: some View {
+        VariantEntryItem(text: "Progress bar demo", technicalElement: "ProgressView(value:, total:)") {
+            ProgressBarVariant(model: ProgressBarVariantModel())
+                .navigationTitle("Progress bar demo")
+        }
+        
+        VariantEntryItem(text: "Activity indicator", technicalElement: "ProgressView()") {
+            ActivityIndicatorVariant(model: ActivityIndicatorModel())
+                .navigationTitle("Activity indicator")
         }
     }
 }
+
+#if DEBUG
+struct ProgressIndicatorComponent_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    ProgressIndicatorVariants()
+                }
+            }
+        }
+    }
+}
+#endif

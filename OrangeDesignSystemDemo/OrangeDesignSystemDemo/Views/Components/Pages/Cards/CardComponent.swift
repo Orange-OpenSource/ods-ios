@@ -42,11 +42,6 @@ struct CardComponent: Component {
 struct CardVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "Side by side", technicalElement: "ODSCardSideBySide") {
-            CardSideBySideVariant(model: CardSideBySideVariantModel())
-                .navigationTitle("Side by side card")
-        }
-
         VariantEntryItem(text: "Card Image First", technicalElement: "ODSCardImageFirst()") {
             CardImageFirstVariant(model: CardImageFirstVariantModel())
                 .navigationTitle("Card Image First")
@@ -60,6 +55,11 @@ struct CardVariants: View {
         VariantEntryItem(text: "Small card", technicalElement: "ODSSmallCard") {
             SmallCardVariant(model: SmallCardVariantModel())
                 .navigationTitle("Small card")
+        }
+        
+        VariantEntryItem(text: "Side by side", technicalElement: "ODSCardSideBySide") {
+            CardSideBySideVariant(model: CardSideBySideVariantModel())
+                .navigationTitle("Side by side card")
         }
     }
 }

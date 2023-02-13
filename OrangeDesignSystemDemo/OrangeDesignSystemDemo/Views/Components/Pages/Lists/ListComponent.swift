@@ -21,39 +21,46 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct ModulesList: View {
+struct ListComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Lists"
+        image = Image("Lists")
+        description = "A list is a continuous vertical group of data entries like text, icons or images."
+        
+        variants = AnyView(ListVariants())
+    }
+}
 
+struct ListVariants: View {
     var body: some View {
-        AboutConfigDemo.instance.configure()
-        let items = [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", imageSource: .image(Image("AboutImage")))) {
-                AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationInformation)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationbarMenuForThemeSelection()
-            },
+        VariantEntryItem(text: "List with selection", technicalElement: "ODSListSelectionItem()"){
+            SelectionListVariant(model: SelectionListVariantModel())
+        }
 
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", imageSource: .image(Image("Cards")))) {
-                CardViewDemo()
-            },
-        ]
-
-        return NavigationView {
-            ODSListOfCardImageFirst(title: "Modules", itemModels: items)
-                .navigationTitle("Modules")
-                .navigationViewStyle(.stack)
-                .navigationbarMenuForThemeSelection()
+        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
+            StandardListVariant(model: StandardListVariantModel())
         }
     }
 }
 
+
 #if DEBUG
-struct ModulesList_Previews: PreviewProvider {
+struct ListComponent_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesList()
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    ListVariants()
+                }
+            }
+        }
     }
 }
 #endif

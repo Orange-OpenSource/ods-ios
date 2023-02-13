@@ -38,11 +38,12 @@ struct StandardListVariant: View {
 
     var body: some View {
         ZStack {
+
             StandardListVariantInner(model: model)
+
             BottomSheet {
-                StandardListBottomSheet()
+                StandardListVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }

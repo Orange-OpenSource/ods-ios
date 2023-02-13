@@ -24,47 +24,44 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class SliderVariantModel: ObservableObject {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @Published var showSideIcons: Bool
-    @Published var showValue: Bool
-    @Published var stepped: Bool
-
-    // ==================
-    // MARK: Initializers
-    // ==================
+struct SliderComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
     
     init() {
-        showSideIcons = true
-        showValue = true
-        stepped = false
+        title = "Sliders"
+        image = Image("Slider")
+        description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
+        variants = AnyView(SliderVariants())
     }
 }
 
-struct SliderBottomSheetContent: View {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @EnvironmentObject var model: SliderVariantModel
-
+struct SliderVariants: View {
+    
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        VStack(spacing: ODSSpacing.m) {
-            Toggle("Side icons", isOn: $model.showSideIcons)
-            Toggle("Display value", isOn: $model.showValue)
-            Toggle("Stepped", isOn: $model.stepped)
+        VariantEntryItem(text: "Sliders demo", technicalElement: "ODSSlider()") {
+            SliderVariant(model: SliderVariantModel())
+            .navigationTitle("Sliders demo")
         }
-        .odsFont(.bodyRegular)
-        .padding(.vertical, ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
     }
 }
+
+#if DEBUG
+struct SliderComponent_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    SliderVariants()
+                }
+            }
+        }
+    }
+}
+#endif

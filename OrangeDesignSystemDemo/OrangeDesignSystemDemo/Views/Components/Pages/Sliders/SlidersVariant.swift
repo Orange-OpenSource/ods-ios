@@ -24,35 +24,6 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SliderComponent: Component {
-    let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
-    
-    init() {
-        title = "Sliders"
-        image = Image("Slider")
-        description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
-        variants = AnyView(SliderVariants())
-    }
-}
-
-struct SliderVariants: View {
-    
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        VariantEntryItem(text: "Sliders demo", technicalElement: "ODSSlider()") {
-            SliderVariant(model: SliderVariantModel())
-            .navigationTitle("Sliders demo")
-        }
-    }
-}
-
-
 struct SliderVariant: View {
     
     // ======================
@@ -90,9 +61,8 @@ struct SliderVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                SliderBottomSheetContent()
+                SliderVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
     
@@ -116,17 +86,47 @@ struct SliderVariant: View {
     }
 }
 
+class SliderVariantModel: ObservableObject {
 
-#if DEBUG
-struct SliderPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeablePreviews {
-            NavigationView {
-                List {
-                    SliderVariants()
-                }
-            }
-        }
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @Published var showSideIcons: Bool
+    @Published var showValue: Bool
+    @Published var stepped: Bool
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+    
+    init() {
+        showSideIcons = true
+        showValue = true
+        stepped = false
     }
 }
-#endif
+
+struct SliderVariantOptions: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: SliderVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        VStack(spacing: ODSSpacing.m) {
+            Toggle("Side icons", isOn: $model.showSideIcons)
+            Toggle("Display value", isOn: $model.showValue)
+            Toggle("Stepped", isOn: $model.stepped)
+        }
+        .odsFont(.bodyRegular)
+        .padding(.vertical, ODSSpacing.m)
+        .padding(.horizontal, ODSSpacing.m)
+    }
+}

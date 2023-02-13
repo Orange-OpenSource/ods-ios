@@ -40,7 +40,7 @@ ODSSlider(value: $value,
 } maximumLabelView: {
     Text("100").accessibilityHidden(true)
 }
-
+```
 
 ## Variants
 

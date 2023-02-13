@@ -24,6 +24,27 @@
 import OrangeDesignSystem
 import SwiftUI
 
+extension ODSCardSideBySideModel.ImagePosition: CaseIterable {
+    public static var allCases: [ODSCardSideBySideModel.ImagePosition] = [.left, .right]
+    
+    var description: String {
+        switch self {
+        case .left:
+            return "Left"
+        case .right:
+            return "Right"
+        }
+    }
+    
+    var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+    
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
+    }
+}
+
 class CardSideBySideVariantModel: ObservableObject {
 
     // =======================
@@ -34,8 +55,9 @@ class CardSideBySideVariantModel: ObservableObject {
     @Published var showSupportingText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
-    var alertText: String = ""
+    @Published var imagePosition: ODSCardSideBySideModel.ImagePosition
     
+    var alertText: String = ""
     private let buttonsText = ["Button 1", "Button 2"]
     private var recipe: Recipe {
         RecipeBook.shared.recipes[0]
@@ -44,10 +66,11 @@ class CardSideBySideVariantModel: ObservableObject {
     // =================
     // MARK: Initializer
     // =================
-
+    
     init() {
         showSubtitle = true
         showSupportingText = true
+        imagePosition = .left
         buttonCount = 0
         showAlert = false
     }
@@ -61,6 +84,7 @@ class CardSideBySideVariantModel: ObservableObject {
             title: recipe.title,
             subtitle: showSubtitle ? recipe.subtitle : nil,
             imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+            imagePosition: imagePosition,
             supportingText: showSupportingText ? recipe.description : nil)
     }
 
@@ -72,6 +96,7 @@ class CardSideBySideVariantModel: ObservableObject {
     var button1Text: String? {
         buttonCount >= 1 ? buttonsText[0] : nil
     }
+
     var button2Text: String? {
         buttonCount >= 2 ? buttonsText[1] : nil
     }
@@ -120,20 +145,19 @@ struct CardSideBySideVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardSideBySideBottomSheetContent()
+                CardSideBySideVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
     }
 }
 
-struct CardSideBySideBottomSheetContent: View {
+private struct CardSideBySideVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var model: CardSideBySideVariantModel
+    @ObservedObject var model: CardSideBySideVariantModel
 
     // ==========
     // MARK: Body
@@ -142,13 +166,20 @@ struct CardSideBySideBottomSheetContent: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("Subtitle", isOn: $model.showSubtitle)
+                .padding(.horizontal, ODSSpacing.m)
             Toggle("Text", isOn: $model.showSupportingText)
-            Stepper("Number of items: \(model.buttonCount)",
+                .padding(.horizontal, ODSSpacing.m)
+            
+            ODSChipPicker(title: "Image position",
+                          selection: $model.imagePosition,
+                          chips: ODSCardSideBySideModel.ImagePosition.chips)
+            
+            Stepper("Number of buttons: \(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
+            .padding(.horizontal, ODSSpacing.m)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
     }
 }

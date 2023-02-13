@@ -24,28 +24,29 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct NavigationBarComponent: Component {
-    let title: String
-    let image: Image
-    let description: String
-    let variants: AnyView
+// MARK: NavigationBar search model
+class NavigationBarSearchModel: ObservableObject {
     
-    init() {
-        title = "Bars - navigation"
-        image = Image("Navigation bars")
-        description = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens."
+    // ======================
+    // MARK: Store properties
+    // ======================
+    
+    @Published var searchQuery: String
+    private var listItems: [String]
         
-        variants = AnyView(NavigationBarVariants())
+    // ==================
+    // MARK: Initializers
+    // ==================
+    init() {
+        searchQuery = ""
+        listItems = (1 ... 10).map { "Item #\($0)" }
     }
-}
-
-struct NavigationBarVariants: View {
-
-    var body: some View {
-        VariantEntryItem(text: "Bar nav - demo",
-                         technicalElement: "NavigationView",
-                         showThemeSelectionInNavigationBar: false) {
-            NavigationBarVariant(model: NavigationBarBottomSheetModel())
+        
+    var filteredListItems: [String] {
+        if searchQuery.isEmpty {
+            return listItems
+        } else {
+            return listItems.filter { $0.contains(searchQuery) }
         }
     }
 }
@@ -70,114 +71,6 @@ struct SearchModifier: ViewModifier {
                             placement: .navigationBarDrawer(displayMode: .always))
         } else {
             content
-        }
-    }
-}
-
-struct ActionIconsModifier: ViewModifier {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-    
-    @ObservedObject var model: NavigationBarBottomSheetModel
-    
-    // ==========
-    // MARK: Body
-    // ==========
-
-    func body(content: Content) -> some View {
-        content
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    if model.actionIconCount > 0 {
-                        ForEach(model.availableActions.reversed(), id: \.id) { action in
-                            switch action {
-                            case .showThemeSelection:
-                                ThemeSelectionButton()
-                                
-                            case .showAlert(let iconName, let actionText):
-                                ActionButton(iconName: iconName, actionText: actionText)
-                            }
-                        }
-                    }
-                }
-            }
-    }
-}
-
-struct ActionButton: View {
-    
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @State private var showAlert = false
-    @Environment(\.theme) private var theme
-    let iconName: String
-    let actionText: String
-    
-    // ===========
-    // MARK: Body
-    // ===========
-
-    var body: some View {
-        Button {
-            showAlert = true
-        } label: {
-            Image(systemName: iconName)
-        }
-        .foregroundColor(theme.componentColors.navigationBarForeground)
-        .alert(actionText, isPresented: $showAlert) {
-            Button("close", role: .cancel) {}
-        }
-    }
-}
-
-struct NavigationBarVariant: View {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    @ObservedObject var model: NavigationBarBottomSheetModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-    
-    var body: some View {
-        ZStack {
-            navigationContent()
-            BottomSheet {
-                NavigationBarVariantBottomSheet()
-            }
-            .environmentObject(model)
-        }
-    }
-    
-    // =====================
-    // MARK: Private helpers
-    // =====================
-
-    @ViewBuilder
-    private func navigationContent() -> some View {
-        let searchModel = NavigationBarSearchModel()
-        
-        ListExample(model: searchModel)
-            .navigationTitle(title)
-            .navigationBarTitleDisplayMode(model.titleSize.displayMode)
-            .modifier(SearchModifier(showSearch: model.showSearch, model: searchModel))
-            .modifier(ActionIconsModifier(model: model))
-            .navigationBarBackButtonHidden(!model.showBackButton)
-    }
-    
-    private var title: String {
-        switch model.titleSize {
-        case .standard:
-            return "Title"
-        case.large:
-            return "Large Title"
         }
     }
 }
@@ -207,16 +100,63 @@ struct ListExample: View {
     }
 }
 
-#if DEBUG
-struct NavigationBarPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeablePreviews {
-            NavigationView {
-                List {
-                    NavigationBarVariants()
+struct ActionIconsModifier: ViewModifier {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+    
+    @ObservedObject var model: NavigationBarVariantModel
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    if model.actionIconCount > 0 {
+                        ForEach(model.availableActions.reversed(), id: \.id) { action in
+                            switch action {
+                            case .showThemeSelection:
+                                ThemeSelectionButton()
+                                
+                            case .showAlert(let iconName, let actionText):
+                                ActionButton(iconName: iconName, actionText: actionText)
+                            }
+                        }
+                    }
                 }
             }
+    }
+}
+
+private struct ActionButton: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @State private var showAlert = false
+    @Environment(\.theme) private var theme
+    let iconName: String
+    let actionText: String
+    
+    // ===========
+    // MARK: Body
+    // ===========
+
+    var body: some View {
+        Button {
+            showAlert = true
+        } label: {
+            Image(systemName: iconName)
+        }
+        .foregroundColor(theme.componentColors.navigationBarForeground)
+        .alert(actionText, isPresented: $showAlert) {
+            Button("close", role: .cancel) {}
         }
     }
 }
-#endif
+

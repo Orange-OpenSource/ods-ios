@@ -1,3 +1,4 @@
+
 //
 // MIT License
 // Copyright (c) 2021 Orange
@@ -24,36 +25,42 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ModulesList: View {
+struct TabBarComponent: Component {
+    let title: String
+    let image: Image
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Bars - tab"
+        image = Image("Tab bar")
+        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
+        
+        variants = AnyView(TabBarVariants())
+    }
+}
+
+private struct TabBarVariants: View {
 
     var body: some View {
-        AboutConfigDemo.instance.configure()
-        let items = [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", imageSource: .image(Image("AboutImage")))) {
-                AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationInformation)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationbarMenuForThemeSelection()
-            },
-
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", imageSource: .image(Image("Cards")))) {
-                CardViewDemo()
-            },
-        ]
-
-        return NavigationView {
-            ODSListOfCardImageFirst(title: "Modules", itemModels: items)
-                .navigationTitle("Modules")
-                .navigationViewStyle(.stack)
-                .navigationbarMenuForThemeSelection()
+        VariantEntryItem(text: "Bars - tab demo", technicalElement: "TabView") {
+            TabBarVariant(model: TabBarVariantModel())
+                .navigationTitle("Bars - tab demo")
         }
     }
 }
 
 #if DEBUG
-struct ModulesList_Previews: PreviewProvider {
+struct TabBarComponent_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesList()
+        ThemeablePreviews {
+            NavigationView {
+                List {
+                    TabBarVariants()
+                }
+            }
+        }
     }
 }
 #endif
+

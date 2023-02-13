@@ -21,43 +21,66 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct ListComponent: Component {
+struct NavigationBarComponent: Component {
     let title: String
     let image: Image
     let description: String
     let variants: AnyView
     
     init() {
-        title = "Lists"
-        image = Image("Lists")
-        description = "A list is a continuous vertical group of data entries like text, icons or images."
+        title = "Bars - navigation"
+        image = Image("Navigation bars")
+        description = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens."
         
-        variants = AnyView(ListVariants())
+        variants = AnyView(NavigationBarVariants())
     }
 }
 
-struct ListVariants: View {
-    var body: some View {
-        VariantEntryItem(text: "List with selection", technicalElement: "ODSListSelectionItem()"){
-            SelectionListVariant(model: SelectionListVariantModel())
-        }
+struct NavigationBarVariants: View {
 
-        VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
-            StandardListVariant(model: StandardListVariantModel())
+    var body: some View {
+        VariantEntryItem(text: "Bar nav - demo",
+                         technicalElement: "NavigationView",
+                         showThemeSelectionInNavigationBar: false) {
+            NavigationBarVariant(model: NavigationBarVariantModel())
+        }
+    }
+}
+
+struct NavigationBarVariant: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: NavigationBarVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+    
+    var body: some View {
+        ZStack {
+            NavigationBarVariantContent(model: model)
+
+            BottomSheet {
+                NavigationBarVariantOptions(model: model)
+            }
         }
     }
 }
 
 
 #if DEBUG
-struct ListPage_Previews: PreviewProvider {
+struct NavigationBarComponent_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {
             NavigationView {
                 List {
-                    ListVariants()
+                    NavigationBarVariants()
                 }
             }
         }

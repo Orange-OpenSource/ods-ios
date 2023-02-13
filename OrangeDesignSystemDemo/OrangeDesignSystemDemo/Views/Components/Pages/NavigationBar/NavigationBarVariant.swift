@@ -24,8 +24,43 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom sheet for NavigationBar
-class NavigationBarBottomSheetModel: ObservableObject {
+struct NavigationBarVariantContent: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+    
+    @ObservedObject var model: NavigationBarVariantModel
+    let searchModel = NavigationBarSearchModel()
+
+    // ==========
+    // MARK: Body
+    // ==========
+    
+    var body: some View {
+        ListExample(model: searchModel)
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(model.titleSize.displayMode)
+            .modifier(SearchModifier(showSearch: model.showSearch, model: searchModel))
+            .modifier(ActionIconsModifier(model: model))
+            .navigationBarBackButtonHidden(!model.showBackButton)
+    }
+        
+    // ============
+    // MARK: Helper
+    // ============
+    
+    private var title: String {
+        switch model.titleSize {
+        case .standard:
+            return "Title"
+        case.large:
+            return "Large Title"
+        }
+    }
+}
+
+class NavigationBarVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties
@@ -40,6 +75,7 @@ class NavigationBarBottomSheetModel: ObservableObject {
     // ==================
     // MARK: Initializers
     // ==================
+
     init() {
         titleSize = .large
         showSearch = false
@@ -55,6 +91,7 @@ class NavigationBarBottomSheetModel: ObservableObject {
     // =============
     // MARK: Helpers
     // =============
+
     var availableActions: [Action] {
         Array(actions.prefix(actionIconCount))
     }
@@ -109,13 +146,13 @@ class NavigationBarBottomSheetModel: ObservableObject {
     }
 }
 
-struct NavigationBarVariantBottomSheet: View {
+struct NavigationBarVariantOptions: View {
 
     // ======================
     // MARK: Store properties
     // ======================
 
-    @EnvironmentObject var model: NavigationBarBottomSheetModel
+    @ObservedObject var model: NavigationBarVariantModel
 
     // ==========
     // MARK: Body
@@ -125,7 +162,7 @@ struct NavigationBarVariantBottomSheet: View {
         VStack(spacing: ODSSpacing.m) {
             ODSChipPicker(title: "Size",
                           selection: $model.titleSize,
-                          chips: NavigationBarBottomSheetModel.TitleSize.chips)
+                          chips: NavigationBarVariantModel.TitleSize.chips)
             Group {
                 Toggle("Back button", isOn: $model.showBackButton)
 

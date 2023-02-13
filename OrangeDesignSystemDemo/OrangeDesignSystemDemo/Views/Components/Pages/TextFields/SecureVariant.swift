@@ -24,52 +24,26 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom sheet for Emphasis and Functionnal
+struct SecureTextFieldVariant: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
 
-class ButtonContentModel: ObservableObject {
-    @Published var showIcon: Bool
-    @Published var showVariableWidth: Bool
-    @Published var showLongText: Bool
-    @Published var showDisabled: Bool
-
-    init() {
-        showIcon = false
-        showVariableWidth = false
-        showLongText = false
-        showDisabled = false
-    }
-
-    var text: LocalizedStringKey {
-        showLongText ? "Terms and conditions" : (showDisabled ? "Disabled" : "Enabled")
-    }
-
-    var icon: Image? {
-        showIcon ? Image("Add") : nil
-    }
-}
-
-struct ButtonsBottomSheetContent: View {
-
-    @EnvironmentObject var model: ButtonContentModel
-
+    @State private var textToEdit: String = ""
+    
+    // ==========
+    // MARK: Body
+    // ==========
+    
     var body: some View {
         VStack {
-            Toggle("Show icon", isOn: $model.showIcon)
-            Toggle("Show variable width", isOn: $model.showVariableWidth)
-            Toggle("Show disabled", isOn: $model.showDisabled)
-            Toggle("Show long text", isOn: $model.showLongText)
+            SecureField("secure text to edit", text: $textToEdit)
+                .odsTextFieldStyle()
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
+            
+            Spacer()
         }
-        .padding(.horizontal, ODSSpacing.m)
-        .padding(.vertical, ODSSpacing.s)
-    }
-}
-
-// MARK: Bottom sheet for IconButton
-
-class IconButtonModel: ObservableObject {
-    @Published var showDisabled: Bool
-
-    init() {
-        showDisabled = false
     }
 }

@@ -91,7 +91,9 @@ public struct ODSSmallCard: View {
             ODSImage(source: model.imageSource)
                 .aspectRatio(contentMode: .fill)
                 .accessibilityHidden(true)
-
+                .frame(maxHeight: 100)
+                .clipped()
+            
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 Text(model.title)
                     .lineLimit(1)

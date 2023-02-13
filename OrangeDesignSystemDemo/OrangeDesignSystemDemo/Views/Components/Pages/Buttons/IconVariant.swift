@@ -24,91 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct EmphasisVariants: View {
-    
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @ObservedObject var model: ButtonContentModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        Text("High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.")
-            .odsFont(.bodyRegular)
-            .padding(.bottom, ODSSpacing.xs)
-            .frame(maxWidth: .infinity, alignment: .leading)
-
-        ForEach(ODSButton.Emphasis.allCases, id: \.rawValue) { emphasis in
-            VStack(alignment: .center, spacing: ODSSpacing.s) {
-                HStack {
-                    Text("\(emphasis.rawValue)".capitalized)
-                        .odsFont(.headline)
-                    Spacer()
-                }
-                .accessibilityAddTraits(.isHeader)
-
-                ODSButton(text: model.text,
-                          image: model.icon,
-                          emphasis: emphasis,
-                          variableWidth: model.showVariableWidth) {}
-                    .disabled(model.showDisabled)
-                    .accessibilityLabel("\(emphasis.rawValue) emphasis button")
-            }
-        }
-    }
-}
-
-struct FunctionalVariants: View {
-    
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @ObservedObject var model: ButtonContentModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        Text("If required, colour versions can also be used to inform users of positive or negative destructive actions.")
-            .odsFont(.bodyRegular)
-            .padding(.bottom, ODSSpacing.xs)
-            .frame(maxWidth: .infinity, alignment: .leading)
-
-        ForEach(ODSFunctionalButton.Style.allCases, id: \.rawValue) { style in
-            VStack(alignment: .center, spacing: ODSSpacing.s) {
-                HStack {
-                    Text(description(for: style)).odsFont(.headline)
-                    Spacer()
-                }
-                .accessibilityAddTraits(.isHeader)
-
-                ODSFunctionalButton(text: model.text,
-                                    image: model.icon,
-                                    style: style,
-                                    variableWidth: model.showVariableWidth) {}
-                    .disabled(model.showDisabled)
-                    .accessibilityLabel("\(style.rawValue) functional button")
-            }
-        }
-    }
-    
-    // ====================
-    // MARK: Private helper
-    // ====================
-
-    private func description(for style: ODSFunctionalButton.Style) -> String {
-        switch style {
-        case .negative: return "Negative"
-        case .positive: return "Positive"
-        }
-    }
-}
+// MARK: - Icon Variant
 
 struct IconVariant: View {
 
@@ -116,7 +32,7 @@ struct IconVariant: View {
     // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: IconButtonModel
+    @ObservedObject var model: IconVariantModel
 
     // ==========
     // MARK: Body
@@ -154,21 +70,38 @@ struct IconVariant: View {
             .padding(.bottom, 55)
 
             BottomSheet(showContent: false) {
-                IconButtonBottomSheetContent()
+                IconVariantOptions(model: model)
             }
-            .environmentObject(model)
         }
         .background(Color("componentBackground2"))
     }
 }
 
-struct IconButtonBottomSheetContent: View {
+class IconVariantModel: ObservableObject {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @Published var showDisabled: Bool
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init() {
+        showDisabled = false
+    }
+}
+
+
+struct IconVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var model: IconButtonModel
+    @ObservedObject var model: IconVariantModel
 
     // ==========
     // MARK: Body

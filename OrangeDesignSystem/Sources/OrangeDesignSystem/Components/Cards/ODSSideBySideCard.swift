@@ -27,8 +27,14 @@ import SwiftUI
 public struct ODSCardSideBySideModel: Identifiable {
     let title: String
     let subtitle: String?
-    let imageSource: ODSImage.Source
     let supportingText: String?
+    let imageSource: ODSImage.Source
+    let imagePosition: ImagePosition
+
+    public enum ImagePosition: Int {
+        case right = 0
+        case left
+    }
 
     /// Initialization
     ///
@@ -36,15 +42,18 @@ public struct ODSCardSideBySideModel: Identifiable {
     ///  - title: The title to be displayed in the card.
     ///  - subtitle: Optional subtitle to be displayed in the card.
     ///  - imageSource: The image to be displayed in the card.
-    ///  - supportingText: Optional text description to be displayed in the card.
+    ///  - imagePosition: The side where image is placed.
+    ///  - supportingText: Optional text description to be displayed in the card. The text displaying is limited to two lines (truncated tail).
     ///
     public init(title: String,
                 subtitle: String? = nil,
                 imageSource: ODSImage.Source,
+                imagePosition: ImagePosition = .left,
                 supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.imageSource = imageSource
+        self.imagePosition = imagePosition
         self.supportingText = supportingText
     }
 
@@ -57,7 +66,15 @@ public struct ODSCardSideBySideModel: Identifiable {
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
 ///
-/// @TODO:
+/// This is a full width card displayed with an image on the left or on the right.
+/// This card is composed of two parts:
+/// - Media: (today an image)
+/// - Content: with a title, an optinal subtitle, an optinal supporting text and optional buttons (zero up to two)
+///
+/// The card is configured using the model `ODSSideBySideModel` and optional action buttons
+/// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
+///
+/// Those view builders are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
 ///
 public struct ODSCardSideBySide<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
 
@@ -117,13 +134,13 @@ extension ODSCardSideBySide where ButtonContent1 == EmptyView, ButtonContent2 ==
 extension ODSCardSideBySide {
     
     public var body: some View {
+
         VStack(spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.none) {
                 Group {
-                    ODSImage(source: model.imageSource)
-                        .accessibilityHidden(true)
-                        .frame(width: 128)
-                        .clipped()
+                    if case .left = model.imagePosition {
+                        image
+                    }
 
                     VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                         Text(model.title)
@@ -142,6 +159,10 @@ extension ODSCardSideBySide {
                     }
                     .foregroundColor(.primary)
                     .padding(.all, ODSSpacing.m)
+
+                    if case .right = model.imagePosition {
+                        image
+                    }
                 }
             }
             .frame(minHeight: 128)
@@ -159,7 +180,17 @@ extension ODSCardSideBySide {
             }
             .padding(.horizontal, ODSSpacing.m)
         }
-        .modifier(CardShadowModifier())
+        .background(ODSInternalColor.cardBackground.color)
+        .cornerRadius(10)
+        .shadow(radius: ODSSpacing.xs)
+        .padding(.all, ODSSpacing.s)
+    }
+
+    private var image: some View {
+        ODSImage(source: model.imageSource)
+            .accessibilityHidden(true)
+            .frame(width: 128)
+            .clipped()
     }
 }
 
@@ -195,6 +226,7 @@ struct ODSCardSideBySide_Previews: PreviewProvider {
         title: ODSCCardPreviewData.title,
         subtitle: ODSCCardPreviewData.subtitle,
         imageSource: .image(ODSCCardPreviewData.image),
+        imagePosition: .left,
         supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {

@@ -24,7 +24,85 @@
 import SwiftUI
 import OrangeDesignSystem
 
-class TextInputsVariantModel: ObservableObject {
+// MARK: Variants
+
+struct TextEditorVariant: View {
+
+    var body: some View {
+        CapitalizedTextInputsVariant(model: CapitalizedTextInputsVariantModel(inputType: .textEditor))
+    }
+}
+
+struct TextFieldVariant: View {
+    var body: some View {
+        CapitalizedTextInputsVariant(model: CapitalizedTextInputsVariantModel(inputType: .textField))
+    }
+}
+
+private struct CapitalizedTextInputsVariant: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    @ObservedObject var model: CapitalizedTextInputsVariantModel
+    @FocusState private var isFocused: Bool
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        ZStack {
+            VStack {
+                textField
+                    .textInputAutocapitalization(model.selectedCapitalizationType.textInputAutocapitalization)
+                    .odsTextFieldStyle()
+                    .id(model.selectedCapitalizationType.description)
+                    .padding(.horizontal, ODSSpacing.s)
+                    .padding(.top, ODSSpacing.m)
+                    .focused($isFocused)
+                    .onAppear {
+                        isFocused = true
+                    }
+                
+                Spacer()
+            }
+            
+            BottomSheet(showContent: false) {
+                CapitalizedTextInputsVariantOptions(model: model)
+            }
+        }
+    }
+    
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    init(model: CapitalizedTextInputsVariantModel) {
+        self.model = model
+        
+        if case .textEditor = model.inputType {
+            UITextView.appearance().backgroundColor = .clear
+        }
+    }
+
+    // =============
+    // MARK: Helpers
+    // =============
+
+    @ViewBuilder
+    private var textField: some View {
+        switch model.inputType {
+        case .textField:
+            TextField(model.defaultText, text: $model.textToEdit)
+        case .textEditor:
+            TextEditor(text: $model.textToEdit)
+        }
+    }
+}
+
+private class CapitalizedTextInputsVariantModel: ObservableObject {
     
     // ====================
     // MARK: Internal types
@@ -116,13 +194,13 @@ class TextInputsVariantModel: ObservableObject {
     }
 }
 
-struct TextInputsVariantBottomSheet: View {
+private struct CapitalizedTextInputsVariantOptions: View {
 
     // ======================
     // MARK: Store properties
     // ======================
 
-    @EnvironmentObject var model: TextInputsVariantModel
+    @ObservedObject var model: CapitalizedTextInputsVariantModel
 
     // ==========
     // MARK: Body
@@ -132,7 +210,7 @@ struct TextInputsVariantBottomSheet: View {
         VStack(spacing: ODSSpacing.none) {
             ODSChipPicker(title: "Capitalization",
                           selection: $model.selectedCapitalizationType,
-                          chips: TextInputsVariantModel.CapitalizationType.chips)
+                          chips: CapitalizedTextInputsVariantModel.CapitalizationType.chips)
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)

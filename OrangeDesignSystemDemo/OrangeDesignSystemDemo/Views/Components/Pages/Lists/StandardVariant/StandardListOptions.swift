@@ -24,14 +24,13 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// MARK: Bottom Sheet - content for list
-struct StandardListBottomSheet: View {
+struct StandardListVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var model: StandardListVariantModel
+    @ObservedObject var model: StandardListVariantModel
 
     // ==========
     // MARK: Body
