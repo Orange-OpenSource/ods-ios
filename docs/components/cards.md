@@ -118,7 +118,7 @@ let model = ODSCardHorizontalModel(
     title: "Title",
     subtitle: "Subtitle",
     imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-    imagePosition: .left,
+    imagePosition: .leading,
     supportingText: "A supporting text to describe something")
     
 ODSCardHorizontal(model: model) {
