@@ -27,13 +27,13 @@ import SwiftUI
 
 struct TabBarComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Bars - tab"
-        image = Image("Tab bar")
+        imageName = "Tab bar"
         description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
         
         variants = AnyView(TabBarVariants())

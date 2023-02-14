@@ -26,13 +26,13 @@ import SwiftUI
 
 struct ToolBarComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Bars - tool"
-        image = Image("Tool bar")
+        imageName = "Bars - tool"
         description = "A toolbar allows users to do specific actions regarding the entire page. It is placed at the bottom of the screen."
         
         variants = AnyView(ToolBarVariants())

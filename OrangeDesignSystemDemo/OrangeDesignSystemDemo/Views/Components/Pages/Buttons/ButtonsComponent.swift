@@ -26,13 +26,13 @@ import SwiftUI
 
 struct ButtonComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Buttons"
-        image = Image("Buttons - Shape")
+        imageName = "Buttons - Shape"
         description = "A custom button allows a user to perform an important call to action. This button that contains a text"
         variants = AnyView(ButtonVariants())
     }

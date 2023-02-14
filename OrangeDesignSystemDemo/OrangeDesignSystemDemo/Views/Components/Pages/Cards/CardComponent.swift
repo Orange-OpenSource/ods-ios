@@ -26,13 +26,13 @@ import SwiftUI
 
 struct CardComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Cards"
-        image = Image("Cards_1")
+        imageName = "Cards_1"
         description = "Cards are a contained and independent element that can display content and actions on a single topic."
         
         variants = AnyView(CardVariants())

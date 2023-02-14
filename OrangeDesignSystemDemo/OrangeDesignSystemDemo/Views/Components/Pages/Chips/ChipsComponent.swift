@@ -26,13 +26,13 @@ import SwiftUI
 
 struct ChipsComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Chips"
-        image = Image("Chips")
+        imageName = "Chips"
         description = "Chips are small components containing a number of elements that represent a calendar event or contact."
         
         variants = AnyView(ChipsVariants(model: ChipsVariantModel()))

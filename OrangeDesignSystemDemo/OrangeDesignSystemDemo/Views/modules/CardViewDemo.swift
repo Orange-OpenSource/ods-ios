@@ -21,20 +21,39 @@
 //
 //
 
-import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
 struct CardViewDemo: View {
 
-    let items = [
-        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "List", imageSource: .image(Image("Cards")))) {
-            CardViewDemoList()
-        },
-        ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Grid", imageSource: .image(Image("Cards_1")))) {
-            CardViewDemoGrid()
-        },
-    ]
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @EnvironmentObject private var themeProvider: ThemeProvider
+
+    // =====================
+    // MARK: Computed values
+    // =====================
+
+    private func imageFrom(resourceName: String) -> Image {
+        themeProvider.imageFromResources(resourceName)
+    }
+
+    private var items: [ODSListOfCardImageFirstItemModel] {
+        [
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "List", imageSource: .image(imageFrom(resourceName: "Cards")))) {
+                CardViewDemoList()
+            },
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Grid", imageSource: .image(imageFrom(resourceName: "Cards_1")))) {
+                CardViewDemoGrid()
+            },
+        ]
+    }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         ODSListOfCardImageFirst(title: "Card collections", itemModels: items)

@@ -26,13 +26,13 @@ import SwiftUI
 
 struct BannerComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Banners Demo"
-        image = Image("Banners")
+        imageName = "Banners"
         description = "A banner displays an important message which requires an action to be dismissed."
         
         variants = AnyView(BannerVariants())

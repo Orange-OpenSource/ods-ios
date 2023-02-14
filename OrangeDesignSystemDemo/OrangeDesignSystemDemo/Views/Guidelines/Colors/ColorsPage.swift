@@ -28,16 +28,21 @@ class ScreenState: ObservableObject {
     @Published var colorScheme: ColorScheme = .light
 }
 
-struct ColorPage: View {
+struct ColorPageDescription: View {
 
     let screenState = ScreenState()
 
     var body: some View {
-        ColorList().environmentObject(self.screenState)
+        VariantEntryItem(text: "ColorPalette", technicalElement: "ODSColorPalette()") {
+            ColorList().environmentObject(self.screenState)
+                .navigationTitle("ColorPalette")
+        }
+        .listRowInsets(EdgeInsets())
+        .padding(.horizontal, ODSSpacing.m)
     }
 }
 
-struct ColorList: View {
+fileprivate struct ColorList: View {
 
     // =======================
     // MARK: Stored Properties
@@ -45,7 +50,7 @@ struct ColorList: View {
 
     @Environment(\.theme) private var theme
     @Environment(\.colorScheme) private var phoneColorScheme
-    @EnvironmentObject var screenState: ScreenState
+    @EnvironmentObject private var screenState: ScreenState
 
     private let columns = [
         GridItem(.flexible(minimum: 50.0)),
@@ -83,7 +88,6 @@ struct ColorList: View {
             }
             .background(Color(backGroundColor))
         }
-        .navigationbarMenuForThemeSelection()
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: {
@@ -106,34 +110,11 @@ struct ColorList: View {
     }
 }
 
-struct SectionTitle: View {
-    
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @EnvironmentObject var screenState: ScreenState
-    let title: String
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        Text(title)
-            .odsFont(.title1)
-            .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-            .accessibilityAddTraits(.isHeader)
-    }
-}
-
 #if DEBUG
 struct ColorList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ColorPage().environmentObject(ScreenState()).preferredColorScheme($0)
+            ColorPageDescription().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }
