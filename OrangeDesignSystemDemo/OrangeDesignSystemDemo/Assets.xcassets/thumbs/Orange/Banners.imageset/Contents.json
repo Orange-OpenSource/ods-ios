@@ -1,13 +1,8 @@
 {
   "images" : [
     {
+      "filename" : "Banners.png",
       "idiom" : "universal"
-    },
-    {
-      "filename" : "DSM-iOS-Components-Banners.png",
-      "idiom" : "universal",
-      "scale" : "2x",
-      "unassigned" : true
     }
   ],
   "info" : {

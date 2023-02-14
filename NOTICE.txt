@@ -17,7 +17,6 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_abou
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/ods_empty.imageset/ods_nopicture.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/controlsTableViewRowXCheckmark/controlsTableViewRowXCheckmark.svg
 
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/AboutImage.imageset/AboutImage.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Add.imageset/Add.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/chips/avatar.imageset/avatar.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/chips/iconsFunctionalUiEMIcHeartRecommend.imageset/iconsFunctionalUiEMIcHeartRecommend.png
@@ -36,20 +35,39 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Notificatio
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Search_19371.imageset/Search_19371.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/tabBar/Settings_19371.imageset/Settings_19371.svg
 
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Banners.imageset/DSM-iOS-Components-Banners.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Buttons - Shape.imageset/Buttons - Shape.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Cards_1.imageset/Cards_1.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Cards.imageset/cards_module.jpg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Chips.imageset/Chips.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Colour.imageset/Colour.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Lists.imageset/Lists.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Navigation bars.imageset/Navigation bars.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Progress_indicator.imageset/Progress_indicator.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Slider.imageset/Controls.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Spacing.imageset/Spacing.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Tab bar.imageset/Tab bar.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Text edit menu.imageset/Text edit menu.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Typography.imageset/Typography.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/AboutImage_generic.imageset/AboutImage_generic.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Banners_generic.imageset/Banners_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Bars - tool_generic.imageset/Bars - tool_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Buttons - Shape_generic.imageset/Buttons - Shape_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Cards_1_generic.imageset/Cards_1_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Cards_generic.imageset/cards_module_generic.jpg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Chips_generic.imageset/Chips_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Colour_generic.imageset/Colour_generic.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Lists_generic.imageset/Lists_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Navigation bars_generic.imageset/Navigation bars_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Progress indicator_generic.imageset/Progress indicator_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Slider_generic.imageset/Controls_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Spacing_generic.imageset/Spacing_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Tab bar_generic.imageset/Tab bar_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Text edit menu_generic.imageset/Text edit menu_generic.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Generic/Typography_generic.imageset/Typography_generic.svg
+
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/AboutImage.imageset/AboutImage.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Banners.imageset/Banners.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Bars - tool.imageset/Bars - tool.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Buttons - Shape.imageset/Buttons - Shape.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Cards_1.imageset/Cards_1.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Cards.imageset/cards_module.jpg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Chips.imageset/Chips.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Colour.imageset/Colour.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Lists.imageset/Lists.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Navigation bars.imageset/Navigation bars.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Progress indicator.imageset/Progress indicator.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Slider.imageset/Controls.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Spacing.imageset/Spacing.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Tab bar.imageset/Tab bar.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Text edit menu.imageset/Text edit menu.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Orange/Typography.imageset/Typography.svg
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationDIIcIceCream.imageset/iconsCommunicationDIIcIceCream.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/iconsCommunicationDIcCafe.imageset/iconsCommunicationDIcCafe.svg
