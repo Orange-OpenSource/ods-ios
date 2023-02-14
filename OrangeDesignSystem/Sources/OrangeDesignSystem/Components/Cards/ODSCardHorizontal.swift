@@ -30,6 +30,7 @@ public struct ODSCardHorizontalModel: Identifiable {
     let supportingText: String?
     let imageSource: ODSImage.Source
     let imagePosition: ImagePosition
+    let dividerEnabled: Bool
 
     public enum ImagePosition: Int {
         case trailing = 0
@@ -44,17 +45,20 @@ public struct ODSCardHorizontalModel: Identifiable {
     ///  - imageSource: The image to be displayed in the card.
     ///  - imagePosition: The side where image is placed.
     ///  - supportingText: Optional text description to be displayed in the card. The text displaying is limited to two lines (truncated tail).
+    /// - dividerEnabled: Add a divider at the top of the buttons area.
     ///
     public init(title: String,
                 subtitle: String? = nil,
                 imageSource: ODSImage.Source,
                 imagePosition: ImagePosition = .leading,
-                supportingText: String? = nil) {
+                supportingText: String? = nil,
+                dividerEnabled: Bool = true) {
         self.title = title
         self.subtitle = subtitle
         self.imageSource = imageSource
         self.imagePosition = imagePosition
         self.supportingText = supportingText
+        self.dividerEnabled = dividerEnabled
     }
 
     /// The identifier based on the title.
@@ -167,7 +171,9 @@ extension ODSCardHorizontal {
             }
             .frame(minHeight: 128)
 
-            Divider()
+            if model.dividerEnabled {
+                Divider()
+            }
 
             // Add padding on buttons to avoid to have extra padding on
             // HStack even if there are no view on buttons.

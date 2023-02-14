@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unrelase](https://github.com/Orange-OpenSource/ods-ios/compare/0.10.0...qualif)
 
+- [DemoApp/SDK] Add parameter in CardHorizontal configuration to show/hide divider above buttons
 - [DemoApp/SDK] Cards rename cards labels and components ([#360](https://github.com/Orange-OpenSource/ods-ios/issues/360)) 
 - [DemoApp] Use B&W Assets from InnovationCup Theme ([#317](https://github.com/Orange-OpenSource/ods-ios/issues/317))
 - [DemoApp] Update cards demo using realistic data ([#354](https://github.com/Orange-OpenSource/ods-ios/issues/354))
