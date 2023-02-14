@@ -32,8 +32,8 @@ public struct ODSCardHorizontalModel: Identifiable {
     let imagePosition: ImagePosition
 
     public enum ImagePosition: Int {
-        case right = 0
-        case left
+        case trailing = 0
+        case leading
     }
 
     /// Initialization
@@ -48,7 +48,7 @@ public struct ODSCardHorizontalModel: Identifiable {
     public init(title: String,
                 subtitle: String? = nil,
                 imageSource: ODSImage.Source,
-                imagePosition: ImagePosition = .left,
+                imagePosition: ImagePosition = .leading,
                 supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
@@ -71,7 +71,7 @@ public struct ODSCardHorizontalModel: Identifiable {
 /// - Media: (today an image)
 /// - Content: with a title, an optinal subtitle, an optinal supporting text and optional buttons (zero up to two)
 ///
-/// The card is configured using the model `ODSSideBySideModel` and optional action buttons
+/// The card is configured using the model `ODSCardHorizontalModel` and optional action buttons
 /// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
 ///
 /// Those view builders are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
@@ -138,7 +138,7 @@ extension ODSCardHorizontal {
         VStack(spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.none) {
                 Group {
-                    if case .left = model.imagePosition {
+                    if case .leading = model.imagePosition {
                         image
                     }
 
@@ -160,7 +160,7 @@ extension ODSCardHorizontal {
                     .foregroundColor(.primary)
                     .padding(.all, ODSSpacing.m)
 
-                    if case .right = model.imagePosition {
+                    if case .trailing = model.imagePosition {
                         image
                     }
                 }
@@ -226,7 +226,7 @@ struct ODSCardHorizontal_Previews: PreviewProvider {
         title: ODSCCardPreviewData.title,
         subtitle: ODSCCardPreviewData.subtitle,
         imageSource: .image(ODSCCardPreviewData.image),
-        imagePosition: .left,
+        imagePosition: .leading,
         supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {

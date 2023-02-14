@@ -25,14 +25,14 @@ import OrangeDesignSystem
 import SwiftUI
 
 extension ODSCardHorizontalModel.ImagePosition: CaseIterable {
-    public static var allCases: [ODSCardHorizontalModel.ImagePosition] = [.left, .right]
+    public static var allCases: [ODSCardHorizontalModel.ImagePosition] = [.leading, .trailing]
     
     var description: String {
         switch self {
-        case .left:
-            return "Left"
-        case .right:
-            return "Right"
+        case .leading:
+            return "Start"
+        case .trailing:
+            return "End"
         }
     }
     
@@ -70,7 +70,7 @@ class CardHorizontalVariantModel: ObservableObject {
     init() {
         showSubtitle = true
         showSupportingText = true
-        imagePosition = .left
+        imagePosition = .leading
         buttonCount = 0
         showAlert = false
     }
