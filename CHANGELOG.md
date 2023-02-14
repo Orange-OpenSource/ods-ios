@@ -50,7 +50,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - [SDK] Add NOTICE.txt file for Orange Images usage ([#295](https://github.com/Orange-OpenSource/ods-ios/issues/295))
 - [DemoApp] Update the Bar Tab variant list selection ([#260](https://github.com/Orange-OpenSource/ods-ios/issues/260))
-- [SDK] [Accessibility] Do not vocalize images in ODSCardSmall, ODSCardVerticalHeaderFirst and ODSCardImageFirs (Bugs [#276](https://github.com/Orange-OpenSource/ods-ios/issues/276), [#275](https://github.com/Orange-OpenSource/ods-ios/issues/275), [#279](https://github.com/Orange-OpenSource/ods-ios/issues/279))
+- [SDK] [Accessibility] Do not vocalize images in ODSSmallCard, ODSCardTitleFirst and ODSCardImageFirst (Bugs [#276](https://github.com/Orange-OpenSource/ods-ios/issues/276), [#275](https://github.com/Orange-OpenSource/ods-ios/issues/275), [#279](https://github.com/Orange-OpenSource/ods-ios/issues/279))
 - [DemoApp] Update the Bar Navigation variant list selection ([#259](https://github.com/Orange-OpenSource/ods-ios/issues/259))  
 - [DemoApp/SDK] Add banners component ([#51](https://github.com/Orange-OpenSource/ods-ios/issues/51))
 - [SDK] Add documentation for bars-tab component ([#289](https://github.com/Orange-OpenSource/ods-ios/issues/289))
