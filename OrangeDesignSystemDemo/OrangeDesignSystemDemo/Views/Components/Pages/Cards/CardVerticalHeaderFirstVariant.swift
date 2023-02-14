@@ -24,73 +24,44 @@
 import OrangeDesignSystem
 import SwiftUI
 
-extension ODSCardSideBySideModel.ImagePosition: CaseIterable {
-    public static var allCases: [ODSCardSideBySideModel.ImagePosition] = [.left, .right]
+class CardVerticalHeaderFirstVariantModel: ObservableObject {
     
-    var description: String {
-        switch self {
-        case .left:
-            return "Left"
-        case .right:
-            return "Right"
-        }
-    }
-    
-    var chip: ODSChip<Self> {
-        ODSChip(self, text: self.description)
-    }
-    
-    static var chips: [ODSChip<Self>] {
-        Self.allCases.map { $0.chip }
-    }
-}
-
-class CardSideBySideVariantModel: ObservableObject {
-
     // =======================
-    // MARK: Stored Properties
+    // MARK: Stored properties
     // =======================
 
+    @Published var showThumbnail: Bool
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
-    @Published var imagePosition: ODSCardSideBySideModel.ImagePosition
-    
     var alertText: String = ""
+
     private let buttonsText = ["Button 1", "Button 2"]
-    private var recipe: Recipe {
-        RecipeBook.shared.recipes[0]
-    }
     
     // =================
     // MARK: Initializer
     // =================
-    
+
     init() {
+        showThumbnail = true
         showSubtitle = true
         showSupportingText = true
-        imagePosition = .left
-        buttonCount = 0
+        buttonCount = 2
         showAlert = false
     }
-
+    
     // =============
     // MARK: Helpers
     // =============
 
-    var cardModel: ODSCardSideBySideModel {
-        ODSCardSideBySideModel(
-            title: recipe.title,
-            subtitle: showSubtitle ? recipe.subtitle : nil,
-            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
-            imagePosition: imagePosition,
-            supportingText: showSupportingText ? recipe.description : nil)
-    }
-
-    func displayAlert(text: String) {
-        self.alertText = text
-        self.showAlert = true
+    var cardModel: ODSCardVerticalHeaderFirstModel {
+        ODSCardVerticalHeaderFirstModel(
+            title: cardExampleTitle,
+            subtitle: showSubtitle ? cardExampleSubtitle : nil,
+            thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
+            imageSource: cardExampleImage,
+            supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
     
     var button1Text: String? {
@@ -104,15 +75,20 @@ class CardSideBySideVariantModel: ObservableObject {
     var numberOfButtons: Int {
         buttonsText.count
     }
+
+    func displayAlert(text: String) {
+        self.alertText = text
+        self.showAlert = true
+    }
 }
 
-struct CardSideBySideVariant: View {
+struct CardVerticalHeaderFirstVariant: View {
 
     // =======================
-    // MARK: Stored Properties
+    // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: CardSideBySideVariantModel
+    @ObservedObject var model: CardVerticalHeaderFirstVariantModel
 
     // ==========
     // MARK: Body
@@ -121,7 +97,7 @@ struct CardSideBySideVariant: View {
     var body: some View {
         ZStack {
             ScrollView {
-                ODSCardSideBySide(model: model.cardModel) {
+                ODSCardVerticalHeaderFirst(model: model.cardModel) {
                     if let text = model.button1Text {
                         ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
@@ -145,19 +121,19 @@ struct CardSideBySideVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardSideBySideVariantOptions(model: model)
+                CardVerticalHeaderFirstVariantOptions(model: model)
             }
         }
     }
 }
 
-private struct CardSideBySideVariantOptions: View {
+private struct CardVerticalHeaderFirstVariantOptions: View {
 
     // =======================
-    // MARK: Stored Properties
+    // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: CardSideBySideVariantModel
+    @ObservedObject var model: CardVerticalHeaderFirstVariantModel
 
     // ==========
     // MARK: Body
@@ -165,21 +141,16 @@ private struct CardSideBySideVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
+            Toggle("Thumbnail", isOn: $model.showThumbnail)
             Toggle("Subtitle", isOn: $model.showSubtitle)
-                .padding(.horizontal, ODSSpacing.m)
             Toggle("Text", isOn: $model.showSupportingText)
-                .padding(.horizontal, ODSSpacing.m)
-            
-            ODSChipPicker(title: "Image position",
-                          selection: $model.imagePosition,
-                          chips: ODSCardSideBySideModel.ImagePosition.chips)
             
             Stepper("Number of buttons: \(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
-            .padding(.horizontal, ODSSpacing.m)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
+        .padding(.horizontal, ODSSpacing.m)
     }
 }

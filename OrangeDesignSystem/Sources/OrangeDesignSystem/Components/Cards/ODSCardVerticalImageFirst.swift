@@ -22,8 +22,8 @@
 
 import SwiftUI
 
-/// Model used to configure the `ODSCardImageFirst` card.
-public struct ODSCardImageFirstModel: Identifiable {
+/// Model used to configure the `ODSCardVerticalImageFirst` card.
+public struct ODSCardVerticalImageFirstModel: Identifiable {
     let title: String
     let subtitle: String?
     let imageSource: ODSImage.Source
@@ -61,14 +61,14 @@ public struct ODSCardImageFirstModel: Identifiable {
 /// - Media: (today an image)
 /// - Content: with a title, an optinal subtitle, an optinal supporting text and optional buttons (zero up to two)
 ///
-/// The card is configured using the model `ODSCardImageFirstModel` and optional action buttons
+/// The card is configured using the model `ODSCardVerticalImageFirstModel` and optional action buttons
 /// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
 ///
 /// Those view builders are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
 ///
-public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
+public struct ODSCardVerticalImageFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
 
-    var model: ODSCardImageFirstModel
+    var model: ODSCardVerticalImageFirstModel
     var buttonContent1: () -> ButtonContent1
     var buttonContent2: () -> ButtonContent2
 
@@ -79,7 +79,7 @@ public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where Butt
     ///  - buttonContent1: The button1 view builder
     ///  - buttonContent2: The button2 view builder
     ///
-    public init(model: ODSCardImageFirstModel,
+    public init(model: ODSCardVerticalImageFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
                 @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
     {
@@ -89,7 +89,7 @@ public struct ODSCardImageFirst<ButtonContent1, ButtonContent2>: View where Butt
     }
 }
 
-extension ODSCardImageFirst where ButtonContent2 == EmptyView {
+extension ODSCardVerticalImageFirst where ButtonContent2 == EmptyView {
 
     /// Initialization with one button.
     ///
@@ -97,7 +97,7 @@ extension ODSCardImageFirst where ButtonContent2 == EmptyView {
     ///  - model: The model to configure the card.
     ///  - buttonContent1: The button1 view builder
     ///
-    public init(model: ODSCardImageFirstModel,
+    public init(model: ODSCardVerticalImageFirstModel,
                 @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
     {
         self.model = model
@@ -106,13 +106,13 @@ extension ODSCardImageFirst where ButtonContent2 == EmptyView {
     }
 }
 
-extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
+extension ODSCardVerticalImageFirst where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
 
     /// Initialization without any button.
     ///
     /// - Parameter model: The model to configure the card.
     ///
-    public init(model: ODSCardImageFirstModel) {
+    public init(model: ODSCardVerticalImageFirstModel) {
         self.model = model
         buttonContent1 = { EmptyView() }
         buttonContent2 = { EmptyView() }
@@ -120,7 +120,7 @@ extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 ==
 }
 
 // MARK: View body implementation
-extension ODSCardImageFirst {
+extension ODSCardVerticalImageFirst {
 
     public var body: some View {
 
@@ -165,7 +165,7 @@ extension ODSCardImageFirst {
 
 // MARK: Previews
 #if DEBUG
-struct ODSCardImageFirst_Previews: PreviewProvider {
+struct ODSCardVerticalImageFirst_Previews: PreviewProvider {
 
     struct Toast: View {
         @Binding var showText: String?
@@ -192,7 +192,7 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
         }
     }
 
-    static let model = ODSCardImageFirstModel(
+    static let model = ODSCardVerticalImageFirstModel(
         title: ODSCCardPreviewData.title,
         subtitle: ODSCCardPreviewData.subtitle,
         imageSource: .image(ODSCCardPreviewData.image),
@@ -204,7 +204,7 @@ struct ODSCardImageFirst_Previews: PreviewProvider {
 
         var body: some View {
             ScrollView {
-                ODSCardImageFirst(model: ODSCardImageFirst_Previews.model) {
+                ODSCardVerticalImageFirst(model: ODSCardVerticalImageFirst_Previews.model) {
                     ButtonAction(text: "Button 1") {
                         showTextInToast = "Button 1 Clicked"
                     }

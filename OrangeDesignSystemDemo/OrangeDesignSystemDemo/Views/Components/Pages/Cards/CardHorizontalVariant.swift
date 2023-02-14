@@ -24,7 +24,28 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardImageFirstVariantModel: ObservableObject {
+extension ODSCardHorizontalModel.ImagePosition: CaseIterable {
+    public static var allCases: [ODSCardHorizontalModel.ImagePosition] = [.leading, .trailing]
+    
+    var description: String {
+        switch self {
+        case .leading:
+            return "Start"
+        case .trailing:
+            return "End"
+        }
+    }
+    
+    var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+    
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
+    }
+}
+
+class CardHorizontalVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties
@@ -34,31 +55,39 @@ class CardImageFirstVariantModel: ObservableObject {
     @Published var showSupportingText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
+    @Published var imagePosition: ODSCardHorizontalModel.ImagePosition
+    
     var alertText: String = ""
     private let buttonsText = ["Button 1", "Button 2"]
-
+    private var recipe: Recipe {
+        RecipeBook.shared.recipes[0]
+    }
+    
     // =================
     // MARK: Initializer
     // =================
-
+    
     init() {
         showSubtitle = true
         showSupportingText = true
-        buttonCount = 2
+        imagePosition = .leading
+        buttonCount = 0
         showAlert = false
     }
 
     // =============
     // MARK: Helpers
     // =============
-    
-    var cardModel: ODSCardImageFirstModel {
-        ODSCardImageFirstModel(title: cardExampleTitle,
-                               subtitle: showSubtitle ? cardExampleSubtitle : nil,
-                               imageSource: cardExampleImage,
-                               supportingText: showSupportingText ? cardExampleSupportingText : nil)
+
+    var cardModel: ODSCardHorizontalModel {
+        ODSCardHorizontalModel(
+            title: recipe.title,
+            subtitle: showSubtitle ? recipe.subtitle : nil,
+            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+            imagePosition: imagePosition,
+            supportingText: showSupportingText ? recipe.description : nil)
     }
-    
+
     func displayAlert(text: String) {
         self.alertText = text
         self.showAlert = true
@@ -77,13 +106,13 @@ class CardImageFirstVariantModel: ObservableObject {
     }
 }
 
-struct CardImageFirstVariant: View {
+struct CardHorizontalVariant: View {
 
     // =======================
-    // MARK: Stored properties
+    // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: CardImageFirstVariantModel
+    @ObservedObject var model: CardHorizontalVariantModel
 
     // ==========
     // MARK: Body
@@ -91,9 +120,8 @@ struct CardImageFirstVariant: View {
 
     var body: some View {
         ZStack {
-            // Card demonstrator
             ScrollView {
-                ODSCardImageFirst(model: model.cardModel) {
+                ODSCardHorizontal(model: model.cardModel) {
                     if let text = model.button1Text {
                         ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
@@ -106,7 +134,7 @@ struct CardImageFirstVariant: View {
                         }
                     }
                 }
-                .padding(.horizontal, ODSSpacing.s)
+                .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
                 .onTapGesture {
                     model.displayAlert(text: "Card container clicked")
@@ -117,19 +145,19 @@ struct CardImageFirstVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardImageFirstVariantOptions(model: model)
+                CardHorizontalVariantOptions(model: model)
             }
         }
     }
 }
 
-private struct CardImageFirstVariantOptions: View {
+private struct CardHorizontalVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: CardImageFirstVariantModel
+    @ObservedObject var model: CardHorizontalVariantModel
 
     // ==========
     // MARK: Body
@@ -138,14 +166,20 @@ private struct CardImageFirstVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("Subtitle", isOn: $model.showSubtitle)
+                .padding(.horizontal, ODSSpacing.m)
             Toggle("Text", isOn: $model.showSupportingText)
+                .padding(.horizontal, ODSSpacing.m)
+            
+            ODSChipPicker(title: "Image position",
+                          selection: $model.imagePosition,
+                          chips: ODSCardHorizontalModel.ImagePosition.chips)
             
             Stepper("Number of buttons: \(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
+            .padding(.horizontal, ODSSpacing.m)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
     }
 }

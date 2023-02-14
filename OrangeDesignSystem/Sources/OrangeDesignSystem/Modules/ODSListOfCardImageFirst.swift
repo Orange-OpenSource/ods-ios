@@ -24,15 +24,15 @@
 import SwiftUI
 
 public struct ODSListOfCardImageFirstItemModel: Identifiable {
-    let cardModel: ODSCardImageFirstModel
+    let cardModel: ODSCardVerticalImageFirstModel
     let destination: AnyView?
 
-    public init<Destination>(cardModel: ODSCardImageFirstModel, @ViewBuilder destination: () -> Destination) where Destination: View {
+    public init<Destination>(cardModel: ODSCardVerticalImageFirstModel, @ViewBuilder destination: () -> Destination) where Destination: View {
         self.cardModel = cardModel
         self.destination = AnyView(destination())
     }
 
-    public init(cardModel: ODSCardImageFirstModel) {
+    public init(cardModel: ODSCardVerticalImageFirstModel) {
         self.cardModel = cardModel
         destination = AnyView(Text(cardModel.title + " to be define"))
     }
@@ -60,7 +60,7 @@ public struct ODSListOfCardImageFirst: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                 ForEach(itemModels) { itemModel in
-                    ODSCardImageFirstListItem(model: itemModel)
+                    ODSCardVerticalImageFirstListItem(model: itemModel)
                 }
             }
             .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
@@ -70,7 +70,7 @@ public struct ODSListOfCardImageFirst: View {
     }
 }
 
-struct ODSCardImageFirstListItem: View {
+struct ODSCardVerticalImageFirstListItem: View {
 
     let model: ODSListOfCardImageFirstItemModel
 
@@ -81,7 +81,7 @@ struct ODSCardImageFirstListItem: View {
                 .navigationViewStyle(.stack)
                 .background(Color(uiColor: .systemGray6))
         } label: {
-            ODSCardImageFirst(model: model.cardModel)
+            ODSCardVerticalImageFirst(model: model.cardModel)
         }
     }
 }
@@ -91,7 +91,7 @@ struct ODSListOfCardImageFirst_Previews: PreviewProvider {
 
     static let itemsModels: [ODSListOfCardImageFirstItemModel] = (1 ... 10).map {
         let title = "Card \($0)"
-        let model = ODSCardImageFirstModel(
+        let model = ODSCardVerticalImageFirstModel(
             title: title,
             subtitle: "Subtitle",
             imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))

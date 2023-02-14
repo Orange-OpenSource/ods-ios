@@ -57,10 +57,10 @@
 		07D3AEE22968169600B36C3F /* ToolBarVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3AEE12968169600B36C3F /* ToolBarVariantOptions.swift */; };
 		07DF838C293A5A2300DFBE31 /* StandardListOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF838B293A5A2300DFBE31 /* StandardListOptions.swift */; };
 		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
-		07E37F6228C73252003FF740 /* SmallCardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6128C73252003FF740 /* SmallCardVariant.swift */; };
-		07E37F6428C74540003FF740 /* CardTitleFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */; };
-		07E37F6628C745E1003FF740 /* CardImageFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6528C745E1003FF740 /* CardImageFirstVariant.swift */; };
-		07F141C0298BC213007C8575 /* CardSideBySideVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F141BF298BC213007C8575 /* CardSideBySideVariant.swift */; };
+		07E37F6228C73252003FF740 /* CardSmallVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6128C73252003FF740 /* CardSmallVariant.swift */; };
+		07E37F6428C74540003FF740 /* CardVerticalHeaderFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6328C74540003FF740 /* CardVerticalHeaderFirstVariant.swift */; };
+		07E37F6628C745E1003FF740 /* CardVerticalImageFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6528C745E1003FF740 /* CardVerticalImageFirstVariant.swift */; };
+		07F141C0298BC213007C8575 /* CardHorizontalVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F141BF298BC213007C8575 /* CardHorizontalVariant.swift */; };
 		07F141C2298C0644007C8575 /* RecipeBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F141C1298C0644007C8575 /* RecipeBookModel.swift */; };
 		07F141C4298CF4CB007C8575 /* RecipesBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F141C3298CF4CB007C8575 /* RecipesBook.swift */; };
 		07F343862943458D0043335A /* ProgressIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F343852943458C0043335A /* ProgressIndicatorComponent.swift */; };
@@ -159,10 +159,10 @@
 		07D3AEDF2968143700B36C3F /* ToolBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarComponent.swift; sourceTree = "<group>"; };
 		07D3AEE12968169600B36C3F /* ToolBarVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarVariantOptions.swift; sourceTree = "<group>"; };
 		07DF838B293A5A2300DFBE31 /* StandardListOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardListOptions.swift; sourceTree = "<group>"; };
-		07E37F6128C73252003FF740 /* SmallCardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCardVariant.swift; sourceTree = "<group>"; };
-		07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleFirstVariant.swift; sourceTree = "<group>"; };
-		07E37F6528C745E1003FF740 /* CardImageFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageFirstVariant.swift; sourceTree = "<group>"; };
-		07F141BF298BC213007C8575 /* CardSideBySideVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSideBySideVariant.swift; sourceTree = "<group>"; };
+		07E37F6128C73252003FF740 /* CardSmallVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSmallVariant.swift; sourceTree = "<group>"; };
+		07E37F6328C74540003FF740 /* CardVerticalHeaderFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerticalHeaderFirstVariant.swift; sourceTree = "<group>"; };
+		07E37F6528C745E1003FF740 /* CardVerticalImageFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerticalImageFirstVariant.swift; sourceTree = "<group>"; };
+		07F141BF298BC213007C8575 /* CardHorizontalVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHorizontalVariant.swift; sourceTree = "<group>"; };
 		07F141C1298C0644007C8575 /* RecipeBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBookModel.swift; sourceTree = "<group>"; };
 		07F141C3298CF4CB007C8575 /* RecipesBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesBook.swift; sourceTree = "<group>"; };
 		07F343852943458C0043335A /* ProgressIndicatorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorComponent.swift; sourceTree = "<group>"; };
@@ -432,11 +432,11 @@
 			isa = PBXGroup;
 			children = (
 				07C8234A28AE68B2003B2C3A /* CardComponent.swift */,
-				07E37F6128C73252003FF740 /* SmallCardVariant.swift */,
-				07E37F6328C74540003FF740 /* CardTitleFirstVariant.swift */,
-				07E37F6528C745E1003FF740 /* CardImageFirstVariant.swift */,
+				07E37F6128C73252003FF740 /* CardSmallVariant.swift */,
+				07E37F6328C74540003FF740 /* CardVerticalHeaderFirstVariant.swift */,
+				07E37F6528C745E1003FF740 /* CardVerticalImageFirstVariant.swift */,
 				07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */,
-				07F141BF298BC213007C8575 /* CardSideBySideVariant.swift */,
+				07F141BF298BC213007C8575 /* CardHorizontalVariant.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -959,7 +959,7 @@
 				072DE105296DCE3E00229FCF /* ToastView.swift in Sources */,
 				F90D978328003281006D29FC /* CardViewDemo.swift in Sources */,
 				F90D976C280030C4006D29FC /* MainTabView.swift in Sources */,
-				07F141C0298BC213007C8575 /* CardSideBySideVariant.swift in Sources */,
+				07F141C0298BC213007C8575 /* CardHorizontalVariant.swift in Sources */,
 				0752EC2828EDBB540029A7BE /* ChipsComponentModel.swift in Sources */,
 				F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */,
 				075E5D6D29378735009A801B /* RecipesLoader.swift in Sources */,
@@ -967,17 +967,17 @@
 				07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */,
 				07F141C2298C0644007C8575 /* RecipeBookModel.swift in Sources */,
 				07387C6328F062D900D8721F /* ListComponent.swift in Sources */,
-				07E37F6428C74540003FF740 /* CardTitleFirstVariant.swift in Sources */,
+				07E37F6428C74540003FF740 /* CardVerticalHeaderFirstVariant.swift in Sources */,
 				075E611D29966EFB004CE0A6 /* NavigationBarVariant.swift in Sources */,
 				FD88B6392930CE0600F58924 /* SlidersVariant.swift in Sources */,
 				F96A3E1D280451FE0086B9BF /* GuidelinesList.swift in Sources */,
-				07E37F6228C73252003FF740 /* SmallCardVariant.swift in Sources */,
+				07E37F6228C73252003FF740 /* CardSmallVariant.swift in Sources */,
 				075E611F299672A9004CE0A6 /* ActivityIndicatorVariant.swift in Sources */,
 				07973C56287C74CF004397D7 /* RGBA.swift in Sources */,
 				F96A3E25280452960086B9BF /* BackgroundBlurView.swift in Sources */,
 				F90D978228003281006D29FC /* ModulesList.swift in Sources */,
 				F96A3E1B280451660086B9BF /* ColorIllustration.swift in Sources */,
-				07E37F6628C745E1003FF740 /* CardImageFirstVariant.swift in Sources */,
+				07E37F6628C745E1003FF740 /* CardVerticalImageFirstVariant.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

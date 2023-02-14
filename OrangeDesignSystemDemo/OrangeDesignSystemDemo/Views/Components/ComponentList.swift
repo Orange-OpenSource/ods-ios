@@ -65,14 +65,14 @@ struct ComponentsList: View {
     // MARK: Computed values
     // =====================
     
-    private var sortedComponentCardModels: [ODSSmallCardModel] {
+    private var sortedComponentCardModels: [ODSCardSmallModel] {
         components.map { smallCardModel(for: $0) }
     }
     
-    private func smallCardModel(for component: Component) -> ODSSmallCardModel {
+    private func smallCardModel(for component: Component) -> ODSCardSmallModel {
         let image = themeProvider.imageFromResources(component.imageName)
         
-        return ODSSmallCardModel(title: component.title, imageSource: .image(image)) {
+        return ODSCardSmallModel(title: component.title, imageSource: .image(image)) {
             ComponentPage(component: component)
         }
     }
