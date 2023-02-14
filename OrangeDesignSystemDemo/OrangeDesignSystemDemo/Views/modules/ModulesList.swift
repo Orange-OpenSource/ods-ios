@@ -26,17 +26,31 @@ import SwiftUI
 
 struct ModulesList: View {
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @EnvironmentObject private var themeProvider: ThemeProvider
+
+    private func imageFrom(resourceName: String) -> Image {
+        themeProvider.imageFromResources(resourceName)
+    }
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         AboutConfigDemo.instance.configure()
         let items = [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "About", image: Image("AboutImage"))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardVerticalImageFirstModel(title: "About", imageSource: .image(imageFrom(resourceName: "AboutImage")))) {
                 AboutView()
                     .environmentObject(AboutConfigDemo.instance.applicationInformation)
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationbarMenuForThemeSelection()
             },
 
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Card collections", image: Image("Cards"))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardVerticalImageFirstModel(title: "Card collections", imageSource: .image(imageFrom(resourceName: "Cards")))) {
                 CardViewDemo()
             },
         ]

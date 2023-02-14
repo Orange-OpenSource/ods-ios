@@ -26,8 +26,22 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsList: View {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     let components: [Component]
-        
+    let columns = [
+        GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.m, alignment: .topLeading),
+    ]
+
+    @EnvironmentObject var themeProvider: ThemeProvider
+
+    // =================
+    // MARK: Initializer
+    // =================
+
     init() {
         // Remark: Components are automatically displayed sorted by their name
         let components: [Component] = [
@@ -48,13 +62,25 @@ struct ComponentsList: View {
         self.components = components.sorted { $0.title < $1.title }
     }
     
-    let columns = [
-        GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.m, alignment: .topLeading),
-    ]
+    // =====================
+    // MARK: Computed values
+    // =====================
     
-    var sortedComponentCardModels: [ODSSmallCardModel] {
-        return components.map { $0.smallCardModel }
+    private var sortedComponentCardModels: [ODSCardSmallModel] {
+        components.map { smallCardModel(for: $0) }
     }
+    
+    private func smallCardModel(for component: Component) -> ODSCardSmallModel {
+        let image = themeProvider.imageFromResources(component.imageName)
+        
+        return ODSCardSmallModel(title: component.title, imageSource: .image(image)) {
+            ComponentPage(component: component)
+        }
+    }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         NavigationView {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        font-family: SFPro-Regular, 'SF Pro';
+        font-size: 26px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 400;
+        letter-spacing: .02em;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #333;
+      }
+
+      .cls-4 {
+        fill: #999;
+      }
+
+      .cls-5 {
+        fill: #666;
+      }
+
+      .cls-6 {
+        fill: #1b1b1b;
+      }
+    </style>
+  </defs>
+  <rect class="cls-6" width="400" height="200"/>
+  <g>
+    <rect class="cls-4" x="96" y="70.83" width="208" height="58.34" rx="29.17" ry="29.17"/>
+    <g id="_Trailing_Icon" data-name=" Trailing Icon">
+      <rect id="Boundary" class="cls-1" x="257.39" y="82.84" width="34.32" height="34.32"/>
+      <path id="_Color" data-name=" Color" class="cls-3" d="m274.55,113.35c-7.37,0-13.35-5.97-13.36-13.34,0-3.54,1.41-6.94,3.91-9.45,5.21-5.21,13.66-5.21,18.88,0,5.21,5.21,5.21,13.66,0,18.88-2.5,2.51-5.89,3.92-9.43,3.91Zm0-11.46h0l4.79,4.79,1.88-1.88-4.79-4.79,4.79-4.79-1.88-1.88-4.79,4.79-4.79-4.79-1.88,1.88,4.79,4.79-4.79,4.79,1.88,1.88,4.79-4.79h0Z"/>
+    </g>
+    <text class="cls-2" transform="translate(173.37 108.16)"><tspan x="0" y="0">Chip</tspan></text>
+    <circle class="cls-5" cx="123.89" cy="100" r="18.91"/>
+  </g>
+</svg>

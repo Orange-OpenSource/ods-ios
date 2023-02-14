@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #999;
+      }
+
+      .cls-3 {
+        fill: #979797;
+      }
+
+      .cls-4 {
+        fill: #d0d0d0;
+      }
+
+      .cls-5 {
+        fill: #c8c8c8;
+      }
+
+      .cls-6 {
+        fill: #1b1b1b;
+      }
+
+      .cls-7 {
+        fill: #949494;
+      }
+
+      .cls-8 {
+        fill: #9a9a9a;
+      }
+
+      .cls-9 {
+        fill: #595959;
+      }
+
+      .cls-10 {
+        fill: none;
+        opacity: .6;
+        stroke: #999;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-6" width="400" height="200"/>
+  <rect class="cls-1" x="32.32" y="32.08" width="60.42" height="167.92"/>
+  <rect x="92.74" y="32.08" width="60.42" height="167.92"/>
+  <rect class="cls-7" x="153.16" y="32.08" width="60.42" height="167.92"/>
+  <rect class="cls-9" x="213.58" y="32.08" width="34.66" height="167.92"/>
+  <rect class="cls-8" x="248.24" y="32.08" width="23.89" height="167.92"/>
+  <rect class="cls-2" x="272.13" y="32.08" width="23.89" height="167.92"/>
+  <rect class="cls-4" x="296.02" y="32.08" width="23.89" height="167.92"/>
+  <rect class="cls-3" x="319.91" y="32.08" width="23.89" height="167.92"/>
+  <rect class="cls-5" x="343.79" y="32.08" width="23.89" height="167.92"/>
+  <line class="cls-10" x1="92.74" y1="199.17" x2="32.32" y2="199.17"/>
+</svg>

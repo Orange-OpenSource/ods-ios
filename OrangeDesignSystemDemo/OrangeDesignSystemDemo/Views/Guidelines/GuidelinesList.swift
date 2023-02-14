@@ -30,32 +30,44 @@ struct GuidelinesList: View {
     // MARK: Store properties
     // ======================
     
-    private var items: [ODSListOfCardImageFirstItemModel] {
-        [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Colours", image: Image("Colour"))) {
-                ColorPage()
-            },
-            
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Typography", image: Image("Typography"))) {
-                TypographyPage()
-            },
-            
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardImageFirstModel(title: "Spacings", image: Image("Spacing"))) {
-                SpacingPage()
-            },
-        ]
-    }
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    let guidelines: [Guideline]
     
+    init() {
+        guidelines = [
+            ColorsGuideline(),
+            SpacingsGuideline(),
+            TypographyGuideline()
+            ]
+    }
+
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
         NavigationView {
-            ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
+            ODSListOfCardImageFirst(title: "Guidelines", itemModels: itemsModel)
                 .navigationTitle("Guidelines")
                 .navigationViewStyle(.stack)
                 .navigationbarMenuForThemeSelection()
+        }
+    }
+    
+    // ============
+    // MARK: Helper
+    // ============
+
+    private var itemsModel: [ODSListOfCardImageFirstItemModel] {
+        guidelines.map { itemModel(for: $0) }
+    }
+    
+    private func itemModel(for guideline: Guideline) -> ODSListOfCardImageFirstItemModel {
+        let image = themeProvider.imageFromResources(guideline.imageName)
+        let cardModel = ODSCardVerticalImageFirstModel(title: guideline.title, imageSource: .image(image))
+        
+        return ODSListOfCardImageFirstItemModel(cardModel: cardModel) {
+            GuidelinePage(guideline: guideline)
         }
     }
 }
