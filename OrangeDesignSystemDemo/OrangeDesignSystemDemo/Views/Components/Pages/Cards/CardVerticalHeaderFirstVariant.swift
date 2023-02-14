@@ -24,44 +24,44 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardImageFirstVariantModel: ObservableObject {
-
+class CardVerticalHeaderFirstVariantModel: ObservableObject {
+    
     // =======================
-    // MARK: Stored Properties
+    // MARK: Stored properties
     // =======================
 
+    @Published var showThumbnail: Bool
     @Published var showSubtitle: Bool
     @Published var showSupportingText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
     var alertText: String = ""
-    private let buttonsText = ["Button 1", "Button 2"]
 
+    private let buttonsText = ["Button 1", "Button 2"]
+    
     // =================
     // MARK: Initializer
     // =================
 
     init() {
+        showThumbnail = true
         showSubtitle = true
         showSupportingText = true
         buttonCount = 2
         showAlert = false
     }
-
+    
     // =============
     // MARK: Helpers
     // =============
-    
-    var cardModel: ODSCardImageFirstModel {
-        ODSCardImageFirstModel(title: cardExampleTitle,
-                               subtitle: showSubtitle ? cardExampleSubtitle : nil,
-                               imageSource: cardExampleImage,
-                               supportingText: showSupportingText ? cardExampleSupportingText : nil)
-    }
-    
-    func displayAlert(text: String) {
-        self.alertText = text
-        self.showAlert = true
+
+    var cardModel: ODSCardVerticalHeaderFirstModel {
+        ODSCardVerticalHeaderFirstModel(
+            title: cardExampleTitle,
+            subtitle: showSubtitle ? cardExampleSubtitle : nil,
+            thumbnail: showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil,
+            imageSource: cardExampleImage,
+            supportingText: showSupportingText ? cardExampleSupportingText : nil)
     }
     
     var button1Text: String? {
@@ -75,15 +75,20 @@ class CardImageFirstVariantModel: ObservableObject {
     var numberOfButtons: Int {
         buttonsText.count
     }
+
+    func displayAlert(text: String) {
+        self.alertText = text
+        self.showAlert = true
+    }
 }
 
-struct CardImageFirstVariant: View {
+struct CardVerticalHeaderFirstVariant: View {
 
     // =======================
     // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: CardImageFirstVariantModel
+    @ObservedObject var model: CardVerticalHeaderFirstVariantModel
 
     // ==========
     // MARK: Body
@@ -91,9 +96,8 @@ struct CardImageFirstVariant: View {
 
     var body: some View {
         ZStack {
-            // Card demonstrator
             ScrollView {
-                ODSCardImageFirst(model: model.cardModel) {
+                ODSCardVerticalHeaderFirst(model: model.cardModel) {
                     if let text = model.button1Text {
                         ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
@@ -106,7 +110,7 @@ struct CardImageFirstVariant: View {
                         }
                     }
                 }
-                .padding(.horizontal, ODSSpacing.s)
+                .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
                 .onTapGesture {
                     model.displayAlert(text: "Card container clicked")
@@ -117,19 +121,19 @@ struct CardImageFirstVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardImageFirstVariantOptions(model: model)
+                CardVerticalHeaderFirstVariantOptions(model: model)
             }
         }
     }
 }
 
-private struct CardImageFirstVariantOptions: View {
+private struct CardVerticalHeaderFirstVariantOptions: View {
 
     // =======================
-    // MARK: Stored Properties
+    // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: CardImageFirstVariantModel
+    @ObservedObject var model: CardVerticalHeaderFirstVariantModel
 
     // ==========
     // MARK: Body
@@ -137,6 +141,7 @@ private struct CardImageFirstVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
+            Toggle("Thumbnail", isOn: $model.showThumbnail)
             Toggle("Subtitle", isOn: $model.showSubtitle)
             Toggle("Text", isOn: $model.showSupportingText)
             

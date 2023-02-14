@@ -64,7 +64,7 @@ struct GuidelinesList: View {
     
     private func itemModel(for guideline: Guideline) -> ODSListOfCardImageFirstItemModel {
         let image = themeProvider.imageFromResources(guideline.imageName)
-        let cardModel = ODSCardImageFirstModel(title: guideline.title, imageSource: .image(image))
+        let cardModel = ODSCardVerticalImageFirstModel(title: guideline.title, imageSource: .image(image))
         
         return ODSListOfCardImageFirstItemModel(cardModel: cardModel) {
             GuidelinePage(guideline: guideline)

@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class SmallCardVariantModel: ObservableObject {
+class CardSmallVariantModel: ObservableObject {
     
     // =======================
     // MARK: Stored properties
@@ -36,22 +36,22 @@ class SmallCardVariantModel: ObservableObject {
     // MARK: Helpers
     // =============
 
-    var smallCardModels: [ODSSmallCardModel] {
+    var cardSmallModels: [ODSCardSmallModel] {
         [
-            ODSSmallCardModel(title: cardExampleTitle,
+            ODSCardSmallModel(title: cardExampleTitle,
                               subtitle: showSubtitle ? cardExampleSubtitle : nil,
                               imageSource: cardExampleImage)
         ]
     }
 }
 
-struct SmallCardVariant: View {
+struct CardSmallVariant: View {
     
     // =======================
     // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: SmallCardVariantModel
+    @ObservedObject var model: CardSmallVariantModel
     @State private var showAlert: Bool = false
     
     let columns = [
@@ -67,8 +67,8 @@ struct SmallCardVariant: View {
         ZStack {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-                    ForEach(model.smallCardModels) { model in
-                        ODSSmallCard(model: model)
+                    ForEach(model.cardSmallModels) { model in
+                        ODSCardSmall(model: model)
                             .onTapGesture {
                                 showAlert = true
                             }
@@ -82,20 +82,20 @@ struct SmallCardVariant: View {
             }
             
             BottomSheet {
-                SmallCardVariantOptions(model: model)
+                CardSmallVariantOptions(model: model)
             }
         }
     }
 }
 
 // MARK: Bottom Sheet content
-private struct SmallCardVariantOptions: View {
+private struct CardSmallVariantOptions: View {
 
     // =======================
     // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: SmallCardVariantModel
+    @ObservedObject var model: CardSmallVariantModel
 
     // ==========
     // MARK: Body
@@ -110,10 +110,10 @@ private struct SmallCardVariantOptions: View {
 }
 
 #if DEBUG
-struct MyPreviewProvider_Previews: PreviewProvider {
+struct CardSmallVariant_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SmallCardVariant(model: SmallCardVariantModel())
+            CardSmallVariant(model: CardSmallVariantModel())
         }
     }
 }

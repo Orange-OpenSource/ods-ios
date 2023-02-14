@@ -24,8 +24,8 @@
 import OrangeDesignSystem
 import SwiftUI
 
-extension ODSCardSideBySideModel.ImagePosition: CaseIterable {
-    public static var allCases: [ODSCardSideBySideModel.ImagePosition] = [.left, .right]
+extension ODSCardHorizontalModel.ImagePosition: CaseIterable {
+    public static var allCases: [ODSCardHorizontalModel.ImagePosition] = [.left, .right]
     
     var description: String {
         switch self {
@@ -45,7 +45,7 @@ extension ODSCardSideBySideModel.ImagePosition: CaseIterable {
     }
 }
 
-class CardSideBySideVariantModel: ObservableObject {
+class CardHorizontalVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties
@@ -55,7 +55,7 @@ class CardSideBySideVariantModel: ObservableObject {
     @Published var showSupportingText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
-    @Published var imagePosition: ODSCardSideBySideModel.ImagePosition
+    @Published var imagePosition: ODSCardHorizontalModel.ImagePosition
     
     var alertText: String = ""
     private let buttonsText = ["Button 1", "Button 2"]
@@ -79,8 +79,8 @@ class CardSideBySideVariantModel: ObservableObject {
     // MARK: Helpers
     // =============
 
-    var cardModel: ODSCardSideBySideModel {
-        ODSCardSideBySideModel(
+    var cardModel: ODSCardHorizontalModel {
+        ODSCardHorizontalModel(
             title: recipe.title,
             subtitle: showSubtitle ? recipe.subtitle : nil,
             imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
@@ -106,13 +106,13 @@ class CardSideBySideVariantModel: ObservableObject {
     }
 }
 
-struct CardSideBySideVariant: View {
+struct CardHorizontalVariant: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: CardSideBySideVariantModel
+    @ObservedObject var model: CardHorizontalVariantModel
 
     // ==========
     // MARK: Body
@@ -121,7 +121,7 @@ struct CardSideBySideVariant: View {
     var body: some View {
         ZStack {
             ScrollView {
-                ODSCardSideBySide(model: model.cardModel) {
+                ODSCardHorizontal(model: model.cardModel) {
                     if let text = model.button1Text {
                         ODSButton(text: LocalizedStringKey(text), emphasis: .medium) {
                             model.displayAlert(text: "Button 1 clicked")
@@ -145,19 +145,19 @@ struct CardSideBySideVariant: View {
             }
 
             BottomSheet(showContent: false) {
-                CardSideBySideVariantOptions(model: model)
+                CardHorizontalVariantOptions(model: model)
             }
         }
     }
 }
 
-private struct CardSideBySideVariantOptions: View {
+private struct CardHorizontalVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: CardSideBySideVariantModel
+    @ObservedObject var model: CardHorizontalVariantModel
 
     // ==========
     // MARK: Body
@@ -172,7 +172,7 @@ private struct CardSideBySideVariantOptions: View {
             
             ODSChipPicker(title: "Image position",
                           selection: $model.imagePosition,
-                          chips: ODSCardSideBySideModel.ImagePosition.chips)
+                          chips: ODSCardHorizontalModel.ImagePosition.chips)
             
             Stepper("Number of buttons: \(model.buttonCount)",
                     value: $model.buttonCount,
