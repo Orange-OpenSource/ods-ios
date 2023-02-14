@@ -42,7 +42,7 @@ struct ColorPageDescription: View {
     }
 }
 
-struct ColorList: View {
+fileprivate struct ColorList: View {
 
     // =======================
     // MARK: Stored Properties
@@ -50,7 +50,7 @@ struct ColorList: View {
 
     @Environment(\.theme) private var theme
     @Environment(\.colorScheme) private var phoneColorScheme
-    @EnvironmentObject var screenState: ScreenState
+    @EnvironmentObject private var screenState: ScreenState
 
     private let columns = [
         GridItem(.flexible(minimum: 50.0)),
@@ -107,29 +107,6 @@ struct ColorList: View {
 
     private var backGroundColor: UIColor {
         screenState.colorScheme == .light ? .white : .black
-    }
-}
-
-struct SectionTitle: View {
-    
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @EnvironmentObject var screenState: ScreenState
-    let title: String
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        Text(title)
-            .odsFont(.title1)
-            .foregroundColor(screenState.colorScheme == .dark ? Color.white : Color.black)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))
-            .accessibilityAddTraits(.isHeader)
     }
 }
 

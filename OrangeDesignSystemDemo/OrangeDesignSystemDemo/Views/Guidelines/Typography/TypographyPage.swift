@@ -50,7 +50,7 @@ struct TypographyPageDescription: View {
             }
         }
         .padding(.horizontal, ODSSpacing.m)
-        .padding(.bottom, 16)
+        .padding(.bottom, ODSSpacing.m)
     }
 }
 

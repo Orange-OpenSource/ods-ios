@@ -24,13 +24,13 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SpacingPageDescription: View {
+struct SpacingsPageDescription: View {
 
     // ======================
     // MARK: Store properties
     // ======================
 
-    let spacings = Spacing.allCases
+    private let spacings = Spacing.allCases
 
     // ==========
     // MARK: Body
@@ -47,7 +47,7 @@ struct SpacingPageDescription: View {
     }
 }
 
-struct SpacingItem: View {
+fileprivate struct SpacingItem: View {
 
     // ======================
     // MARK: Store properties
@@ -86,7 +86,7 @@ struct SpacingItem: View {
     }
 }
 
-struct SpacingVisual: View {
+fileprivate struct SpacingVisual: View {
 
     // ======================
     // MARK: Store properties
@@ -121,7 +121,7 @@ struct SpacingVisual: View {
     }
 }
 
-enum Spacing: Double, CaseIterable {
+fileprivate enum Spacing: Double, CaseIterable {
     case none
     case xs
     case s

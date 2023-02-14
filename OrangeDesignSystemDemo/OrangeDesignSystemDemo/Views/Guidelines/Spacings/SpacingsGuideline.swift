@@ -24,7 +24,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SpacingGuideline: Guideline {
+struct SpacingsGuideline: Guideline {
     let title: String
     let imageName: String
     let description: String
@@ -34,6 +34,6 @@ struct SpacingGuideline: Guideline {
         title = "Spacings"
         imageName = "Spacing"
         description = "Spacing tokens are used to position elements on the screen and layout within components. Spacing tokens can be applied as padding and margins."
-        pageDescription = AnyView(SpacingPageDescription())
+        pageDescription = AnyView(SpacingsPageDescription())
     }
 }
