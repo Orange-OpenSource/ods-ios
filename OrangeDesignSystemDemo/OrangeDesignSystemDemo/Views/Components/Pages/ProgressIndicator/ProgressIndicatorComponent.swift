@@ -26,13 +26,13 @@ import SwiftUI
 
 struct ProgressIndicatorComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Progress indicators"
-        image = Image("Progress_indicator")
+        imageName = "Progress indicator"
         description =  "Progress indicators show users that elements or pages are loading."
         
         variants = AnyView(ProgressIndicatorVariants())

@@ -30,6 +30,11 @@
 		075E611F299672A9004CE0A6 /* ActivityIndicatorVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E611E299672A9004CE0A6 /* ActivityIndicatorVariant.swift */; };
 		075E6121299686B9004CE0A6 /* CapitalizedTextInputsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E6120299686B9004CE0A6 /* CapitalizedTextInputsVariant.swift */; };
 		075E612329968A56004CE0A6 /* SecureVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E612229968A56004CE0A6 /* SecureVariant.swift */; };
+		075E6126299AA4D4004CE0A6 /* Guideline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E6125299AA4D4004CE0A6 /* Guideline.swift */; };
+		075E612A299AA904004CE0A6 /* SpacingsGuideline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E6129299AA904004CE0A6 /* SpacingsGuideline.swift */; };
+		075E612C299AA988004CE0A6 /* ColorGuideline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E612B299AA988004CE0A6 /* ColorGuideline.swift */; };
+		075E612E299AAAEE004CE0A6 /* TypographyGuideline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E612D299AAAEE004CE0A6 /* TypographyGuideline.swift */; };
+		075E6130299B77B5004CE0A6 /* GuidelinePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E612F299B77B5004CE0A6 /* GuidelinePage.swift */; };
 		0789AB972934C33200796B82 /* TabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789AB962934C33200796B82 /* TabBarComponent.swift */; };
 		0789AB992934C35B00796B82 /* SliderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789AB982934C35A00796B82 /* SliderComponent.swift */; };
 		07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07973C53287C7470004397D7 /* ODSColors+extension.swift */; };
@@ -130,6 +135,11 @@
 		075E611E299672A9004CE0A6 /* ActivityIndicatorVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorVariant.swift; sourceTree = "<group>"; };
 		075E6120299686B9004CE0A6 /* CapitalizedTextInputsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalizedTextInputsVariant.swift; sourceTree = "<group>"; };
 		075E612229968A56004CE0A6 /* SecureVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureVariant.swift; sourceTree = "<group>"; };
+		075E6125299AA4D4004CE0A6 /* Guideline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guideline.swift; sourceTree = "<group>"; };
+		075E6129299AA904004CE0A6 /* SpacingsGuideline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingsGuideline.swift; sourceTree = "<group>"; };
+		075E612B299AA988004CE0A6 /* ColorGuideline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorGuideline.swift; sourceTree = "<group>"; };
+		075E612D299AAAEE004CE0A6 /* TypographyGuideline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypographyGuideline.swift; sourceTree = "<group>"; };
+		075E612F299B77B5004CE0A6 /* GuidelinePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinePage.swift; sourceTree = "<group>"; };
 		0789AB962934C33200796B82 /* TabBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarComponent.swift; sourceTree = "<group>"; };
 		0789AB982934C35A00796B82 /* SliderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderComponent.swift; sourceTree = "<group>"; };
 		07973C53287C7470004397D7 /* ODSColors+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ODSColors+extension.swift"; sourceTree = "<group>"; };
@@ -260,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				071D3EF028884D8200DFD1C9 /* SpacingPage.swift */,
+				075E6129299AA904004CE0A6 /* SpacingsGuideline.swift */,
 			);
 			path = Spacings;
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 		07240127285B656400DFB9A9 /* Typography */ = {
 			isa = PBXGroup;
 			children = (
+				075E612D299AAAEE004CE0A6 /* TypographyGuideline.swift */,
 				F90D9765280030A6006D29FC /* TypographyPage.swift */,
 			);
 			path = Typography;
@@ -329,6 +341,15 @@
 				07F141C3298CF4CB007C8575 /* RecipesBook.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		075E6124299AA4BD004CE0A6 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				075E6125299AA4D4004CE0A6 /* Guideline.swift */,
+				075E612F299B77B5004CE0A6 /* GuidelinePage.swift */,
+			);
+			path = Template;
 			sourceTree = "<group>";
 		};
 		07973C57287C74F1004397D7 /* Utils */ = {
@@ -469,6 +490,7 @@
 		F90D9762280030A6006D29FC /* Guidelines */ = {
 			isa = PBXGroup;
 			children = (
+				075E6124299AA4BD004CE0A6 /* Template */,
 				071D3EEF28884D8200DFD1C9 /* Spacings */,
 				07240127285B656400DFB9A9 /* Typography */,
 				F96A3E10280451660086B9BF /* Colors */,
@@ -511,9 +533,9 @@
 			isa = PBXGroup;
 			children = (
 				07973C57287C74F1004397D7 /* Utils */,
-				F96A3E11280451660086B9BF /* ColorsPage.swift */,
-				F96A3E12280451660086B9BF /* ColorUsage.swift */,
 				F96A3E13280451660086B9BF /* Views */,
+				075E612B299AA988004CE0A6 /* ColorGuideline.swift */,
+				F96A3E11280451660086B9BF /* ColorsPage.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -521,6 +543,7 @@
 		F96A3E13280451660086B9BF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F96A3E12280451660086B9BF /* ColorUsage.swift */,
 				F96A3E14280451660086B9BF /* ColorDetail.swift */,
 				F96A3E16280451660086B9BF /* ColorIllustration.swift */,
 			);
@@ -886,6 +909,7 @@
 				075E6121299686B9004CE0A6 /* CapitalizedTextInputsVariant.swift in Sources */,
 				07CC45292923CAAD008BE71F /* BannerComponent.swift in Sources */,
 				07C8235628AE68B2003B2C3A /* CardComponent.swift in Sources */,
+				075E6130299B77B5004CE0A6 /* GuidelinePage.swift in Sources */,
 				07387C6128F0486A00D8721F /* StandardList.swift in Sources */,
 				07DF838C293A5A2300DFBE31 /* StandardListOptions.swift in Sources */,
 				F90D977828003104006D29FC /* ShowMarkdownView.swift in Sources */,
@@ -904,6 +928,8 @@
 				07D3AEE22968169600B36C3F /* ToolBarVariantOptions.swift in Sources */,
 				07F343862943458D0043335A /* ProgressIndicatorComponent.swift in Sources */,
 				07C8235528AE68B2003B2C3A /* NavigationBarComponent.swift in Sources */,
+				075E612A299AA904004CE0A6 /* SpacingsGuideline.swift in Sources */,
+				075E612E299AAAEE004CE0A6 /* TypographyGuideline.swift in Sources */,
 				075E611929966CE5004CE0A6 /* IconVariant.swift in Sources */,
 				075E611B29966D0C004CE0A6 /* BannerVariantOptions.swift in Sources */,
 				0789AB972934C33200796B82 /* TabBarComponent.swift in Sources */,
@@ -918,6 +944,8 @@
 				07387C5F28F02F4F00D8721F /* SelectionList.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsPage.swift in Sources */,
 				07C8234F28AE68B2003B2C3A /* TextFieldComponent.swift in Sources */,
+				075E612C299AA988004CE0A6 /* ColorGuideline.swift in Sources */,
+				075E6126299AA4D4004CE0A6 /* Guideline.swift in Sources */,
 				07F141C4298CF4CB007C8575 /* RecipesBook.swift in Sources */,
 				071D3EF128884D8200DFD1C9 /* SpacingPage.swift in Sources */,
 				079821CB29263C1200BE3116 /* ThemeablePreviews.swift in Sources */,

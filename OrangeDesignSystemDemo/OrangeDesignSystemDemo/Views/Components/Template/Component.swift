@@ -22,20 +22,10 @@
 //
 
 import SwiftUI
-import OrangeDesignSystem
 
 protocol Component {
     var title: String { get }
-    var image: Image { get }
+    var imageName: String { get }
     var description: String { get }
     var variants: AnyView { get }
-}
-
-extension Component {
-    var smallCardModel: ODSSmallCardModel {
-        ODSSmallCardModel(title: self.title,
-                          imageSource: .image(self.image)) {
-            ComponentPage(component: self)
-        }
-    }
 }

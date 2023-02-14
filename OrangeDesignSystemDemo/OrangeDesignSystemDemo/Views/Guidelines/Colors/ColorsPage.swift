@@ -28,12 +28,17 @@ class ScreenState: ObservableObject {
     @Published var colorScheme: ColorScheme = .light
 }
 
-struct ColorPage: View {
+struct ColorPageDescription: View {
 
     let screenState = ScreenState()
 
     var body: some View {
-        ColorList().environmentObject(self.screenState)
+        VariantEntryItem(text: "ColorPalette", technicalElement: "ODSColorPalette()") {
+            ColorList().environmentObject(self.screenState)
+                .navigationTitle("ColorPalette")
+        }
+        .listRowInsets(EdgeInsets())
+        .padding(.horizontal, ODSSpacing.m)
     }
 }
 
@@ -83,7 +88,6 @@ struct ColorList: View {
             }
             .background(Color(backGroundColor))
         }
-        .navigationbarMenuForThemeSelection()
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: {
@@ -133,7 +137,7 @@ struct SectionTitle: View {
 struct ColorList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            ColorPage().environmentObject(ScreenState()).preferredColorScheme($0)
+            ColorPageDescription().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }

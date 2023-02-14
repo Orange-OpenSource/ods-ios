@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Slider_generic.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

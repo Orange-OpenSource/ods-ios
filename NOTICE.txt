@@ -42,7 +42,6 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Cards_1.ima
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Cards.imageset/cards_module.jpg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/thumbs/Chips.imageset/Chips.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Colour.imageset/Colour.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/ListIcon.imageset/App-Store-alpha-512@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Lists.imageset/Lists.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Navigation bars.imageset/Navigation bars.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Progress_indicator.imageset/Progress_indicator.png

@@ -32,7 +32,7 @@ struct TextFieldComponent: Component {
     // ======================
 
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
@@ -42,7 +42,7 @@ struct TextFieldComponent: Component {
 
     init() {
         title = "Text field"
-        image = Image("Text edit menu")
+        imageName = "Text edit menu"
         description = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native."
         
         variants = AnyView(TextFieldVariants())

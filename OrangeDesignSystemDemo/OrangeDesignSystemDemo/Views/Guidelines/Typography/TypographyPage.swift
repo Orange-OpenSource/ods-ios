@@ -24,51 +24,33 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct TypographyPage: View {
-
+struct TypographyPageDescription: View {
+    
     // =======================
     // MARK: Stored Properties
     // =======================
-
+    
     let fontStyles = ODSFontStyle.allCases
-
+    
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: ODSSpacing.none) {
-
-                Image("Typography")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .padding(.bottom, ODSSpacing.m)
-                    .accessibilityHidden(true)
-
-                Text("Apple proposes built-in text styles based on the Apple Dynamic Types and using the native typeface San Francisco for all Latin, Greek and Cyrillic alphabets. \nTo create you application you should use the following updated styles: ")
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.m)
-
-                VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                    ForEach(fontStyles, id: \.rawValue) { fontStyle in
-                        VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                            Text(fontStyle.description)
-                                .odsFont(fontStyle)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            Text("style: \(fontStyle.rawValue)").font(.system(.caption, design: .monospaced))
-                        }
-                        .accessibilityElement()
-                        .accessibilityLabel("\(fontStyle.description), token name is \(fontStyle.rawValue)")
-                    }
+        VStack(alignment: .leading, spacing: ODSSpacing.m) {
+            ForEach(fontStyles, id: \.rawValue) { fontStyle in
+                VStack(alignment: .leading, spacing: ODSSpacing.xs) {
+                    Text(fontStyle.description)
+                        .odsFont(fontStyle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("style: \(fontStyle.rawValue)").font(.system(.caption, design: .monospaced))
                 }
-                .padding(.horizontal, ODSSpacing.m)
+                .accessibilityElement()
+                .accessibilityLabel("\(fontStyle.description), token name is \(fontStyle.rawValue)")
             }
-            .padding(.bottom, ODSSpacing.m)
         }
-        .navigationTitle("Typography")
-        .navigationViewStyle(.stack)
-        .navigationbarMenuForThemeSelection()
+        .padding(.horizontal, ODSSpacing.m)
+        .padding(.bottom, 16)
     }
 }
 
@@ -111,7 +93,7 @@ private extension ODSFontStyle {
 struct FontList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            TypographyPage().environmentObject(ScreenState()).preferredColorScheme($0)
+            TypographyPageDescription().environmentObject(ScreenState()).preferredColorScheme($0)
         }
     }
 }

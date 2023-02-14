@@ -26,13 +26,13 @@ import SwiftUI
 
 struct SliderComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
         title = "Sliders"
-        image = Image("Slider")
+        imageName = "Slider"
         description =  "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track."
         variants = AnyView(SliderVariants())
     }

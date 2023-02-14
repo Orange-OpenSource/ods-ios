@@ -24,6 +24,103 @@
 import OrangeDesignSystem
 import SwiftUI
 
+struct SpacingPageDescription: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    let spacings = Spacing.allCases
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: ODSSpacing.none) {
+            ForEach(spacings, id: \.rawValue) { spacing in
+                SpacingItem(spacing: spacing)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+        }
+        .padding(.bottom, ODSSpacing.m)
+    }
+}
+
+struct SpacingItem: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    let spacing: Spacing
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: ODSSpacing.s) {
+
+            HStack(spacing: ODSSpacing.m) {
+                SpacingVisual(spacing: spacing)
+
+                VStack(alignment: .leading) {
+                    Text(spacing.name).odsFont(.bodyRegular)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("\(spacing.rawValue, specifier: "%.0f") px").odsFont(.bodyRegular)
+                }
+
+                Spacer()
+
+                Text(spacing.ratio)
+                    .foregroundColor(Color(UIColor.secondaryLabel))
+                    .odsFont(.bodyRegular)
+            }
+            .padding(.top, ODSSpacing.s)
+
+            Divider()
+        }
+        .accessibilityElement()
+        .accessibilityLabel(spacing.accessibilityLabel)
+    }
+}
+
+struct SpacingVisual: View {
+
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    let spacing: Spacing
+
+    // ====================
+    // MARK: Computed value
+    // ====================
+
+    private var spacingWidth: Double {
+        spacing == .none ? spacing.rawValue + 1 : spacing.rawValue
+    }
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color("spacingBackground"))
+                .frame(height: 16, alignment: .topLeading)
+
+            Rectangle()
+                .foregroundColor(Color("supportingIndicator"))
+                .frame(width: spacingWidth, alignment: .center)
+        }
+        .frame(width: 60, height: 50)
+        .background(Color(UIColor.tertiarySystemFill))
+    }
+}
+
 enum Spacing: Double, CaseIterable {
     case none
     case xs
@@ -85,88 +182,5 @@ enum Spacing: Double, CaseIterable {
         "\(Int(rawValue)) \(rawValue < 2 ? "pixel" : "pixels"), "
             + "Token name: \(name), "
             + "Ratio: \(ratioSpokenValue))"
-    }
-}
-
-struct SpacingPage: View {
-
-    let spacings = Spacing.allCases
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: ODSSpacing.none) {
-
-                Image("Spacing")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .padding(.bottom, ODSSpacing.m)
-                    .accessibilityHidden(true)
-
-                Text("Spacing tokens are used to position elements on the screen and layout within components. Spacing tokens can be applied as padding and margins.")
-                    .padding(.horizontal, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.m)
-
-                ForEach(spacings, id: \.rawValue) { spacing in
-                    SpacingItem(spacing: spacing)
-                }
-                .padding(.horizontal, ODSSpacing.m)
-            }
-            .padding(.bottom, ODSSpacing.m)
-        }
-        .navigationTitle("Spacings")
-        .navigationViewStyle(.stack)
-        .navigationbarMenuForThemeSelection()
-    }
-}
-
-struct SpacingItem: View {
-    let spacing: Spacing
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.s) {
-
-            HStack(spacing: ODSSpacing.m) {
-                SpacingVisual(spacing: spacing)
-
-                VStack(alignment: .leading) {
-                    Text(spacing.name).odsFont(.bodyRegular)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("\(spacing.rawValue, specifier: "%.0f") px").odsFont(.bodyRegular)
-                }
-
-                Spacer()
-
-                Text(spacing.ratio)
-                    .foregroundColor(Color(UIColor.secondaryLabel))
-                    .odsFont(.bodyRegular)
-            }
-            .padding(.top, ODSSpacing.s)
-
-            Divider()
-        }
-        .accessibilityElement()
-        .accessibilityLabel(spacing.accessibilityLabel)
-    }
-}
-
-struct SpacingVisual: View {
-    let spacing: Spacing
-
-    var spacingWidth: Double {
-        spacing == .none ? spacing.rawValue + 1 : spacing.rawValue
-    }
-
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(Color("spacingBackground"))
-                .frame(height: 16, alignment: .topLeading)
-
-            Rectangle()
-                .foregroundColor(Color("supportingIndicator"))
-                .frame(width: spacingWidth, alignment: .center)
-        }
-        .frame(width: 60, height: 50)
-        .background(Color(UIColor.tertiarySystemFill))
     }
 }
