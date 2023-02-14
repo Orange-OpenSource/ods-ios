@@ -56,6 +56,7 @@ class CardHorizontalVariantModel: ObservableObject {
     @Published var buttonCount: Int
     @Published var showAlert: Bool
     @Published var imagePosition: ODSCardHorizontalModel.ImagePosition
+    @Published var showDivider: Bool
     
     var alertText: String = ""
     private let buttonsText = ["Button 1", "Button 2"]
@@ -73,6 +74,7 @@ class CardHorizontalVariantModel: ObservableObject {
         imagePosition = .leading
         buttonCount = 0
         showAlert = false
+        showDivider = true
     }
 
     // =============
@@ -85,7 +87,8 @@ class CardHorizontalVariantModel: ObservableObject {
             subtitle: showSubtitle ? recipe.subtitle : nil,
             imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
             imagePosition: imagePosition,
-            supportingText: showSupportingText ? recipe.description : nil)
+            supportingText: showSupportingText ? recipe.description : nil,
+            dividerEnabled: showDivider)
     }
 
     func displayAlert(text: String) {
@@ -174,6 +177,9 @@ private struct CardHorizontalVariantOptions: View {
                           selection: $model.imagePosition,
                           chips: ODSCardHorizontalModel.ImagePosition.chips)
             
+            Toggle("Divider", isOn: $model.showDivider)
+                .padding(.horizontal, ODSSpacing.m)
+
             Stepper("Number of buttons: \(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
