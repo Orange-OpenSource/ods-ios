@@ -24,7 +24,7 @@
 import SwiftUI
 import OrangeDesignSystem
 
-extension ODSBottomSheetSize {
+fileprivate extension ODSBottomSheetSize {
     var description: String {
         switch self {
         case .small:
@@ -45,28 +45,43 @@ extension ODSBottomSheetSize {
     }
 }
 
+fileprivate enum ContentType: String, CaseIterable {
+    case tutorial
+    case example
+
+    var chip: ODSChip<Self> {
+        ODSChip(self, text: self.rawValue.capitalized)
+    }
+    
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
+    }
+}
+
 class BottomSheetVariantModel: ObservableObject {
     
     // ======================
     // MARK: Store properties
     // ======================
 
-    @Published var size: ODSBottomSheetSize
-    @Published var showSubtitle: Bool
-    @Published var showIcon: Bool
+    @Published var detent: ODSBottomSheetSize
+    @Published fileprivate var showSubtitle: Bool
+    @Published fileprivate var showIcon: Bool
+    @Published fileprivate var contentType: ContentType
 
     // =================
     // MARK: Initializer
     // =================
 
     init() {
-        self.size = .small
+        self.detent = .small
         self.showSubtitle = true
         self.showIcon = true
+        self.contentType = .example
     }
     
     var exampleItemsModel: [ODSListStandardItemModel] {
-        RecipeLoader.shared.recipes.map { recipe in
+        RecipeBook.shared.recipes.map { recipe in
             ODSListStandardItemModel(
                 title: recipe.title,
                 leadingIcon: .icon(Image(recipe.iconName)))
@@ -79,17 +94,6 @@ class BottomSheetVariantModel: ObservableObject {
     
     var icon: Image? {
         showIcon ? Image("Heart_19371") : nil
-    }
-    
-    var preferedSizes: [ODSBottomSheetSize] {
-        switch size {
-        case .small:
-            return [.small, .medium, .large]
-        case .medium:
-            return [.medium, .small, .large]
-        case .large:
-            return [.large, .medium, .small]
-        }
     }
 }
 
@@ -108,10 +112,14 @@ struct BottomSheetVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Group {
-                ODSChipPicker(title: "Size",
-                              selection: $model.size,
+                ODSChipPicker(title: "Detent",
+                              selection: $model.detent,
                               chips: ODSBottomSheetSize.chips)
-                
+
+                ODSChipPicker(title: "Content",
+                              selection: $model.contentType,
+                              chips: ContentType.chips)
+
                 Toggle("Subtitle", isOn: $model.showSubtitle)
                     .padding(.horizontal, ODSSpacing.m)
 

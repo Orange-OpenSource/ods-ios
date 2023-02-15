@@ -1,18 +1,4 @@
 # ODS library changelog
-[DemoApp] Support dark mode in about changelog screen (Bug [#346])
-[DemoApp] Keep the number of expected items when switching item type option(Bug [#347])
-[DemoApp] Spelling click acknowledgement (Bug [#345])
-[DemoApp] Spelling click acknowledgement ([#345])
-[DemoApp] Add new links in the about section ([#342])
-[DemoApp] Add a button in Navigation bar to select theme ([#324])
-[Delivery] Update Changelog file to fix delivery issue ([#340])
-[DemoApp] List Trailing icon action, update text in opened screen ([#326])
-[DemoApp/SDK] Update the Card primary action coverage ([#333])
-[DemoApp] Update changelog file to add url to issues and and update component to see changelog content with links ([#329])
-[DemoApp] Add tool bar component ([#31])
-[OrangeTheme] Update to black color (light and dark modes) the Highest emphasis Button text ([#334])
-[DemoApp] Change question mark to exclamation mark in text of badge in tab bar ([#332])
-[SDK] Manage Tap on Action area 1 of a card ([#319])
 
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).

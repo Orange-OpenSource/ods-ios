@@ -26,13 +26,13 @@ import SwiftUI
 
 struct BottomSheetComponent: Component {
     let title: String
-    let image: Image
+    let imageName: String
     let description: String
     let variants: AnyView
     
     init() {
-        title = "Sheet: Bottom"
-        image = Image("BottomSheet")
+        title = "AA Sheet: Bottom"
+        imageName = "BottomSheet"
         description = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task."
         variants = AnyView(BottomSheetVariants())
     }
@@ -45,7 +45,7 @@ struct BottomSheetVariants: View {
     // ==========
 
     var body: some View {
-        VariantEntryItem(text: "Bottom sheet demo", technicalElement: "ODSBottomSheet()") {
+        VariantEntryItem(text: "Bottom sheet", technicalElement: "ODSBottomSheet()") {
             BottomSheetVariantHome(model: BottomSheetVariantModel())
                 .navigationTitle("Bottom sheet")
         }
@@ -74,27 +74,28 @@ private struct BottomSheetVariantHome: View {
     // ==========
     
     var body: some View {
-        ZStack {
-            VStack(spacing: ODSSpacing.m) {
-                Text("Customize the bottom sheet before opening sheet to see it.")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, ODSSpacing.m)
-                
-                BottomSheetVariantOptions(model: model)
-                
-                ODSButton(text: "Open sheet", emphasis: .highest, variableWidth: false) {
-                    showBottomSheet = true
-                }
+        VStack(spacing: ODSSpacing.m) {
+            Text("Customize the bottom sheet before opening sheet to see it.")
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, ODSSpacing.m)
-                .padding(.top, ODSSpacing.m)
-                
-                Spacer()
+            
+            BottomSheetVariantOptions(model: model)
+            
+            ODSButton(text: "See the component", emphasis: .highest, variableWidth: false) {
+                showBottomSheet = true
             }
-            .padding(.vertical, ODSSpacing.m)
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.top, ODSSpacing.m)
+            
+            Spacer()
+            
+            NavigationLink(
+                destination: BottomSheetVariant(model: model),
+                isActive: $showBottomSheet,
+                label: { EmptyView() }
+            )
         }
-        .sheet(isPresented: $showBottomSheet) {
-            BottomSheetVariant(model: model)
-        }
+        .padding(.vertical, ODSSpacing.m)
     }
 }
 
@@ -111,23 +112,41 @@ struct BottomSheetVariant: View {
     // ==========
 
     var body: some View {
-        if #available(iOS 16.0, *) {
+        ZStack {
+            pageContent()
+            
             ODSBottomSheet(title: "Title",
                            subtile: model.subtitle,
                            icon: model.icon,
-                           preferedSizes: model.preferedSizes) {
-                List {
-                    ForEach(model.exampleItemsModel, id: \.id) { itemModel in
-                        ODSListStandardItem(model: itemModel)
-                            .padding(.horizontal, ODSSpacing.s)
-                            .listRowSeparator(Visibility.visible)
-                            .listRowInsets(EdgeInsets())
-                    }
-                }
-                .listStyle(.plain)
+                           detent: model.detent) {
+                buttonSheetContent()
             }
-        } else {
-            Text("This is the expandable bottom sheet.")
         }
+        .navigationBarTitle("Coucou", displayMode: .inline)
+    }
+    
+    private func pageContent() -> some View {
+        ScrollView {
+            Text("""
+                 To open or close  the bottom sheet :\n
+                 Drag the handle up or down\n
+                 Scroll the content\n
+                 Tap the dimming area
+                """
+            )
+        }
+    }
+    
+    private func buttonSheetContent() -> some View {
+        List {
+            ForEach(model.exampleItemsModel, id: \.id) { itemModel in
+                ODSListStandardItem(model: itemModel)
+                    .padding(.horizontal, ODSSpacing.s)
+                    .listRowSeparator(Visibility.visible)
+                    .listRowInsets(EdgeInsets())
+            }
+        }
+        .listStyle(.plain)
+
     }
 }

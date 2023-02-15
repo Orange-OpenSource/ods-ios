@@ -23,10 +23,10 @@
 
 import SwiftUI
 
-public enum ODSBottomSheetSize: Int, CaseIterable {
-    case small = 0
-    case medium
-    case large
+public enum ODSBottomSheetSize: Double, CaseIterable {
+    case small = 20
+    case medium = 150
+    case large = 540
 }
 
 // MARK: Button sheet with header and content
@@ -36,55 +36,54 @@ public struct ODSBottomSheet<ContentView>: View where ContentView: View {
     private let title: String
     private let subtitle: String?
     private let icon: Image?
-    private let preferedSizes: [ODSBottomSheetSize]
+    @State private var currentSize: ODSBottomSheetSize
     @State var headerHeight: CGFloat = 44
 
     public init(title: String,
                 subtile: String? = nil,
                 icon: Image? = nil,
-                preferedSizes: [ODSBottomSheetSize] = [.large],
+                detent: ODSBottomSheetSize = .large,
                 @ViewBuilder contentView: @escaping () -> ContentView) {
         self.title = title
         self.subtitle = subtile
         self.icon = icon
         self.contentView = contentView
-        self.preferedSizes = preferedSizes
+        self.currentSize = detent
     }
 
+    func spacerHeight(globalHeight: CGFloat) -> CGFloat {
+        switch currentSize {
+        case .small:
+            return globalHeight - headerHeight
+        case .medium:
+            return globalHeight/2
+        case .large:
+            return 10
+        }
+    }
+    
     public var body: some View {
-        if #available(iOS 16.0, *) {
-            content()
-                .edgesIgnoringSafeArea(.all)
-                .presentationDetents(presentationDetents)
-                .presentationDragIndicator(.hidden)
-        } else {
-            content()
-        }
-    }
+        GeometryReader { reader in
+            VStack(spacing: ODSSpacing.none) {
+                Spacer()
+                    .frame(height: spacerHeight(globalHeight: reader.size.height))
 
-    @ViewBuilder func content() -> some View {
-        VStack(spacing: ODSSpacing.none) {
-            ODSBottomSheetHeader(title: title,
-                                 subtitle: subtitle,
-                                 icon: icon)
-                .readSize { size in
-                    print("size: \(size.height)")
-                    headerHeight = size.height
+                VStack(spacing: ODSSpacing.none) {
+                    ODSBottomSheetHeader(title: title,
+                                         subtitle: subtitle,
+                                         icon: icon,
+                                         sheetSize: $currentSize)
+                    .readSize { size in
+                        print("size: \(size.height)")
+                        headerHeight = size.height
+                    }
+
+                    contentView()
                 }
-            contentView()
-        }
-        .cornerRadius(10)
-    }
-
-    @available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
-    var presentationDetents: Set<PresentationDetent> {
-        Set(preferedSizes.map { size in
-            switch size {
-            case .large: return .large
-            case .medium: return .medium
-            case .small: return .height(headerHeight)
+                .background(Color(UIColor.systemBackground))
             }
-        })
+
+        }
     }
 }
 
@@ -97,6 +96,7 @@ struct ODSBottomSheetHeader: View {
     let title: String
     let subtitle: String?
     let icon: Image?
+    @Binding var sheetSize: ODSBottomSheetSize
 
     // ==================
     // MARK: Initializers
@@ -119,7 +119,7 @@ struct ODSBottomSheetHeader: View {
                             .odsFont(.subhead)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                }    
+                }
             }
             .padding(.all, ODSSpacing.m)
 
@@ -128,8 +128,25 @@ struct ODSBottomSheetHeader: View {
                 .padding(.top, ODSSpacing.s)
         }
         .background(Color(UIColor.systemGray6))
+        .clipped()
+        .padding(.bottom, 10)
+        .cornerRadius(10)
+        .padding(.bottom, -10)
+        .shadow(radius: 3, y: -3)
+        .onTapGesture {
+            switch sheetSize {
+            case .small:
+                sheetSize = .large
+            case .medium, .large:
+                sheetSize = .small
+            }
+        }
+        .onLongPressGesture {
+            sheetSize = .medium
+        }
     }
 }
+
 
 #if DEBUG
 struct ODSBottomSheet_Previews: PreviewProvider {

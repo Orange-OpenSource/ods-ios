@@ -172,4 +172,3 @@ public class ODSListSelectionItemModel: ODSListItemModel, ObservableObject {
         id = UUID()
     }
 }
-
