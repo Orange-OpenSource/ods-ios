@@ -64,14 +64,6 @@ class BottomSheetVariantModel: ObservableObject {
         self.showIcon = false
         self.contentType = .example
     }
-    
-    var subtitle: String? {
-        showSubtitle ? "Subtitle" : nil
-    }
-    
-    var icon: Image? {
-        showIcon ? Image("Heart_19371") : nil
-    }
 }
 
 struct BottomSheetVariantOptions: View {

@@ -66,17 +66,16 @@ private struct ODSBottomSheetModifier<ContentView>: ViewModifier where ContentVi
     private let bottomSheetContent: () -> ContentView
     private var bottomSheetSize: Binding<ODSBottomSheetSize>
     @Environment(\.theme) private var theme
-    @ObservedObject var sizeReader = BottomSheetSizesManager.shared
 
     // =================
     // MARK: Initializer
     // =================
 
     init(title: String,
-                subtile: String? = nil,
-                icon: Image? = nil,
-                bottomSheetSize: Binding<ODSBottomSheetSize>,
-                @ViewBuilder content: @escaping () -> ContentView) {
+         subtile: String? = nil,
+         icon: Image? = nil,
+         bottomSheetSize: Binding<ODSBottomSheetSize>,
+         @ViewBuilder content: @escaping () -> ContentView) {
         self.title = title
         self.subtitle = subtile
         self.icon = icon
@@ -89,118 +88,32 @@ private struct ODSBottomSheetModifier<ContentView>: ViewModifier where ContentVi
     // ==========
 
     func body(content: Content) -> some View {
-        GeometryReader { reader in
-            content
-                .bottomSheet(
-                    bottomSheetPosition: bottomSheetSize,
-                    options: [.noBottomPosition,
-                              .cornerRadius(10),
-                              .shadow(),
-                              .noDragIndicator,
-                              .absolutePositionValue,
-                              .background(AnyView(theme.componentColors.bottomSheetHeaderBackground))
-                    ],
-                    headerContent: {
-                        HeaderView(title: title, subtitle: subtitle, icon: icon, bottomSheetSize: bottomSheetSize)
-                            .background(.red)
-                            .readSize { size in
-                                sizeReader.contentViewHeight = reader.size.height
-                                sizeReader.headerHeight = size.height + 16
-                            }
-                    },
-                    mainContent: bottomSheetContent)
-        }
-    }
-}
-
-fileprivate class BottomSheetSizesManager: ObservableObject {
-    static let shared: BottomSheetSizesManager = BottomSheetSizesManager()
-    
-    @Published var headerHeight: CGFloat
-    @Published var contentViewHeight: CGFloat
-
-    private init() {
-        self.headerHeight = 0.0
-        self.contentViewHeight = 0.0
+        content
+            .bottomSheet(
+                bottomSheetPosition: bottomSheetSize,
+                options: [.noBottomPosition,
+                          .cornerRadius(10),
+                          .dragIndicatorColor(Color(UIColor.label)),
+                          .shadow(),
+                          .background(AnyView(theme.componentColors.bottomSheetHeaderBackground))
+                ],
+                headerContent: {
+                    HeaderView(title: title, subtitle: subtitle, icon: icon, bottomSheetSize: bottomSheetSize)
+                },
+                mainContent: bottomSheetContent)
     }
 }
 
 public enum ODSBottomSheetSize: CGFloat, CaseIterable {
     ///The state where the BottomSheet is hidden
     case hidden
-    ///The state where the height of the BottomSheet is 12.5% and the `mainContent` is hidden
-    case small = 0.125
+    ///The state where the height of the BottomSheet is 10% and the `mainContent` is hidden
+    case small = 0.10
     ///The state where the height of the BottomSheet is 40%
-    case medium = 0.4
+    case medium = 0.40
     ///The state where the height of the BottomSheet is 97.5%
     case large = 0.975
-
-    static public var allCases: [ODSBottomSheetSize] = [.hidden, .small, .medium, .large]
-    
-    public var rawValue: Self.RawValue {
-        switch self {
-        case .hidden:
-            return 0
-        case .small:
-            print("small: \(BottomSheetSizesManager.shared.headerHeight)")
-            return BottomSheetSizesManager.shared.headerHeight
-        case .medium:
-            print("medium: \(BottomSheetSizesManager.shared.contentViewHeight / 2)")
-            return BottomSheetSizesManager.shared.contentViewHeight / 2
-        case .large:
-            print("large: \(BottomSheetSizesManager.shared.contentViewHeight - BottomSheetSizesManager.shared.headerHeight - 10)")
-            return BottomSheetSizesManager.shared.contentViewHeight - BottomSheetSizesManager.shared.headerHeight - 10
-        }
-    }
 }
-//
-//// MARK: Button sheet with header and content
-//
-//public struct ODSBottomSheet<ContentView>: View where ContentView: View {
-//
-//    // =======================
-//    // MARK: Stored Properties
-//    // =======================
-//
-//    private let title: String
-//    private let subtitle: String?
-//    private let icon: Image?
-//    private let mainContent: () -> ContentView
-//
-//    private var bottomSheetSize: Binding<ODSBottomSheetSize>
-//    @Environment(\.theme) private var theme
-//
-//    // =================
-//    // MARK: Initializer
-//    // =================
-//
-//    public init(title: String,
-//                subtile: String? = nil,
-//                icon: Image? = nil,
-//                bottomSheetSize: Binding<ODSBottomSheetSize>,
-//                @ViewBuilder content: @escaping () -> ContentView) {
-//        self.title = title
-//        self.subtitle = subtile
-//        self.icon = icon
-//        self.mainContent = content
-//        self.bottomSheetSize = bottomSheetSize
-//    }
-//
-//    public var body: some View {
-//        EmptyView()
-//            .bottomSheet(
-//                bottomSheetPosition: bottomSheetSize,
-//                options: [BottomSheet.Options.noBottomPosition,
-//                          .cornerRadius(10),
-//                          .shadow(),
-//                          .background(AnyView(theme.componentColors.bottomSheetHeaderBackground))
-//                ],
-//                headerContent: {
-//                    HeaderView(title: title, subtitle: subtitle, icon: icon, bottomSheetSize: bottomSheetSize)
-//                },
-//                mainContent: mainContent)
-//    }
-//}
 
 struct HeaderView: View {
 
@@ -238,9 +151,6 @@ struct HeaderView: View {
         .padding(.bottom, ODSSpacing.s)
         .onTapGesture {
             self.bottomSheetSize.wrappedValue = .small
-        }
-        .readSize { size in
-            BottomSheetSizesManager.shared.headerHeight = size.height
         }
     }
 }

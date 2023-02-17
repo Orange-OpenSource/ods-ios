@@ -38,7 +38,7 @@ struct BottomSheetVariant: View {
 
     var body: some View {
         PageContent(model: model)
-            .navigationBarTitle("Coucou", displayMode: .inline)
+            .navigationBarTitle("Recipes", displayMode: .inline)
             .modifier(BottomSheetModifier(model: model))
     }
 }
@@ -59,16 +59,16 @@ fileprivate struct BottomSheetModifier: ViewModifier {
     func body(content: Content) -> some View {
         if model.showSubtitle {
             content
-                .odsBottomSheet(title: "Title",
-                                 subtitle: model.subtitle,
-                                 bottomSheetSize: $model.bottomSheetSize) {
+                .odsBottomSheet(title: "Recipes",
+                                subtitle: model.showSubtitle ? "French products" : nil,
+                                bottomSheetSize: $model.bottomSheetSize) {
                      BottonSheetContent(model: model)
                          .background(Color(UIColor.systemBackground))
                  }
         } else {
             content
-                .odsBottomSheet(title: "Title",
-                                 icon: model.icon,
+                .odsBottomSheet(title: "Recipes",
+                                 icon: model.showIcon ? Image("Heart_19371") : nil,
                                  bottomSheetSize: $model.bottomSheetSize) {
                      BottonSheetContent(model: model)
                          .background(Color(UIColor.systemBackground))
