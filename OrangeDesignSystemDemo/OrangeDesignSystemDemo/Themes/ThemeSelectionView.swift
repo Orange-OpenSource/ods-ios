@@ -145,7 +145,7 @@ struct HotSwhitchIndicatorModifier: ViewModifier {
         content
             .alert("Warning", isPresented: $hotSwitchWarningIndicator.showAlert) {
             } message: {
-                Text("You need to restart application to see deseign with new theme").odsFont(.title2)
+                Text("You need to restart application to see design with new theme").odsFont(.title2)
             }
     }
 }
