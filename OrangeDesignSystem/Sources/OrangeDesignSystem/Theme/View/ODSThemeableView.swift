@@ -52,18 +52,18 @@ import SwiftUI
 ///
 
 public struct ODSThemeableView<Content>: View where Content: View {
-    
+
     // =======================
     // MARK: Stored Properties
     // =======================
 
     private let theme: ODSTheme
     private let content: () -> Content
-    
+
     // ==================
     // MARK: Initializers
     // ==================
-    
+
     /// Creates an instance with the theme to be applied.
     ///
     /// - Parameters:
@@ -76,7 +76,7 @@ public struct ODSThemeableView<Content>: View where Content: View {
         self.content = content
         self.navigationBarColors(for: theme)
     }
-    
+
     public var body: some View {
         content()
             .accentColor(theme.componentColors.accent)

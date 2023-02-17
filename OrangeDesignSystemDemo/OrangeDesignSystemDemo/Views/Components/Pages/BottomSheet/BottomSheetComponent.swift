@@ -74,79 +74,31 @@ private struct BottomSheetVariantHome: View {
     // ==========
     
     var body: some View {
-        VStack(spacing: ODSSpacing.m) {
-            Text("Customize the bottom sheet before opening sheet to see it.")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, ODSSpacing.m)
-            
-            BottomSheetVariantOptions(model: model)
-            
-            ODSButton(text: "See the component", emphasis: .highest, variableWidth: false) {
-                showBottomSheet = true
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.top, ODSSpacing.m)
-            
-            Spacer()
-            
-            NavigationLink(
-                destination: BottomSheetVariant(model: model),
-                isActive: $showBottomSheet,
-                label: { EmptyView() }
-            )
-        }
-        .padding(.vertical, ODSSpacing.m)
-    }
-}
-
-struct BottomSheetVariant: View {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    let model: BottomSheetVariantModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        ZStack {
-            pageContent()
-            
-            ODSBottomSheet(title: "Title",
-                           subtile: model.subtitle,
-                           icon: model.icon,
-                           detent: model.detent) {
-                buttonSheetContent()
-            }
-        }
-        .navigationBarTitle("Coucou", displayMode: .inline)
-    }
-    
-    private func pageContent() -> some View {
         ScrollView {
-            Text("""
-                 To open or close  the bottom sheet :\n
-                 Drag the handle up or down\n
-                 Scroll the content\n
-                 Tap the dimming area
-                """
-            )
-        }
-    }
-    
-    private func buttonSheetContent() -> some View {
-        List {
-            ForEach(model.exampleItemsModel, id: \.id) { itemModel in
-                ODSListStandardItem(model: itemModel)
-                    .padding(.horizontal, ODSSpacing.s)
-                    .listRowSeparator(Visibility.visible)
-                    .listRowInsets(EdgeInsets())
+            VStack(spacing: ODSSpacing.m) {
+                Text("Customize the bottom sheet before opening sheet to see it.")
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, ODSSpacing.m)
+                
+                BottomSheetVariantOptions(model: model)
+                
+                ODSButton(text: "See the component", emphasis: .highest, variableWidth: false) {
+                    showBottomSheet = true
+                }
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
+                
+                Spacer()
+                
+                NavigationLink(
+                    destination: BottomSheetVariant(model: model),
+                    isActive: $showBottomSheet,
+                    label: { EmptyView() }
+                )
             }
+            .padding(.vertical, ODSSpacing.m)
         }
-        .listStyle(.plain)
-
     }
 }

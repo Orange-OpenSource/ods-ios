@@ -21,73 +21,188 @@
 //
 //
 
+import BottomSheet
 import SwiftUI
 
-public enum ODSBottomSheetSize: Double, CaseIterable {
-    case small = 20
-    case medium = 150
-    case large = 540
+// swiftlint:disable multiline_parameters_brackets vertical_parameter_alignment
+
+extension View {
+    public func odsBottomSheet<Content: View> (
+        title: String,
+        subtitle: String? = nil,
+        bottomSheetSize: Binding<ODSBottomSheetSize>,
+        @ViewBuilder content: @escaping () -> Content) -> some View {
+            self.modifier(ODSBottomSheetModifier(
+                title: title,
+                subtile: subtitle,
+                icon: nil,
+                bottomSheetSize: bottomSheetSize,
+                content: content))
+        }
+
+    public func odsBottomSheet<Content: View> (
+        title: String,
+        icon: Image? = nil,
+        bottomSheetSize: Binding<ODSBottomSheetSize>,
+        @ViewBuilder content: @escaping () -> Content) -> some View {
+            self.modifier(ODSBottomSheetModifier(
+                title: title,
+                subtile: nil,
+                icon: icon,
+                bottomSheetSize: bottomSheetSize,
+                content: content))
+        }
 }
 
-// MARK: Button sheet with header and content
-public struct ODSBottomSheet<ContentView>: View where ContentView: View {
+private struct ODSBottomSheetModifier<ContentView>: ViewModifier where ContentView: View {
 
-    private let contentView: () -> ContentView
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     private let title: String
     private let subtitle: String?
     private let icon: Image?
-    @State private var currentSize: ODSBottomSheetSize
-    @State var headerHeight: CGFloat = 44
+    private let bottomSheetContent: () -> ContentView
+    private var bottomSheetSize: Binding<ODSBottomSheetSize>
+    @Environment(\.theme) private var theme
+    @ObservedObject var sizeReader = BottomSheetSizesManager.shared
 
-    public init(title: String,
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(title: String,
                 subtile: String? = nil,
                 icon: Image? = nil,
-                detent: ODSBottomSheetSize = .large,
-                @ViewBuilder contentView: @escaping () -> ContentView) {
+                bottomSheetSize: Binding<ODSBottomSheetSize>,
+                @ViewBuilder content: @escaping () -> ContentView) {
         self.title = title
         self.subtitle = subtile
         self.icon = icon
-        self.contentView = contentView
-        self.currentSize = detent
+        self.bottomSheetContent = content
+        self.bottomSheetSize = bottomSheetSize
     }
 
-    func spacerHeight(globalHeight: CGFloat) -> CGFloat {
-        switch currentSize {
-        case .small:
-            return globalHeight - headerHeight
-        case .medium:
-            return globalHeight/2
-        case .large:
-            return 10
-        }
-    }
-    
-    public var body: some View {
+    // ==========
+    // MARK: Body
+    // ==========
+
+    func body(content: Content) -> some View {
         GeometryReader { reader in
-            VStack(spacing: ODSSpacing.none) {
-                Spacer()
-                    .frame(height: spacerHeight(globalHeight: reader.size.height))
-
-                VStack(spacing: ODSSpacing.none) {
-                    ODSBottomSheetHeader(title: title,
-                                         subtitle: subtitle,
-                                         icon: icon,
-                                         sheetSize: $currentSize)
-                    .readSize { size in
-                        print("size: \(size.height)")
-                        headerHeight = size.height
-                    }
-
-                    contentView()
-                }
-                .background(Color(UIColor.systemBackground))
-            }
-
+            content
+                .bottomSheet(
+                    bottomSheetPosition: bottomSheetSize,
+                    options: [.noBottomPosition,
+                              .cornerRadius(10),
+                              .shadow(),
+                              .noDragIndicator,
+                              .absolutePositionValue,
+                              .background(AnyView(theme.componentColors.bottomSheetHeaderBackground))
+                    ],
+                    headerContent: {
+                        HeaderView(title: title, subtitle: subtitle, icon: icon, bottomSheetSize: bottomSheetSize)
+                            .background(.red)
+                            .readSize { size in
+                                sizeReader.contentViewHeight = reader.size.height
+                                sizeReader.headerHeight = size.height + 16
+                            }
+                    },
+                    mainContent: bottomSheetContent)
         }
     }
 }
 
-struct ODSBottomSheetHeader: View {
+fileprivate class BottomSheetSizesManager: ObservableObject {
+    static let shared: BottomSheetSizesManager = BottomSheetSizesManager()
+    
+    @Published var headerHeight: CGFloat
+    @Published var contentViewHeight: CGFloat
+
+    private init() {
+        self.headerHeight = 0.0
+        self.contentViewHeight = 0.0
+    }
+}
+
+public enum ODSBottomSheetSize: CGFloat, CaseIterable {
+    ///The state where the BottomSheet is hidden
+    case hidden
+    ///The state where the height of the BottomSheet is 12.5% and the `mainContent` is hidden
+    case small = 0.125
+    ///The state where the height of the BottomSheet is 40%
+    case medium = 0.4
+    ///The state where the height of the BottomSheet is 97.5%
+    case large = 0.975
+
+    static public var allCases: [ODSBottomSheetSize] = [.hidden, .small, .medium, .large]
+    
+    public var rawValue: Self.RawValue {
+        switch self {
+        case .hidden:
+            return 0
+        case .small:
+            print("small: \(BottomSheetSizesManager.shared.headerHeight)")
+            return BottomSheetSizesManager.shared.headerHeight
+        case .medium:
+            print("medium: \(BottomSheetSizesManager.shared.contentViewHeight / 2)")
+            return BottomSheetSizesManager.shared.contentViewHeight / 2
+        case .large:
+            print("large: \(BottomSheetSizesManager.shared.contentViewHeight - BottomSheetSizesManager.shared.headerHeight - 10)")
+            return BottomSheetSizesManager.shared.contentViewHeight - BottomSheetSizesManager.shared.headerHeight - 10
+        }
+    }
+}
+//
+//// MARK: Button sheet with header and content
+//
+//public struct ODSBottomSheet<ContentView>: View where ContentView: View {
+//
+//    // =======================
+//    // MARK: Stored Properties
+//    // =======================
+//
+//    private let title: String
+//    private let subtitle: String?
+//    private let icon: Image?
+//    private let mainContent: () -> ContentView
+//
+//    private var bottomSheetSize: Binding<ODSBottomSheetSize>
+//    @Environment(\.theme) private var theme
+//
+//    // =================
+//    // MARK: Initializer
+//    // =================
+//
+//    public init(title: String,
+//                subtile: String? = nil,
+//                icon: Image? = nil,
+//                bottomSheetSize: Binding<ODSBottomSheetSize>,
+//                @ViewBuilder content: @escaping () -> ContentView) {
+//        self.title = title
+//        self.subtitle = subtile
+//        self.icon = icon
+//        self.mainContent = content
+//        self.bottomSheetSize = bottomSheetSize
+//    }
+//
+//    public var body: some View {
+//        EmptyView()
+//            .bottomSheet(
+//                bottomSheetPosition: bottomSheetSize,
+//                options: [BottomSheet.Options.noBottomPosition,
+//                          .cornerRadius(10),
+//                          .shadow(),
+//                          .background(AnyView(theme.componentColors.bottomSheetHeaderBackground))
+//                ],
+//                headerContent: {
+//                    HeaderView(title: title, subtitle: subtitle, icon: icon, bottomSheetSize: bottomSheetSize)
+//                },
+//                mainContent: mainContent)
+//    }
+//}
+
+struct HeaderView: View {
 
     // =======================
     // MARK: Stored Properties
@@ -96,75 +211,54 @@ struct ODSBottomSheetHeader: View {
     let title: String
     let subtitle: String?
     let icon: Image?
-    @Binding var sheetSize: ODSBottomSheetSize
+    var bottomSheetSize: Binding<ODSBottomSheetSize>
 
-    // ==================
-    // MARK: Initializers
-    // ==================
+    // =================
+    // MARK: Initializer
+    // =================
 
     var body: some View {
-        ZStack(alignment: .top) {
-            HStack(alignment: .center, spacing: ODSSpacing.xs) {
-                icon?
-                    .resizable()
-                    .frame(width: 20.0, height: 20.0)
+        HStack(alignment: .center, spacing: ODSSpacing.xs) {
+            icon?
+                .resizable()
+                .frame(width: 20.0, height: 20.0)
 
-                VStack(alignment: .leading) {
-                    Text(title)
-                        .odsFont(.headline)
+            VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                Text(title)
+                    .odsFont(.headline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                if let subtitle = self.subtitle {
+                    Text(subtitle)
+                        .odsFont(.subhead)
                         .frame(maxWidth: .infinity, alignment: .leading)
-
-                    if let subtitle = self.subtitle {
-                        Text(subtitle)
-                            .odsFont(.subhead)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
                 }
             }
-            .padding(.all, ODSSpacing.m)
-
-            RoundedRectangle(cornerRadius: 4)
-                .frame(width: 55, height: 4, alignment: .top)
-                .padding(.top, ODSSpacing.s)
         }
-        .background(Color(UIColor.systemGray6))
-        .clipped()
-        .padding(.bottom, 10)
-        .cornerRadius(10)
-        .padding(.bottom, -10)
-        .shadow(radius: 3, y: -3)
+        .padding(.bottom, ODSSpacing.s)
         .onTapGesture {
-            switch sheetSize {
-            case .small:
-                sheetSize = .large
-            case .medium, .large:
-                sheetSize = .small
-            }
+            self.bottomSheetSize.wrappedValue = .small
         }
-        .onLongPressGesture {
-            sheetSize = .medium
+        .readSize { size in
+            BottomSheetSizesManager.shared.headerHeight = size.height
         }
     }
 }
-
 
 #if DEBUG
-struct ODSBottomSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        ODSBottomSheet(title: "Title",
-                       subtile: "Subtitle",
-                       icon: Image(systemName:  "heart")) {
-            ScrollView {
-                Text("Hello world!")
-            }
-            .background(Color(UIColor.systemBackground))
-        }
-    }
-}
-
-//struct ODSBottomSheetHeader_Previews: PreviewProvider {
+//struct ODSBottomSheet_Previews: PreviewProvider {
+//
 //    static var previews: some View {
-//        ODSBottomSheetHeader(title: "Title", subtitle: "Subtitle")
+//        ScrollView {
+//            Text("Hello World!")
+//                .odsBottomSheet(title: "Title", bottomSheetSize: ODSBottomSheetSize.large) {
+//                    ScrollView {
+//                        Text("This is the bottom sheet content")
+//                    }
+//                }
+//        }
+//
 //    }
 //}
+//
 #endif
