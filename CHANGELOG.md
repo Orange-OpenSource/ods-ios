@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unrelase](https://github.com/Orange-OpenSource/ods-ios/compare/0.10.0...qualif)
 
+- [DemoApp/SDK] Fix mistake in wording and documentation ([#364](https://github.com/Orange-OpenSource/ods-ios/issues/364))
 - [DemoApp/SDK] Add parameter in CardHorizontal configuration to show/hide divider above buttons ([#362](https://github.com/Orange-OpenSource/ods-ios/issues/362)) 
 - [DemoApp/SDK] Cards rename cards labels and components ([#360](https://github.com/Orange-OpenSource/ods-ios/issues/360)) 
 - [DemoApp] Use B&W Assets from InnovationCup Theme ([#317](https://github.com/Orange-OpenSource/ods-ios/issues/317))
@@ -49,7 +50,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
  
 ## [0.8.0] - 2022-11-30
 
-- [DemoApp/SDK] Fix mistake in wording and documentation ([#364](https://github.com/Orange-OpenSource/ods-ios/issues/364))
 - [SDK] Add NOTICE.txt file for Orange Images usage ([#295](https://github.com/Orange-OpenSource/ods-ios/issues/295))
 - [DemoApp] Update the Bar Tab variant list selection ([#260](https://github.com/Orange-OpenSource/ods-ios/issues/260))
 - [SDK] [Accessibility] Do not vocalize images in ODSSmallCard, ODSCardTitleFirst and ODSCardImageFirst (Bugs [#276](https://github.com/Orange-OpenSource/ods-ios/issues/276), [#275](https://github.com/Orange-OpenSource/ods-ios/issues/275), [#279](https://github.com/Orange-OpenSource/ods-ios/issues/279))
