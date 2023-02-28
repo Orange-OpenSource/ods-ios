@@ -36,4 +36,3 @@ struct ods_ios_swiftUI_demoApp: App {
         }
     }
 }
-

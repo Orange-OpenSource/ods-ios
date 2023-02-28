@@ -59,6 +59,7 @@ struct ComponentPage: View {
         .padding(.bottom, ODSSpacing.m)
         .navigationTitle(component.title)
         .navigationViewStyle(.stack)
+        .navigationbarMenuForThemeSelection()
     }
 }
 
@@ -81,20 +82,30 @@ struct VariantsTitle: View {
 }
 
 struct VariantEntryItem<VariantPage>: View where VariantPage: View {
-    let itemModel: ODSListItemModel
-    let variantPage: () -> VariantPage
+
+    private let itemModel: ODSListStandardItemModel
+    private let variantPage: () -> VariantPage
+    private let showThemeSelectionInNavigationBar: Bool
     
     var body: some View {
         NavigationLink(itemModel) {
-            variantPage()
+            if showThemeSelectionInNavigationBar {
+                variantPage().navigationbarMenuForThemeSelection()
+            } else {
+                variantPage()
+            }
         }
     }
     
-    init(text: String, technicalElement: String, variantPage: @escaping () -> VariantPage) {
-        let playIcon = ODSListItemLeadingIconModel.withImage(Image(systemName: "play.circle"))
-        self.itemModel = ODSListItemModel(title: text,
-                                          subtitle: technicalElement,
-                                          leadingIconModel: playIcon)
+    init(text: String, technicalElement: String,
+         showThemeSelectionInNavigationBar: Bool = true,
+         @ViewBuilder variantPage: @escaping () -> VariantPage) {
+        
+        self.showThemeSelectionInNavigationBar = showThemeSelectionInNavigationBar
+        let playIcon = ODSListItemLeadingIcon.icon(Image(systemName: "play.circle"))
+        self.itemModel = ODSListStandardItemModel(title: text,
+                                                  subtitle: technicalElement,
+                                                  leadingIcon: playIcon)
         self.variantPage = variantPage
     }
 }

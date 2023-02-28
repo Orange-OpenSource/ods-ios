@@ -42,6 +42,7 @@ class SmallCardVariantModel: ObservableObject {
 
 struct SmallCardVariant: View {
     @ObservedObject var model: SmallCardVariantModel
+    @State private var showAlert: Bool = false
     
     let columns = [
         GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
@@ -54,11 +55,17 @@ struct SmallCardVariant: View {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
                     ForEach(model.smallCardModels) { model in
                         ODSSmallCard(model: model)
+                            .onTapGesture {
+                                showAlert = true
+                            }
                     }
                 }
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.top, ODSSpacing.m)
+            .alert("Card container clicked", isPresented: $showAlert) {
+                Button("close", role: .cancel) {}
+            }
             
             BottomSheet {
                 SmallCardBottomSheetContent()

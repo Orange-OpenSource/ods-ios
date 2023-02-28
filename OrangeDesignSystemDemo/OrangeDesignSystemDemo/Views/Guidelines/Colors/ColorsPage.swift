@@ -83,12 +83,15 @@ struct ColorList: View {
             }
             .background(Color(backGroundColor))
         }
+        .navigationbarMenuForThemeSelection()
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: ColorUsage()) {
+                NavigationLink(destination: {
+                    ColorUsage()
+                } ) {
                     Text("Usage")
                 }
-                .foregroundColor(theme.componentColors.accent)
+                .foregroundColor(theme.componentColors.navigationBarForeground)
             }
         }
         .navigationTitle("Palette")

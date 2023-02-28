@@ -29,8 +29,6 @@ struct GuidelinesList: View {
     // ======================
     // MARK: Store properties
     // ======================
-
-    @Environment(\.theme) private var theme
     
     private var items: [ODSListOfCardImageFirstItemModel] {
         [
@@ -57,6 +55,7 @@ struct GuidelinesList: View {
             ODSListOfCardImageFirst(title: "Guidelines", itemModels: items)
                 .navigationTitle("Guidelines")
                 .navigationViewStyle(.stack)
+                .navigationbarMenuForThemeSelection()
         }
     }
 }

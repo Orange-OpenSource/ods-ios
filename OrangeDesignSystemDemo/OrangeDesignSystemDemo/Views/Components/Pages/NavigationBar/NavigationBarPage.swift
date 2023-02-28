@@ -42,7 +42,9 @@ struct NavigationBarComponent: Component {
 struct NavigationBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(text: "Bar nav - demo", technicalElement: "NavigationView") {
+        VariantEntryItem(text: "Bar nav - demo",
+                         technicalElement: "NavigationView",
+                         showThemeSelectionInNavigationBar: false) {
             NavigationBarVariant(model: NavigationBarBottomSheetModel())
         }
     }
@@ -89,8 +91,14 @@ struct ActionIconsModifier: ViewModifier {
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     if model.actionIconCount > 0 {
-                        ForEach(model.availableActions, id: \.iconName) { action in
-                            ActionButton(action: action)
+                        ForEach(model.availableActions.reversed(), id: \.id) { action in
+                            switch action {
+                            case .showThemeSelection:
+                                ThemeSelectionButton()
+                                
+                            case .showAlert(let iconName, let actionText):
+                                ActionButton(iconName: iconName, actionText: actionText)
+                            }
                         }
                     }
                 }
@@ -104,18 +112,23 @@ struct ActionButton: View {
     // MARK: Store properties
     // ======================
 
-    @State private var showAction = false
-    let action: NavigationBarBottomSheetModel.Action
+    @State private var showAlert = false
+    @Environment(\.theme) private var theme
+    let iconName: String
+    let actionText: String
     
     // ===========
     // MARK: Body
     // ===========
 
     var body: some View {
-        ODSIconButton(image: Image(systemName:action.iconName)) {
-            showAction = true
+        Button {
+            showAlert = true
+        } label: {
+            Image(systemName: iconName)
         }
-        .alert(action.actionText, isPresented: $showAction) {
+        .foregroundColor(theme.componentColors.navigationBarForeground)
+        .alert(actionText, isPresented: $showAlert) {
             Button("close", role: .cancel) {}
         }
     }
@@ -184,7 +197,7 @@ struct ListExample: View {
     var body: some View {
         List {
             ForEach(model.filteredListItems, id: \.self) { item in
-                ODSListItem(model: ODSListItemModel(title: item))
+                ODSListStandardItem(model: ODSListStandardItemModel(title: item))
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(Visibility.visible)

@@ -25,10 +25,10 @@ import SwiftUI
 
 /// Model used to configure the `ODSCardImageFirst` card.
 public struct ODSCardImageFirstModel: Identifiable {
-    public let title: String
-    public let subtitle: String?
-    public let image: Image
-    public let supportingText: String?
+    let title: String
+    let subtitle: String?
+    let image: Image
+    let supportingText: String?
 
     /// Initialization
     ///
@@ -38,7 +38,10 @@ public struct ODSCardImageFirstModel: Identifiable {
     ///  - image: The image to be displayed in the card.
     ///  - supportingText: Optional text description to be displayed in the card.
     ///
-    public init(title: String, subtitle: String? = nil, image: Image, supportingText: String? = nil) {
+    public init(title: String,
+                subtitle: String? = nil,
+                image: Image,
+                supportingText: String? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.image = image
@@ -119,31 +122,32 @@ extension ODSCardImageFirst where ButtonContent1 == EmptyView, ButtonContent2 ==
 
 /// View implementation
 extension ODSCardImageFirst {
-    
+
     public var body: some View {
 
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
+            Group {
+                model.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .accessibilityHidden(true)
 
-            model.image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: ODSSpacing.xs) {
+                    Text(model.title)
+                        .odsFont(.bodyBold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-            VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                Text(model.title)
-                    .odsFont(.bodyBold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                if let subtitle = model.subtitle, !subtitle.isEmpty {
-                    Text(subtitle)
+                    if let subtitle = model.subtitle, !subtitle.isEmpty {
+                        Text(subtitle)
+                    }
+                    if let supportingText = model.supportingText, !supportingText.isEmpty {
+                        Text(supportingText)
+                    }
                 }
-                if let supportingText = model.supportingText, !supportingText.isEmpty {
-                    Text(supportingText)
-                }
+                .foregroundColor(.primary)
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
             }
-            .foregroundColor(.primary)
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.top, ODSSpacing.m)
 
             // Add padding on buttons to avoid to have extra padding on
             // HStack even if there are no view on buttons.

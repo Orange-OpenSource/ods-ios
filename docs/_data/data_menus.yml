@@ -22,6 +22,8 @@ toc2:
         url: components/navigationBar_docs
       - page: Bars - tab
         url: components/tabBar_docs
+      - page: Bars - tool
+        url: components/toolBar_docs
       - page: Buttons
         url: components/buttons_docs
       - page: Cards
