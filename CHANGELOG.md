@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unrelase](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...qualif)
+
+- [DemoApp] Update About module illustrations with B&W images ([#371](https://github.com/Orange-OpenSource/ods-ios/issues/371))
+
 ## [0.11.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...0.10.0) - 2023-02-28
 
 - [DemoApp/SDK] Fix mistake in wording and documentation ([#364](https://github.com/Orange-OpenSource/ods-ios/issues/364))
