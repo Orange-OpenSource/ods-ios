@@ -25,12 +25,22 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentPage: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     let component: Component
+    @EnvironmentObject private var themeProvider: ThemeProvider
     
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         List {
             VStack {
-                component.image
+                themeProvider.imageFromResources(component.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
@@ -56,7 +66,6 @@ struct ComponentPage: View {
         .listStyle(.plain)
         .padding(.top, ODSSpacing.none)
         .padding(.horizontal, ODSSpacing.none)
-        .padding(.bottom, ODSSpacing.m)
         .navigationTitle(component.title)
         .navigationViewStyle(.stack)
         .navigationbarMenuForThemeSelection()
@@ -114,13 +123,13 @@ struct VariantEntryItem<VariantPage>: View where VariantPage: View {
 struct ComponentPage_Previews: PreviewProvider {
     struct TestComponent: Component {
         let title: String
-        let image: Image
+        let imageName: String
         let description: String
         let variants: AnyView
         
         init() {
             title = "Test"
-            image = Image("Cards_1")
+            imageName = "Cards_1"
             description = "This is a long text to illustrate the description area"
             
             variants = AnyView(Variants())

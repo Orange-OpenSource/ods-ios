@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-5 {
+        fill: #333;
+      }
+
+      .cls-6 {
+        fill: #1b1b1b;
+      }
+
+      .cls-2 {
+        stroke: #949494;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-linecap: round;
+      }
+
+      .cls-3 {
+        stroke: #1b1b1b;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-7 {
+        fill: #fff;
+        opacity: .6;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect id="Overlay" class="cls-1" x="-432.2" width="400" height="200"/>
+    </clipPath>
+  </defs>
+  <rect class="cls-6" width="400" height="200"/>
+  <g class="cls-4">
+    <rect id="Boundary" class="cls-1" x="66.25" y="81.23" width="37.54" height="37.54"/>
+    <path id="_Color" data-name=" Color" class="cls-7" d="m85.02,111.73c-3.76,0-7.43-1.14-10.52-3.29-3.02-2.09-5.34-5.03-6.69-8.45,3.73-9.5,14.46-14.18,23.97-10.45,4.78,1.88,8.57,5.67,10.45,10.45-1.34,3.42-3.67,6.36-6.68,8.45-3.09,2.15-6.76,3.29-10.52,3.29Zm0-19.55c-4.32,0-7.82,3.5-7.82,7.82s3.5,7.82,7.82,7.82,7.82-3.5,7.82-7.82c0-4.32-3.5-7.82-7.82-7.82Zm0,12.51c-2.59,0-4.69-2.1-4.69-4.69s2.1-4.69,4.69-4.69,4.69,2.1,4.69,4.69-2.1,4.69-4.69,4.69Z"/>
+  </g>
+  <g>
+    <rect class="cls-5" x="32" y="60" width="336" height="80"/>
+    <g>
+      <line class="cls-2" x1="47.85" y1="91.5" x2="70.85" y2="91.5"/>
+      <line class="cls-2" x1="59.35" y1="80" x2="59.35" y2="103"/>
+    </g>
+    <g>
+      <rect class="cls-2" x="333.42" y="85.33" width="18.18" height="16.67" rx="1.6" ry="1.6"/>
+      <rect class="cls-5" x="339.48" y="83.82" width="6.06" height="6.06"/>
+      <g>
+        <polyline class="cls-2" points="338.65 80.86 342.51 77 342.51 93.34"/>
+        <line class="cls-2" x1="346.37" y1="80.86" x2="342.51" y2="77"/>
+      </g>
+    </g>
+    <line class="cls-3" x1="141" y1="131.21" x2="259" y2="131.21"/>
+  </g>
+</svg>

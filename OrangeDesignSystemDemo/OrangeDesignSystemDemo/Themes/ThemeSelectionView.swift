@@ -68,6 +68,12 @@ class ThemeProvider: ObservableObject {
         
         self.hotSwitchWarningIndicator = HotSwitchWarningIndicator()
     }
+    
+    func imageFromResources(_ name: String) -> Image {
+        let isOrangeTheme = currentTheme.name == OrangeThemeFactory.themeName
+        let imageName = isOrangeTheme ? name : "\(name)_generic"
+        return Image(imageName)
+    }
 }
 
 extension View {
@@ -139,7 +145,7 @@ struct HotSwhitchIndicatorModifier: ViewModifier {
         content
             .alert("Warning", isPresented: $hotSwitchWarningIndicator.showAlert) {
             } message: {
-                Text("You need to restart application to see deseign with new theme").odsFont(.title2)
+                Text("You need to restart application to see design with new theme").odsFont(.title2)
             }
     }
 }

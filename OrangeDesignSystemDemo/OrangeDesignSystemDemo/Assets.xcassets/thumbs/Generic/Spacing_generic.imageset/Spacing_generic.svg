@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-8 {
+        fill: #ccc;
+      }
+
+      .cls-9 {
+        fill: #1b1b1b;
+      }
+
+      .cls-10 {
+        fill: #595959;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 2px;
+      }
+
+      .cls-2, .cls-5 {
+        stroke-linejoin: round;
+      }
+
+      .cls-2, .cls-11 {
+        stroke: #595959;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        stroke: #9a9a9a;
+      }
+
+      .cls-3, .cls-4, .cls-11 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 0 2;
+      }
+
+      .cls-12 {
+        opacity: .5;
+      }
+
+      .cls-12, .cls-11 {
+        fill: #9a9a9a;
+      }
+
+      .cls-5 {
+        stroke-dasharray: 0 0 2 4;
+        stroke-linecap: square;
+      }
+
+      .cls-11 {
+        opacity: 0;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect id="Overlay-2" data-name="Overlay" class="cls-1" x="0" width="400" height="200"/>
+    </clipPath>
+  </defs>
+  <rect id="Overlay" class="cls-9" width="400" height="200"/>
+  <g class="cls-6">
+    <g>
+      <rect class="cls-7" x="16" y="16" width="368" height="184"/>
+      <rect class="cls-5" x="192" y="32" width="160" height="72"/>
+      <rect class="cls-8" x="32" y="48" width="128" height="40"/>
+      <rect class="cls-12" x="32" y="48" width="16" height="40"/>
+      <g>
+        <rect class="cls-11" x="48" y="60" width="16" height="16"/>
+        <g>
+          <line class="cls-2" x1="51.07" y1="68" x2="60.93" y2="68"/>
+          <line class="cls-2" x1="56" y1="63.07" x2="56" y2="72.93"/>
+        </g>
+      </g>
+      <rect class="cls-12" x="64" y="48" width="16" height="40"/>
+      <rect class="cls-12" x="144" y="48" width="16" height="40"/>
+      <rect class="cls-10" x="80" y="62" width="64" height="12"/>
+      <polygon class="cls-8" points="368 335.78 32.49 335.78 32 111.93 367.51 111.93 368 335.78"/>
+      <rect class="cls-10" x="48" y="127.93" width="80" height="12"/>
+      <rect class="cls-10" x="48.59" y="155.93" width="303.13" height="8"/>
+      <rect class="cls-10" x="48.87" y="179.93" width="303.13" height="8"/>
+      <rect class="cls-8" x="208" y="48" width="128" height="40"/>
+      <rect class="cls-12" x="220" y="56" width="24" height="24"/>
+      <rect class="cls-10" x="256" y="62" width="64" height="12"/>
+      <line class="cls-3" x1="344" y1="68" x2="200" y2="68"/>
+      <line class="cls-3" x1="32.3" y1="247.95" x2="32" y2="-70.51"/>
+      <line class="cls-3" x1="16.15" y1="247.95" x2="15.85" y2="-70.51"/>
+      <line class="cls-3" x1="368.15" y1="247.95" x2="367.85" y2="-70.51"/>
+      <line class="cls-3" x1="-9.62" y1="16.3" x2="409.62" y2="16"/>
+      <line class="cls-3" x1="-9.62" y1="48" x2="409.62" y2="47.7"/>
+      <line class="cls-3" x1="384.15" y1="247.95" x2="383.85" y2="-70.51"/>
+      <g>
+        <line class="cls-4" x1="104" y1="87.93" x2="128" y2="87.93"/>
+        <line class="cls-4" x1="104" y1="111.93" x2="128" y2="111.93"/>
+        <line class="cls-3" x1="116" y1="88.14" x2="116" y2="111.93"/>
+      </g>
+      <g>
+        <line class="cls-2" x1="227.07" y1="68" x2="236.93" y2="68"/>
+        <line class="cls-2" x1="232" y1="63.07" x2="232" y2="72.93"/>
+      </g>
+    </g>
+  </g>
+</svg>

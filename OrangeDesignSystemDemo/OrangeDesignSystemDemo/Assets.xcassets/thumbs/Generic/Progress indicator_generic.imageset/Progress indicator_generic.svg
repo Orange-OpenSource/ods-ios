@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: SFPro-Regular, 'SF Pro';
+        font-size: 13.91px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 400;
+      }
+
+      .cls-3 {
+        fill: #333;
+      }
+
+      .cls-4 {
+        fill: #1e1e1e;
+      }
+
+      .cls-5 {
+        fill: #1b1b1b;
+      }
+
+      .cls-6 {
+        fill: #949494;
+      }
+
+      .cls-7 {
+        letter-spacing: .12em;
+      }
+
+      .cls-8 {
+        fill: #252525;
+        opacity: .78;
+      }
+    </style>
+  </defs>
+  <rect id="Overlay" class="cls-5" width="400" height="200"/>
+  <g>
+    <g>
+      <rect id="On_Surface" data-name="On Surface" class="cls-3" x="32.4" y="109.58" width="335.2" height="50.7"/>
+      <rect id="Indicator" class="cls-6" x="32.4" y="109.58" width="225.66" height="1.86"/>
+      <text class="cls-2" transform="translate(164.34 133.3)"><tspan class="cls-7" x="0" y="0">Sending..</tspan><tspan class="cls-1" x="69.01" y="0">.</tspan></text>
+    </g>
+    <g>
+      <g id="Dark_Tabs_ΩElements_Container" data-name="Dark Tabs ΩElements Container">
+        <g id="Dark_Elevation_00dp_9_States_" data-name="Dark Elevation 00dp 9 States ">
+          <g id="Shadow">
+            <rect id="Rectangle-4" class="cls-4" x="32.4" y="39.71" width="335.2" height="44.69"/>
+            <rect id="Rectangle-5" class="cls-4" x="32.4" y="39.71" width="335.2" height="44.69"/>
+            <rect id="Rectangle-6" class="cls-4" x="32.4" y="39.71" width="335.2" height="44.69"/>
+          </g>
+          <rect id="Rectangle-7" class="cls-4" x="32.4" y="39.71" width="335.2" height="44.69"/>
+          <rect id="On_Surface-2" data-name="On Surface" class="cls-3" x="32.4" y="39.71" width="335.2" height="44.69"/>
+        </g>
+      </g>
+      <rect id="Indicator-2" data-name="Indicator" class="cls-8" x="47.87" y="61.13" width="304.27" height="1.86" rx=".93" ry=".93"/>
+      <path id="Indicator-3" data-name="Indicator" class="cls-6" d="m48.8,61.13h224.73v1.86H48.8c-.51,0-.93-.42-.93-.93h0c0-.51.42-.93.93-.93Z"/>
+    </g>
+  </g>
+</svg>

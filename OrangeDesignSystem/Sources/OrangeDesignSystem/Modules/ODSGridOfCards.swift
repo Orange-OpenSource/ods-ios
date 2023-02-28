@@ -29,13 +29,13 @@ import SwiftUI
 ///
 public struct ODSGridOfCards: View {
 
-    public let cardModels: [ODSSmallCardModel]
+    public let cardModels: [ODSCardSmallModel]
 
     let columns = [
         GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
     ]
 
-    public init(cardModels: [ODSSmallCardModel]) {
+    public init(cardModels: [ODSCardSmallModel]) {
         self.cardModels = cardModels
     }
 
@@ -44,10 +44,10 @@ public struct ODSGridOfCards: View {
             ForEach(cardModels) { cardModel in
                 if let destination = cardModel.destination {
                     NavigationLink(destination: destination) {
-                        ODSSmallCard(model: cardModel)
+                        ODSCardSmall(model: cardModel)
                     }
                 } else {
-                    ODSSmallCard(model: cardModel)
+                    ODSCardSmall(model: cardModel)
                 }
             }
         }
@@ -63,12 +63,12 @@ struct ODSGridOfCards_Previews: PreviewProvider {
     ]
 
     static let cardsModels = [
-        ODSSmallCardModel(title: "1 Title", image: Image("ods_empty", bundle: Bundle.ods)) {
+        ODSCardSmallModel(title: "1 Title", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
             Text("This card has a destination view")
         },
-        ODSSmallCardModel(title: "2 Title", subtitle: "2 Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-        ODSSmallCardModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", image: Image("ods_empty", bundle: Bundle.ods)),
-        ODSSmallCardModel(title: "4 A long long Title", image: Image("ods_empty", bundle: Bundle.ods)),
+        ODSCardSmallModel(title: "2 Title", subtitle: "2 Subtitle", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
+        ODSCardSmallModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
+        ODSCardSmallModel(title: "4 A long long Title", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
     ]
 
     struct TestVeiw: View {
@@ -89,7 +89,7 @@ struct ODSGridOfCards_Previews: PreviewProvider {
                             .frame(width: .infinity, alignment: .leading)
                             .padding(.bottom, ODSSpacing.m)
 
-                        ODSSmallCard(model: ODSSmallCardModel(title: "Title 4", subtitle: "Subtitle 4", image: Image("ods_empty", bundle: Bundle.ods)))
+                        ODSCardSmall(model: ODSCardSmallModel(title: "Title 4", subtitle: "Subtitle 4", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))))
                     }
                     .padding(.horizontal, ODSSpacing.m)
                 }

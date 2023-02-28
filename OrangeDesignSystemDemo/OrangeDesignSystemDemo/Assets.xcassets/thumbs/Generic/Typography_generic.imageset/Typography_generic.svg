@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b1b1b;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: SFPro-Regular, 'SF Pro';
+        font-size: 65.11px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 400;
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        fill: #949494;
+        font-family: SFPro-Bold, 'SF Pro';
+        font-size: 63.7px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 700;
+        font-weight: 700;
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="400" height="200"/>
+  <text class="cls-2" transform="translate(35.07 160.32)"><tspan x="0" y="0">55 Aa</tspan></text>
+  <text class="cls-3" transform="translate(35.06 83.45)"><tspan x="0" y="0">75 Aa</tspan></text>
+</svg>

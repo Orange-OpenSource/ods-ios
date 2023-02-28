@@ -49,7 +49,7 @@ extension View {
     ///
     /// - Parameter items: The configuration containing items description.
     ///
-    /// - Returns: A tool bar with labeled items placed as decribed in deseign.
+    /// - Returns: A tool bar with labeled items placed as decribed in design.
     ///
     public func odsToolBar(items: ODSToolbarLabeledItems) -> some View {
         self.toolbar {
@@ -61,7 +61,7 @@ extension View {
     ///
     /// - Parameter items: The configuration containing items description.
     ///
-    /// - Returns: A tool bar with icon items placed as decribed in deseign.
+    /// - Returns: A tool bar with icon items placed as decribed in design.
     ///
     public func odsToolBar(items: ODSToolbarIconsItems) -> some View {
         self.toolbar {
