@@ -46,14 +46,9 @@ protocol ODSListItemModel {
 ///
 public enum ODSListItemLeadingIcon {
     case icon(Image)                    // A standard icon.
-    case circularImage(source: Source)  // An image cropped into a circle.
-    case squareImage(source: Source)    // An image cropped into a square.
-    case wideImage(source: Source)      // An image cropped into a rectangle.
-
-    public enum Source {
-        case image(Image)
-        case asyncImage(URL, Image)
-    }
+    case circularImage(source: ODSImage.Source)  // An image cropped into a circle.
+    case squareImage(source: ODSImage.Source)    // An image cropped into a square.
+    case wideImage(source: ODSImage.Source)      // An image cropped into a rectangle.
 }
 
 // ===============================

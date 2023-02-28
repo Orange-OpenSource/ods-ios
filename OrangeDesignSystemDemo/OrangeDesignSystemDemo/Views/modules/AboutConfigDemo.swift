@@ -28,7 +28,7 @@ public final class AboutConfigDemo: NSObject {
 
     public static let instance = AboutConfigDemo()
 
-    let applicationDescription = ApplicationDescription(applicationName: "My application", applicationVersion: "1.0")
+    let applicationInformation = ApplicationInformation(name: "My application", version: "1.0")
 
     override private init() {}
 
@@ -39,6 +39,6 @@ public final class AboutConfigDemo: NSObject {
             ODSAboutItem(text: "Web View", nextView: AnyView(Text("Error View")), safari: "https://system.design.orange.com/"),
         ]
 
-        applicationDescription.menuList = appMenu
+        applicationInformation.menuList = appMenu
     }
 }

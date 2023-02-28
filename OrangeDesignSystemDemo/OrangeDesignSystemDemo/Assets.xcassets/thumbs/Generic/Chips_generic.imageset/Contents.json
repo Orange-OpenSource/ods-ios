@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Chips_generic.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

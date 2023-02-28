@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #949494;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: SFPro-Regular, 'SF Pro';
+        font-size: 18px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 400;
+      }
+
+      .cls-2 {
+        fill: #999;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-7 {
+        fill: #333;
+      }
+
+      .cls-8 {
+        fill: #1b1b1b;
+      }
+
+      .cls-9 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-10 {
+        fill: #fff;
+        font-family: SFPro-Semibold, 'SF Pro';
+        font-size: 40px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 590;
+        font-weight: 600;
+      }
+
+      .cls-11 {
+        stroke: #949494;
+        stroke-width: 2px;
+      }
+
+      .cls-11, .cls-12 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-13 {
+        letter-spacing: 0em;
+      }
+
+      .cls-14 {
+        letter-spacing: 0em;
+      }
+
+      .cls-15 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-16 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-12 {
+        stroke: #999;
+        stroke-width: 1.5px;
+      }
+
+      .cls-17 {
+        letter-spacing: -.02em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-8" width="400" height="200"/>
+  <rect class="cls-7" x="25.6" y="147" width="356" height="37" rx="10.26" ry="10.26"/>
+  <text class="cls-10" transform="translate(23.41 129.06)"><tspan x="0" y="0">La</tspan><tspan class="cls-3" x="42.68" y="0">r</tspan><tspan x="55.61" y="0">ge </tspan><tspan class="cls-9" x="108.26" y="0">T</tspan><tspan x="131.11" y="0">itle</tspan></text>
+  <text class="cls-1" transform="translate(34.41 75.37)"><tspan class="cls-6" x="0" y="0">P</tspan><tspan class="cls-17" x="9.3" y="0">a</tspan><tspan class="cls-5" x="18.03" y="0">r</tspan><tspan class="cls-16" x="22.83" y="0">ent </tspan><tspan class="cls-4" x="49.42" y="0">T</tspan><tspan class="cls-17" x="59.14" y="0">itle</tspan></text>
+  <text class="cls-2" transform="translate(56.41 169.68)"><tspan class="cls-13" x="0" y="0">Sea</tspan><tspan class="cls-15" x="28.72" y="0">r</tspan><tspan class="cls-14" x="33.75" y="0">ch</tspan></text>
+  <g>
+    <line class="cls-11" x1="374.55" y1="60.5" x2="374.55" y2="77.5"/>
+    <line class="cls-11" x1="383.05" y1="69" x2="366.05" y2="69"/>
+  </g>
+  <g>
+    <circle class="cls-11" cx="313.1" cy="66.5" r="7.5"/>
+    <line class="cls-11" x1="325.05" y1="78.45" x2="318.6" y2="72"/>
+  </g>
+  <g>
+    <circle class="cls-12" cx="40.39" cy="163.79" r="5.79"/>
+    <line class="cls-12" x1="49.6" y1="173" x2="44.63" y2="168.03"/>
+  </g>
+  <polyline class="cls-11" points="27.88 59 17.26 69.62 28.03 80.38"/>
+</svg>

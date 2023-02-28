@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Typography_generic.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

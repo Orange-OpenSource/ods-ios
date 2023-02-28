@@ -29,7 +29,7 @@ public struct AboutView: View {
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var applicationDescription: ApplicationDescription
+    @EnvironmentObject var applicationInformation: ApplicationInformation
 
     // ==================
     // MARK: Initializers
@@ -45,15 +45,15 @@ public struct AboutView: View {
         List {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
 
-                applicationDescription.imageHeader
+                applicationInformation.imageHeader
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
 
-                ApplicationDescriptionView()
+                ApplicationInformationView()
                     .padding(.all, ODSSpacing.m)
+
             }
-            .listRowSeparator(.hidden)
             .listRowInsets(EdgeInsets())
 
             ODSAboutItemView()
@@ -112,16 +112,17 @@ public struct ODSAboutItem: Identifiable {
     }
 }
 
-public class ApplicationDescription: ObservableObject {
+public class ApplicationInformation: ObservableObject {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    public let applicationName: String
-    public let applicationVersion: String
-    public let applicationBuildNumber: String?
-    public let applicationBuildType: String?
+    public let name: String
+    public let version: String
+    public let buildNumber: String?
+    public let buildType: String?
+    public let description: String?
     public let copyrightNotice: String = "Orange property. All rights reserved"
     public let imageHeader: Image
 
@@ -135,11 +136,12 @@ public class ApplicationDescription: ObservableObject {
     // MARK: Initializers
     // ==================
 
-    public init(applicationName: String, applicationVersion: String, applicationBuildNumber: String? = nil, applicationBuildType: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.ods)) {
-        self.applicationName = applicationName
-        self.applicationVersion = applicationVersion
-        self.applicationBuildType = applicationBuildType
-        self.applicationBuildNumber = applicationBuildNumber
+    public init(name: String, version: String, buildNumber: String? = nil, buildType: String? = nil, description: String? = nil, imageHeader: Image = Image("img_about", bundle: Bundle.ods)) {
+        self.name = name
+        self.version = version
+        self.buildType = buildType
+        self.buildNumber = buildNumber
+        self.description = description
         self.imageHeader = imageHeader
     }
 }
@@ -151,7 +153,7 @@ public struct ODSAboutItemView: View {
     // =======================
 
     @State private var showSafari = false
-    @EnvironmentObject var applicationDescription: ApplicationDescription
+    @EnvironmentObject var applicationInformation: ApplicationInformation
 
     // ==================
     // MARK: Initializers
@@ -164,7 +166,7 @@ public struct ODSAboutItemView: View {
     // ==========
 
     public var body: some View {
-        ForEach(applicationDescription.menuList) { item in
+        ForEach(applicationInformation.menuList) { item in
 
             switch item.odsType {
             case .navigation:
@@ -214,13 +216,13 @@ public struct ODSAboutItemView: View {
     }
 }
 
-private struct ApplicationDescriptionView: View {
+private struct ApplicationInformationView: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject var applicationDescription: ApplicationDescription
+    @EnvironmentObject var applicationInformation: ApplicationInformation
 
     // ==========
     // MARK: Body
@@ -228,25 +230,38 @@ private struct ApplicationDescriptionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(applicationDescription.applicationName)
+            Text(applicationInformation.name)
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
 
-            Text("Version \(applicationDescription.applicationVersion)")
+            Text("Version \(longVersionText)")
                 .fixedSize(horizontal: false, vertical: true)
 
-            if let buildNumber = applicationDescription.applicationBuildNumber {
-                Text("Build \(buildNumber)")
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            if let buildType = applicationDescription.applicationBuildType {
+            if let buildType = applicationInformation.buildType {
                 Text(buildType)
                     .fixedSize(horizontal: false, vertical: true)
             }
 
-            Text(applicationDescription.copyrightNotice)
+            if let description = applicationInformation.description {
+                Text(description)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, ODSSpacing.m)
+            }
+
+            Text(applicationInformation.copyrightNotice)
                 .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    // =============
+    // MARK: Helpers
+    // =============
+
+    private var longVersionText: String {
+        if let buildNumber = applicationInformation.buildNumber {
+          return "\(applicationInformation.version) (\(buildNumber))"
+        } else {
+            return applicationInformation.version
         }
     }
 }
@@ -254,13 +269,13 @@ private struct ApplicationDescriptionView: View {
 #if DEBUG
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        let applicationDescription = ApplicationDescription(applicationName: "APP NAME", applicationVersion: "1.0.0", applicationBuildNumber: "123456789", applicationBuildType: "PREVIEW")
+        let description = ApplicationInformation(name: "APP NAME", version: "1.0.0", buildNumber: "123456789", buildType: "PREVIEW", description: "This is the demo application for test")
 
         ForEach(ColorScheme.allCases, id: \.self) {
 
             AboutView()
                 .preferredColorScheme($0)
-                .environmentObject(applicationDescription)
+                .environmentObject(description)
         }
     }
 }

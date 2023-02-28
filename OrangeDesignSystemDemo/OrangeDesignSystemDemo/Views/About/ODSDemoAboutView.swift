@@ -29,7 +29,7 @@ struct ODSDemoAboutView: View {
         ODSDemoAboutConfig.instance.configure()
         return NavigationView {
             AboutView()
-                .environmentObject(ODSDemoAboutConfig.instance.applicationDescription)
+                .environmentObject(ODSDemoAboutConfig.instance.applicationInformation)
                 .navigationbarMenuForThemeSelection()
         }
     }
