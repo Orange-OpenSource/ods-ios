@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.11.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...0.10.0) - 2023-02-28
 
+- [DemoApp/SDK] Fix mistake in wording and documentation ([#364](https://github.com/Orange-OpenSource/ods-ios/issues/364))
 - [DemoApp/SDK] Add parameter in CardHorizontal configuration to show/hide divider above buttons ([#362](https://github.com/Orange-OpenSource/ods-ios/issues/362)) 
 - [DemoApp/SDK] Cards rename cards labels and components ([#360](https://github.com/Orange-OpenSource/ods-ios/issues/360)) 
 - [DemoApp] Use B&W Assets from InnovationCup Theme ([#317](https://github.com/Orange-OpenSource/ods-ios/issues/317))
@@ -38,18 +39,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Update the Slider variant list selection ([#266](https://github.com/Orange-OpenSource/ods-ios/issues/266))
 - [DemoApp] Update default text in TextFields according to the selected capitalization ([#307](https://github.com/Orange-OpenSource/ods-ios/issues/307))
 
-## [0.9.0] - 2023-01-05
-
-- [DemoApp/SDK] #263 Refactor the lists variant list selection
-- [DemoApp] #304 Update Bar tab component illustration in landscape 
-- [Doc] #286 Use ODS Jekyll theme header to display favicons on documentation github pages
-- [DemoApp] #265 Update the Progress indicator variant list selection
-- [DemoApp] #266 Update the Slider variant list selection
-- [DemoApp] #307 Update default text in TextFields according to the selected capitalization
- 
 ## [0.8.0] - 2022-11-30
 
-- [DemoApp/SDK] Fix mistake in wording and documentation ([#364](https://github.com/Orange-OpenSource/ods-ios/issues/364))
 - [SDK] Add NOTICE.txt file for Orange Images usage ([#295](https://github.com/Orange-OpenSource/ods-ios/issues/295))
 - [DemoApp] Update the Bar Tab variant list selection ([#260](https://github.com/Orange-OpenSource/ods-ios/issues/260))
 - [SDK] [Accessibility] Do not vocalize images in ODSSmallCard, ODSCardTitleFirst and ODSCardImageFirst (Bugs [#276](https://github.com/Orange-OpenSource/ods-ios/issues/276), [#275](https://github.com/Orange-OpenSource/ods-ios/issues/275), [#279](https://github.com/Orange-OpenSource/ods-ios/issues/279))
