@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unrelase](https://github.com/Orange-OpenSource/ods-ios/compare/0.10.0...qualif)
+## [0.11.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...0.10.0) - 2023-02-28
 
 - [DemoApp/SDK] Add parameter in CardHorizontal configuration to show/hide divider above buttons ([#362](https://github.com/Orange-OpenSource/ods-ios/issues/362)) 
 - [DemoApp/SDK] Cards rename cards labels and components ([#360](https://github.com/Orange-OpenSource/ods-ios/issues/360)) 
