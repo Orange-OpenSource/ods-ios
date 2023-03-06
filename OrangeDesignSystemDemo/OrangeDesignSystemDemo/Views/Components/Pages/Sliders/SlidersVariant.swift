@@ -59,7 +59,6 @@ struct SliderVariant: View {
                         } onEditingChanged: { isEditing in
                             print("isEdition: \(isEditing)")
                         }
-                        .accessibilityLabel(Text("Volume"))
                     } else {
                         ODSSlider(value: $value, in: range) {
                             Text("Volume")
@@ -70,7 +69,6 @@ struct SliderVariant: View {
                         } onEditingChanged: { isEditing in
                             print("isEdition: \(isEditing)")
                         }
-                        .accessibilityLabel(Text("Volume"))
                     }
                 }
                 .padding(.horizontal, ODSSpacing.m)
@@ -93,7 +91,7 @@ struct SliderVariant: View {
         
         var body: some View {
             if show {
-                Image(systemName: systemName).accessibilityHidden(true)
+                Image(systemName: systemName)
             }
         }
     }
