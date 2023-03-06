@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unrelase](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...qualif)
 
+- [SDK] Value is not computed well if Slider configured with step less than 1 (Bug [#313](https://github.com/Orange-OpenSource/ods-ios/issues/313))
 - [DemoApp] Update About module illustrations with B&W images ([#371](https://github.com/Orange-OpenSource/ods-ios/issues/371))
 
 ## [0.11.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...0.10.0) - 2023-02-28

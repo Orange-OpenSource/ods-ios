@@ -31,8 +31,8 @@ struct SliderVariant: View {
     // ======================
 
     @ObservedObject var model: SliderVariantModel
-    @State private var value = 50.0
-    let range = 0 ... 100.0
+    @State private var value = 5.0
+    private let range = 0 ... 10.0
 
     // ==========
     // MARK: Body
@@ -43,18 +43,35 @@ struct SliderVariant: View {
             ScrollView {
                 VStack {
                     if model.showValue {
-                        Text(String(format: "%.0f", value))
+                        Text(String(format: "%.2f", value))
                             .odsFont(.bodyRegular)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .accessibilityHidden(true)
                     }
                     
-                    ODSSlider(value: $value, range: range, step: step) {
-                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
-                    } maximumLabelView: {
-                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                    if model.stepped {
+                        ODSSlider(value: $value, in: range, step: 0.5) {
+                            Text("Volume")
+                        } minimumValueLabel: {
+                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
+                        } maximumValueLabel: {
+                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                        } onEditingChanged: { isEditing in
+                            print("isEdition: \(isEditing)")
+                        }
+                        .accessibilityLabel(Text("Volume"))
+                    } else {
+                        ODSSlider(value: $value, in: range) {
+                            Text("Volume")
+                        } minimumValueLabel: {
+                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
+                        } maximumValueLabel: {
+                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                        } onEditingChanged: { isEditing in
+                            print("isEdition: \(isEditing)")
+                        }
+                        .accessibilityLabel(Text("Volume"))
                     }
-                    .accessibilityLabel(Text("Volume"))
                 }
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
@@ -69,10 +86,6 @@ struct SliderVariant: View {
     // =====================
     // MARK: Private Helpers
     // =====================
-    
-    private var step: Double {
-        return model.stepped ? 5.0 : 1.0
-    }
     
     struct SliderLabel: View {
         let show: Bool
@@ -123,7 +136,7 @@ struct SliderVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("Side icons", isOn: $model.showSideIcons)
             Toggle("Display value", isOn: $model.showValue)
-            Toggle("Stepped", isOn: $model.stepped)
+            Toggle("Stepped (0.5)", isOn: $model.stepped)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)
