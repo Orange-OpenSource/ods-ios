@@ -141,6 +141,7 @@ struct HotSwhitchIndicatorModifier: ViewModifier {
         self.hotSwitchWarningIndicator = hotSwitchWarningIndicator
     }
     
+    @ViewBuilder
     func body(content: Content) -> some View {
         content
             .alert("Warning", isPresented: $hotSwitchWarningIndicator.showAlert) {

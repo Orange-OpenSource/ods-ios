@@ -24,7 +24,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("2.6.0"))
+        .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("3.1.0"))
         
     ],
     targets: [

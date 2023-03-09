@@ -31,12 +31,14 @@ extension View {
         title: String,
         subtitle: String? = nil,
         bottomSheetSize: Binding<ODSBottomSheetSize>,
+        bottomSheetPosition: Binding<BottomSheetPosition>,
         @ViewBuilder content: @escaping () -> Content) -> some View {
             self.modifier(ODSBottomSheetModifier(
                 title: title,
                 subtile: subtitle,
                 icon: nil,
                 bottomSheetSize: bottomSheetSize,
+                bottomSheetPosition: bottomSheetPosition,
                 content: content))
         }
 
@@ -44,12 +46,14 @@ extension View {
         title: String,
         icon: Image? = nil,
         bottomSheetSize: Binding<ODSBottomSheetSize>,
+        bottomSheetPosition: Binding<BottomSheetPosition>,
         @ViewBuilder content: @escaping () -> Content) -> some View {
             self.modifier(ODSBottomSheetModifier(
                 title: title,
                 subtile: nil,
                 icon: icon,
                 bottomSheetSize: bottomSheetSize,
+                bottomSheetPosition: bottomSheetPosition,
                 content: content))
         }
 }
@@ -65,6 +69,7 @@ private struct ODSBottomSheetModifier<ContentView>: ViewModifier where ContentVi
     private let icon: Image?
     private let bottomSheetContent: () -> ContentView
     private var bottomSheetSize: Binding<ODSBottomSheetSize>
+    private var bottomSheetPosition: Binding<BottomSheetPosition>
     @Environment(\.theme) private var theme
 
     // =================
@@ -75,12 +80,14 @@ private struct ODSBottomSheetModifier<ContentView>: ViewModifier where ContentVi
          subtile: String? = nil,
          icon: Image? = nil,
          bottomSheetSize: Binding<ODSBottomSheetSize>,
+         bottomSheetPosition: Binding<BottomSheetPosition>,
          @ViewBuilder content: @escaping () -> ContentView) {
         self.title = title
         self.subtitle = subtile
         self.icon = icon
         self.bottomSheetContent = content
         self.bottomSheetSize = bottomSheetSize
+        self.bottomSheetPosition = bottomSheetPosition
     }
 
     // ==========
@@ -89,18 +96,21 @@ private struct ODSBottomSheetModifier<ContentView>: ViewModifier where ContentVi
 
     func body(content: Content) -> some View {
         content
-            .bottomSheet(
-                bottomSheetPosition: bottomSheetSize,
-                options: [.noBottomPosition,
-                          .cornerRadius(10),
-                          .dragIndicatorColor(Color(UIColor.label)),
-                          .shadow(),
-                          .background(AnyView(theme.componentColors.bottomSheetHeaderBackground))
-                ],
+            .bottomSheet(bottomSheetPosition: bottomSheetPosition,
+                         switchablePositions: [.dynamicBottom, .relative(0.5), .relative(0.9)],
+//            .bottomSheet(
+//                bottomSheetPosition: bottomSheetSize,
+//                options: [.noBottomPosition,
+//                          .cornerRadius(10),
+//                          .dragIndicatorColor(Color(UIColor.label)),
+//                          .shadow(),
+//                          .background(AnyView(theme.componentColors.bottomSheetHeaderBackground))
+//                ],
                 headerContent: {
                     HeaderView(title: title, subtitle: subtitle, icon: icon, bottomSheetSize: bottomSheetSize)
                 },
                 mainContent: bottomSheetContent)
+                .showDragIndicator(true)
     }
 }
 
@@ -115,7 +125,7 @@ public enum ODSBottomSheetSize: CGFloat, CaseIterable {
     case large = 0.975
 }
 
-struct HeaderView: View {
+public struct HeaderView: View {
 
     // =======================
     // MARK: Stored Properties
@@ -130,7 +140,7 @@ struct HeaderView: View {
     // MARK: Initializer
     // =================
 
-    var body: some View {
+    public var body: some View {
         HStack(alignment: .center, spacing: ODSSpacing.xs) {
             icon?
                 .resizable()

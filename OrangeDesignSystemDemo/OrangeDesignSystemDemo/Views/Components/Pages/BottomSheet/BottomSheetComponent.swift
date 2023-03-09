@@ -23,6 +23,7 @@
 
 import OrangeDesignSystem
 import SwiftUI
+import BottomSheet
 
 struct BottomSheetComponent: Component {
     let title: String
@@ -40,15 +41,71 @@ struct BottomSheetComponent: Component {
 
 struct BottomSheetVariants: View {
     
+    @State var position: BottomSheetPosition = .dynamicBottom
+    
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
         VariantEntryItem(text: "Bottom sheet", technicalElement: "ODSBottomSheet()") {
-            BottomSheetVariantHome(model: BottomSheetVariantModel())
+            ScrollView {
+                Text("Coucou")
+            }
+            .background(.red)
+            .bottomSheet(bottomSheetPosition: $position, switchablePositions: [.dynamicBottom, .relative(0.5), .relative(0.95)]) {
+                HStack(alignment: .center, spacing: ODSSpacing.xs) {
+                    
+                    VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                        Text("Title")
+                            .odsFont(.headline)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        
+                        Text("Subtitle")
+                            .odsFont(.subhead)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+                .background(.yellow)
+                .padding(.bottom, ODSSpacing.s)
+                .background(.blue)
+                .onTapGesture {
+                    self.position =  .dynamicBottom
+                }
+            } mainContent: {
+                ContentBottomSheet(model: BottomSheetVariantModel())
+            }
+//            BottomSheetVariantHome(model: BottomSheetVariantModel())
                 .navigationTitle("Bottom sheet")
         }
+    }
+}
+
+public struct ContentBottomSheet: View {
+    
+    let model: BottomSheetVariantModel
+    
+    public var body: some View {
+        List {
+            ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
+                let listItemModel =
+                ODSListStandardItemModel(title: recipe.title, leadingIcon: .icon(Image(recipe.iconName)))
+
+                ODSListStandardItem(model: listItemModel)
+                    .padding(.horizontal, ODSSpacing.s)
+                    .listRowSeparator(Visibility.visible)
+                    .listRowInsets(EdgeInsets())
+                    .onTapGesture {
+                        if model.selectedRecipe?.title == recipe.title {
+                            model.selectedRecipe = nil
+                        } else {
+                            model.selectedRecipe = recipe
+                        }
+                    }
+            }
+        }
+        .listStyle(.plain)
     }
 }
 
@@ -92,13 +149,16 @@ private struct BottomSheetVariantHome: View {
                 
                 Spacer()
                 
-                NavigationLink(
-                    destination: BottomSheetVariant(model: model),
-                    isActive: $showBottomSheet,
-                    label: { EmptyView() }
-                )
+//                NavigationLink(
+//                    destination: BottomSheetVariant(model: model),
+//                    isActive: $showBottomSheet,
+//                    label: { EmptyView() }
+//                )
             }
             .padding(.vertical, ODSSpacing.m)
+            .sheet(isPresented: $showBottomSheet) {
+                BottomSheetVariant(model: model)
+            }
         }
     }
 }

@@ -38,8 +38,9 @@ struct BottomSheetVariant: View {
 
     var body: some View {
         PageContent(model: model)
-            .navigationBarTitle("Recipes", displayMode: .inline)
             .modifier(BottomSheetModifier(model: model))
+            .navigationBarTitle("Recipes", displayMode: .inline)
+            
     }
 }
 
@@ -55,13 +56,14 @@ fileprivate struct BottomSheetModifier: ViewModifier {
     // ==========
     // MARK: Body
     // ==========
-
+    @ViewBuilder
     func body(content: Content) -> some View {
         if model.showSubtitle {
             content
                 .odsBottomSheet(title: "Recipes",
                                 subtitle: model.showSubtitle ? "French products" : nil,
-                                bottomSheetSize: $model.bottomSheetSize) {
+                                bottomSheetSize: $model.bottomSheetSize,
+                                bottomSheetPosition: $model.bottomSheetPosition) {
                      BottonSheetContent(model: model)
                          .background(Color(UIColor.systemBackground))
                  }
@@ -69,7 +71,8 @@ fileprivate struct BottomSheetModifier: ViewModifier {
             content
                 .odsBottomSheet(title: "Recipes",
                                  icon: model.showIcon ? Image("Heart_19371") : nil,
-                                 bottomSheetSize: $model.bottomSheetSize) {
+                                 bottomSheetSize: $model.bottomSheetSize,
+                                 bottomSheetPosition: $model.bottomSheetPosition) {
                      BottonSheetContent(model: model)
                          .background(Color(UIColor.systemBackground))
                  }

@@ -56,8 +56,10 @@ extension View {
             }
             
             let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
+//            appearance.configureWithOpaqueBackground()
+            appearance.configureWithTransparentBackground()
             appearance.backgroundColor = backgroundColor?.uiColor
+            appearance.backgroundColor = .clear
             
             appearance.stackedLayoutAppearance = itemAppearance
             appearance.inlineLayoutAppearance = itemAppearance

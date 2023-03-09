@@ -23,6 +23,7 @@
 
 import SwiftUI
 import OrangeDesignSystem
+import BottomSheet
 
 enum ContentType: String, CaseIterable {
     case tutorial
@@ -37,12 +38,13 @@ enum ContentType: String, CaseIterable {
     }
 }
 
-class BottomSheetVariantModel: ObservableObject {
+public class BottomSheetVariantModel: ObservableObject {
     
     // ======================
     // MARK: Store properties
     // ======================
 
+    @Published var bottomSheetPosition: BottomSheetPosition
     @Published var bottomSheetSize: ODSBottomSheetSize
     @Published var contentType: ContentType
     @Published var showSubtitle: Bool {
@@ -52,17 +54,20 @@ class BottomSheetVariantModel: ObservableObject {
         didSet { if showIcon { showSubtitle = false } }
     }
     
+    
     @Published var selectedRecipe: Recipe?
         
     // =================
     // MARK: Initializer
     // =================
 
-    init() {
+    public init() {
         self.bottomSheetSize = .small
         self.showSubtitle = false
         self.showIcon = false
         self.contentType = .example
+        self.bottomSheetPosition = .dynamicBottom
+        self.selectedRecipe = RecipeBook.shared.recipes[0]
     }
 }
 

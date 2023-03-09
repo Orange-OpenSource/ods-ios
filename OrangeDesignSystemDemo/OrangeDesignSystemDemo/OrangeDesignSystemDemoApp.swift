@@ -23,15 +23,40 @@
 
 import OrangeDesignSystem
 import SwiftUI
+import BottomSheet
 
 @main
 struct ods_ios_swiftUI_demoApp: App {
     @StateObject var themeProvider = ThemeProvider()
+    @State var position: BottomSheetPosition = .dynamicBottom
     
     var body: some Scene {
         WindowGroup {
             ODSThemeableView(theme: themeProvider.currentTheme) {
                 MainTabView().environmentObject(themeProvider)
+            }
+            .bottomSheet(bottomSheetPosition: $position, switchablePositions: [.dynamicBottom, .relative(0.5), .relative(0.95)]) {
+                HStack(alignment: .center, spacing: ODSSpacing.xs) {
+                    
+                    VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                        Text("Title")
+                            .odsFont(.headline)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        
+                        Text("Subtitle")
+                            .odsFont(.subhead)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+                .background(.yellow)
+                .padding(.bottom, ODSSpacing.s)
+                .background(.blue)
+                .onTapGesture {
+                    self.position =  .dynamicBottom
+                }
+            } mainContent: {
+                ContentBottomSheet(model: BottomSheetVariantModel())
             }
         }
     }
