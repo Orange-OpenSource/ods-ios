@@ -26,13 +26,26 @@ import OrangeDesignSystem
 
 // MARK: Button sheet with header and content
 struct BottomSheet<ContentView>: View where ContentView: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @State var showContent: Bool = true
     let contentView: () -> ContentView
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     init(showContent: Bool = true, @ViewBuilder contentView: @escaping () -> ContentView) {
         self.showContent = showContent
         self.contentView = contentView
     }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
@@ -53,9 +66,17 @@ struct BottomSheet<ContentView>: View where ContentView: View {
     }
 }
 
-struct BottomSheedHeader: View {
+private struct BottomSheedHeader: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
     @Binding var showContent: Bool
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
@@ -75,7 +96,7 @@ struct BottomSheedHeader: View {
                             .foregroundColor(.primary)
                             .accessibility(hidden: true)
 
-                        Text("Settings")
+                        Text("Customize")
                             .odsFont(.headline)
                             .foregroundColor(.primary)
                         Spacer()
