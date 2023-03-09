@@ -69,7 +69,7 @@ private struct CapitalizedTextInputsVariant: View {
                 Spacer()
             }
             
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 CapitalizedTextInputsVariantOptions(model: model)
             }
         }

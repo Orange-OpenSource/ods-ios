@@ -120,7 +120,7 @@ struct CardVerticalHeaderFirstVariant: View {
                 Button("close", role: .cancel) {}
             }
 
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 CardVerticalHeaderFirstVariantOptions(model: model)
             }
         }

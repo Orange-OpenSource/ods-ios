@@ -70,7 +70,7 @@ struct ProgressBarVariant: View {
             }
             .padding(.all, ODSSpacing.m)
             
-            BottomSheet() {
+            BottomSheet {
                 ProgressBarVariantOptions(model: model)
             }
         }

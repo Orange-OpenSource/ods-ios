@@ -75,7 +75,7 @@ struct SliderVariant: View {
                 .padding(.top, ODSSpacing.m)
             }
 
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 SliderVariantOptions(model: model)
             }
         }

@@ -69,7 +69,7 @@ struct IconVariant: View {
             }
             .padding(.bottom, 55)
 
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 IconVariantOptions(model: model)
             }
         }

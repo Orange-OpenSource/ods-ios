@@ -147,7 +147,7 @@ struct CardHorizontalVariant: View {
                 Button("close", role: .cancel) {}
             }
 
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 CardHorizontalVariantOptions(model: model)
             }
         }
