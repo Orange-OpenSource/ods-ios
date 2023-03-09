@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unrelase](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...qualif)
 
+- [DemoApp] Add animation on Bottom Sheet when oppening and closing, automatically open it when appears ([#377](https://github.com/Orange-OpenSource/ods-ios/issues/377))
 - [DemoApp] Customization bottom sheet title uniformity ([#378](https://github.com/Orange-OpenSource/ods-ios/issues/378))
 - [DemoApp] Lists icon not displaying (Bug [#375](https://github.com/Orange-OpenSource/ods-ios/issues/375))
 - [SDK] Value is not computed well if Slider configured with step less than 1 (Bug [#313](https://github.com/Orange-OpenSource/ods-ios/issues/313))

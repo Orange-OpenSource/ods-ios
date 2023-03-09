@@ -116,7 +116,7 @@ struct CardVerticalImageFirstVariant: View {
                 Button("close", role: .cancel) {}
             }
 
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 CardVerticalImageFirstVariantOptions(model: model)
             }
         }
