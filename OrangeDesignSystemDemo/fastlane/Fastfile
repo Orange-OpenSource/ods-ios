@@ -43,7 +43,7 @@ platform :ios do
   # BUILD DEBUG APP
   # ------------------------------------------------------------
   desc "BUILD DEBUG APP"
-  lane :build do
+  lane :buildDebugApp do
     cocoapods(
       clean_install: true
     )
@@ -91,6 +91,8 @@ platform :ios do
 
     if options[:upload]
       upload
+    else
+      puts ">> Upload to testflight no requested"
     end
   end
 
