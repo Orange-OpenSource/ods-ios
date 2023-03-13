@@ -51,6 +51,8 @@ struct UnlabeledSlider: View {
 
 ### Labeled slider (with images)
 
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
+
 ```swift
 struct LabeledSlider: View {
 
@@ -60,9 +62,9 @@ struct LabeledSlider: View {
         ODSSlider(value: $value, in: 0 ... 100) {
             Text("Volume")
         } minimumValueLabel: {
-            Image(systemName: "speaker.wave.1.fill")
+            Image(systemName: "speaker.wave.1.fill").accessibilityHidden(true)
         } maximumValueLabel: {
-            Image(systemName: "speaker.wave.3.fill")
+            Image(systemName: "speaker.wave.3.fill").accessibilityHidden(true)
         }
     }
 }
@@ -82,6 +84,8 @@ ODSSlider(value: $value, in: 0 ... 100) {
 
 ### Stepped slider (with text and value display)
 
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
+
 ```swift
 struct SteppedSlider: View {
 
@@ -91,9 +95,9 @@ struct SteppedSlider: View {
         ODSSlider(value: $value, in: 0 ... 100.0, step: 0.5) {
             Text("Volume")
         } minimumValueLabel: {
-            Image(systemName: "speaker.wave.1.fill")
+            Image(systemName: "speaker.wave.1.fill").accessibilityHidden(true)
         } maximumValueLabel: {
-            Image(systemName: "speaker.wave.3.fill")
+            Image(systemName: "speaker.wave.3.fill").accessibilityHidden(true)
         }
     }
 }

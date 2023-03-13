@@ -43,6 +43,7 @@ public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.St
     private let minimumValueLabel: ValueLabel
     private let maximumValueLabel: ValueLabel
     private let onEditingChanged: (Bool) -> Void
+    private let step: V.Stride?
 
     private let values: [V]?
     @State private var isEditing: Bool {
@@ -80,6 +81,7 @@ public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.St
 
         _value = value
         self.range = bounds
+        self.step = nil
         self.onEditingChanged = onEditingChanged
         self.label = label()
         self.minimumValueLabel = minimumValueLabel()
@@ -114,6 +116,7 @@ public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.St
 
         _value = value
         self.range = bounds
+        self.step = step
         self.onEditingChanged = onEditingChanged
         self.label = label()
         self.minimumValueLabel = minimumValueLabel()
@@ -252,9 +255,7 @@ extension ODSSlider: View {
                 minimumValueLabel
 
                 GeometryReader { geometry in
-                    Slider(value: $value, in: range) {
-                        self.label
-                    }
+                    slider
                     .gesture(
                         DragGesture(minimumDistance: 0)
                             .onChanged { value in
@@ -286,6 +287,18 @@ extension ODSSlider: View {
     // =====================
     // MARK: private helpers
     // =====================
+    @ViewBuilder
+    var slider: some View {
+        if let step = self.step {
+            Slider(value: $value, in: range, step: step) {
+                self.label
+            }
+        } else {
+            Slider(value: $value, in: range) {
+                self.label
+            }
+        }
+    }
 
     private func computeNewValue(for xPosition: Double, in globalWidth: Double) -> V {
         if xPosition >= globalWidth {
