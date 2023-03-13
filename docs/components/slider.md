@@ -72,13 +72,15 @@ struct LabeledSlider: View {
 
 ### Labeled slider (with text)
 
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
+
 ```swift
 ODSSlider(value: $value, in: 0 ... 100) {
     Text("Volume")
 } minimumValueLabel: {
-    Text("0")
+    Text("0").accessibilityHidden(true)
 } maximumValueLabel: {
-    Text("100")
+    Text("100").accessibilityHidden(true)
 }
 ``` 
 
