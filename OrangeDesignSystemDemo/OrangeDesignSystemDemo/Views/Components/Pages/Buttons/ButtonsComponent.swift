@@ -97,7 +97,7 @@ struct CommonButtonVariant<Variant>: View where Variant: View {
             }
             .padding(.bottom, 55)
 
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 EmphasisAndFunctionalVariantOptions(model: model)
             }
         }

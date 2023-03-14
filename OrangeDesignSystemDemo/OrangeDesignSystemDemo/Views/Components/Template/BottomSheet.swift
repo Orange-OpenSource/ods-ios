@@ -26,36 +26,64 @@ import OrangeDesignSystem
 
 // MARK: Button sheet with header and content
 struct BottomSheet<ContentView>: View where ContentView: View {
-    @State var showContent: Bool = true
-    let contentView: () -> ContentView
 
-    init(showContent: Bool = true, @ViewBuilder contentView: @escaping () -> ContentView) {
-        self.showContent = showContent
-        self.contentView = contentView
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @State var showContent: Bool = false
+    let contentView: ContentView
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(@ViewBuilder contentView: @escaping () -> ContentView) {
+        self.contentView = contentView()
     }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
             Spacer()
-
+            
             VStack(spacing: ODSSpacing.none) {
-                BottomSheedHeader(showContent: $showContent)
-                    .background(Color(.systemGray6))
+                BottomSheedHeader(showContent: showContent)
+                    .onTapGesture {
+                        withAnimation(Animation.linear) {
+                            showContent.toggle()
+                        }
+                    }
 
                 if showContent {
-                    contentView()
+                    contentView
+                        .background(Color(UIColor.systemBackground))
+                        .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
                 }
             }
-            .background(Color(UIColor.systemBackground))
         }
-        .cornerRadius(10)
-        .shadow(radius: 8)
+        .task {
+            withAnimation(Animation.linear.delay(0.5)) {
+                self.showContent = true
+            }
+        }
     }
 }
 
-struct BottomSheedHeader: View {
+private struct BottomSheedHeader: View {
 
-    @Binding var showContent: Bool
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let showContent: Bool
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
@@ -64,27 +92,28 @@ struct BottomSheedHeader: View {
                 .padding(.top, ODSSpacing.s)
                 .padding(.bottom, ODSSpacing.xs)
 
-            Button {
-                showContent.toggle()
-            } label: {
-                VStack(spacing: ODSSpacing.none) {
-                    HStack(spacing: ODSSpacing.m) {
-                        let imageName = showContent ? "chevron.down" : "chevron.up"
-
-                        Image(systemName: imageName)
-                            .foregroundColor(.primary)
-                            .accessibility(hidden: true)
-
-                        Text("Settings")
-                            .odsFont(.headline)
-                            .foregroundColor(.primary)
-                        Spacer()
-                    }
-                    .padding(.all, ODSSpacing.s)
-
-                    Divider()
+            VStack(spacing: ODSSpacing.none) {
+                HStack(spacing: ODSSpacing.m) {
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(.primary)
+                        .rotationEffect(.degrees(showContent ? 0 : -180))
+                        .accessibility(hidden: true)
+                    
+                    Text("Customize")
+                        .odsFont(.headline)
+                        .foregroundColor(.primary)
+                    Spacer()
                 }
+                .padding(.all, ODSSpacing.s)
+                
+                Divider()
             }
         }
+        .background(Color(.systemGray6))
+        .padding(.bottom, 10)
+        .cornerRadius(10)
+        .padding(.bottom, -10)
+        .shadow(color: Color(UIColor.systemGray), radius: 8)
+        .mask(Rectangle().padding(.top, -20))
     }
 }

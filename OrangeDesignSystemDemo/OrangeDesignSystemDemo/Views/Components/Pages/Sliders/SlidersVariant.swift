@@ -75,7 +75,7 @@ struct SliderVariant: View {
                 .padding(.top, ODSSpacing.m)
             }
 
-            BottomSheet(showContent: false) {
+            BottomSheet {
                 SliderVariantOptions(model: model)
             }
         }
@@ -84,15 +84,10 @@ struct SliderVariant: View {
     // =====================
     // MARK: Private Helpers
     // =====================
-    
-    struct SliderLabel: View {
-        let show: Bool
-        let systemName: String
-        
-        var body: some View {
-            if show {
-                Image(systemName: systemName)
-            }
+    @ViewBuilder
+    func SliderLabel(show: Bool, systemName: String) -> some View {
+        if show {
+            Image(systemName: systemName).accessibilityHidden(true)
         }
     }
 }
