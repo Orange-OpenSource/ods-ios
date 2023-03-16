@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b1b1b;
+      }
+
+      .cls-2 {
+        fill: #949494;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: .01em;
+      }
+
+      .cls-5 {
+        isolation: isolate;
+      }
+
+      .cls-6 {
+        font-family: SFPro-Regular, 'SF Pro';
+        font-size: 22.8px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 400;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="400" height="200"/>
+  <g>
+    <rect class="cls-2" x="48" y="77.73" width="304" height="44.53" rx="6.23" ry="6.23"/>
+    <g id="Label-2" class="cls-5">
+      <text class="cls-6" transform="translate(165.66 108.17)"><tspan class="cls-4" x="0" y="0">But</tspan><tspan class="cls-3" x="33.35" y="0">t</tspan><tspan class="cls-4" x="40.11" y="0">on</tspan></text>
+    </g>
+  </g>
+</svg>

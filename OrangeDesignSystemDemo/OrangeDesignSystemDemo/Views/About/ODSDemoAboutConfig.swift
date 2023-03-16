@@ -28,14 +28,16 @@ public final class ODSDemoAboutConfig: NSObject {
 
     public static let instance = ODSDemoAboutConfig()
 
-    let applicationDescription: ApplicationDescription
+    let applicationInformation: ApplicationInformation
 
     override private init() {
-        applicationDescription = ApplicationDescription(applicationName: "Orange Design System Demo",
-                                                        applicationVersion: Bundle.main.marketingVersion,
-                                                        applicationBuildNumber: Bundle.main.buildNumber,
-                                                        applicationBuildType: Bundle.main.buildType,
-                                                        imageHeader: Image("AboutImage", bundle: Bundle.main))
+        applicationInformation = ApplicationInformation(
+            name: "Orange Design System Demo",
+            version: Bundle.main.marketingVersion,
+            buildNumber: Bundle.main.buildNumber,
+            buildType: Bundle.main.buildType,
+            description: "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.",
+            imageHeader: Image("AboutImage", bundle: Bundle.main))
     }
 
     public func configure() {
@@ -48,6 +50,6 @@ public final class ODSDemoAboutConfig: NSObject {
             ODSAboutItem(text: "Report an issue", nextView: AnyView(EmptyView()), url: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")   
         ]
 
-        applicationDescription.menuList = appMenu
+        applicationInformation.menuList = appMenu
     }
 }

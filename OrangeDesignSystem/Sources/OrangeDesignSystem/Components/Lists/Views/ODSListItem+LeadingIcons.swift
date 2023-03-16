@@ -40,15 +40,15 @@ struct LeadingIcon: View {
         case .icon(let image):
             image.renderingMode(.template)
         case .circularImage(let source):
-            AsyncIcon(source: source)
+            ODSImage(source: source)
                 .frame(width: width, height: height)
                 .clipShape(Circle())
         case .squareImage(let source):
-            AsyncIcon(source: source)
+            ODSImage(source: source)
                 .frame(width: width, height: height)
                 .clipShape(Rectangle())
         case .wideImage(let source):
-            AsyncIcon(source: source)
+            ODSImage(source: source)
                 .frame(width: width, height: height)
                 .clipShape(Rectangle())
         }
@@ -69,38 +69,5 @@ struct LeadingIcon: View {
 
     private var height: CGFloat {
         return 44
-    }
-}
-
-private struct AsyncIcon: View {
-
-    // ======================
-    // MARK: Store Properties
-    // ======================
-
-    let source: ODSListItemLeadingIcon.Source
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        switch source {
-        case let .asyncImage(url, placeHolder):
-            AsyncImage(url: url) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                placeHolder
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            }
-
-        case let .image(image):
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        }
     }
 }

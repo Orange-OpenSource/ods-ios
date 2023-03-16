@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        font-size: 20px;
+      }
+
+      .cls-3, .cls-4 {
+        font-family: SFPro-Regular, 'SF Pro';
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 400;
+      }
+
+      .cls-5 {
+        fill: #333;
+      }
+
+      .cls-6 {
+        fill: #1b1b1b;
+      }
+
+      .cls-7, .cls-8 {
+        fill: #949494;
+      }
+
+      .cls-9 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        font-size: 17px;
+      }
+
+      .cls-2 {
+        stroke: #949494;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-8 {
+        opacity: .5;
+      }
+
+      .cls-12 {
+        letter-spacing: -.01em;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect id="Overlay" class="cls-1" x="31.78" y="-265" width="336.44" height="161"/>
+    </clipPath>
+  </defs>
+  <rect id="Overlay-2" data-name="Overlay" class="cls-6" width="400" height="200"/>
+  <g>
+    <g>
+      <path class="cls-5" d="m359.18,52.42H40.82c-4.65,0-8.42,3.77-8.42,8.42v19.57c0,4.65,3.77,8.42,8.42,8.42h150.08l6.43,6.43,6.43-6.43h155.43c4.65,0,8.42-3.77,8.42-8.42v-19.57c0-4.65-3.77-8.42-8.42-8.42Z"/>
+      <text class="cls-4" transform="translate(47.54 77.25)"><tspan x="0" y="0">Co</tspan><tspan class="cls-11" x="20.69" y="0">p</tspan><tspan x="29.69" y="0">y</tspan></text>
+      <text class="cls-4" transform="translate(116.07 77.25)"><tspan x="0" y="0">Select All</tspan></text>
+      <text class="cls-4" transform="translate(210.32 77.25)"><tspan class="cls-12" x="0" y="0">L</tspan><tspan x="8.67" y="0">ook Up</tspan></text>
+      <text class="cls-4" transform="translate(300.27 77.25)"><tspan x="0" y="0">Sha</tspan><tspan class="cls-9" x="27.78" y="0">r</tspan><tspan x="32.61" y="0">e..</tspan><tspan class="cls-10" x="48.62" y="0">.</tspan></text>
+    </g>
+    <g>
+      <g>
+        <line class="cls-2" x1="224.54" y1="106.4" x2="224.54" y2="134.66"/>
+        <circle class="cls-7" cx="224.54" cy="141.08" r="6.5"/>
+      </g>
+      <rect class="cls-8" x="176.57" y="106.4" width="47.92" height="26.97"/>
+      <text class="cls-3" transform="translate(175.98 126.27)"><tspan x="0" y="0">Hello</tspan></text>
+      <g>
+        <line class="cls-2" x1="175.46" y1="133.37" x2="175.46" y2="105.12"/>
+        <circle class="cls-7" cx="175.46" cy="98.7" r="6.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

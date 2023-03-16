@@ -23,44 +23,48 @@
 
 import Foundation
 
-struct Recipe: Decodable {
-    let title: String
-    let subtitle: String
-    let url: URL
-    let iconName: String
-}
-
 class RecipeLoader {
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    static let shared: RecipeLoader = RecipeLoader()
-    let recipes: [Recipe]
     
     // =================
     // MARK: Initializer
     // =================
     
-    private init() {
-        self.recipes = Self.recipes(from: "Recipes")
+    init() { }
+    
+    enum Error: Swift.Error {
+        case resourceNotFound
+        case noJsonData
     }
     
     // ====================
     // MARK: Private Helper
     // ====================
 
-    private static func recipes(from fileName: String) -> [Recipe] {
-        do {
-            if let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json"),
-               let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-               return try JSONDecoder().decode([Recipe].self, from: jsonData)
-            }
-        } catch {
+    func loadBook(from fileName: String) throws -> RecipeBook {
+        
+        guard let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json") else {
+            throw Error.resourceNotFound
         }
         
-        return []
+        guard let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) else {
+            throw Error.noJsonData
+        }
+        
+        return try JSONDecoder().decode(RecipeBook.self, from: jsonData)
     }
 }
+
+extension RecipeBook {
+    init() {
+        guard let book = try? RecipeLoader().loadBook(from: "Recipes") else {
+            recipes = []
+            foods = []
+            return
+        }
+        
+        self = book
+    }
+}
+
 

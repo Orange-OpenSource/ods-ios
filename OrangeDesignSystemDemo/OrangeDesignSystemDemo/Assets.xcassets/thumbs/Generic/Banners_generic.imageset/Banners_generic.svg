@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="iOS_Thumbnails" data-name="iOS Thumbnails" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e6e6e6;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #1b1b1b;
+      }
+
+      .cls-4 {
+        fill: #898989;
+      }
+
+      .cls-5 {
+        fill: #333;
+        filter: url(#drop-shadow-1);
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="10"/>
+      <feGaussianBlur result="blur" stdDeviation="20"/>
+      <feFlood flood-color="#000" flood-opacity=".3"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect class="cls-3" width="400" height="200"/>
+  <g>
+    <rect class="cls-5" x="48" y="60" width="304" height="80" rx="9.66" ry="9.66"/>
+    <circle class="cls-1" cx="80" cy="92" r="16"/>
+    <rect class="cls-2" x="112" y="88" width="180" height="4"/>
+    <rect class="cls-2" x="112" y="76" width="224" height="4"/>
+    <rect class="cls-4" x="288" y="120" width="48" height="8"/>
+    <rect class="cls-4" x="216" y="120" width="48" height="8"/>
+  </g>
+</svg>
