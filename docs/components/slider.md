@@ -30,6 +30,8 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 As the `ODSSlider` is based on the native `Slider`, Voice Over is able to vocalize 
 However, if you want to set a description you need to add it using `.accessibilityLabel` on the `ODSSlider`.
 
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
+
 ## Variants
 
 Slider is a system Slider component with accent color set to coreOrange.

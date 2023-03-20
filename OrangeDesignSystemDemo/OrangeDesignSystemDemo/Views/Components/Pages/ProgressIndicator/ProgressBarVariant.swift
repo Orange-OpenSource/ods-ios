@@ -69,7 +69,7 @@ struct ProgressBarVariant: View {
                 Spacer()
             }
             .padding(.all, ODSSpacing.m)
-            
+
             BottomSheet {
                 ProgressBarVariantOptions(model: model)
             }
