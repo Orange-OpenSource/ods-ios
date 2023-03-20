@@ -72,8 +72,6 @@
 		F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976E28003104006D29FC /* ODSDemoAboutView.swift */; };
 		F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */; };
 		F90D977828003104006D29FC /* ODSDemoAboutContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D977228003104006D29FC /* ODSDemoAboutContentsView.swift */; };
-		F90D977C2800311E006D29FC /* ODSPrivacyNotice.md in Resources */ = {isa = PBXBuildFile; fileRef = F90D977A2800311E006D29FC /* ODSPrivacyNotice.md */; };
-		F90D977D2800311E006D29FC /* ODSCGU.md in Resources */ = {isa = PBXBuildFile; fileRef = F90D977B2800311E006D29FC /* ODSCGU.md */; };
 		F90D978228003281006D29FC /* ModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D977F28003281006D29FC /* ModulesList.swift */; };
 		F90D978328003281006D29FC /* CardViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978028003281006D29FC /* CardViewDemo.swift */; };
 		F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978428003299006D29FC /* AboutConfigDemo.swift */; };
@@ -182,8 +180,6 @@
 		F90D976E28003104006D29FC /* ODSDemoAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutView.swift; sourceTree = "<group>"; };
 		F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutConfig.swift; sourceTree = "<group>"; };
 		F90D977228003104006D29FC /* ODSDemoAboutContentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutContentsView.swift; sourceTree = "<group>"; };
-		F90D977A2800311E006D29FC /* ODSPrivacyNotice.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = ODSPrivacyNotice.md; path = OrangeDesignSystemDemo/Views/About/ODSPrivacyNotice.md; sourceTree = "<group>"; };
-		F90D977B2800311E006D29FC /* ODSCGU.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = ODSCGU.md; path = OrangeDesignSystemDemo/Views/About/ODSCGU.md; sourceTree = "<group>"; };
 		F90D977F28003281006D29FC /* ModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModulesList.swift; path = OrangeDesignSystemDemo/Views/Modules/ModulesList.swift; sourceTree = "<group>"; };
 		F90D978028003281006D29FC /* CardViewDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardViewDemo.swift; path = OrangeDesignSystemDemo/Views/Modules/CardViewDemo.swift; sourceTree = "<group>"; };
 		F90D978428003299006D29FC /* AboutConfigDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutConfigDemo.swift; path = OrangeDesignSystemDemo/Views/Modules/AboutConfigDemo.swift; sourceTree = "<group>"; };
@@ -652,9 +648,7 @@
 		FDD9DB7B27ECB8C90094B5CE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F90D977B2800311E006D29FC /* ODSCGU.md */,
 				07A3382C29C3633000A56BA1 /* ODSCGU.html */,
-				F90D977A2800311E006D29FC /* ODSPrivacyNotice.md */,
 				075E5D6E29379164009A801B /* Recipes.json */,
 				07A3382B29C31C7800A56BA1 /* ODSPrivacyNotice.html */,
 			);
@@ -778,14 +772,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F90D977C2800311E006D29FC /* ODSPrivacyNotice.md in Resources */,
 				FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */,
 				075E5D6F29379164009A801B /* Recipes.json in Resources */,
 				07A3382E29C4B1A400A56BA1 /* ODSPrivacyNotice.html in Resources */,
 				07A3382D29C4B1A000A56BA1 /* ODSCGU.html in Resources */,
 				F99FF07F2767AF62006236A0 /* Preview Assets.xcassets in Resources */,
 				079821CD2927BC3700BE3116 /* Colors.xcassets in Resources */,
-				F90D977D2800311E006D29FC /* ODSCGU.md in Resources */,
 				F99FF0742767AE2A006236A0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
