@@ -32,7 +32,7 @@ public final class ODSDemoAboutConfig: NSObject {
 
     override private init() {
         applicationInformation = ApplicationInformation(
-            name: "Orange Design System Demo",
+            name: "Orange Design System",
             version: Bundle.main.marketingVersion,
             buildNumber: Bundle.main.buildNumber,
             buildType: Bundle.main.buildType,
@@ -43,10 +43,11 @@ public final class ODSDemoAboutConfig: NSObject {
     public func configure() {
         let appMenu = [
             ODSAboutItem(text: "Design guidelines", nextView: AnyView(EmptyView()), url:  "https://system.design.orange.com/0c1af118d/p/95b685-ios/"),
-            ODSAboutItem(text: "Privacy policy", nextView: AnyView(ShowMarkdownView(title: "Privacy policy", fileName: "ODSDemoPrivacyNotice", convertToHtml: true))),
-            ODSAboutItem(text: "Terms of service", nextView: AnyView(ShowMarkdownView(title: "Terms of service", fileName: "ODSDemoCGU"))),
+            ODSAboutItem(text: "Privacy policy", nextView: AnyView(ODSDemoAboutContentsView(title: "Privacy policy", htmlFileName: "ODSPrivacyNotice"))),
+            ODSAboutItem(text: "Terms of service", nextView: AnyView(ODSDemoAboutContentsView(title: "Terms of service", htmlFileName: "ODSCGU"))),
             ODSAboutItem(text: "Change log",
-                         nextView: AnyView(ShowMarkdownView(title: "Change log", fileName: "CHANGELOG", convertToHtml: true))),
+                         nextView: AnyView(
+                            ODSDemoAboutContentsView(title: "Change log", markdownFileName: "CHANGELOG", convertToHtml: true))),
             ODSAboutItem(text: "Report an issue", nextView: AnyView(EmptyView()), url: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")   
         ]
 
