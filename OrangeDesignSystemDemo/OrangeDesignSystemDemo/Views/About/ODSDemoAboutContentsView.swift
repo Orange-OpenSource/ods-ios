@@ -26,43 +26,63 @@ import Parma
 import SwiftUI
 import WebKit
 
-struct ShowMarkdownView: View {
-
+struct ODSDemoAboutContentsView: View {
+    
     // =======================
     // MARK: Stored Properties
     // =======================
-
+    
     private let title: String
     private let filename: String
     private let fileExtension: String
     private let contentType: ContentType?
-
+    
     enum ContentType {
         case html(String)
+        case htmlFile(URL)
         case markdown(String)
         
         var content: String {
             switch self {
             case .html(let content), .markdown(let content):
                 return content
+            case .htmlFile(let url):
+                return (try? String(contentsOf: url)) ?? ""
             }
         }
     }
-
+    
     // =================
     // MARK: Initializer
     // =================
-
+    
     init(title: String,
-         fileName: String,
+         htmlFileName: String,
+         fileExtension: String = "html") {
+
+        self.title = title
+        self.filename = htmlFileName
+        self.fileExtension = fileExtension
+
+        // Load content from file and convert to html if needed
+        guard let url = Bundle.main.url(forResource: htmlFileName, withExtension: fileExtension) else {
+            contentType = nil
+            return
+        }
+        contentType = .htmlFile(url)
+    }
+    
+    init(title: String,
+         markdownFileName: String,
          fileExtension: String = "md",
          convertToHtml: Bool = false) {
+        
         self.title = title
-        self.filename = fileName
+        self.filename = markdownFileName
         self.fileExtension = fileExtension
         
         // Load content from file and convert to html if needed
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension),
+        guard let url = Bundle.main.url(forResource: markdownFileName, withExtension: fileExtension),
               let fileContent = try? String(contentsOf: url) else {
             contentType = nil
             return
@@ -79,7 +99,7 @@ struct ShowMarkdownView: View {
             contentType = .markdown(fileContent)
         }
     }
-   
+    
     // ==========
     // MARK: Body
     // ==========
@@ -101,7 +121,7 @@ struct ShowMarkdownView: View {
     // ====================
     // MARK: Private Helper
     // ====================
-
+    
     @ViewBuilder
     func showContent(contentType: ContentType) -> some View {
         switch contentType {
@@ -109,74 +129,74 @@ struct ShowMarkdownView: View {
             ScrollView {
                 Parma(markdown)
                     .padding(.top, ODSSpacing.s)
-                    .padding(.horizontal, ODSSpacing.m)
+                    .padding(.leading, ODSSpacing.m)
             }
+        case .htmlFile(let url):
+            WebView(source: WebView.Source.file(url))
         case .html(let html):
-            WebView(html: html)
-                .padding(.top, ODSSpacing.s)
-                .padding(.leading, ODSSpacing.m)
+            WebView(source: WebView.Source.html(html))
         }
     }
-
-        public static func addHeader(to partialHTMLText: String) -> String {
-            if partialHTMLText.contains("<html") {
-                return partialHTMLText
-            }
-            var result = "<html>"
-            result += "<head>"
-            result += "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>"
-            result += "<style>"
-            result += Self.css
-            result += "</style>"
-
-            result += "</head>"
-            if partialHTMLText.contains("<body") {
-                result += partialHTMLText
-            } else {
-                result += "<body><p dir=\"auto\">\(partialHTMLText)</p></body>"
-            }
-            result += "</html>"
-            return result
+    
+    public static func addHeader(to partialHTMLText: String) -> String {
+        if partialHTMLText.contains("<html") {
+            return partialHTMLText
         }
-
-        static let css =
+        var result = "<html>"
+        result += "<head>"
+        result += "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>"
+        result += "<style>"
+        result += Self.css
+        result += "</style>"
+        
+        result += "</head>"
+        if partialHTMLText.contains("<body") {
+            result += partialHTMLText
+        } else {
+            result += "<body><p dir=\"auto\">\(partialHTMLText)</p></body>"
+        }
+        result += "</html>"
+        return result
+    }
+    
+    static let css =
             """
         html, body {
-        margin: 0;
+        margin: 8px;
         -webkit-text-size-adjust: none;
         font-family: -apple-system, sans-serif;
         }
-
+        
         :root {
             color-scheme: light dark;
         }
-
+        
         body {
             font: -apple-system-body;
             background-color: clear;
         }
-
+        
         h1 {
             font: -apple-system-short-headline;
             margin-top: 1em ;
             margin-bottom: 0.3em;
         }
-
+        
         h2 {
             font: -apple-system-short-subheadline;
             margin-top: 1em;
             margin-bottom: 0.3em;
         }
-
+        
         p {
             font: -apple-system-body;
         }
-
+        
         a:link, a:visited {
             color: #FF7900;
             text-decoration: none;
         }
-
+        
         a:hover, a:active, a:focus {
             color: #527EDB;
         }
@@ -184,14 +204,40 @@ struct ShowMarkdownView: View {
 }
 
 private struct WebView: UIViewRepresentable {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    let html: String
+    enum Source {
+        case html(String)
+        case file(URL)
+    }
+    
+    let source: Source
+    
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(source: Source) {
+        self.source = source
+    }
+    
+    // =========================
+    // MARK: UIViewRepresentable
+    // =========================
 
     func makeUIView(context: Context) -> WKWebView  {
         return WKWebView()
     }
-
+    
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        uiView.loadHTMLString(html, baseURL: nil)
+        switch source {
+        case .html(let html):
+            uiView.loadHTMLString(html, baseURL: nil)
+        case .file(let url):
+            uiView.loadFileURL(url, allowingReadAccessTo: url)
+        }
     }
 }
