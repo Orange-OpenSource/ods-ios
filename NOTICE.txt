@@ -76,4 +76,3 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/Restaurant
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/IceCream.imageset/iconsCommunicationDIIcIceCream.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/Cafe.imageset/iconsCommunicationDIcCafe.svg
 End of the parts list under Orange SA Copyright
-

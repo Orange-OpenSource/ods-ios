@@ -51,7 +51,7 @@ platform :ios do
       scheme: ODS_SCHEME,
       output_directory: 'build/',
       archive_path: 'build/',
-      output_name: 'odsDemo',
+      output_name: 'odsApp',
       configuration: 'Debug',
       include_symbols: true,
       export_method: 'development'
@@ -119,7 +119,7 @@ platform :ios do
         scheme: ODS_SCHEME,
         output_directory: 'build/',
         #archive_path: 'build/',
-        output_name: 'odsDemo',
+        output_name: 'odsApp',
         configuration: 'Release',
         include_symbols: true,
         export_method: 'app-store',
