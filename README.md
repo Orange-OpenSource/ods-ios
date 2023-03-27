@@ -1,10 +1,4 @@
-<p align="center">
-  <a href="https://orange-opensource.github.io/ods-ios">
-    <img src="https://c.woopic.com/logo-orange.png" alt="ODS iOS" width="50" height="50">
-  </a>
-</p>
-
-<h3 align="center">ODS iOS</h3>
+<h1 align="center">ODS iOS</h1>
 
 <p align="center">
   ODS iOS provides Orange iOS components to developers and a demo application.
