@@ -66,7 +66,6 @@ public struct ODSListOfCardImageFirst: View {
             .padding(EdgeInsets(top: ODSSpacing.m, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))
         }
         .navigationTitle(title)
-        .navigationViewStyle(.stack)
     }
 }
 
@@ -78,7 +77,6 @@ struct ODSCardVerticalImageFirstListItem: View {
         NavigationLink {
             model.destination
                 .navigationTitle(model.cardModel.title)
-                .navigationViewStyle(.stack)
                 .background(Color(uiColor: .systemGray6))
         } label: {
             ODSCardVerticalImageFirst(model: model.cardModel)

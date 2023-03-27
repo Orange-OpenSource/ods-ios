@@ -67,7 +67,6 @@ struct ComponentPage: View {
         .padding(.top, ODSSpacing.none)
         .padding(.horizontal, ODSSpacing.none)
         .navigationTitle(component.title)
-        .navigationViewStyle(.stack)
         .navigationbarMenuForThemeSelection()
     }
 }
