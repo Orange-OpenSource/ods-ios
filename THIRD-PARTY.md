@@ -15,5 +15,7 @@ You may download the source code on the following website: https://github.com/Sw
 SwiftLint is distributed under the terms and conditions ot the MIT License (http://opensource.org/licenses/MIT)
 You may download the source code on the following website: https://github.com/realm/SwiftLint
 
-
+### Parma (used in Application only)
+Parma is distributed under the terms and conditions ot the MIT License (http://opensource.org/licenses/MIT)
+You may download the source code on the following website: https://github.com/dasautoooo/Parma
 

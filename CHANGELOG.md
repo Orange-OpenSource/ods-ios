@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.11.2](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.2...0.10.0) - 2023-03-27
+
+- [DemoApp] No default item selected on iPad at launch ([#396](https://github.com/Orange-OpenSource/ods-ios/issues/396))
+- [SDK] Update Readme and ThirdParty files ([#394](https://github.com/Orange-OpenSource/ods-ios/issues/394))
+
 ## [0.11.1](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.1...0.10.0) - 2023-03-16
 
 - [DemoApp] Rename Application([#388](https://github.com/Orange-OpenSource/ods-ios/issues/388))
