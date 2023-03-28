@@ -49,8 +49,9 @@ struct GuidelinesList: View {
         NavigationView {
             ODSListOfCardImageFirst(title: "Guidelines", itemModels: itemsModel)
                 .navigationTitle("Guidelines")
-                .navigationViewStyle(.stack)
                 .navigationbarMenuForThemeSelection()
+
+            GuidelinePage(guideline: guidelines[0])
         }
     }
     
@@ -73,7 +74,6 @@ struct GuidelinesList: View {
 }
 
 #if DEBUG
-
 struct GuidelinesListView_Previews: PreviewProvider {
     static var previews: some View {
         ThemeablePreviews {

@@ -118,7 +118,7 @@ platform :ios do
         clean: true,
         scheme: ODS_SCHEME,
         output_directory: 'build/',
-        #archive_path: 'build/',
+        archive_path: 'build/odsApp.xcarchive',
         output_name: 'odsApp',
         configuration: 'Release',
         include_symbols: true,

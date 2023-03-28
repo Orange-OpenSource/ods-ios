@@ -78,7 +78,6 @@ struct CardViewDemoGrid: View {
                 .padding(.all, ODSSpacing.m)
         }
         .navigationTitle("Grid")
-        .navigationViewStyle(.stack)
         .navigationbarMenuForThemeSelection()
     }
 }
