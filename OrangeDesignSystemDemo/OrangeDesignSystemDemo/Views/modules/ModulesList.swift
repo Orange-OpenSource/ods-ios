@@ -58,8 +58,10 @@ struct ModulesList: View {
         return NavigationView {
             ODSListOfCardImageFirst(title: "Modules", itemModels: items)
                 .navigationTitle("Modules")
-                .navigationViewStyle(.stack)
                 .navigationbarMenuForThemeSelection()
+            
+            AboutView()
+                .environmentObject(AboutConfigDemo.instance.applicationInformation)
         }
     }
 }

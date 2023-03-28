@@ -90,8 +90,9 @@ struct ComponentsList: View {
                     .padding(.horizontal, ODSSpacing.s)
             }
             .navigationTitle("Components")
-            .navigationViewStyle(.stack)
             .navigationbarMenuForThemeSelection()
+            
+            ComponentPage(component: components[0])
         }
     }
 }
