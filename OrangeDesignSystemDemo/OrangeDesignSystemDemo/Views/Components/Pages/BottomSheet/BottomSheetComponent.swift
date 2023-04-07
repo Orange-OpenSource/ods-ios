@@ -32,7 +32,7 @@ struct BottomSheetComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "AA Sheet: Bottom"
+        title = "Sheets: Bottom"
         imageName = "BottomSheet"
         description = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task."
         variants = AnyView(BottomSheetVariants())
@@ -40,125 +40,17 @@ struct BottomSheetComponent: Component {
 }
 
 struct BottomSheetVariants: View {
-    
-    @State var position: BottomSheetPosition = .dynamicBottom
-    
-    // ==========
-    // MARK: Body
-    // ==========
-
     var body: some View {
-        VariantEntryItem(text: "Bottom sheet", technicalElement: "ODSBottomSheet()") {
-            ScrollView {
-                Text("Coucou")
-            }
-            .background(.red)
-            .bottomSheet(bottomSheetPosition: $position, switchablePositions: [.dynamicBottom, .relative(0.5), .relative(0.95)]) {
-                HStack(alignment: .center, spacing: ODSSpacing.xs) {
-                    
-                    VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                        Text("Title")
-                            .odsFont(.headline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        
-                        Text("Subtitle")
-                            .odsFont(.subhead)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                }
-                .background(.yellow)
-                .padding(.bottom, ODSSpacing.s)
-                .background(.blue)
-                .onTapGesture {
-                    self.position =  .dynamicBottom
-                }
-            } mainContent: {
-                ContentBottomSheet(model: BottomSheetVariantModel())
-            }
-//            BottomSheetVariantHome(model: BottomSheetVariantModel())
-                .navigationTitle("Bottom sheet")
+        VariantEntryItem(text: "Expanding", technicalElement: ".odsBottomSheetExpanding()") {
+            ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
+                .navigationTitle("Expanding")
+            
+        }
+        
+        VariantEntryItem(text: "Standard", technicalElement: ".odsBottomSheetStandard()") {
+            StandardBottomSheetVariant()
+                .navigationTitle("Standard")
         }
     }
 }
 
-public struct ContentBottomSheet: View {
-    
-    let model: BottomSheetVariantModel
-    
-    public var body: some View {
-        List {
-            ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
-                let listItemModel =
-                ODSListStandardItemModel(title: recipe.title, leadingIcon: .icon(Image(recipe.iconName)))
-
-                ODSListStandardItem(model: listItemModel)
-                    .padding(.horizontal, ODSSpacing.s)
-                    .listRowSeparator(Visibility.visible)
-                    .listRowInsets(EdgeInsets())
-                    .onTapGesture {
-                        if model.selectedRecipe?.title == recipe.title {
-                            model.selectedRecipe = nil
-                        } else {
-                            model.selectedRecipe = recipe
-                        }
-                    }
-            }
-        }
-        .listStyle(.plain)
-    }
-}
-
-private struct BottomSheetVariantHome: View {
-    
-    // ======================
-    // MARK: Store properties
-    // ======================
-    
-    @ObservedObject private var model: BottomSheetVariantModel
-    @State private var showBottomSheet = false
-    
-    // =================
-    // MARK: Initializer
-    // =================
-    
-    init(model: BottomSheetVariantModel) {
-        self.model = model
-    }
-    
-    // ==========
-    // MARK: Body
-    // ==========
-    
-    var body: some View {
-        ScrollView {
-            VStack(spacing: ODSSpacing.m) {
-                Text("Customize the bottom sheet before opening sheet to see it.")
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, ODSSpacing.m)
-                
-                BottomSheetVariantOptions(model: model)
-                
-                ODSButton(text: "See the component", emphasis: .highest, variableWidth: false) {
-                    showBottomSheet = true
-                }
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, ODSSpacing.m)
-                .padding(.top, ODSSpacing.m)
-                
-                Spacer()
-                
-//                NavigationLink(
-//                    destination: BottomSheetVariant(model: model),
-//                    isActive: $showBottomSheet,
-//                    label: { EmptyView() }
-//                )
-            }
-            .padding(.vertical, ODSSpacing.m)
-            .sheet(isPresented: $showBottomSheet) {
-                BottomSheetVariant(model: model)
-            }
-        }
-    }
-}

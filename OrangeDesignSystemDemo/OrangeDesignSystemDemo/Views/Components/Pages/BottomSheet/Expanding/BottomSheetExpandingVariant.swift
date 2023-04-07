@@ -39,11 +39,9 @@ struct BottomSheetVariant: View {
     var body: some View {
         PageContent(model: model)
             .modifier(BottomSheetModifier(model: model))
-            .navigationBarTitle("Recipes", displayMode: .inline)
             
     }
 }
-
 
 fileprivate struct BottomSheetModifier: ViewModifier {
 
@@ -60,23 +58,30 @@ fileprivate struct BottomSheetModifier: ViewModifier {
     func body(content: Content) -> some View {
         if model.showSubtitle {
             content
-                .odsBottomSheet(title: "Recipes",
-                                subtitle: model.showSubtitle ? "French products" : nil,
+                .odsBottomSheetExpanding(title: "Recipes",
+                                subtitle: "French products",
                                 bottomSheetSize: $model.bottomSheetSize,
-                                bottomSheetPosition: $model.bottomSheetPosition) {
-                     BottonSheetContent(model: model)
-                         .background(Color(UIColor.systemBackground))
-                 }
+                                content: bottomSheetContent)
         } else {
-            content
-                .odsBottomSheet(title: "Recipes",
-                                 icon: model.showIcon ? Image("Heart_19371") : nil,
-                                 bottomSheetSize: $model.bottomSheetSize,
-                                 bottomSheetPosition: $model.bottomSheetPosition) {
-                     BottonSheetContent(model: model)
-                         .background(Color(UIColor.systemBackground))
-                 }
+            if model.showIcon {
+                content
+                    .odsBottomSheetExpanding(title: "Recipes",
+                                    icon: Image("Heart_19371"),
+                                    bottomSheetSize: $model.bottomSheetSize,
+                                    content: bottomSheetContent)
+            } else {
+                content
+                    .odsBottomSheetExpanding(title: "Recipes",
+                                    bottomSheetSize: $model.bottomSheetSize,
+                                    content: bottomSheetContent)
+            }
         }
+    }
+    
+    private func bottomSheetContent() -> some View {
+        BottonSheetContent(model: model)
+            .background(Color(UIColor.systemBackground))
+
     }
 }
 
@@ -103,18 +108,14 @@ fileprivate struct BottonSheetContent: View {
     // =============
     // MARK: Helpers
     // =============
-    
+    @ViewBuilder
     private func tutorialPage() -> some View {
-        ScrollView {
-            if model.bottomSheetSize == .large {
-                PageContent(model: model)
-            }
-        }
+        TutorialText(message: model.tutorialTextOnBottomSheetContent)
     }
     
     private func examplePage() -> some View {
-        List {
-            ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
+//        List {
+        ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
                 let listItemModel =
                 ODSListStandardItemModel(title: recipe.title, leadingIcon: .icon(Image(recipe.iconName)))
 
@@ -123,15 +124,11 @@ fileprivate struct BottonSheetContent: View {
                     .listRowSeparator(Visibility.visible)
                     .listRowInsets(EdgeInsets())
                     .onTapGesture {
-                        if model.selectedRecipe?.title == recipe.title {
-                            model.selectedRecipe = nil
-                        } else {
-                            model.selectedRecipe = recipe
-                        }
+                        model.selectedRecipe = recipe
                     }
             }
-        }
-        .listStyle(.plain)
+//        }
+//        .listStyle(.plain)
     }
 }
 
@@ -170,7 +167,9 @@ fileprivate struct PageContent: View {
                                            subtitle: recipe.subtitle,
                                            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
                                            supportingText: recipe.description)
-            ODSCardVerticalImageFirst(model: cardModel)
+            ODSCardVerticalImageFirst(model: cardModel) {
+                ODSButton(text: "Start preparing", emphasis: .highest, action: {})
+            }
                 .padding(.horizontal, ODSSpacing.s)
         } else {
             EmptyView()
@@ -179,42 +178,29 @@ fileprivate struct PageContent: View {
     
     @ViewBuilder
     private func tutorialPage() -> some View {
+        TutorialText(message: model.tutorialTextOnPageContent)
+    }
+}
+
+struct TutorialText: View {
+    
+    // ======================
+    // MARK: Store properties
+    // ======================
+
+    let message: String?
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
         if let message = message {
             Text(message)
+                .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.all, ODSSpacing.m)
-        } else {
-            EmptyView()
-        }
-    }
-        
-    private var message: String? {
-        switch model.bottomSheetSize {
-        case .hidden:
-            return nil
-        case .small:
-            return
-                """
-                To open the bottom sheet :\n
-                Drag the component up
-                """
-        case .medium:
-            return
-                """
-                To open or close  the bottom sheet :\n
-                Drag the handle up or down\n
-                Scroll the content\n
-                Tap the dimming area
-                """
-        case .large:
-            return
-                """
-                To close the bottom sheet :\n
-                Drag the handle down\n
-                Scroll the content\n
-                Tap the dimming area
-                """
         }
     }
 }

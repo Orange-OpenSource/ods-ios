@@ -95,7 +95,7 @@ struct CardVerticalHeaderFirstVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             ScrollView {
                 ODSCardVerticalHeaderFirst(model: model.cardModel) {
                     if let text = model.button1Text {
@@ -119,10 +119,8 @@ struct CardVerticalHeaderFirstVariant: View {
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("close", role: .cancel) {}
             }
-
-            BottomSheet {
-                CardVerticalHeaderFirstVariantOptions(model: model)
-            }
+        } options: {
+            CardVerticalHeaderFirstVariantOptions(model: model)
         }
     }
 }

@@ -54,17 +54,16 @@ extension View {
                 itemAppearance.normal.badgeBackgroundColor = uiBadgeColor
                 itemAppearance.selected.badgeBackgroundColor = uiBadgeColor
             }
-            
+
             let appearance = UITabBarAppearance()
-//            appearance.configureWithOpaqueBackground()
+            appearance.configureWithOpaqueBackground()
             appearance.configureWithTransparentBackground()
             appearance.backgroundColor = backgroundColor?.uiColor
-            appearance.backgroundColor = .clear
-            
+
             appearance.stackedLayoutAppearance = itemAppearance
             appearance.inlineLayoutAppearance = itemAppearance
             appearance.compactInlineLayoutAppearance = itemAppearance
-            
+
             UITabBar.appearance().standardAppearance = appearance
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }

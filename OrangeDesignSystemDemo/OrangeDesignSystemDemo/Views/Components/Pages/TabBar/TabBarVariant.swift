@@ -51,7 +51,7 @@ struct TabBarVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             GeometryReader { reader in
                 VStack(alignment: .center, spacing: 0) {
                     VStack {
@@ -72,13 +72,11 @@ struct TabBarVariant: View {
             .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
                 spacerHeight = Self.computeSpacerHeight()
             }
-
-            BottomSheet {
-                TabBarVariantOptions(model: model)
-            }
+        } options: {
+            TabBarVariantOptions(model: model)
         }
     }
-    
+
     // =============
     // MARK: Helpers
     // =============
