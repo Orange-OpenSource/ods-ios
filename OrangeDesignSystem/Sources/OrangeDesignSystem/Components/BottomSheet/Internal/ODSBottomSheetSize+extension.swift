@@ -31,7 +31,7 @@ extension ODSBottomSheetSize {
         case .medium:
             return .relative(0.5)
         case .large:
-            return .relative(0.9)
+            return .relativeTop(0.975)
         }
     }
 

@@ -38,47 +38,49 @@ struct BottomSheedHeader: View {
     // ==========
 
     var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            RoundedRectangle(cornerRadius: 4)
-                .frame(width: 55, height: 4, alignment: .center)
-                .padding(.top, ODSSpacing.s)
-                .padding(.bottom, ODSSpacing.xs)
-
+        VStack(spacing: 0) {
             VStack(spacing: ODSSpacing.none) {
-                HStack(spacing: ODSSpacing.xs) {
-                    icon?
-                        .foregroundColor(.primary)
-                        .accessibility(hidden: true)
-                        .odsFont(.headline)
-                        .animation(.linear, value: applyRotation)
-                        .rotationEffect(.degrees(applyRotation ? 180 : 0))
+                RoundedRectangle(cornerRadius: 4)
+                    .frame(width: 55, height: 4, alignment: .center)
+                    .padding(.top, ODSSpacing.s)
+                    .padding(.bottom, ODSSpacing.xs)
 
-                    VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                        Text(title)
+                VStack(spacing: ODSSpacing.none) {
+                    HStack(spacing: ODSSpacing.xs) {
+                        icon?
+                            .foregroundColor(.primary)
+                            .accessibility(hidden: true)
                             .odsFont(.headline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .animation(.linear, value: applyRotation)
+                            .rotationEffect(.degrees(applyRotation ? 180 : 0))
 
-                        if let subtitle = self.subtitle {
-                            Text(subtitle)
-                                .odsFont(.subhead)
+                        VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                            Text(title)
+                                .odsFont(.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
+
+                            if let subtitle = self.subtitle {
+                                Text(subtitle)
+                                    .odsFont(.subhead)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
                         }
                     }
+                    .padding(.leading, ODSSpacing.s)
+                    .padding(.trailing, ODSSpacing.m)
+                    .padding(.bottom, ODSSpacing.s)
                 }
-                .padding(.leading, ODSSpacing.s)
-                .padding(.trailing, ODSSpacing.m)
-                .padding(.bottom, ODSSpacing.s)
-
-                Divider()
             }
+            .background(Color(.systemGray6))
+            .padding(.bottom, 10)
+            .cornerRadius(10)
+            .shadow(color: Color(UIColor.systemGray), radius: 4)
+            .padding(.bottom, -10)
+            .padding(.top, 10)
+            .mask(Rectangle().padding(.top, -40))
+            
+            Divider()
         }
-        .background(Color(.systemGray6))
-        .padding(.bottom, 10)
-        .cornerRadius(10)
-        .padding(.top, 10)
-        .shadow(color: Color(UIColor.systemGray), radius: 4)
-        .padding(.bottom, -10)
-        .mask(Rectangle().padding(.top, -4))
     }
 }
 

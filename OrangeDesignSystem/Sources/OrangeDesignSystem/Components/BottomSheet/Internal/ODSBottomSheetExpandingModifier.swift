@@ -90,6 +90,7 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
         .onChange(of: bottomSheetPosition) { newValue in
             bottomSheetSize.wrappedValue = ODSBottomSheetSize(from: newValue)
         }
+
     }
 
     // =====================
@@ -98,6 +99,6 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
 
     @ViewBuilder
     private var background: some View {
-        Color.clear
+        Color(.clear)
     }
 }
