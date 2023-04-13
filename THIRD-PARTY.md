@@ -19,3 +19,6 @@ You may download the source code on the following website: https://github.com/re
 Parma is distributed under the terms and conditions ot the MIT License (http://opensource.org/licenses/MIT)
 You may download the source code on the following website: https://github.com/dasautoooo/Parma
 
+### BottomSheet
+BottomSheet is distributed under the terms and conditions ot the MIT License (http://opensource.org/licenses/MIT)
+You may download the source code on the following website: https://github.com/lucaszischka/BottomSheet

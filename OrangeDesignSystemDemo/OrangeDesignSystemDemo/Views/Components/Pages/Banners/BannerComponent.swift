@@ -62,17 +62,15 @@ struct BannerVariant: View {
     // ==========
     
     var body: some View {
-        ZStack {
-            
+        CustomizableVariant {
             BannerVariantContent(model: model)
-            
-            BottomSheet {
-                BannerVariantOptions(model: model)
-            }
+        } options: {
+
+            BannerVariantOptions(model: model)
         }
     }
 }
-    
+
 struct BannerVariantContent: View {
     
     // =======================

@@ -93,7 +93,7 @@ public struct ODSCardSmall: View {
                 .accessibilityHidden(true)
                 .frame(maxHeight: 100)
                 .clipped()
-            
+
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 Text(model.title)
                     .lineLimit(1)

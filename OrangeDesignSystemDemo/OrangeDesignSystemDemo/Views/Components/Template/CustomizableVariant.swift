@@ -21,18 +21,42 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
+import OrangeDesignSystem
 
-@main
-struct ods_ios_swiftUI_demoApp: App {
-    @StateObject var themeProvider = ThemeProvider()
+struct CustomizableVariant<Variant, Options>: View  where Variant: View, Options: View {
 
-    var body: some Scene {
-        WindowGroup {
-            ODSThemeableView(theme: themeProvider.currentTheme) {
-                MainTabView().environmentObject(themeProvider)
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @State var isOpen = false
+    let variant: () -> Variant
+    let options: () -> Options
+    
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(@ViewBuilder variant: @escaping () -> Variant,
+         @ViewBuilder options: @escaping () -> Options) {
+        self.variant = variant
+        self.options = options
+    }
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        variant()
+            .task {
+                withAnimation(Animation.linear.delay(0.5)) {
+                    self.isOpen = true
+                }
             }
-        }
+            .odsBottomSheetStandard(isOpen: $isOpen, title: "Customize",
+                                    icon: Image(systemName: "chevron.down"), annimateIcon: true,
+                                    content: self.options)
     }
 }

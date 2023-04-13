@@ -36,6 +36,8 @@ toc2:
         url: components/progressIndicator_docs
       - page: Slider
         url: components/slider_docs
+      - page: Sheets - Bottom
+        url: components/sheetsBottom_docs
       - page: Text fields
         url: components/textInput_docs
 

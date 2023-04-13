@@ -63,12 +63,10 @@ struct NavigationBarVariant: View {
     // ==========
     
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             NavigationBarVariantContent(model: model)
-
-            BottomSheet {
-                NavigationBarVariantOptions(model: model)
-            }
+        } options: {
+            NavigationBarVariantOptions(model: model)
         }
     }
 }

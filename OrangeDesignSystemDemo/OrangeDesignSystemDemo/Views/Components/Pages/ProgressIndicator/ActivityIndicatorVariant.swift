@@ -37,7 +37,7 @@ struct ActivityIndicatorVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             VStack {
                 ProgressView {
                     if model.showLabel {
@@ -47,9 +47,7 @@ struct ActivityIndicatorVariant: View {
                 Spacer()
             }
             .padding(.all, ODSSpacing.m)
-        }
-
-        BottomSheet {
+        } options: {
             ActivityIndicatorVariantOptions(model: model)
         }
     }

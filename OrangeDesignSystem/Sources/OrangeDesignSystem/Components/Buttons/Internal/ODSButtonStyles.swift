@@ -29,7 +29,7 @@ import SwiftUI
 struct ODSButtonStyleModifier: ViewModifier {
     let emphasis: ODSButton.Emphasis
     @Environment(\.theme) var theme
-    
+
     @ViewBuilder
     func body(content: Content) -> some View {
         switch emphasis {

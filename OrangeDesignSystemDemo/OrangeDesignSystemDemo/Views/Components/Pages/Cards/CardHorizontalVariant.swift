@@ -122,7 +122,7 @@ struct CardHorizontalVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             ScrollView {
                 ODSCardHorizontal(model: model.cardModel) {
                     if let text = model.button1Text {
@@ -146,10 +146,8 @@ struct CardHorizontalVariant: View {
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("close", role: .cancel) {}
             }
-
-            BottomSheet {
-                CardHorizontalVariantOptions(model: model)
-            }
+        } options: {
+            CardHorizontalVariantOptions(model: model)
         }
     }
 }

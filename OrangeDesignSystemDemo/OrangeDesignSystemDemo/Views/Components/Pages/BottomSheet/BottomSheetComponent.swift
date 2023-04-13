@@ -23,16 +23,34 @@
 
 import OrangeDesignSystem
 import SwiftUI
+import BottomSheet
 
-@main
-struct ods_ios_swiftUI_demoApp: App {
-    @StateObject var themeProvider = ThemeProvider()
+struct BottomSheetComponent: Component {
+    let title: String
+    let imageName: String
+    let description: String
+    let variants: AnyView
+    
+    init() {
+        title = "Sheets: Bottom"
+        imageName = "BottomSheet"
+        description = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task."
+        variants = AnyView(BottomSheetVariants())
+    }
+}
 
-    var body: some Scene {
-        WindowGroup {
-            ODSThemeableView(theme: themeProvider.currentTheme) {
-                MainTabView().environmentObject(themeProvider)
-            }
+struct BottomSheetVariants: View {
+    var body: some View {
+        VariantEntryItem(text: "Expanding", technicalElement: ".odsBottomSheetExpanding()") {
+            ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
+                .navigationTitle("Expanding")
+            
+        }
+        
+        VariantEntryItem(text: "Standard", technicalElement: ".odsBottomSheetStandard()") {
+            StandardBottomSheetVariant()
+                .navigationTitle("Standard")
         }
     }
 }
+
