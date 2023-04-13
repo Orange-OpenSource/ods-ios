@@ -1,6 +1,6 @@
 ---
 layout: detail
-title: Sheets: bottom
+title: Bottom sheets
 description: Bottom Sheets are surfaces anchored to the bottom of the screen that present users supplement content.
 ---
 
