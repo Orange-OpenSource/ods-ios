@@ -18,7 +18,7 @@ description: Bottom Sheets are surfaces anchored to the bottom of the screen tha
 
 ## Specifications references
 
-- [Design System Manager - Sliders](https://system.design.orange.com/0c1af118d/p/3347ca-sheets-bottom/b/83b619)
+- [Design System Manager - Bottom sheets](https://system.design.orange.com/0c1af118d/p/3347ca-sheets-bottom/b/83b619)
 
 ## Accessibility
 
