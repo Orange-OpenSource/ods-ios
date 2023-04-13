@@ -11,7 +11,9 @@ description: Bottom Sheets are surfaces anchored to the bottom of the screen tha
 * [Specifications references](#specifications-references)
 * [Accessibility](#accessibility)
 * [Variants](#variants)
-  
+  * [Standard](#standard)
+  * [Expanding](#expanding)
+
 ---
 
 ## Specifications references
@@ -81,4 +83,4 @@ User can resize by tapping on dimming area (close), drag the content, or tap on 
 ```
 
 **Remark**: In order to compute the resizing when user scrolls the content, the bottom sheet automatically adds the provided content is a scrollView.      
- 
+
