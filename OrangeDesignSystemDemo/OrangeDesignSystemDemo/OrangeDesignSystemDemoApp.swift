@@ -27,7 +27,7 @@ import SwiftUI
 @main
 struct ods_ios_swiftUI_demoApp: App {
     @StateObject var themeProvider = ThemeProvider()
-    
+
     var body: some Scene {
         WindowGroup {
             ODSThemeableView(theme: themeProvider.currentTheme) {

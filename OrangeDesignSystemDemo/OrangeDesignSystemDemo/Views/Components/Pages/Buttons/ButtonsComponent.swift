@@ -87,7 +87,7 @@ struct CommonButtonVariant<Variant>: View where Variant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             ScrollView {
                 VStack(spacing: ODSSpacing.m) {
                     contentView(model)
@@ -96,11 +96,10 @@ struct CommonButtonVariant<Variant>: View where Variant: View {
                 .padding(.horizontal, ODSSpacing.m)
             }
             .padding(.bottom, 55)
-
-            BottomSheet(showContent: false) {
-                EmphasisAndFunctionalVariantOptions(model: model)
-            }
-        }
-        .background(Color("componentBackground2"))
+            .background(Color("componentBackground2"))
+        } options: {
+            EmphasisAndFunctionalVariantOptions(model: model)
+        }        
     }
 }
+

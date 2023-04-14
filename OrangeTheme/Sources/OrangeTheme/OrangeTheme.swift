@@ -207,6 +207,9 @@ public struct OrangeThemeFactory {
         theme.componentColors.functionalInfo = OrangeColors.functionalInfo.colorDecription.color
         theme.componentColors.functionalAlert = OrangeColors.functionalAlert.colorDecription.color
 
+        // Bottom sheet
+        theme.componentColors.bottomSheetHeaderBackground = OrangeColors.componentBackground.colorDecription.color
+        
         theme.font = { style in
             switch style {
             case .largeTitle:

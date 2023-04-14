@@ -29,95 +29,332 @@ import SwiftUI
 /// Based on the native `Slider`, the `ODSSLider` offers to the user the possibility
 /// to type direcly on the slider's track to get a value.
 ///
-public struct ODSSlider<V, ValueLabel>: View where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint, ValueLabel: View {
-    @Binding var value: V
-    public let range: ClosedRange<V>
-    let step: V.Stride
-    let minimumValueLabel: () -> ValueLabel
-    let maximumValueLabel: () -> ValueLabel
 
-    /// Creates an unlabeled slider to select a value from a given range, subject to a
-    /// step increment.
+// MARK: - Initializers with labels.
+public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint, Label: View, ValueLabel: View {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @Binding private var value: V
+    private let range: ClosedRange<V>
+    private let label: Label
+    private let minimumValueLabel: ValueLabel
+    private let maximumValueLabel: ValueLabel
+    private let onEditingChanged: (Bool) -> Void
+    private let step: V.Stride?
+
+    private let values: [V]?
+    @State private var isEditing: Bool {
+        didSet {
+            onEditingChanged(isEditing)
+        }
+    }
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    /// Creates a slider to select a value from a given range, subject to a
+    /// step increment, which displays the provided labels.
     ///
     /// - Parameters:
-    ///   - value: The selected value within `range`.
-    ///   - range: The range of the valid values.
-    ///   - step: The distance between each valid value. default 1
+    ///   - value: The selected value within `bounds`.
+    ///   - bounds: The range of the valid values. Defaults to `0...1`.
+    ///   - step: The distance between each valid value.
+    ///   - label: A `View` that describes the purpose of the instance. Not all
+    ///     slider styles show the label, but even in those cases, SwiftUI
+    ///     uses the label for accessibility. For example, VoiceOver uses the
+    ///     label to identify the purpose of the slider.
+    ///   - minimumValueLabel: A view that describes `bounds.lowerBound`.
+    ///   - maximumValueLabel: A view that describes `bounds.upperBound`.
+    ///   - onEditingChanged: A callback for when editing begins and ends.
     ///
     /// The `value` of the created instance is equal to the position of
-    /// the given value within `range`.
+    /// the given value within `bounds`.
     ///
-    public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1) where ValueLabel == EmptyView {
+    /// The slider calls `onEditingChanged` when editing begins and ends. For
+    /// example, on iOS, editing begins when the user starts to drag the thumb
+    /// along the slider's track.
+    ///
+    /// - Remark: Accessibilty recommendation:
+    /// We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
+    ///
+    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0...1, @ViewBuilder label: () -> Label, @ViewBuilder minimumValueLabel: () -> ValueLabel, @ViewBuilder maximumValueLabel: () -> ValueLabel, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+
         _value = value
-        self.range = range
-        self.step = step
-        maximumValueLabel = {
-            EmptyView()
-        }
-        minimumValueLabel = {
-            EmptyView()
-        }
+        self.range = bounds
+        self.step = nil
+        self.onEditingChanged = onEditingChanged
+        self.label = label()
+        self.minimumValueLabel = minimumValueLabel()
+        self.maximumValueLabel = maximumValueLabel()
+
+        self.values = nil
+        self._isEditing = State(initialValue: false)
     }
 
     /// Creates a slider to select a value from a given range, subject to a
-    /// step increment. which displays the provided labels.
+    /// step increment, which displays the provided labels.
     ///
     /// - Parameters:
-    ///   - value: The selected value within `range`.
-    ///   - range: The range of the valid values.
-    ///   - step: The distance between each valid value. default 1
-    ///   - minimumValueLabel: A view that describes `range.lowerBound`.
-    ///   - maximumValueLabel: A view that describes `range.lowerBound`.
+    ///   - value: The selected value within `bounds`.
+    ///   - bounds: The range of the valid values.
+    ///   - step: The distance between each valid value.
+    ///   - label: A `View` that describes the purpose of the instance. Not all
+    ///     slider styles show the label, but even in those cases, SwiftUI
+    ///     uses the label for accessibility. For example, VoiceOver uses the
+    ///     label to identify the purpose of the slider.
+    ///   - minimumValueLabel: A view that describes `bounds.lowerBound`.
+    ///   - maximumValueLabel: A view that describes `bounds.upperBound`.
+    ///   - onEditingChanged: A callback for when editing begins and ends.
     ///
     /// The `value` of the created instance is equal to the position of
-    /// the given value within `range`.
+    /// the given value within `bounds`.
     ///
-    public init(value: Binding<V>, range: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder minimumLabelView: @escaping () -> ValueLabel, @ViewBuilder maximumLabelView: @escaping () -> ValueLabel) {
+    /// The slider calls `onEditingChanged` when editing begins and ends. For
+    /// example, on iOS, editing begins when the user starts to drag the thumb
+    /// along the slider's track.
+    ///
+    /// - Remark: Accessibilty recommendation:
+    /// We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
+    ///
+    public init(value: Binding<V>, in bounds: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder label: () -> Label, @ViewBuilder minimumValueLabel: () -> ValueLabel, @ViewBuilder maximumValueLabel: () -> ValueLabel, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+
         _value = value
-        self.range = range
+        self.range = bounds
         self.step = step
-        minimumValueLabel = minimumLabelView
-        maximumValueLabel = maximumLabelView
+        self.onEditingChanged = onEditingChanged
+        self.label = label()
+        self.minimumValueLabel = minimumValueLabel()
+        self.maximumValueLabel = maximumValueLabel()
+
+        self.values = Array(stride(from: range.lowerBound, through: range.upperBound, by: step))
+        self._isEditing = State(initialValue: false)
     }
+}
+
+// MARK: - Initializers with label, without value labels.
+extension ODSSlider where ValueLabel == EmptyView {
+
+    /// Creates a slider to select a value from a given range, which displays
+    /// the provided label.
+    ///
+    /// - Parameters:
+    ///   - value: The selected value within `bounds`.
+    ///   - bounds: The range of the valid values. Defaults to `0...1`.
+    ///   - label: A `View` that describes the purpose of the instance. Not all
+    ///     slider styles show the label, but even in those cases, SwiftUI
+    ///     uses the label for accessibility. For example, VoiceOver uses the
+    ///     label to identify the purpose of the slider.
+    ///   - onEditingChanged: A callback for when editing begins and ends.
+    ///
+    /// The `value` of the created instance is equal to the position of
+    /// the given value within `bounds`, mapped into `0...1`.
+    ///
+    /// The slider calls `onEditingChanged` when editing begins and ends. For
+    /// example, on iOS, editing begins when the user starts to drag the thumb
+    /// along the slider's track.
+    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0...1, @ViewBuilder label: () -> Label, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+        self.init(
+            value: value,
+            in: bounds,
+            label: label,
+            minimumValueLabel: { EmptyView() },
+            maximumValueLabel: { EmptyView() },
+            onEditingChanged: onEditingChanged)
+    }
+
+    /// Creates a slider to select a value from a given range, subject to a
+    /// step increment. which displays the provided label.
+    ///
+    /// - Parameters:
+    ///   - value: The selected value within `bounds`.
+    ///   - bounds: The range of the valid values. Defaults to `0...1`.
+    ///   - step: The distance between each valid value.
+    ///   - label: A `View` that describes the purpose of the instance. Not all
+    ///     slider styles show the label, but even in those cases, SwiftUI
+    ///     uses the label for accessibility. For example, VoiceOver uses the
+    ///     label to identify the purpose of the slider.
+    ///   - onEditingChanged: A callback for when editing begins and ends.
+    ///
+    /// The `value` of the created instance is equal to the position of
+    /// the given value within `bounds`.
+    ///
+    /// The slider calls `onEditingChanged` when editing begins and ends. For
+    /// example, on iOS, editing begins when the user starts to drag the thumb
+    /// along the slider's track.
+    public init(value: Binding<V>, in bounds: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder label: () -> Label, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+        self.init(
+            value: value,
+            in: bounds,
+            step: step,
+            label: label,
+            minimumValueLabel: { EmptyView() },
+            maximumValueLabel: { EmptyView() },
+            onEditingChanged: onEditingChanged)
+    }
+}
+
+// MARK: - Initializers without labels.
+extension ODSSlider where ValueLabel == EmptyView, Label == EmptyView {
+
+    /// Creates a slider to select a value from a given range.
+    ///
+    /// - Parameters:
+    ///   - value: The selected value within `bounds`.
+    ///   - bounds: The range of the valid values. Defaults to `0...1`.
+    ///   - onEditingChanged: A callback for when editing begins and ends.
+    ///
+    /// The `value` of the created instance is equal to the position of
+    /// the given value within `bounds`, mapped into `0...1`.
+    ///
+    /// The slider calls `onEditingChanged` when editing begins and ends. For
+    /// example, on iOS, editing begins when the user starts to drag the thumb
+    /// along the slider's track.
+    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0...1, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+        self.init(
+            value: value,
+            in: bounds,
+            label: { EmptyView() },
+            minimumValueLabel: { EmptyView() },
+            maximumValueLabel: { EmptyView() },
+            onEditingChanged: onEditingChanged)
+    }
+
+    /// Creates a slider to select a value from a given range, subject to a
+    /// step increment.
+    ///
+    /// - Parameters:
+    ///   - value: The selected value within `bounds`.
+    ///   - bounds: The range of the valid values.
+    ///   - onEditingChanged: A callback for when editing begins and ends.
+    ///
+    /// The `value` of the created instance is equal to the position of
+    /// the given value within `bounds`.
+    ///
+    /// The slider calls `onEditingChanged` when editing begins and ends. For
+    /// example, on iOS, editing begins when the user starts to drag the thumb
+    /// along the slider's track.
+    public init(value: Binding<V>, in bounds: ClosedRange<V>, step: V.Stride = 1, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+        self.init(
+            value: value,
+            in: bounds,
+            step: step,
+            label: { EmptyView() },
+            minimumValueLabel: { EmptyView() },
+            maximumValueLabel: { EmptyView() },
+            onEditingChanged: onEditingChanged)
+    }
+}
+
+// MARK: - View implementation.
+extension ODSSlider: View {
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     public var body: some View {
         VStack {
             HStack(alignment: .center) {
 
-                minimumValueLabel()
+                minimumValueLabel
 
                 GeometryReader { geometry in
-                    Slider(
-                        value: $value,
-                        in: range,
-                        step: step)
-                        .gesture(DragGesture(minimumDistance: 0).onChanged { value in
-                            let percent = min(max(0, Float(value.location.x / geometry.size.width * 1)), 1)
-                            let newValue = self.range.lowerBound + round(V(Double(percent)) * (self.range.upperBound - self.range.lowerBound))
-                            let rounded = round(V.Stride(newValue) / step) * step
-                            self.$value.wrappedValue = V(rounded)
-                        })
-                        .frame(
-                            width: geometry.size.width,
-                            height: geometry.size.height,
-                            alignment: .center)
+                    slider
+                    .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged { value in
+                                let newValue = computeNewValue(for: value.location.x, in: geometry.size.width)
+                                if !isEditing {
+                                    if newValue != self.$value.wrappedValue {
+                                        self.isEditing = true
+                                    }
+                                }
+
+                                self.$value.wrappedValue = newValue
+                            }
+                            .onEnded { value in
+                                self.$value.wrappedValue = computeNewValue(for: value.location.x, in: geometry.size.width)
+                                self.isEditing = false
+                            }
+                    )
+                    .frame(
+                        width: geometry.size.width,
+                        height: geometry.size.height,
+                        alignment: .center)
                 }
 
-                maximumValueLabel()
+                maximumValueLabel
             }
         }
+    }
+
+    // =====================
+    // MARK: private helpers
+    // =====================
+    @ViewBuilder
+    var slider: some View {
+        if let step = self.step {
+            Slider(value: $value, in: range, step: step) {
+                self.label
+            }
+        } else {
+            Slider(value: $value, in: range) {
+                self.label
+            }
+        }
+    }
+
+    private func computeNewValue(for xPosition: Double, in globalWidth: Double) -> V {
+        if xPosition >= globalWidth {
+            return range.upperBound
+        } else {
+            if xPosition <= 0 {
+                return range.lowerBound
+            } else {
+                let percent = xPosition / globalWidth
+                let computedValue = (V(percent) * (self.range.upperBound - self.range.lowerBound)) + self.range.lowerBound
+
+                // Adjust newValue according to step
+                return adjustNewValue(from: computedValue)
+            }
+        }
+    }
+
+    private func adjustNewValue(from computedValue: V) -> V {
+        guard let values = self.values else {
+            return computedValue
+        }
+
+        var newValue = computedValue
+        var distance: V.Stride = .infinity
+
+        for value in values {
+            let newDistance = value.distance(to: computedValue)
+            if abs(newDistance) < abs(distance) {
+                distance = newDistance
+                newValue = value
+            } else {
+                return newValue
+            }
+        }
+
+        return newValue
     }
 }
 
 #if DEBUG
+// MARK: - Previews.
 struct ODSSlider_Previews: PreviewProvider {
 
     static var previews: some View {
-
         VStack {
             ODSSlider(
                 value: .constant(50),
-                range: 0 ... 100.0)
+                in: 0 ... 100.0)
                 .padding([.leading, .trailing], ODSSpacing.s)
         }
     }
@@ -126,15 +363,16 @@ struct ODSSlider_Previews: PreviewProvider {
 struct ODSSlider_Previews_with_label: PreviewProvider {
 
     static var previews: some View {
-
         VStack {
-            ODSSlider(
-                value: .constant(50),
-                range: 0 ... 100.0)
-            {
+            ODSSlider(value: .constant(50),
+                      in: 0 ... 100.0) {
+                Text("Spead")
+            } minimumValueLabel: {
                 Image(systemName: "speaker.wave.1.fill")
-            } maximumLabelView: {
+            } maximumValueLabel: {
                 Image(systemName: "speaker.wave.3.fill")
+            } onEditingChanged: { isEditing in
+                print("isEditing(\(isEditing))")
             }
             .padding([.leading, .trailing], ODSSpacing.s)
         }

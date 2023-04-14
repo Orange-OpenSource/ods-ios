@@ -38,13 +38,10 @@ struct SelectionListVariant: View {
     // ==========
     
     var body: some View {
-        ZStack {
-            
+        CustomizableVariant {
             SelectionListVariantInner(model: model)
-            
-            BottomSheet {
+        } options: {
                 SelectionListVariantOptions(model: model)
-            }
         }
     }
 }

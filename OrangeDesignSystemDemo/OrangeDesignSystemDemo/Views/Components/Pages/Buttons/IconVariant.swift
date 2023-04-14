@@ -39,40 +39,42 @@ struct IconVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack(spacing: ODSSpacing.m) {
-                    Text("Plain buttons are the most ubiquitous compoent found troughout applications. Consisting a icon, they are the most simple button style.")
-                        .odsFont(.bodyRegular)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                    VariantsTitle().frame(maxWidth: .infinity, alignment: .leading)
+        CustomizableVariant {
+            variant
+        } options: {
+            IconVariantOptions(model: model)
+        }
+    }
+    
+    var variant: some View {
+        ScrollView {
+            VStack(spacing: ODSSpacing.m) {
+                Text("Plain buttons are the most ubiquitous compoent found troughout applications. Consisting a icon, they are the most simple button style.")
+                    .odsFont(.bodyRegular)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                VariantsTitle().frame(maxWidth: .infinity, alignment: .leading)
+                
+                VStack(alignment: .center, spacing: ODSSpacing.l) {
+                    VStack(alignment: .center, spacing: ODSSpacing.s) {
+                        Text("Icon (add)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        ODSIconButton(image: Image("Add")) {}
+                            .disabled(model.showDisabled)
+                    }
                     
-                    VStack(alignment: .center, spacing: ODSSpacing.l) {
-                        VStack(alignment: .center, spacing: ODSSpacing.s) {
-                            Text("Icon (add)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
-
-                            ODSIconButton(image: Image("Add")) {}
-                                .disabled(model.showDisabled)
-                        }
-
-                        VStack(alignment: .center, spacing: ODSSpacing.s) {
-                            Text("Icon (info)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
-
-                            ODSIconButton(image: Image(systemName: "info.circle")) {}
-                                .disabled(model.showDisabled)
-                        }
+                    VStack(alignment: .center, spacing: ODSSpacing.s) {
+                        Text("Icon (info)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        ODSIconButton(image: Image(systemName: "info.circle")) {}
+                            .disabled(model.showDisabled)
                     }
                 }
-                .padding(.top, ODSSpacing.m)
-                .padding(.horizontal, ODSSpacing.m)
             }
-            .padding(.bottom, 55)
-
-            BottomSheet(showContent: false) {
-                IconVariantOptions(model: model)
-            }
+            .padding(.top, ODSSpacing.m)
+            .padding(.horizontal, ODSSpacing.m)
         }
+        .padding(.bottom, 55)
         .background(Color("componentBackground2"))
     }
 }

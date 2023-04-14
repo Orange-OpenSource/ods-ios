@@ -31,10 +31,10 @@ UPDATE BUILD NUMBER WITH TIMESTAMP
 
 READ AND SET NEXT RELEASE NOTE IN CHANLOG
 
-### ios build
+### ios buildDebugApp
 
 ```sh
-[bundle exec] fastlane ios build
+[bundle exec] fastlane ios buildDebugApp
 ```
 
 BUILD DEBUG APP
@@ -53,7 +53,7 @@ BUILD & UPLOAD TO TESTFLIGHT QUALIF APP
 [bundle exec] fastlane ios prod
 ```
 
-BUILD & UPLOAD TO TESTFLIGHT PROD APP
+BUILD & UPLOAD TO TESTFLIGHT (if set in options: upload) PROD APP
 
 ----
 

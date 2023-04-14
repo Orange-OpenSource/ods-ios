@@ -90,7 +90,7 @@ struct CardVerticalImageFirstVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             // Card demonstrator
             ScrollView {
                 ODSCardVerticalImageFirst(model: model.cardModel) {
@@ -115,10 +115,8 @@ struct CardVerticalImageFirstVariant: View {
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("close", role: .cancel) {}
             }
-
-            BottomSheet(showContent: false) {
-                CardVerticalImageFirstVariantOptions(model: model)
-            }
+        } options: {
+            CardVerticalImageFirstVariantOptions(model: model)
         }
     }
 }

@@ -37,13 +37,10 @@ struct StandardListVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
-
+        CustomizableVariant {
             StandardListVariantInner(model: model)
-
-            BottomSheet {
-                StandardListVariantOptions(model: model)
-            }
+        } options: {
+            StandardListVariantOptions(model: model)
         }
     }
 }

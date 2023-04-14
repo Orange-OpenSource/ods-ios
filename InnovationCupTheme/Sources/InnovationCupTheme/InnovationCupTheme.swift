@@ -77,6 +77,9 @@ public struct InnovationCupThemeFactory {
         theme.componentColors.functionalInfo = InnovationCupThemeColors.functionalInfo.colorDecription.color
         theme.componentColors.functionalAlert = InnovationCupThemeColors.functionalAlert.colorDecription.color
 
+        // Bottom sheet
+        theme.componentColors.bottomSheetHeaderBackground = InnovationCupThemeColors.tabBarItem.colorDecription.color
+
         // Fonts: use the default ones
         // theme.font = { style in }
     

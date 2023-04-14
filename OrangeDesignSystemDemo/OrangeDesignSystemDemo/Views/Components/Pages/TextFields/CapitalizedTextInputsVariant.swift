@@ -53,7 +53,7 @@ private struct CapitalizedTextInputsVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             VStack {
                 textField
                     .textInputAutocapitalization(model.selectedCapitalizationType.textInputAutocapitalization)
@@ -68,10 +68,8 @@ private struct CapitalizedTextInputsVariant: View {
                 
                 Spacer()
             }
-            
-            BottomSheet(showContent: false) {
-                CapitalizedTextInputsVariantOptions(model: model)
-            }
+        } options: {
+            CapitalizedTextInputsVariantOptions(model: model)
         }
     }
     

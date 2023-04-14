@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.12.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...0.11.0) - 2023-04-14
+
+- [DemoApp/SDK] Add Bottom Sheet component ([#325](https://github.com/Orange-OpenSource/ods-ios/issues/325))
+- [SDK] Accessibility issues on Slider (Bug [#385](https://github.com/Orange-OpenSource/ods-ios/issues/385))
+- [Build] Update Build scripts to prepare upload on internal portal ([#383](https://github.com/Orange-OpenSource/ods-ios/issues/383))
+- [DemoApp] Add animation on Bottom Sheet when oppening and closing, automatically open it when appears ([#377](https://github.com/Orange-OpenSource/ods-ios/issues/377))
+- [DemoApp] Customization bottom sheet title uniformity ([#378](https://github.com/Orange-OpenSource/ods-ios/issues/378))
+- [DemoApp] Lists icon not displaying (Bug [#375](https://github.com/Orange-OpenSource/ods-ios/issues/375))
+- [SDK] Value is not computed well if Slider configured with step less than 1 (Bug [#313](https://github.com/Orange-OpenSource/ods-ios/issues/313))
+- [DemoApp] Update About module illustrations with B&W images ([#371](https://github.com/Orange-OpenSource/ods-ios/issues/371))
 
 ## [0.11.2](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.2...0.10.0) - 2023-03-27
 

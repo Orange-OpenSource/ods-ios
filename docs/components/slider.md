@@ -30,17 +30,7 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 As the `ODSSlider` is based on the native `Slider`, Voice Over is able to vocalize 
 However, if you want to set a description you need to add it using `.accessibilityLabel` on the `ODSSlider`.
 
-We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
-
-```swift
-ODSSlider(value: $value,
-          range: range,
-          step: step) {
-    Text("0").accessibilityHidden(true)
-} maximumLabelView: {
-    Text("100").accessibilityHidden(true)
-}
-```
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
 
 ## Variants
 
@@ -54,52 +44,65 @@ Unlabelled sliders allow users to make easy selections that do not require any d
 struct UnlabeledSlider: View {
 
     @State private var value = 50.0
-    let range = 0 ... 100.0
 
     var body: some View {
-        Text("Unlabeled slider")
-            .odsFont(.title2)
-        VStack(alignment: .center) {
-            ODSSlider(value: $value, range: range)
-        }
-        .padding(.horizontal, ODSSpacing.s)
+        ODSSlider(value: $value, in: 0 ... 100)
     }
 }
 ```
 
 ### Labeled slider (with images)
 
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
+
 ```swift
-ODSSlider(value: $value, in: 0 ... 100) {
-    Image(systemName: "speaker.wave.1.fill")
-} maximumValueLabel: {
-    Image(systemName: "speaker.wave.3.fill")
+struct LabeledSlider: View {
+
+    @State private var value = 50.0
+
+    var body: some View {
+        ODSSlider(value: $value, in: 0 ... 100) {
+            Text("Volume")
+        } minimumValueLabel: {
+            Image(systemName: "speaker.wave.1.fill").accessibilityHidden(true)
+        } maximumValueLabel: {
+            Image(systemName: "speaker.wave.3.fill").accessibilityHidden(true)
+        }
+    }
 }
 ``` 
 
 ### Labeled slider (with text)
 
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
+
 ```swift
 ODSSlider(value: $value, in: 0 ... 100) {
-    Text("  0")
+    Text("Volume")
+} minimumValueLabel: {
+    Text("0").accessibilityHidden(true)
 } maximumValueLabel: {
-    Text("100")
+    Text("100").accessibilityHidden(true)
 }
 ``` 
 
 ### Stepped slider (with text and value display)
 
+We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`. You can do it like this:
+
 ```swift
-Text("Stepped slider").odsFont(.title2)
-Text("Value : \(Int(value))").odsFont(.bodyRegular)
-VStack(alignment: .center) {
-    ODSSlider(
-        value: $value,
-        in: 0 ... 100,
-        step: 10) {
-        Text("  0")
-    } maximumValueLabel: {
-        Text("100")
+struct SteppedSlider: View {
+
+    @State private var value = 50.0
+
+    var body: some View {
+        ODSSlider(value: $value, in: 0 ... 100.0, step: 0.5) {
+            Text("Volume")
+        } minimumValueLabel: {
+            Image(systemName: "speaker.wave.1.fill").accessibilityHidden(true)
+        } maximumValueLabel: {
+            Image(systemName: "speaker.wave.3.fill").accessibilityHidden(true)
+        }
     }
 }
 ``` 

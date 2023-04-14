@@ -40,40 +40,46 @@ struct ProgressBarVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
-            VStack {
-                ProgressView(value: secondsElapsed, total: maxSeconds) {
-                    if model.showLabel {
-                        Label(title: {Text("Downloading...")}, icon: {
-                            if model.showIconInLabel {
-                                Image(systemName: "tray.and.arrow.down")
-                            }
-                        })
-                    }
-                } currentValueLabel: {
-                    if model.showCurrentValue {
-                        let percent = String(format: "%.0f", secondsElapsed)
-                        Text("\(percent) %")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                    }
-                }
-                .tint(theme.componentColors.accent)
-                .onReceive(timer) { _ in
-                    if secondsElapsed < maxSeconds {
-                        secondsElapsed += 1
-                    } else {
-                        secondsElapsed = 0
-                    }
-                }
-                
-                Spacer()
-            }
-            .padding(.all, ODSSpacing.m)
-            
-            BottomSheet() {
-                ProgressBarVariantOptions(model: model)
-            }
+        CustomizableVariant {
+            variant
+        } options: {
+            ProgressBarVariantOptions(model: model)
         }
+    }
+    
+    // ====================
+    // MARK: Private helper
+    // ====================
+
+    var variant: some View {
+        VStack {
+            ProgressView(value: secondsElapsed, total: maxSeconds) {
+                if model.showLabel {
+                    Label(title: {Text("Downloading...")}, icon: {
+                        if model.showIconInLabel {
+                            Image(systemName: "tray.and.arrow.down")
+                        }
+                    })
+                }
+            } currentValueLabel: {
+                if model.showCurrentValue {
+                    let percent = String(format: "%.0f", secondsElapsed)
+                    Text("\(percent) %")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+            }
+            .tint(theme.componentColors.accent)
+            .onReceive(timer) { _ in
+                if secondsElapsed < maxSeconds {
+                    secondsElapsed += 1
+                } else {
+                    secondsElapsed = 0
+                }
+            }
+            
+            Spacer()
+        }
+        .padding(.all, ODSSpacing.m)
     }
 }
 

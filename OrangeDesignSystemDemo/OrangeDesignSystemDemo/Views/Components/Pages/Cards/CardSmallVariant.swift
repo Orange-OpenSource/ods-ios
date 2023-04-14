@@ -64,7 +64,7 @@ struct CardSmallVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
+        CustomizableVariant {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
                     ForEach(model.cardSmallModels) { model in
@@ -77,13 +77,11 @@ struct CardSmallVariant: View {
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.top, ODSSpacing.m)
-            .alert("Card container clicked", isPresented: $showAlert) {
-                Button("close", role: .cancel) {}
-            }
-            
-            BottomSheet {
-                CardSmallVariantOptions(model: model)
-            }
+        } options: {
+            CardSmallVariantOptions(model: model)
+        }
+        .alert("Card container clicked", isPresented: $showAlert) {
+            Button("close", role: .cancel) {}
         }
     }
 }

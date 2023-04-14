@@ -43,7 +43,7 @@ platform :ios do
   # BUILD DEBUG APP
   # ------------------------------------------------------------
   desc "BUILD DEBUG APP"
-  lane :build do
+  lane :buildDebugApp do
     cocoapods(
       clean_install: true
     )
@@ -71,38 +71,40 @@ platform :ios do
 
     set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Info.plist", key: "ODSBuildType", value: "This is a QUALIF version")
     
-    build_and_upload
+    build_and_upload(upload: true)
   end
 
   # ------------------------------------------------------------
   # BUILD & UPLOAD TO TESTFLIGHT PROD APP
   # ------------------------------------------------------------
-  desc "BUILD & UPLOAD TO TESTFLIGHT PROD APP"
-  lane :prod do
+  desc "BUILD & UPLOAD TO TESTFLIGHT (if set in options: upload) PROD APP"
+  lane :prod do |options|
     puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
-    build_and_upload
+    build_and_upload(options)
   end
-
 
   # -----------------------------------------------------------------------
   # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
   # -----------------------------------------------------------------------
-  desc "PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)"
-  private_lane :build_and_upload do
-    TESTFLIGHT_GROUPS = ENV['TESTFLIGHT_GROUPS']
+  private_lane :build_and_upload do |options|
+    build
 
+    if options[:upload]
+      upload
+    else
+      puts ">> Upload to testflight no requested"
+    end
+  end
+
+  # -----------------------------------------------------------------------
+  # PRIVATE LANE BUILD (DEV / QUALIF / PROD is set by main lane)
+  # -----------------------------------------------------------------------
+  desc "PRIVATE LANE BUILD (DEV / QUALIF / PROD is set by main lane)"
+  private_lane :build do
     update_app_identifier(
       xcodeproj: "#{ODS_PROJECT}",
       plist_path: "#{ODS_SCHEME}/Info.plist",
       app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
-    )
-
-    api_key = app_store_connect_api_key(
-      key_id: APPLE_KEY_ID,
-      issuer_id: APPLE_ISSUER_ID,
-      key_content: APPLE_KEY_CONTENT,
-      duration: 500,
-      in_house: false
     )
 
     increment
@@ -123,8 +125,24 @@ platform :ios do
         export_method: 'app-store',
         xcargs: '-allowProvisioningUpdates'
     )
-
-
+  end
+  
+  # -----------------------------------------------------------------------
+  # PRIVATE LANE UPLOAD TO TESTFLIGHT (DEV / QUALIF / PROD is set by main lane)
+  # -----------------------------------------------------------------------
+  desc "PRIVATE LANE UPLOAD TO TESTFLIGHT"
+  private_lane :upload do
+  
+    api_key = app_store_connect_api_key(
+      key_id: APPLE_KEY_ID,
+      issuer_id: APPLE_ISSUER_ID,
+      key_content: APPLE_KEY_CONTENT,
+      duration: 500,
+      in_house: false
+    )
+    
+    TESTFLIGHT_GROUPS = ENV['TESTFLIGHT_GROUPS']
+    
     version = get_app_version
     puts version
 
@@ -145,6 +163,10 @@ platform :ios do
     )
   end
 
+  # -------
+  # Helpers
+  # -------
+  # Get version set in the Xcode project
   def get_app_version
     version = get_version_number(
         xcodeproj: ODS_PROJECT,
@@ -153,7 +175,8 @@ platform :ios do
     return version
   end
 
-
+  # Read release note in section associated to the current version
+  # If empty, try within the Unreleased section
   def read_current_release_notes
     version = get_app_version
 

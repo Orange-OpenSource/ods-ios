@@ -25,19 +25,26 @@ import OrangeDesignSystem
 import SwiftUI
 
 public final class ODSDemoAboutConfig: NSObject {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
     public static let instance = ODSDemoAboutConfig()
-
     let applicationInformation: ApplicationInformation
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     override private init() {
         applicationInformation = ApplicationInformation(
-            name: "Orange Design System",
+            name: "Orange Design System Demo",
             version: Bundle.main.marketingVersion,
             buildNumber: Bundle.main.buildNumber,
             buildType: Bundle.main.buildType,
             description: "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.",
-            imageHeader: Image("AboutImage", bundle: Bundle.main))
+            imageHeader: ThemeProvider().imageFromResources("AboutImage"))
     }
 
     public func configure() {
