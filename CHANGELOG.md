@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...qualif)
+## [0.12.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...0.11.0) - 2023-04-14
 
 - [DemoApp/SDK] Add Bottom Sheet component ([#325](https://github.com/Orange-OpenSource/ods-ios/issues/325))
 - [SDK] Accessibility issues on Slider (Bug [#385](https://github.com/Orange-OpenSource/ods-ios/issues/385))
