@@ -1,7 +1,7 @@
 name: Documentation Update
 description: Describe this issue found in the documentation
 title: "[Doc]: "
-labels: ["documentation", "triage"]
+labels: ["📖+documentation", "🔍 triage"]
 assignees: 
   - B3nz01d
 body:
