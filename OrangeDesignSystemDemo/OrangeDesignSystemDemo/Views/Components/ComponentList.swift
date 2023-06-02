@@ -46,6 +46,7 @@ struct ComponentsList: View {
         // Remark: Components are automatically displayed sorted by their name
         let components: [Component] = [
             BannerComponent(),
+            BottomSheetComponent(),
             ButtonComponent(),
             CardComponent(),
             ChipsComponent(),
@@ -89,8 +90,9 @@ struct ComponentsList: View {
                     .padding(.horizontal, ODSSpacing.s)
             }
             .navigationTitle("Components")
-            .navigationViewStyle(.stack)
             .navigationbarMenuForThemeSelection()
+            
+            ComponentPage(component: components[0])
         }
     }
 }

@@ -53,6 +53,9 @@ public struct ODSComponentColors {
     public var functionalAlert: Color
     public var functionalInfo: Color
 
+    // Bottom sheet
+    public var bottomSheetHeaderBackground: Color
+    
     // ==================
     // MARK: Initializers
     // ==================
@@ -80,5 +83,8 @@ public struct ODSComponentColors {
         self.functionalPositive = .green
         self.functionalInfo = .blue
         self.functionalAlert = .yellow
+        
+        // Bottom sheet
+        self.bottomSheetHeaderBackground = Color(UIColor.systemGray6)
     }
 }

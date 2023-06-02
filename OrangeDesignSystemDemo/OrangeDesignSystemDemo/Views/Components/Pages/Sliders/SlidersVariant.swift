@@ -39,51 +39,54 @@ struct SliderVariant: View {
     // ==========
 
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack {
-                    if model.showValue {
-                        Text(String(format: "%.2f", value))
-                            .odsFont(.bodyRegular)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .accessibilityHidden(true)
-                    }
-                    
-                    if model.stepped {
-                        ODSSlider(value: $value, in: range, step: 0.5) {
-                            Text("Volume")
-                        } minimumValueLabel: {
-                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
-                        } maximumValueLabel: {
-                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
-                        } onEditingChanged: { isEditing in
-                            print("isEdition: \(isEditing)")
-                        }
-                    } else {
-                        ODSSlider(value: $value, in: range) {
-                            Text("Volume")
-                        } minimumValueLabel: {
-                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
-                        } maximumValueLabel: {
-                            SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
-                        } onEditingChanged: { isEditing in
-                            print("isEdition: \(isEditing)")
-                        }
-                    }
-                }
-                .padding(.horizontal, ODSSpacing.m)
-                .padding(.top, ODSSpacing.m)
-            }
-
-            BottomSheet {
-                SliderVariantOptions(model: model)
-            }
-        }
+        CustomizableVariant {
+            variant
+        } options: {
+            SliderVariantOptions(model: model)
+        }   
     }
+    
     
     // =====================
     // MARK: Private Helpers
     // =====================
+    var variant: some View {
+        ScrollView {
+            VStack {
+                if model.showValue {
+                    Text(String(format: "%.2f", value))
+                        .odsFont(.bodyRegular)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .accessibilityHidden(true)
+                }
+                
+                if model.stepped {
+                    ODSSlider(value: $value, in: range, step: 0.5) {
+                        Text("Volume")
+                    } minimumValueLabel: {
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
+                    } maximumValueLabel: {
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                    } onEditingChanged: { isEditing in
+                        print("isEdition: \(isEditing)")
+                    }
+                } else {
+                    ODSSlider(value: $value, in: range) {
+                        Text("Volume")
+                    } minimumValueLabel: {
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
+                    } maximumValueLabel: {
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                    } onEditingChanged: { isEditing in
+                        print("isEdition: \(isEditing)")
+                    }
+                }
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.top, ODSSpacing.m)
+        }
+    }
+    
     @ViewBuilder
     func SliderLabel(show: Bool, systemName: String) -> some View {
         if show {

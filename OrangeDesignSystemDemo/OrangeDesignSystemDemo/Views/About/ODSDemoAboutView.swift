@@ -32,6 +32,7 @@ struct ODSDemoAboutView: View {
                 .environmentObject(ODSDemoAboutConfig.instance.applicationInformation)
                 .navigationbarMenuForThemeSelection()
         }
+        .navigationViewStyle(.stack)
     }
 }
 

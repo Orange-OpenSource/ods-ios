@@ -62,7 +62,6 @@ struct GuidelinePage: View {
         .padding(.top, ODSSpacing.none)
         .padding(.horizontal, ODSSpacing.none)
         .navigationTitle(guideline.title)
-        .navigationViewStyle(.stack)
         .navigationbarMenuForThemeSelection()
         .background(Color(UIColor.systemBackground))
     }
