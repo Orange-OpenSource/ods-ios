@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...qualif)
+
+ - [DemoApp] Vocalize the header of bottom sheet is clickable to open or close (Bug [#398](https://github.com/Orange-OpenSource/ods-ios/issues/398))
+
 ## [0.12.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...0.11.0) - 2023-04-14
 
 - [DemoApp/SDK] Add Bottom Sheet component ([#325](https://github.com/Orange-OpenSource/ods-ios/issues/325))

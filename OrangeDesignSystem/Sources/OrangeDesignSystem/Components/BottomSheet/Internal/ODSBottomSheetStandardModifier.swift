@@ -171,6 +171,12 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
                 .readSize { size in
                     headerSize?.wrappedValue = size
                 }
+                .accessibilityAction(.magicTap) {
+                    withAnimation(Animation.linear) {
+                        isOpen.wrappedValue.toggle()
+                    }
+                }
+                .accessibilityLabel("\(headerConfig.title) button, double click to \(isOpen.wrappedValue ? "close" : "open") bottom sheet")
 
                 if isOpen.wrappedValue {
                     content
