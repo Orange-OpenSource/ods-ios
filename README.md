@@ -1,5 +1,4 @@
-
-<h3 align="center">Orange Design System iOS</h3>
+<h1 align="center">ODS iOS</h1>
 
 <p align="center">
     Orange Design System iOS provides Orange iOS components to developers and a demo application.
