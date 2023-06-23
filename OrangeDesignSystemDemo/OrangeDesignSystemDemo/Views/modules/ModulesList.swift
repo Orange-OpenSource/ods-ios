@@ -44,8 +44,9 @@ struct ModulesList: View {
         AboutConfigDemo.instance.configure()
         let items = [
             ODSListOfCardImageFirstItemModel(cardModel: ODSCardVerticalImageFirstModel(title: "About", imageSource: .image(imageFrom(resourceName: "AboutImage")))) {
-                AboutView()
-                    .environmentObject(AboutConfigDemo.instance.applicationInformation)
+                AboutModule()
+//                AboutView()
+//                    .environmentObject(AboutConfigDemo.instance.applicationInformation)
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationbarMenuForThemeSelection()
             },

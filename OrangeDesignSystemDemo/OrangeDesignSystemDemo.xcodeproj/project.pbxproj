@@ -50,6 +50,7 @@
 		07A3382D29C4B1A000A56BA1 /* ODSCGU.html in Resources */ = {isa = PBXBuildFile; fileRef = 07A3382C29C3633000A56BA1 /* ODSCGU.html */; };
 		07A3382E29C4B1A400A56BA1 /* ODSPrivacyNotice.html in Resources */ = {isa = PBXBuildFile; fileRef = 07A3382B29C31C7800A56BA1 /* ODSPrivacyNotice.html */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
+		07C23C2D2A41A02B00C469C1 /* AboutModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C23C2C2A41A02B00C469C1 /* AboutModule.swift */; };
 		07C52F2028D37A2B0067CFC0 /* CardExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */; };
 		07C8234F28AE68B2003B2C3A /* TextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234328AE68B2003B2C3A /* TextFieldComponent.swift */; };
 		07C8235028AE68B2003B2C3A /* ChipsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C8234428AE68B2003B2C3A /* ChipsComponent.swift */; };
@@ -157,6 +158,7 @@
 		07A3382B29C31C7800A56BA1 /* ODSPrivacyNotice.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ODSPrivacyNotice.html; path = OrangeDesignSystemDemo/Views/About/ODSPrivacyNotice.html; sourceTree = "<group>"; };
 		07A3382C29C3633000A56BA1 /* ODSCGU.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ODSCGU.html; path = OrangeDesignSystemDemo/Views/About/ODSCGU.html; sourceTree = "<group>"; };
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07C23C2C2A41A02B00C469C1 /* AboutModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutModule.swift; sourceTree = "<group>"; };
 		07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExampleData.swift; sourceTree = "<group>"; };
 		07C8234328AE68B2003B2C3A /* TextFieldComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldComponent.swift; sourceTree = "<group>"; };
 		07C8234428AE68B2003B2C3A /* ChipsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipsComponent.swift; sourceTree = "<group>"; };
@@ -384,6 +386,15 @@
 				07973C53287C7470004397D7 /* ODSColors+extension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		07C23C2B2A41A02B00C469C1 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				07C23C2C2A41A02B00C469C1 /* AboutModule.swift */,
+			);
+			name = About;
+			path = OrangeDesignSystemDemo/Views/modules/About;
 			sourceTree = "<group>";
 		};
 		07C8233D28AE68B2003B2C3A /* Pages */ = {
@@ -665,6 +676,7 @@
 		F9F0BD1427B27ABA00B36DD8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				07C23C2B2A41A02B00C469C1 /* About */,
 				F90D977F28003281006D29FC /* ModulesList.swift */,
 				F90D978428003299006D29FC /* AboutConfigDemo.swift */,
 				F90D978028003281006D29FC /* CardViewDemo.swift */,
@@ -977,6 +989,7 @@
 				07F141C829928B96007C8575 /* BottomSheetComponent.swift in Sources */,
 				07C8234F28AE68B2003B2C3A /* TextFieldComponent.swift in Sources */,
 				071D3EF128884D8200DFD1C9 /* SpacingsPage.swift in Sources */,
+				07C23C2D2A41A02B00C469C1 /* AboutModule.swift in Sources */,
 				07535BCF29DC57E60012F298 /* CustomizableVariant.swift in Sources */,
 				07C8236828AE823F003B2C3A /* ThemeSelectionView.swift in Sources */,
 				F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */,

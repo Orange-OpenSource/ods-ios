@@ -77,7 +77,6 @@ struct ODSCardVerticalImageFirstListItem: View {
         NavigationLink {
             model.destination
                 .navigationTitle(model.cardModel.title)
-                .background(Color(uiColor: .systemGray6))
         } label: {
             ODSCardVerticalImageFirst(model: model.cardModel)
         }

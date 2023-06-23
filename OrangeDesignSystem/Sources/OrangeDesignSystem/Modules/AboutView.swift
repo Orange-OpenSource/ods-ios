@@ -50,8 +50,8 @@ public struct AboutView: View {
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
 
-                ApplicationInformationView()
-                    .padding(.all, ODSSpacing.m)
+//                ApplicationInformationView()
+//                    .padding(.all, ODSSpacing.m)
 
             }
             .listRowInsets(EdgeInsets())
@@ -216,67 +216,3 @@ public struct ODSAboutItemView: View {
     }
 }
 
-private struct ApplicationInformationView: View {
-
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @EnvironmentObject var applicationInformation: ApplicationInformation
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(applicationInformation.name)
-                .odsFont(.largeTitle)
-                .fixedSize(horizontal: false, vertical: true)
-
-            Text("Version \(longVersionText)")
-                .fixedSize(horizontal: false, vertical: true)
-
-            if let buildType = applicationInformation.buildType {
-                Text(buildType)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            if let description = applicationInformation.description {
-                Text(description)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.top, ODSSpacing.m)
-            }
-
-            Text(applicationInformation.copyrightNotice)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-    }
-
-    // =============
-    // MARK: Helpers
-    // =============
-
-    private var longVersionText: String {
-        if let buildNumber = applicationInformation.buildNumber {
-          return "\(applicationInformation.version) (\(buildNumber))"
-        } else {
-            return applicationInformation.version
-        }
-    }
-}
-
-#if DEBUG
-struct AboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        let description = ApplicationInformation(name: "APP NAME", version: "1.0.0", buildNumber: "123456789", buildType: "PREVIEW", description: "This is the demo application for test")
-
-        ForEach(ColorScheme.allCases, id: \.self) {
-
-            AboutView()
-                .preferredColorScheme($0)
-                .environmentObject(description)
-        }
-    }
-}
-#endif
