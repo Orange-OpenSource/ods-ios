@@ -24,7 +24,6 @@
 import Foundation
 import SwiftUI
 
-
 public struct ODSAboutApplicationInformation {
 
     /// Configure the application information to be displayed in the main about screen.
@@ -32,19 +31,24 @@ public struct ODSAboutApplicationInformation {
     /// - Parameters:
     ///    - name: The name of the application
     ///    - version: The current version of the application (something like: x.y.z)
-    ///    - buildNumber: An additonal build number (will be added at the end of the version field ("x.y.z (<buildNumber>)")
+    ///    - buildNumber: An additional build number (will be added at the end of the version field ("x.y.z (<buildNumber>)")
+    ///    - buildType: An additional build type (For example DEBUG, QUALIF, ...),
     ///    - shareUrl: The Url of the application on the store
     ///    - feedbackUrl: The url feedback site
     ///
-    // #swiftlint:disable multiline_parameters vertical_parameter_alignment
-    public init(name: String, version: String,
-                  buildNumber: String? = nil,
-                  description: String,
-                  shareUrl: URL,
-                  feedbackUrl: URL) {
+    // #swiftlint:disable multiline_parameters_brackets
+    public init(
+        name: String,
+        version: String,
+        buildNumber: String? = nil,
+        buildType: String? = nil,
+        description: String,
+        shareUrl: URL,
+        feedbackUrl: URL) {
         self.name = name
         self.version = version
         self.buildNumber = buildNumber
+        self.buildType = buildType
         self.description = description
         self.shareUrl = shareUrl
         self.feedbackUrl = feedbackUrl
@@ -57,8 +61,41 @@ public struct ODSAboutApplicationInformation {
     let name: String
     let version: String
     let buildNumber: String?
+    let buildType: String?
     let description: String
     let copyrightNotice: String = "Orange property. All rights reserved"
     let shareUrl: URL
     let feedbackUrl: URL
+}
+
+public enum ODSWebContentSource {
+    case url(URL)
+    case html(String)
+}
+
+public enum ODSPrivacyPolicy {
+    case colapsable(ODSStructuredPrivacyPolicy)
+    case webview(ODSWebContentSource)
+}
+
+public struct ODSStructuredPrivacyPolicy: Codable {
+    let entities: [ODSPrivacyPolicyEntity]
+
+    public init(entities: [ODSPrivacyPolicyEntity]) {
+        self.entities = entities
+    }
+}
+
+public struct ODSPrivacyPolicyEntity: Codable, Identifiable {
+    let title: String
+    let description: String
+
+    public init(title: String, description: String) {
+        self.title = title
+        self.description = description
+    }
+
+    public var id: String {
+        title
+    }
 }

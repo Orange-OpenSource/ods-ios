@@ -31,10 +31,14 @@ public struct ODSAboutModule: View {
     // ==================
     let headerIllustration: Image
     let applicationInformation: ODSAboutApplicationInformation
+    let privacyPolicy: ODSPrivacyPolicy
 
-    public init(headerIllustration: Image, applicationInformation: ODSAboutApplicationInformation) {
+    public init(headerIllustration: Image = Image("ic_about_image", bundle: Bundle.ods),
+                applicationInformation: ODSAboutApplicationInformation,
+                privacyPolicy: ODSPrivacyPolicy) {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
+        self.privacyPolicy = privacyPolicy
     }
 
     // ==========
@@ -53,6 +57,12 @@ public struct ODSAboutModule: View {
                 ApplicationInformationView(applicationInformation: applicationInformation)
                     .padding(.all, ODSSpacing.m)
 
+                AboutPrivacyPolicyEntity(policy: privacyPolicy)
+
+                NavigationLink(ODSListStandardItemModel(title: "Term of service")) {
+                    Text("")
+                }
+                .padding(.horizontal, ODSSpacing.m)
             }
 //            ODSAboutItemView()
         }

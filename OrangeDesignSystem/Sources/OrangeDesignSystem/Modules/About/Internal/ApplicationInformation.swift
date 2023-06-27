@@ -41,29 +41,17 @@ struct ApplicationInformationView: View {
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
 
-            HStack(spacing: ODSSpacing.l) {
-                Button {
+            HStack(spacing: ODSSpacing.none) {
+                ODSButton(text: "Share", image: Image("ic_share", bundle: Bundle.ods), emphasis: .low) {
                     ShareSheet.show(content: "The content", subject: "The subject", url: applicationInformation.shareUrl)
-                } label: {
-                    Label{
-                        Text("Share")
-                    } icon: {
-                        Image("ic_share", bundle: Bundle.ods)
-                    }
                 }
 
-                Button {
-                } label: {
-                    Label{
-                        Text("Feedback")
-                    } icon: {
-                        Image("ic_comments", bundle: Bundle.ods)
-                    }
+                ODSButton(text: "Feedback", image: Image("ic_comments", bundle: Bundle.ods), emphasis: .low) {
                 }
             }
 
             VStack(alignment: .leading) {
-                Text("Version \(longVersionText)")
+                Text("Version \(versionText)")
                 Text(applicationInformation.copyrightNotice)
             }
             .fixedSize(horizontal: false, vertical: true)
@@ -77,11 +65,19 @@ struct ApplicationInformationView: View {
     // MARK: Helpers
     // =============
 
-    private var longVersionText: String {
-        if let buildNumber = applicationInformation.buildNumber {
-          return "\(applicationInformation.version) (\(buildNumber))"
+    private var versionText: String {
+        var version: String {
+            if let buildNumber = applicationInformation.buildNumber {
+                return "\(applicationInformation.version) (\(buildNumber))"
+            } else {
+                return applicationInformation.version
+            }
+        }
+
+        if let buildType = applicationInformation.buildType {
+            return "\(version) - \(buildType)"
         } else {
-            return applicationInformation.version
+            return version
         }
     }
 }
@@ -92,6 +88,7 @@ struct AboutView_Previews: PreviewProvider {
         let description = ApplicationInformation(name: "APP NAME",
                                                  version: "1.0.0",
                                                  buildNumber: "123456789",
+                                                 buildType: "DEBUG",
                                                  description: "This is the demo application for test")
 
         ForEach(ColorScheme.allCases, id: \.self) {
