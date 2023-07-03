@@ -21,41 +21,37 @@
 //
 //
 
+import Foundation
 import SwiftUI
 
-struct AboutPrivacyPolicy: View {
+public enum ODSWebContentSource {
+    case url(URL)
+    case html(String)
+}
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
+public enum ODSPrivacyPolicy {
+    case colapsable(ODSStructuredPrivacyPolicy)
+    case webview(ODSWebContentSource)
+}
 
-    let policy: ODSPrivacyPolicy
-    @State private var showSafari = false
+public struct ODSStructuredPrivacyPolicy: Codable {
+    let entities: [ODSPrivacyPolicyEntity]
 
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        switch policy {
-        case .colapsable(let policy):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(ColapsablePrivacyPolicy(policy: policy)))
-
-        case .webview(let source):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(WebView(source: source)))
-        }
+    public init(entities: [ODSPrivacyPolicyEntity]) {
+        self.entities = entities
     }
 }
 
-struct ColapsablePrivacyPolicy: View {
+public struct ODSPrivacyPolicyEntity: Codable, Identifiable {
+    let title: String
+    let description: String
 
-    let policy: ODSStructuredPrivacyPolicy
+    public init(title: String, description: String) {
+        self.title = title
+        self.description = description
+    }
 
-    var body: some View {
-        ForEach(policy.entities, id: \.id) { entity in
-            DisclosureGroup(entity.title) {
-                WebView(source: .html(entity.description))
-            }
-        }
+    public var id: String {
+        title
     }
 }

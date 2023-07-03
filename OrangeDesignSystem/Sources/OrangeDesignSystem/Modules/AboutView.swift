@@ -215,4 +215,3 @@ public struct ODSAboutItemView: View {
         }
     }
 }
-

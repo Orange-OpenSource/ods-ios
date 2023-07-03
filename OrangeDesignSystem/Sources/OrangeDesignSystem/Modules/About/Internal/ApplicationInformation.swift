@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-struct ApplicationInformationView: View {
+struct AboutApplicationInformation: View {
 
     // =======================
     // MARK: Stored Properties
@@ -36,7 +36,7 @@ struct ApplicationInformationView: View {
     // ==========
 
     var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.m) {
+        VStack(alignment: .leading, spacing: ODSSpacing.none) {
             Text(applicationInformation.name)
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
@@ -45,9 +45,13 @@ struct ApplicationInformationView: View {
                 ODSButton(text: "Share", image: Image("ic_share", bundle: Bundle.ods), emphasis: .low) {
                     ShareSheet.show(content: "The content", subject: "The subject", url: applicationInformation.shareUrl)
                 }
+                .buttonStyle(PlainButtonStyle())
+                .foregroundColor(Color.accentColor)
 
                 ODSButton(text: "Feedback", image: Image("ic_comments", bundle: Bundle.ods), emphasis: .low) {
                 }
+                .buttonStyle(PlainButtonStyle())
+                .foregroundColor(Color.accentColor)
             }
 
             VStack(alignment: .leading) {
@@ -55,6 +59,7 @@ struct ApplicationInformationView: View {
                 Text(applicationInformation.copyrightNotice)
             }
             .fixedSize(horizontal: false, vertical: true)
+            .padding(.bottom, ODSSpacing.m)
 
             Text(applicationInformation.description)
                     .fixedSize(horizontal: false, vertical: true)

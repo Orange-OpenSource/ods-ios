@@ -24,21 +24,35 @@
 import Foundation
 import SwiftUI
 
-public struct ODSAboutModule: View {
+public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalInformation: View, TermOfService: View {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    private let headerIllustration: Image
+    private let applicationInformation: ODSAboutApplicationInformation
+    private let privacyPolicy: ODSPrivacyPolicy
+    private let termOfService: () -> TermOfService
+    private let legalInformation: LegalInformation
+    private let customItems: [ODSAboutCustomListItem]
 
     // ==================
     // MARK: Initializers
     // ==================
-    let headerIllustration: Image
-    let applicationInformation: ODSAboutApplicationInformation
-    let privacyPolicy: ODSPrivacyPolicy
 
     public init(headerIllustration: Image = Image("ic_about_image", bundle: Bundle.ods),
                 applicationInformation: ODSAboutApplicationInformation,
-                privacyPolicy: ODSPrivacyPolicy) {
+                privacyPolicy: ODSPrivacyPolicy,
+                termsOfService: @escaping () -> TermOfService,
+                legalInformation: @escaping () -> LegalInformation = { EmptyView() },
+                customItems: [ODSAboutCustomListItem]) {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
         self.privacyPolicy = privacyPolicy
+        self.legalInformation = legalInformation()
+        self.termOfService = termsOfService
+        self.customItems = customItems
     }
 
     // ==========
@@ -46,26 +60,33 @@ public struct ODSAboutModule: View {
     // ==========
 
     public var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: ODSSpacing.none) {
+        List {
+            headerIllustration
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .accessibilityHidden(true)
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
 
-                headerIllustration
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .accessibilityHidden(true)
+            Group {
+                AboutApplicationInformation(applicationInformation: applicationInformation)
+                    .padding(.vertical, ODSSpacing.m)
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(.hidden)
 
-                ApplicationInformationView(applicationInformation: applicationInformation)
-                    .padding(.all, ODSSpacing.m)
+                AboutPrivacyPolicy(policy: privacyPolicy)
 
-                AboutPrivacyPolicyEntity(policy: privacyPolicy)
+                AboutListItem(title: "Term of Service", icon: Image("ic_taskList", bundle: Bundle.ods), destination: AnyView(termOfService()))
 
-                NavigationLink(ODSListStandardItemModel(title: "Term of service")) {
-                    Text("")
+                if legalInformation is EmptyView == false {
+                    AboutListItem(title: "Legal information", icon: Image("ic_legal", bundle: Bundle.ods), destination: AnyView(legalInformation))
                 }
-                .padding(.horizontal, ODSSpacing.m)
+
+                AboutCustomListItems(items: customItems)
             }
-//            ODSAboutItemView()
+            .padding(.horizontal, ODSSpacing.m)
         }
+        .listStyle(.plain)
         .navigationTitle("About")
         .navigationBarTitleDisplayMode(.large)
         .background(ODSInternalColor.primaryBackground.color)

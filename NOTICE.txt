@@ -16,6 +16,16 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_abou
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@3x.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/ods_empty.imageset/ods_nopicture.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/controlsTableViewRowXCheckmark/controlsTableViewRowXCheckmark.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_accessibility.imageset/ic_accessibility.scg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_apps.imageset/ic_apps.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_calendarEventInfo.imageset/ic_calendarEventInfo.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_dataProtection.imageset/ic_dataProtection.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_legal.imageset/ic_legal.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_review.imageset/ic_review.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_taskList.imageset/ic_taskList.svg
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Add.imageset/Add.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/chips/avatar.imageset/avatar.png
@@ -75,4 +85,7 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/CookingPot
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/Restaurant.imageset/iconsCommunicationRUIcRestaurant.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/IceCream.imageset/iconsCommunicationDIIcIceCream.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Recipes/Cafe.imageset/iconsCommunicationDIcCafe.svg
+
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Modules/About/ic_folderFavourite.imageset/ic_folderFavourite.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Assets.xcassets/Modules/About/ic_subtitles.imageset/ic_subtitles.svg
 End of the parts list under Orange SA Copyright

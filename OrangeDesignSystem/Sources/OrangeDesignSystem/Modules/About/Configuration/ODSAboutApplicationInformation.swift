@@ -34,7 +34,7 @@ public struct ODSAboutApplicationInformation {
     ///    - buildNumber: An additional build number (will be added at the end of the version field ("x.y.z (<buildNumber>)")
     ///    - buildType: An additional build type (For example DEBUG, QUALIF, ...),
     ///    - shareUrl: The Url of the application on the store
-    ///    - feedbackUrl: The url feedback site
+    ///    - onFeedbackClicked: The action to do when feedback button is clicked
     ///
     // #swiftlint:disable multiline_parameters_brackets
     public init(
@@ -44,14 +44,14 @@ public struct ODSAboutApplicationInformation {
         buildType: String? = nil,
         description: String,
         shareUrl: URL,
-        feedbackUrl: URL) {
+        onFeedbackClicked: (() -> Void)? = nil) {
         self.name = name
         self.version = version
         self.buildNumber = buildNumber
         self.buildType = buildType
         self.description = description
         self.shareUrl = shareUrl
-        self.feedbackUrl = feedbackUrl
+        self.onFeedbackClicked = onFeedbackClicked
     }
 
     // =======================
@@ -65,37 +65,5 @@ public struct ODSAboutApplicationInformation {
     let description: String
     let copyrightNotice: String = "Orange property. All rights reserved"
     let shareUrl: URL
-    let feedbackUrl: URL
-}
-
-public enum ODSWebContentSource {
-    case url(URL)
-    case html(String)
-}
-
-public enum ODSPrivacyPolicy {
-    case colapsable(ODSStructuredPrivacyPolicy)
-    case webview(ODSWebContentSource)
-}
-
-public struct ODSStructuredPrivacyPolicy: Codable {
-    let entities: [ODSPrivacyPolicyEntity]
-
-    public init(entities: [ODSPrivacyPolicyEntity]) {
-        self.entities = entities
-    }
-}
-
-public struct ODSPrivacyPolicyEntity: Codable, Identifiable {
-    let title: String
-    let description: String
-
-    public init(title: String, description: String) {
-        self.title = title
-        self.description = description
-    }
-
-    public var id: String {
-        title
-    }
+    let onFeedbackClicked: (() -> Void)?
 }

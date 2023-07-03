@@ -23,39 +23,44 @@
 
 import SwiftUI
 
-struct AboutPrivacyPolicy: View {
+struct AboutListItem: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let policy: ODSPrivacyPolicy
-    @State private var showSafari = false
+    let model: ODSListStandardItemModel
+    let destination: AnyView
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    init(item: ODSAboutCustomListItem) {
+        self.init(title: item.title, subtitle: item.subtitle, icon: item.icon, destination: item.destination)
+    }
+
+    init(title: String, subtitle: String? = nil, icon: Image? = nil, destination: AnyView) {
+        self.model = ODSListStandardItemModel(title: title, subtitle: subtitle, leadingIcon: ODSListItemLeadingIcon(icon: icon))
+        self.destination = destination
+    }
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        switch policy {
-        case .colapsable(let policy):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(ColapsablePrivacyPolicy(policy: policy)))
-
-        case .webview(let source):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(WebView(source: source)))
-        }
+        NavigationLink(model) { destination }
+            .listRowInsets(EdgeInsets())
+            .listRowSeparator(.hidden)
     }
 }
 
-struct ColapsablePrivacyPolicy: View {
-
-    let policy: ODSStructuredPrivacyPolicy
-
-    var body: some View {
-        ForEach(policy.entities, id: \.id) { entity in
-            DisclosureGroup(entity.title) {
-                WebView(source: .html(entity.description))
-            }
+extension ODSListItemLeadingIcon {
+    init?(icon: Image?) {
+        guard let icon = icon else {
+            return nil
         }
+        self = .icon(icon)
     }
 }

@@ -23,39 +23,20 @@
 
 import SwiftUI
 
-struct AboutPrivacyPolicy: View {
+public struct ODSAboutCustomListItem: Identifiable {
+    let title: String
+    let subtitle: String?
+    let icon: Image?
+    let destination: AnyView
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    let policy: ODSPrivacyPolicy
-    @State private var showSafari = false
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        switch policy {
-        case .colapsable(let policy):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(ColapsablePrivacyPolicy(policy: policy)))
-
-        case .webview(let source):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(WebView(source: source)))
-        }
+    public init(title: String, subtitle: String? = nil, icon: Image? = nil, destination: AnyView) {
+        self.title = title
+        self.subtitle = subtitle
+        self.icon = icon
+        self.destination = destination
     }
-}
 
-struct ColapsablePrivacyPolicy: View {
-
-    let policy: ODSStructuredPrivacyPolicy
-
-    var body: some View {
-        ForEach(policy.entities, id: \.id) { entity in
-            DisclosureGroup(entity.title) {
-                WebView(source: .html(entity.description))
-            }
-        }
+    public var id: String {
+        title
     }
 }
