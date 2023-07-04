@@ -27,7 +27,7 @@ import OrangeDesignSystem
 
 struct AboutModule: View {
     var body: some View {
-        AboutSetup(configuration: AboutModuleConfiguration())
+        AboutSetup(model: AboutModuleModel())
     }
 }
 
@@ -38,7 +38,15 @@ struct AboutSetup: View {
     // =======================
 
     @State var showDemo: Bool = false
-    @ObservedObject var configuration: AboutModuleConfiguration
+    @ObservedObject var model: AboutModuleModel
+    
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(model: AboutModuleModel) {
+        self.model = model
+    }
 
     // ==========
     // MARK: Body
@@ -62,18 +70,13 @@ struct AboutSetup: View {
                 
                 Text("Some items such as : illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components :")
                 
-                Stepper("Additional link(s): \(configuration.numberOfLinks)",
-                        value: $configuration.numberOfLinks,
-                        in: 0 ... configuration.defaultCustomItems.count)
+                Stepper("Additional link(s): \(model.numberOfLinks)",
+                        value: $model.numberOfLinks,
+                        in: 0 ... model.defaultCustomItems.count)
                     .padding(.vertical, ODSSpacing.m)
                 
                 NavigationLink(isActive: $showDemo) {
-                    ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources("AboutImage"),
-                                   applicationInformation: configuration.appInfo,
-                                   privacyPolicy: configuration.privacyPolicy,
-                                   termsOfService: { Text("Term of service") },
-                                   legalInformation: { Text("Legal information") },
-                                   customItems: configuration.customItems)
+                    AboutModuleDemo(model: model)
                 } label: {
                     ODSButton(text: "View demo", emphasis: .highest, variableWidth: false) {
                         showDemo.toggle()
@@ -86,11 +89,37 @@ struct AboutSetup: View {
 }
 
 
+struct AboutModuleDemo: View {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let model: AboutModuleModel
+    @State var showAlert = false
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources("AboutImage"),
+                       applicationInformation: model.appInfo { showAlert.toggle() },
+                       privacyPolicy: model.privacyPolicy,
+                       termsOfService: { Text("Term of service") },
+                       legalInformation: { Text("Legal information") },
+                       customItems: model.customItems)
+        .alert("Feedback Clicked", isPresented: $showAlert) {
+            Button("close", role: .cancel) {}
+        }
+    }
+}
+
 #if DEBUG
 struct ODSBanner_Previews: PreviewProvider {
     
     static var previews: some View {
-        AboutSetup(configuration: AboutModuleConfiguration())
+        AboutSetup(model: AboutModuleModel())
     }
 }
 #endif

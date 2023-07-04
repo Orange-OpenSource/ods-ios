@@ -48,10 +48,11 @@ struct AboutApplicationInformation: View {
                 .buttonStyle(PlainButtonStyle())
                 .foregroundColor(Color.accentColor)
 
-                ODSButton(text: "Feedback", image: Image("ic_comments", bundle: Bundle.ods), emphasis: .low) {
+                if let onFeedbackClicked = applicationInformation.onFeedbackClicked {
+                    ODSButton(text: "Feedback", image: Image("ic_comments", bundle: Bundle.ods), emphasis: .low, action: onFeedbackClicked)
+                    .buttonStyle(PlainButtonStyle())
+                    .foregroundColor(Color.accentColor)
                 }
-                .buttonStyle(PlainButtonStyle())
-                .foregroundColor(Color.accentColor)
             }
 
             VStack(alignment: .leading) {

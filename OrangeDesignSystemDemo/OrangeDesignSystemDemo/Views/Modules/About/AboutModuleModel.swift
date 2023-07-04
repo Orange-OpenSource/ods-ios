@@ -26,17 +26,21 @@ import OrangeDesignSystem
 import Foundation
 
 
-class AboutModuleConfiguration: ObservableObject {
+class AboutModuleModel: ObservableObject {
 
     // MARK: - Application infomration
     
-    let appInfo = ODSAboutApplicationInformation(name: "Orange Design System",
-                                                 version: "0.14.0",
-                                                 buildNumber: "123456",
-                                                 buildType: "DEBUG",
-                                                 description: "Add here a short description of the application. Over 2 lines use « more ».",
-                                                 shareUrl: URL(string: "https://www.google.fr")!,
-                                                 onFeedbackClicked: { print("Feedback clicked") })
+    func appInfo(onFeedbackClicked: @escaping () -> Void ) -> ODSAboutApplicationInformation {
+        ODSAboutApplicationInformation(name: "Orange Design System",
+                                       version: "0.14.0",
+                                       buildNumber: "123456",
+                                       buildType: "DEBUG",
+                                       description: "Add here a short description of the application. Over 2 lines use « more ».",
+                                       shareUrl: URL(string: "https://www.google.fr")!,
+                                       onFeedbackClicked: onFeedbackClicked)
+    }
+    
+    let showOnFeedbackText = ""
 
     // MARK: - Additional custom links (list items)
     
