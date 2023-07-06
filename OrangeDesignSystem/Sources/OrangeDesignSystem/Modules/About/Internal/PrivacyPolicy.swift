@@ -30,19 +30,26 @@ struct AboutPrivacyPolicy: View {
     // =======================
 
     let policy: ODSPrivacyPolicy
-    @State private var showSafari = false
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
+        AboutListItem(
+            title: "Privacy Policy",
+            icon: Image("ic_dataProtection", bundle: Bundle.ods),
+            destination: AnyView(destiantion))
+    }
+    
+    @ViewBuilder
+    var destiantion: some View {
         switch policy {
         case .colapsable(let policy):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(ColapsablePrivacyPolicy(policy: policy)))
+            ColapsablePrivacyPolicy(policy: policy)
 
         case .webview(let source):
-            AboutListItem(title: "Privacy Policy", icon: Image("ic_dataProtection", bundle: Bundle.ods), destination: AnyView(WebView(source: source)))
+            WebView(source: source)
         }
     }
 }

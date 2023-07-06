@@ -105,6 +105,7 @@ struct AboutModuleDemo: View {
     var body: some View {
         ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources("AboutImage"),
                        applicationInformation: model.appInfo { showAlert.toggle() },
+                       applicationNewsPath: model.applicationNewsPath,
                        privacyPolicy: model.privacyPolicy,
                        termsOfService: { Text("Term of service") },
                        legalInformation: { Text("Legal information") },

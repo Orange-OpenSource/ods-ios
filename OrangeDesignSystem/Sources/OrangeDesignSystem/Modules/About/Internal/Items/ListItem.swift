@@ -50,7 +50,7 @@ struct AboutListItem: View {
     // ==========
 
     var body: some View {
-        NavigationLink(model) { destination }
+        NavigationLink(model) { destination.navigationTitle(model.title) }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
     }

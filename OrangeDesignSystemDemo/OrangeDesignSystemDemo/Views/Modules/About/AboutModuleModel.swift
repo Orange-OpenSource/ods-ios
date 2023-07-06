@@ -40,7 +40,10 @@ class AboutModuleModel: ObservableObject {
                                        onFeedbackClicked: onFeedbackClicked)
     }
     
-    let showOnFeedbackText = ""
+    // MARK: - AppNews
+    var applicationNewsPath: String? {
+        Bundle.main.path(forResource: "AppNews", ofType: "json")
+    }
 
     // MARK: - Additional custom links (list items)
     

@@ -46,6 +46,7 @@
 		079821C92926340B00BE3116 /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 079821C82926340B00BE3116 /* OrangeTheme */; };
 		079821CB29263C1200BE3116 /* ThemeablePreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079821CA29263C1200BE3116 /* ThemeablePreviews.swift */; };
 		079821CD2927BC3700BE3116 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079821CC2927BC3700BE3116 /* Colors.xcassets */; };
+		079CAF6C2A544E5700C57EA3 /* AppNews.json in Resources */ = {isa = PBXBuildFile; fileRef = 07B5D2C42A5417F1003EBA84 /* AppNews.json */; };
 		07A187B9293F531700E1AD72 /* SelectionListOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A187B8293F531700E1AD72 /* SelectionListOptions.swift */; };
 		07A3382D29C4B1A000A56BA1 /* ODSCGU.html in Resources */ = {isa = PBXBuildFile; fileRef = 07A3382C29C3633000A56BA1 /* ODSCGU.html */; };
 		07A3382E29C4B1A400A56BA1 /* ODSPrivacyNotice.html in Resources */ = {isa = PBXBuildFile; fileRef = 07A3382B29C31C7800A56BA1 /* ODSPrivacyNotice.html */; };
@@ -160,6 +161,7 @@
 		07A3382C29C3633000A56BA1 /* ODSCGU.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ODSCGU.html; path = OrangeDesignSystemDemo/Views/About/ODSCGU.html; sourceTree = "<group>"; };
 		07A8ED5E2A52BA4D0069D491 /* AboutModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutModuleModel.swift; path = OrangeDesignSystemDemo/Views/Modules/About/AboutModuleModel.swift; sourceTree = SOURCE_ROOT; };
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B5D2C42A5417F1003EBA84 /* AppNews.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppNews.json; sourceTree = "<group>"; };
 		07C23C2C2A41A02B00C469C1 /* AboutModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutModule.swift; sourceTree = "<group>"; };
 		07C52F1F28D37A2B0067CFC0 /* CardExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExampleData.swift; sourceTree = "<group>"; };
 		07C8234328AE68B2003B2C3A /* TextFieldComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldComponent.swift; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 				07A3382C29C3633000A56BA1 /* ODSCGU.html */,
 				075E5D6E29379164009A801B /* Recipes.json */,
 				07A3382B29C31C7800A56BA1 /* ODSPrivacyNotice.html */,
+				07B5D2C42A5417F1003EBA84 /* AppNews.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 			files = (
 				FDDAB0F72809B39900ACE5F4 /* CHANGELOG.md in Resources */,
 				075E5D6F29379164009A801B /* Recipes.json in Resources */,
+				079CAF6C2A544E5700C57EA3 /* AppNews.json in Resources */,
 				07A3382E29C4B1A400A56BA1 /* ODSPrivacyNotice.html in Resources */,
 				07A3382D29C4B1A000A56BA1 /* ODSCGU.html in Resources */,
 				F99FF07F2767AF62006236A0 /* Preview Assets.xcassets in Resources */,

@@ -28,7 +28,7 @@ enum ShareSheet {
     ///
     /// - Parameters:
     ///     - content: the content of the
-    static func show(content content: String, subject: String = "", url: URL? = nil) {
+    static func show(content: String, subject: String = "", url: URL? = nil) {
         let item = ShareItem(content: content, mailSubject: subject)
         var items: [Any] = [item]
         if let url = url {

@@ -32,6 +32,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
 
     private let headerIllustration: Image
     private let applicationInformation: ODSAboutApplicationInformation
+    private let applicationNewsPath: String?
     private let privacyPolicy: ODSPrivacyPolicy
     private let termOfService: () -> TermOfService
     private let legalInformation: LegalInformation
@@ -41,14 +42,27 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
     // MARK: Initializers
     // ==================
 
+    /// Initializes the about module.
+    ///
+    /// - Parameters:
+    ///     - headerIllustration: Image of the illustration at the top of the screen
+    ///     - applicationInformation: Information about the application set in the area describing it.
+    ///     - applicationNewsPath: (Optional) Path to the json file containing the news history of all releases of the application.
+    ///     - privacyPolicy: The privacy policy of the application
+    ///     - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
+    ///     - legalInformation: (Optional) A view builder to provide legal information (could be a webview, native screen, ...)
+    ///     - customItems: The custom items to be added at the end of the list.
+    ///
     public init(headerIllustration: Image = Image("ic_about_image", bundle: Bundle.ods),
                 applicationInformation: ODSAboutApplicationInformation,
+                applicationNewsPath: String? = nil,
                 privacyPolicy: ODSPrivacyPolicy,
                 termsOfService: @escaping () -> TermOfService,
                 legalInformation: @escaping () -> LegalInformation = { EmptyView() },
-                customItems: [ODSAboutCustomListItem]) {
+                customItems: [ODSAboutCustomListItem] = []) {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
+        self.applicationNewsPath = applicationNewsPath
         self.privacyPolicy = privacyPolicy
         self.legalInformation = legalInformation()
         self.termOfService = termsOfService
@@ -76,7 +90,18 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
 
                 AboutPrivacyPolicy(policy: privacyPolicy)
 
-                AboutListItem(title: "Term of Service", icon: Image("ic_taskList", bundle: Bundle.ods), destination: AnyView(termOfService()))
+                if let applicationNewsPath = applicationNewsPath {
+                    AboutListItem(
+                        title: "App News",
+                        icon: Image("ic_taskList", bundle: Bundle.ods),
+                        destination: AnyView(AboutReleaaseDescriptionView(applicationNewsPath: applicationNewsPath))
+                    )
+                }
+
+                AboutListItem(
+                    title: "Term of Service",
+                    icon: Image("ic_calendarEventInfo", bundle: Bundle.ods),
+                    destination: AnyView(termOfService()))
 
                 if legalInformation is EmptyView == false {
                     AboutListItem(title: "Legal information", icon: Image("ic_legal", bundle: Bundle.ods), destination: AnyView(legalInformation))
