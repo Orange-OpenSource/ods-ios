@@ -36,54 +36,69 @@ struct AboutApplicationInformation: View {
     // ==========
 
     var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.none) {
+        VStack(alignment: .leading, spacing: ODSSpacing.m) {
             Text(applicationInformation.name)
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
 
-            HStack(spacing: ODSSpacing.none) {
-                ODSButton(text: "Share", image: Image("ic_share", bundle: Bundle.ods), emphasis: .low) {
-                    ShareSheet.show(content: "The content", subject: "The subject", url: applicationInformation.shareUrl)
-                }
-                .buttonStyle(PlainButtonStyle())
-                .foregroundColor(Color.accentColor)
+            if applicationInformation.shareUrl != nil || applicationInformation.onFeedbackClicked != nil {
+                HStack(spacing: ODSSpacing.none) {
+                    if let shareUrl = applicationInformation.shareUrl {
+                        ODSButton(text: "Share", image: Image("ic_share", bundle: Bundle.ods), emphasis: .low) {
+                            ShareSheet.show(content: "The content", subject: "The subject", url: shareUrl)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .foregroundColor(Color.accentColor)
+                    }
 
-                if let onFeedbackClicked = applicationInformation.onFeedbackClicked {
-                    ODSButton(text: "Feedback", image: Image("ic_comments", bundle: Bundle.ods), emphasis: .low, action: onFeedbackClicked)
-                    .buttonStyle(PlainButtonStyle())
-                    .foregroundColor(Color.accentColor)
+                    if let onFeedbackClicked = applicationInformation.onFeedbackClicked {
+                        ODSButton(text: "Feedback", image: Image("ic_comments", bundle: Bundle.ods), emphasis: .low, action: onFeedbackClicked)
+                            .buttonStyle(PlainButtonStyle())
+                            .foregroundColor(Color.accentColor)
+                    }
                 }
+                .padding(.vertical, -ODSSpacing.m)
+                .padding(.leading, -ODSSpacing.m)
             }
 
-            VStack(alignment: .leading) {
-                Text("Version \(versionText)")
-                Text(applicationInformation.copyrightNotice)
+            if let version = fullVersionText {
+                VStack(alignment: .leading) {
+                    Text(version)
+                    Text(applicationInformation.copyrightNotice)
+                }
+                .fixedSize(horizontal: false, vertical: true)
             }
-            .fixedSize(horizontal: false, vertical: true)
-            .padding(.bottom, ODSSpacing.m)
 
-            Text(applicationInformation.description)
-                    .fixedSize(horizontal: false, vertical: true)
+            if let description = applicationInformation.description {
+                Text(description).fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 
     // =============
     // MARK: Helpers
     // =============
+    private var fullVersionText: String? {
+        guard let version = applicationInformation.version else {
+            return nil
+        }
 
-    private var versionText: String {
-        var version: String {
+        return "Version \(versionWithBuildNumber(version: version))"
+    }
+
+    private func versionWithBuildNumber(version: String) -> String {
+        var versionAndBuildNumber: String {
             if let buildNumber = applicationInformation.buildNumber {
-                return "\(applicationInformation.version) (\(buildNumber))"
+                return "\(version) (\(buildNumber))"
             } else {
-                return applicationInformation.version
+                return version
             }
         }
 
         if let buildType = applicationInformation.buildType {
-            return "\(version) - \(buildType)"
+            return "\(versionAndBuildNumber) - \(buildType)"
         } else {
-            return version
+            return versionAndBuildNumber
         }
     }
 }

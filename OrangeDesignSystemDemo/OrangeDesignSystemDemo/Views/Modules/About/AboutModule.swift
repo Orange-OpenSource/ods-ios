@@ -70,7 +70,15 @@ struct AboutSetup: View {
                 
                 Text("Some items such as : illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components :")
                 
-                Stepper("Additional link(s): \(model.numberOfLinks)",
+                ODSChipPicker(
+                    title: "Options for application section",
+                    selection: $model.applicationSectionOptions,
+                    allowZeroSelection: true,
+                    chips: AboutModuleModel.ApplicationInformationOption.chips)
+                .padding(.vertical, ODSSpacing.m)
+                .padding(.horizontal, -ODSSpacing.m)
+                
+                Stepper("Additional link(s) : \(model.numberOfLinks)",
                         value: $model.numberOfLinks,
                         in: 0 ... model.defaultCustomItems.count)
                     .padding(.vertical, ODSSpacing.m)

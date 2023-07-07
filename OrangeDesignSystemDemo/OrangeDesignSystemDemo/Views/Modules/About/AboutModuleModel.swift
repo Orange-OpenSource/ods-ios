@@ -28,17 +28,53 @@ import Foundation
 
 class AboutModuleModel: ObservableObject {
 
-    // MARK: - Application infomration
+    // MARK: - Application infomration section
+    
+    enum ApplicationInformationOption: Int, CaseIterable {
+        case version = 0
+        case description
+        case share
+        case feedback
+        
+        var description: String {
+            switch self {
+            case .version:
+                return "Version"
+            case .description:
+                return "Description"
+            case .share:
+                return "Share"
+            case .feedback:
+                return "Freedback"
+            }
+        }
+        
+        var chip: ODSChip<Self> {
+            ODSChip(self, text: self.description)
+        }
+        
+        static var chips: [ODSChip<Self>] {
+            Self.allCases.map { $0.chip }
+        }
+    }
+
+    @Published var applicationSectionOptions: [ApplicationInformationOption] = ApplicationInformationOption.allCases
     
     func appInfo(onFeedbackClicked: @escaping () -> Void ) -> ODSAboutApplicationInformation {
-        ODSAboutApplicationInformation(name: "Orange Design System",
-                                       version: "0.14.0",
-                                       buildNumber: "123456",
-                                       buildType: "DEBUG",
-                                       description: "Add here a short description of the application. Over 2 lines use « more ».",
-                                       shareUrl: URL(string: "https://www.google.fr")!,
-                                       onFeedbackClicked: onFeedbackClicked)
+        let version = applicationSectionOptions.contains(.version) ? "0.14.0" : nil
+        let description = "Add here a short description of the application. Over 2 lines use « more »."
+        let shareUrl = URL(string: "https://www.google.fr")!
+        
+        return ODSAboutApplicationInformation(name: "Orange Design System",
+                                              version: version,
+                                              buildNumber: "123456",
+                                              buildType: "DEBUG",
+                                              description: applicationSectionOptions.contains(.description) ? description : nil,
+                                              shareUrl: applicationSectionOptions.contains(.share) ? shareUrl : nil,
+                                              onFeedbackClicked: applicationSectionOptions.contains(.feedback) ? onFeedbackClicked : nil)
     }
+    
+
     
     // MARK: - AppNews
     var applicationNewsPath: String? {
@@ -55,7 +91,6 @@ class AboutModuleModel: ObservableObject {
     var customItems: [ODSAboutCustomListItem] {
         Array(defaultCustomItems.prefix(numberOfLinks))
     }
-
     
     // MARK: - Privacy policy
     

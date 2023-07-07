@@ -30,20 +30,20 @@ public struct ODSAboutApplicationInformation {
     ///
     /// - Parameters:
     ///    - name: The name of the application
-    ///    - version: The current version of the application (something like: x.y.z)
-    ///    - buildNumber: An additional build number (will be added at the end of the version field ("x.y.z (<buildNumber>)")
-    ///    - buildType: An additional build type (For example DEBUG, QUALIF, ...),
-    ///    - shareUrl: The Url of the application on the store
-    ///    - onFeedbackClicked: The action to do when feedback button is clicked
+    ///    - version: (Optional) The current version of the application (something like: x.y.z)
+    ///    - buildNumber: (Optional) An additional build number (will be added at the end of the version field ("x.y.z (<buildNumber>)")
+    ///    - buildType: (Optional) An additional build type (For example DEBUG, QUALIF, ...),
+    ///    - shareUrl: (Optional) The Url of the application on the store
+    ///    - onFeedbackClicked: (Optional) The action to do when feedback button is clicked
     ///
     // #swiftlint:disable multiline_parameters_brackets
     public init(
         name: String,
-        version: String,
+        version: String? = nil,
         buildNumber: String? = nil,
         buildType: String? = nil,
-        description: String,
-        shareUrl: URL,
+        description: String? = nil,
+        shareUrl: URL? = nil,
         onFeedbackClicked: (() -> Void)? = nil) {
         self.name = name
         self.version = version
@@ -59,11 +59,11 @@ public struct ODSAboutApplicationInformation {
     // =======================
 
     let name: String
-    let version: String
+    let version: String?
     let buildNumber: String?
     let buildType: String?
-    let description: String
+    let description: String?
     let copyrightNotice: String = "Orange property. All rights reserved"
-    let shareUrl: URL
+    let shareUrl: URL?
     let onFeedbackClicked: (() -> Void)?
 }
