@@ -63,7 +63,7 @@ class AboutModuleModel: ObservableObject {
     func appInfo(onFeedbackClicked: @escaping () -> Void ) -> ODSAboutApplicationInformation {
         let version = applicationSectionOptions.contains(.version) ? "0.14.0" : nil
         let description = "Add here a short description of the application. Over 2 lines use « more »."
-        let shareUrl = URL(string: "https://www.google.fr")!
+        let shareUrl = URL(string: "https://www.apple.com")!
         
         return ODSAboutApplicationInformation(name: "Orange Design System",
                                               version: version,
@@ -75,14 +75,41 @@ class AboutModuleModel: ObservableObject {
     }
     
 
+    // MARK: - Links options
+    enum ProposedLinkOption: Int, CaseIterable {
+        case appNews = 0
+        case moreApps
+        case legalInformation
+        
+        var description: String {
+            switch self {
+            case .appNews:
+                return "App News"
+            case .moreApps:
+                return "More Orange Apps"
+            case .legalInformation:
+                return "Legal Information"
+            }
+        }
+        
+        var chip: ODSChip<Self> {
+            ODSChip(self, text: self.description)
+        }
+        
+        static var chips: [ODSChip<Self>] {
+            Self.allCases.map { $0.chip }
+        }
+    }
+
+    @Published var proposedLinkOptions: [ProposedLinkOption] = ProposedLinkOption.allCases
     
     // MARK: - AppNews
     var applicationNewsPath: String? {
-        Bundle.main.path(forResource: "AppNews", ofType: "json")
+        proposedLinkOptions.contains(.appNews) ?
+        Bundle.main.path(forResource: "AppNews", ofType: "json") : nil
     }
 
     // MARK: - Additional custom links (list items)
-    
     let defaultCustomItems = [
         ODSAboutCustomListItem(title: "My reviews", icon: Image("ic_subtitles"), destination: AnyView(Text("My reviews"))),
         ODSAboutCustomListItem(title: "My recipes", icon: Image("ic_folderFavourite"), destination: AnyView(Text("My recipes")))
@@ -93,7 +120,6 @@ class AboutModuleModel: ObservableObject {
     }
     
     // MARK: - Privacy policy
-    
     private static let privacyPolicyRawHtml: String =
 """
 <html>

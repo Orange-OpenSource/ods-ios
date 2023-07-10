@@ -78,6 +78,14 @@ struct AboutSetup: View {
                 .padding(.vertical, ODSSpacing.m)
                 .padding(.horizontal, -ODSSpacing.m)
                 
+                ODSChipPicker(
+                    title: "Proposed Links",
+                    selection: $model.proposedLinkOptions,
+                    allowZeroSelection: true,
+                    chips: AboutModuleModel.ProposedLinkOption.chips)
+                .padding(.vertical, ODSSpacing.m)
+                .padding(.horizontal, -ODSSpacing.m)
+                
                 Stepper("Additional link(s) : \(model.numberOfLinks)",
                         value: $model.numberOfLinks,
                         in: 0 ... model.defaultCustomItems.count)
@@ -111,15 +119,39 @@ struct AboutModuleDemo: View {
     // ==========
 
     var body: some View {
-        ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources("AboutImage"),
-                       applicationInformation: model.appInfo { showAlert.toggle() },
-                       applicationNewsPath: model.applicationNewsPath,
-                       privacyPolicy: model.privacyPolicy,
-                       termsOfService: { Text("Term of service") },
-                       legalInformation: { Text("Legal information") },
-                       customItems: model.customItems)
+        module
         .alert("Feedback Clicked", isPresented: $showAlert) {
             Button("close", role: .cancel) {}
+        }
+    }
+    
+    @ViewBuilder
+    var module: some View {
+        let headerIllustration = ThemeProvider().imageFromResources("AboutImage")
+        let applicationInformation = model.appInfo { showAlert.toggle() }
+        let applicationNewsPath = model.applicationNewsPath
+        let privacyPolicy =  model.privacyPolicy
+        let termeOfService = { Text("Term of service") }
+        let customItems = model.customItems
+        let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
+        
+        if model.proposedLinkOptions.contains(.legalInformation) {
+            ODSAboutModule(headerIllustration: headerIllustration,
+                           applicationInformation: applicationInformation,
+                           privacyPolicy: privacyPolicy,
+                           acessibilityStatement: acessibilityStatement,
+                           applicationNewsPath: applicationNewsPath,
+                           termsOfService: termeOfService,
+                           legalInformation: { Text("Legal information goes here") },
+                           customItems: customItems)
+        } else {
+            ODSAboutModule(headerIllustration: headerIllustration,
+                           applicationInformation: applicationInformation,
+                           privacyPolicy: privacyPolicy,
+                           acessibilityStatement: acessibilityStatement,
+                           applicationNewsPath: applicationNewsPath,
+                           termsOfService: termeOfService,
+                           customItems: customItems)
         }
     }
 }

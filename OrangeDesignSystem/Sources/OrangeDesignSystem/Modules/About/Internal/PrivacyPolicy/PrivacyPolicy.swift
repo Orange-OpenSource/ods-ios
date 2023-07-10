@@ -41,7 +41,7 @@ struct AboutPrivacyPolicy: View {
             icon: Image("ic_dataProtection", bundle: Bundle.ods),
             destination: AnyView(destiantion))
     }
-    
+
     @ViewBuilder
     var destiantion: some View {
         switch policy {
