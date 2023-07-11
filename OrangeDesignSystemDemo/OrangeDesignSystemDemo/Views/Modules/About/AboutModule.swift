@@ -135,6 +135,7 @@ struct AboutModuleDemo: View {
         let customItems = model.customItems
         let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
         let moreAppsUrl = model.proposedLinkOptions.contains(.moreApps) ? URL(string: "https://www.apple.com") : nil
+        let storeUrl = model.proposedLinkOptions.contains(.rateTheApp) ? URL(string: "https://www.apple.com") : nil
 
         if model.proposedLinkOptions.contains(.legalInformation) {
             ODSAboutModule(headerIllustration: headerIllustration,
@@ -143,6 +144,7 @@ struct AboutModuleDemo: View {
                            acessibilityStatement: acessibilityStatement,
                            applicationNewsPath: applicationNewsPath,
                            moreAppsUrl: moreAppsUrl,
+                           storeUrl: storeUrl,
                            termsOfService: termeOfService,
                            legalInformation: { Text("Legal information goes here") },
                            customItems: customItems)
@@ -153,6 +155,7 @@ struct AboutModuleDemo: View {
                            acessibilityStatement: acessibilityStatement,
                            applicationNewsPath: applicationNewsPath,
                            moreAppsUrl: moreAppsUrl,
+                           storeUrl: storeUrl,
                            termsOfService: termeOfService,
                            customItems: customItems)
         }

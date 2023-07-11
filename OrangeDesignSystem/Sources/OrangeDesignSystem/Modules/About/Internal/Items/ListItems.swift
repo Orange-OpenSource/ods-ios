@@ -20,23 +20,54 @@
 // SOFTWARE.
 //
 //
-
 import SwiftUI
 
-public struct ODSAboutCustomListItem: Identifiable {
-    let title: String
-    let subtitle: String?
-    let icon: Image?
-    let destination: AnyView
+struct AboutCustomListItems: View {
 
-    public init(title: String, subtitle: String? = nil, icon: Image? = nil, destination: AnyView) {
-        self.title = title
-        self.subtitle = subtitle
-        self.icon = icon
-        self.destination = destination
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let items: [ODSAboutListItem]
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        ForEach(items) { item in
+            item.body
+        }
     }
+}
 
-    public var id: String {
-        title
+extension ODSAboutListItem: View {
+
+    public var body: some View {
+        switch self.target {
+        case .action(let action):
+            Button {
+                action()
+            } label: {
+                ODSListStandardItem(model: self.model)
+            }
+            .listRowInsets(EdgeInsets())
+            .listRowSeparator(.hidden)
+
+        case .destination(let destination):
+            NavigationLink(model) { destination.navigationTitle(model.title) }
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
+
+        }
+    }
+}
+
+extension ODSListItemLeadingIcon {
+    init?(icon: Image?) {
+        guard let icon = icon else {
+            return nil
+        }
+        self = .icon(icon)
     }
 }

@@ -36,10 +36,10 @@ struct AboutPrivacyPolicy: View {
     // ==========
 
     var body: some View {
-        AboutListItem(
+        ODSAboutListItem(
             title: "Privacy Policy",
             icon: Image("ic_dataProtection", bundle: Bundle.ods),
-            destination: AnyView(destiantion))
+            target: .destination(AnyView(destiantion)))
     }
 
     @ViewBuilder

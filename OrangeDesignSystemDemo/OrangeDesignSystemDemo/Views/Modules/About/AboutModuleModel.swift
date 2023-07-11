@@ -80,6 +80,7 @@ class AboutModuleModel: ObservableObject {
         case appNews = 0
         case moreApps
         case legalInformation
+        case rateTheApp
         
         var description: String {
             switch self {
@@ -89,6 +90,8 @@ class AboutModuleModel: ObservableObject {
                 return "More Orange Apps"
             case .legalInformation:
                 return "Legal Information"
+            case .rateTheApp:
+                return "Rate The App"
             }
         }
         
@@ -111,11 +114,11 @@ class AboutModuleModel: ObservableObject {
 
     // MARK: - Additional custom links (list items)
     let defaultCustomItems = [
-        ODSAboutCustomListItem(title: "My reviews", icon: Image("ic_subtitles"), destination: AnyView(Text("My reviews"))),
-        ODSAboutCustomListItem(title: "My recipes", icon: Image("ic_folderFavourite"), destination: AnyView(Text("My recipes")))
+        ODSAboutListItem(title: "My reviews", icon: Image("ic_subtitles"), destination: AnyView(Text("My reviews"))),
+        ODSAboutListItem(title: "My recipes", icon: Image("ic_folderFavourite"), destination: AnyView(Text("My recipes")))
     ]
     @Published var numberOfLinks: Int = 2
-    var customItems: [ODSAboutCustomListItem] {
+    var customItems: [ODSAboutListItem] {
         Array(defaultCustomItems.prefix(numberOfLinks))
     }
     

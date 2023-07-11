@@ -35,10 +35,11 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
     private let privacyPolicy: ODSPrivacyPolicy
     private let applicationNewsPath: String?
     private let moreAppsUrl: URL?
+    private let storeUrl: URL?
     @ViewBuilder
     private let termOfService: () -> TermOfService
     private let legalInformation: LegalInformation
-    private let customItems: [ODSAboutCustomListItem]
+    private let customItems: [ODSAboutListItem]
 
     // ==================
     // MARK: Initializers
@@ -47,11 +48,13 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
     /// Initializes the about module.
     ///
     /// - Parameters:
-    ///     - headerIllustration: Image of the illustration at the top of the screen
+    ///     - headerIllustration: Image of the illustration at the top of the screen.
     ///     - applicationInformation: (Mandatory) Information about the application set in the area describing it.
-    ///     - privacyPolicy: (Mandatory) The privacy policy of the application
+    ///     - privacyPolicy: (Mandatory) The privacy policy of the application.
     ///     - acessibilityStatement: (Mandatory) The configuration to access the repport of the accessibility statement.
     ///     - applicationNewsPath: (Optional) Path to the json file containing the news history of all releases of the application.
+    ///     - moreAppsUrl: The URL to retrieve a collection of apps and display their associated description and URL.
+    ///     - storeUrl: Provide the store URL to propose the user to rate the app.
     ///     - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
     ///     - legalInformation: View builder to provide legal information (could be a webview, native screen, ...)
     ///     - customItems: The custom items to be added at the end of the list.
@@ -62,14 +65,16 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 acessibilityStatement: ODSAboutAccessibilityStatement,
                 applicationNewsPath: String? = nil,
                 moreAppsUrl: URL? = nil,
+                storeUrl: URL? = nil,
                 @ViewBuilder termsOfService: @escaping () -> TermOfService,
                 @ViewBuilder legalInformation: () -> LegalInformation,
-                customItems: [ODSAboutCustomListItem] = []) {
+                customItems: [ODSAboutListItem] = []) {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
         self.privacyPolicy = privacyPolicy
         self.applicationNewsPath = applicationNewsPath
         self.moreAppsUrl = moreAppsUrl
+        self.storeUrl = storeUrl
         self.legalInformation = legalInformation()
         self.termOfService = termsOfService
         self.customItems = customItems
@@ -83,7 +88,8 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
     ///     - privacyPolicy: (Mandatory) The privacy policy of the application
     ///     - acessibilityStatement: (Mandatory) The configuration to access the repport of the accessibility statement.
     ///     - applicationNewsPath: (Optional) Path to the json file containing the news history of all releases of the application.
-    ///     - moreAppsUrl: The url to the more apps
+    ///     - moreAppsUrl: The URL to retrieve a collection of apps and display their associated description and URL.
+    ///     - storeUrl: Provide the store URL to propose the user to rate the app.
     ///     - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
     ///     - customItems: The custom items to be added at the end of the list.
     ///
@@ -94,13 +100,15 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 acessibilityStatement: ODSAboutAccessibilityStatement,
                 applicationNewsPath: String? = nil,
                 moreAppsUrl: URL? = nil,
+                storeUrl: URL? = nil,
                 @ViewBuilder termsOfService: @escaping () -> TermOfService,
-                customItems: [ODSAboutCustomListItem] = []) where LegalInformation == EmptyView {
+                customItems: [ODSAboutListItem] = []) where LegalInformation == EmptyView {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
         self.privacyPolicy = privacyPolicy
         self.applicationNewsPath = applicationNewsPath
         self.moreAppsUrl = moreAppsUrl
+        self.storeUrl = storeUrl
         self.legalInformation = EmptyView()
         self.termOfService = termsOfService
         self.customItems = customItems
@@ -126,25 +134,33 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                     .listRowSeparator(.hidden)
 
                 AboutPrivacyPolicy(policy: privacyPolicy)
-                AboutListItem(
+                ODSAboutListItem(
                     title: "Term of Service",
                     icon: Image("ic_calendarEventInfo", bundle: Bundle.ods),
-                    destination: AnyView(termOfService()))
-                AboutListItem(
+                    target: .destination(AnyView(termOfService())))
+                ODSAboutListItem(
                     title: "Accessibility Statement",
                     icon: Image("ic_accessibility", bundle: Bundle.ods),
                     destination: AnyView(AccessibilityStatement()))
 
                 if let url = moreAppsUrl {
-                    AboutListItem(
+                    ODSAboutListItem(
                         title: "More Orange Apps",
                         icon: Image("ic_apps", bundle: Bundle.ods),
                         destination: AnyView(MoreApps(url: url))
                     )
                 }
-                
+
+                if let storeUrl = storeUrl {
+                    ODSAboutListItem(
+                        title: "Rate this app",
+                        icon: Image("ic_review", bundle: Bundle.ods)) {
+                            UIApplication.shared.open(storeUrl)
+                        }
+                }
+
                 if let applicationNewsPath = applicationNewsPath {
-                    AboutListItem(
+                    ODSAboutListItem(
                         title: "App News",
                         icon: Image("ic_taskList", bundle: Bundle.ods),
                         destination: AnyView(AboutReleaaseDescriptionView(applicationNewsPath: applicationNewsPath))
@@ -152,7 +168,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 }
 
                 if legalInformation is EmptyView == false {
-                    AboutListItem(title: "Legal information", icon: Image("ic_legal", bundle: Bundle.ods), destination: AnyView(legalInformation))
+                    ODSAboutListItem(title: "Legal information", icon: Image("ic_legal", bundle: Bundle.ods), destination: AnyView(legalInformation))
                 }
 
                 AboutCustomListItems(items: customItems)

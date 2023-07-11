@@ -20,23 +20,44 @@
 // SOFTWARE.
 //
 //
+
 import SwiftUI
 
-struct AboutCustomListItems: View {
+public struct ODSAboutListItem: Identifiable {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let items: [ODSAboutCustomListItem]
+    let model: ODSListStandardItemModel
+    let target: Target
 
-    // ==========
-    // MARK: Body
-    // ==========
+    public enum Target {
+        case destination(AnyView)
+        case action(() -> Void)
+    }
 
-    var body: some View {
-        ForEach(items) { item in
-            AboutListItem(item: item)
-        }
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    public init(title: String, subtitle: String? = nil, icon: Image? = nil, target: Target) {
+        model = ODSListStandardItemModel(title: title, subtitle: subtitle, leadingIcon: ODSListItemLeadingIcon(icon: icon))
+        self.target = target
+    }
+
+    public init(title: String, subtitle: String? = nil, icon: Image? = nil, destination: AnyView) {
+        self.init(title: title, subtitle: subtitle, icon: icon, target: .destination(destination))
+    }
+    public init(title: String, subtitle: String? = nil, icon: Image? = nil, action: @escaping () -> Void) {
+        self.init(title: title, subtitle: subtitle, icon: icon, target: .action(action))
+    }
+
+    // ============
+    // MARK: Helper
+    // ============
+
+    public var id: UUID {
+        model.id
     }
 }
