@@ -32,8 +32,9 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
 
     private let headerIllustration: Image
     private let applicationInformation: ODSAboutApplicationInformation
-    private let applicationNewsPath: String?
     private let privacyPolicy: ODSPrivacyPolicy
+    private let applicationNewsPath: String?
+    private let moreAppsUrl: URL?
     @ViewBuilder
     private let termOfService: () -> TermOfService
     private let legalInformation: LegalInformation
@@ -60,13 +61,15 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 privacyPolicy: ODSPrivacyPolicy,
                 acessibilityStatement: ODSAboutAccessibilityStatement,
                 applicationNewsPath: String? = nil,
+                moreAppsUrl: URL? = nil,
                 @ViewBuilder termsOfService: @escaping () -> TermOfService,
                 @ViewBuilder legalInformation: () -> LegalInformation,
                 customItems: [ODSAboutCustomListItem] = []) {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
-        self.applicationNewsPath = applicationNewsPath
         self.privacyPolicy = privacyPolicy
+        self.applicationNewsPath = applicationNewsPath
+        self.moreAppsUrl = moreAppsUrl
         self.legalInformation = legalInformation()
         self.termOfService = termsOfService
         self.customItems = customItems
@@ -80,6 +83,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
     ///     - privacyPolicy: (Mandatory) The privacy policy of the application
     ///     - acessibilityStatement: (Mandatory) The configuration to access the repport of the accessibility statement.
     ///     - applicationNewsPath: (Optional) Path to the json file containing the news history of all releases of the application.
+    ///     - moreAppsUrl: The url to the more apps
     ///     - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
     ///     - customItems: The custom items to be added at the end of the list.
     ///
@@ -89,12 +93,14 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 privacyPolicy: ODSPrivacyPolicy,
                 acessibilityStatement: ODSAboutAccessibilityStatement,
                 applicationNewsPath: String? = nil,
+                moreAppsUrl: URL? = nil,
                 @ViewBuilder termsOfService: @escaping () -> TermOfService,
                 customItems: [ODSAboutCustomListItem] = []) where LegalInformation == EmptyView {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
-        self.applicationNewsPath = applicationNewsPath
         self.privacyPolicy = privacyPolicy
+        self.applicationNewsPath = applicationNewsPath
+        self.moreAppsUrl = moreAppsUrl
         self.legalInformation = EmptyView()
         self.termOfService = termsOfService
         self.customItems = customItems
@@ -129,6 +135,14 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                     icon: Image("ic_accessibility", bundle: Bundle.ods),
                     destination: AnyView(AccessibilityStatement()))
 
+                if let url = moreAppsUrl {
+                    AboutListItem(
+                        title: "More Orange Apps",
+                        icon: Image("ic_apps", bundle: Bundle.ods),
+                        destination: AnyView(MoreApps(url: url))
+                    )
+                }
+                
                 if let applicationNewsPath = applicationNewsPath {
                     AboutListItem(
                         title: "App News",
