@@ -45,7 +45,7 @@ struct AboutScreen: View {
     let reportAnIssueItem = ODSAboutListItem(title: "Report an issue") {
         UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
     }
-    let designGuideLineItem = ODSAboutListItem(title: "Design guidelines") {
+    let designGuideLineItem = ODSAboutListItem(title: "Design guidelines", icon: Image("ic_tools")) {
         UIApplication.shared.open(URL(string: "https://system.design.orange.com/0c1af118d/p/95b685-ios/")!)
     }
 
@@ -63,7 +63,7 @@ struct AboutScreen: View {
                            moreAppsUrl: nil,
                            storeUrl: nil,
                            termsOfService: termOfService,
-                           customItems: [changeLogItem, reportAnIssueItem, designGuideLineItem])
+                           customItems: [designGuideLineItem, changeLogItem, reportAnIssueItem])
         }
         .navigationbarMenuForThemeSelection()
         .navigationViewStyle(.stack)
