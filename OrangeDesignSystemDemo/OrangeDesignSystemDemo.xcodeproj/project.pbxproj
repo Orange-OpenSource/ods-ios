@@ -63,6 +63,7 @@
 		07CC45292923CAAD008BE71F /* BannerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC45282923CAAD008BE71F /* BannerComponent.swift */; };
 		07D3AEE02968143700B36C3F /* ToolBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3AEDF2968143700B36C3F /* ToolBarComponent.swift */; };
 		07D3AEE22968169600B36C3F /* ToolBarVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3AEE12968169600B36C3F /* ToolBarVariantOptions.swift */; };
+		07DAD07D2A5EDDD700265669 /* AboutSceen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAD07C2A5EDDD600265669 /* AboutSceen.swift */; };
 		07DF838C293A5A2300DFBE31 /* StandardListOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF838B293A5A2300DFBE31 /* StandardListOptions.swift */; };
 		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
 		07E37F6228C73252003FF740 /* CardSmallVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E37F6128C73252003FF740 /* CardSmallVariant.swift */; };
@@ -76,9 +77,7 @@
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D9765280030A6006D29FC /* TypographyPage.swift */; };
 		F90D976C280030C4006D29FC /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976B280030C4006D29FC /* MainTabView.swift */; };
-		F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976E28003104006D29FC /* ODSDemoAboutView.swift */; };
-		F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */; };
-		F90D977828003104006D29FC /* ODSDemoAboutContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D977228003104006D29FC /* ODSDemoAboutContentsView.swift */; };
+		F90D977828003104006D29FC /* AboutHtmlAndMarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D977228003104006D29FC /* AboutHtmlAndMarkdownView.swift */; };
 		F90D978228003281006D29FC /* ModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D977F28003281006D29FC /* ModulesList.swift */; };
 		F90D978328003281006D29FC /* CardViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978028003281006D29FC /* CardViewDemo.swift */; };
 		F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978428003299006D29FC /* AboutConfigDemo.swift */; };
@@ -173,6 +172,7 @@
 		07CC45282923CAAD008BE71F /* BannerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerComponent.swift; sourceTree = "<group>"; };
 		07D3AEDF2968143700B36C3F /* ToolBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarComponent.swift; sourceTree = "<group>"; };
 		07D3AEE12968169600B36C3F /* ToolBarVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarVariantOptions.swift; sourceTree = "<group>"; };
+		07DAD07C2A5EDDD600265669 /* AboutSceen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutSceen.swift; sourceTree = "<group>"; };
 		07DF838B293A5A2300DFBE31 /* StandardListOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardListOptions.swift; sourceTree = "<group>"; };
 		07E37F6128C73252003FF740 /* CardSmallVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSmallVariant.swift; sourceTree = "<group>"; };
 		07E37F6328C74540003FF740 /* CardVerticalHeaderFirstVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerticalHeaderFirstVariant.swift; sourceTree = "<group>"; };
@@ -191,9 +191,7 @@
 		EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90D9765280030A6006D29FC /* TypographyPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypographyPage.swift; sourceTree = "<group>"; };
 		F90D976B280030C4006D29FC /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabView.swift; path = OrangeDesignSystemDemo/Views/MainTabView.swift; sourceTree = "<group>"; };
-		F90D976E28003104006D29FC /* ODSDemoAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutView.swift; sourceTree = "<group>"; };
-		F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutConfig.swift; sourceTree = "<group>"; };
-		F90D977228003104006D29FC /* ODSDemoAboutContentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSDemoAboutContentsView.swift; sourceTree = "<group>"; };
+		F90D977228003104006D29FC /* AboutHtmlAndMarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutHtmlAndMarkdownView.swift; sourceTree = "<group>"; };
 		F90D977F28003281006D29FC /* ModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModulesList.swift; path = OrangeDesignSystemDemo/Views/Modules/ModulesList.swift; sourceTree = "<group>"; };
 		F90D978028003281006D29FC /* CardViewDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardViewDemo.swift; path = OrangeDesignSystemDemo/Views/Modules/CardViewDemo.swift; sourceTree = "<group>"; };
 		F90D978428003299006D29FC /* AboutConfigDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutConfigDemo.swift; path = OrangeDesignSystemDemo/Views/Modules/AboutConfigDemo.swift; sourceTree = "<group>"; };
@@ -555,9 +553,8 @@
 		F90D976D28003104006D29FC /* About */ = {
 			isa = PBXGroup;
 			children = (
-				F90D976E28003104006D29FC /* ODSDemoAboutView.swift */,
-				F90D976F28003104006D29FC /* ODSDemoAboutConfig.swift */,
-				F90D977228003104006D29FC /* ODSDemoAboutContentsView.swift */,
+				07DAD07C2A5EDDD600265669 /* AboutSceen.swift */,
+				F90D977228003104006D29FC /* AboutHtmlAndMarkdownView.swift */,
 			);
 			name = About;
 			path = OrangeDesignSystemDemo/Views/About;
@@ -965,9 +962,10 @@
 				07CC45292923CAAD008BE71F /* BannerComponent.swift in Sources */,
 				07C8235628AE68B2003B2C3A /* CardComponent.swift in Sources */,
 				075E6130299B77B5004CE0A6 /* GuidelinePage.swift in Sources */,
+				07DAD07D2A5EDDD700265669 /* AboutSceen.swift in Sources */,
 				07387C6128F0486A00D8721F /* StandardList.swift in Sources */,
 				07DF838C293A5A2300DFBE31 /* StandardListOptions.swift in Sources */,
-				F90D977828003104006D29FC /* ODSDemoAboutContentsView.swift in Sources */,
+				F90D977828003104006D29FC /* AboutHtmlAndMarkdownView.swift in Sources */,
 				0735F63E293DF13200280AD4 /* SelectionListModel.swift in Sources */,
 				F96A3E23280452960086B9BF /* Bundle+Extension.swift in Sources */,
 				07D3AEE02968143700B36C3F /* ToolBarComponent.swift in Sources */,
@@ -977,7 +975,6 @@
 				0789AB992934C35B00796B82 /* SliderComponent.swift in Sources */,
 				07535BAA29D31A440012F298 /* BottomSheetStandardVariant.swift in Sources */,
 				07973C54287C7470004397D7 /* ODSColors+extension.swift in Sources */,
-				F90D977428003104006D29FC /* ODSDemoAboutView.swift in Sources */,
 				F96A3E19280451660086B9BF /* ColorDetail.swift in Sources */,
 				07A187B9293F531700E1AD72 /* SelectionListOptions.swift in Sources */,
 				07000FBC292FD9D700CE537A /* TabBarVariant.swift in Sources */,
@@ -1023,7 +1020,6 @@
 				0752EC2828EDBB540029A7BE /* ChipsComponentModel.swift in Sources */,
 				F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */,
 				075E5D6D29378735009A801B /* RecipesLoader.swift in Sources */,
-				F90D977528003104006D29FC /* ODSDemoAboutConfig.swift in Sources */,
 				07535BB029D713320012F298 /* BottomSheetExpandingVariant.swift in Sources */,
 				07C8235928AE690F003B2C3A /* ComponentPage.swift in Sources */,
 				07F141C2298C0644007C8575 /* RecipeBookModel.swift in Sources */,

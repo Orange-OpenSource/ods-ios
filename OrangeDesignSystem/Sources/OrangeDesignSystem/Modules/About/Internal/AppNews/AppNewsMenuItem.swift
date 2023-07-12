@@ -34,8 +34,6 @@ struct AppNewsMenuItem: View {
                 icon: Image("ic_taskList", bundle: Bundle.ods)) {
                 AppNewsList(fromFile: path)
             }
-//            destination: AnyView(AppNewsList(fromFile: path))
-//            )
         }
     }
 }

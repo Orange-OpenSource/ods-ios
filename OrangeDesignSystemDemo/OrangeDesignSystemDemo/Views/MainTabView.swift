@@ -40,7 +40,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Modules", image: "Module-molecule_32")
                 }
-            ODSDemoAboutView()
+            AboutScreen()
                 .tabItem {
                     Label("About", image: "info_32")
                 }

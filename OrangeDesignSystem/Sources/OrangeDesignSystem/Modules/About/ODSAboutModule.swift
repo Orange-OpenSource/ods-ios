@@ -133,18 +133,18 @@ public struct ODSAboutModule<LegalInformation, TermsOfService>: View where Legal
                     .padding(.vertical, ODSSpacing.m)
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
-                
+
                 // Mandatory Items
                 AboutPrivacyPolicyMenuItem(policy: privacyPolicy)
                 TermsOfServiceMenuItem(termsOfService: termsOfService)
                 AccessibilityStatementMenuItem()
-                
+
                 // Optional Items
                 MoreAppsMenuItem(url: moreAppsUrl)
                 RateTheAppMenuItem(url: storeUrl)
                 AppNewsMenuItem(path: applicationNewsPath)
                 LegalInformationMenuItem(legalInformation: legalInformation)
-                
+
                 // Custom Additonnal Items
                 CustomListItems(items: customItems)
             }

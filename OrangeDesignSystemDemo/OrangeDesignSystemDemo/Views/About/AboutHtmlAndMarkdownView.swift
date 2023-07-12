@@ -26,7 +26,7 @@ import Parma
 import SwiftUI
 import WebKit
 
-struct ODSDemoAboutContentsView: View {
+struct AboutHtmlAndMarkdownView: View {
     
     // =======================
     // MARK: Stored Properties
@@ -37,7 +37,7 @@ struct ODSDemoAboutContentsView: View {
     private let fileExtension: String
     private let contentType: ContentType?
     
-    enum ContentType {
+    private enum ContentType {
         case html(String)
         case htmlFile(URL)
         case markdown(String)
@@ -123,7 +123,7 @@ struct ODSDemoAboutContentsView: View {
     // ====================
     
     @ViewBuilder
-    func showContent(contentType: ContentType) -> some View {
+    private func showContent(contentType: ContentType) -> some View {
         switch contentType {
         case .markdown(let markdown):
             ScrollView {
