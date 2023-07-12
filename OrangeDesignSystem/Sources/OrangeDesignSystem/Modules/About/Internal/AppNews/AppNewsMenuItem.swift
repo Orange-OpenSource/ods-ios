@@ -23,18 +23,19 @@
 
 import SwiftUI
 
-struct AccessibilityStatement: View {
+struct AppNewsMenuItem: View {
+
+    let path: String?
 
     var body: some View {
-        Text("Accessibility statement will be here")
-    }
-}
-
-struct AccessibilityStatementMenuItem: View {
-    var body: some View {
-        ODSAboutListItem(
-            title: "Accessibility Statement",
-            icon: Image("ic_accessibility", bundle: Bundle.ods),
-            destination: AnyView(AccessibilityStatement()))
+        if let path = path {
+            ODSAboutListItem(
+                title: "App News",
+                icon: Image("ic_taskList", bundle: Bundle.ods)) {
+                AppNewsList(fromFile: path)
+            }
+//            destination: AnyView(AppNewsList(fromFile: path))
+//            )
+        }
     }
 }

@@ -23,18 +23,15 @@
 
 import SwiftUI
 
-struct AccessibilityStatement: View {
+struct TermsOfServiceMenuItem<TermsOfService>: View where TermsOfService: View {
 
-    var body: some View {
-        Text("Accessibility statement will be here")
-    }
-}
+    @ViewBuilder
+    let termsOfService: () -> TermsOfService
 
-struct AccessibilityStatementMenuItem: View {
     var body: some View {
         ODSAboutListItem(
-            title: "Accessibility Statement",
-            icon: Image("ic_accessibility", bundle: Bundle.ods),
-            destination: AnyView(AccessibilityStatement()))
+            title: "Terms of Service",
+            icon: Image("ic_calendarEventInfo", bundle: Bundle.ods),
+            destinationB: termsOfService)
     }
 }

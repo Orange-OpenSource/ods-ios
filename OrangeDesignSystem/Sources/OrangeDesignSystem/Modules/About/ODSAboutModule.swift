@@ -24,7 +24,7 @@
 import Foundation
 import SwiftUI
 
-public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalInformation: View, TermOfService: View {
+public struct ODSAboutModule<LegalInformation, TermsOfService>: View where LegalInformation: View, TermsOfService: View {
 
     // =======================
     // MARK: Stored properties
@@ -37,7 +37,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
     private let moreAppsUrl: URL?
     private let storeUrl: URL?
     @ViewBuilder
-    private let termOfService: () -> TermOfService
+    private let termsOfService: () -> TermsOfService
     private let legalInformation: LegalInformation
     private let customItems: [ODSAboutListItem]
 
@@ -66,7 +66,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 applicationNewsPath: String? = nil,
                 moreAppsUrl: URL? = nil,
                 storeUrl: URL? = nil,
-                @ViewBuilder termsOfService: @escaping () -> TermOfService,
+                @ViewBuilder termsOfService: @escaping () -> TermsOfService,
                 @ViewBuilder legalInformation: () -> LegalInformation,
                 customItems: [ODSAboutListItem] = []) {
         self.headerIllustration = headerIllustration
@@ -76,7 +76,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
         self.moreAppsUrl = moreAppsUrl
         self.storeUrl = storeUrl
         self.legalInformation = legalInformation()
-        self.termOfService = termsOfService
+        self.termsOfService = termsOfService
         self.customItems = customItems
     }
 
@@ -101,7 +101,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 applicationNewsPath: String? = nil,
                 moreAppsUrl: URL? = nil,
                 storeUrl: URL? = nil,
-                @ViewBuilder termsOfService: @escaping () -> TermOfService,
+                @ViewBuilder termsOfService: @escaping () -> TermsOfService,
                 customItems: [ODSAboutListItem] = []) where LegalInformation == EmptyView {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
@@ -110,7 +110,7 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
         self.moreAppsUrl = moreAppsUrl
         self.storeUrl = storeUrl
         self.legalInformation = EmptyView()
-        self.termOfService = termsOfService
+        self.termsOfService = termsOfService
         self.customItems = customItems
     }
 
@@ -128,50 +128,25 @@ public struct ODSAboutModule<LegalInformation, TermOfService>: View where LegalI
                 .listRowSeparator(.hidden)
 
             Group {
+                // Application Innformation section
                 AboutApplicationInformation(applicationInformation: applicationInformation)
                     .padding(.vertical, ODSSpacing.m)
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
-
-                AboutPrivacyPolicy(policy: privacyPolicy)
-                ODSAboutListItem(
-                    title: "Term of Service",
-                    icon: Image("ic_calendarEventInfo", bundle: Bundle.ods),
-                    target: .destination(AnyView(termOfService())))
-                ODSAboutListItem(
-                    title: "Accessibility Statement",
-                    icon: Image("ic_accessibility", bundle: Bundle.ods),
-                    destination: AnyView(AccessibilityStatement()))
-
-                if let url = moreAppsUrl {
-                    ODSAboutListItem(
-                        title: "More Orange Apps",
-                        icon: Image("ic_apps", bundle: Bundle.ods),
-                        destination: AnyView(MoreApps(url: url))
-                    )
-                }
-
-                if let storeUrl = storeUrl {
-                    ODSAboutListItem(
-                        title: "Rate this app",
-                        icon: Image("ic_review", bundle: Bundle.ods)) {
-                            UIApplication.shared.open(storeUrl)
-                        }
-                }
-
-                if let applicationNewsPath = applicationNewsPath {
-                    ODSAboutListItem(
-                        title: "App News",
-                        icon: Image("ic_taskList", bundle: Bundle.ods),
-                        destination: AnyView(AboutReleaaseDescriptionView(applicationNewsPath: applicationNewsPath))
-                    )
-                }
-
-                if legalInformation is EmptyView == false {
-                    ODSAboutListItem(title: "Legal information", icon: Image("ic_legal", bundle: Bundle.ods), destination: AnyView(legalInformation))
-                }
-
-                AboutCustomListItems(items: customItems)
+                
+                // Mandatory Items
+                AboutPrivacyPolicyMenuItem(policy: privacyPolicy)
+                TermsOfServiceMenuItem(termsOfService: termsOfService)
+                AccessibilityStatementMenuItem()
+                
+                // Optional Items
+                MoreAppsMenuItem(url: moreAppsUrl)
+                RateTheAppMenuItem(url: storeUrl)
+                AppNewsMenuItem(path: applicationNewsPath)
+                LegalInformationMenuItem(legalInformation: legalInformation)
+                
+                // Custom Additonnal Items
+                CustomListItems(items: customItems)
             }
             .padding(.horizontal, ODSSpacing.m)
         }

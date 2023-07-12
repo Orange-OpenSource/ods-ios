@@ -23,18 +23,16 @@
 
 import SwiftUI
 
-struct AccessibilityStatement: View {
+struct LegalInformationMenuItem<LegalInformation>: View where LegalInformation: View {
+
+    let legalInformation: LegalInformation
 
     var body: some View {
-        Text("Accessibility statement will be here")
-    }
-}
-
-struct AccessibilityStatementMenuItem: View {
-    var body: some View {
-        ODSAboutListItem(
-            title: "Accessibility Statement",
-            icon: Image("ic_accessibility", bundle: Bundle.ods),
-            destination: AnyView(AccessibilityStatement()))
+        if legalInformation is EmptyView == false {
+            ODSAboutListItem(
+                title: "Legal information",
+                icon: Image("ic_legal", bundle: Bundle.ods),
+                destination: AnyView(legalInformation))
+        }
     }
 }

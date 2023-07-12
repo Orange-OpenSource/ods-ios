@@ -1,4 +1,4 @@
-////
+//
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,18 +23,51 @@
 
 import SwiftUI
 
-struct AccessibilityStatement: View {
+struct AboutPrivacyPolicyMenuItem: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let policy: ODSPrivacyPolicy
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-        Text("Accessibility statement will be here")
+        ODSAboutListItem(
+            title: "Privacy Policy",
+            icon: Image("ic_dataProtection", bundle: Bundle.ods)) {
+                destiantion()
+            }
+    }
+
+    // =============
+    // MARK: Helpers
+    // =============
+
+    @ViewBuilder
+    private func destiantion() -> some View {
+        switch policy {
+        case .colapsable(let policy):
+            ColapsablePrivacyPolicy(policy: policy)
+
+        case .webview(let source):
+            WebView(source: source)
+        }
     }
 }
 
-struct AccessibilityStatementMenuItem: View {
+struct ColapsablePrivacyPolicy: View {
+
+    let policy: ODSStructuredPrivacyPolicy
+
     var body: some View {
-        ODSAboutListItem(
-            title: "Accessibility Statement",
-            icon: Image("ic_accessibility", bundle: Bundle.ods),
-            destination: AnyView(AccessibilityStatement()))
+        ForEach(policy.entities, id: \.id) { entity in
+            DisclosureGroup(entity.title) {
+                WebView(source: .html(entity.description))
+            }
+        }
     }
 }

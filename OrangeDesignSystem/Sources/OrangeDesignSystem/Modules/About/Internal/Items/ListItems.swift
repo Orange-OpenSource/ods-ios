@@ -22,7 +22,7 @@
 //
 import SwiftUI
 
-struct AboutCustomListItems: View {
+struct CustomListItems: View {
 
     // =======================
     // MARK: Stored Properties
@@ -36,38 +36,7 @@ struct AboutCustomListItems: View {
 
     var body: some View {
         ForEach(items) { item in
-            item.body
+            item
         }
-    }
-}
-
-extension ODSAboutListItem: View {
-
-    public var body: some View {
-        switch self.target {
-        case .action(let action):
-            Button {
-                action()
-            } label: {
-                ODSListStandardItem(model: self.model)
-            }
-            .listRowInsets(EdgeInsets())
-            .listRowSeparator(.hidden)
-
-        case .destination(let destination):
-            NavigationLink(model) { destination.navigationTitle(model.title) }
-                .listRowInsets(EdgeInsets())
-                .listRowSeparator(.hidden)
-
-        }
-    }
-}
-
-extension ODSListItemLeadingIcon {
-    init?(icon: Image?) {
-        guard let icon = icon else {
-            return nil
-        }
-        self = .icon(icon)
     }
 }

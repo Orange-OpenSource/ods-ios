@@ -23,7 +23,7 @@
 
 import SwiftUI
 
-struct AboutReleaaseDescriptionView: View {
+struct AppNewsList: View {
 
     // =======================
     // MARK: Stored Properties
@@ -35,8 +35,8 @@ struct AboutReleaaseDescriptionView: View {
     // MARK: Initializer
     // =================
 
-    init(applicationNewsPath: String) {
-        self.releaseDescriptions = (try? AboutReleaseDescriptionsLoader().load(from: applicationNewsPath)) ?? []
+    init(fromFile path: String) {
+        self.releaseDescriptions = (try? AboutReleaseDescriptionsLoader().load(from: path)) ?? []
     }
 
     // ==========

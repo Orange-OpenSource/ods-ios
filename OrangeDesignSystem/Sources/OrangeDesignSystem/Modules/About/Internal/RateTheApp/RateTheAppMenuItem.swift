@@ -1,4 +1,4 @@
-//
+////
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,46 +23,25 @@
 
 import SwiftUI
 
-struct AboutPrivacyPolicy: View {
+struct RateTheAppMenuItem: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let policy: ODSPrivacyPolicy
+    let url: URL?
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        ODSAboutListItem(
-            title: "Privacy Policy",
-            icon: Image("ic_dataProtection", bundle: Bundle.ods),
-            target: .destination(AnyView(destiantion)))
-    }
-
-    @ViewBuilder
-    var destiantion: some View {
-        switch policy {
-        case .colapsable(let policy):
-            ColapsablePrivacyPolicy(policy: policy)
-
-        case .webview(let source):
-            WebView(source: source)
-        }
-    }
-}
-
-struct ColapsablePrivacyPolicy: View {
-
-    let policy: ODSStructuredPrivacyPolicy
-
-    var body: some View {
-        ForEach(policy.entities, id: \.id) { entity in
-            DisclosureGroup(entity.title) {
-                WebView(source: .html(entity.description))
-            }
+        if let url = url {
+            ODSAboutListItem(
+                title: "Rate this app",
+                icon: Image("ic_review", bundle: Bundle.ods)) {
+                    UIApplication.shared.open(url)
+                }
         }
     }
 }

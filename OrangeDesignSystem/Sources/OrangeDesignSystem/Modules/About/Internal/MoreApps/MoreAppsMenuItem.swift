@@ -23,18 +23,17 @@
 
 import SwiftUI
 
-struct AccessibilityStatement: View {
+struct MoreAppsMenuItem: View {
+
+    let url: URL?
 
     var body: some View {
-        Text("Accessibility statement will be here")
-    }
-}
-
-struct AccessibilityStatementMenuItem: View {
-    var body: some View {
-        ODSAboutListItem(
-            title: "Accessibility Statement",
-            icon: Image("ic_accessibility", bundle: Bundle.ods),
-            destination: AnyView(AccessibilityStatement()))
+        if let url = url {
+            ODSAboutListItem(
+                title: "More Orange Apps",
+                icon: Image("ic_apps", bundle: Bundle.ods),
+                destination: AnyView(MoreApps(url: url))
+            )
+        }
     }
 }

@@ -23,16 +23,16 @@
 
 import SwiftUI
 
-public struct ODSAboutListItem: Identifiable {
+public struct ODSAboutListItem: Identifiable, View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let model: ODSListStandardItemModel
-    let target: Target
+    private let model: ODSListStandardItemModel
+    private let target: Target
 
-    public enum Target {
+    private enum Target {
         case destination(AnyView)
         case action(() -> Void)
     }
@@ -41,23 +41,59 @@ public struct ODSAboutListItem: Identifiable {
     // MARK: Initializers
     // ==================
 
-    public init(title: String, subtitle: String? = nil, icon: Image? = nil, target: Target) {
+    private init(title: String, subtitle: String? = nil, icon: Image? = nil, target: Target) {
         model = ODSListStandardItemModel(title: title, subtitle: subtitle, leadingIcon: ODSListItemLeadingIcon(icon: icon))
         self.target = target
     }
 
-    public init(title: String, subtitle: String? = nil, icon: Image? = nil, destination: AnyView) {
-        self.init(title: title, subtitle: subtitle, icon: icon, target: .destination(destination))
-    }
     public init(title: String, subtitle: String? = nil, icon: Image? = nil, action: @escaping () -> Void) {
         self.init(title: title, subtitle: subtitle, icon: icon, target: .action(action))
     }
+    public init(title: String, subtitle: String? = nil, icon: Image? = nil, destination: AnyView) {
+        self.init(title: title, subtitle: subtitle, icon: icon, target: .destination(destination))
+    }
+    public init<Destination>(title: String, subtitle: String? = nil, icon: Image? = nil, @ViewBuilder destinationB: () -> Destination) where Destination: View {
+        self.init(title: title, subtitle: subtitle, icon: icon, target: .destination(AnyView(destinationB())))
+    }
 
+    // ==========
+    // MARK: Body
+    // ==========
+
+    public var body: some View {
+        switch self.target {
+        case .action(let action):
+            Button {
+                action()
+            } label: {
+                ODSListStandardItem(model: self.model)
+            }
+            .listRowInsets(EdgeInsets())
+            .listRowSeparator(.hidden)
+            
+        case .destination(let destination):
+            NavigationLink(model) { destination.navigationTitle(model.title) }
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
+            
+        }
+    }
+    
     // ============
     // MARK: Helper
     // ============
-
+    
     public var id: UUID {
         model.id
     }
 }
+
+extension ODSListItemLeadingIcon {
+    init?(icon: Image?) {
+        guard let icon = icon else {
+            return nil
+        }
+        self = .icon(icon)
+    }
+}
+
