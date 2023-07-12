@@ -75,8 +75,8 @@ class AboutModuleModel: ObservableObject {
     }
     
 
-    // MARK: - Links options
-    enum ProposedLinkOption: Int, CaseIterable {
+    // MARK: - Optional About items
+    enum OptionalAboutItem: Int, CaseIterable {
         case appNews = 0
         case moreApps
         case legalInformation
@@ -104,11 +104,11 @@ class AboutModuleModel: ObservableObject {
         }
     }
 
-    @Published var proposedLinkOptions: [ProposedLinkOption] = ProposedLinkOption.allCases
+    @Published var optionalAboutItems: [OptionalAboutItem] = OptionalAboutItem.allCases
     
     // MARK: - AppNews
     var applicationNewsPath: String? {
-        proposedLinkOptions.contains(.appNews) ?
+        optionalAboutItems.contains(.appNews) ?
         Bundle.main.path(forResource: "AppNews", ofType: "json") : nil
     }
 
@@ -117,9 +117,9 @@ class AboutModuleModel: ObservableObject {
         ODSAboutListItem(title: "My reviews", icon: Image("ic_subtitles"), destination: AnyView(Text("My reviews"))),
         ODSAboutListItem(title: "My recipes", icon: Image("ic_folderFavourite"), destination: AnyView(Text("My recipes")))
     ]
-    @Published var numberOfLinks: Int = 2
+    @Published var numberOfCustomItems: Int = 2
     var customItems: [ODSAboutListItem] {
-        Array(defaultCustomItems.prefix(numberOfLinks))
+        Array(defaultCustomItems.prefix(numberOfCustomItems))
     }
     
     // MARK: - Privacy policy

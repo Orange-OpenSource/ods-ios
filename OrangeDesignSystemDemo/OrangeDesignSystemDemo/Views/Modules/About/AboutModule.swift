@@ -61,17 +61,16 @@ struct AboutSetup: View {
 
             VStack(alignment: .leading) {
                 Text("An « About » screen should be displayed in all Orange applications to show the application name, software version as wall as all legal data protection, privacy, terms of service and accessibility statement.")
-                        
-                
-                Text("Customise the module")
+
+                Text("Customize module")
                     .odsFont(.headline)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.s)
-                
+
                 Text("Some items such as : illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components :")
-                
+
                 ODSChipPicker(
-                    title: "Options for application section",
+                    title: "Application section",
                     selection: $model.applicationSectionOptions,
                     allowZeroSelection: true,
                     chips: AboutModuleModel.ApplicationInformationOption.chips)
@@ -79,17 +78,17 @@ struct AboutSetup: View {
                 .padding(.horizontal, -ODSSpacing.m)
                 
                 ODSChipPicker(
-                    title: "Proposed Links",
-                    selection: $model.proposedLinkOptions,
+                    title: "Optional About Items",
+                    selection: $model.optionalAboutItems,
                     allowZeroSelection: true,
-                    chips: AboutModuleModel.ProposedLinkOption.chips)
-                .padding(.vertical, ODSSpacing.m)
+                    chips: AboutModuleModel.OptionalAboutItem.chips)
+                .padding(.vertical, ODSSpacing.s)
                 .padding(.horizontal, -ODSSpacing.m)
                 
-                Stepper("Additional link(s) : \(model.numberOfLinks)",
-                        value: $model.numberOfLinks,
+                Stepper("Custom item(s) : \(model.numberOfCustomItems)",
+                        value: $model.numberOfCustomItems,
                         in: 0 ... model.defaultCustomItems.count)
-                    .padding(.vertical, ODSSpacing.m)
+                    .padding(.vertical, ODSSpacing.s)
                 
                 NavigationLink(isActive: $showDemo) {
                     AboutModuleDemo(model: model)
@@ -134,10 +133,10 @@ struct AboutModuleDemo: View {
         let termeOfService = { Text("Term of service") }
         let customItems = model.customItems
         let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
-        let moreAppsUrl = model.proposedLinkOptions.contains(.moreApps) ? URL(string: "https://www.apple.com") : nil
-        let storeUrl = model.proposedLinkOptions.contains(.rateTheApp) ? URL(string: "https://www.apple.com") : nil
+        let moreAppsUrl = model.optionalAboutItems.contains(.moreApps) ? URL(string: "https://www.apple.com") : nil
+        let storeUrl = model.optionalAboutItems.contains(.rateTheApp) ? URL(string: "https://www.apple.com") : nil
 
-        if model.proposedLinkOptions.contains(.legalInformation) {
+        if model.optionalAboutItems.contains(.legalInformation) {
             ODSAboutModule(headerIllustration: headerIllustration,
                            applicationInformation: applicationInformation,
                            privacyPolicy: privacyPolicy,
