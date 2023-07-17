@@ -42,9 +42,6 @@ struct AboutScreen: View {
                                  markdownFileName: "CHANGELOG",
                                  convertToHtml: true)
     }
-    let reportAnIssueItem = ODSAboutListItem(title: "Report an issue") {
-        UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
-    }
     let designGuideLineItem = ODSAboutListItem(title: "Design guidelines", icon: Image("ic_tools")) {
         UIApplication.shared.open(URL(string: "https://system.design.orange.com/0c1af118d/p/95b685-ios/")!)
     }
@@ -63,7 +60,7 @@ struct AboutScreen: View {
                            moreAppsUrl: nil,
                            storeUrl: nil,
                            termsOfService: termOfService,
-                           customItems: [designGuideLineItem, changeLogItem, reportAnIssueItem])
+                           customItems: [designGuideLineItem, changeLogItem])
         }
         .navigationbarMenuForThemeSelection()
         .navigationViewStyle(.stack)
@@ -73,16 +70,20 @@ struct AboutScreen: View {
     // MARK: Private Helpers
     // =====================
 
+    private let storeUrl = URL(string: "https://itunes.apple.com/fr/app/id6446178285")!
+    
     private var applicationInformation: ODSAboutApplicationInformation {
         ODSAboutApplicationInformation(
             name: "Orange Design System Demo",
-            version: Bundle.main.marketingVersion,
-            buildNumber: Bundle.main.buildNumber,
-            buildType: Bundle.main.buildType,
+            version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
             description: "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.",
-            shareUrl: URL(string: "https://www.apple.com")) {
-                UIApplication.shared.open(URL(string: "www.apple.com")!)
-            }
+            shareConfiguration: ODSAboutShareTheApplication(
+                url: storeUrl,
+                subject: "The Orange Design System",
+                description: "You will find the Orange Design System Mobile iOS App that provides examples of design implementations in the app store at: \(storeUrl.absoluteString)"),
+            onFeedbackClicked: {
+                UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
+            })
     }
     
     @ViewBuilder

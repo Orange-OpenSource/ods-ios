@@ -80,7 +80,6 @@
 		F90D977828003104006D29FC /* AboutHtmlAndMarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D977228003104006D29FC /* AboutHtmlAndMarkdownView.swift */; };
 		F90D978228003281006D29FC /* ModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D977F28003281006D29FC /* ModulesList.swift */; };
 		F90D978328003281006D29FC /* CardViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978028003281006D29FC /* CardViewDemo.swift */; };
-		F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978428003299006D29FC /* AboutConfigDemo.swift */; };
 		F90D978728005A4A006D29FC /* ComponentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90D978628005A4A006D29FC /* ComponentList.swift */; };
 		F96A3E17280451660086B9BF /* ColorsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A3E11280451660086B9BF /* ColorsPage.swift */; };
 		F96A3E18280451660086B9BF /* ColorUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A3E12280451660086B9BF /* ColorUsage.swift */; };
@@ -194,7 +193,6 @@
 		F90D977228003104006D29FC /* AboutHtmlAndMarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutHtmlAndMarkdownView.swift; sourceTree = "<group>"; };
 		F90D977F28003281006D29FC /* ModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModulesList.swift; path = OrangeDesignSystemDemo/Views/Modules/ModulesList.swift; sourceTree = "<group>"; };
 		F90D978028003281006D29FC /* CardViewDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardViewDemo.swift; path = OrangeDesignSystemDemo/Views/Modules/CardViewDemo.swift; sourceTree = "<group>"; };
-		F90D978428003299006D29FC /* AboutConfigDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutConfigDemo.swift; path = OrangeDesignSystemDemo/Views/Modules/AboutConfigDemo.swift; sourceTree = "<group>"; };
 		F90D978628005A4A006D29FC /* ComponentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentList.swift; path = OrangeDesignSystemDemo/Views/Components/ComponentList.swift; sourceTree = "<group>"; };
 		F913B85F2767969E001CB0AA /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		F913B86827679EE9001CB0AA /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
@@ -680,7 +678,6 @@
 			children = (
 				07C23C2B2A41A02B00C469C1 /* About */,
 				F90D977F28003281006D29FC /* ModulesList.swift */,
-				F90D978428003299006D29FC /* AboutConfigDemo.swift */,
 				F90D978028003281006D29FC /* CardViewDemo.swift */,
 			);
 			name = Modules;
@@ -987,7 +984,6 @@
 				075E611B29966D0C004CE0A6 /* BannerVariantOptions.swift in Sources */,
 				0789AB972934C33200796B82 /* TabBarComponent.swift in Sources */,
 				075462FA28F474CC002E2E40 /* ButtonsComponent.swift in Sources */,
-				F90D978528003299006D29FC /* AboutConfigDemo.swift in Sources */,
 				F90D9768280030A6006D29FC /* TypographyPage.swift in Sources */,
 				F96A3E17280451660086B9BF /* ColorsPage.swift in Sources */,
 				07F141C829928B96007C8575 /* BottomSheetComponent.swift in Sources */,

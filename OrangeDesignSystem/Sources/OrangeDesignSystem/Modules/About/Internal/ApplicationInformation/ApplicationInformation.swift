@@ -41,11 +41,11 @@ struct AboutApplicationInformation: View {
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
 
-            if applicationInformation.shareUrl != nil || applicationInformation.onFeedbackClicked != nil {
+            if applicationInformation.shareConfiguration != nil || applicationInformation.onFeedbackClicked != nil {
                 HStack(spacing: ODSSpacing.none) {
-                    if let shareUrl = applicationInformation.shareUrl {
+                    if let shareConfiguration = applicationInformation.shareConfiguration {
                         ODSButton(text: "Share", image: Image("ic_share", bundle: Bundle.ods), emphasis: .low) {
-                            ShareSheet.show(content: "The content", subject: "The subject", url: shareUrl)
+                            ShareSheet.show(content: shareConfiguration.description, subject: shareConfiguration.subject, url: shareConfiguration.url)
                         }
                         .buttonStyle(PlainButtonStyle())
                         .foregroundColor(Color.accentColor)
@@ -83,40 +83,35 @@ struct AboutApplicationInformation: View {
             return nil
         }
 
-        return "Version \(versionWithBuildNumber(version: version))"
+        return "Version \(version.marketingVersion)\(buildSuffix)"
     }
-
-    private func versionWithBuildNumber(version: String) -> String {
-        var versionAndBuildNumber: String {
-            if let buildNumber = applicationInformation.buildNumber {
-                return "\(version) (\(buildNumber))"
-            } else {
-                return version
-            }
+    private var buildSuffix: String {
+        guard let buildNumber = applicationInformation.version?.buildNumber,
+              !buildNumber.isEmpty else {
+            return ""
         }
-
-        if let buildType = applicationInformation.buildType {
-            return "\(versionAndBuildNumber) - \(buildType)"
-        } else {
-            return versionAndBuildNumber
+        return " (\(buildNumber))\(buildTypeSuffix)"
+    }
+    private var buildTypeSuffix: String {
+        guard let buildType = applicationInformation.version?.buildType,
+              !buildType.isEmpty else {
+            return ""
         }
+        return " - \(buildType)"
     }
 }
 
 #if DEBUG
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        let description = ApplicationInformation(name: "APP NAME",
-                                                 version: "1.0.0",
-                                                 buildNumber: "123456789",
-                                                 buildType: "DEBUG",
-                                                 description: "This is the demo application for test")
+        let appInfo = ODSAboutApplicationInformation(
+            name: "APP NAME",
+            version: ODSApplicationVersion(marketingVersion: "1.0.0", buildNumber: "123456789", buildType: "DEBUG"),
+            description: "This is the demo application for test")
 
         ForEach(ColorScheme.allCases, id: \.self) {
-
-            AboutView()
-                .preferredColorScheme($0)
-                .environmentObject(description)
+            AboutApplicationInformation(applicationInformation: appInfo)
+                    .preferredColorScheme($0)
         }
     }
 }

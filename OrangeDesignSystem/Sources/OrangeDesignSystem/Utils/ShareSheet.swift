@@ -27,7 +27,9 @@ enum ShareSheet {
     /// Use to display a share sheet on the current active screen.
     ///
     /// - Parameters:
-    ///     - content: the content of the
+    ///     - content: The content displayed in the body of a mail.
+    ///     - subject; The subject of the mail.
+    ///     
     static func show(content: String, subject: String = "", url: URL? = nil) {
         let item = ShareItem(content: content, mailSubject: subject)
         var items: [Any] = [item]

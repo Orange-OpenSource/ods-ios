@@ -61,16 +61,17 @@ class AboutModuleModel: ObservableObject {
     @Published var applicationSectionOptions: [ApplicationInformationOption] = ApplicationInformationOption.allCases
     
     func appInfo(onFeedbackClicked: @escaping () -> Void ) -> ODSAboutApplicationInformation {
-        let version = applicationSectionOptions.contains(.version) ? "0.14.0" : nil
+        let version = ODSApplicationVersion(marketingVersion: "0.14.0", buildNumber: "123456", buildType: "DEBUG")
         let description = "Add here a short description of the application. Over 2 lines use « more »."
-        let shareUrl = URL(string: "https://www.apple.com")!
+        let shareConfiguration = ODSAboutShareTheApplication(
+            url: URL(string: "https://www.apple.com")!,
+            subject: "Add the subject of the sharing",
+            description: "Add the description of the sharing")
         
         return ODSAboutApplicationInformation(name: "Orange Design System",
-                                              version: version,
-                                              buildNumber: "123456",
-                                              buildType: "DEBUG",
+                                              version: applicationSectionOptions.contains(.version) ? version : nil,
                                               description: applicationSectionOptions.contains(.description) ? description : nil,
-                                              shareUrl: applicationSectionOptions.contains(.share) ? shareUrl : nil,
+                                              shareConfiguration: applicationSectionOptions.contains(.share) ? shareConfiguration : nil,
                                               onFeedbackClicked: applicationSectionOptions.contains(.feedback) ? onFeedbackClicked : nil)
     }
     

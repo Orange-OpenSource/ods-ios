@@ -28,7 +28,7 @@ public struct ODSAboutAccessibilityStatement {
         self.reportPath = reportPath
         self.reportDetail = reportDetail
     }
-    
+
     let reportPath: String
     let reportDetail: URL
 }

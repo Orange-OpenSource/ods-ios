@@ -149,6 +149,7 @@ public struct ODSAboutModule<LegalInformation, TermsOfService>: View where Legal
                 CustomListItems(items: customItems)
             }
             .padding(.horizontal, ODSSpacing.m)
+            .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)
         .navigationTitle("About")

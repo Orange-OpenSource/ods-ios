@@ -24,46 +24,114 @@
 import Foundation
 import SwiftUI
 
-public struct ODSAboutApplicationInformation {
+///
+/// Define the version of the Application.
+/// Today used for About Module only
+///
+public struct ODSApplicationVersion {
 
-    /// Configure the application information to be displayed in the main about screen.
+    // ========================
+    // MARK: Stored properties
+    // ========================
+
+    let marketingVersion: String
+    let buildNumber: String?
+    let buildType: String?
+
+    // ===================
+    // MARK: Initializers
+    // ===================
+
+    /// Initialize the version with marketing version and optional additional build infomration.
+    /// The build type is used for debug purpose.
     ///
     /// - Parameters:
-    ///    - name: The name of the application
-    ///    - version: (Optional) The current version of the application (something like: x.y.z)
-    ///    - buildNumber: (Optional) An additional build number (will be added at the end of the version field ("x.y.z (<buildNumber>)")
-    ///    - buildType: (Optional) An additional build type (For example DEBUG, QUALIF, ...),
-    ///    - shareUrl: (Optional) The Url of the application on the store.
-    ///    - onFeedbackClicked: (Optional) The action to do when feedback button is clicked
+    ///    - marketingVersion: The current version of the application (something like: x.y.z)
+    ///    - buildNumber: The build number of a version
+    ///    - buildType: (Optional) The type of build (i.e. DEBUG, QUALIF).
     ///
-    // #swiftlint:disable multiline_parameters_brackets
-    public init(
-        name: String,
-        version: String? = nil,
-        buildNumber: String? = nil,
-        buildType: String? = nil,
-        description: String? = nil,
-        shareUrl: URL? = nil,
-        onFeedbackClicked: (() -> Void)? = nil) {
-        self.name = name
-        self.version = version
+    public init(marketingVersion: String, buildNumber: String, buildType: String? = nil) {
+        self.marketingVersion = marketingVersion
         self.buildNumber = buildNumber
         self.buildType = buildType
-        self.description = description
-        self.shareUrl = shareUrl
-        self.onFeedbackClicked = onFeedbackClicked
     }
+    public init(marketingVersion: String) {
+        self.marketingVersion = marketingVersion
+        self.buildNumber = nil
+        self.buildType = nil
+
+    }
+}
+
+/// Configure the system share sheet
+/// used to share the application.
+///
+public struct ODSAboutShareTheApplication {
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let url: URL
+    let subject: String
+    let description: String
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+    
+    /// Initilaize the sharing.
+    ///
+    /// - Parameters:
+    ///     - url: The url of the application on the store.
+    ///     - subject: The subject, if the application is shared with email.
+    ///     - description: Can be used to describe the sharing (Content of the email, SMS, ...).
+    ///
+    public init(url: URL, subject: String, description: String) {
+        self.url = url
+        self.subject = subject
+        self.description = description
+    }
+}
+
+
+
+public struct ODSAboutApplicationInformation {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
     let name: String
-    let version: String?
-    let buildNumber: String?
-    let buildType: String?
+    let version: ODSApplicationVersion?
     let description: String?
     let copyrightNotice: String = "Orange property. All rights reserved"
-    let shareUrl: URL?
+    let shareConfiguration: ODSAboutShareTheApplication?
     let onFeedbackClicked: (() -> Void)?
+
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    /// Configure the application information to be displayed in the main about screen.
+    ///
+    /// - Parameters:
+    ///    - name: The name of the application
+    ///    - version: (Optional) The current version of the application.
+    ///    - shareConfiguration: (Optional) The configuration to activate the application sharing.
+    ///    - onFeedbackClicked: (Optional) The action to do when feedback button is clicked
+    ///
+    // #swiftlint:disable multiline_parameters_brackets
+    public init(
+        name: String,
+        version: ODSApplicationVersion? = nil,
+        description: String? = nil,
+        shareConfiguration: ODSAboutShareTheApplication? = nil,
+        onFeedbackClicked: (() -> Void)? = nil) {
+        self.name = name
+        self.version = version
+        self.description = description
+        self.shareConfiguration = shareConfiguration
+        self.onFeedbackClicked = onFeedbackClicked
+    }
 }
