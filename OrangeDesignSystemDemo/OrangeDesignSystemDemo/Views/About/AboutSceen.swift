@@ -83,7 +83,7 @@ struct AboutScreen: View {
     private let accessibilityStatement: ODSAboutAccessibilityStatement
     private let appNewPath: String
     private let customItems: [ODSAboutListItemConfig]
-    private let storeUrl = URL(string: "https://itunes.apple.com/fr/app/id6446178285")!
+    private let storeUrl = URL(string: "https://itunes.apple.com/fr/app")!
     
     // =================
     // MARK: Initializer
