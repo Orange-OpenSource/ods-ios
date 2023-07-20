@@ -78,8 +78,9 @@ private struct AboutReleaaseDescriptionEntry: View {
                 Text(formatedDate).odsFont(.caption1Regular)
             }
 
-            Text(releaseDescription.news).odsFont(.callout)
-                .frame(width: .infinity, alignment: .leading)
+            Text(releaseDescription.news)
+                .odsFont(.callout)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, ODSSpacing.s)
     }

@@ -21,17 +21,20 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct TermsOfServiceMenuItem<TermsOfService>: View where TermsOfService: View {
-
-    @ViewBuilder
-    let termsOfService: () -> TermsOfService
-
-    var body: some View {
-        ODSAboutListItem(
-            title: "Terms of Service",
-            icon: Image("ic_calendarEventInfo", bundle: Bundle.ods),
-            destinationB: termsOfService)
+struct AboutMyReviewsItemConfiguration: ODSAboutListItemConfig {
+    
+    var title: String
+    var icon: Image
+    var target: OrangeDesignSystem.ODSAboutListItemTarget
+    var priority: OrangeDesignSystem.ODSAboutListItemPriority
+    
+    init() {
+        title = "My reviews"
+        icon = Image("ic_subtitles")
+        priority = 201
+        target = .destination(AnyView(Text("My reviews")))
     }
 }

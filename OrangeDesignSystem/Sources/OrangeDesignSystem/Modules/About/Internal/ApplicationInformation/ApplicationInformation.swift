@@ -45,7 +45,7 @@ struct AboutApplicationInformation: View {
                 HStack(spacing: ODSSpacing.none) {
                     if let shareConfiguration = applicationInformation.shareConfiguration {
                         ODSButton(text: "Share", image: Image("ic_share", bundle: Bundle.ods), emphasis: .low) {
-                            ShareSheet.show(content: shareConfiguration.description, subject: shareConfiguration.subject, url: shareConfiguration.url)
+                            ShareSheet.show(content: shareConfiguration.description, subject: shareConfiguration.subject, url: shareConfiguration.storeUrl)
                         }
                         .buttonStyle(PlainButtonStyle())
                         .foregroundColor(Color.accentColor)
@@ -78,6 +78,7 @@ struct AboutApplicationInformation: View {
     // =============
     // MARK: Helpers
     // =============
+
     private var fullVersionText: String? {
         guard let version = applicationInformation.version else {
             return nil

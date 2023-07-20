@@ -21,20 +21,20 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct AccessibilityStatement: View {
-
-    var body: some View {
-        Text("Accessibility statement will be here")
-    }
-}
-
-struct AccessibilityStatementMenuItem: View {
-    var body: some View {
-        ODSAboutListItem(
-            title: "Accessibility Statement",
-            icon: Image("ic_accessibility", bundle: Bundle.ods),
-            destination: AnyView(AccessibilityStatement()))
+struct AboutMyRecipeItemConfiguration: ODSAboutListItemConfig {
+    
+    var title: String
+    var icon: Image
+    var target: OrangeDesignSystem.ODSAboutListItemTarget
+    var priority: OrangeDesignSystem.ODSAboutListItemPriority
+    
+    init() {
+        title = "My recipes"
+        icon = Image("ic_folderFavourite")
+        priority = 200
+        target = .destination(AnyView(Text("My recipes")))
     }
 }

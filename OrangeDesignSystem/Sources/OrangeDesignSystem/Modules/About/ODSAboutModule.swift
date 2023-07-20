@@ -21,10 +21,17 @@
 //
 //
 
-import Foundation
 import SwiftUI
 
-public struct ODSAboutModule<LegalInformation, TermsOfService>: View where LegalInformation: View, TermsOfService: View {
+/// Use the about module to display application name, software version,
+/// legal data protection, privacy, accessibilty statement,
+/// and terms of service compliance information.
+///
+/// It is also configurable to add some additional items to display
+/// pages related to the service provided by the application
+/// (i.e. settings, tutorials, ...)
+///
+public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
 
     // =======================
     // MARK: Stored properties
@@ -32,14 +39,7 @@ public struct ODSAboutModule<LegalInformation, TermsOfService>: View where Legal
 
     private let headerIllustration: Image
     private let applicationInformation: ODSAboutApplicationInformation
-    private let privacyPolicy: ODSPrivacyPolicy
-    private let applicationNewsPath: String?
-    private let moreAppsUrl: URL?
-    private let storeUrl: URL?
-    @ViewBuilder
-    private let termsOfService: () -> TermsOfService
-    private let legalInformation: LegalInformation
-    private let customItems: [ODSAboutListItem]
+    private let listItemConfigurations: [ODSAboutListItemConfig]
 
     // ==================
     // MARK: Initializers
@@ -49,69 +49,36 @@ public struct ODSAboutModule<LegalInformation, TermsOfService>: View where Legal
     ///
     /// - Parameters:
     ///     - headerIllustration: Image of the illustration at the top of the screen.
-    ///     - applicationInformation: (Mandatory) Information about the application set in the area describing it.
+    ///     - applicationInformation: (Mandatory) Information about the application.
     ///     - privacyPolicy: (Mandatory) The privacy policy of the application.
-    ///     - acessibilityStatement: (Mandatory) The configuration to access the repport of the accessibility statement.
-    ///     - applicationNewsPath: (Optional) Path to the json file containing the news history of all releases of the application.
-    ///     - moreAppsUrl: The URL to retrieve a collection of apps and display their associated description and URL.
-    ///     - storeUrl: Provide the store URL to propose the user to rate the app.
+    ///     - acessibilityStatement: (Mandatory) The configuration to access the report of the accessibility statement.
     ///     - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
-    ///     - legalInformation: View builder to provide legal information (could be a webview, native screen, ...)
-    ///     - customItems: The custom items to be added at the end of the list.
+    ///     - listItemConfigurations: Configuration to add items in the list. The items are ordered according to the priority set in configutation.
     ///
-    public init(headerIllustration: Image = Image("ic_about_image", bundle: Bundle.ods),
-                applicationInformation: ODSAboutApplicationInformation,
-                privacyPolicy: ODSPrivacyPolicy,
-                acessibilityStatement: ODSAboutAccessibilityStatement,
-                applicationNewsPath: String? = nil,
-                moreAppsUrl: URL? = nil,
-                storeUrl: URL? = nil,
-                @ViewBuilder termsOfService: @escaping () -> TermsOfService,
-                @ViewBuilder legalInformation: () -> LegalInformation,
-                customItems: [ODSAboutListItem] = []) {
-        self.headerIllustration = headerIllustration
-        self.applicationInformation = applicationInformation
-        self.privacyPolicy = privacyPolicy
-        self.applicationNewsPath = applicationNewsPath
-        self.moreAppsUrl = moreAppsUrl
-        self.storeUrl = storeUrl
-        self.legalInformation = legalInformation()
-        self.termsOfService = termsOfService
-        self.customItems = customItems
-    }
-
-    /// Initializes the about module without LegalInformation entry.
-    ///
-    /// - Parameters:
-    ///     - headerIllustration: Image of the illustration at the top of the screen
-    ///     - applicationInformation: (Mandatory) Information about the application set in the area describing it.
-    ///     - privacyPolicy: (Mandatory) The privacy policy of the application
-    ///     - acessibilityStatement: (Mandatory) The configuration to access the repport of the accessibility statement.
-    ///     - applicationNewsPath: (Optional) Path to the json file containing the news history of all releases of the application.
-    ///     - moreAppsUrl: The URL to retrieve a collection of apps and display their associated description and URL.
-    ///     - storeUrl: Provide the store URL to propose the user to rate the app.
-    ///     - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
-    ///     - customItems: The custom items to be added at the end of the list.
+    ///  @Remark: Privacy Policy, accessibility statement and terms of service pages are
+    ///  mandatory in this module. To access those pages, associated items are automatically
+    ///  added in the list. They are ordered according to their priority defined by:
+    ///  __ODSAboutListItemPriority.privacyPolicy__, __ODSAboutListItemPriority.termOfService__, __ODSAboutListItemPriority.accessibilityStatement__.
+    ///  If custom items should be placed before those, configures them with lower
+    ///  priority.
     ///
 
     public init(headerIllustration: Image = Image("ic_about_image", bundle: Bundle.ods),
                 applicationInformation: ODSAboutApplicationInformation,
                 privacyPolicy: ODSPrivacyPolicy,
                 acessibilityStatement: ODSAboutAccessibilityStatement,
-                applicationNewsPath: String? = nil,
-                moreAppsUrl: URL? = nil,
-                storeUrl: URL? = nil,
                 @ViewBuilder termsOfService: @escaping () -> TermsOfService,
-                customItems: [ODSAboutListItem] = []) where LegalInformation == EmptyView {
+                listItemConfigurations: [ODSAboutListItemConfig]) {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
-        self.privacyPolicy = privacyPolicy
-        self.applicationNewsPath = applicationNewsPath
-        self.moreAppsUrl = moreAppsUrl
-        self.storeUrl = storeUrl
-        self.legalInformation = EmptyView()
-        self.termsOfService = termsOfService
-        self.customItems = customItems
+
+        let internalItemsConfig = [
+            AboutPrivacyPolicyItem(policy: privacyPolicy) as ODSAboutListItemConfig,
+            AboutTermOfServiceItem(termsOfService: termsOfService) as ODSAboutListItemConfig,
+            AboutAccessibilityStatementItemConfig(statementConfig: acessibilityStatement) as ODSAboutListItemConfig
+            ]
+
+        self.listItemConfigurations = listItemConfigurations + internalItemsConfig
     }
 
     // ==========
@@ -128,25 +95,12 @@ public struct ODSAboutModule<LegalInformation, TermsOfService>: View where Legal
                 .listRowSeparator(.hidden)
 
             Group {
-                // Application Innformation section
                 AboutApplicationInformation(applicationInformation: applicationInformation)
                     .padding(.vertical, ODSSpacing.m)
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
 
-                // Mandatory Items
-                AboutPrivacyPolicyMenuItem(policy: privacyPolicy)
-                TermsOfServiceMenuItem(termsOfService: termsOfService)
-                AccessibilityStatementMenuItem()
-
-                // Optional Items
-                MoreAppsMenuItem(url: moreAppsUrl)
-                RateTheAppMenuItem(url: storeUrl)
-                AppNewsMenuItem(path: applicationNewsPath)
-                LegalInformationMenuItem(legalInformation: legalInformation)
-
-                // Custom Additonnal Items
-                CustomListItems(items: customItems)
+                AboutListItems(configurations: listItemConfigurations)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.bottom, ODSSpacing.s)

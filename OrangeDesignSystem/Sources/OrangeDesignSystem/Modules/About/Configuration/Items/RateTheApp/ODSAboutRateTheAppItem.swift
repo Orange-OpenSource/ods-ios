@@ -23,25 +23,39 @@
 
 import SwiftUI
 
-struct RateTheAppMenuItem: View {
+///
+/// Configuration to add in list the item that opens the application page on the apple store.
+///
+/// By default, this item is palced after the item of More Apps. That can be changed by priority set in the configuration.
+///
+public struct ODSAboutRateTheAppItemCondfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let url: URL?
+    public private(set) var title: String
+    public private(set) var icon: Image
+    public private(set) var target: ODSAboutListItemTarget
+    public private(set) var priority: ODSAboutListItemPriority
 
-    // ==========
-    // MARK: Body
-    // ==========
+    private let storeUrl: URL
 
-    var body: some View {
-        if let url = url {
-            ODSAboutListItem(
-                title: "Rate this app",
-                icon: Image("ic_review", bundle: Bundle.ods)) {
-                    UIApplication.shared.open(url)
-                }
-        }
+    // =================
+    // MARK: Initializer
+    // =================
+
+    /// Initiliazes the configuration.
+    ///
+    /// - Parmaters:
+    ///    - storeUrl: URL of the application on the store.
+    ///    - priority: Priority to adjust the position of the item in the list.
+    ///
+    public init(storeUrl: URL, priority: ODSAboutListItemPriority = .rateTheApp) {
+        title = "Rate this app"
+        icon = Image("ic_review", bundle: Bundle.ods)
+        self.priority = priority
+        self.storeUrl = storeUrl
+        self.target = .action( { UIApplication.shared.open(storeUrl) } )
     }
 }

@@ -23,17 +23,21 @@
 
 import SwiftUI
 
-struct AppNewsMenuItem: View {
+struct AboutTermOfServiceItem: ODSAboutListItemConfig  {
 
-    let path: String?
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    var body: some View {
-        if let path = path {
-            ODSAboutListItem(
-                title: "App News",
-                icon: Image("ic_taskList", bundle: Bundle.ods)) {
-                AppNewsList(fromFile: path)
-            }
-        }
+    let title: String
+    let icon: Image
+    let target: ODSAboutListItemTarget
+    let priority: ODSAboutListItemPriority
+
+    public init<TermsOfService>(@ViewBuilder termsOfService: () -> TermsOfService) where TermsOfService: View {
+        self.title = "Terms of Service"
+        self.icon = Image("ic_calendarEventInfo", bundle: Bundle.ods)
+        self.priority = ODSAboutListItemPriority.termOfService
+        self.target = .destination(AnyView(termsOfService()))
     }
 }

@@ -28,6 +28,10 @@ import Foundation
 
 class AboutModuleModel: ObservableObject {
 
+    init() {
+        self.showFeedbackPopup = false
+    }
+    
     // MARK: - Application infomration section
     
     enum ApplicationInformationOption: Int, CaseIterable {
@@ -57,14 +61,16 @@ class AboutModuleModel: ObservableObject {
             Self.allCases.map { $0.chip }
         }
     }
-
+    
+    @Published var showFeedbackPopup: Bool
+    
     @Published var applicationSectionOptions: [ApplicationInformationOption] = ApplicationInformationOption.allCases
     
-    func appInfo(onFeedbackClicked: @escaping () -> Void ) -> ODSAboutApplicationInformation {
+    var applicationInformation: ODSAboutApplicationInformation {
         let version = ODSApplicationVersion(marketingVersion: "0.14.0", buildNumber: "123456", buildType: "DEBUG")
         let description = "Add here a short description of the application. Over 2 lines use « more »."
         let shareConfiguration = ODSAboutShareTheApplication(
-            url: URL(string: "https://www.apple.com")!,
+            storeUrl: URL(string: "https://www.apple.com")!,
             subject: "Add the subject of the sharing",
             description: "Add the description of the sharing")
         
@@ -72,7 +78,11 @@ class AboutModuleModel: ObservableObject {
                                               version: applicationSectionOptions.contains(.version) ? version : nil,
                                               description: applicationSectionOptions.contains(.description) ? description : nil,
                                               shareConfiguration: applicationSectionOptions.contains(.share) ? shareConfiguration : nil,
-                                              onFeedbackClicked: applicationSectionOptions.contains(.feedback) ? onFeedbackClicked : nil)
+                                              onFeedbackClicked: applicationSectionOptions.contains(.feedback) ? self.onFeedbackClicked : nil)
+    }
+    
+    func onFeedbackClicked() {
+        showFeedbackPopup = true
     }
     
 
@@ -107,20 +117,34 @@ class AboutModuleModel: ObservableObject {
 
     @Published var optionalAboutItems: [OptionalAboutItem] = OptionalAboutItem.allCases
     
-    // MARK: - AppNews
-    var applicationNewsPath: String? {
+    // MARK: - Proposed items in about module
+    var appNewsPath: String? {
         optionalAboutItems.contains(.appNews) ?
         Bundle.main.path(forResource: "AppNews", ofType: "json") : nil
     }
+    var moreAppsUrl: URL? {
+        optionalAboutItems.contains(.moreApps) ?
+        URL(string: "https://www.apple.com") : nil
+    }
+    var rateTheAppUrl: URL? {
+        optionalAboutItems.contains(.rateTheApp) ?
+        URL(string: "https://www.apple.com") : nil
+    }
+    var legalInformationText: String? {
+        optionalAboutItems.contains(.legalInformation) ?
+        "Add Legal information here" : nil
+    }
 
+    
     // MARK: - Additional custom links (list items)
-    let defaultCustomItems = [
-        ODSAboutListItem(title: "My reviews", icon: Image("ic_subtitles"), destination: AnyView(Text("My reviews"))),
-        ODSAboutListItem(title: "My recipes", icon: Image("ic_folderFavourite"), destination: AnyView(Text("My recipes")))
+    let defaultCustomItems: [ODSAboutListItemConfig] = [
+        AboutMyRecipeItemConfiguration(),
+        AboutMyReviewsItemConfiguration()
     ]
     @Published var numberOfCustomItems: Int = 2
-    var customItems: [ODSAboutListItem] {
-        Array(defaultCustomItems.prefix(numberOfCustomItems))
+    
+    var customItems: [ODSAboutListItemConfig] {
+        defaultCustomItems.prefix(numberOfCustomItems).compactMap { $0 as ODSAboutListItemConfig }
     }
     
     // MARK: - Privacy policy

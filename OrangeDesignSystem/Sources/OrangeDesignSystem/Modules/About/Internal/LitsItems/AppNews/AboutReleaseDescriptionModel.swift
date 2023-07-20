@@ -51,7 +51,7 @@ class AboutReleaseDescriptionsLoader {
         guard FileManager().fileExists(atPath: applicationNewsPath) else {
             throw Error.resourceNotFound
         }
-        
+
         guard let jsonData = try String(contentsOfFile: applicationNewsPath).data(using: .utf8) else {
             throw Error.noJsonData
         }

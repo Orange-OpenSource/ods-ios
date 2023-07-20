@@ -24,26 +24,98 @@
 import SwiftUI
 import OrangeDesignSystem
 
+struct AboutChangeLogItemConfig: ODSAboutListItemConfig {
+    
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    let title: String
+    let icon: Image
+    let priority: ODSAboutListItemPriority
+    let target: ODSAboutListItemTarget
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(priority: ODSAboutListItemPriority) {
+        title = "Change Log"
+        icon = Image("ic_taskList", bundle: Bundle.ods)
+        self.priority = priority
+        target = .destination(AnyView(
+            AboutHtmlAndMarkdownView(title: "Change Log", markdownFileName: "CHANGELOG", convertToHtml: true)))
+    }
+}
+
+
+struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
+    
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    let title: String
+    let icon: Image
+    let target: ODSAboutListItemTarget
+    let priority: ODSAboutListItemPriority
+    
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(priority: ODSAboutListItemPriority) {
+        title = "Design guidelines"
+        icon = Image("ic_tools", bundle: Bundle.main)
+        self.priority = priority
+        target = .action( { UIApplication.shared.open(URL(string: "https://system.design.orange.com/0c1af118d/p/95b685-ios/")!) })
+    }
+}
+
 struct AboutScreen: View {
     
     // =======================
     // MARK: Stored Properties
     // =======================
-
-    let privacyPolicy = ODSPrivacyPolicy.webview(ODSWebContentSource.url(Bundle.main.url(forResource: "ODSPrivacyNotice", withExtension: "html")!))
     
-    let accessibilityStatement = ODSAboutAccessibilityStatement(
-        reportPath: "not_available_yet", reportDetail: URL(string: "not_available_yet")!)
+    private var applicationInformation: ODSAboutApplicationInformation
+    private let privacyPolicy: ODSPrivacyPolicy
+    private let accessibilityStatement: ODSAboutAccessibilityStatement
+    private let appNewPath: String
+    private let customItems: [ODSAboutListItemConfig]
+    private let storeUrl = URL(string: "https://itunes.apple.com/fr/app/id6446178285")!
+    
+    // =================
+    // MARK: Initializer
+    // =================
 
-    let appNewPath = Bundle.main.path(forResource: "AppNews", ofType: "json")
-
-    let changeLogItem = ODSAboutListItem(title: "Change Log", icon: Image("ic_taskList", bundle: Bundle.ods)) {
-        AboutHtmlAndMarkdownView(title: "Change Log",
-                                 markdownFileName: "CHANGELOG",
-                                 convertToHtml: true)
-    }
-    let designGuideLineItem = ODSAboutListItem(title: "Design guidelines", icon: Image("ic_tools")) {
-        UIApplication.shared.open(URL(string: "https://system.design.orange.com/0c1af118d/p/95b685-ios/")!)
+    init() {
+        applicationInformation = ODSAboutApplicationInformation(
+            name: "Orange Design System Demo",
+            version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
+            description: "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.",
+            shareConfiguration: ODSAboutShareTheApplication(
+                storeUrl: storeUrl,
+                subject: "The Orange Design System",
+                description: "You will find the Orange Design System Mobile iOS App that provides examples of design implementations in the app store at: \(storeUrl.absoluteString)"),
+            onFeedbackClicked: {
+                UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
+            })
+        
+        privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "ODSPrivacyNotice", withExtension: "html")!))
+        
+        accessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "not_available_yet", reportDetail: URL(string: "not_available_yet")!)
+        
+        appNewPath = Bundle.main.path(forResource: "AppNews", ofType: "json")!
+        
+        let guideLinesPriority = 202
+        let appNewsPriority = 201
+        let changeLogPriority = 200
+        customItems = [
+            AboutDesignGuidelinesItemConfig(priority: guideLinesPriority) as ODSAboutListItemConfig,
+            ODSAboutAppNewsItemConfig(path: appNewPath, priority: appNewsPriority),
+            AboutChangeLogItemConfig(priority: changeLogPriority) as ODSAboutListItemConfig,
+        ]
     }
 
     // ==========
@@ -56,36 +128,17 @@ struct AboutScreen: View {
                            applicationInformation: applicationInformation,
                            privacyPolicy: privacyPolicy,
                            acessibilityStatement: accessibilityStatement,
-                           applicationNewsPath: appNewPath,
-                           moreAppsUrl: nil,
-                           storeUrl: nil,
                            termsOfService: termOfService,
-                           customItems: [designGuideLineItem, changeLogItem])
+                           listItemConfigurations: customItems)
         }
         .navigationbarMenuForThemeSelection()
         .navigationViewStyle(.stack)
     }
     
-    // =====================
-    // MARK: Private Helpers
-    // =====================
+    // ====================
+    // MARK: Private helper
+    // ====================
 
-    private let storeUrl = URL(string: "https://itunes.apple.com/fr/app/id6446178285")!
-    
-    private var applicationInformation: ODSAboutApplicationInformation {
-        ODSAboutApplicationInformation(
-            name: "Orange Design System Demo",
-            version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
-            description: "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.",
-            shareConfiguration: ODSAboutShareTheApplication(
-                url: storeUrl,
-                subject: "The Orange Design System",
-                description: "You will find the Orange Design System Mobile iOS App that provides examples of design implementations in the app store at: \(storeUrl.absoluteString)"),
-            onFeedbackClicked: {
-                UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
-            })
-    }
-    
     @ViewBuilder
     private func termOfService() -> some View {
         AboutHtmlAndMarkdownView(title: "Term of Serice", htmlFileName: "ODSCGU")

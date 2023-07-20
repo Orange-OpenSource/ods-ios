@@ -25,25 +25,24 @@ import Foundation
 import SwiftUI
 
 ///
-/// Define the version of the Application.
-/// Today used for About Module only
+/// Defines the version of the Application.
 ///
 public struct ODSApplicationVersion {
 
-    // ========================
+    // =======================
     // MARK: Stored properties
-    // ========================
+    // =======================
 
     let marketingVersion: String
     let buildNumber: String?
     let buildType: String?
 
-    // ===================
+    // ==================
     // MARK: Initializers
-    // ===================
+    // ==================
 
-    /// Initialize the version with marketing version and optional additional build infomration.
-    /// The build type is used for debug purpose.
+    /// Initializes the version with marketing version and additional build infomration.
+    /// The build type is optional (used for debug purpose)
     ///
     /// - Parameters:
     ///    - marketingVersion: The current version of the application (something like: x.y.z)
@@ -55,6 +54,12 @@ public struct ODSApplicationVersion {
         self.buildNumber = buildNumber
         self.buildType = buildType
     }
+
+    /// Initializes the version with marketing version and without build infomration.
+    ///
+    /// - Parameter:
+    ///    - marketingVersion: The current version of the application (something like: x.y.z)
+    ///
     public init(marketingVersion: String) {
         self.marketingVersion = marketingVersion
         self.buildNumber = nil
@@ -63,39 +68,41 @@ public struct ODSApplicationVersion {
     }
 }
 
-/// Configure the system share sheet
-/// used to share the application.
+///
+/// Configures the system share sheet used to share the application.
 ///
 public struct ODSAboutShareTheApplication {
-    
+
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let url: URL
+    let storeUrl: URL
     let subject: String
     let description: String
 
     // ==================
     // MARK: Initializers
     // ==================
-    
-    /// Initilaize the sharing.
+
+    /// Initilaizes the sharing.
     ///
     /// - Parameters:
-    ///     - url: The url of the application on the store.
-    ///     - subject: The subject, if the application is shared with email.
-    ///     - description: Can be used to describe the sharing (Content of the email, SMS, ...).
+    ///    - storeUrl: The url of the application on the store.
+    ///    - subject: The subject, if the application is shared with email.
+    ///    - description: Can be used to describe the sharing (Content of the email, SMS, ...).
     ///
-    public init(url: URL, subject: String, description: String) {
-        self.url = url
+    public init(storeUrl: URL, subject: String, description: String) {
+        self.storeUrl = storeUrl
         self.subject = subject
         self.description = description
     }
 }
 
-
-
+///
+/// Used to configure the application description section
+/// displayed in the main about screen.
+///
 public struct ODSAboutApplicationInformation {
 
     // =======================
@@ -113,7 +120,7 @@ public struct ODSAboutApplicationInformation {
     // MARK: Initializers
     // ==================
 
-    /// Configure the application information to be displayed in the main about screen.
+    /// Initializes the configuration.
     ///
     /// - Parameters:
     ///    - name: The name of the application

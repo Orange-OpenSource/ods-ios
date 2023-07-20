@@ -22,16 +22,18 @@
 //
 
 import Foundation
-import SwiftUI
+
+
+/// To be completed
+public enum ODSPrivacyPolicy {
+    case colapsable(ODSStructuredPrivacyPolicy)
+    case webview(ODSWebContentSource)
+}
+
 
 public enum ODSWebContentSource {
     case url(URL)
     case html(String)
-}
-
-public enum ODSPrivacyPolicy {
-    case colapsable(ODSStructuredPrivacyPolicy)
-    case webview(ODSWebContentSource)
 }
 
 public struct ODSStructuredPrivacyPolicy: Codable {

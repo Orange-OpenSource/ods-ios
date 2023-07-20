@@ -1,4 +1,4 @@
-//
+////
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,51 +23,40 @@
 
 import SwiftUI
 
-struct AboutPrivacyPolicyMenuItem: View {
+///
+/// Configuration to add in list the item that opens the AppNews page.
+/// This page needs the path to the json file containing News.
+///
+/// By default, this item is palced after the item of accessibility statement. That can be changed by priority set in the configuration.
+///
+public struct ODSAboutAppNewsItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let policy: ODSPrivacyPolicy
+    public private(set) var title: String
+    public private(set) var icon: Image
+    public private(set) var target: ODSAboutListItemTarget
+    public private(set) var priority: ODSAboutListItemPriority
 
-    // ==========
-    // MARK: Body
-    // ==========
+    private let path: String
 
-    var body: some View {
-        ODSAboutListItem(
-            title: "Privacy Policy",
-            icon: Image("ic_dataProtection", bundle: Bundle.ods)) {
-                destiantion()
-            }
-    }
+    // =================
+    // MARK: Initializer
+    // =================
 
-    // =============
-    // MARK: Helpers
-    // =============
-
-    @ViewBuilder
-    private func destiantion() -> some View {
-        switch policy {
-        case .colapsable(let policy):
-            ColapsablePrivacyPolicy(policy: policy)
-
-        case .webview(let source):
-            WebView(source: source)
-        }
-    }
-}
-
-struct ColapsablePrivacyPolicy: View {
-
-    let policy: ODSStructuredPrivacyPolicy
-
-    var body: some View {
-        ForEach(policy.entities, id: \.id) { entity in
-            DisclosureGroup(entity.title) {
-                WebView(source: .html(entity.description))
-            }
-        }
+    /// Initiliazes the configuration.
+    ///
+    /// - Parmaters:
+    ///    - path: Path to the json file.
+    ///    - priority: Priority to adjust the position of the item in the list.
+    ///
+    public init(path: String, priority: ODSAboutListItemPriority = .appNews) {
+        self.path = path
+        self.priority = priority
+        self.title = "App News"
+        self.icon = Image("ic_taskList", bundle: Bundle.ods)
+        self.target = .destination(AnyView(AppNewsList(fromFile: path)))
     }
 }

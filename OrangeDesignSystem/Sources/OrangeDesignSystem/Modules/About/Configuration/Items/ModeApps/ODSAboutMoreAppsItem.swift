@@ -1,4 +1,4 @@
-//
+////
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,23 +20,43 @@
 // SOFTWARE.
 //
 //
+
 import SwiftUI
 
-struct CustomListItems: View {
+///
+/// Configuration to add in list the item that opens the More Apps page.
+/// This page needs the URL to get the applications information from the MoreApps server.
+///
+/// By default, this item is palced after the item of legal information. That can be changed by priority set in the configuration.
+///
+public struct ODSAboutMoreAppsItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let items: [ODSAboutListItem]
+    public private(set) var title: String
+    public private(set) var icon: Image
+    public private(set) var target: ODSAboutListItemTarget
+    public private(set) var priority: ODSAboutListItemPriority
 
-    // ==========
-    // MARK: Body
-    // ==========
+    private let url: URL
 
-    var body: some View {
-        ForEach(items) { item in
-            item
-        }
+    // =================
+    // MARK: Initializer
+    // =================
+
+    /// Initiliazes the configuration.
+    ///
+    /// - Parmaters:
+    ///    - url: URL to get the applications information from the MoreApps server.
+    ///    - priority: Priority to adjust the position of the item in the list.
+    ///
+    public init(url: URL, priority: ODSAboutListItemPriority = .moreApps) {
+        title = "More Orange Apps"
+        icon = Image("ic_apps", bundle: Bundle.ods)
+        self.priority = priority
+        self.url = url
+        self.target = .destination(AnyView(MoreApps(url: url)))
     }
 }

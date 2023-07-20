@@ -23,17 +23,47 @@
 
 import SwiftUI
 
-struct MoreAppsMenuItem: View {
+struct AboutAccessibilityStatementItemConfig: ODSAboutListItemConfig {
 
-    let url: URL?
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let title: String
+    let icon: Image
+    let target: ODSAboutListItemTarget
+    let priority: ODSAboutListItemPriority
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(statementConfig: ODSAboutAccessibilityStatement) {
+        title = "Accessibility Statement"
+        icon = Image("ic_accessibility", bundle: Bundle.ods)
+        priority = .accessibilityStatement
+        target = .destination(AnyView(AccessibilityStatement(statementConfig: statementConfig)))
+    }
+}
+
+private struct AccessibilityStatement: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    let statementConfig: ODSAboutAccessibilityStatement
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-        if let url = url {
-            ODSAboutListItem(
-                title: "More Orange Apps",
-                icon: Image("ic_apps", bundle: Bundle.ods),
-                destination: AnyView(MoreApps(url: url))
-            )
+        ScrollView {
+            Text("Accessibility statement will be here")
+                .odsFont(.title1)
+            Text("path: \(statementConfig.reportPath)")
+            Text("url for detail: \(statementConfig.reportDetail)")
         }
     }
 }

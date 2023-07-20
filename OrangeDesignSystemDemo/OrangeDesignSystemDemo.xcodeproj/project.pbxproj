@@ -11,6 +11,8 @@
 		07000FBC292FD9D700CE537A /* TabBarVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07000FBB292FD9D700CE537A /* TabBarVariant.swift */; };
 		07081296293E29A7002E38BB /* ProgressBarVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07081295293E29A7002E38BB /* ProgressBarVariant.swift */; };
 		071D3EF128884D8200DFD1C9 /* SpacingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D3EF028884D8200DFD1C9 /* SpacingsPage.swift */; };
+		0724CC512A67E7690088F834 /* AboutMyRecipeItemConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724CC502A67E7690088F834 /* AboutMyRecipeItemConfiguration.swift */; };
+		0724CC532A67E9540088F834 /* AboutMyReviewsItemConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724CC522A67E9540088F834 /* AboutMyReviewsItemConfiguration.swift */; };
 		072DE105296DCE3E00229FCF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072DE104296DCE3E00229FCF /* ToastView.swift */; };
 		0735F63E293DF13200280AD4 /* SelectionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735F63D293DF13200280AD4 /* SelectionListModel.swift */; };
 		07387C5D28F0068B00D8721F /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07387C5C28F0068B00D8721F /* Component.swift */; };
@@ -121,6 +123,8 @@
 		07000FBB292FD9D700CE537A /* TabBarVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVariant.swift; sourceTree = "<group>"; };
 		07081295293E29A7002E38BB /* ProgressBarVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarVariant.swift; sourceTree = "<group>"; };
 		071D3EF028884D8200DFD1C9 /* SpacingsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingsPage.swift; sourceTree = "<group>"; };
+		0724CC502A67E7690088F834 /* AboutMyRecipeItemConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutMyRecipeItemConfiguration.swift; path = OrangeDesignSystemDemo/Views/modules/About/AboutMyRecipeItemConfiguration.swift; sourceTree = SOURCE_ROOT; };
+		0724CC522A67E9540088F834 /* AboutMyReviewsItemConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMyReviewsItemConfiguration.swift; path = OrangeDesignSystemDemo/Views/modules/About/AboutMyReviewsItemConfiguration.swift; sourceTree = SOURCE_ROOT; };
 		072DE104296DCE3E00229FCF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		0735F63D293DF13200280AD4 /* SelectionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListModel.swift; sourceTree = "<group>"; };
 		07387C5C28F0068B00D8721F /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -294,6 +298,15 @@
 			path = Typography;
 			sourceTree = "<group>";
 		};
+		0724CC542A67EA8F0088F834 /* CustomItems */ = {
+			isa = PBXGroup;
+			children = (
+				0724CC522A67E9540088F834 /* AboutMyReviewsItemConfiguration.swift */,
+				0724CC502A67E7690088F834 /* AboutMyRecipeItemConfiguration.swift */,
+			);
+			name = CustomItems;
+			sourceTree = "<group>";
+		};
 		07387C6428F0639B00D8721F /* StandardVariant */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +404,7 @@
 		07C23C2B2A41A02B00C469C1 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				0724CC542A67EA8F0088F834 /* CustomItems */,
 				07C23C2C2A41A02B00C469C1 /* AboutModule.swift */,
 				07A8ED5E2A52BA4D0069D491 /* AboutModuleModel.swift */,
 			);
@@ -980,6 +994,7 @@
 				07C8235528AE68B2003B2C3A /* NavigationBarComponent.swift in Sources */,
 				075E612A299AA904004CE0A6 /* SpacingsGuideline.swift in Sources */,
 				075E612E299AAAEE004CE0A6 /* TypographyGuideline.swift in Sources */,
+				0724CC532A67E9540088F834 /* AboutMyReviewsItemConfiguration.swift in Sources */,
 				075E611929966CE5004CE0A6 /* IconVariant.swift in Sources */,
 				075E611B29966D0C004CE0A6 /* BannerVariantOptions.swift in Sources */,
 				0789AB972934C33200796B82 /* TabBarComponent.swift in Sources */,
@@ -1006,6 +1021,7 @@
 				075462FC28F474CC002E2E40 /* EmphasisAndFunctionnalVariant.swift in Sources */,
 				07C8235028AE68B2003B2C3A /* ChipsComponent.swift in Sources */,
 				07081296293E29A7002E38BB /* ProgressBarVariant.swift in Sources */,
+				0724CC512A67E7690088F834 /* AboutMyRecipeItemConfiguration.swift in Sources */,
 				07000FB7292B7B0700CE537A /* NavigatinBarModifiers.swift in Sources */,
 				07C52F2028D37A2B0067CFC0 /* CardExampleData.swift in Sources */,
 				075E612329968A56004CE0A6 /* SecureVariant.swift in Sources */,

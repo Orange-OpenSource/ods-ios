@@ -110,54 +110,93 @@ struct AboutModuleDemo: View {
     // MARK: Stored Properties
     // =======================
 
-    let model: AboutModuleModel
-    @State var showAlert = false
+    @ObservedObject var model: AboutModuleModel
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        module
-        .alert("Feedback Clicked", isPresented: $showAlert) {
+        ODSAboutModule(headerIllustration: headerIllustration,
+                       applicationInformation: applicationInformation,
+                       privacyPolicy: privacyPolicy,
+                       acessibilityStatement: acessibilityStatement,
+                       termsOfService: termsOfService,
+                       listItemConfigurations: listItemConfigurations)
+        .alert("Feedback Clicked", isPresented: $model.showFeedbackPopup) {
             Button("close", role: .cancel) {}
         }
     }
+
+    // ==============================
+    // MARK: Mandatory configurations
+    // ==============================
+    
+    let headerIllustration = ThemeProvider().imageFromResources("AboutImage")
+    let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
+    
+    var privacyPolicy: ODSPrivacyPolicy {
+        model.privacyPolicy
+    }
+    var applicationInformation: ODSAboutApplicationInformation {
+        model.applicationInformation
+        
+    }
     
     @ViewBuilder
-    var module: some View {
-        let headerIllustration = ThemeProvider().imageFromResources("AboutImage")
-        let applicationInformation = model.appInfo { showAlert.toggle() }
-        let applicationNewsPath = model.applicationNewsPath
-        let privacyPolicy =  model.privacyPolicy
-        let termeOfService = { Text("Term of service") }
-        let customItems = model.customItems
-        let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
-        let moreAppsUrl = model.optionalAboutItems.contains(.moreApps) ? URL(string: "https://www.apple.com") : nil
-        let storeUrl = model.optionalAboutItems.contains(.rateTheApp) ? URL(string: "https://www.apple.com") : nil
+    private func termsOfService() -> some View {
+        Text("Add terms of service here")
+    }
 
-        if model.optionalAboutItems.contains(.legalInformation) {
-            ODSAboutModule(headerIllustration: headerIllustration,
-                           applicationInformation: applicationInformation,
-                           privacyPolicy: privacyPolicy,
-                           acessibilityStatement: acessibilityStatement,
-                           applicationNewsPath: applicationNewsPath,
-                           moreAppsUrl: moreAppsUrl,
-                           storeUrl: storeUrl,
-                           termsOfService: termeOfService,
-                           legalInformation: { Text("Legal information goes here") },
-                           customItems: customItems)
+    // ===========
+    // MARK: Items
+    // ===========
+
+    private var appNewsItemConfiguration: ODSAboutAppNewsItemConfig? {
+        if let appNewsPath = model.appNewsPath {
+            return ODSAboutAppNewsItemConfig(path: appNewsPath)
         } else {
-            ODSAboutModule(headerIllustration: headerIllustration,
-                           applicationInformation: applicationInformation,
-                           privacyPolicy: privacyPolicy,
-                           acessibilityStatement: acessibilityStatement,
-                           applicationNewsPath: applicationNewsPath,
-                           moreAppsUrl: moreAppsUrl,
-                           storeUrl: storeUrl,
-                           termsOfService: termeOfService,
-                           customItems: customItems)
+            return nil
         }
+    }
+
+    private var moreAppsItemConfiguration: ODSAboutMoreAppsItemConfig? {
+        if let url = model.moreAppsUrl {
+            return ODSAboutMoreAppsItemConfig(url: url)
+        } else {
+            return nil
+        }
+    }
+    
+    private var rateTheAppItemConfiguration: ODSAboutRateTheAppItemCondfig? {
+        if let url = model.rateTheAppUrl {
+            return ODSAboutRateTheAppItemCondfig(storeUrl: url)
+        } else {
+            return nil
+        }
+    }
+
+    private var legalInformationItemConfiguration: ODSAboutLegalInformationItemConfig? {
+        if let text = model.legalInformationText {
+            return ODSAboutLegalInformationItemConfig {
+                Text(text)
+            }
+        } else {
+            return nil
+        }
+    }
+
+    
+    private var listItemConfigurations: [ODSAboutListItemConfig] {
+        var configurations: [ODSAboutListItemConfig?] = [
+            appNewsItemConfiguration,
+            moreAppsItemConfiguration,
+            rateTheAppItemConfiguration,
+            legalInformationItemConfiguration
+        ]
+        
+        configurations.append(contentsOf: model.customItems)
+        return configurations.compactMap { $0 }
     }
 }
 

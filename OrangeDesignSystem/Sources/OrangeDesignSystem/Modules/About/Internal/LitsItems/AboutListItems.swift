@@ -23,68 +23,59 @@
 
 import SwiftUI
 
-public struct ODSAboutListItem: Identifiable, View {
+struct AboutListItems: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    private let model: ODSListStandardItemModel
-    private let target: Target
+    private let configurations: [ODSAboutListItemConfig]
 
-    private enum Target {
-        case destination(AnyView)
-        case action(() -> Void)
-    }
+    // =================
+    // MARK: Initializer
+    // =================
 
-    // ==================
-    // MARK: Initializers
-    // ==================
-
-    private init(title: String, subtitle: String? = nil, icon: Image? = nil, target: Target) {
-        model = ODSListStandardItemModel(title: title, subtitle: subtitle, leadingIcon: ODSListItemLeadingIcon(icon: icon))
-        self.target = target
-    }
-
-    public init(title: String, subtitle: String? = nil, icon: Image? = nil, action: @escaping () -> Void) {
-        self.init(title: title, subtitle: subtitle, icon: icon, target: .action(action))
-    }
-    public init(title: String, subtitle: String? = nil, icon: Image? = nil, destination: AnyView) {
-        self.init(title: title, subtitle: subtitle, icon: icon, target: .destination(destination))
-    }
-    public init<Destination>(title: String, subtitle: String? = nil, icon: Image? = nil, @ViewBuilder destinationB: () -> Destination) where Destination: View {
-        self.init(title: title, subtitle: subtitle, icon: icon, target: .destination(AnyView(destinationB())))
+    init(configurations: [ODSAboutListItemConfig]) {
+        self.configurations = configurations.sorted(by: { $0.priority > $1.priority })
     }
 
     // ==========
     // MARK: Body
     // ==========
 
-    public var body: some View {
-        switch self.target {
+    var body: some View {
+        ForEach(configurations, id: \.title) { configuration in
+            item(from: configuration)
+        }
+    }
+
+    // ============
+    // MARK: Helper
+    // ============
+
+    @ViewBuilder
+    private func item(from configuration: ODSAboutListItemConfig) -> some View {
+        switch configuration.target {
         case .action(let action):
             Button {
                 action()
             } label: {
-                ODSListStandardItem(model: self.model)
+                ODSListStandardItem(model: configuration.model)
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
-            
+
         case .destination(let destination):
-            NavigationLink(model) { destination.navigationTitle(model.title) }
+            NavigationLink(configuration.model) { destination.navigationTitle(configuration.title) }
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
-            
         }
     }
-    
-    // ============
-    // MARK: Helper
-    // ============
-    
-    public var id: UUID {
-        model.id
+}
+
+extension ODSAboutListItemConfig {
+    var model: ODSListStandardItemModel {
+        ODSListStandardItemModel(title: self.title, leadingIcon: ODSListItemLeadingIcon(icon: self.icon))
     }
 }
 
@@ -96,4 +87,3 @@ extension ODSListItemLeadingIcon {
         self = .icon(icon)
     }
 }
-

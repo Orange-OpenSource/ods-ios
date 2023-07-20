@@ -21,34 +21,40 @@
 //
 //
 
-import Foundation
+import SwiftUI
 
 ///
-/// Used to configure the acessibility statement page.
-/// that is displayed by the about module from the entry
-/// of the list.
+/// Configuration to add in list the item that opens the LegalInformation page.
+/// This page can be a webview or native view.
 ///
-public struct ODSAboutAccessibilityStatement {
+/// By default, this item is palced after the item of App News. That can be changed by priority set in the configuration.
+///
+///
+public struct ODSAboutLegalInformationItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let reportPath: String
-    let reportDetail: URL
+    public private(set) var title: String
+    public private(set) var icon: Image
+    public private(set) var target: ODSAboutListItemTarget
+    public private(set) var priority: ODSAboutListItemPriority
 
     // =================
     // MARK: Initializer
     // =================
 
-    /// Initializes the confguration providing the locations of the report.
+    /// Initiliazes the configuration.
     ///
-    /// - Parameters:
-    ///    - reportPath: Path where the report of accessibility statement is stored
-    ///    - reportDetail: Url to get the full detail of the accessibility statement
+    /// - Parmaters:
+    ///    - priority: Priority to adjust the position of the item in the list.
+    ///    - legalInformation: A view builder that creates a view that describes the `legalInformation`.
     ///
-    public init(reportPath: String, reportDetail: URL) {
-        self.reportPath = reportPath
-        self.reportDetail = reportDetail
+    public init<LegalInformation>(priority: ODSAboutListItemPriority = .legalInformation, @ViewBuilder legalInformation: () -> LegalInformation) where LegalInformation: View {
+        title = "Legal information"
+        icon = Image("ic_legal", bundle: Bundle.ods)
+        self.priority = priority
+        self.target = .destination(AnyView(legalInformation()))
     }
 }
