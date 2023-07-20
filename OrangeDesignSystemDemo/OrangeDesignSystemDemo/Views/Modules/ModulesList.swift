@@ -42,7 +42,7 @@ struct ModulesList: View {
 
     var body: some View {
         let items = [
-            ODSListOfCardImageFirstItemModel(cardModel: ODSCardVerticalImageFirstModel(title: "About", imageSource: .image(imageFrom(resourceName: "AboutImage")))) {
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardVerticalImageFirstModel(title: "About", imageSource: .image(imageFrom(resourceName: "il_about")))) {
                 AboutModule()
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationbarMenuForThemeSelection()

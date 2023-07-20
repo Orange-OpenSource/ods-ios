@@ -63,7 +63,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
     ///  priority.
     ///
 
-    public init(headerIllustration: Image = Image("ic_about_image", bundle: Bundle.ods),
+    public init(headerIllustration: Image = Image("il_aboutImage", bundle: Bundle.ods),
                 applicationInformation: ODSAboutApplicationInformation,
                 privacyPolicy: ODSPrivacyPolicy,
                 acessibilityStatement: ODSAboutAccessibilityStatement,
