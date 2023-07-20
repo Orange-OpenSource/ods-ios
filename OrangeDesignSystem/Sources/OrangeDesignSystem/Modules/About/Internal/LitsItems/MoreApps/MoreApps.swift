@@ -1,6 +1,5 @@
 //
 // MIT License
-// Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the  Software), to deal
 // in the Software without restriction, including without limitation the rights
@@ -21,39 +20,13 @@
 //
 //
 
-import Foundation
+import SwiftUI
 
-extension Bundle {
+struct MoreApps: View {
 
-    // =========
-    // MARK: API
-    // =========
+    let url: URL
 
-    var name: String {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
-    }
-
-    var marketingVersion: String {
-        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
-    }
-
-    var buildNumber: String? {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
-    }
-
-    var buildType: String? {
-        #if DEBUG
-        "DEBUG"
-        #else
-        string(forInfoDictionaryKey: "ODSBuildType")
-        #endif
-    }
-
-    // ============================
-    // MARK: Private Implementation
-    // ============================
-
-    private func string(forInfoDictionaryKey key: String) -> String? {
-        object(forInfoDictionaryKey: key) as? String
+    var body: some View {
+        Text("More Apps will be here")
     }
 }

@@ -1,4 +1,9 @@
-//
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>FILEHEADER</key>
+    <string>//
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,41 +24,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
-//
-
-import Foundation
-
-extension Bundle {
-
-    // =========
-    // MARK: API
-    // =========
-
-    var name: String {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
-    }
-
-    var marketingVersion: String {
-        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
-    }
-
-    var buildNumber: String? {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
-    }
-
-    var buildType: String? {
-        #if DEBUG
-        "DEBUG"
-        #else
-        string(forInfoDictionaryKey: "ODSBuildType")
-        #endif
-    }
-
-    // ============================
-    // MARK: Private Implementation
-    // ============================
-
-    private func string(forInfoDictionaryKey key: String) -> String? {
-        object(forInfoDictionaryKey: key) as? String
-    }
-}
+//</string>
+</dict>
+</plist>

@@ -22,38 +22,20 @@
 //
 
 import Foundation
+import UIKit
 
-extension Bundle {
+extension UIApplication {
 
-    // =========
-    // MARK: API
-    // =========
+    /// Get the view controll at top level of the current active screen.
+    /// Usefull to display a sheet over all.
+    public var topViewController: UIViewController? {
+        let scene = connectedScenes.first { $0.activationState == .foregroundActive }
 
-    var name: String {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
-    }
+        var topViewController = (scene as? UIWindowScene)?.keyWindow?.rootViewController
 
-    var marketingVersion: String {
-        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
-    }
-
-    var buildNumber: String? {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
-    }
-
-    var buildType: String? {
-        #if DEBUG
-        "DEBUG"
-        #else
-        string(forInfoDictionaryKey: "ODSBuildType")
-        #endif
-    }
-
-    // ============================
-    // MARK: Private Implementation
-    // ============================
-
-    private func string(forInfoDictionaryKey key: String) -> String? {
-        object(forInfoDictionaryKey: key) as? String
+        while topViewController?.presentedViewController != nil {
+            topViewController = topViewController?.presentedViewController
+        }
+        return topViewController
     }
 }

@@ -78,7 +78,7 @@ struct BottomSheedHeader: View {
             .padding(.bottom, -10)
             .padding(.top, 10)
             .mask(Rectangle().padding(.top, -40))
-            
+
             Divider()
         }
     }

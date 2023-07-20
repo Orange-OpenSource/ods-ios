@@ -1,0 +1,28 @@
+[
+    {
+        "version": "0.12.0",
+        "date": "2023-04-14",
+        "news": "Addition of the Bottom Sheet component."
+    },
+    {
+        "version": "0.11.2",
+        "date": "2023-03-27",
+        "news": "Update application to publish on store as unsearchable application"
+    },
+    {
+        "version": "0.11.1",
+        "date": "2023-03-16",
+        "news": "Rename application"
+    },
+    {
+        "version": "0.11.0",
+        "date": "2023-02-28",
+        "news": "1. Update Card component: \n- Update demo with realistics data\n- Add SideBySide card\n- Update Horizonal card to add a divider\n\n2. Update assets for Innovation theme"
+    },
+    {
+        "version": "0.10.0",
+        "date": "2023-02-02",
+        "news": "Fix some bugs\n Add Tool bar component"
+    },
+]
+

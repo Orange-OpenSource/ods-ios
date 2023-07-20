@@ -23,37 +23,37 @@
 
 import Foundation
 
-extension Bundle {
 
-    // =========
-    // MARK: API
-    // =========
+/// To be completed
+public enum ODSPrivacyPolicy {
+    case colapsable(ODSStructuredPrivacyPolicy)
+    case webview(ODSWebContentSource)
+}
 
-    var name: String {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
+
+public enum ODSWebContentSource {
+    case url(URL)
+    case html(String)
+}
+
+public struct ODSStructuredPrivacyPolicy: Codable {
+    let entities: [ODSPrivacyPolicyEntity]
+
+    public init(entities: [ODSPrivacyPolicyEntity]) {
+        self.entities = entities
+    }
+}
+
+public struct ODSPrivacyPolicyEntity: Codable, Identifiable {
+    let title: String
+    let description: String
+
+    public init(title: String, description: String) {
+        self.title = title
+        self.description = description
     }
 
-    var marketingVersion: String {
-        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
-    }
-
-    var buildNumber: String? {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
-    }
-
-    var buildType: String? {
-        #if DEBUG
-        "DEBUG"
-        #else
-        string(forInfoDictionaryKey: "ODSBuildType")
-        #endif
-    }
-
-    // ============================
-    // MARK: Private Implementation
-    // ============================
-
-    private func string(forInfoDictionaryKey key: String) -> String? {
-        object(forInfoDictionaryKey: key) as? String
+    public var id: String {
+        title
     }
 }

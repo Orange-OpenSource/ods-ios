@@ -1,6 +1,5 @@
 //
 // MIT License
-// Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the  Software), to deal
 // in the Software without restriction, including without limitation the rights
@@ -23,37 +22,32 @@
 
 import Foundation
 
-extension Bundle {
+/// Used to configure the acessibility statement page.
+///
+/// The module adds an entry into the list of items that allows user
+/// to display this page.
+///
+public struct ODSAboutAccessibilityStatement {
 
-    // =========
-    // MARK: API
-    // =========
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    var name: String {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
-    }
+    let reportPath: String
+    let reportDetail: URL
 
-    var marketingVersion: String {
-        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
-    }
+    // =================
+    // MARK: Initializer
+    // =================
 
-    var buildNumber: String? {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
-    }
-
-    var buildType: String? {
-        #if DEBUG
-        "DEBUG"
-        #else
-        string(forInfoDictionaryKey: "ODSBuildType")
-        #endif
-    }
-
-    // ============================
-    // MARK: Private Implementation
-    // ============================
-
-    private func string(forInfoDictionaryKey key: String) -> String? {
-        object(forInfoDictionaryKey: key) as? String
+    /// Initializes the confguration providing the locations of the report.
+    ///
+    /// - Parameters:
+    ///    - reportPath: Path where the report of accessibility statement is stored
+    ///    - reportDetail: Url to get the full detail of the accessibility statement
+    ///
+    public init(reportPath: String, reportDetail: URL) {
+        self.reportPath = reportPath
+        self.reportDetail = reportDetail
     }
 }

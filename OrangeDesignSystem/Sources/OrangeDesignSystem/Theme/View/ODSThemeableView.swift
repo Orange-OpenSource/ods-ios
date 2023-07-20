@@ -70,11 +70,10 @@ public struct ODSThemeableView<Content>: View where Content: View {
     ///   - theme: The new theme to be applied.
     ///   - content: A view builder that creates the content of this stack.
     ///
-    public init(theme: ODSTheme,
-                @ViewBuilder content: @escaping () -> Content){
+    public init(theme: ODSTheme, @ViewBuilder content: @escaping () -> Content){
         self.theme = theme
         self.content = content
-        self.navigationBarColors(for: theme)
+        _ = self.navigationBarColors(for: theme)
     }
 
     public var body: some View {
@@ -86,4 +85,3 @@ public struct ODSThemeableView<Content>: View where Content: View {
             .toolBarColors(for: theme)
     }
 }
-

@@ -24,37 +24,47 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct MainTabView: View {
+struct ModulesList: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @EnvironmentObject private var themeProvider: ThemeProvider
+
+    private func imageFrom(resourceName: String) -> Image {
+        themeProvider.imageFromResources(resourceName)
+    }
     
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
-        TabView {
-            GuidelinesList()
-                .tabItem {
-                    Label("Guidelines", image: "Guideline-DNA_32")
-                }
-            ComponentsList()
-                .tabItem {
-                    Label("Components", image: "component-atom_32")
-                }
-            ModulesList()
-                .tabItem {
-                    Label("Modules", image: "Module-molecule_32")
-                }
-            AboutScreen()
-                .tabItem {
-                    Label("About", image: "info_32")
-                }
+        let items = [
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardVerticalImageFirstModel(title: "About", imageSource: .image(imageFrom(resourceName: "AboutImage")))) {
+                AboutModule()
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationbarMenuForThemeSelection()
+            },
+
+            ODSListOfCardImageFirstItemModel(cardModel: ODSCardVerticalImageFirstModel(title: "Card collections", imageSource: .image(imageFrom(resourceName: "Cards")))) {
+                CardViewDemo()
+            },
+        ]
+
+        return NavigationView {
+            ODSListOfCardImageFirst(title: "Modules", itemModels: items)
+                .navigationTitle("Modules")
+                .navigationbarMenuForThemeSelection()
         }
     }
 }
 
 #if DEBUG
-struct TabView_Previews: PreviewProvider {
+struct ModulesList_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            MainTabView().preferredColorScheme($0)
-        }
+        ModulesList()
     }
 }
 #endif
-

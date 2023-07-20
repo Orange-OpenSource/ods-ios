@@ -21,39 +21,24 @@
 //
 //
 
-import Foundation
+import SwiftUI
+import WebKit
 
-extension Bundle {
+struct WebView: UIViewRepresentable {
 
-    // =========
-    // MARK: API
-    // =========
+    let source: ODSWebContentSource
 
-    var name: String {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
     }
 
-    var marketingVersion: String {
-        string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
-    }
-
-    var buildNumber: String? {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
-    }
-
-    var buildType: String? {
-        #if DEBUG
-        "DEBUG"
-        #else
-        string(forInfoDictionaryKey: "ODSBuildType")
-        #endif
-    }
-
-    // ============================
-    // MARK: Private Implementation
-    // ============================
-
-    private func string(forInfoDictionaryKey key: String) -> String? {
-        object(forInfoDictionaryKey: key) as? String
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        switch source {
+        case .url(let url):
+            let request = URLRequest(url: url)
+            webView.load(request)
+        case .html(let string):
+            webView.loadHTMLString(string, baseURL: nil)
+        }
     }
 }

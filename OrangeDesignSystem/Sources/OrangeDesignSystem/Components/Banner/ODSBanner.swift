@@ -170,19 +170,19 @@ struct ODSBanner_Previews: PreviewProvider {
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods))
                     .border(.gray)
-                    
+
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods),
                               button: ODSButton(text: "Button", emphasis: .low) {},
                               position: .trailing)
                     .border(.gray)
-                    
+
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods),
                               button: ODSButton(text: "Button", emphasis: .low) {},
                               position: .bottom)
                     .border(.gray)
-                    
+
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods),
                               leadingButton: ODSButton(text: "Button", emphasis: .low) {},
