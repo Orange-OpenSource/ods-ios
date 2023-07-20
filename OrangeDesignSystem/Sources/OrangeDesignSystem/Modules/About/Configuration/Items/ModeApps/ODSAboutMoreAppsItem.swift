@@ -1,6 +1,5 @@
-////
+//
 // MIT License
-// Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the  Software), to deal
 // in the Software without restriction, including without limitation the rights
@@ -27,7 +26,7 @@ import SwiftUI
 /// Configuration to add in list the item that opens the More Apps page.
 /// This page needs the URL to get the applications information from the MoreApps server.
 ///
-/// By default, this item is palced after the item of legal information. That can be changed by priority set in the configuration.
+/// By default, this item is palced after the item of legal information. That can be changed with new priority set in the configuration.
 ///
 public struct ODSAboutMoreAppsItemConfig: ODSAboutListItemConfig {
 

@@ -1,4 +1,4 @@
-////
+//
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,7 +27,7 @@ import SwiftUI
 /// Configuration to add in list the item that opens the AppNews page.
 /// This page needs the path to the json file containing News.
 ///
-/// By default, this item is palced after the item of accessibility statement. That can be changed by priority set in the configuration.
+/// By default, this item is palced after the item of accessibility statement. That can be changed with new priority set in the configuration.
 ///
 public struct ODSAboutAppNewsItemConfig: ODSAboutListItemConfig {
 

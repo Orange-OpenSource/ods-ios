@@ -1,6 +1,5 @@
-////
+//
 // MIT License
-// Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the  Software), to deal
 // in the Software without restriction, including without limitation the rights
@@ -23,10 +22,10 @@
 
 import Foundation
 
-///
 /// Used to configure the acessibility statement page.
-/// that is displayed by the about module from the entry
-/// of the list.
+///
+/// The module adds an entry into the list of items that allows user
+/// to display this page.
 ///
 public struct ODSAboutAccessibilityStatement {
 

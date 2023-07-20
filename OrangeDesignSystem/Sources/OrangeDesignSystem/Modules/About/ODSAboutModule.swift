@@ -59,11 +59,9 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
     ///  mandatory in this module. To access those pages, associated items are automatically
     ///  added in the list. They are ordered according to their priority defined by:
     ///  __ODSAboutListItemPriority.privacyPolicy__, __ODSAboutListItemPriority.termOfService__, __ODSAboutListItemPriority.accessibilityStatement__.
-    ///  If custom items should be placed before those, configures them with lower
-    ///  priority.
+    ///  If custom items should be placed before those, configures them with lower priority.
     ///
-
-    public init(headerIllustration: Image = Image("il_aboutImage", bundle: Bundle.ods),
+    public init(headerIllustration: Image = Image("il_about", bundle: Bundle.ods),
                 applicationInformation: ODSAboutApplicationInformation,
                 privacyPolicy: ODSPrivacyPolicy,
                 acessibilityStatement: ODSAboutAccessibilityStatement,

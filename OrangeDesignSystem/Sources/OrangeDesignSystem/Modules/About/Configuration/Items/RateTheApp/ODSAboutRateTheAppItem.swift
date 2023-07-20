@@ -1,6 +1,5 @@
-////
+//
 // MIT License
-// Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the  Software), to deal
 // in the Software without restriction, including without limitation the rights
@@ -26,7 +25,7 @@ import SwiftUI
 ///
 /// Configuration to add in list the item that opens the application page on the apple store.
 ///
-/// By default, this item is palced after the item of More Apps. That can be changed by priority set in the configuration.
+/// By default, this item is palced after the item of More Apps. That can be changed with new priority set in the configuration.
 ///
 public struct ODSAboutRateTheAppItemCondfig: ODSAboutListItemConfig {
 
