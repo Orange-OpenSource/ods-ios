@@ -75,8 +75,8 @@ public class ODSListStandardItemModel: ODSListItemModel {
         title: String,
         subtitle: String? = nil,
         leadingIcon: ODSListItemLeadingIcon? = nil,
-        trailingActions: ODSListItemTrailingActions? = nil)
-    {
+        trailingActions: ODSListItemTrailingActions? = nil
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.leadingIcon = leadingIcon
@@ -161,8 +161,8 @@ public class ODSListSelectionItemModel: ODSListItemModel, ObservableObject {
         subtitle: String? = nil,
         leadingIcon: ODSListItemLeadingIcon? = nil,
         trailingSelection: TrailingSelection,
-        isSelected: Bool = false)
-    {
+        isSelected: Bool = false
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.leadingIcon = leadingIcon

@@ -23,13 +23,11 @@
 
 import Foundation
 
-
 /// To be completed
 public enum ODSPrivacyPolicy {
     case colapsable(ODSStructuredPrivacyPolicy)
     case webview(ODSWebContentSource)
 }
-
 
 public enum ODSWebContentSource {
     case url(URL)
