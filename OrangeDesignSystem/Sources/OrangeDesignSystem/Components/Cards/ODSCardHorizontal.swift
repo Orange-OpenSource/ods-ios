@@ -47,12 +47,14 @@ public struct ODSCardHorizontalModel: Identifiable {
     ///  - supportingText: Optional text description to be displayed in the card. The text displaying is limited to two lines (truncated tail).
     /// - dividerEnabled: Add a divider at the top of the buttons area.
     ///
-    public init(title: String,
-                subtitle: String? = nil,
-                imageSource: ODSImage.Source,
-                imagePosition: ImagePosition = .leading,
-                supportingText: String? = nil,
-                dividerEnabled: Bool = true) {
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        imageSource: ODSImage.Source,
+        imagePosition: ImagePosition = .leading,
+        supportingText: String? = nil,
+        dividerEnabled: Bool = true
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.imageSource = imageSource
@@ -93,10 +95,11 @@ public struct ODSCardHorizontal<ButtonContent1, ButtonContent2>: View where Butt
     ///  - buttonContent1: The button1 view builder
     ///  - buttonContent2: The button2 view builder
     ///
-    public init(model: ODSCardHorizontalModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
-                @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
-    {
+    public init(
+        model: ODSCardHorizontalModel,
+        @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
+        @ViewBuilder buttonContent2: @escaping () -> ButtonContent2
+    ) {
         self.model = model
         self.buttonContent1 = buttonContent1
         self.buttonContent2 = buttonContent2
@@ -111,8 +114,7 @@ extension ODSCardHorizontal where ButtonContent2 == EmptyView {
     ///  - model: The model to configure the card.
     ///  - buttonContent1: The button1 view builder
     ///
-    public init(model: ODSCardHorizontalModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
+    public init(model: ODSCardHorizontalModel, @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
     {
         self.model = model
         self.buttonContent1 = buttonContent1
@@ -136,7 +138,7 @@ extension ODSCardHorizontal where ButtonContent1 == EmptyView, ButtonContent2 ==
 // MARK: View body implementation
 
 extension ODSCardHorizontal {
-    
+
     public var body: some View {
 
         VStack(spacing: ODSSpacing.none) {

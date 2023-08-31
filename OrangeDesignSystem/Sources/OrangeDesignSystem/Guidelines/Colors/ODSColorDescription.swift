@@ -25,7 +25,7 @@ import Foundation
 import SwiftUI
 
 public struct ODSColorDecription {
-    
+
     // =======================
     // MARK: Stored Properties
     // =======================
@@ -34,15 +34,17 @@ public struct ODSColorDecription {
     public let bundle: Bundle
     public let nameForLightScheme: String?
     public let nameForDarkScheme: String?
-    
+
     // =================
     // MARK: Initializer
     // =================
 
-    public init(assetName: String,
-                bundle: Bundle,
-                nameForLightScheme: String? = nil,
-                nameForDarkScheme: String? = nil) {
+    public init(
+        assetName: String,
+        bundle: Bundle,
+        nameForLightScheme: String? = nil,
+        nameForDarkScheme: String? = nil
+    ) {
         self.assetName = assetName
         self.bundle = bundle
         self.nameForLightScheme = nameForLightScheme
@@ -60,7 +62,7 @@ public struct ODSColorDecription {
     public var uiColor: UIColor {
         UIColor(named: assetName, in: bundle, compatibleWith: nil) ?? .clear
     }
-    
+
     public func name(for scheme: ColorScheme) -> String? {
         scheme == .light ? nameForLightScheme : nameForDarkScheme
     }

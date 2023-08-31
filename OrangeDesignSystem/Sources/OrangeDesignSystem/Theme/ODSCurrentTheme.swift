@@ -25,7 +25,7 @@ import SwiftUI
 
 // MARK: Theme EnvironmentKey
 private struct Theme: EnvironmentKey {
-    
+
     static let defaultValue = ODSTheme()
 }
 

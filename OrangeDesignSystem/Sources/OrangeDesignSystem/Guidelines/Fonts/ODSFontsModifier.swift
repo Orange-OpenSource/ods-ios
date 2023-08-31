@@ -25,7 +25,7 @@ import Foundation
 import SwiftUI
 
 extension View {
-    
+
     /// Sets, for text in view, the font provided by theme asociated to the __ODSFontStyle__.
     ///
     /// - Parameters:

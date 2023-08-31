@@ -101,7 +101,7 @@ struct AboutScreen: View {
                 UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
             })
         
-        privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "ODSPrivacyNotice", withExtension: "html")!))
+        privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!))
         
         accessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "not_available_yet", reportDetail: URL(string: "not_available_yet")!)
         
@@ -140,7 +140,7 @@ struct AboutScreen: View {
 
     @ViewBuilder
     private func termOfService() -> some View {
-        AboutHtmlAndMarkdownView(title: "Term of Serice", htmlFileName: "ODSCGU")
+        AboutHtmlAndMarkdownView(title: "Term of Serice", htmlFileName: "CGU")
     }
 }
 

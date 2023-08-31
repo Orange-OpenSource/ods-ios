@@ -148,7 +148,7 @@ class AboutModuleModel: ObservableObject {
     }
     
     // MARK: - Privacy policy
-    private static let privacyPolicyResourceUrl = Bundle.main.url(forResource: "ODSPrivacyNotice", withExtension: "html")!
+    private static let privacyPolicyResourceUrl = Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!
     
     var privacyPolicy: ODSPrivacyPolicy {
         ODSPrivacyPolicy.webview(.url(Self.privacyPolicyResourceUrl))

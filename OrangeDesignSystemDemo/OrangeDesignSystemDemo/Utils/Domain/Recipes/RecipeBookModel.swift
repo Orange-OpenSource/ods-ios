@@ -42,7 +42,6 @@ extension Food: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
-        print(name)
         let imageString = try container.decode(String.self, forKey: .image)
         self.image = URL(string: imageString)
     }

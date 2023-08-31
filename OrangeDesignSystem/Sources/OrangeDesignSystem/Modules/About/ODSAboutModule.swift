@@ -61,12 +61,14 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
     ///  __ODSAboutListItemPriority.privacyPolicy__, __ODSAboutListItemPriority.termOfService__, __ODSAboutListItemPriority.accessibilityStatement__.
     ///  If custom items should be placed before those, configures them with lower priority.
     ///
-    public init(headerIllustration: Image = Image("il_about", bundle: Bundle.ods),
-                applicationInformation: ODSAboutApplicationInformation,
-                privacyPolicy: ODSPrivacyPolicy,
-                acessibilityStatement: ODSAboutAccessibilityStatement,
-                @ViewBuilder termsOfService: @escaping () -> TermsOfService,
-                listItemConfigurations: [ODSAboutListItemConfig]) {
+    public init(
+        headerIllustration: Image = Image("il_about", bundle: Bundle.ods),
+        applicationInformation: ODSAboutApplicationInformation,
+        privacyPolicy: ODSPrivacyPolicy,
+        acessibilityStatement: ODSAboutAccessibilityStatement,
+        @ViewBuilder termsOfService: @escaping () -> TermsOfService,
+        listItemConfigurations: [ODSAboutListItemConfig]
+    ) {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
 
@@ -74,7 +76,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
             AboutPrivacyPolicyItem(policy: privacyPolicy) as ODSAboutListItemConfig,
             AboutTermOfServiceItem(termsOfService: termsOfService) as ODSAboutListItemConfig,
             AboutAccessibilityStatementItemConfig(statementConfig: acessibilityStatement) as ODSAboutListItemConfig
-            ]
+        ]
 
         self.listItemConfigurations = listItemConfigurations + internalItemsConfig
     }

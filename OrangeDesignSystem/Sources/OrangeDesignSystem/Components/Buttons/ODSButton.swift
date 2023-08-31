@@ -51,12 +51,13 @@ public struct ODSButton: View {
     ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
     ///   - action: Will be called when the user clicks the button.
     ///
-    public init(text: LocalizedStringKey,
-                image: Image? = nil,
-                emphasis: Emphasis,
-                variableWidth: Bool = true,
-                action: @escaping () -> Void)
-    {
+    public init(
+        text: LocalizedStringKey,
+        image: Image? = nil,
+        emphasis: Emphasis,
+        variableWidth: Bool = true,
+        action: @escaping () -> Void
+    ) {
         self.text = text
         self.image = image
         self.emphasis = emphasis
@@ -77,16 +78,14 @@ public struct ODSButton: View {
 #if DEBUG
 struct ODSButton_Previews: PreviewProvider {
 
-    struct buttonsSample: View {
+    struct ButtonsSample: View {
 
         var body: some View {
             ScrollView {
                 VStack {
                     ForEach(ODSButton.Emphasis.allCases, id: \.rawValue) { emphasis in
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
-                                  emphasis: emphasis) {}
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
-                                  emphasis: emphasis) {}.disabled(true)
+                        ODSButton(text: LocalizedStringKey(emphasis.rawValue), emphasis: emphasis) {}
+                        ODSButton(text: LocalizedStringKey(emphasis.rawValue), emphasis: emphasis) {}.disabled(true)
 
                         ODSButton(text: LocalizedStringKey(emphasis.rawValue),
                                   image: Image(systemName: "pencil.tip.crop.circle"),
@@ -101,10 +100,10 @@ struct ODSButton_Previews: PreviewProvider {
     }
 
     static var previews: some View {
-        buttonsSample()
+        ButtonsSample()
             .preferredColorScheme(.light)
 
-        buttonsSample()
+        ButtonsSample()
             .preferredColorScheme(.dark)
     }
 }

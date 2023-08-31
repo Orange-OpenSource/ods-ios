@@ -33,7 +33,7 @@ struct AboutTermOfServiceItem: ODSAboutListItemConfig  {
     let target: ODSAboutListItemTarget
     let priority: ODSAboutListItemPriority
 
-    public init<TermsOfService>(@ViewBuilder termsOfService: () -> TermsOfService) where TermsOfService: View {
+    init<TermsOfService>(@ViewBuilder termsOfService: () -> TermsOfService) where TermsOfService: View {
         self.title = "Terms of Service"
         self.icon = Image("ic_calendarEventInfo", bundle: Bundle.ods)
         self.priority = ODSAboutListItemPriority.termOfService

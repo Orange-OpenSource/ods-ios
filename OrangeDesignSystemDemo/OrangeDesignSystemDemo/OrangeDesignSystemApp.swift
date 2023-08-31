@@ -25,7 +25,7 @@ import OrangeDesignSystem
 import SwiftUI
 
 @main
-struct ods_ios_swiftUI_demoApp: App {
+struct OrangeDesignSystemApp: App {
     @StateObject var themeProvider = ThemeProvider()
 
     var body: some Scene {

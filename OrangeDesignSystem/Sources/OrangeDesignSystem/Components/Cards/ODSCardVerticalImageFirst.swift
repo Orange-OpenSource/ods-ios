@@ -37,10 +37,12 @@ public struct ODSCardVerticalImageFirstModel: Identifiable {
     ///  - imageSource: The image to be displayed in the card.
     ///  - supportingText: Optional text description to be displayed in the card.
     ///
-    public init(title: String,
-                subtitle: String? = nil,
-                imageSource: ODSImage.Source,
-                supportingText: String? = nil) {
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        imageSource: ODSImage.Source,
+        supportingText: String? = nil
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.imageSource = imageSource
@@ -79,17 +81,15 @@ public struct ODSCardVerticalImageFirst<ButtonContent1, ButtonContent2>: View wh
     ///  - buttonContent1: The button1 view builder
     ///  - buttonContent2: The button2 view builder
     ///
-    public init(model: ODSCardVerticalImageFirstModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
-                @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
-    {
+    public init(
+        model: ODSCardVerticalImageFirstModel,
+        @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
+        @ViewBuilder buttonContent2: @escaping () -> ButtonContent2
+    ) {
         self.model = model
         self.buttonContent1 = buttonContent1
         self.buttonContent2 = buttonContent2
     }
-}
-
-extension ODSCardVerticalImageFirst where ButtonContent2 == EmptyView {
 
     /// Initialization with one button.
     ///
@@ -97,25 +97,23 @@ extension ODSCardVerticalImageFirst where ButtonContent2 == EmptyView {
     ///  - model: The model to configure the card.
     ///  - buttonContent1: The button1 view builder
     ///
-    public init(model: ODSCardVerticalImageFirstModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
+    public init(model: ODSCardVerticalImageFirstModel, @ViewBuilder buttonContent1: @escaping () -> ButtonContent1) where ButtonContent2 == EmptyView
     {
-        self.model = model
-        self.buttonContent1 = buttonContent1
-        buttonContent2 = { EmptyView() }
+        self.init(model: model, buttonContent1: buttonContent1) {
+            EmptyView()
+        }
     }
-}
-
-extension ODSCardVerticalImageFirst where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
 
     /// Initialization without any button.
     ///
     /// - Parameter model: The model to configure the card.
     ///
-    public init(model: ODSCardVerticalImageFirstModel) {
-        self.model = model
-        buttonContent1 = { EmptyView() }
-        buttonContent2 = { EmptyView() }
+    public init(model: ODSCardVerticalImageFirstModel) where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
+        self.init(model: model) {
+            EmptyView()
+        } buttonContent2: {
+            EmptyView()
+        }
     }
 }
 

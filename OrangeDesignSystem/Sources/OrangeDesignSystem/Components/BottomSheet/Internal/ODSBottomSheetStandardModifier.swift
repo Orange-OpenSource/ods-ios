@@ -139,11 +139,12 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
     ///     - headerConfig: The header configuration.
     ///     - content: A closure that returns the content of the bottom sheet.
     ///
-    // swiftlint:disable multiline_parameters_brackets
-    init(isOpen: Binding<Bool>,
-                headerSize: Binding<CGSize>? = nil,
-                headerConfig: ODSBottomSheetStandardHeaderConfig,
-                @ViewBuilder content: @escaping () -> Content) {
+    init(
+        isOpen: Binding<Bool>,
+        headerSize: Binding<CGSize>? = nil,
+        headerConfig: ODSBottomSheetStandardHeaderConfig,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
         self.isOpen = isOpen
         self.headerSize = headerSize
         self.headerConfig = headerConfig

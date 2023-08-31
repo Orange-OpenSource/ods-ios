@@ -25,8 +25,9 @@ import SwiftUI
 
 /// Defines functional buttons (positive or negative)
 public struct ODSFunctionalButton: View {
+
     @Environment(\.theme) var theme
-    
+
     public enum Style: String, CaseIterable {
         case negative
         case positive
@@ -47,12 +48,13 @@ public struct ODSFunctionalButton: View {
     ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
     ///   - action: Will be called when the user clicks the button.
     ///
-    public init(text: LocalizedStringKey,
-                image: Image? = nil,
-                style: ODSFunctionalButton.Style,
-                variableWidth: Bool = true,
-                action: @escaping () -> Void)
-    {
+    public init(
+        text: LocalizedStringKey,
+        image: Image? = nil,
+        style: ODSFunctionalButton.Style,
+        variableWidth: Bool = true,
+        action: @escaping () -> Void
+    ) {
         self.text = text
         self.image = image
         self.style = style

@@ -31,11 +31,12 @@ extension View {
                     badgeColor: .red)
     }
 
-    public func tabBarStyle(backgroundColor: Color? = nil,
-                            itemColor: Color? = nil,
-                            selectedItemColor: Color? = nil,
-                            badgeColor: Color? = nil) -> some View
-    {
+    public func tabBarStyle(
+        backgroundColor: Color? = nil,
+        itemColor: Color? = nil,
+        selectedItemColor: Color? = nil,
+        badgeColor: Color? = nil
+    ) -> some View {
         onAppear {
             let itemAppearance = UITabBarItemAppearance()
             if let uiItemColor = itemColor?.uiColor {

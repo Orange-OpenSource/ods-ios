@@ -55,6 +55,6 @@ public struct ODSAboutRateTheAppItemCondfig: ODSAboutListItemConfig {
         icon = Image("ic_review", bundle: Bundle.ods)
         self.priority = priority
         self.storeUrl = storeUrl
-        self.target = .action( { UIApplication.shared.open(storeUrl) } )
+        self.target = .action({ UIApplication.shared.open(storeUrl) })
     }
 }
