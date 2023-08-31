@@ -88,6 +88,7 @@
 		077C389C2A9DEEDC003D6B51 /* RecipesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38932A9DEEDC003D6B51 /* RecipesLoader.swift */; };
 		077C389D2A9DEEDC003D6B51 /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38952A9DEEDC003D6B51 /* ThemeSelectionView.swift */; };
 		077C389E2A9DEEDC003D6B51 /* ThemeablePreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38962A9DEEDC003D6B51 /* ThemeablePreviews.swift */; };
+		077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 		079821C729262C4400BE3116 /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 079821C629262C4400BE3116 /* InnovationCupTheme */; };
 		079821C92926340B00BE3116 /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 079821C82926340B00BE3116 /* OrangeTheme */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
@@ -884,6 +885,7 @@
 				077C388B2A9DEE16003D6B51 /* AppNews.json in Resources */,
 				077C37E32A9DDACC003D6B51 /* PrivacyNotice.html in Resources */,
 				077C37D32A9DD643003D6B51 /* Recipes.json in Resources */,
+				077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */,
 				077C37D02A9DD643003D6B51 /* Assets.xcassets in Resources */,
 				077C37D72A9DD6A4003D6B51 /* Preview Assets.xcassets in Resources */,
 				077C37E42A9DDACC003D6B51 /* CGU.html in Resources */,
