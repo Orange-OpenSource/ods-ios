@@ -128,7 +128,7 @@ class AboutModuleModel: ObservableObject {
     }
     var rateTheAppUrl: URL? {
         optionalAboutItems.contains(.rateTheApp) ?
-        URL(string: "https://www.apple.com") : nil
+        URL(string: "https://www.apple.com/app-store/") : nil
     }
     var legalInformationText: String? {
         optionalAboutItems.contains(.legalInformation) ?

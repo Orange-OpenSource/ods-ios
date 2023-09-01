@@ -59,10 +59,8 @@ private struct AccessibilityStatement: View {
 
     var body: some View {
         ScrollView {
-            Text("Accessibility statement will be here")
-                .odsFont(.title1)
-            Text("path: \(statementConfig.reportPath)")
-            Text("url for detail: \(statementConfig.reportDetail)")
+            Text("The Accessibility statement can be generated using the Orange's V11ydette: https://la-va11ydette.orange.com/")
+                .padding(ODSSpacing.m)
         }
     }
 }
