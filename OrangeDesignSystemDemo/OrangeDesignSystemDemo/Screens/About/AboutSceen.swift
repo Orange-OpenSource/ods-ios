@@ -82,7 +82,7 @@ struct AboutScreen: View {
     private let accessibilityStatement: ODSAboutAccessibilityStatement
     private let appNewPath: String
     private let customItems: [ODSAboutListItemConfig]
-    private let storeUrl = URL(string: "https://itunes.apple.com/fr/app")!
+    private let storeUrl = URL(string: "http://oran.ge/dsapp")!
     
     // =================
     // MARK: Initializer
@@ -96,7 +96,7 @@ struct AboutScreen: View {
             shareConfiguration: ODSAboutShareTheApplication(
                 storeUrl: storeUrl,
                 subject: "The Orange Design System",
-                description: "You will find the Orange Design System Mobile iOS App that provides examples of design implementations in the app store at: \(storeUrl.absoluteString)"),
+                description: "You will find the Orange Design System Mobile App that provides examples of design implementations at: \(storeUrl.absoluteString)"),
             onFeedbackClicked: {
                 UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
             })
