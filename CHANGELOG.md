@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...qualif)
 
 - [SDK] Udpate colors for Orange and InnovationCup themes (Bug [#423](https://github.com/Orange-OpenSource/ods-ios/issues/423))
+- [DemoApp/SDK] Fix some configuration issues in the About module and About page of the app (Bug [#422](https://github.com/Orange-OpenSource/ods-ios/issues/422))
 - [DemoApp] Fix compilation error - App Store icons with alpha ([#433](https://github.com/Orange-OpenSource/ods-ios/issues/433))
 - [DemoApp] Update application icons ([#430](https://github.com/Orange-OpenSource/ods-ios/issues/430))
 - [DemoApp/SDK] Reorganize repository and Xcode project ([#419](https://github.com/Orange-OpenSource/ods-ios/issues/419))

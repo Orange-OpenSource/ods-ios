@@ -45,7 +45,7 @@ struct NavigationBarVariantContent: View {
             .modifier(ActionIconsModifier(model: model))
             .navigationBarBackButtonHidden(!model.showBackButton)
     }
-        
+
     // ============
     // MARK: Helper
     // ============
