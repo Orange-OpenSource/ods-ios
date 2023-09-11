@@ -112,7 +112,7 @@ struct AboutScreen: View {
         let changeLogPriority = 200
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: guideLinesPriority) as ODSAboutListItemConfig,
-            ODSAboutAppNewsItemConfig(path: appNewPath, priority: appNewsPriority),
+            ODSAboutAppNewsItemConfig(priority: appNewsPriority, path: appNewPath),
             AboutChangeLogItemConfig(priority: changeLogPriority) as ODSAboutListItemConfig,
         ]
     }

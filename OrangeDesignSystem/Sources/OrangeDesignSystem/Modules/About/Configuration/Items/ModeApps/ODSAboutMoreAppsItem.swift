@@ -51,7 +51,7 @@ public struct ODSAboutMoreAppsItemConfig: ODSAboutListItemConfig {
     ///    - url: URL to get the applications information from the MoreApps server.
     ///    - priority: Priority to adjust the position of the item in the list.
     ///
-    public init(url: URL, priority: ODSAboutListItemPriority = .moreApps) {
+    public init(priority: ODSAboutListItemPriority = .moreApps, url: URL) {
         title = "More Orange Apps"
         icon = Image("ic_apps", bundle: Bundle.ods)
         self.priority = priority
