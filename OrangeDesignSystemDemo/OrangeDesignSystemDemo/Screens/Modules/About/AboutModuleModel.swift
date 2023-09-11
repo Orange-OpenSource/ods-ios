@@ -68,7 +68,7 @@ class AboutModuleModel: ObservableObject {
     
     var applicationInformation: ODSAboutApplicationInformation {
         let version = ODSApplicationVersion(marketingVersion: "0.14.0", buildNumber: "123456", buildType: "ALPHA")
-        let description = "Add here a short description of the application. Over 2 lines use « more »."
+        let description = "Add here a short description of the application."
         let shareConfiguration = ODSAboutShareTheApplication(
             storeUrl: URL(string: "https://www.apple.com")!,
             subject: "Add the subject of the sharing",
