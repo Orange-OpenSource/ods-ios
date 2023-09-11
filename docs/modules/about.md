@@ -39,7 +39,7 @@ It is also possible to add to the module some specifc features linked to the ser
 
 In order to have consistant prsentation of those elemnts in all applications, the __About__ module offers a structured and configrable layout.
 
-![AboutScreen](/Users/ludovicpinel/DEVELOPPEMENT/PROJETS/ODS/ods-ios/docs/_site/modules/images/about_screen.png)
+![AboutScreen](images/about_screen.png)
 
 
 ## About screen layout
