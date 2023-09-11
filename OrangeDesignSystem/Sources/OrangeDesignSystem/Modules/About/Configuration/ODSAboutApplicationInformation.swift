@@ -47,7 +47,7 @@ public struct ODSApplicationVersion {
     /// - Parameters:
     ///    - marketingVersion: The current version of the application (something like: x.y.z)
     ///    - buildNumber: The build number of a version
-    ///    - buildType: (Optional) The type of build (i.e. DEBUG, QUALIF).
+    ///    - buildType: (Optional) The type of build (i.e. ALPHA, BETA).
     ///
     public init(marketingVersion: String, buildNumber: String, buildType: String? = nil) {
         self.marketingVersion = marketingVersion

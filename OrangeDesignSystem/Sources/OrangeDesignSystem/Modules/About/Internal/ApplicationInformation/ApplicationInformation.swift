@@ -107,7 +107,7 @@ struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
         let appInfo = ODSAboutApplicationInformation(
             name: "APP NAME",
-            version: ODSApplicationVersion(marketingVersion: "1.0.0", buildNumber: "123456789", buildType: "DEBUG"),
+            version: ODSApplicationVersion(marketingVersion: "1.0.0", buildNumber: "123456789", buildType: "ALPHA"),
             description: "This is the demo application for test")
 
         ForEach(ColorScheme.allCases, id: \.self) {

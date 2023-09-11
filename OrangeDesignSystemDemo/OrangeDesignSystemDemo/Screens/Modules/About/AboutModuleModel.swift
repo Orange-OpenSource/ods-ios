@@ -49,7 +49,7 @@ class AboutModuleModel: ObservableObject {
             case .share:
                 return "Share"
             case .feedback:
-                return "Freedback"
+                return "Feedback"
             }
         }
         
@@ -67,7 +67,7 @@ class AboutModuleModel: ObservableObject {
     @Published var applicationSectionOptions: [ApplicationInformationOption] = ApplicationInformationOption.allCases
     
     var applicationInformation: ODSAboutApplicationInformation {
-        let version = ODSApplicationVersion(marketingVersion: "0.14.0", buildNumber: "123456", buildType: "DEBUG")
+        let version = ODSApplicationVersion(marketingVersion: "0.14.0", buildNumber: "123456", buildType: "ALPHA")
         let description = "Add here a short description of the application. Over 2 lines use « more »."
         let shareConfiguration = ODSAboutShareTheApplication(
             storeUrl: URL(string: "https://www.apple.com")!,
@@ -89,7 +89,6 @@ class AboutModuleModel: ObservableObject {
     // MARK: - Optional About items
     enum OptionalAboutItem: Int, CaseIterable {
         case appNews = 0
-        case moreApps
         case legalInformation
         case rateTheApp
         
@@ -97,8 +96,6 @@ class AboutModuleModel: ObservableObject {
             switch self {
             case .appNews:
                 return "App News"
-            case .moreApps:
-                return "More Orange Apps"
             case .legalInformation:
                 return "Legal Information"
             case .rateTheApp:
@@ -121,10 +118,6 @@ class AboutModuleModel: ObservableObject {
     var appNewsPath: String? {
         optionalAboutItems.contains(.appNews) ?
         Bundle.main.path(forResource: "AppNews", ofType: "json") : nil
-    }
-    var moreAppsUrl: URL? {
-        optionalAboutItems.contains(.moreApps) ?
-        URL(string: "https://www.apple.com") : nil
     }
     var rateTheAppUrl: URL? {
         optionalAboutItems.contains(.rateTheApp) ?

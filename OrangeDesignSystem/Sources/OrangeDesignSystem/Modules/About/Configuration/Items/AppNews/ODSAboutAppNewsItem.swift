@@ -49,10 +49,10 @@ public struct ODSAboutAppNewsItemConfig: ODSAboutListItemConfig {
     /// Initiliazes the configuration.
     ///
     /// - Parmaters:
-    ///    - path: Path to the json file.
     ///    - priority: Priority to adjust the position of the item in the list.
+    ///    - path: Path to the json file.
     ///
-    public init(path: String, priority: ODSAboutListItemPriority = .appNews) {
+    public init(priority: ODSAboutListItemPriority = .appNews, path: String) {
         self.path = path
         self.priority = priority
         self.title = "App News"
