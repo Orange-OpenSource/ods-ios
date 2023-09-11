@@ -140,7 +140,7 @@ struct AboutScreen: View {
 
     @ViewBuilder
     private func termOfService() -> some View {
-        AboutHtmlAndMarkdownView(title: "Term of Serice", htmlFileName: "CGU")
+        AboutHtmlAndMarkdownView(title: "Terms of Serice", htmlFileName: "CGU")
     }
 }
 

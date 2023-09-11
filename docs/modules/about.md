@@ -1,29 +1,29 @@
 ---
 layout: detail
 title: About
-description: Module About
+description: An about screen should be displayed in all Orange applications to display the application name, software version as well as all legal data protection, privacy, and terms of service compliance information.
 ---
 ---
 
 **Page Summary**
 
 * [Specifications references](#specifications-references)
-* [OverView](#overview)
+* [Overview](#overview)
 * [About screen layout](#about-screen-layout)
-  * Illustration area(#illustration-area)
-  * Application section area(#application-section-area)
-  * List items area(#list-items-area)
-    * Mandatory items(#mandatory-items)
-    * Optionnal items(#optionnal-tems)
-    * Custom items(#custom-items)
+  * [Illustration area](#illustration-area)
+  * [Application section area](#application-section-area)
+  * [List items area](#list-items-area)
+    * [Mandatory items](#mandatory-items)
+    * [Optionnal items](#optionnal-tems)
+    * [Custom items](#custom-items)
 * [How to configure the module](#how-to-configure-the-module)
-  * Illustration area(#illustration-area)
-  * Application section area(#application-section-area)
-  * List Items area(#list-items-area)
-    * Use mandatory items(#use-mandatory-items)
-    * Add items to the list(#add-items-to-the-list)
-    * Use optional items(#use-optional-items)
-    * Create a custom item(#create-a-custom-item)
+  * [Illustration area](#illustration-area)
+  * [Application section area](#application-section-area)
+  * [List Items area](#list-items-area)
+    * [Use mandatory items](#use-mandatory-items)
+    * [Add items to the list](#add-items-to-the-list)
+    * [Use optional items](#use-optional-items)
+    * [Create a custom item](#create-a-custom-item)
 
 ---
 
@@ -31,13 +31,16 @@ description: Module About
 
 - [Design System Manager - Modules - About](https://system.design.orange.com/0c1af118d/p/39538b-about/b/55a5d2)
 
-## OverView
+## Overview
 
 This module should be added in all applications to display general application information (name, software version, description, privacy policy, terms of service, ...), to offer user actions (Rate the app, send feedbacks, ...), to get informaioon linked to the service (Application recirculation, App news ...).
 
 It is also possible to add to the module some specifc features linked to the service provided by the application (Suppport, How to, settings, ...) 
 
 In order to have consistant prsentation of those elemnts in all applications, the __About__ module offers a structured and configrable layout.
+
+![AboutScreen](/Users/ludovicpinel/DEVELOPPEMENT/PROJETS/ODS/ods-ios/docs/_site/modules/images/about_screen.png)
+
 
 ## About screen layout
 
@@ -54,10 +57,11 @@ The second area is dedicated for the application description with various elemen
 - The version (optional)
 - A description in sevral lines (optional) 
 
+
 It is also possible to activate two buttons to offer to the user to:
-    1. share the application via email, via sms, via social networks... This button opens the default system share sheet that presents a range of actions to share the application. To activate this button, the developper needs to prvide the url of the application on the store and a short text describing the context of the sharing.
-     
-    2. send feedback to the support of the service. This button is displayed if the developper provides a callback called when button is clicked. This callback can do what it is expected (send email, send sms, open form, open web site, ...).
+
+- _share the application_ via email, via sms, via social networks... This button opens the default system share sheet that presents a range of actions to share the application. To activate this button, the developper needs to prvide the url of the application on the store and a short text describing the context of the sharing.
+- _send feedback_ to the support of the service. This button is displayed if the developper provides a callback called when button is clicked. This callback can do what it is expected (send email, send sms, open form, open web site, ...).
 
 
 ### List items area
@@ -75,23 +79,19 @@ As those items must be grouped in the list, their priority are fixed and can not
 
 #### Optionnal items
 
-As most of applications propose the same additonnal features (Rate the app, More Apps, App News, ...), and in order to have consitency in about screens of all applications, additional items are proposed with the module.
+As most of applications propose the same additonnal features (Rate the app, App News, ...), and in order to have consitency in about screens of all applications, additional items are proposed with the module.
 
-1. Rate the app
+* Rate the app
 
 This item can be added in the list to redirect the user to the app page on the Apple Store to rate the application.
 
-2. Apps news 
+* Apps news 
 
-This item lists the application news. For each version of the application, a small text describes the new features available.
+This item enumerates the application versions with small text describing new features available.
 
-3. Application recirculation (More Apps)
+* Legal inofrmation
 
-Coming soon
-
-4. Legal inofrmation
-
-Coming soon
+This item is used to display legal infomration. Today, there is not recomandation on the presentation.
 
 #### Custom items 
 
@@ -187,21 +187,21 @@ ODSAboutModule(applicationInformation: withFeedback, ...)
 
 For the privacy policy display, only html content is supported today. A more structured content will be added soon.
 
-1. Privacy policy
+- Privacy policy
 
 ```swift
 // Initialize the privacy policy page with url of the html file store in resources. 
 let privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!))
 ```
 
-2. The accessibility statement
+- The accessibility statement
 
 ```swift
 // Still it is not supported, initilaize with fake information 
 let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
 ```
 
-3. The Terms of service
+- The Terms of service
 
 ```swift
 // Today, there is no recomandation how to display the content, so the module provides a view builder 
@@ -231,7 +231,7 @@ To order the items in the list, initialize the items with the right priority.
 ```swift
 // Add all items in list
 ODSAboutModule(...,
-   listItemConfigurations: [legalInfoItem, rateTheAppItem, appsNewItem, moreApps]
+   listItemConfigurations: [legalInfoItem, rateTheAppItem, appsNewItem]
 )
 
 // see items description below
@@ -239,7 +239,7 @@ ODSAboutModule(...,
 
 #### Use optional items
 
-1. Rate the app
+- Rate the app
 
 To create this item, define the url of the application on the store and the priority (position) of the item in the list:
 
@@ -251,7 +251,7 @@ let rateTheAppItem = ODSAboutRateTheAppItemCondfig(
 )
 ```
 
-2. Apps news 
+- Apps news 
 
 To create this item, define the path to the json file containing the news. This file is embeded in the resources of the application. 
 
@@ -279,18 +279,7 @@ let appsNewItem = ODSAboutAppNewsItemConfig(
 )
 ```
 
-3. Application recirculation (More Apps)
-
-Coming soon
-
-```swift
-let moreApps = ODSAboutMoreAppsItemConfig(
-   priority: 503: 
-   url: URL(string: "fake")
-)
-```
-
-4. Legal information
+- Legal information
 
 Still there is not recomandation on the format of the presentation, this item needs a view builder to display the legal information.
     

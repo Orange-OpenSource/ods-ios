@@ -43,7 +43,7 @@ extension Bundle {
 
     var buildType: String? {
         #if DEBUG
-        "DEBUG"
+        "ALPHA"
         #else
         string(forInfoDictionaryKey: "ODSBuildType")
         #endif

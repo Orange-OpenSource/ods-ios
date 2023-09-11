@@ -159,14 +159,6 @@ struct AboutModuleDemo: View {
             return nil
         }
     }
-
-    private var moreAppsItemConfiguration: ODSAboutMoreAppsItemConfig? {
-        if let url = model.moreAppsUrl {
-            return ODSAboutMoreAppsItemConfig(url: url)
-        } else {
-            return nil
-        }
-    }
     
     private var rateTheAppItemConfiguration: ODSAboutRateTheAppItemCondfig? {
         if let url = model.rateTheAppUrl {
@@ -190,7 +182,6 @@ struct AboutModuleDemo: View {
     private var listItemConfigurations: [ODSAboutListItemConfig] {
         var configurations: [ODSAboutListItemConfig?] = [
             appNewsItemConfiguration,
-            moreAppsItemConfiguration,
             rateTheAppItemConfiguration,
             legalInformationItemConfiguration
         ]

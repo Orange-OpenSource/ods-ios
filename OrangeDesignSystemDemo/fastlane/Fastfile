@@ -92,7 +92,7 @@ platform :ios do
         sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
     end
 
-    set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildType", value: "QUALIF")
+    set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildType", value: "BETA")
     
     build_and_upload(upload: true)
   end
