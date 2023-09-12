@@ -85,7 +85,6 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconR
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Spotlight-40@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Spotlight-40@3x.png
 
-
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Add.imageset/Add.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/chips/avatar.imageset/avatar.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/chips/iconsFunctionalUiEMIcHeartRecommend.imageset/iconsFunctionalUiEMIcHeartRecommend.png
@@ -143,8 +142,6 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/Cafe.imageset/iconsCommunicationDIcCafe.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/CookingPot.imageset/iconsCommunicationDIcCookingPot.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/Restaurant.imageset/iconsCommunicationRUIcRestaurant.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/IceCream.imageset/iconsCommunicationDIIcIceCream.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/Cafe.imageset/iconsCommunicationDIcCafe.svg
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/About/ic_folderFavourite.imageset/ic_folderFavourite.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/About/ic_subtitles.imageset/ic_subtitles.svg
