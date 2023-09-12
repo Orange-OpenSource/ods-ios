@@ -31,7 +31,7 @@ extension View {
             backgroundColor: theme.componentColors.navigationBarBackground
         )
     }
-    
+
     public func navigationBarColors(titleColor: Color, tintColor: Color, backgroundColor: Color) -> some View {
         modifier(
             NavigationBarColors(titleColor: UIColor(titleColor),
@@ -43,9 +43,7 @@ extension View {
 
 struct NavigationBarColors: ViewModifier {
 
-    init(titleColor: UIColor,
-         tintColor: UIColor,
-         backgroundColor: UIColor = .systemBackground) {
+    init(titleColor: UIColor, tintColor: UIColor, backgroundColor: UIColor = .systemBackground) {
 
         let coloredAppearance = UINavigationBarAppearance()
         coloredAppearance.configureWithDefaultBackground()

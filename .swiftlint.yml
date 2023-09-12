@@ -21,16 +21,14 @@
 #
 #
 
+included:
+  - OrangeDesignSystem
+  - OrangeDesignSystemDemo/OrangeDesignSystemDemo
+  - InnovationCupTheme
+  - OrangeTheme
 excluded:
-  - Resources/CodeGen
-  - Pods
-  - build
+  - OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources
 
-attributes:
-  always_on_same_line:
-    - "@IBAction"
-    - "@frozen"
-    - "@objc"
 disabled_rules:
   - trailing_comma
   - cyclomatic_complexity

@@ -123,7 +123,7 @@ struct SmallCardView_Previews: PreviewProvider {
     ]
 
     static let cardSmallModels = [
-        ODSCardSmallModel(title: "1 Title",imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
+        ODSCardSmallModel(title: "1 Title", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
         ODSCardSmallModel(title: "2 Title", subtitle: "2 Subtitle", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
         ODSCardSmallModel(title: "3 A long long title", subtitle: "3 A long long Subtitle", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),
         ODSCardSmallModel(title: "4 A long long Title", imageSource: .image(Image("ods_empty", bundle: Bundle.ods))),

@@ -123,7 +123,7 @@ struct ODSToolbarIconContent_Previews: PreviewProvider {
                             in: 2 ... 5)
                     Spacer()
                 }
-                .padding(.horizontal , ODSSpacing.m)
+                .padding(.horizontal, ODSSpacing.m)
                 .odsToolBar(items: self.iconDescriptions)
             }
             .toolBarColors(for: ODSTheme())

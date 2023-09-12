@@ -31,21 +31,21 @@ extension View {
     }
 
     func configureTabBar(configurator: @escaping (UITabBarController, Bool) -> Void) -> some View {
-        modifier(TabBarConfigurationViewModifier(configurator: configurator))
-    }
-}
-
-struct TabBarConfigurationViewModifier: ViewModifier {
-    let configurator: (UITabBarController, Bool) -> Void
-
-    func body(content: Content) -> some View {
-        content
-            .background(TabBarConfigurator(configurator: configurator))
+        background(TabBarConfigurator(configurator: configurator))
     }
 }
 
 struct TabBarConfigurator: UIViewControllerRepresentable {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     let configurator: (UITabBarController, Bool) -> Void
+
+    // ============================================
+    // MARK: UIViewControllerRepresentable Protocol
+    // ============================================
 
     func makeUIViewController(context: Context) -> TabBarConfigurationViewController {
         TabBarConfigurationViewController(configurator: configurator)
@@ -56,15 +56,36 @@ struct TabBarConfigurator: UIViewControllerRepresentable {
 }
 
 class TabBarConfigurationViewController: UIViewController {
-    let configurator: (UITabBarController, Bool) -> Void
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    private var configurator: (UITabBarController, Bool) -> Void
+
+    // ==================
+    // MARK: Initializers
+    // ==================
 
     init(configurator: @escaping (UITabBarController, Bool) -> Void) {
         self.configurator = configurator
         super.init(nibName: nil, bundle: nil)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // ===============================
+    // MARK: UIViewController Override
+    // ===============================
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let tabBarController = tabBarController {
+            configurator(tabBarController, true)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

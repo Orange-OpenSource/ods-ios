@@ -1,3 +1,26 @@
+#
+# MIT License
+# Copyright (c) 2021 Orange
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the  Software), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+#
+
 use_frameworks!
 
 platform :ios, '15.0'
@@ -6,8 +29,7 @@ target 'OrangeDesignSystemDemo' do
   pod 'Parma'
   target 'OrangeDesignSystemDemoTests' do
     inherit! :search_paths
-    
-    pod 'SwiftGen'
+
     pod 'SwiftLint', '0.48.0'
     pod 'SwiftFormat/CLI'
     
@@ -17,14 +39,17 @@ end
 post_install do |installer|
   ENV['COCOAPODS_DISABLE_STATS'] = "true"
   
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["DEAD_CODE_STRIPPING"] = "YES"
+  end
+
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
       config.build_settings['SWIFT_VERSION'] = '5'
       config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
       config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
-      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
-      
+      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"      
     end
   end
 end

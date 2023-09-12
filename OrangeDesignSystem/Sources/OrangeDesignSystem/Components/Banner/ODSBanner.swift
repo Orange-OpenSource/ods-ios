@@ -66,10 +66,11 @@ public struct ODSBanner: View {
     ///   - position: The positiobn of the button
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
-    public init(text: LocalizedStringKey,
-                image: Image? = nil,
-                button: ODSButton,
-                position: OneButtonPosition
+    public init(
+        text: LocalizedStringKey,
+        image: Image? = nil,
+        button: ODSButton,
+        position: OneButtonPosition
     ) {
         self.text = text
         self.image = image
@@ -86,10 +87,11 @@ public struct ODSBanner: View {
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
     ///
-    public init(text: LocalizedStringKey,
-                image: Image? = nil,
-                leadingButton: ODSButton,
-                trailingButton: ODSButton
+    public init(
+        text: LocalizedStringKey,
+        image: Image? = nil,
+        leadingButton: ODSButton,
+        trailingButton: ODSButton
     ) {
         self.text = text
         self.image = image
@@ -170,19 +172,19 @@ struct ODSBanner_Previews: PreviewProvider {
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods))
                     .border(.gray)
-                    
+
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods),
                               button: ODSButton(text: "Button", emphasis: .low) {},
                               position: .trailing)
                     .border(.gray)
-                    
+
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods),
                               button: ODSButton(text: "Button", emphasis: .low) {},
                               position: .bottom)
                     .border(.gray)
-                    
+
                     ODSBanner(text: "A short desciption to see text",
                               image: Image("ods_empty", bundle: Bundle.ods),
                               leadingButton: ODSButton(text: "Button", emphasis: .low) {},

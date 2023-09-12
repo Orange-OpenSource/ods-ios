@@ -21,7 +21,7 @@
 //
 //
 
-@testable import ods_ios_swiftUI_demo
+@testable import OrangeDesignSystemDemo
 import XCTest
 
 class ods_ios_swiftUI_demoTests: XCTestCase {

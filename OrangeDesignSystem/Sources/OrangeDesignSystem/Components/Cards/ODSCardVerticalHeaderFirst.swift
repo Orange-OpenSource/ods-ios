@@ -40,11 +40,13 @@ public struct ODSCardVerticalHeaderFirstModel: Identifiable {
     ///  - imageSource: The image to be displayed in the card.
     ///  - supportingText Optional text description to be displayed in the card.
     ///
-    public init(title: String,
-                subtitle: String? = nil,
-                thumbnail: Image? = nil,
-                imageSource: ODSImage.Source,
-                supportingText: String? = nil) {
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        thumbnail: Image? = nil,
+        imageSource: ODSImage.Source,
+        supportingText: String? = nil
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail
@@ -85,10 +87,11 @@ public struct ODSCardVerticalHeaderFirst<ButtonContent1, ButtonContent2>: View w
     ///  - buttonContent1: The button1 view builder
     ///  - buttonContent2: The button2 view builder
     ///
-    public init(model: ODSCardVerticalHeaderFirstModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
-                @ViewBuilder buttonContent2: @escaping () -> ButtonContent2)
-    {
+    public init(
+        model: ODSCardVerticalHeaderFirstModel,
+        @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
+        @ViewBuilder buttonContent2: @escaping () -> ButtonContent2
+    ) {
         self.model = model
         self.buttonContent1 = buttonContent1
         self.buttonContent2 = buttonContent2
@@ -103,9 +106,10 @@ extension ODSCardVerticalHeaderFirst where ButtonContent2 == EmptyView {
     ///  - model: The model to configure the card.
     ///  - buttonContent1: The button1 view builder
     ///
-    public init(model: ODSCardVerticalHeaderFirstModel,
-                @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
-    {
+    public init(
+        model: ODSCardVerticalHeaderFirstModel,
+        @ViewBuilder buttonContent1: @escaping () -> ButtonContent1
+    ) {
         self.model = model
         self.buttonContent1 = buttonContent1
         buttonContent2 = { EmptyView() }

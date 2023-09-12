@@ -1,3 +1,26 @@
+#
+# MIT License
+# Copyright (c) 2021 Orange
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the  Software), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+#
+
 APPLE_ISSUER_ID = ENV["ODS_APPLE_ISSUER_ID"]
 APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
@@ -64,12 +87,12 @@ platform :ios do
   desc "BUILD & UPLOAD TO TESTFLIGHT QUALIF APP"
   lane :qualif do
     puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
-    Dir.chdir "../OrangeDesignSystemDemo/Assets.xcassets" do
+    Dir.chdir "../OrangeDesignSystemDemo/Resources/Assets.xcassets" do
         sh "rm -Rf AppIconRelease.appiconset"
         sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
     end
 
-    set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Info.plist", key: "ODSBuildType", value: "This is a QUALIF version")
+    set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildType", value: "BETA")
     
     build_and_upload(upload: true)
   end
@@ -103,7 +126,7 @@ platform :ios do
   private_lane :build do
     update_app_identifier(
       xcodeproj: "#{ODS_PROJECT}",
-      plist_path: "#{ODS_SCHEME}/Info.plist",
+      plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
       app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
     )
 

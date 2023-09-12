@@ -31,7 +31,7 @@ extension View {
             backgroundColor: theme.componentColors.navigationBarBackground
         )
     }
-    
+
     public func toolBarColors(titleColor: Color, tintColor: Color, backgroundColor: Color) -> some View {
         modifier(
             ToolBarColors(titleColor: UIColor(titleColor),
@@ -43,9 +43,7 @@ extension View {
 
 struct ToolBarColors: ViewModifier {
 
-    init(titleColor: UIColor,
-         tintColor: UIColor,
-         backgroundColor: UIColor = .systemBackground) {
+    init(titleColor: UIColor, tintColor: UIColor, backgroundColor: UIColor = .systemBackground) {
 
         let coloredAppearance = UIToolbarAppearance()
         coloredAppearance.configureWithOpaqueBackground()

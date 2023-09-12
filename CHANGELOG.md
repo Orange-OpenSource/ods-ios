@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.13.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.0...0.12.0) - 2023-09-12
+
+- [SDK] Add documentation for the About module ([#441](https://github.com/Orange-OpenSource/ods-ios/issues/441))
+- [SDK] Udpate colors for Orange and InnovationCup themes (Bug [#423](https://github.com/Orange-OpenSource/ods-ios/issues/423))
+- [DemoApp/SDK] Fix some configuration issues in the About module and About page of the app (Bug [#422](https://github.com/Orange-OpenSource/ods-ios/issues/422))
+- [DemoApp] Fix compilation error - App Store icons with alpha ([#433](https://github.com/Orange-OpenSource/ods-ios/issues/433))
+- [DemoApp] Update application icons ([#430](https://github.com/Orange-OpenSource/ods-ios/issues/430))
+- [DemoApp/SDK] Reorganize repository and Xcode project ([#419](https://github.com/Orange-OpenSource/ods-ios/issues/419))
+- [DemoApp/SDK] First version (intermediate) of the About Module with new design and features ([#63](https://github.com/Orange-OpenSource/ods-ios/issues/63))
+
 ## [0.12.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...0.11.0) - 2023-04-14
 
 - [DemoApp/SDK] Add Bottom Sheet component ([#325](https://github.com/Orange-OpenSource/ods-ios/issues/325))

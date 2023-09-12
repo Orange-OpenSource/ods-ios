@@ -40,11 +40,13 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
     // MARK: Initializer
     // =================
 
-    init(title: String,
-         subtile: String? = nil,
-         icon: Image? = nil,
-         bottomSheetSize: Binding<ODSBottomSheetSize>,
-         @ViewBuilder content: @escaping () -> ContentView) {
+    init(
+        title: String,
+        subtile: String? = nil,
+        icon: Image? = nil,
+        bottomSheetSize: Binding<ODSBottomSheetSize>,
+        @ViewBuilder content: @escaping () -> ContentView
+    ) {
         self.title = title
         self.subtitle = subtile
         self.icon = icon

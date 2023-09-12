@@ -103,9 +103,11 @@ public struct ODSToolbarLabeledItems {
     // MARK: Initializers
     // ==================
 
-    public init(description1: ODSToolbarLabelDesription,
-                description2: ODSToolbarLabelDesription,
-                description3: ODSToolbarLabelDesription? = nil) {
+    public init(
+        description1: ODSToolbarLabelDesription,
+        description2: ODSToolbarLabelDesription,
+        description3: ODSToolbarLabelDesription? = nil
+    ) {
         self.description1 = description1
         self.description2 = description2
         self.description3 = description3
@@ -147,11 +149,13 @@ public struct ODSToolbarIconsItems {
     // MARK: Initializers
     // ==================
 
-    public init(description1: ODSToolbarIconDesription,
-                description2: ODSToolbarIconDesription,
-                description3: ODSToolbarIconDesription? = nil,
-                description4: ODSToolbarIconDesription? = nil,
-                description5: ODSToolbarIconDesription? = nil) {
+    public init(
+        description1: ODSToolbarIconDesription,
+        description2: ODSToolbarIconDesription,
+        description3: ODSToolbarIconDesription? = nil,
+        description4: ODSToolbarIconDesription? = nil,
+        description5: ODSToolbarIconDesription? = nil
+    ) {
         self.description1 = description1
         self.description2 = description2
         self.description3 = description3
