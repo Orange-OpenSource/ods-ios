@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.13.1](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.1...0.12.0) - 2023-09-13
+
+- [DemoApp] Update AppNews for release
+
 ## [0.13.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.0...0.12.0) - 2023-09-12
 
 - [SDK] Add documentation for the About module ([#441](https://github.com/Orange-OpenSource/ods-ios/issues/441))
