@@ -1,7 +1,12 @@
 [
     {
-        "version": "0.13.0",
+        "version": "0.13.1",
         "date": "2023-09-13",
+        "news": "Update AppNews"
+    },
+    {
+        "version": "0.13.0",
+        "date": "2023-09-12",
         "news": "Add about module (first version)\nUpdate Application icons for Beta and Alpha versions\nUpdate colors"
     },
     {
