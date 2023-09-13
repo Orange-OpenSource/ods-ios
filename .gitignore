@@ -39,6 +39,7 @@ OrangeDesignSystemDemo/DerivedData/
 
 # Produced by Swift Package Manager
 .swiftpm/xcode/xcuserdata/
+.swiftpm/xcode/package.xcworkspace/
 
 # Produced by Fastlane
 **/fastlane/*.env
