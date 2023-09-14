@@ -153,11 +153,10 @@ ODSAboutModule(applicationInformation: withVersion, ...)
 - To activate the Share the application action
 
 ```swift
-let storeUrl = URL(string: "http://oran.ge/dsapp")!
 ler shareTheApplicationConfiguration = ODSAboutShareTheApplication(
-    storeUrl: storeUrl,
+    storeUrl: URL(string: "http://oran.ge/dsapp")!,
     subject: "The Orange Design System",
-    description: "You will find the Orange Design System Mobile App that provides examples of design implementations at: \(storeUrl.absoluteString)"
+    description: "Here you will find the Orange Design System Mobile App that provides examples of design implementations"
 )
 
 let withShareTheApp = ODSAboutApplicationInformation(

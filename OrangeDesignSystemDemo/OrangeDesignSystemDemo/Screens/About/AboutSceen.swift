@@ -96,7 +96,7 @@ struct AboutScreen: View {
             shareConfiguration: ODSAboutShareTheApplication(
                 storeUrl: storeUrl,
                 subject: "The Orange Design System",
-                description: "You will find the Orange Design System Mobile App that provides examples of design implementations at: \(storeUrl.absoluteString)"),
+                description: "Here, you will find the Orange Design System Mobile App that provides examples of design implementations"),
             onFeedbackClicked: {
                 UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
             })

@@ -92,6 +92,8 @@ public struct ODSAboutShareTheApplication {
     ///    - subject: The subject, if the application is shared with email.
     ///    - description: Can be used to describe the sharing (Content of the email, SMS, ...).
     ///
+    ///  Remark: Do not copy the url in the description because it can be presented twice (e.g. in copy action)
+    ///
     public init(storeUrl: URL, subject: String, description: String) {
         self.storeUrl = storeUrl
         self.subject = subject
