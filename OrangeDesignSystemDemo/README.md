@@ -1,4 +1,4 @@
-<h1 align="center">OrangeDesignSystem iOS Library</h1>
+<h1 align="center">OrangeDesignSystem iOS Demo Application</h1>
 
 <p align="center">
     Orange Design System iOS provides Orange iOS components to developers and a demo application.
@@ -10,5 +10,3 @@
   ·
   <a href="https://github.com/Orange-OpenSource/ods-ios/issues/new?assignees=B3nz01d&labels=feature%2C%F0%9F%94%8D%20triage&template=feature_request.yml&title=[feature]%3A+">Request feature</a>
 </p>
-
-

@@ -83,7 +83,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 
 ### Announce the new release on FoODS
 
-- Go to [Teams - FoODS: ODS Mobile iOS](https://teams.microsoft.com/l/channel/19%3a871294014c9f4626bc72d8b7e0f0822a%40thread.tacv2/03-ODS%2520Mobile%2520iOS?groupId=a9581e9e-6775-46f5-9e4a-3ce57096e6be&tenantId=90c7a20a-f34b-40bf-bc48-b9253b6f5d20)
+- Go to [Teams - FoODS: ODS Mobile iOS]
 
 - Post a message with screenshots of new elements to announce the release.
 
