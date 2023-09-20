@@ -21,36 +21,50 @@
 //
 //
 
-import OrangeDesignSystem
-import SwiftUI
-import BottomSheet
+import Foundation
 
-struct BottomSheetComponent: Component {
-    let title: String
-    let imageName: String
-    let description: String
-    let variants: AnyView
+class RecipeBookLoader {
+
     
-    init() {
-        title = "Sheets: Bottom"
-        imageName = "BottomSheet"
-        description = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task."
-        variants = AnyView(BottomSheetVariants())
+    // =================
+    // MARK: Initializer
+    // =================
+    
+    init() { }
+    
+    enum Error: Swift.Error {
+        case resourceNotFound
+        case noJsonData
     }
-}
+    
+    // ====================
+    // MARK: Private Helper
+    // ====================
 
-struct BottomSheetVariants: View {
-    var body: some View {
-        VariantEntryItem(text: "Expanding", technicalElement: ".odsBottomSheetExpanding()") {
-            ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
-                .navigationTitle("Expanding")
-            
+    func loadBook(from fileName: String) throws -> RecipeBook {
+        
+        guard let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json") else {
+            throw Error.resourceNotFound
         }
         
-        VariantEntryItem(text: "Standard", technicalElement: ".odsBottomSheetStandard()") {
-            StandardBottomSheetVariant()
-                .navigationTitle("Standard")
+        guard let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) else {
+            throw Error.noJsonData
         }
+        
+        return try JSONDecoder().decode(RecipeBook.self, from: jsonData)
     }
 }
+
+extension RecipeBook {
+    init() {
+        guard let book = try? RecipeBookLoader().loadBook(from: "Recipes") else {
+            recipes = []
+            foods = []
+            return
+        }
+        
+        self = book
+    }
+}
+
 

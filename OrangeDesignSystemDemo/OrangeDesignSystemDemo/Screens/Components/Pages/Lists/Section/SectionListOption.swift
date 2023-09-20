@@ -21,35 +21,31 @@
 //
 //
 
-import Foundation
+import OrangeDesignSystem
 import SwiftUI
 
-// MARK: RecipeBook model
+// =============
+// MARK: Models
+// =============
 
-struct RecipeBook {
-    let recipes: [Recipe]
-    let foods: [Food]
+enum SectionListOption: Int, CaseIterable {
+    case showHeader = 0
+    case showFooter
     
-    static let shared: RecipeBook = RecipeBook()
+    var description: String {
+        switch self {
+        case .showHeader:
+            return "Header"
+        case .showFooter:
+            return "Footer"
+        }
+    }
+    
+    var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+    
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
+    }
 }
-
-struct Food {
-    let id: Int
-    let name: String
-    let image: URL?
-}
-
-struct Recipe {
-    let title: String
-    let subtitle: String
-    let description: String
-    var ingredients: [Ingredient]
-    let url: URL
-    let iconName: String
-}
-
-struct Ingredient: Decodable {
-    let food: Food
-    let quantity: String
-}
-

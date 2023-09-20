@@ -24,66 +24,54 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct StandardListVariant: View {
+struct SelectionListVariant: View {
+    
     
     // =======================
     // MARK: Stored Properties
     // =======================
     
-    let model: StandardListVariantModel
+    let model: SelectionListVariantModel
     
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
         CustomizableVariant {
-            StandardListVariantInner(model: model)
+            SelectionListVariantInner(model: model)
         } options: {
-            StandardListVariantOptions(model: model)
+            SelectionListVariantOptions(model: model)
         }
     }
 }
-    
-private struct StandardListVariantInner: View {
+
+private struct SelectionListVariantInner: View {
     
     // =======================
     // MARK: Stored Properties
     // =======================
-
-    @ObservedObject var model: StandardListVariantModel
-    @State private var multiSelection: Set<UUID>? = nil
+    
+    @ObservedObject var model: SelectionListVariantModel
+    @State var multiSelection: Set<UUID>? = nil
     
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
         List /* (selection: $multiSelection) */ {
             ForEach(model.itemModels, id: \.id) { itemModel in
-                if model.showDetails {
-                    NavigationLink(itemModel) {
-                        Text("\(itemModel.title) is clicked")
-                            .navigationTitle(itemModel.title)
-                    }
-                    .listRowInsets(EdgeInsets())
-                    .listRowSeparator(Visibility.visible)
-                    .padding(.horizontal, ODSSpacing.s)
-                } else {
-                    ODSListStandardItem(model: itemModel)
-                        .listRowInsets(EdgeInsets())
-                        .listRowSeparator(Visibility.visible)
-                        .padding(.horizontal, ODSSpacing.s)
-                }
+                ODSListSelectionItem(model: itemModel)
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(Visibility.visible)
             }
             .onMove(perform: model.move)
             .onDelete(perform: model.delete)
+            .padding(.horizontal, ODSSpacing.m)
         }
         .toolbar { EditButton() }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Information icon tapped! Bon appétit", isPresented: $model.showSheetOnIButtonClicked) {
-            Button("close", role: .cancel) {}
-        }
     }
 }

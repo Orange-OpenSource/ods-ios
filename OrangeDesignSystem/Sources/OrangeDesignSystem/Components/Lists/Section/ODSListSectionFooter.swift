@@ -1,4 +1,4 @@
-//
+////
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,46 +21,47 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct StandardListVariantOptions: View {
+public struct ODSListSectionFooter: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: StandardListVariantModel
+    let title: String
+    let description: String?
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    public init(
+         title: String,
+         description: String? = nil
+     ) {
+         self.title = title
+         self.description = description
+     }
 
     // ==========
     // MARK: Body
     // ==========
 
-    var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSubtitle) {
-                Text("Subtitle").odsFont(.bodyBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
-
-            ODSChipPicker(title: "Leading",
-                          selection: $model.leadingIconOption,
-                          chips: LeadingIconOption.chips)
-                .padding(.vertical, ODSSpacing.s)
-
-            ODSChipPicker(title: "Trailing",
-                          selection: $model.trailingOptions,
-                          allowZeroSelection: true,
-                          chips: TrailingOption.chips)
-                .padding(.vertical, ODSSpacing.s)
-            
-            Toggle(isOn: $model.showDetails) {
-                Text("Navigate").odsFont(.bodyBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
-        }
-        .padding(.top, ODSSpacing.s)
-    }
-}
+     public var body: some View {
+         VStack(alignment: .leading, spacing: ODSSpacing.m) {
+             Text(title)
+                 .odsFont(.bodyBold)
+                 .frame(maxWidth: .infinity, alignment: .leading)
+                 .accessibilityAddTraits(.isHeader)
+             if let description = description {
+                 Text(description)
+                     .odsFont(.bodyRegular)
+             }
+         }
+         .foregroundColor(Color(UIColor.systemGray))
+         .padding(.all, ODSSpacing.s)
+         .listRowInsets(EdgeInsets())
+         .background(Color(UIColor.systemGroupedBackground))
+     }
+ }

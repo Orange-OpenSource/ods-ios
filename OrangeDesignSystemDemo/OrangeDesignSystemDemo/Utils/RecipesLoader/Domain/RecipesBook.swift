@@ -22,49 +22,38 @@
 //
 
 import Foundation
+import SwiftUI
 
-class RecipeLoader {
+// MARK: RecipeBook model
 
+struct RecipeBook {
+    let recipes: [Recipe]
+    let foods: [Food]
     
-    // =================
-    // MARK: Initializer
-    // =================
+    static let shared: RecipeBook = RecipeBook()
     
-    init() { }
-    
-    enum Error: Swift.Error {
-        case resourceNotFound
-        case noJsonData
-    }
-    
-    // ====================
-    // MARK: Private Helper
-    // ====================
-
-    func loadBook(from fileName: String) throws -> RecipeBook {
-        
-        guard let bundlePath = Bundle.main.path(forResource: fileName, ofType: "json") else {
-            throw Error.resourceNotFound
-        }
-        
-        guard let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) else {
-            throw Error.noJsonData
-        }
-        
-        return try JSONDecoder().decode(RecipeBook.self, from: jsonData)
+    func recipes(for category: String) -> [Recipe] {
+        recipes.filter { recipe in recipe.iconName == category }
     }
 }
 
-extension RecipeBook {
-    init() {
-        guard let book = try? RecipeLoader().loadBook(from: "Recipes") else {
-            recipes = []
-            foods = []
-            return
-        }
-        
-        self = book
-    }
+struct Food {
+    let id: Int
+    let name: String
+    let image: URL?
 }
 
+struct Recipe {
+    let title: String
+    let subtitle: String
+    let description: String
+    var ingredients: [Ingredient]
+    let url: URL
+    let iconName: String
+}
+
+struct Ingredient: Decodable {
+    let food: Food
+    let quantity: String
+}
 

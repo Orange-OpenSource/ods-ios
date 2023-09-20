@@ -91,6 +91,49 @@ class StandardListVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
+    @Published var sectionOptions: [SectionListOption] {
+        didSet { updateItems() }
+    }
+    
+    enum ODSListStyle: Int, CaseIterable {
+        case grouped
+        case plain
+        case sidebar
+        
+        var description: String {
+            switch self {
+            case .grouped:
+                return "Grouped"
+            case .plain:
+                return "Plain"
+            case .sidebar:
+                return "Sidebar"
+            }
+        }
+        
+        var chip: ODSChip<Self> {
+            ODSChip(self, text: self.description)
+        }
+        
+        static var chips: [ODSChip<Self>] {
+            Self.allCases.map { $0.chip }
+        }
+        
+        var swiftStyle: (any ListStyle) {
+            switch self {
+            case .grouped:
+                return GroupedListStyle()
+            case .plain:
+                return PlainListStyle()
+            case .sidebar:
+                return SidebarListStyle()
+            }
+            
+        }
+    }
+    
+    @Published var listStyle: ODSListStyle?
+
     @Published var showSubtitle: Bool {
         didSet { updateItems() }
     }
@@ -103,19 +146,20 @@ class StandardListVariantModel: ObservableObject {
         didSet { updateItems() }
     }
 
-    @Published var itemModels: [ODSListStandardItemModel] = []
+    @Published var itemModels: ([ODSListStandardItemModel], [ODSListStandardItemModel]) = ([],[])
     
     @Published var showDetails: Bool
     
-    private var recipes: [Recipe] = []
+    private var recipes: ([Recipe],[Recipe]) = ([],[])
     
     // ==================
     // MARK: Initializers
     // ==================
     
     init() {
-        self.recipes = RecipeBook.shared.recipes
+        self.recipes = ([], RecipeBook.shared.recipes)
                 
+        sectionOptions = []
         showSubtitle = true
         leadingIconOption = .circle
         trailingOptions = [.text, .infoButton]
@@ -128,22 +172,34 @@ class StandardListVariantModel: ObservableObject {
     // MARK: Edition actions
     // =====================
     
-    func delete(at offsets: IndexSet) {
-        recipes.remove(atOffsets: offsets)
+    func deleteSection0(at offsets: IndexSet) {
+        recipes.0.remove(atOffsets: offsets)
         updateItems()
     }
 
-    func move(from source: IndexSet, to destination: Int) {
-        recipes.move(fromOffsets: source, toOffset: destination)
+    func moveSection0(from source: IndexSet, to destination: Int) {
+        recipes.0.move(fromOffsets: source, toOffset: destination)
         updateItems()
     }
-    
+
+    func deleteSection1(at offsets: IndexSet) {
+        recipes.1.remove(atOffsets: offsets)
+        updateItems()
+    }
+
+    func moveSection1(from source: IndexSet, to destination: Int) {
+        recipes.1.move(fromOffsets: source, toOffset: destination)
+        updateItems()
+    }
+
     // =====================
     // MARK: Private helpers
     // =====================
     
     private func updateItems() {
-        itemModels = recipes.map { item(from: $0) }
+        let splitIndex = sectionOptions.isEmpty ? 0 : 4
+        let recipes = (Array(RecipeBook.shared.recipes.prefix(splitIndex)), Array(RecipeBook.shared.recipes.suffix(from: splitIndex)))
+        itemModels = (recipes.0.map { item(from: $0) }, recipes.1.map { item(from: $0) })
     }
 
     private func item(from recipe: Recipe) -> ODSListStandardItemModel {

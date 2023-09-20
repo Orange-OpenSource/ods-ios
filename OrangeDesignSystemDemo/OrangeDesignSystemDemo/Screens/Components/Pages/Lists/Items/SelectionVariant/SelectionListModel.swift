@@ -55,7 +55,7 @@ class SelectionListVariantModel: ObservableObject {
     // ==================
     init() {
         self.recipes = RecipeBook.shared.recipes.map { (recipe: $0, selected: Bool.random()) }
-                
+
         showSubtitle = true
         leadingIconOption = .circle
         trailingOption = .checkmark
