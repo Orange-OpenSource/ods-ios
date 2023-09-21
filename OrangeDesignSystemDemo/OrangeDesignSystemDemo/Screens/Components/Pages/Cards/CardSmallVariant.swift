@@ -74,9 +74,9 @@ struct CardSmallVariant: View {
                             }
                     }
                 }
+                .padding(.horizontal, ODSSpacing.m)
+                .padding(.top, ODSSpacing.m)
             }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.top, ODSSpacing.m)
         } options: {
             CardSmallVariantOptions(model: model)
         }

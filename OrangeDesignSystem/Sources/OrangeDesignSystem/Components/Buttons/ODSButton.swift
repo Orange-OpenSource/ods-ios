@@ -36,11 +36,19 @@ public struct ODSButton: View {
         case low
     }
 
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     let text: LocalizedStringKey
     let image: Image?
     let emphasis: Emphasis
     let variableWidth: Bool
     let action: () -> Void
+
+    // ==================
+    // MARK: Initializers
+    // ==================
 
     /// Initialize the button.
     ///
@@ -64,6 +72,10 @@ public struct ODSButton: View {
         self.variableWidth = variableWidth
         self.action = action
     }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     public var body: some View {
         Button {

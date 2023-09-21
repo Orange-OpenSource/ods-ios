@@ -27,10 +27,17 @@ import SwiftUI
 /// Simple button with icon.
 ///
 public struct ODSIconButton: View {
-    @Environment(\.theme) private var theme
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
     let image: Image
     let action: () -> Void
+
+    // ==================
+    // MARK: Initializers
+    // ==================
 
     /// Initialize the button.
     ///
@@ -43,12 +50,15 @@ public struct ODSIconButton: View {
         self.action = action
     }
 
+    // ==========
+    // MARK: Body
+    // ==========
+
     public var body: some View {
         Button {
             action()
         } label: {
             ODSIcon(image)
-                .foregroundColor(theme.componentColors.accent)
         }
     }
 }

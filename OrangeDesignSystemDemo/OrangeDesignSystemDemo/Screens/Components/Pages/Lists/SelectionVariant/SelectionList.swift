@@ -41,7 +41,7 @@ struct SelectionListVariant: View {
         CustomizableVariant {
             SelectionListVariantInner(model: model)
         } options: {
-                SelectionListVariantOptions(model: model)
+            SelectionListVariantOptions(model: model)
         }
     }
 }
