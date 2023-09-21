@@ -128,8 +128,8 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
     // =================
 
     init() {
-        showIcon = true
-        showVariableWidth = false
+        showIcon = false
+        showVariableWidth = true
         showLongText = false
         showEnabled = true
     }
