@@ -60,14 +60,14 @@ struct IconVariant: View {
                         Text("Icon (add)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
                         
                         ODSIconButton(image: Image("Add")) {}
-                            .disabled(model.showDisabled)
+                            .disabled(!model.showEnabled)
                     }
                     
                     VStack(alignment: .center, spacing: ODSSpacing.s) {
                         Text("Icon (info)").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
                         
                         ODSIconButton(image: Image(systemName: "info.circle")) {}
-                            .disabled(model.showDisabled)
+                            .disabled(!model.showEnabled)
                     }
                 }
             }
@@ -85,14 +85,14 @@ class IconVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
-    @Published var showDisabled: Bool
+    @Published var showEnabled: Bool
 
     // =================
     // MARK: Initializer
     // =================
 
     init() {
-        showDisabled = false
+        showEnabled = true
     }
 }
 
@@ -111,7 +111,7 @@ struct IconVariantOptions: View {
 
     var body: some View {
         VStack {
-            Toggle("Show disabled", isOn: $model.showDisabled)
+            Toggle("Enabled", isOn: $model.showEnabled)
         }
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)

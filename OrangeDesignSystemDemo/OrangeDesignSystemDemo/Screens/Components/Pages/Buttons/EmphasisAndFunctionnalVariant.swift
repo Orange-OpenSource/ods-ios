@@ -55,7 +55,7 @@ struct EmphasisVariant: View {
                           image: model.icon,
                           emphasis: emphasis,
                           variableWidth: model.showVariableWidth) {}
-                    .disabled(model.showDisabled)
+                    .disabled(!model.showEnabled)
                     .accessibilityLabel("\(emphasis.rawValue) emphasis button")
             }
         }
@@ -92,7 +92,7 @@ struct FunctionalVariant: View {
                                     image: model.icon,
                                     style: style,
                                     variableWidth: model.showVariableWidth) {}
-                    .disabled(model.showDisabled)
+                    .disabled(!model.showEnabled)
                     .accessibilityLabel("\(style.rawValue) functional button")
             }
         }
@@ -121,17 +121,17 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
     @Published var showIcon: Bool
     @Published var showVariableWidth: Bool
     @Published var showLongText: Bool
-    @Published var showDisabled: Bool
+    @Published var showEnabled: Bool
 
     // =================
     // MARK: Initializer
     // =================
 
     init() {
-        showIcon = false
+        showIcon = true
         showVariableWidth = false
         showLongText = false
-        showDisabled = false
+        showEnabled = true
     }
 
     // =====================
@@ -139,7 +139,7 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
     // =====================
 
     var text: LocalizedStringKey {
-        showLongText ? "Terms and conditions" : (showDisabled ? "Disabled" : "Enabled")
+        showLongText ? "Terms and conditions" : (showEnabled ? "Enabled" : "Disabled")
     }
 
     var icon: Image? {
@@ -161,10 +161,10 @@ struct EmphasisAndFunctionalVariantOptions: View {
 
     var body: some View {
         VStack {
-            Toggle("Show icon", isOn: $model.showIcon)
-            Toggle("Show variable width", isOn: $model.showVariableWidth)
-            Toggle("Show disabled", isOn: $model.showDisabled)
-            Toggle("Show long text", isOn: $model.showLongText)
+            Toggle("Icon", isOn: $model.showIcon)
+            Toggle("Variable width", isOn: $model.showVariableWidth)
+            Toggle("Enabled", isOn: $model.showEnabled)
+            Toggle("Long text", isOn: $model.showLongText)
         }
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)

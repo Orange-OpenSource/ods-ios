@@ -26,18 +26,26 @@ import SwiftUI
 /// Defines functional buttons (positive or negative)
 public struct ODSFunctionalButton: View {
 
-    @Environment(\.theme) var theme
-
     public enum Style: String, CaseIterable {
         case negative
         case positive
     }
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @Environment(\.theme) var theme
 
     let text: LocalizedStringKey
     let image: Image?
     let style: ODSFunctionalButton.Style
     let variableWidth: Bool
     let action: () -> Void
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     /// Initialize the button.
     ///
@@ -62,6 +70,10 @@ public struct ODSFunctionalButton: View {
         self.action = action
     }
 
+    // ==========
+    // MARK: Body
+    // ==========
+
     public var body: some View {
         Button {
             action()
@@ -71,11 +83,15 @@ public struct ODSFunctionalButton: View {
         .buttonStyle(ODSShapedButtonStyle(shapeType: .filled, foregroundColor: foregroundColor, backgroundColor: backgroundColor))
     }
 
-    var foregroundColor: Color {
+    // =====================
+    // MARK: Private Helpers
+    // =====================
+
+    private var foregroundColor: Color {
         Color(UIColor.systemBackground)
     }
 
-    var backgroundColor: Color {
+    private var backgroundColor: Color {
         switch style {
         case .negative:
             return theme.componentColors.functionalNegative
