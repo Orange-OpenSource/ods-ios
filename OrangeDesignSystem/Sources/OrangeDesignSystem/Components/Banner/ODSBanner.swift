@@ -110,10 +110,10 @@ public struct ODSBanner: View {
 
                 bottomButtons()
             }
+            .padding(.horizontal, ODSSpacing.m)
 
             Divider()
         }
-        .padding(.horizontal, ODSSpacing.m)
     }
 
     // =============
