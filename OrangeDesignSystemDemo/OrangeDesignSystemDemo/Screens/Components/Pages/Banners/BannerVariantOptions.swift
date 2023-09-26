@@ -32,35 +32,9 @@ class BannerVariantModel: ObservableObject {
     
     @Published var showLongText: Bool
     @Published var showImage: Bool
-    @Published var buttonsOption: ButtonsOption
+    @Published var buttonCount: Int
     
-    enum ButtonsOption: Int, CaseIterable {
-        case none = 0
-        case oneButtonNextToText
-        case oneButtonUnderText
-        case twoButtons
-        
-        var description: String {
-            switch self {
-            case .none:
-                return "None"
-            case .oneButtonNextToText:
-                return "One next to text"
-            case .oneButtonUnderText:
-                return "One under text"
-            case .twoButtons:
-                return "Two"
-            }
-        }
-        
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: self.description)
-        }
-        
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
-        }
-    }
+    let buttonsText = ["Action 1", "Action 2"]
 
     // =================
     // MARK: Initializer
@@ -69,7 +43,7 @@ class BannerVariantModel: ObservableObject {
     init() {
         self.showLongText = true
         self.showImage = true
-        self.buttonsOption = .none
+        self.buttonCount = 0
     }
     
     // =============
@@ -77,30 +51,36 @@ class BannerVariantModel: ObservableObject {
     // =============
 
     var text: LocalizedStringKey {
-        let longText = "Two lines text string with two actions. One to two lines is preferable on mobile."
-        let shortText = "One line text string with one action."
+        let longText = "Text could be on several lines. But, One to two lines is preferable on mobile."
+        let shortText = "Short text"
         
         return LocalizedStringKey(showLongText ? longText : shortText)
     }
     
-    var image: Image? {
-        showImage ? Image("ods_empty", bundle: Bundle.ods) : nil
+    var imageSource: ODSImage.Source? {
+        let placeholder = Image("ods_empty", bundle: Bundle.ods)
+        
+        if let url = RecipeBook.shared.recipes.first?.url {
+            return showImage ? .asyncImage(url, placeholder) : nil
+        } else {
+            return showImage ? .image(placeholder) : nil
+        }
     }
     
-    var button: ODSButton {
-        ODSButton(text: "Button", emphasis: .low) {
+    var button: ODSBannerButton {
+        ODSBannerButton(text: "Action") {
             // do something
         }
     }
     
-    var trailingButton: ODSButton {
-        ODSButton(text: "Button 1", emphasis: .low) {
+    var firstButton: ODSBannerButton {
+        ODSBannerButton(text: buttonsText[0]) {
             // do something
         }
     }
     
-    var leadingButton: ODSButton {
-        ODSButton(text: "Button 2", emphasis: .low) {
+    var secondButton: ODSBannerButton {
+        ODSBannerButton(text: buttonsText[1]) {
             // do something
         }
     }
@@ -120,18 +100,14 @@ struct BannerVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Group {
-                Toggle("Long Text", isOn: $model.showLongText)
-                Toggle("Image", isOn: $model.showImage)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .odsFont(.bodyBold)
-            
-            ODSChipPicker(title: "Button options",
-                          selection: $model.buttonsOption,
-                          chips: BannerVariantModel.ButtonsOption.chips)
+            Toggle("Long Text", isOn: $model.showLongText)
+            Toggle("Image", isOn: $model.showImage)
+            Stepper("Number of buttons: \(model.buttonCount)",
+                    value: $model.buttonCount,
+                    in: 0 ... model.buttonsText.count)
         }
         .odsFont(.bodyRegular)
+        .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.m)
     }
 }

@@ -23,79 +23,66 @@
 
 import SwiftUI
 
+public typealias ODSBannerButton = (text: String, onClick: () -> Void)
+
 /// A banner displays an important message which requires an
 /// action to be dismissed.
 ///
 public struct ODSBanner: View {
-
-    public enum OneButtonPosition {
-        case trailing
-        case bottom
-    }
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
     private let text: LocalizedStringKey
-    private let image: Image?
-    private let buttonOptions: ButtonsOptions?
+    private let imageSource: ODSImage.Source?
+    private let firstButton: ODSBannerButton?
+    private let secondButton: ODSBannerButton?
 
     // ==================
     // MARK: Initializers
     // ==================
 
-    /// Initialize the simpliest banner with no buttons.
+    /// Initialize the banner with 0 or one button.
     ///
     /// - Parameters:
-    ///   - text: Text displayed in the button.
-    ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    public init(text: LocalizedStringKey, image: Image? = nil) {
-        self.text = text
-        self.image = image
-        self.buttonOptions = nil
-    }
-
-    /// Initialize the banner with one button. This button
-    /// can be palaced under or next to the text.
-    ///
-    /// - Parameters:
-    ///   - text: Text to be displayed.
-    ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    ///   - button: The button
-    ///   - position: The positiobn of the button
+    ///   - text: Text displayed in the banner.
+    ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
+    ///   - button: Button added under the text.
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
+
     public init(
         text: LocalizedStringKey,
-        image: Image? = nil,
-        button: ODSButton,
-        position: OneButtonPosition
+        imageSource: ODSImage.Source? = nil,
+        button: ODSBannerButton? = nil
     ) {
         self.text = text
-        self.image = image
-        self.buttonOptions = .oneButton(button, position)
+        self.imageSource = imageSource
+        self.firstButton = button
+        self.secondButton = nil
     }
 
-    /// Initialize the banner with two buttons palaced under the text.
+    /// Initialize the banner with two buttons added under the text.
     ///
     /// - Parameters:
-    ///   - text: Text displayed in the button.
-    ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    ///   - leadingButton: The first button.
-    ///   - trailingButton: The second button.
+    ///   - text: Text displayed in the banner.
+    ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
+    ///   - firstButton: First button (leading) added under the text.
+    ///   - secondButton: Second button (trailing) added under the text.
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
-    ///
+
     public init(
         text: LocalizedStringKey,
-        image: Image? = nil,
-        leadingButton: ODSButton,
-        trailingButton: ODSButton
+        imageSource: ODSImage.Source? = nil,
+        firstButton: ODSBannerButton,
+        secondButton: ODSBannerButton
     ) {
         self.text = text
-        self.image = image
-        self.buttonOptions = .twoButtons(leadingButton, trailingButton)
+        self.imageSource = imageSource
+        self.firstButton = firstButton
+        self.secondButton = secondButton
     }
 
     // ==========
@@ -103,26 +90,30 @@ public struct ODSBanner: View {
     // ==========
 
     public var body: some View {
-        VStack(spacing: ODSSpacing.m) {
-            HStack(spacing: ODSSpacing.s) {
-                image?
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 40.0, height: 40.0, alignment: .center)
-                    .clipShape(Circle())
-                    .accessibilityHidden(true)
+        VStack(spacing: ODSSpacing.none) {
+            VStack(alignment: .trailing, spacing: ODSSpacing.none) {
+                HStack(spacing: ODSSpacing.m) {
+                    if let imageSource = imageSource {
+                        ODSImage(source: imageSource)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 40.0, height: 40.0, alignment: .center)
+                            .clipShape(Circle())
+                            .accessibilityHidden(true)
+                    }
 
-                Text(text)
-                    .odsFont(.subhead)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(text)
+                        .odsFont(.subhead)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.top, ODSSpacing.m)
+                .padding(.bottom, firstButton == nil ? ODSSpacing.m : ODSSpacing.none)
 
-                nextToTextButton()
+                bottomButtons()
             }
+            .padding(.horizontal, ODSSpacing.m)
 
-            bottomButtons()
+            Divider()
         }
-        .padding(.horizontal, ODSSpacing.m)
-        .padding(.vertical, ODSSpacing.m)
     }
 
     // =============
@@ -130,35 +121,20 @@ public struct ODSBanner: View {
     // =============
 
     @ViewBuilder
-    private func nextToTextButton() -> some View {
-        if case let .oneButton(button, position) = buttonOptions,
-           position == .trailing {
-            button.modifier(ODSButtonStyleModifier(emphasis: .low))
-        }
-    }
-
-    @ViewBuilder
     private func bottomButtons() -> some View {
-        if case let .oneButton(button, position) = buttonOptions,
-           position == .bottom {
-            HStack {
-                Spacer()
-                button.modifier(ODSButtonStyleModifier(emphasis: .low))
-            }
-        } else {
-            if case let .twoButtons(leadingButton, tralingButton) = buttonOptions {
-                HStack(spacing: ODSSpacing.xs) {
-                    Spacer()
-                    leadingButton.modifier(ODSButtonStyleModifier(emphasis: .low))
-                    tralingButton.modifier(ODSButtonStyleModifier(emphasis: .low))
+        if let firstButton = firstButton {
+            HStack(spacing: ODSSpacing.none) {
+                ODSButton(text: LocalizedStringKey(firstButton.text), emphasis: .low) {
+                    firstButton.onClick()
+                }
+
+                if let secondButton = secondButton {
+                    ODSButton(text: LocalizedStringKey(secondButton.text), emphasis: .low) {
+                        secondButton.onClick()
+                    }
                 }
             }
         }
-    }
-
-    private enum ButtonsOptions {
-        case oneButton(ODSButton, OneButtonPosition)
-        case twoButtons(ODSButton, ODSButton)
     }
 }
 
@@ -169,26 +145,25 @@ struct ODSBanner_Previews: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self) {
             ODSThemeableView(theme: ODSTheme()) {
                 VStack {
-                    ODSBanner(text: "A short desciption to see text",
-                              image: Image("ods_empty", bundle: Bundle.ods))
+                    ODSBanner(text: "A short desciption to see text")
                     .border(.gray)
 
                     ODSBanner(text: "A short desciption to see text",
-                              image: Image("ods_empty", bundle: Bundle.ods),
-                              button: ODSButton(text: "Button", emphasis: .low) {},
-                              position: .trailing)
+                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
                     .border(.gray)
 
                     ODSBanner(text: "A short desciption to see text",
-                              image: Image("ods_empty", bundle: Bundle.ods),
-                              button: ODSButton(text: "Button", emphasis: .low) {},
-                              position: .bottom)
+                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+                              button: ODSBannerButton("Button", {})
+                    )
+
                     .border(.gray)
 
                     ODSBanner(text: "A short desciption to see text",
-                              image: Image("ods_empty", bundle: Bundle.ods),
-                              leadingButton: ODSButton(text: "Button", emphasis: .low) {},
-                              trailingButton: ODSButton(text: "Button", emphasis: .low) {})
+                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+                              firstButton: ODSBannerButton(text: "Button", onClick: {}),
+                              secondButton: ODSBannerButton(text: "Button", onClick: {})
+                    )
                     .border(.gray)
                 }
             }
