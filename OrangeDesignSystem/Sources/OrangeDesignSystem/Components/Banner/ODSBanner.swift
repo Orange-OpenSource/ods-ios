@@ -43,12 +43,12 @@ public struct ODSBanner: View {
     // MARK: Initializers
     // ==================
 
-    /// Initialize the simpliest banner with 0 or one button.
+    /// Initialize the banner with 0 or one button.
     ///
     /// - Parameters:
     ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
-    ///   - button: The button added under text.
+    ///   - button: Button added under the text.
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
 
@@ -63,13 +63,13 @@ public struct ODSBanner: View {
         self.secondButton = nil
     }
 
-    /// Initialize the simpliest banner with two buttons added under text.
+    /// Initialize the banner with two buttons added under the text.
     ///
     /// - Parameters:
-    ///   - text: Text displayed in the button.
+    ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
-    ///   - firstButton: The first button.
-    ///   - secondButton: The second button.
+    ///   - firstButton: First button (leading) added under the text.
+    ///   - secondButton: Second button (trailing) added under the text.
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
 
