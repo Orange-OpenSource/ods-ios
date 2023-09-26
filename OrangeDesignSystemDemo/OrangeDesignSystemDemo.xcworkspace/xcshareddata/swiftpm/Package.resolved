@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "DeclarationAccessibility",
+        "repositoryURL": "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git",
+        "state": {
+          "branch": "master",
+          "revision": "531cf3e82f86e57990b43e0a49e310e6f36adc59",
+          "version": null
+        }
+      },
+      {
         "package": "BottomSheet",
         "repositoryURL": "https://github.com/lucaszischka/BottomSheet",
         "state": {

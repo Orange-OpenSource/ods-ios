@@ -103,7 +103,7 @@ struct AboutScreen: View {
         
         privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!))
         
-        accessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "not_available_yet", reportDetail: URL(string: "not_available_yet")!)
+        accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "not_available_yet")!)
         
         appNewPath = Bundle.main.path(forResource: "AppNews", ofType: "json")!
         

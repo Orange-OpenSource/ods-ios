@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		076B79072AC1B4A800CCF0E4 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */; };
+		076C0E0D2AC1BCF800AAE074 /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
+		076C0E0F2AC1BCF800AAE074 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
+		076C0E112AC1BCF800AAE074 /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
 		077C37CF2A9DD643003D6B51 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CA2A9DD643003D6B51 /* Colors.xcassets */; };
 		077C37D32A9DD643003D6B51 /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CE2A9DD643003D6B51 /* Recipes.json */; };
 		077C37D72A9DD6A4003D6B51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37D62A9DD6A3003D6B51 /* Preview Assets.xcassets */; };
@@ -89,10 +93,7 @@
 		077C389E2A9DEEDC003D6B51 /* ThemeablePreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38962A9DEEDC003D6B51 /* ThemeablePreviews.swift */; };
 		077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 		077C38A52AA215BC003D6B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CB2A9DD643003D6B51 /* Assets.xcassets */; };
-		079821C729262C4400BE3116 /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 079821C629262C4400BE3116 /* InnovationCupTheme */; };
-		079821C92926340B00BE3116 /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 079821C82926340B00BE3116 /* OrangeTheme */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
-		07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */; };
 		F99FF08C2767B23E006236A0 /* OrangeDesignSystemDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */; };
@@ -126,6 +127,7 @@
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		07210C4C2A8FAD5900507988 /* Pluginfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pluginfile; path = fastlane/Pluginfile; sourceTree = "<group>"; };
+		076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AccessibilityStatement.xml; sourceTree = "<group>"; };
 		077C37C12A9CED34003D6B51 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Gemfile; path = ../Gemfile; sourceTree = "<group>"; };
 		077C37C22A9CED5E003D6B51 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitattributes; path = ../.gitattributes; sourceTree = "<group>"; };
 		077C37C32A9CED5E003D6B51 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = ../.swiftlint.yml; sourceTree = "<group>"; };
@@ -238,9 +240,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				079821C729262C4400BE3116 /* InnovationCupTheme in Frameworks */,
-				07E0A1B928AE8D2900CD1C32 /* OrangeDesignSystem in Frameworks */,
-				079821C92926340B00BE3116 /* OrangeTheme in Frameworks */,
+				076C0E0F2AC1BCF800AAE074 /* OrangeDesignSystem in Frameworks */,
+				076C0E0D2AC1BCF800AAE074 /* InnovationCupTheme in Frameworks */,
+				076C0E112AC1BCF800AAE074 /* OrangeTheme in Frameworks */,
 				07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +310,7 @@
 				077C37CB2A9DD643003D6B51 /* Assets.xcassets */,
 				077C37CA2A9DD643003D6B51 /* Colors.xcassets */,
 				077C37CC2A9DD643003D6B51 /* Info.plist */,
+				076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */,
 				077C37CE2A9DD643003D6B51 /* Recipes.json */,
 				077C388A2A9DEE16003D6B51 /* AppNews.json */,
 				077C37E22A9DDACC003D6B51 /* CGU.html */,
@@ -790,9 +793,9 @@
 			);
 			name = OrangeDesignSystemDemo;
 			packageProductDependencies = (
-				07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */,
-				079821C629262C4400BE3116 /* InnovationCupTheme */,
-				079821C82926340B00BE3116 /* OrangeTheme */,
+				076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */,
+				076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */,
+				076C0E102AC1BCF800AAE074 /* OrangeTheme */,
 			);
 			productName = "ods-ios-swiftUI-demo";
 			productReference = EB0AA530275652AE0012E192 /* OrangeDesignSystemDemo.app */;
@@ -892,6 +895,7 @@
 				077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */,
 				077C37D72A9DD6A4003D6B51 /* Preview Assets.xcassets in Resources */,
 				077C37E42A9DDACC003D6B51 /* CGU.html in Resources */,
+				076B79072AC1B4A800CCF0E4 /* AccessibilityStatement.xml in Resources */,
 				077C38A52AA215BC003D6B51 /* Assets.xcassets in Resources */,
 				077C37CF2A9DD643003D6B51 /* Colors.xcassets in Resources */,
 			);
@@ -1459,17 +1463,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		079821C629262C4400BE3116 /* InnovationCupTheme */ = {
+		076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InnovationCupTheme;
 		};
-		079821C82926340B00BE3116 /* OrangeTheme */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OrangeTheme;
-		};
-		07E0A1B828AE8D2900CD1C32 /* OrangeDesignSystem */ = {
+		076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OrangeDesignSystem;
+		};
+		076C0E102AC1BCF800AAE074 /* OrangeTheme */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OrangeTheme;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
