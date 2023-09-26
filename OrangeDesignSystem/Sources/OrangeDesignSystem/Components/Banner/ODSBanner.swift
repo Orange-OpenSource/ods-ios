@@ -92,7 +92,7 @@ public struct ODSBanner: View {
     public var body: some View {
         VStack(spacing: ODSSpacing.none) {
             VStack(alignment: .trailing, spacing: ODSSpacing.none) {
-                HStack(spacing: ODSSpacing.s) {
+                HStack(spacing: ODSSpacing.m) {
                     image?
                         .resizable()
                         .aspectRatio(contentMode: .fill)

@@ -32,35 +32,9 @@ class BannerVariantModel: ObservableObject {
     
     @Published var showLongText: Bool
     @Published var showImage: Bool
-    @Published var buttonsOption: ButtonsOption
+    @Published var buttonCount: Int
     
-    enum ButtonsOption: Int, CaseIterable {
-        case none = 0
-        case oneButtonNextToText
-        case oneButtonUnderText
-        case twoButtons
-        
-        var description: String {
-            switch self {
-            case .none:
-                return "None"
-            case .oneButtonNextToText:
-                return "One next to text"
-            case .oneButtonUnderText:
-                return "One under text"
-            case .twoButtons:
-                return "Two"
-            }
-        }
-        
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: self.description)
-        }
-        
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
-        }
-    }
+    let buttonsText = ["Button 1", "Button 2"]
 
     // =================
     // MARK: Initializer
@@ -69,7 +43,7 @@ class BannerVariantModel: ObservableObject {
     init() {
         self.showLongText = true
         self.showImage = true
-        self.buttonsOption = .none
+        self.buttonCount = 0
     }
     
     // =============
@@ -94,13 +68,13 @@ class BannerVariantModel: ObservableObject {
     }
     
     var firstButton: ODSBannerButton {
-        ODSBannerButton(text: "Button 1") {
+        ODSBannerButton(text: buttonsText[0]) {
             // do something
         }
     }
     
     var secondButton: ODSBannerButton {
-        ODSBannerButton(text: "Button 2") {
+        ODSBannerButton(text: buttonsText[1]) {
             // do something
         }
     }
@@ -120,18 +94,14 @@ struct BannerVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Group {
-                Toggle("Long Text", isOn: $model.showLongText)
-                Toggle("Image", isOn: $model.showImage)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .odsFont(.bodyBold)
-            
-            ODSChipPicker(title: "Button options",
-                          selection: $model.buttonsOption,
-                          chips: BannerVariantModel.ButtonsOption.chips)
+            Toggle("Long Text", isOn: $model.showLongText)
+            Toggle("Image", isOn: $model.showImage)
+            Stepper("Number of buttons: \(model.buttonCount)",
+                    value: $model.buttonCount,
+                    in: 0 ... model.buttonsText.count)
         }
         .odsFont(.bodyRegular)
+        .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.m)
     }
 }
