@@ -203,7 +203,6 @@ private struct PaddingModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .readSize { size in
-                print("size\(size.height)")
                 height = size.height
             }
             .padding(.top, topPadding)

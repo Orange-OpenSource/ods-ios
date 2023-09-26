@@ -65,7 +65,6 @@ struct BannerVariant: View {
         CustomizableVariant {
             BannerVariantContent(model: model)
         } options: {
-
             BannerVariantOptions(model: model)
         }
     }
@@ -86,19 +85,21 @@ struct BannerVariantContent: View {
     var body: some View {
         VStack {
             Group {
-                switch model.buttonsOption {
-                case .none:
-                    ODSBanner(text: model.text, image: model.image)
-                case .oneButtonNextToText:
-                    ODSBanner(text: model.text, image: model.image,
-                              button: model.button, position: .trailing)
-                case .oneButtonUnderText:
-                    ODSBanner(text: model.text, image: model.image,
-                              button: model.button, position: .bottom)
-                case .twoButtons:
-                    ODSBanner(text: model.text, image: model.image,
-                              leadingButton: model.leadingButton,
-                              trailingButton: model.trailingButton)
+                switch model.buttonCount {
+                case 0:
+                    ODSBanner(text: model.text, imageSource: model.imageSource)
+                case 1:
+                    ODSBanner(
+                        text: model.text,
+                        imageSource: model.imageSource,
+                        button: model.button)
+                case 2:
+                    ODSBanner(
+                        text: model.text, imageSource: model.imageSource,
+                        firstButton: model.firstButton,
+                        secondButton: model.secondButton)
+                default:
+                    EmptyView()
                 }
             }
             
