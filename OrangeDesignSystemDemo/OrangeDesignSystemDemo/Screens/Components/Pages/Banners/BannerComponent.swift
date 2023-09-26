@@ -87,13 +87,17 @@ struct BannerVariantContent: View {
             Group {
                 switch model.buttonCount {
                 case 0:
-                    ODSBanner(text: model.text, image: model.image)
+                    ODSBanner(text: model.text, imageSource: model.imageSource)
                 case 1:
-                    ODSBanner(text: model.text, image: model.image, button: model.button)
+                    ODSBanner(
+                        text: model.text,
+                        imageSource: model.imageSource,
+                        button: model.button)
                 case 2:
-                    ODSBanner(text: model.text, image: model.image,
-                              firstButton: model.firstButton,
-                              secondButton: model.secondButton)
+                    ODSBanner(
+                        text: model.text, imageSource: model.imageSource,
+                        firstButton: model.firstButton,
+                        secondButton: model.secondButton)
                 default:
                     EmptyView()
                 }

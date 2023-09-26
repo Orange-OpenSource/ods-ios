@@ -34,7 +34,7 @@ class BannerVariantModel: ObservableObject {
     @Published var showImage: Bool
     @Published var buttonCount: Int
     
-    let buttonsText = ["Button 1", "Button 2"]
+    let buttonsText = ["Action 1", "Action 2"]
 
     // =================
     // MARK: Initializer
@@ -51,18 +51,24 @@ class BannerVariantModel: ObservableObject {
     // =============
 
     var text: LocalizedStringKey {
-        let longText = "Two lines text string with two actions. One to two lines is preferable on mobile."
-        let shortText = "One line text string with one action."
+        let longText = "Text could be on several lines. But, One to two lines is preferable on mobile."
+        let shortText = "Short text"
         
         return LocalizedStringKey(showLongText ? longText : shortText)
     }
     
-    var image: Image? {
-        showImage ? Image("ods_empty", bundle: Bundle.ods) : nil
+    var imageSource: ODSImage.Source? {
+        let placeholder = Image("ods_empty", bundle: Bundle.ods)
+        
+        if let url = RecipeBook.shared.recipes.first?.url {
+            return showImage ? .asyncImage(url, placeholder) : nil
+        } else {
+            return showImage ? .image(placeholder) : nil
+        }
     }
     
     var button: ODSBannerButton {
-        ODSBannerButton(text: "Button") {
+        ODSBannerButton(text: "Action") {
             // do something
         }
     }
