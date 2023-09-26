@@ -90,15 +90,13 @@ struct BannerVariantContent: View {
                 case .none:
                     ODSBanner(text: model.text, image: model.image)
                 case .oneButtonNextToText:
-                    ODSBanner(text: model.text, image: model.image,
-                              button: model.button, position: .trailing)
+                    ODSBanner(text: model.text, image: model.image, button: model.button)
                 case .oneButtonUnderText:
-                    ODSBanner(text: model.text, image: model.image,
-                              button: model.button, position: .bottom)
+                    ODSBanner(text: model.text, image: model.image, button: model.button)
                 case .twoButtons:
                     ODSBanner(text: model.text, image: model.image,
-                              leadingButton: model.leadingButton,
-                              trailingButton: model.trailingButton)
+                              firstButton: model.firstButton,
+                              secondButton: model.secondButton)
                 }
             }
             

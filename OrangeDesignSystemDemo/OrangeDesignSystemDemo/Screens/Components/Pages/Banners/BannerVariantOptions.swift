@@ -87,20 +87,20 @@ class BannerVariantModel: ObservableObject {
         showImage ? Image("ods_empty", bundle: Bundle.ods) : nil
     }
     
-    var button: ODSButton {
-        ODSButton(text: "Button", emphasis: .low) {
+    var button: ODSBannerButton {
+        ODSBannerButton(text: "Button") {
             // do something
         }
     }
     
-    var trailingButton: ODSButton {
-        ODSButton(text: "Button 1", emphasis: .low) {
+    var firstButton: ODSBannerButton {
+        ODSBannerButton(text: "Button 1") {
             // do something
         }
     }
     
-    var leadingButton: ODSButton {
-        ODSButton(text: "Button 2", emphasis: .low) {
+    var secondButton: ODSBannerButton {
+        ODSBannerButton(text: "Button 2") {
             // do something
         }
     }
