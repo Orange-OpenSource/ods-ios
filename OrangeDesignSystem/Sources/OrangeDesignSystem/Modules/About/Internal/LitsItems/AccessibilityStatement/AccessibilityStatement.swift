@@ -20,6 +20,7 @@
 //
 //
 
+import DeclarationAccessibility
 import SwiftUI
 
 struct AboutAccessibilityStatementItemConfig: ODSAboutListItemConfig {
@@ -41,7 +42,11 @@ struct AboutAccessibilityStatementItemConfig: ODSAboutListItemConfig {
         title = "Accessibility Statement"
         icon = Image("ic_accessibility", bundle: Bundle.ods)
         priority = .accessibilityStatement
-        target = .destination(AnyView(AccessibilityStatement(statementConfig: statementConfig)))
+        target = .destination(AnyView(
+            DeclarationView(xmlFileName: statementConfig.fileName,
+                            selectedTheme: .orange,
+                            url: statementConfig.reportDetail.absoluteString)
+        ))
     }
 }
 
@@ -58,9 +63,10 @@ private struct AccessibilityStatement: View {
     // ==========
 
     var body: some View {
-        ScrollView {
-            Text("The Accessibility statement can be generated using the Orange's V11ydette: https://la-va11ydette.orange.com/")
-                .padding(ODSSpacing.m)
+        VStack {
+           
+//            Text("The Accessibility statement can be generated using the Orange's V11ydette: https://la-va11ydette.orange.com/")
+//                .padding(ODSSpacing.m)
         }
     }
 }

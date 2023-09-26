@@ -43,12 +43,15 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("3.1.0"))
+        .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("3.1.0")),
+        .package(url: "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git", .branch("master"))
     ],
     targets: [
         .target(
             name: "OrangeDesignSystem",
-            dependencies: ["BottomSheet"],
+            dependencies: ["BottomSheet",
+                           .product(name: "DeclarationAccessibility", package: "accessibility-statement-lib-ios")
+                           ],
             path: "OrangeDesignSystem/Sources"),
         .target(
             name: "OrangeTheme",

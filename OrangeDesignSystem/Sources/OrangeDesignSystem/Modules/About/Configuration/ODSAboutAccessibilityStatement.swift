@@ -33,7 +33,7 @@ public struct ODSAboutAccessibilityStatement {
     // MARK: Stored Properties
     // =======================
 
-    let reportPath: String
+    let fileName: String
     let reportDetail: URL
 
     // =================
@@ -43,11 +43,12 @@ public struct ODSAboutAccessibilityStatement {
     /// Initializes the confguration providing the locations of the report.
     ///
     /// - Parameters:
-    ///    - reportPath: Path where the report of accessibility statement is stored
+    ///    - fileName: The name of the XML file contains the report of accessibility statement.
+    ///    By default must be stored in resources of the main bundle.
     ///    - reportDetail: Url to get the full detail of the accessibility statement
     ///
-    public init(reportPath: String, reportDetail: URL) {
-        self.reportPath = reportPath
+    public init(fileName: String, reportDetail: URL) {
+        self.fileName = fileName
         self.reportDetail = reportDetail
     }
 }
