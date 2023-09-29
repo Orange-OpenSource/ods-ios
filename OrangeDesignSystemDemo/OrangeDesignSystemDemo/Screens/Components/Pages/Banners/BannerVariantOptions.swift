@@ -67,22 +67,16 @@ class BannerVariantModel: ObservableObject {
         }
     }
     
-    var button: ODSBannerButton {
-        ODSBannerButton(text: "Action") {
-            // do something
-        }
+    var buttonText: String {
+        "Action"
     }
     
-    var firstButton: ODSBannerButton {
-        ODSBannerButton(text: buttonsText[0]) {
-            // do something
-        }
+    var firstButton: String {
+        buttonsText[0]
     }
     
-    var secondButton: ODSBannerButton {
-        ODSBannerButton(text: buttonsText[1]) {
-            // do something
-        }
+    var secondButton: String  {
+        buttonsText[1]
     }
 }
 
