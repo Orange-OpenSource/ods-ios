@@ -23,45 +23,23 @@
 
 import SwiftUI
 
-public typealias ODSBannerButton = (text: String, onClick: () -> Void)
-
 /// A banner displays an important message which requires an
 /// action to be dismissed.
 ///
-public struct ODSBanner: View {
+public struct ODSBanner<Button1Content, Button2Content>: View where Button1Content: View, Button2Content: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    private let text: LocalizedStringKey
+    private let text: Text
     private let imageSource: ODSImage.Source?
-    private let firstButton: ODSBannerButton?
-    private let secondButton: ODSBannerButton?
+    private let firstButton: (() -> Button<Button1Content>)?
+    private let secondButton: (() -> Button<Button2Content>)?
 
     // ==================
     // MARK: Initializers
     // ==================
-
-    /// Initialize the banner with 0 or one button.
-    ///
-    /// - Parameters:
-    ///   - text: Text displayed in the banner.
-    ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
-    ///   - button: Button added under the text.
-    ///
-    /// - Remarks: The default low emphasis is automatically applied on buttons.
-
-    public init(
-        text: LocalizedStringKey,
-        imageSource: ODSImage.Source? = nil,
-        button: ODSBannerButton? = nil
-    ) {
-        self.text = text
-        self.imageSource = imageSource
-        self.firstButton = button
-        self.secondButton = nil
-    }
 
     /// Initialize the banner with two buttons added under the text.
     ///
@@ -73,16 +51,48 @@ public struct ODSBanner: View {
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
 
-    public init(
-        text: LocalizedStringKey,
-        imageSource: ODSImage.Source? = nil,
-        firstButton: ODSBannerButton,
-        secondButton: ODSBannerButton
-    ) {
+    public init(_ text: Text,
+                imageSource: ODSImage.Source? = nil,
+                @ViewBuilder firstButton: @escaping () -> Button<Button1Content>,
+                @ViewBuilder secondButton: @escaping () -> Button<Button2Content>) {
         self.text = text
         self.imageSource = imageSource
         self.firstButton = firstButton
         self.secondButton = secondButton
+    }
+
+    /// Initialize the banner with one button.
+    ///
+    /// - Parameters:
+    ///   - text: Text displayed in the banner.
+    ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
+    ///   - button: Button added under the text.
+    ///
+    /// - Remarks: The default low emphasis is automatically applied on buttons.
+
+    public init(_ text: Text,
+                imageSource: ODSImage.Source? = nil,
+                @ViewBuilder button: @escaping () -> Button<Button1Content>) where Button2Content == EmptyView
+    {
+        self.text = text
+        self.imageSource = imageSource
+        self.firstButton = button
+        self.secondButton = nil
+    }
+
+    /// Initialize the banner without button.
+    ///
+    /// - Parameters:
+    ///   - text: Text displayed in the banner.
+    ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
+    ///
+    public init(_ text: Text, imageSource: ODSImage.Source? = nil)
+    where Button1Content == EmptyView, Button2Content == EmptyView
+    {
+        self.text = text
+        self.imageSource = imageSource
+        self.firstButton = nil
+        self.secondButton = nil
     }
 
     // ==========
@@ -101,16 +111,16 @@ public struct ODSBanner: View {
                             .accessibilityHidden(true)
                     }
 
-                    Text(text)
+                    text
                         .odsFont(.subhead)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.top, ODSSpacing.m)
                 .padding(.bottom, firstButton == nil ? ODSSpacing.m : ODSSpacing.none)
+                .padding(.horizontal, ODSSpacing.m)
 
                 bottomButtons()
             }
-            .padding(.horizontal, ODSSpacing.m)
 
             Divider()
         }
@@ -124,15 +134,8 @@ public struct ODSBanner: View {
     private func bottomButtons() -> some View {
         if let firstButton = firstButton {
             HStack(spacing: ODSSpacing.none) {
-                ODSButton(text: LocalizedStringKey(firstButton.text), emphasis: .lowest) {
-                    firstButton.onClick()
-                }
-
-                if let secondButton = secondButton {
-                    ODSButton(text: LocalizedStringKey(secondButton.text), emphasis: .lowest) {
-                        secondButton.onClick()
-                    }
-                }
+                firstButton().modifier(ODSButtonStyleModifier(emphasis: .low))
+                secondButton?().modifier(ODSButtonStyleModifier(emphasis: .low))
             }
         }
     }
@@ -145,25 +148,31 @@ struct ODSBanner_Previews: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self) {
             ODSThemeableView(theme: ODSTheme()) {
                 VStack {
-                    ODSBanner(text: "A short desciption to see text")
+                    ODSBanner(Text("A short desciption to see text"))
                     .border(.gray)
 
-                    ODSBanner(text: "A short desciption to see text",
+                    ODSBanner(Text("A short desciption to see text"),
                               imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
                     .border(.gray)
 
-                    ODSBanner(text: "A short desciption to see text",
-                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-                              button: ODSBannerButton("Button", {})
-                    )
-
+                    ODSBanner(Text("A short desciption to see text"),
+                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
+                        Button("Text") {
+                            // Do Something here
+                        }
+                    }
                     .border(.gray)
 
-                    ODSBanner(text: "A short desciption to see text",
-                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-                              firstButton: ODSBannerButton(text: "Button", onClick: {}),
-                              secondButton: ODSBannerButton(text: "Button", onClick: {})
-                    )
+                    ODSBanner(Text("A short desciption to see text"),
+                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
+                        Button("Button 1") {
+                            // Do something
+                        }
+                    } secondButton: {
+                        Button("Button 2") {
+                            // Do something
+                        }
+                    }
                     .border(.gray)
                 }
             }
