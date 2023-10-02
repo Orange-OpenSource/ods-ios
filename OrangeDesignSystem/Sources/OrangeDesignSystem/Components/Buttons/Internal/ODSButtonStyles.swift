@@ -23,6 +23,41 @@
 
 import SwiftUI
 
+public struct ODSButtonStyle: ButtonStyle {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+    
+    let emphasis: ODSButton.Emphasis
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    public init(emphasis: ODSButton.Emphasis) {
+        self.emphasis = emphasis
+    }
+    
+    // ==========
+    // MARK: Body
+    // ==========
+
+    @ViewBuilder
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding(16)
+            .modifier(ODSButtonStyleModifier(emphasis: emphasis))
+    }
+}
+
+extension View {
+    func odsButtonEmphasis(_ emphasis: ODSButton.Emphasis) -> some View {
+        self.buttonStyle(ODSButtonStyle(emphasis: emphasis))
+    }
+}
+
+
 // MARK: style modifier
 
 /// Modifier to apply the right style on the button according to the emphais
