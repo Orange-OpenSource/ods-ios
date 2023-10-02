@@ -56,11 +56,11 @@ let model = ODSCardVerticalImageFirstModel(
     supportingText: "A supporting text to describe something")
     
 ODSCardVerticalImageFirst(model: model) {
-    ODSButton(text: "Button 1", emphasis: .medium) {
+    ODSButton(text: "Button 1", emphasis: .low) {
             // do something here
         }
     } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .medium) {
+        ODSButton(text: "Button 1", emphasis: .low) {
             // do something here
         } 
     }
@@ -89,11 +89,11 @@ let model = ODSCardVerticalHeaderFirstModel(
     supportingText: "A supporting text to describe something")
     
 ODSCardVerticalHeaderFirst(model: model) {
-    ODSButton(text: "Button 1", emphasis: .medium) {
+    ODSButton(text: "Button 1", emphasis: .low) {
             // do something here
         }
     } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .medium) {
+        ODSButton(text: "Button 1", emphasis: .low) {
             // do something here
         } 
     }
@@ -122,11 +122,11 @@ let model = ODSCardHorizontalModel(
     supportingText: "A supporting text to describe something")
     
 ODSCardHorizontal(model: model) {
-    ODSButton(text: "Button 1", emphasis: .medium) {
+    ODSButton(text: "Button 1", emphasis: .low) {
             // do something here
         }
     } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .medium) {
+        ODSButton(text: "Button 1", emphasis: .low) {
             // do something here
         } 
     }

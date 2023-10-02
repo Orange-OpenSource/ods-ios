@@ -30,10 +30,10 @@ import SwiftUI
 ///
 public struct ODSButton: View {
     public enum Emphasis: String, CaseIterable {
-        case highest
         case high
         case medium
         case low
+        case lowest
     }
 
     // =======================

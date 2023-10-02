@@ -168,7 +168,7 @@ fileprivate struct PageContent: View {
                                            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
                                            supportingText: recipe.description)
             ODSCardVerticalImageFirst(model: cardModel) {
-                ODSButton(text: "Start preparing", emphasis: .highest, action: {})
+                ODSButton(text: "Start preparing", emphasis: .high, action: {})
             }
                 .padding(.horizontal, ODSSpacing.s)
         } else {

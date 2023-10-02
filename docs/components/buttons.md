@@ -33,16 +33,16 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 Button variants range in style to denote emphasis. Use different styles and not size to show the preferred choice. 
 
 ```swift
-// Highest emphasis
+// High emphasis
 ODSButton(text: "Some text",
           image: Image("Add"),
-          emphasis: .highest,
+          emphasis: .high,
           variableWidth: true) {}
 
-// Low emphasis
+// Lowest emphasis
 ODSButton(text: "Some text",
           image: Image("Add"),
-          emphasis: .low,
+          emphasis: .lowest,
           variableWidth: true) {}
 ``` 
 
