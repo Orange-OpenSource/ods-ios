@@ -86,15 +86,15 @@ struct BannerVariantContent: View {
         VStack {
             switch model.buttonCount {
             case 0:
-                ODSBanner(text: model.text, imageSource: model.imageSource)
+                ODSBanner(model.text, imageSource: model.imageSource)
             case 1:
-                ODSBanner(text: model.text, imageSource: model.imageSource) {
+                ODSBanner(model.text, imageSource: model.imageSource) {
                     Button(model.buttonText) {
                         // Do something
                     }
                 }
             case 2:
-                ODSBanner(text: model.text, imageSource: model.imageSource) {
+                ODSBanner(model.text, imageSource: model.imageSource) {
                     Button(model.buttonText) {
                         // Do something
                     }

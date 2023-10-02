@@ -50,11 +50,11 @@ class BannerVariantModel: ObservableObject {
     // MARK: Helpers
     // =============
 
-    var text: LocalizedStringKey {
+    var text: Text {
         let longText = "Text could be on several lines. But, One to two lines is preferable on mobile."
         let shortText = "Short text"
         
-        return LocalizedStringKey(showLongText ? longText : shortText)
+        return Text(showLongText ? longText : shortText)
     }
     
     var imageSource: ODSImage.Source? {

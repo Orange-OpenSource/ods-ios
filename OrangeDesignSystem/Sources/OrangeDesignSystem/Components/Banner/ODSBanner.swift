@@ -32,7 +32,7 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
     // MARK: Stored Properties
     // =======================
 
-    private let text: LocalizedStringKey
+    private let text: Text
     private let imageSource: ODSImage.Source?
     private let firstButton: (() -> Button<Button1Content>)?
     private let secondButton: (() -> Button<Button2Content>)?
@@ -51,7 +51,7 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
 
-    public init(text: LocalizedStringKey,
+    public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
                 @ViewBuilder firstButton: @escaping () -> Button<Button1Content>,
                 @ViewBuilder secondButton: @escaping () -> Button<Button2Content>) {
@@ -70,7 +70,7 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
     ///
     /// - Remarks: The default low emphasis is automatically applied on buttons.
 
-    public init(text: LocalizedStringKey,
+    public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
                 @ViewBuilder button: @escaping () -> Button<Button1Content>) where Button2Content == EmptyView
     {
@@ -86,7 +86,7 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
     ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
     ///
-    public init(text: LocalizedStringKey, imageSource: ODSImage.Source? = nil)
+    public init(_ text: Text, imageSource: ODSImage.Source? = nil)
     where Button1Content == EmptyView, Button2Content == EmptyView
     {
         self.text = text
@@ -111,16 +111,16 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
                             .accessibilityHidden(true)
                     }
 
-                    Text(text)
+                    text
                         .odsFont(.subhead)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.top, ODSSpacing.m)
                 .padding(.bottom, firstButton == nil ? ODSSpacing.m : ODSSpacing.none)
+                .padding(.horizontal, ODSSpacing.m)
 
                 bottomButtons()
             }
-            .padding(.horizontal, ODSSpacing.m)
 
             Divider()
         }
@@ -148,14 +148,14 @@ struct ODSBanner_Previews: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self) {
             ODSThemeableView(theme: ODSTheme()) {
                 VStack {
-                    ODSBanner(text: "A short desciption to see text")
+                    ODSBanner(Text("A short desciption to see text"))
                     .border(.gray)
 
-                    ODSBanner(text: "A short desciption to see text",
+                    ODSBanner(Text("A short desciption to see text"),
                               imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
                     .border(.gray)
 
-                    ODSBanner(text: "A short desciption to see text",
+                    ODSBanner(Text("A short desciption to see text"),
                               imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
                         Button("Text") {
                             // Do Something here
@@ -163,7 +163,7 @@ struct ODSBanner_Previews: PreviewProvider {
                     }
                     .border(.gray)
 
-                    ODSBanner(text: "A short desciption to see text",
+                    ODSBanner(Text("A short desciption to see text"),
                               imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
                         Button("Button 1") {
                             // Do something
