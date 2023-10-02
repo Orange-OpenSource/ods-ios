@@ -81,7 +81,7 @@ private struct ToolBarVariantHome: View {
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.xl)
                 
-                ODSButton(text: "Open sheet", emphasis: .highest, variableWidth: false) {
+                ODSButton(text: "Open sheet", emphasis: .high, variableWidth: false) {
                     showToolBar = true
                 }
                 .padding(.horizontal, ODSSpacing.m)
@@ -126,7 +126,7 @@ private struct ToolBarVariantContent: View {
                 
                 Spacer()
                 
-                ODSButton(text: "Close sheet", emphasis: .highest, variableWidth: false) {
+                ODSButton(text: "Close sheet", emphasis: .high, variableWidth: false) {
                     dismiss()
                 }
                 

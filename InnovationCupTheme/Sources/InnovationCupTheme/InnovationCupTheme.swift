@@ -70,7 +70,7 @@ public struct InnovationCupThemeFactory {
         theme.componentColors.toolBarItem = .white
 
         // Buttons
-        theme.componentColors.highestEmphasisText = .white
+        theme.componentColors.highEmphasisText = .white
         
         theme.componentColors.functionalNegative = InnovationCupThemeColors.functionalNegative.colorDecription.color
         theme.componentColors.functionalPositive = InnovationCupThemeColors.functionalPositive.colorDecription.color

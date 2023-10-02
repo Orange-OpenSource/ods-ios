@@ -47,7 +47,7 @@ public struct ODSComponentColors {
     public var toolBarItem: Color
 
     // Buttons
-    public var highestEmphasisText: Color
+    public var highEmphasisText: Color
     public var functionalPositive: Color
     public var functionalNegative: Color
     public var functionalAlert: Color
@@ -78,7 +78,7 @@ public struct ODSComponentColors {
         self.toolBarItem = .green
 
         // Buttons
-        self.highestEmphasisText = Color(UIColor.systemBackground)
+        self.highEmphasisText = Color(UIColor.systemBackground)
         self.functionalNegative = .red
         self.functionalPositive = .green
         self.functionalInfo = .blue
