@@ -40,6 +40,7 @@ struct AboutApplicationInformation: View {
             Text(applicationInformation.name)
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
+                .accessibilityAddTraits(.isHeader)
 
             if applicationInformation.shareConfiguration != nil || applicationInformation.onFeedbackClicked != nil {
                 HStack(spacing: ODSSpacing.none) {
