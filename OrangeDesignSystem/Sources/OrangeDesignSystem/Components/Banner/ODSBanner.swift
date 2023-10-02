@@ -124,12 +124,12 @@ public struct ODSBanner: View {
     private func bottomButtons() -> some View {
         if let firstButton = firstButton {
             HStack(spacing: ODSSpacing.none) {
-                ODSButton(text: LocalizedStringKey(firstButton.text), emphasis: .low) {
+                ODSButton(text: LocalizedStringKey(firstButton.text), emphasis: .lowest) {
                     firstButton.onClick()
                 }
 
                 if let secondButton = secondButton {
-                    ODSButton(text: LocalizedStringKey(secondButton.text), emphasis: .low) {
+                    ODSButton(text: LocalizedStringKey(secondButton.text), emphasis: .lowest) {
                         secondButton.onClick()
                     }
                 }

@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.1...qualif)
 
+- [DemoApp/SDK] Update the button emphasis scale naming ([#464](https://github.com/Orange-OpenSource/ods-ios/issues/464))
 - [DemoApp] Update configuration to display by default buttons in variable width and without icon  ([#459](https://github.com/Orange-OpenSource/ods-ios/issues/459))
 - [DemoApp/SDK] Icon Button Disables not setup ([#426](https://github.com/Orange-OpenSource/ods-ios/issues/426)) 
 - [Doc] Add documentation for release process ([#451](https://github.com/Orange-OpenSource/ods-ios/issues/451))

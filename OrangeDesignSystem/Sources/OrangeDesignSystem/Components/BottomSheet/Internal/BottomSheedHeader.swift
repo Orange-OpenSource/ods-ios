@@ -96,7 +96,7 @@ struct HeaderPreviewProvider_Previews: PreviewProvider {
                     applyRotation.toggle()
                 }
 
-            ODSButton(text: LocalizedStringKey(applyRotation ? "Remove Rotation" : "Apply Rotation"), emphasis: .highest) {
+            ODSButton(text: LocalizedStringKey(applyRotation ? "Remove Rotation" : "Apply Rotation"), emphasis: .high) {
                 applyRotation.toggle()
             }
         }
