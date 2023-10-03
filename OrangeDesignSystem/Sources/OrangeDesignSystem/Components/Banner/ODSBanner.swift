@@ -26,7 +26,7 @@ import SwiftUI
 /// A banner displays an important message which requires an
 /// action to be dismissed.
 ///
-public struct ODSBanner<Button1Content, Button2Content>: View where Button1Content: View, Button2Content: View {
+public struct ODSBanner: View {
 
     // =======================
     // MARK: Stored Properties
@@ -34,8 +34,8 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
 
     private let text: Text
     private let imageSource: ODSImage.Source?
-    private let firstButton: (() -> Button<Button1Content>)?
-    private let secondButton: (() -> Button<Button2Content>)?
+    private let firstButton: (() -> Button<Text>)?
+    private let secondButton: (() -> Button<Text>)?
 
     // ==================
     // MARK: Initializers
@@ -53,8 +53,8 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
 
     public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
-                @ViewBuilder firstButton: @escaping () -> Button<Button1Content>,
-                @ViewBuilder secondButton: @escaping () -> Button<Button2Content>) {
+                @ViewBuilder firstButton: @escaping () -> Button<Text>,
+                @ViewBuilder secondButton: @escaping () -> Button<Text>) {
         self.text = text
         self.imageSource = imageSource
         self.firstButton = firstButton
@@ -72,7 +72,7 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
 
     public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
-                @ViewBuilder button: @escaping () -> Button<Button1Content>) where Button2Content == EmptyView
+                @ViewBuilder button: @escaping () -> Button<Text>)
     {
         self.text = text
         self.imageSource = imageSource
@@ -86,9 +86,7 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
     ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
     ///
-    public init(_ text: Text, imageSource: ODSImage.Source? = nil)
-    where Button1Content == EmptyView, Button2Content == EmptyView
-    {
+    public init(_ text: Text, imageSource: ODSImage.Source? = nil) {
         self.text = text
         self.imageSource = imageSource
         self.firstButton = nil
@@ -134,8 +132,12 @@ public struct ODSBanner<Button1Content, Button2Content>: View where Button1Conte
     private func bottomButtons() -> some View {
         if let firstButton = firstButton {
             HStack(spacing: ODSSpacing.none) {
-                firstButton().modifier(ODSButtonStyleModifier(emphasis: .low))
-                secondButton?().modifier(ODSButtonStyleModifier(emphasis: .low))
+                firstButton()
+                    .padding(.all, 16)
+                    .modifier(ODSButtonStyleModifier(emphasis: .lowest))
+                secondButton?()
+                    .padding(.all, 16)
+                    .modifier(ODSButtonStyleModifier(emphasis: .lowest))
             }
         }
     }
