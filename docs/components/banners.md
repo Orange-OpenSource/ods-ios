@@ -49,9 +49,11 @@ The button is placed under the text.
 
 ```swift
 ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
-         imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-         button: ODSBannerButton(text: "Button") { /* your action here */}, 
-)
+         imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
+             Button("Button") {
+                 // your action here
+             }
+}
 ```
 
 ### Two buttons
@@ -60,17 +62,29 @@ Button are placed under the text.
 
 ```swift
 ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
-         imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-         firstButton: ODSBannerButton(text: "Button 1") {},
-         secondButton: ODSBannerButton(text: "Button 2") {})
+         imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
+    Button("Button 1") {
+        // your action here
+    }
+} secondButton: { 
+    Button("Button 1") {
+        // your action here
+    }
+}
 ```
 
 ### Without image
 
 ```swift
-ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
-         firstButton: ODSBannerButton(text: "Button 1") {},
-         secondButton: ODSBannerButton(text: "Button 2") {})
+ODSBanner(text: "One to two lines is preferable on mobile and tablet.") {
+    Button("Button 1") {
+        // your action here
+    }
+} secondButton: { 
+    Button("Button 1") {
+        // your action here
+    }
+}
 ```
 
 ### With image from url
@@ -81,9 +95,15 @@ let placeholder = Image("ods_empty", bundle: Bundle.ods)
 let url = URL(string: "https://images.unsplash.com/photo-1615735487485-e52b9af610c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80")
 
 ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
-         imageSource: .asyncImage(url, placeholder),
-         firstButton: ODSBannerButton(text: "Button 1") {},
-         secondButton: ODSBannerButton(text: "Button 2") {})
+         imageSource: .asyncImage(url, placeholder)) {
+    Button("Button 1") {
+        // your action here
+    }
+} secondButton: { 
+    Button("Button 1") {
+        // your action here
+    }
+}
 ```
 
 

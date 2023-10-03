@@ -50,11 +50,11 @@ class BannerVariantModel: ObservableObject {
     // MARK: Helpers
     // =============
 
-    var text: LocalizedStringKey {
+    var text: Text {
         let longText = "Text could be on several lines. But, One to two lines is preferable on mobile."
         let shortText = "Short text"
         
-        return LocalizedStringKey(showLongText ? longText : shortText)
+        return Text(showLongText ? longText : shortText)
     }
     
     var imageSource: ODSImage.Source? {
@@ -67,22 +67,16 @@ class BannerVariantModel: ObservableObject {
         }
     }
     
-    var button: ODSBannerButton {
-        ODSBannerButton(text: "Action") {
-            // do something
-        }
+    var buttonText: String {
+        "Action"
     }
     
-    var firstButton: ODSBannerButton {
-        ODSBannerButton(text: buttonsText[0]) {
-            // do something
-        }
+    var firstButtonText: String {
+        buttonsText[0]
     }
     
-    var secondButton: ODSBannerButton {
-        ODSBannerButton(text: buttonsText[1]) {
-            // do something
-        }
+    var secondButtonText: String  {
+        buttonsText[1]
     }
 }
 

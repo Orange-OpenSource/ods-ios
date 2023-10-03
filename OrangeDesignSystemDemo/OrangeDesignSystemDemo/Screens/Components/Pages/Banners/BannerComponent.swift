@@ -84,23 +84,28 @@ struct BannerVariantContent: View {
     
     var body: some View {
         VStack {
-            Group {
-                switch model.buttonCount {
-                case 0:
-                    ODSBanner(text: model.text, imageSource: model.imageSource)
-                case 1:
-                    ODSBanner(
-                        text: model.text,
-                        imageSource: model.imageSource,
-                        button: model.button)
-                case 2:
-                    ODSBanner(
-                        text: model.text, imageSource: model.imageSource,
-                        firstButton: model.firstButton,
-                        secondButton: model.secondButton)
-                default:
-                    EmptyView()
+            switch model.buttonCount {
+            case 0:
+                ODSBanner(model.text, imageSource: model.imageSource)
+            case 1:
+                ODSBanner(model.text, imageSource: model.imageSource) {
+                    Button(model.buttonText) {
+                        // Do something
+                    }
                 }
+            case 2:
+                ODSBanner(model.text, imageSource: model.imageSource) {
+                    Button(model.firstButtonText) {
+                        // Do something
+                    }
+                } secondButton: {
+                    Button(model.secondButtonText) {
+                        // Do something
+                    }
+                }
+                
+            default:
+                EmptyView()
             }
             
             Spacer()
