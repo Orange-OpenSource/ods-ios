@@ -71,11 +71,11 @@ class BannerVariantModel: ObservableObject {
         "Action"
     }
     
-    var firstButton: String {
+    var firstButtonText: String {
         buttonsText[0]
     }
     
-    var secondButton: String  {
+    var secondButtonText: String  {
         buttonsText[1]
     }
 }

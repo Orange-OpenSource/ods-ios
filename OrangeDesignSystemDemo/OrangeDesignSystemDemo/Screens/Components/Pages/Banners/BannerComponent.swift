@@ -95,11 +95,11 @@ struct BannerVariantContent: View {
                 }
             case 2:
                 ODSBanner(model.text, imageSource: model.imageSource) {
-                    Button(model.buttonText) {
+                    Button(model.firstButtonText) {
                         // Do something
                     }
                 } secondButton: {
-                    Button(model.buttonText) {
+                    Button(model.secondButtonText) {
                         // Do something
                     }
                 }

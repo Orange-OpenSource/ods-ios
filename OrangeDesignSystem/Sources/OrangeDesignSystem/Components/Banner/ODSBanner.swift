@@ -46,10 +46,10 @@ public struct ODSBanner: View {
     /// - Parameters:
     ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
-    ///   - firstButton: First button (leading) added under the text.
-    ///   - secondButton: Second button (trailing) added under the text.
+    ///   - firstButton: First (leading) button (text only) added under the text.
+    ///   - secondButton: Second (trailing) button (text only) added under the text.
     ///
-    /// - Remarks: The default low emphasis is automatically applied on buttons.
+    /// - Remarks: The default lowest emphasis is automatically applied on buttons.
 
     public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
@@ -66,9 +66,9 @@ public struct ODSBanner: View {
     /// - Parameters:
     ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
-    ///   - button: Button added under the text.
+    ///   - button: Button with text (only) added under the text.
     ///
-    /// - Remarks: The default low emphasis is automatically applied on buttons.
+    /// - Remarks: The default lowest emphasis is automatically applied on buttons.
 
     public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
@@ -133,10 +133,10 @@ public struct ODSBanner: View {
         if let firstButton = firstButton {
             HStack(spacing: ODSSpacing.none) {
                 firstButton()
-                    .padding(.all, 16)
+                    .padding(.all, ODSSpacing.m) // Still the style does not contain the padding
                     .modifier(ODSButtonStyleModifier(emphasis: .lowest))
                 secondButton?()
-                    .padding(.all, 16)
+                    .padding(.all, ODSSpacing.m) // Still the style does not contain the padding
                     .modifier(ODSButtonStyleModifier(emphasis: .lowest))
             }
         }
