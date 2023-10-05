@@ -61,7 +61,7 @@ public struct ODSCardVerticalImageFirstModel: Identifiable {
 /// This is a full width card displayed with an image as first element.
 /// This card is composed of two parts:
 /// - Media: (today an image)
-/// - Content: with a title, an optinal subtitle, an optinal supporting text and optional buttons (zero up to two)
+/// - Content: with a title, an optional subtitle, an optional supporting text and optional buttons (zero up to two)
 ///
 /// The card is configured using the model `ODSCardVerticalImageFirstModel` and optional action buttons
 /// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.

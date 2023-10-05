@@ -42,7 +42,7 @@ This is a full width card displayed with an image as first element.
 
 This card is composed of two parts:
 - Media: (today an image)
-- Content: with a title, an optinal subtitle an optinal supporting text and optional buttons (zero up to two)
+- Content: with a title, an optional subtitle an optional supporting text and optional buttons (zero up to two)
 
 > **Implementation**
 
@@ -72,30 +72,29 @@ ODSCardVerticalImageFirst(model: model) {
 This is a full width card displaying with a title and a thumbnail on top as first element.
 
 This card is composed of three parts:
-- Header: with a title, an optinal subtitle and an optinal thmubnail
+- Header: with a title, an optional subtitle and an optional thmubnail
 - Media: (today an image)
-- Content: with an optinal supporting text and optional buttons (zero up to two)
+- Content: with an optional supporting text and optional buttons (zero up to two)
 
 > **Implementation**
 
 Card is configured using `ODSCardVerticalHeaderFirstModel` like this:
 
 ```swift
-let model = ODSCardVerticalHeaderFirstModel(
-    title: "Title",
-    subtitle: "Subtitle",
-    thumbnail: Image("ods_empty", bundle: Bundle.ods),
-    image: Image("ods_empty", bundle: Bundle.ods),
-    supportingText: "A supporting text to describe something")
     
-ODSCardVerticalHeaderFirst(model: model) {
-    ODSButton(text: "Button 1", emphasis: .low) {
-            // do something here
-        }
-    } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .low) {
-            // do something here
-        } 
+ODSCardVerticalHeaderFirst(
+    title: Text("Title"),
+    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    subtitle: Text("Subtitle"),
+    thumbnail: Image("ods_empty", bundle: Bundle.ods),
+    text: Text("A supporting text to describe something")
+) {
+   Button("Button 1") {
+        // do something here
+    }
+} secondButton: {
+    Button("Button 2") {
+        // do something here 
     }
 }
 ```
@@ -135,7 +134,7 @@ ODSCardHorizontal(
 ### Small Card  
 
 The small card if prefered for two-column portrait mobile screen display.
-As it is smaller than full-width cards, it contains only title and subtitle (optinal) in one line (Truncated tail).
+As it is smaller than full-width cards, it contains only title and subtitle (optional) in one line (Truncated tail).
 
 > **Implementation**
 

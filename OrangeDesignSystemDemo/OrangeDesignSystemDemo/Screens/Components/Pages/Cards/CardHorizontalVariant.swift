@@ -60,7 +60,7 @@ class CardHorizontalVariantModel: ObservableObject {
     @Published var showDivider: Bool
     
     var alertText: String = ""
-    private let buttonsText = ["Button 1", "Button 2"]
+    let buttonsText = ["Button 1", "Button 2"]
     private var recipe: Recipe {
         RecipeBook.shared.recipes[0]
     }
@@ -97,15 +97,11 @@ class CardHorizontalVariantModel: ObservableObject {
     var text: Text? {
         showText ? Text(recipe.description) : nil
     }
-        
-    var buttonText: String {
-        buttonsText[0]
-    }
     
     var firstButtonText: String {
         buttonsText[0]
     }
-    
+
     var secondButtonText: String  {
         buttonsText[1]
     }
@@ -164,8 +160,8 @@ struct CardHorizontalVariant: View {
                 text: model.text,
                 dividerEnabled: model.showDivider
             ) {
-                Button(model.buttonText) {
-                    model.displayAlert(text: "\(model.buttonText) clicked")
+                Button(model.firstButtonText) {
+                    model.displayAlert(text: "\(model.firstButtonText) clicked")
                 }
             }
         case 2:
@@ -220,7 +216,7 @@ private struct CardHorizontalVariantOptions: View {
 
             Stepper("Number of buttons: \(model.buttonCount)",
                     value: $model.buttonCount,
-                    in: 0 ... model.buttonText.count)
+                    in: 0 ... model.buttonsText.count)
             .padding(.horizontal, ODSSpacing.m)
         }
         .odsFont(.bodyRegular)
