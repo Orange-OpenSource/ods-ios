@@ -36,14 +36,12 @@ Button variants range in style to denote emphasis. Use different styles and not 
 // High emphasis
 ODSButton(text: "Some text",
           image: Image("Add"),
-          emphasis: .high,
-          variableWidth: true) {}
+          emphasis: .high) {}
 
 // Lowest emphasis
 ODSButton(text: "Some text",
           image: Image("Add"),
-          emphasis: .lowest,
-          variableWidth: true) {}
+          emphasis: .lowest) {}
 ``` 
 
 ### Functional button

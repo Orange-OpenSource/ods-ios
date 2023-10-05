@@ -226,7 +226,7 @@ struct ODSCardHorizontal_Previews: PreviewProvider {
         let action: () -> Void
 
         var body: some View {
-            ODSButton(text: Text(text), emphasis: .high, variableWidth: true, action: action)
+            ODSButton(text: Text(text), emphasis: .high, fullWidth: false, action: action)
         }
     }
 

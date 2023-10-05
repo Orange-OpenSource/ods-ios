@@ -38,7 +38,7 @@ public struct ODSFunctionalButton: View {
     private let text: Text
     private let image: Image?
     private let style: ODSFunctionalButton.Style
-    private let variableWidth: Bool
+    private let fullWidth: Bool
     private let action: () -> Void
 
     // =================
@@ -51,20 +51,20 @@ public struct ODSFunctionalButton: View {
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
     ///   - style: Controls the style of the button. To get a green/red buttons, you can use  `ODSFunctionalButton.Style.positive` or `ODSFunctionalButton.Style.negative`.
-    ///   - variableWidth: Defines the size of the button layout. Set to `true`, the size of the button is limited to the size of the text added by a padding round it. Set to `false` means button takes all available space horizontally.
+    ///   - fullWidth: Defines the size of the button layout. Set to `true` means button takes all available space horizontally. Set to `false`, the size of the button is limited to the size of the text added by a padding round it.
     ///   - action: Will be called when the user clicks the button.
     ///
     public init(
         text: Text,
         image: Image? = nil,
         style: ODSFunctionalButton.Style,
-        variableWidth: Bool = true,
+        fullWidth: Bool = false,
         action: @escaping () -> Void
     ) {
         self.text = text
         self.image = image
         self.style = style
-        self.variableWidth = variableWidth
+        self.fullWidth = fullWidth
         self.action = action
     }
 
@@ -78,7 +78,7 @@ public struct ODSFunctionalButton: View {
         } label: {
             ODSButtonContent(text, image: image)
         }
-        .odsFunctionalButtonStyle(style: style, fullWidth: !variableWidth)
+        .odsFunctionalButtonStyle(style: style, fullWidth: fullWidth)
     }
 }
 

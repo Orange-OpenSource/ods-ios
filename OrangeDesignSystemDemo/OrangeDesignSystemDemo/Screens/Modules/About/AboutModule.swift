@@ -93,7 +93,7 @@ struct AboutSetup: View {
                 NavigationLink(isActive: $showDemo) {
                     AboutModuleDemo(model: model)
                 } label: {
-                    ODSButton(text: Text("View demo"), emphasis: .high, variableWidth: false) {
+                    ODSButton(text: Text("View demo"), emphasis: .high, fullWidth: true) {
                         showDemo.toggle()
                     }
                 }
