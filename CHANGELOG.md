@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.1...qualif)
 
+- [SDK] Update CardHeaderFirst api to use SwiftUI elements [#479](https://github.com/Orange-OpenSource/ods-ios/issues/479))
 - [SDK] Update Horizontal Card api to use SwiftUI elements [#477](https://github.com/Orange-OpenSource/ods-ios/issues/477))
 - [SDK] Update Button api to use SwiftUI elements and use a buttonStyle [#471](https://github.com/Orange-OpenSource/ods-ios/issues/471))
 - [SDK] Update banner api to use SwiftUI elements [#473](https://github.com/Orange-OpenSource/ods-ios/issues/473))
