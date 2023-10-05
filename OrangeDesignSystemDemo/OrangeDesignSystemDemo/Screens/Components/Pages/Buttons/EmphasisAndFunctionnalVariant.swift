@@ -51,10 +51,10 @@ struct EmphasisVariant: View {
                 }
                 .accessibilityAddTraits(.isHeader)
 
-                ODSButton(text: model.text,
+                ODSButton(text: Text(model.text),
                           image: model.icon,
                           emphasis: emphasis,
-                          variableWidth: model.showVariableWidth) {}
+                          fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
                     .accessibilityLabel("\(emphasis.rawValue) emphasis button")
             }
@@ -88,10 +88,10 @@ struct FunctionalVariant: View {
                 }
                 .accessibilityAddTraits(.isHeader)
 
-                ODSFunctionalButton(text: model.text,
+                ODSFunctionalButton(text: Text(model.text),
                                     image: model.icon,
                                     style: style,
-                                    variableWidth: model.showVariableWidth) {}
+                                    fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
                     .accessibilityLabel("\(style.rawValue) functional button")
             }
@@ -119,7 +119,7 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
     // =======================
 
     @Published var showIcon: Bool
-    @Published var showVariableWidth: Bool
+    @Published var showFullWidth: Bool
     @Published var showLongText: Bool
     @Published var showEnabled: Bool
 
@@ -129,7 +129,7 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
 
     init() {
         showIcon = false
-        showVariableWidth = true
+        showFullWidth = false
         showLongText = false
         showEnabled = true
     }
@@ -162,7 +162,7 @@ struct EmphasisAndFunctionalVariantOptions: View {
     var body: some View {
         VStack {
             Toggle("Icon", isOn: $model.showIcon)
-            Toggle("Variable width", isOn: $model.showVariableWidth)
+            Toggle("Full width", isOn: $model.showFullWidth)
             Toggle("Enabled", isOn: $model.showEnabled)
             Toggle("Long text", isOn: $model.showLongText)
         }

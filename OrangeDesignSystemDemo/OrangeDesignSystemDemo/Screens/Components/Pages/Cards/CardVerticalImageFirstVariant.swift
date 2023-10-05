@@ -95,13 +95,13 @@ struct CardVerticalImageFirstVariant: View {
             ScrollView {
                 ODSCardVerticalImageFirst(model: model.cardModel) {
                     if let text = model.button1Text {
-                        ODSButton(text: LocalizedStringKey(text), emphasis: .low) {
+                        ODSButton(text: Text(text), emphasis: .low) {
                             model.displayAlert(text: "Button 1 clicked")
                         }
                     }
                 } buttonContent2: {
                     if let text = model.button2Text {
-                        ODSButton(text: LocalizedStringKey(text), emphasis: .low) {
+                        ODSButton(text: Text(text), emphasis: .low) {
                             model.displayAlert(text: "Button 2 clicked")
                         }
                     }
