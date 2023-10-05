@@ -45,7 +45,7 @@ struct AboutApplicationInformation: View {
             if applicationInformation.shareConfiguration != nil || applicationInformation.onFeedbackClicked != nil {
                 HStack(spacing: ODSSpacing.none) {
                     if let shareConfiguration = applicationInformation.shareConfiguration {
-                        ODSButton(text: "Share", image: Image("ic_share", bundle: Bundle.ods), emphasis: .lowest) {
+                        ODSButton(text: Text("Share"), image: Image("ic_share", bundle: Bundle.ods), emphasis: .lowest) {
                             ShareSheet.show(content: shareConfiguration.description, subject: shareConfiguration.subject, url: shareConfiguration.storeUrl)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -53,7 +53,7 @@ struct AboutApplicationInformation: View {
                     }
 
                     if let onFeedbackClicked = applicationInformation.onFeedbackClicked {
-                        ODSButton(text: "Feedback", image: Image("ic_comments", bundle: Bundle.ods), emphasis: .lowest, action: onFeedbackClicked)
+                        ODSButton(text: Text("Feedback"), image: Image("ic_comments", bundle: Bundle.ods), emphasis: .lowest, action: onFeedbackClicked)
                             .buttonStyle(PlainButtonStyle())
                             .foregroundColor(Color.accentColor)
                     }

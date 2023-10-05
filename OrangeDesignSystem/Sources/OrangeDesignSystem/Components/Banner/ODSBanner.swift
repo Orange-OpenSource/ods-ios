@@ -133,11 +133,9 @@ public struct ODSBanner: View {
         if let firstButton = firstButton {
             HStack(spacing: ODSSpacing.none) {
                 firstButton()
-                    .padding(.all, ODSSpacing.m) // Still the style does not contain the padding
-                    .modifier(ODSButtonStyleModifier(emphasis: .lowest))
+                    .odsEmphasisButtonStyle(emphasis: .lowest)
                 secondButton?()
-                    .padding(.all, ODSSpacing.m) // Still the style does not contain the padding
-                    .modifier(ODSButtonStyleModifier(emphasis: .lowest))
+                    .odsEmphasisButtonStyle(emphasis: .lowest)
             }
         }
     }

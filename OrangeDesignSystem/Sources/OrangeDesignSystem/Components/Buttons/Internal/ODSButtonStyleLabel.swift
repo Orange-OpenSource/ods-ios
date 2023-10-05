@@ -23,53 +23,34 @@
 
 import SwiftUI
 
-// MARK: Content of ODS buttons
-struct ODSButtonContent: View {
+struct ODSButtonStyleLabel: View {
 
     // =======================
     // MARK: Stored properties
     // =======================
 
-    let text: Text
-    let image: Image?
-
-    // =================
-    // MARK: Initiliazer
-    // =================
-
-    init(_ text: Text, image: Image? = nil) {
-        self.text = text
-        self.image = image
-    }
+    let configuration: ButtonStyle.Configuration
+    let foregroundColor: Color
+    let backgroundColor: Color
+    let borderColor: Color
+    let fullWidth: Bool
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        HStack(alignment: .center, spacing: ODSSpacing.s) {
-            if let image = image {
-                // /!\ Set to 17 because the size of system font for body is 17
-                ODSIcon(image, size: 17)
-            }
-
-            text.odsFont(.bodyBold)
-        }
+        configuration.label
+            .padding(ODSSpacing.m)
+            .frame(minWidth: 50, maxWidth: fullWidth ? .infinity : nil, minHeight: 50)
+            .foregroundColor(foregroundColor)
+            .background(backgroundColor)
+            .buttonBorderShape(ButtonBorderShape.roundedRectangle(radius: 8.0))
+            .cornerRadius(8.0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8.0)
+                    .stroke(borderColor, lineWidth: 2.0)
+            )
+            .opacity(configuration.isPressed ? 0.3 : 1.0)
     }
 }
-
-#if DEBUG
-struct ODSButtonContent_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            ODSButtonContent(Text("Text"), image: Image(systemName: "wrench"))
-                .background(.red)
-            ODSButtonContent(Text("Text"), image: Image(systemName: "wrench"))
-                .background(.blue)
-            ODSButtonContent(Text("Text"), image: Image(systemName: "wrench"))
-                .background(.red)
-        }
-        .background(.green)
-    }
-}
-#endif

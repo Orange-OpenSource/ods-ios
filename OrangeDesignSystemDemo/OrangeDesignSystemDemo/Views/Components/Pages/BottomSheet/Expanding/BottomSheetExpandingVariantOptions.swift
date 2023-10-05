@@ -126,7 +126,7 @@ struct ExpandingBottomSheetVariantHome: View {
                 
                 ExpandingBottomSheetVariantOptions(model: model)
                 
-                ODSButton(text: "See the component", emphasis: .high, variableWidth: false) {
+                ODSButton(text: "See the component", emphasis: .high, fullWidth: true) {
                     showBottomSheet = true
                 }
                 .multilineTextAlignment(.center)
