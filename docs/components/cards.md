@@ -42,7 +42,7 @@ This is a full width card displayed with an image as first element.
 
 This card is composed of two parts:
 - Media: (today an image)
-- Content: with a title, an optinal subtitle an optinal supporting text and optional buttons (zero up to two)
+- Content: with a title, an optional subtitle an optional supporting text and optional buttons (zero up to two)
 
 > **Implementation**
 
@@ -72,9 +72,9 @@ ODSCardVerticalImageFirst(model: model) {
 This is a full width card displaying with a title and a thumbnail on top as first element.
 
 This card is composed of three parts:
-- Header: with a title, an optinal subtitle and an optinal thmubnail
+- Header: with a title, an optional subtitle and an optional thmubnail
 - Media: (today an image)
-- Content: with an optinal supporting text and optional buttons (zero up to two)
+- Content: with an optional supporting text and optional buttons (zero up to two)
 
 > **Implementation**
 
@@ -134,7 +134,7 @@ ODSCardHorizontal(
 ### Small Card  
 
 The small card if prefered for two-column portrait mobile screen display.
-As it is smaller than full-width cards, it contains only title and subtitle (optinal) in one line (Truncated tail).
+As it is smaller than full-width cards, it contains only title and subtitle (optional) in one line (Truncated tail).
 
 > **Implementation**
 

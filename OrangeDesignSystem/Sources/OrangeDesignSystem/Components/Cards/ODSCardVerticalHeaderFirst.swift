@@ -28,7 +28,7 @@ import SwiftUI
 ///
 /// This is a full width card displayed with a title and a thumbnail on top as first element.
 /// This card is composed of three parts:
-/// - Header: with a title, an optinal subtitle and an optional thmubnail
+/// - Header: with a title, an optional subtitle and an optional thmubnail
 /// - Media: (today an image)
 /// - Content: with an optional text and optional buttons (zero up to two)
 ///
