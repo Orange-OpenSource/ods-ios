@@ -107,28 +107,27 @@ This is a full width card displaying with image on left and content with texts o
 Thes content is composed by:
 - a title
 - an optional subtitle
-- an optional supporting text for larger description
+- an optional text for larger description
 
 > **Implementation**
 
-Card is configured using `ODSCardHorizontalModel` like this:
+Card is configured like this:
 
-```swift
-let model = ODSCardHorizontalModel(
-    title: "Title",
-    subtitle: "Subtitle",
+```swift    
+ODSCardHorizontal(
+    title: Text("Title"),
     imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
     imagePosition: .leading,
-    supportingText: "A supporting text to describe something")
-    
-ODSCardHorizontal(model: model) {
-    ODSButton(text: "Button 1", emphasis: .low) {
+    subtitle: Text("Subtitle"),
+    text: Text("A supporting text to describe something")
+) {
+
+    Button("Button 1") {
             // do something here
-        }
-    } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .low) {
-            // do something here
-        } 
+    }
+} secondButton : {
+    Button("Button 1") {
+        // do something here
     }
 }
 ```
