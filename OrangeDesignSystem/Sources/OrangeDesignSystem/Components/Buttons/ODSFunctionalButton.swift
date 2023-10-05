@@ -35,13 +35,11 @@ public struct ODSFunctionalButton: View {
     // MARK: Stored Properties
     // =======================
 
-    @Environment(\.theme) var theme
-
-    let text: LocalizedStringKey
-    let image: Image?
-    let style: ODSFunctionalButton.Style
-    let variableWidth: Bool
-    let action: () -> Void
+    private let text: Text
+    private let image: Image?
+    private let style: ODSFunctionalButton.Style
+    private let variableWidth: Bool
+    private let action: () -> Void
 
     // =================
     // MARK: Initializer
@@ -57,7 +55,7 @@ public struct ODSFunctionalButton: View {
     ///   - action: Will be called when the user clicks the button.
     ///
     public init(
-        text: LocalizedStringKey,
+        text: Text,
         image: Image? = nil,
         style: ODSFunctionalButton.Style,
         variableWidth: Bool = true,
@@ -78,26 +76,9 @@ public struct ODSFunctionalButton: View {
         Button {
             action()
         } label: {
-            ODSButtonContent(text: text, image: image, variableWidth: variableWidth)
+            ODSButtonContent(text, image: image)
         }
-        .buttonStyle(ODSShapedButtonStyle(shapeType: .filled, foregroundColor: foregroundColor, backgroundColor: backgroundColor))
-    }
-
-    // =====================
-    // MARK: Private Helpers
-    // =====================
-
-    private var foregroundColor: Color {
-        Color(UIColor.systemBackground)
-    }
-
-    private var backgroundColor: Color {
-        switch style {
-        case .negative:
-            return theme.componentColors.functionalNegative
-        case .positive:
-            return theme.componentColors.functionalPositive
-        }
+        .odsFunctionalButtonStyle(style: style, fullWidth: !variableWidth)
     }
 }
 
@@ -107,14 +88,14 @@ struct ODSFunctionalButton_Previews: PreviewProvider {
         VStack(spacing: ODSSpacing.xl) {
             VStack {
                 Text("Without image")
-                ODSFunctionalButton(text: "Enabled", style: .negative) {}
-                ODSFunctionalButton(text: "Disabled", style: .negative) {}.disabled(true)
+                ODSFunctionalButton(text: Text("Enabled"), style: .negative) {}
+                ODSFunctionalButton(text: Text("Disabled") , style: .negative) {}.disabled(true)
             }
 
             VStack {
                 Text("Without image")
-                ODSFunctionalButton(text: "Enabled", image: Image(systemName: "pencil.tip"), style: ODSFunctionalButton.Style.negative) {}
-                ODSFunctionalButton(text: "Disabled", image: Image(systemName: "pencil.tip"), style: ODSFunctionalButton.Style.negative) {}.disabled(true)
+                ODSFunctionalButton(text: Text("Enabled"), image: Image(systemName: "pencil.tip"), style: ODSFunctionalButton.Style.negative) {}
+                ODSFunctionalButton(text: Text("Disabled"), image: Image(systemName: "pencil.tip"), style: ODSFunctionalButton.Style.negative) {}.disabled(true)
             }
         }
     }

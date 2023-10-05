@@ -40,11 +40,11 @@ public struct ODSButton: View {
     // MARK: Stored Properties
     // =======================
 
-    let text: LocalizedStringKey
-    let image: Image?
-    let emphasis: Emphasis
-    let variableWidth: Bool
-    let action: () -> Void
+    private let text: Text
+    private let image: Image?
+    private let emphasis: Emphasis
+    private let variableWidth: Bool
+    private let action: () -> Void
 
     // ==================
     // MARK: Initializers
@@ -60,7 +60,7 @@ public struct ODSButton: View {
     ///   - action: Will be called when the user clicks the button.
     ///
     public init(
-        text: LocalizedStringKey,
+        text: Text,
         image: Image? = nil,
         emphasis: Emphasis,
         variableWidth: Bool = true,
@@ -81,9 +81,9 @@ public struct ODSButton: View {
         Button {
             action()
         } label: {
-            ODSButtonContent(text: text, image: image, variableWidth: variableWidth)
+            ODSButtonContent(text, image: image)
         }
-        .modifier(ODSButtonStyleModifier(emphasis: emphasis))
+        .odsEmphasisButtonStyle(emphasis: emphasis, fullWidth: !variableWidth)
     }
 }
 
@@ -96,13 +96,13 @@ struct ODSButton_Previews: PreviewProvider {
             ScrollView {
                 VStack {
                     ForEach(ODSButton.Emphasis.allCases, id: \.rawValue) { emphasis in
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue), emphasis: emphasis) {}
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue), emphasis: emphasis) {}.disabled(true)
-
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
+                        ODSButton(text: Text(emphasis.rawValue), emphasis: emphasis) {}
+                        ODSButton(text: Text(emphasis.rawValue), emphasis: emphasis) {}.disabled(true)
+                        ODSButton(text: Text(emphasis.rawValue), emphasis: emphasis) {}.disabled(true)
+                        ODSButton(text: Text(emphasis.rawValue),
                                   image: Image(systemName: "pencil.tip.crop.circle"),
                                   emphasis: emphasis) {}
-                        ODSButton(text: LocalizedStringKey(emphasis.rawValue),
+                        ODSButton(text: Text(emphasis.rawValue),
                                   image: Image(systemName: "pencil.tip.crop.circle"),
                                   emphasis: emphasis) {}.disabled(true)
                     }

@@ -51,7 +51,7 @@ struct EmphasisVariant: View {
                 }
                 .accessibilityAddTraits(.isHeader)
 
-                ODSButton(text: model.text,
+                ODSButton(text: Text(model.text),
                           image: model.icon,
                           emphasis: emphasis,
                           variableWidth: model.showVariableWidth) {}
@@ -88,7 +88,7 @@ struct FunctionalVariant: View {
                 }
                 .accessibilityAddTraits(.isHeader)
 
-                ODSFunctionalButton(text: model.text,
+                ODSFunctionalButton(text: Text(model.text),
                                     image: model.icon,
                                     style: style,
                                     variableWidth: model.showVariableWidth) {}
