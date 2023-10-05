@@ -81,21 +81,20 @@ This card is composed of three parts:
 Card is configured using `ODSCardVerticalHeaderFirstModel` like this:
 
 ```swift
-let model = ODSCardVerticalHeaderFirstModel(
-    title: "Title",
-    subtitle: "Subtitle",
-    thumbnail: Image("ods_empty", bundle: Bundle.ods),
-    image: Image("ods_empty", bundle: Bundle.ods),
-    supportingText: "A supporting text to describe something")
     
-ODSCardVerticalHeaderFirst(model: model) {
-    ODSButton(text: "Button 1", emphasis: .low) {
-            // do something here
-        }
-    } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .low) {
-            // do something here
-        } 
+ODSCardVerticalHeaderFirst(
+    title: Text("Title"),
+    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    subtitle: Text("Subtitle"),
+    thumbnail: Image("ods_empty", bundle: Bundle.ods),
+    text: Text("A supporting text to describe something")
+) {
+   Button("Button 1") {
+        // do something here
+    }
+} secondButton: {
+    Button("Button 2") {
+        // do something here 
     }
 }
 ```
