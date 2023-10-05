@@ -23,182 +23,194 @@
 
 import SwiftUI
 
-/// Model used to configure the `ODSCardHorizontal` card.
-public struct ODSCardHorizontalModel: Identifiable {
-    let title: String
-    let subtitle: String?
-    let supportingText: String?
-    let imageSource: ODSImage.Source
-    let imagePosition: ImagePosition
-    let dividerEnabled: Bool
-
-    public enum ImagePosition: Int {
-        case trailing = 0
-        case leading
-    }
-
-    /// Initialization
-    ///
-    /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - imagePosition: The side where image is placed.
-    ///  - supportingText: Optional text description to be displayed in the card. The text displaying is limited to two lines (truncated tail).
-    /// - dividerEnabled: Add a divider at the top of the buttons area.
-    ///
-    public init(
-        title: String,
-        subtitle: String? = nil,
-        imageSource: ODSImage.Source,
-        imagePosition: ImagePosition = .leading,
-        supportingText: String? = nil,
-        dividerEnabled: Bool = true
-    ) {
-        self.title = title
-        self.subtitle = subtitle
-        self.imageSource = imageSource
-        self.imagePosition = imagePosition
-        self.supportingText = supportingText
-        self.dividerEnabled = dividerEnabled
-    }
-
-    /// The identifier based on the title.
-    public var id: String {
-        title
-    }
-}
-
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
 ///
 /// This is a full width card displayed with an image on the left or on the right.
 /// This card is composed of two parts:
 /// - Media: (today an image)
-/// - Content: with a title, an optinal subtitle, an optinal supporting text and optional buttons (zero up to two)
+/// - Content: with a title, an optional subtitle, an optional text and optional buttons (zero up to two)
 ///
-/// The card is configured using the model `ODSCardHorizontalModel` and optional action buttons
-/// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
-///
-/// Those view builders are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
-///
-public struct ODSCardHorizontal<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
 
-    private var model: ODSCardHorizontalModel
-    private var buttonContent1: () -> ButtonContent1
-    private var buttonContent2: () -> ButtonContent2
+public struct ODSCardHorizontal: View {
+    public enum ImagePosition {
+        case trailing
+        case leading
+    }
 
-    /// Initialization with two buttons.
+    private let title: Text
+    private let subtitle: Text?
+    private let text: Text?
+    private let imageSource: ODSImage.Source
+    private let imagePosition: ImagePosition
+    private let dividerEnabled: Bool
+    private let firstButton: (() -> Button<Text>)?
+    private let secondButton: (() -> Button<Text>)?
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    /// Initialization without button.
     ///
     /// - Parameters:
-    ///  - model: The model to configure the card.
-    ///  - buttonContent1: The button1 view builder
-    ///  - buttonContent2: The button2 view builder
+    ///  - title: The title to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
+    ///  - imagePosition: The side where image is placed.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - text: Optional text description to be displayed in the card. The text displaying is limited to two lines (truncated tail).
     ///
     public init(
-        model: ODSCardHorizontalModel,
-        @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
-        @ViewBuilder buttonContent2: @escaping () -> ButtonContent2
+        title: Text,
+        imageSource: ODSImage.Source,
+        imagePosition: ImagePosition = .leading,
+        subtitle: Text? = nil,
+        text: Text? = nil
     ) {
-        self.model = model
-        self.buttonContent1 = buttonContent1
-        self.buttonContent2 = buttonContent2
+        self.title = title
+        self.subtitle = subtitle
+        self.imageSource = imageSource
+        self.imagePosition = imagePosition
+        self.text = text
+        self.dividerEnabled = false
+        self.firstButton = nil
+        self.secondButton = nil
     }
-}
-
-extension ODSCardHorizontal where ButtonContent2 == EmptyView {
 
     /// Initialization with one button.
     ///
     /// - Parameters:
-    ///  - model: The model to configure the card.
-    ///  - buttonContent1: The button1 view builder
+    ///  - title: The title to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
+    ///  - imagePosition: The side where image is placed.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - text: Optional text description to be displayed in the card. The text
+    ///  displaying is limited to two lines (truncated tail).
+    ///  - button: The optional first (leading) button.
+    ///  - dividerEnabled: Optional divider added at the top of the buttons area.
     ///
-    public init(model: ODSCardHorizontalModel, @ViewBuilder buttonContent1: @escaping () -> ButtonContent1)
-    {
-        self.model = model
-        self.buttonContent1 = buttonContent1
-        buttonContent2 = { EmptyView() }
+    public init(
+        title: Text,
+        imageSource: ODSImage.Source,
+        imagePosition: ImagePosition = .leading,
+        subtitle: Text? = nil,
+        text: Text? = nil,
+        dividerEnabled: Bool = true,
+        @ViewBuilder button: @escaping () -> Button<Text>
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.imageSource = imageSource
+        self.imagePosition = imagePosition
+        self.text = text
+
+        self.dividerEnabled = dividerEnabled
+        self.firstButton = button
+        self.secondButton = nil
     }
-}
 
-extension ODSCardHorizontal where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
+    /// Initialization with two buttons.
+    ///
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
+    ///  - imagePosition: The side where image is placed.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - text: Optional text description to be displayed in the card. The text
+    ///  displaying is limited to two lines (truncated tail).
+    ///  - firstButton: The optional first (leading) button.
+    ///  - secondButton: The optional second (trailing) button.
+    ///  - dividerEnabled: Optional divider added at the top of the buttons area.
+    ///
+    public init(
+        title: Text,
+        imageSource: ODSImage.Source,
+        imagePosition: ImagePosition = .leading,
+        subtitle: Text? = nil,
+        text: Text? = nil,
+        dividerEnabled: Bool = true,
+        @ViewBuilder firstButton: @escaping () -> Button<Text>,
+        @ViewBuilder secondButton: @escaping () -> Button<Text>
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.imageSource = imageSource
+        self.imagePosition = imagePosition
+        self.text = text
 
-    /// Initialization without any button.
-    ///
-    /// - Parameter model: The model to configure the card.
-    ///
-    public init(model: ODSCardHorizontalModel) {
-        self.model = model
-        buttonContent1 = { EmptyView() }
-        buttonContent2 = { EmptyView() }
+        self.dividerEnabled = dividerEnabled
+        self.firstButton = firstButton
+        self.secondButton = secondButton
     }
-}
 
-// MARK: View body implementation
-
-extension ODSCardHorizontal {
+    // ==========
+    // MARK: Body
+    // ==========
 
     public var body: some View {
 
         VStack(spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.none) {
-                Group {
-                    if case .leading = model.imagePosition {
-                        image
-                    }
+                if case .leading = imagePosition {
+                    image
+                }
 
-                    VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                        Text(model.title)
-                            .odsFont(.bodyBold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                VStack(alignment: .leading, spacing: ODSSpacing.xs) {
+                    title
+                        .odsFont(.bodyBold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                        if let subtitle = model.subtitle, !subtitle.isEmpty {
-                            Text(subtitle)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        if let supportingText = model.supportingText, !supportingText.isEmpty {
-                            Text(supportingText)
-                                .lineLimit(2)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
-                    .foregroundColor(.primary)
-                    .padding(.all, ODSSpacing.m)
+                    subtitle?
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                    if case .trailing = model.imagePosition {
-                        image
-                    }
+                    text?
+                        .lineLimit(2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .foregroundColor(.primary)
+                .padding(.all, ODSSpacing.m)
+
+                if case .trailing = imagePosition {
+                    image
                 }
             }
             .frame(minHeight: 128)
 
-            if model.dividerEnabled {
-                Divider()
-            }
-
-            // Add padding on buttons to avoid to have extra padding on
-            // HStack even if there are no view on buttons.
-            HStack(alignment: .center, spacing: ODSSpacing.m) {
-                buttonContent1().padding(.top, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.m)
-                buttonContent2().padding(.top, ODSSpacing.m)
-                    .padding(.bottom, ODSSpacing.m)
-                Spacer()
-            }
-            .padding(.horizontal, ODSSpacing.m)
+            buttons()
         }
         .background(ODSInternalColor.cardBackground.color)
         .cornerRadius(10)
         .shadow(radius: ODSSpacing.xs)
         .padding(.all, ODSSpacing.s)
     }
+    
+    // =====================
+    // MARK: Private Helpers
+    // =====================
 
     private var image: some View {
-        ODSImage(source: model.imageSource)
+        ODSImage(source: imageSource)
             .accessibilityHidden(true)
             .frame(width: 128)
             .clipped()
+    }
+
+    @ViewBuilder
+    private func buttons() -> some View {
+        if let firstButton = firstButton {
+            if dividerEnabled {
+                Divider()
+            }
+
+            HStack(alignment: .center, spacing: ODSSpacing.none) {
+                firstButton()
+                    .odsEmphasisButtonStyle(emphasis: .lowest)
+                secondButton?()
+                    .odsEmphasisButtonStyle(emphasis: .lowest)
+
+                Spacer()
+            }
+        }
     }
 }
 
@@ -221,21 +233,6 @@ struct ODSCardHorizontal_Previews: PreviewProvider {
         }
     }
 
-    struct ButtonAction: View {
-        let text: String
-        let action: () -> Void
-
-        var body: some View {
-            ODSButton(text: Text(text), emphasis: .high, fullWidth: false, action: action)
-        }
-    }
-
-    static let model = ODSCardHorizontalModel(
-        title: ODSCCardPreviewData.title,
-        subtitle: ODSCCardPreviewData.subtitle,
-        imageSource: .image(ODSCCardPreviewData.image),
-        imagePosition: .leading,
-        supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {
         @State var showTextInToast: String?
@@ -243,19 +240,24 @@ struct ODSCardHorizontal_Previews: PreviewProvider {
 
         var body: some View {
             ScrollView {
-                ODSCardHorizontal(model: ODSCardHorizontal_Previews.model) {
-                    ButtonAction(text: "Button 1") {
-                        showTextInToast = "Button 1 Clicked"
+                ODSCardHorizontal(
+                    title: Text(ODSCCardPreviewData.title),
+                    imageSource: .image(ODSCCardPreviewData.image),
+                    imagePosition: .leading,
+                    subtitle: Text(ODSCCardPreviewData.subtitle),
+                    text: Text(ODSCCardPreviewData.supportingText),
+                    dividerEnabled: true) {
+                        Button("Button 1") {
+                            showTextInToast = "Button 1 Clicked"
+                        }
+                    } secondButton: {
+                        Button("\(disableButton1 ? "Enable" : "Disable") Button 1") {
+                            disableButton1.toggle()
+                        }
                     }
-                    .disabled(disableButton1)
-                } buttonContent2: {
-                    ButtonAction(text: "\(disableButton1 ? "Enable" : "Disable") Button 1") {
-                        disableButton1.toggle()
+                    .onTapGesture {
+                        showTextInToast = "Card tapped"
                     }
-                }
-                .onTapGesture {
-                    showTextInToast = "Card tapped"
-                }
 
                 Toast(showText: $showTextInToast)
             }
