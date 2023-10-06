@@ -31,7 +31,7 @@ struct ModulesList: View {
     // =======================
 
     @EnvironmentObject private var themeProvider: ThemeProvider
-    let columns = [GridItem(.flexible(), alignment: .topLeading)] // TODO: ODSListOfCardImageFirst
+    private let columns = [GridItem(.flexible(), alignment: .topLeading)]
 
     // ==========
     // MARK: Body

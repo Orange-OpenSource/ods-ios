@@ -22,19 +22,6 @@
 
 import SwiftUI
 
-/// Model used to configure the `ODSCardVerticalImageFirst` card.
-//public struct ODSCardVerticalImageFirstModel: Identifiable {
-//    let title: String
-//    let subtitle: String?
-//    let imageSource: ODSImage.Source
-//    let supportingText: String?
-//
-//  
-//    /// The identifier based on the title.
-//    public var id: String {
-//        title
-//    }
-//}
 
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
@@ -43,11 +30,6 @@ import SwiftUI
 /// This card is composed of two parts:
 /// - Media: (today an image)
 /// - Content: with a title, an optional subtitle, an optional supporting text and optional buttons (zero up to two)
-///
-/// The card is configured using the model `ODSCardVerticalImageFirstModel` and optional action buttons
-/// can be provided through ViewBuilders `buttonContent1` and `buttonContent2`.
-///
-/// Those view builders are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
 ///
 public struct ODSCardVerticalImageFirst: View {
 
@@ -58,13 +40,13 @@ public struct ODSCardVerticalImageFirst: View {
     private let firstButton: (() -> Button<Text>)?
     private let secondButton: (() -> Button<Text>)?
 
-    /// Initialization without button
+    /// Initialization without button.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - text: Optional text description to be displayed in the card.
+    ///  - title: The title.
+    ///  - imageSource: The source of the image.
+    ///  - subtitle: Optional subtitle.
+    ///  - text: Optional text description.
     ///
     public init(
         title: Text,
@@ -83,11 +65,11 @@ public struct ODSCardVerticalImageFirst: View {
     /// Initialization with one button.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - text: Optional text description to be displayed in the card.
-    ///  - button: The optional button.
+    ///  - title: The title.
+    ///  - imageSource: The source of the image.
+    ///  - subtitle: Optional subtitle.
+    ///  - text: Optional text description.
+    ///  - button: The button with text only (lowest emphasis).
     ///
     public init(
         title: Text,
@@ -107,12 +89,12 @@ public struct ODSCardVerticalImageFirst: View {
     /// Initialization with two buttons.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - text: Optional text description to be displayed in the card.
-    ///  - firstButton: The optional first (leading) button.
-    ///  - secondButton: The optional second (trailing) button.
+    ///  - title: The title.
+    ///  - imageSource: The source of the image.
+    ///  - subtitle: Optional subtitle.
+    ///  - text: Optional text description.
+    ///  - firstButton: The first (leading) button text.
+    ///  - secondButton: The second (trailing) button text.
     ///
     public init(
         title: Text,
