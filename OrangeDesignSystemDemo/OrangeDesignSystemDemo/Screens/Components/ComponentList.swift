@@ -31,12 +31,8 @@ struct ComponentsList: View {
     // MARK: Stored Properties
     // =======================
 
+    @EnvironmentObject private var themeProvider: ThemeProvider
     let components: [Component]
-    let columns = [
-        GridItem(.adaptive(minimum: 150), spacing: ODSSpacing.m, alignment: .topLeading),
-    ]
-
-    @EnvironmentObject var themeProvider: ThemeProvider
 
     // =================
     // MARK: Initializer

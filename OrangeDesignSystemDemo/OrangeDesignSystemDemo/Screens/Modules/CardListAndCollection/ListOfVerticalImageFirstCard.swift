@@ -1,4 +1,4 @@
-//
+////
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,66 +21,57 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
+import OrangeDesignSystem
 
-struct ModulesList: View {
+struct ListOfVerticalImageFirstCard: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject private var themeProvider: ThemeProvider
-    let columns = [GridItem(.flexible(), alignment: .topLeading)] // TODO: ODSListOfCardImageFirst
+    private let columns = [GridItem(.flexible(), alignment: .topLeading)]
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
+                ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
                     NavigationLink {
-                        AboutModule()
-                            .navigationTitle("About: Setup")
+                        Text("Bon appétit")
+                            .navigationBarTitleDisplayMode(.inline)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
-                            title: Text("About"),
-                            imageSource: .image(imageFrom(resourceName: "AboutImage")))
-                    }
-                    
-                    NavigationLink {
-                        CardViewDemo()
-                            .navigationTitle("Card collections")
-                            .navigationbarMenuForThemeSelection()
-                    } label: {
-                        ODSCardVerticalImageFirst(
-                            title: Text("Card collections"),
-                            imageSource: .image(imageFrom(resourceName: "Cards")))
+                            title: Text(recipe.title),
+                            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                            subtitle: Text(recipe.subtitle),
+                            text: Text(recipe.description)
+                        )
                     }
                 }
-                .padding(.all, ODSSpacing.m)
             }
-            .navigationTitle("Modules")
-            .navigationbarMenuForThemeSelection()
+            .padding(.all, ODSSpacing.m)
         }
-    }
-
-    // ====================
-    // MARK: Private helper
-    // ====================
-
-    private func imageFrom(resourceName: String) -> Image {
-        themeProvider.imageFromResources(resourceName)
     }
 }
 
 #if DEBUG
-struct ModulesList_Previews: PreviewProvider {
+struct ListOfVerticalImageFirstCard_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesList()
+        ListOfVerticalImageFirstCard()
+                .previewInterfaceOrientation(.portrait)
+        
+        ListOfVerticalImageFirstCard()
+            .previewInterfaceOrientation(.portrait)
+            .environment(\.dynamicTypeSize, .accessibility3)
+        
+        ListOfVerticalImageFirstCard()
+                .previewInterfaceOrientation(.landscapeRight)
     }
 }
 #endif
+

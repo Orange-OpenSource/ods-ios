@@ -233,10 +233,8 @@ struct ODSCardHorizontal_Previews: PreviewProvider {
         }
     }
 
-
     struct TestView: View {
         @State var showTextInToast: String?
-        @State var disableButton1 = false
 
         var body: some View {
             ScrollView {
@@ -251,8 +249,8 @@ struct ODSCardHorizontal_Previews: PreviewProvider {
                             showTextInToast = "Button 1 Clicked"
                         }
                     } secondButton: {
-                        Button("\(disableButton1 ? "Enable" : "Disable") Button 1") {
-                            disableButton1.toggle()
+                        Button("Button 2") {
+                            showTextInToast = "Button 2 Clicked"
                         }
                     }
                     .onTapGesture {

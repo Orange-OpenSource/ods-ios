@@ -83,7 +83,7 @@ Card is configured using `ODSCardVerticalHeaderFirstModel` like this:
 ```swift
     
 ODSCardVerticalHeaderFirst(
-    title: Text("Title"),
+    title: Text("genreic_title"),
     imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
     subtitle: Text("Subtitle"),
     thumbnail: Image("ods_empty", bundle: Bundle.ods),

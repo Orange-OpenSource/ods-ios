@@ -23,37 +23,18 @@
 import SwiftUI
 
 /// Model used to configure the `ODSCardVerticalImageFirst` card.
-public struct ODSCardVerticalImageFirstModel: Identifiable {
-    let title: String
-    let subtitle: String?
-    let imageSource: ODSImage.Source
-    let supportingText: String?
-
-    /// Initialization
-    ///
-    /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - supportingText: Optional text description to be displayed in the card.
-    ///
-    public init(
-        title: String,
-        subtitle: String? = nil,
-        imageSource: ODSImage.Source,
-        supportingText: String? = nil
-    ) {
-        self.title = title
-        self.subtitle = subtitle
-        self.imageSource = imageSource
-        self.supportingText = supportingText
-    }
-
-    /// The identifier based on the title.
-    public var id: String {
-        title
-    }
-}
+//public struct ODSCardVerticalImageFirstModel: Identifiable {
+//    let title: String
+//    let subtitle: String?
+//    let imageSource: ODSImage.Source
+//    let supportingText: String?
+//
+//  
+//    /// The identifier based on the title.
+//    public var id: String {
+//        title
+//    }
+//}
 
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
@@ -68,96 +49,138 @@ public struct ODSCardVerticalImageFirstModel: Identifiable {
 ///
 /// Those view builders are usefull to provide buttons managed somewhere else to handle actions, manage disable state, apply style,...
 ///
-public struct ODSCardVerticalImageFirst<ButtonContent1, ButtonContent2>: View where ButtonContent1: View, ButtonContent2: View {
+public struct ODSCardVerticalImageFirst: View {
 
-    var model: ODSCardVerticalImageFirstModel
-    var buttonContent1: () -> ButtonContent1
-    var buttonContent2: () -> ButtonContent2
+    private let title: Text
+    private let subtitle: Text?
+    private let imageSource: ODSImage.Source
+    private let text: Text?
+    private let firstButton: (() -> Button<Text>)?
+    private let secondButton: (() -> Button<Text>)?
 
-    /// Initialization with two buttons.
+    /// Initialization without button
     ///
     /// - Parameters:
-    ///  - model: The model to configure the card.
-    ///  - buttonContent1: The button1 view builder
-    ///  - buttonContent2: The button2 view builder
+    ///  - title: The title to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - text: Optional text description to be displayed in the card.
     ///
     public init(
-        model: ODSCardVerticalImageFirstModel,
-        @ViewBuilder buttonContent1: @escaping () -> ButtonContent1,
-        @ViewBuilder buttonContent2: @escaping () -> ButtonContent2
+        title: Text,
+        imageSource: ODSImage.Source,
+        subtitle: Text? = nil,
+        text: Text? = nil
     ) {
-        self.model = model
-        self.buttonContent1 = buttonContent1
-        self.buttonContent2 = buttonContent2
+        self.title = title
+        self.subtitle = subtitle
+        self.imageSource = imageSource
+        self.text = text
+        self.firstButton = nil
+        self.secondButton = nil
     }
 
     /// Initialization with one button.
     ///
     /// - Parameters:
-    ///  - model: The model to configure the card.
-    ///  - buttonContent1: The button1 view builder
+    ///  - title: The title to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - text: Optional text description to be displayed in the card.
+    ///  - button: The optional button.
     ///
-    public init(model: ODSCardVerticalImageFirstModel, @ViewBuilder buttonContent1: @escaping () -> ButtonContent1) where ButtonContent2 == EmptyView
-    {
-        self.init(model: model, buttonContent1: buttonContent1) {
-            EmptyView()
-        }
+    public init(
+        title: Text,
+        imageSource: ODSImage.Source,
+        subtitle: Text? = nil,
+        text: Text? = nil,
+        @ViewBuilder button: @escaping () -> Button<Text>
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.imageSource = imageSource
+        self.text = text
+        self.firstButton = button
+        self.secondButton = nil
     }
 
-    /// Initialization without any button.
+    /// Initialization with two buttons.
     ///
-    /// - Parameter model: The model to configure the card.
+    /// - Parameters:
+    ///  - title: The title to be displayed in the card.
+    ///  - imageSource: The image to be displayed in the card.
+    ///  - subtitle: Optional subtitle to be displayed in the card.
+    ///  - text: Optional text description to be displayed in the card.
+    ///  - firstButton: The optional first (leading) button.
+    ///  - secondButton: The optional second (trailing) button.
     ///
-    public init(model: ODSCardVerticalImageFirstModel) where ButtonContent1 == EmptyView, ButtonContent2 == EmptyView {
-        self.init(model: model) {
-            EmptyView()
-        } buttonContent2: {
-            EmptyView()
-        }
+    public init(
+        title: Text,
+        imageSource: ODSImage.Source,
+        subtitle: Text? = nil,
+        text: Text? = nil,
+        @ViewBuilder firstButton: @escaping () -> Button<Text>,
+        @ViewBuilder secondButton: @escaping () -> Button<Text>
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.imageSource = imageSource
+        self.text = text
+        self.firstButton = firstButton
+        self.secondButton = secondButton
     }
-}
 
-// MARK: View body implementation
-extension ODSCardVerticalImageFirst {
+    // ==========
+    // MARK: Body
+    // ==========
 
     public var body: some View {
 
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
             Group {
-                ODSImage(source: model.imageSource)
+                ODSImage(source: imageSource)
                     .aspectRatio(contentMode: .fill)
                     .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                    Text(model.title)
+                    title
                         .odsFont(.bodyBold)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    if let subtitle = model.subtitle, !subtitle.isEmpty {
-                        Text(subtitle)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    if let supportingText = model.supportingText, !supportingText.isEmpty {
-                        Text(supportingText)
+                        subtitle?
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    }
+
+                        text?
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .foregroundColor(.primary)
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
+                .padding(.bottom, firstButton == nil ? ODSSpacing.m : ODSSpacing.none)
             }
             .multilineTextAlignment(.leading)
 
-            // Add padding on buttons to avoid to have extra padding on
-            // HStack even if there are no view on buttons.
-            HStack(spacing: ODSSpacing.m) {
-                buttonContent1().padding(.top, ODSSpacing.m)
-                buttonContent2().padding(.top, ODSSpacing.m)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.bottom, ODSSpacing.m)
+            buttons()
         }
         .modifier(CardShadowModifier())
+    }
+
+    // =====================
+    // MARK: Private Helpers
+    // =====================
+
+    @ViewBuilder
+    private func buttons() -> some View {
+        if let firstButton = firstButton {
+            HStack(alignment: .center, spacing: ODSSpacing.none) {
+                firstButton()
+                    .odsEmphasisButtonStyle(emphasis: .lowest)
+                secondButton?()
+                    .odsEmphasisButtonStyle(emphasis: .lowest)
+
+                Spacer()
+            }
+        }
     }
 }
 
@@ -181,35 +204,24 @@ struct ODSCardVerticalImageFirst_Previews: PreviewProvider {
         }
     }
 
-    struct ButtonAction: View {
-        let text: String
-        let action: () -> Void
-
-        var body: some View {
-            ODSButton(text: Text(text), emphasis: .high, action: action)
-        }
-    }
-
-    static let model = ODSCardVerticalImageFirstModel(
-        title: ODSCCardPreviewData.title,
-        subtitle: ODSCCardPreviewData.subtitle,
-        imageSource: .image(ODSCCardPreviewData.image),
-        supportingText: ODSCCardPreviewData.supportingText)
 
     struct TestView: View {
         @State var showTextInToast: String?
-        @State var disableButton1 = false
 
         var body: some View {
             ScrollView {
-                ODSCardVerticalImageFirst(model: ODSCardVerticalImageFirst_Previews.model) {
-                    ButtonAction(text: "Button 1") {
+                ODSCardVerticalImageFirst(
+                    title: Text(ODSCCardPreviewData.title),
+                    imageSource: .image(ODSCCardPreviewData.image),
+                    subtitle: Text(ODSCCardPreviewData.subtitle),
+                    text: Text(ODSCCardPreviewData.supportingText)
+                ) {
+                    Button("Button 1") {
                         showTextInToast = "Button 1 Clicked"
                     }
-                    .disabled(disableButton1)
-                } buttonContent2: {
-                    ButtonAction(text: "\(disableButton1 ? "Enable" : "Disable") Button 1") {
-                        disableButton1.toggle()
+                } secondButton: {
+                    Button("Button 2") {
+                        showTextInToast = "Button 2 Clicked"
                     }
                 }
                 .onTapGesture {

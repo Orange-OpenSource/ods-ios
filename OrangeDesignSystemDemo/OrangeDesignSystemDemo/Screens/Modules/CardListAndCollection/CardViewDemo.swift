@@ -24,66 +24,63 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct GuidelinesList: View {
-    
-    // ======================
-    // MARK: Store properties
-    // ======================
-    
+struct CardViewDemo: View {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
     @EnvironmentObject private var themeProvider: ThemeProvider
-    private let guidelines: [Guideline]
-    private let columns = [GridItem(.flexible(), alignment: .topLeading)]
-    
-    init() {
-        guidelines = [
-            ColorsGuideline(),
-            SpacingsGuideline(),
-            TypographyGuideline()
-        ]
-    }
-    
+    let columns = [GridItem(.flexible(), alignment: .topLeading)]
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                    ForEach(guidelines, id: \.title) { guideline in
-                        NavigationLink {
-                            GuidelinePage(guideline: guideline)
-                        } label: {
-                            ODSCardVerticalImageFirst(
-                                title: Text(guideline.title),
-                                imageSource: .image(imageFrom(resourceName: guideline.imageName)))
-                        }
-                    }
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
+                NavigationLink {
+                    ListOfVerticalImageFirstCard()
+                        .navigationTitle("Lits of cards")
+                        .navigationbarMenuForThemeSelection()
+                } label: {
+                    ODSCardVerticalImageFirst(
+                        title: Text("List of cards"),
+                        imageSource: .image(imageFrom(resourceName: "Cards")))
                 }
-                .padding(.all, ODSSpacing.m)
-                .navigationTitle("Guidelines")
-                .navigationbarMenuForThemeSelection()
+                
+                NavigationLink {
+                    GrifOfSmallCards()
+                        .navigationTitle("Grid of small cards")
+                        .navigationbarMenuForThemeSelection()
+                } label: {
+                    ODSCardVerticalImageFirst(
+                        title: Text("Grid of small cards"),
+                        imageSource: .image(imageFrom(resourceName: "Cards_1")))
+                }
             }
-            
-            GuidelinePage(guideline: guidelines[0]) // Why ?
+            .padding(.all, ODSSpacing.m)
         }
     }
-    
+
     // ====================
     // MARK: Private helper
     // ====================
-    
+
     private func imageFrom(resourceName: String) -> Image {
         themeProvider.imageFromResources(resourceName)
     }
 }
 
 #if DEBUG
-struct GuidelinesListView_Previews: PreviewProvider {
+struct CardViewDemo_Previews: PreviewProvider {
     static var previews: some View {
-        ThemeablePreviews {
-            GuidelinesList()
-        }
+        CardViewDemo()
+            .previewInterfaceOrientation(.portrait)
+
+        CardViewDemo()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 #endif
