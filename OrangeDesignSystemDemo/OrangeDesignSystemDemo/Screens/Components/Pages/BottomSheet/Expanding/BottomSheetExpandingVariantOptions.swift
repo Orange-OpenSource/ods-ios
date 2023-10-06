@@ -51,6 +51,7 @@ class BottomSheetVariantModel: ObservableObject {
         self.showSubtitle = false
         self.showIcon = false
         self.contentType = .tutorial
+        
         self.selectedRecipe = RecipeBook.shared.recipes[0]
     }
     

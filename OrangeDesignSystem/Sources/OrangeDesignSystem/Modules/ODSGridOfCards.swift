@@ -29,15 +29,25 @@ import SwiftUI
 ///
 public struct ODSGridOfCards: View {
 
-    public let cardModels: [ODSCardSmallModel]
+    // =======================
+    // MARK: Stored properties
+    // =======================
 
-    let columns = [
-        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
-    ]
+    private let cardModels: [ODSCardSmallModel]
+    private let columns: [GridItem]
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     public init(cardModels: [ODSCardSmallModel]) {
         self.cardModels = cardModels
+        self.columns = [GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .center)]
     }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     public var body: some View {
         LazyVGrid(columns: columns, spacing: ODSSpacing.none) {

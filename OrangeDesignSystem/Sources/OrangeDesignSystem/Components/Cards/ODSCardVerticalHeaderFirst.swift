@@ -223,7 +223,6 @@ struct ODSCardVerticalHeaderFirst_Previews: PreviewProvider {
 
     struct TestView: View {
         @State var showTextInToast: String?
-        @State var disableButton1 = false
 
         var body: some View {
             ScrollView {

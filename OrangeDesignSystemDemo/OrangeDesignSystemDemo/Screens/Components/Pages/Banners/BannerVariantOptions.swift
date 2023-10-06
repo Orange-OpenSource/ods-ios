@@ -78,6 +78,10 @@ class BannerVariantModel: ObservableObject {
     var secondButtonText: String  {
         buttonsText[1]
     }
+    
+    var numberOfButtons: Int {
+        buttonsText.count
+    }
 }
 
 struct BannerVariantOptions: View {

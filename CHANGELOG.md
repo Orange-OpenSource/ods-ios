@@ -5,8 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.1...qualif)
 
-- [SDK] Update CardHeaderFirst api to use SwiftUI elements [#479](https://github.com/Orange-OpenSource/ods-ios/issues/479))
-- [SDK] Update Horizontal Card api to use SwiftUI elements [#477](https://github.com/Orange-OpenSource/ods-ios/issues/477))
+- [SDK] Update CardVerticalImageFirst api to use SwiftUI elements [#481](https://github.com/Orange-OpenSource/ods-ios/issues/481))
+- [SDK] Update CardVerticalHeaderFirst api to use SwiftUI elements [#479](https://github.com/Orange-OpenSource/ods-ios/issues/479))
+- [SDK] Update CardHorizontal api to use SwiftUI elements [#477](https://github.com/Orange-OpenSource/ods-ios/issues/477))
 - [SDK] Update Button api to use SwiftUI elements and use a buttonStyle [#471](https://github.com/Orange-OpenSource/ods-ios/issues/471))
 - [SDK] Update banner api to use SwiftUI elements [#473](https://github.com/Orange-OpenSource/ods-ios/issues/473))
 - [SDK] Accessibility Voice over - Application name is a header in the about screen  (Bug [#468](https://github.com/Orange-OpenSource/ods-ios/issues/468))
