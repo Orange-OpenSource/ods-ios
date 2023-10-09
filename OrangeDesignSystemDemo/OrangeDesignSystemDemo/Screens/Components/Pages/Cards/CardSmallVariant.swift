@@ -32,17 +32,6 @@ class CardSmallVariantModel: ObservableObject {
 
     @Published var showSubtitle: Bool = true
 
-    // =============
-    // MARK: Helpers
-    // =============
-
-    var cardSmallModels: [ODSCardSmallModel] {
-        [
-            ODSCardSmallModel(title: cardExampleTitle,
-                              subtitle: showSubtitle ? cardExampleSubtitle : nil,
-                              imageSource: cardExampleImage)
-        ]
-    }
 }
 
 struct CardSmallVariant: View {
@@ -67,16 +56,18 @@ struct CardSmallVariant: View {
         CustomizableVariant {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-                    ForEach(model.cardSmallModels) { model in
-                        ODSCardSmall(model: model)
-                            .onTapGesture {
-                                showAlert = true
-                            }
+                    ODSCardSmall(
+                        title: Text(cardExampleTitle),
+                        imageSource: cardExampleImage,
+                        subtitle: model.showSubtitle ? Text(cardExampleSubtitle) : nil
+                    )
+                    .onTapGesture {
+                        showAlert = true
                     }
                 }
-                .padding(.horizontal, ODSSpacing.m)
-                .padding(.top, ODSSpacing.m)
             }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.top, ODSSpacing.m)
         } options: {
             CardSmallVariantOptions(model: model)
         }

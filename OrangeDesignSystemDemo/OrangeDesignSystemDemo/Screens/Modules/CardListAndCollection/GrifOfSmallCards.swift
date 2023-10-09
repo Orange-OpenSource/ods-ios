@@ -29,30 +29,33 @@ struct GrifOfSmallCards: View {
     // =======================
     // MARK: Stored Properties
     // =======================
-
-    private let cardsModels: [ODSCardSmallModel]
     
-    // =================
-    // MARK: Initializer
-    // =================
-
-    init() {
-        cardsModels = RecipeBook.shared.recipes.map { recipe in
-            return ODSCardSmallModel(
-                title: recipe.title,
-                imageSource: .asyncImage(recipe.url, Image("empty", bundle: Bundle.main))
-            )
-        }
-    }
-
+    private let columns = [
+        GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
+    ]
+    
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
         ScrollView {
-            ODSGridOfCards(cardModels: cardsModels)
-                .padding(.all, ODSSpacing.m)
+            LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
+                ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
+                    NavigationLink {
+                        Text("Bon appétit")
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationbarMenuForThemeSelection()
+                    } label: {
+                        ODSCardSmall(
+                            title: Text(recipe.title),
+                            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                            subtitle: Text(recipe.subtitle)
+                        )
+                    }
+                }
+            }
+            .padding(.all, ODSSpacing.m)
         }
     }
 }
@@ -71,3 +74,4 @@ struct GrifOfSmallCard_Previews: PreviewProvider {
     }
 }
 #endif
+
