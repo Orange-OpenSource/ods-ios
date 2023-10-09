@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.1...qualif)
+## [0.14.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...0.13.1) - 2023-10-09
 
 - [SDK] Update CardVerticalImageFirst api to use SwiftUI elements [#481](https://github.com/Orange-OpenSource/ods-ios/issues/481))
 - [SDK] Update CardVerticalHeaderFirst api to use SwiftUI elements [#479](https://github.com/Orange-OpenSource/ods-ios/issues/479))
