@@ -29,7 +29,6 @@ struct GrifOfSmallCards: View {
     // =======================
     // MARK: Stored Properties
     // =======================
-<<<<<<< HEAD
     
     private let columns = [
         GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .topLeading),
@@ -57,32 +56,6 @@ struct GrifOfSmallCards: View {
                 }
             }
             .padding(.all, ODSSpacing.m)
-=======
-
-    private let cardsModels: [ODSCardSmallModel]
-    
-    // =================
-    // MARK: Initializer
-    // =================
-
-    init() {
-        cardsModels = RecipeBook.shared.recipes.map { recipe in
-            return ODSCardSmallModel(
-                title: recipe.title,
-                imageSource: .asyncImage(recipe.url, Image("empty", bundle: Bundle.main))
-            )
-        }
-    }
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        ScrollView {
-            ODSGridOfCards(cardModels: cardsModels)
-                .padding(.all, ODSSpacing.m)
->>>>>>> 17e4fa9 (* Update CardImageFirst with swiftUI element and without model)
         }
     }
 }
@@ -101,7 +74,3 @@ struct GrifOfSmallCard_Previews: PreviewProvider {
     }
 }
 #endif
-<<<<<<< HEAD
-
-=======
->>>>>>> 17e4fa9 (* Update CardImageFirst with swiftUI element and without model)
