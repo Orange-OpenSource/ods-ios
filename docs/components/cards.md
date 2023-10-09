@@ -138,44 +138,58 @@ As it is smaller than full-width cards, it contains only title and subtitle (opt
 
 > **Implementation**
 
-Card is configured using `ODSCardSmallModel` like this:
+Card is configured like this:
 
 ```swift
-let model = ODSCardSmallModel(
-    title: "Title",
-    subtitle: "Subtitle",
-    image: Image("ods_empty", bundle: Bundle.ods)) 
-
-ODSCardSmall(model: model)
+ODSCardSmall(
+    title: Text("Title"),
+    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    subtitle: Text("Subtitle")
+) 
 ```
 
 How to add Small Card in Grid 
 
 ```swift
+class Model {
+    let title: String
+    let subtitle: String?
+    let imageSource: ODSImage.Source
+    
+    init(title: String, imageSource: ODSImage.Source, subtitle: String? = nil) {
+        self.title = title
+        self.imageSource = imageSource
+        self.subtitle = subtitle
+    }
+}
+
+
 let models = [
-    ODSCardSmallModel(
+    Model(
         title: "Title 1",
-        subtitle: "Subtitle 1",
-        image: Image("ods_empty", bundle: Bundle.ods)) { 
-            Text("This card has a destination view")
-        },
-    ODSCardSmallModel(
+        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+        subtitle: "Subtitle 1"
+    )
+    Model(
         title: "Title 2",
-        subtitle: "Subtitle 2",
-        image: Image("ods_empty", bundle: Bundle.ods)) { 
-            Text("This card has a destination view")
-        },
+        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+        subtitle: "Subtitle 2"
+    )
     //...
-    ]
+]
 
 /// /!\ Don't forget to put the grid into a scrollview
 ScrollView {
     LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-        ForEach(models) { model in
-            ODSCardSmall(model: model)
+        ForEach(models, id:\.title) { model in
+            ODSCardSmall(
+                title: Text(model.title),
+                imageSource: model.imageSource,
+                subtitle: Text(model.subtitle)
+            )
         }
-        .padding(.bottom, ODSSpacing.m)
     }
+    .padding(.all, ODSSpacing.m)
 }
  
 ```

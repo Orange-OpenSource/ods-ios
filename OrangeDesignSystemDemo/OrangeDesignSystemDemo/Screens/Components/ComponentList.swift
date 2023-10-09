@@ -30,14 +30,15 @@ struct ComponentsList: View {
     // =======================
     // MARK: Stored Properties
     // =======================
-
+    
     @EnvironmentObject private var themeProvider: ThemeProvider
     let components: [Component]
-
+    let columns = [GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .center)]
+    
     // =================
     // MARK: Initializer
     // =================
-
+    
     init() {
         // Remark: Components are automatically displayed sorted by their name
         let components: [Component] = [
@@ -58,37 +59,39 @@ struct ComponentsList: View {
         self.components = components.sorted { $0.title < $1.title }
     }
     
-    // =====================
-    // MARK: Computed values
-    // =====================
-    
-    private var sortedComponentCardModels: [ODSCardSmallModel] {
-        components.map { smallCardModel(for: $0) }
-    }
-    
-    private func smallCardModel(for component: Component) -> ODSCardSmallModel {
-        let image = themeProvider.imageFromResources(component.imageName)
-        
-        return ODSCardSmallModel(title: component.title, imageSource: .image(image)) {
-            ComponentPage(component: component)
-        }
-    }
-
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
         NavigationView {
             ScrollView {
-                ODSGridOfCards(cardModels: sortedComponentCardModels)
-                    .padding(.vertical, ODSSpacing.m)
-                    .padding(.horizontal, ODSSpacing.s)
+                LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
+                    ForEach(components, id: \.title) { component in
+                        smallCard(for: component)
+                    }
+                }
+                .padding(.all, ODSSpacing.s)
             }
             .navigationTitle("Components")
             .navigationbarMenuForThemeSelection()
             
             ComponentPage(component: components[0])
+        }
+    }
+    
+    // =====================
+    // MARK: Private helper
+    // =====================
+
+    private func smallCard(for component: Component) -> some View {
+        NavigationLink {
+            ComponentPage(component: component)
+        } label: {
+            ODSCardSmall(
+                title: Text(component.title),
+                imageSource: .image(themeProvider.imageFromResources(component.imageName))
+            )
         }
     }
 }
