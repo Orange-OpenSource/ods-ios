@@ -60,10 +60,8 @@ class CardHorizontalVariantModel: ObservableObject {
     @Published var showDivider: Bool
     
     var alertText: String = ""
-    let buttonsText = ["Button 1", "Button 2"]
-    private var recipe: Recipe {
-        RecipeBook.shared.recipes[0]
-    }
+    let buttonsText: [String]
+    private let recipe: Recipe
     
     // =================
     // MARK: Initializer
@@ -76,6 +74,9 @@ class CardHorizontalVariantModel: ObservableObject {
         buttonCount = 0
         showAlert = false
         showDivider = true
+        
+        buttonsText = ["Button 1", "Button 2"]
+        recipe = RecipeBook.shared.recipes[0]
     }
 
     // ==================
@@ -109,6 +110,10 @@ class CardHorizontalVariantModel: ObservableObject {
     func displayAlert(text: String) {
         self.alertText = text
         self.showAlert = true
+    }
+    
+    var numberOfButtons: Int {
+        buttonsText.count
     }
 }
 

@@ -51,13 +51,14 @@ struct StandardBottomSheetVariant: View {
     @ViewBuilder
     private var pageContent: some View {
         if let recipe = selectedRecipe {
-                let cardModel = ODSCardVerticalImageFirstModel(title: recipe.title,
-                                                               subtitle: recipe.subtitle,
-                                                               imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
-                                                               supportingText: recipe.description)
-                
             ScrollView {
-                ODSCardVerticalImageFirst(model: cardModel).padding(.horizontal, ODSSpacing.s)
+                ODSCardVerticalImageFirst(
+                    title: Text(recipe.title),
+                    imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                    subtitle: Text(recipe.subtitle),
+                    text: Text(recipe.description)) {
+                        Button("Start preparing") {}
+                    }
             }
         } else {
             EmptyView()

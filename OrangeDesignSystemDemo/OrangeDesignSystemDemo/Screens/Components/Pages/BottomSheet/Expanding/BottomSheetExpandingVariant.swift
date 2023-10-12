@@ -162,17 +162,14 @@ fileprivate struct PageContent: View {
     @ViewBuilder
     private func exemplePage() -> some View {
         if let recipe = model.selectedRecipe {
-            let cardModel =
-            ODSCardVerticalImageFirstModel(title: recipe.title,
-                                           subtitle: recipe.subtitle,
-                                           imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
-                                           supportingText: recipe.description)
-            ODSCardVerticalImageFirst(model: cardModel) {
-                ODSButton(text: Text("Start preparing"), emphasis: .high, action: {})
-            }
+            ODSCardVerticalImageFirst(
+                title: Text(recipe.title),
+                imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                subtitle: Text(recipe.subtitle),
+                text: Text(recipe.description)) {
+                    Button("Start preparing") {}
+                }
                 .padding(.horizontal, ODSSpacing.s)
-        } else {
-            EmptyView()
         }
     }
     
