@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		075326852AD45610003D8832 /* GrifOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GrifOfSmallCards.swift */; };
+		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		076B79072AC1B4A800CCF0E4 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */; };
 		075326802AD02E1D003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753267F2AD02E1D003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		075326822AD03615003D8832 /* GrifOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326812AD03615003D8832 /* GrifOfSmallCards.swift */; };
@@ -126,6 +128,8 @@
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		07210C4C2A8FAD5900507988 /* Pluginfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pluginfile; path = fastlane/Pluginfile; sourceTree = "<group>"; };
+		075326832AD45610003D8832 /* GrifOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrifOfSmallCards.swift; sourceTree = "<group>"; };
+		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AccessibilityStatement.xml; sourceTree = "<group>"; };
 		0753267F2AD02E1D003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		075326812AD03615003D8832 /* GrifOfSmallCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrifOfSmallCards.swift; sourceTree = "<group>"; };
@@ -295,9 +299,9 @@
 		0753267E2AD00137003D8832 /* CardListAndCollection */ = {
 			isa = PBXGroup;
 			children = (
+				075326832AD45610003D8832 /* GrifOfSmallCards.swift */,
+				075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */,
 				077C38472A9DDC79003D6B51 /* CardViewDemo.swift */,
-				0753267F2AD02E1D003D8832 /* ListOfVerticalImageFirstCard.swift */,
-				075326812AD03615003D8832 /* GrifOfSmallCards.swift */,
 			);
 			path = CardListAndCollection;
 			sourceTree = "<group>";
@@ -345,7 +349,6 @@
 				077C37EA2A9DDC78003D6B51 /* About */,
 				077C37ED2A9DDC78003D6B51 /* Components */,
 				077C382B2A9DDC79003D6B51 /* Guidelines */,
-				077C382F2A9DDC79003D6B51 /* GuidelinesList.swift */,
 				077C38402A9DDC79003D6B51 /* Modules */,
 			);
 			name = Screens;
@@ -558,6 +561,7 @@
 		077C382B2A9DDC79003D6B51 /* Guidelines */ = {
 			isa = PBXGroup;
 			children = (
+				077C382F2A9DDC79003D6B51 /* GuidelinesList.swift */,
 				077C382C2A9DDC79003D6B51 /* Template */,
 				077C38892A9DDD43003D6B51 /* Pages */,
 			);
@@ -1036,6 +1040,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075326852AD45610003D8832 /* GrifOfSmallCards.swift in Sources */,
 				077C384F2A9DDC79003D6B51 /* IconVariant.swift in Sources */,
 				077C38522A9DDC79003D6B51 /* SecureVariant.swift in Sources */,
 				077C38642A9DDC79003D6B51 /* CardSmallVariant.swift in Sources */,
@@ -1055,6 +1060,7 @@
 				077C38702A9DDC79003D6B51 /* BottomSheetExpandingVariantOptions.swift in Sources */,
 				077C384C2A9DDC79003D6B51 /* Component.swift in Sources */,
 				077C38722A9DDC79003D6B51 /* BottomSheetComponent.swift in Sources */,
+				075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */,
 				077C38762A9DDC79003D6B51 /* GuidelinePage.swift in Sources */,
 				077C38752A9DDC79003D6B51 /* Guideline.swift in Sources */,
 				077C386A2A9DDC79003D6B51 /* NavigatinBarModifiers.swift in Sources */,
@@ -1089,7 +1095,6 @@
 				077C386D2A9DDC79003D6B51 /* BannerVariantOptions.swift in Sources */,
 				077C38682A9DDC79003D6B51 /* TabBarVariant.swift in Sources */,
 				077C384E2A9DDC79003D6B51 /* ButtonsComponent.swift in Sources */,
-				075326802AD02E1D003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */,
 				077C38792A9DDC79003D6B51 /* RGBA.swift in Sources */,
 				077C386C2A9DDC79003D6B51 /* NavigationBarComponent.swift in Sources */,
 				077C38602A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift in Sources */,
@@ -1108,7 +1113,6 @@
 				077C38562A9DDC79003D6B51 /* SelectionListOptions.swift in Sources */,
 				077C387F2A9DDC79003D6B51 /* TypographyGuideline.swift in Sources */,
 				077C389C2A9DEEDC003D6B51 /* RecipesLoader.swift in Sources */,
-				075326822AD03615003D8832 /* GrifOfSmallCards.swift in Sources */,
 				077C38742A9DDC79003D6B51 /* SliderComponent.swift in Sources */,
 				077C389A2A9DEEDC003D6B51 /* RecipeBookModel.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */,

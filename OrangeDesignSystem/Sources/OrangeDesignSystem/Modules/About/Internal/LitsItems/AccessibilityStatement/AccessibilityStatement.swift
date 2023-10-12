@@ -46,7 +46,7 @@ struct AboutAccessibilityStatementItemConfig: ODSAboutListItemConfig {
             DeclarationView(xmlFileName: statementConfig.fileName,
                             selectedTheme: .orange,
                             url: statementConfig.reportDetail.absoluteString)
-        ))
+            ))
     }
 }
 
