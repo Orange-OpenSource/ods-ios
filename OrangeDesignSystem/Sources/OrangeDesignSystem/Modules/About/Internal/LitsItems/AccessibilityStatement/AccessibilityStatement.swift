@@ -49,24 +49,3 @@ struct AboutAccessibilityStatementItemConfig: ODSAboutListItemConfig {
             ))
     }
 }
-
-private struct AccessibilityStatement: View {
-
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    let statementConfig: ODSAboutAccessibilityStatement
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        VStack {
-           
-//            Text("The Accessibility statement can be generated using the Orange's V11ydette: https://la-va11ydette.orange.com/")
-//                .padding(ODSSpacing.m)
-        }
-    }
-}
