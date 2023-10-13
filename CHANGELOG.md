@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...qualif)
 
+- [DemoApp/SDK] Add accessibility statement in About module [#119](https://github.com/Orange-OpenSource/ods-ios/issues/119))
 - [SDK] Update CardSmall api to use SwiftUI elements [#485](https://github.com/Orange-OpenSource/ods-ios/issues/485))
 
 ## [0.14.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...0.13.1) - 2023-10-09

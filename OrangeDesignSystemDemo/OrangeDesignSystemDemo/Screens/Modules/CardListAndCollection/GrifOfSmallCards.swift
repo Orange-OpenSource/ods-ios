@@ -74,4 +74,3 @@ struct GrifOfSmallCard_Previews: PreviewProvider {
     }
 }
 #endif
-

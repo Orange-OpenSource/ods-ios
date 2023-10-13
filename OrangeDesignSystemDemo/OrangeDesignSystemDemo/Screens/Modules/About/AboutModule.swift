@@ -133,7 +133,7 @@ struct AboutModuleDemo: View {
     // ==============================
     
     let headerIllustration = ThemeProvider().imageFromResources("AboutImage")
-    let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
+    let acessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
     
     var privacyPolicy: ODSPrivacyPolicy {
         model.privacyPolicy

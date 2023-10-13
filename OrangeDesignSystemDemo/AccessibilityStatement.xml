@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<declaration>
+<!-- from la va11ydette with love -->
+
+<!--
+ TITLE
+ This is the name for the site, or page, or section of a site that was audited
+ -->
+ <title><![CDATA[Orange Design System ]]></title>
+
+<!--
+LANGUAGE
+This declaration was done in this language:
+(please use proper HTML lang attribute)
+-->
+<lang>en</lang>
+
+<!-- 
+STATUS
+Either being audited or having been audited
+So:
+[WIP|DONE]
+-->
+<status>DONE</status>
+
+<!--
+
+ below this line will not be read if we're WIP, so don't bother filling it up
+-->
+
+<!--
+******************************************************
+GENERAL DECLARATION INFORMATION
+******************************************************
+-->
+
+<!--
+APPROVAL
+Name: approval name
+Content: usefull for additional information like a postal address for example. This is CDATA-protected, please add properly formatted HTML. 
+-->
+<approval>
+	<name>Service interne</name>
+	<content>
+<![CDATA[]]>
+</content>
+</approval>
+
+<!--
+CONTACT
+Name: contact name
+Content: full contact informations. This is CDATA-protected, please add properly formatted HTML. 
+-->
+<contact>
+	<name>Orange groupe</name>
+	<content>
+<![CDATA[]]>
+</content>
+</contact>
+
+<!--
+AUDIT DATE
+Format: YYYY-MM-DD
+-->
+<audit_date>2023-09-15</audit_date>
+
+<!--
+DIGITAL ACCESSIBILITY PLAN
+Plan: Paragraph for the digital accessibility plan. This is CDATA-protected, please add properly formatted HTML. 
+-->
+<plan>
+<![CDATA[]]>
+</plan>
+
+<!--
+REFERENTIAL USED
+-->
+<referential>
+	<name>WCAG</name><!-- if it's an abbreviation, the document template must translate it to plain text -->
+	<version>2.1</version>
+	<level>AA</level>
+	<url>https://www.w3.org/Translations/WCAG20-fr/</url>
+</referential>
+
+<!--
+TECHNOLOGIES USED IN THE SITE
+-->
+<technologies>
+	<technology>Swift </technology>
+</technologies>
+
+<!--
+TESTS PERFORMED TO EVALUATE ACCESSIBILITY
+a test can have the type [auto|manual|functional|user]:
+* automatic testing
+* manual testing
+* functional testing
+* test done by a real user
+-->
+<tests>
+	<test type="auto">
+		<name>Accessibility Inspector</name>
+		<version></version>
+	</test>
+	<test type="functional">
+		<name>Voice Over</name>
+		<version></version>
+	</test>
+</tests>
+
+<!--
+ENVIRONMENTS USED TO EVALUATE ACCESSIBILITY
+Environment: an environment should indicate a user agent and an assistive technologie. This is CDATA-protected, please add properly formatted HTML. 
+-->
+<environments>
+	<environment><![CDATA[IOS et Voice Over]]></environment>
+</environments>
+
+<!--
+URLS
+This is the list of URLs that were tested
+This is CDATA-protected, please add properly formatted HTML.
+-->
+<urls>
+	<url>
+		<name><![CDATA[Component - List selection]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Button]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Cards]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Bars navigation]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Banner]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Bottom sheet]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Bars tab]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[About]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Modules - List]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Modules - Grid]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+</urls>
+<!--
+******************************************************
+END GENERAL DECLARATION INFORMATION
+******************************************************
+START SPECIFIC CONFORMITY NUMBERS
+******************************************************
+-->
+<!--
+USERS
+Number of real users that tested the pages
+and blocking points they found (if 0, the document will have to say “with no blocking points from a user's point of view”
+-->
+<users>0</users>
+<blocking_points>0</blocking_points>
+
+<!--
+Pages results details
+-->
+<pages_results conformity="92">
+	<page name="Component - List selection">
+		<ok type="a">8</ok><!-- valid -->
+		<ok type="aa">12</ok><!-- valid -->
+		<nok type="a">2</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">20</na><!-- not applicable -->
+		<na type="aa">8</na><!-- not applicable -->
+		<conformity>91</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Button">
+		<ok type="a">9</ok><!-- valid -->
+		<ok type="aa">12</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">20</na><!-- not applicable -->
+		<na type="aa">8</na><!-- not applicable -->
+		<conformity>95</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Cards">
+		<ok type="a">8</ok><!-- valid -->
+		<ok type="aa">11</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">21</na><!-- not applicable -->
+		<na type="aa">9</na><!-- not applicable -->
+		<conformity>95</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Bars navigation">
+		<ok type="a">10</ok><!-- valid -->
+		<ok type="aa">11</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">20</na><!-- not applicable -->
+		<na type="aa">9</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Banner">
+		<ok type="a">9</ok><!-- valid -->
+		<ok type="aa">11</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">21</na><!-- not applicable -->
+		<na type="aa">9</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Bottom sheet">
+		<ok type="a">4</ok><!-- valid -->
+		<ok type="aa">10</ok><!-- valid -->
+		<nok type="a">5</nok> <!-- not valid -->
+		<nok type="aa">1</nok> <!-- not valid -->
+		<na type="a">21</na><!-- not applicable -->
+		<na type="aa">9</na><!-- not applicable -->
+		<conformity>70</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Bars tab">
+		<ok type="a">10</ok><!-- valid -->
+		<ok type="aa">10</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">10</na><!-- not applicable -->
+		<conformity>95</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="About">
+		<ok type="a">8</ok><!-- valid -->
+		<ok type="aa">11</ok><!-- valid -->
+		<nok type="a">2</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">20</na><!-- not applicable -->
+		<na type="aa">9</na><!-- not applicable -->
+		<conformity>90</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Modules - List">
+		<ok type="a">9</ok><!-- valid -->
+		<ok type="aa">11</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">21</na><!-- not applicable -->
+		<na type="aa">9</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+	<page name="Modules - Grid">
+		<ok type="a">6</ok><!-- valid -->
+		<ok type="aa">9</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">2</nok> <!-- not valid -->
+		<na type="a">24</na><!-- not applicable -->
+		<na type="aa">9</na><!-- not applicable -->
+		<conformity>88</conformity><!-- percentage, expressed as a number with no “%” sign -->
+</page>
+</pages_results>
+
+<!--
+Non conformity details
+-->
+<details>
+	<detail>
+		<title>1.1.1, Non-text Content, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>1.3.1, Info and Relationships, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>1.3.2, Meaningful Sequence, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>1.4.4, Resize text, Niveau AA</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>1.4.5, Images of Text, Niveau AA</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>1.4.10, Reflow, Niveau AA</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>2.4.2, Page Titled, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>2.4.3, Focus Order, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>3.2.2, On Input, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>4.1.2, Name, Role, Value, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+</details>
+
+<!--
+DEROGATIONS
+Derogations list. This is CDATA-protected, please add properly formatted HTML. 
+-->
+<derogations>
+<![CDATA[]]>
+</derogations>
+
+<!--
+DEROGATIONS
+Exemptions list. This is CDATA-protected, please add properly formatted HTML. 
+-->
+<exemptions>
+<![CDATA[]]>
+</exemptions>
+
+</declaration>
