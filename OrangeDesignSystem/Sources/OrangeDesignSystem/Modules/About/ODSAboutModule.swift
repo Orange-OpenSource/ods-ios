@@ -1,36 +1,20 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import SwiftUI
 
 /// Use the about module to display application name, software version,
-/// legal data protection, privacy, accessibilty statement,
+/// legal data protection, privacy and accessibilty statements,
 /// and terms of service compliance information.
 ///
 /// It is also configurable to add some additional items to display
 /// pages related to the service provided by the application
-/// (i.e. settings, tutorials, ...)
-///
+/// (i.e. settings, tutorials, ...).
 public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
 
     // =======================
@@ -48,12 +32,12 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
     /// Initializes the about module.
     ///
     /// - Parameters:
-    ///     - headerIllustration: Image of the illustration at the top of the screen.
-    ///     - applicationInformation: (Mandatory) Information about the application.
-    ///     - privacyPolicy: (Mandatory) The privacy policy of the application.
-    ///     - acessibilityStatement: (Mandatory) The configuration to access the report of the accessibility statement.
-    ///     - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
-    ///     - listItemConfigurations: Configuration to add items in the list. The items are ordered according to the priority set in configutation.
+    ///    - headerIllustration: Image of the illustration at the top of the screen.
+    ///    - applicationInformation: (Mandatory) Information about the application.
+    ///    - privacyPolicy: (Mandatory) The privacy policy of the application.
+    ///    - acessibilityStatement: (Mandatory) The configuration to access the report of the accessibility statement.
+    ///    - termsOfService: (Mandatory) A view builder to provide the terms of service (could be a webview, native screen, ...)
+    ///    - listItemConfigurations: Configuration to add items in the list. The items are ordered according to the priority set in configutation.
     ///
     ///  @Remark: Privacy Policy, accessibility statement and terms of service pages are
     ///  mandatory in this module. To access those pages, associated items are automatically
@@ -104,7 +88,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
             .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)
-        .navigationTitle("About")
+        .navigationTitle("modules.about.title".localized())
         .navigationBarTitleDisplayMode(.large)
         .background(ODSInternalColor.primaryBackground.color)
     }

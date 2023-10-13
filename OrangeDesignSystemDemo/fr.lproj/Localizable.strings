@@ -1,0 +1,29 @@
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
+
+// ===============
+// MARK: - Screens
+// ===============
+
+"screens.about.changelog.title" = "Changelog";
+"screens.about.design_guidelines.title" = "Règles de design";
+"screens.about.app_information.name" = "Orange Design System Démo";
+"screens.about.app_information.description" = "Dans cette app vous trouverez des exemples de code implémenté des règles de design, que ce soient des composants comme des modules, pour les thèmes du design system Orange.";
+"screens.about.app_information.share.subject" = "Le Design System Orange";
+"screens.about.app_information.share.description" = "Ici, vous trouverez l'app mobile du design system Orange qui fournit des exemples d'implémentation de design";
+"screens.about.terms_of_service" = "Conditions d'utilisation";
+"screens.about.legal_information_text.default" = "Ajouter les mentions légales";
+"screens.about.app_information.description.default" = "Ajouter ici une courte description de l'app";
+"screens.about.app_information.option_description.version" = "Version";
+"screens.about.app_information.option_description.description" = "Description";
+"screens.about.app_information.option_description.share" = "Partager";
+"screens.about.app_information.option_description.feedback" = "Avis";
+"screens.about.app_information.option_description.app_news" = "Actualités de l'app";
+"screens.about.app_information.option_description.legal_information" = "Mentions légales";
+"screens.about.app_information.option_description.rate" = "Évaluez l'app";
+"screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";

@@ -1,32 +1,16 @@
-//
-// MIT License
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import Foundation
 
-/// Used to configure the acessibility statement page.
+/// Used to configure the accessibility statement page.
 ///
-/// The module adds an entry into the list of items that allows user
-/// to display this page.
-///
+/// The module adds an entry into the list of items that allows user to display this page.
 public struct ODSAboutAccessibilityStatement {
 
     // =======================
@@ -40,13 +24,11 @@ public struct ODSAboutAccessibilityStatement {
     // MARK: Initializer
     // =================
 
-    /// Initializes the confguration providing the locations of the report.
+    /// Initializes the configuration providing the locations of the report.
     ///
     /// - Parameters:
-    ///    - fileName: The name of the XML file contains the report of accessibility statement.
-    ///    By default must be stored in resources of the main bundle.
-    ///    - reportDetail: Url to get the full detail of the accessibility statement
-    ///
+    ///    - fileName: The name of the XML file contains the report of accessibility statement. By default must be stored in resources of the main bundle.
+    ///    - reportDetail: URL to get the full detail of the accessibility statement
     public init(fileName: String, reportDetail: URL) {
         self.fileName = fileName
         self.reportDetail = reportDetail

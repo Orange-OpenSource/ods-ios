@@ -1,0 +1,43 @@
+[
+    {
+        "version": "0.14.0",
+        "date": "2023-10-09",
+        "news": "Mise à jour de l'API pour les Cards et Banner en SwiftUI.\nMise à jour du bouton d'emphase for qu'il soit identique à sa version web.\nCorrection de bogues comme le disable state de l'IconButton."
+    },
+    {
+        "version": "0.13.1",
+        "date": "2023-09-13",
+        "news": "Mise à jour du fichier AppNews"
+    },
+    {
+        "version": "0.13.0",
+        "date": "2023-09-12",
+        "news": "Ajout du mouble About (première version).\nMise à jour des iônes de l'application pour les versions Alpha et Beta./\nMise à jour des couleurs."
+    },
+    {
+        "version": "0.12.0",
+        "date": "2023-04-14",
+        "news": "Ajout du composant Bottom Sheet."
+    },
+    {
+        "version": "0.11.2",
+        "date": "2023-03-27",
+        "news": "Mise à jour de l'application sur l'App Store pour qu'elle ne soit pas indexée et trouvable par recherche"
+    },
+    {
+        "version": "0.11.1",
+        "date": "2023-03-16",
+        "news": "Renommage de l'application"
+    },
+    {
+        "version": "0.11.0",
+        "date": "2023-02-28",
+        "news": "1. Mise à jour du composant Card: \n- Mise à jour de l'app de démo avec des donnéees réalistes\n- Ajout du SideBySide pour les Cards\n- Mise à jour du Horizontal card pour ajouter un Divider\n\n2. Mise à jour des assets pour l'Innovation Theme"
+    },
+    {
+        "version": "0.10.0",
+        "date": "2023-02-02",
+        "news": "Correction de bugs\n Ajouter du composant ToolBar"
+    },
+]
+

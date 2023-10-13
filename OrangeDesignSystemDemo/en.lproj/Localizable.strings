@@ -1,0 +1,31 @@
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
+
+// ====================
+// MARK: - About screen
+// ====================
+
+"screens.about.changelog.title" = "Changelog";
+"screens.about.design_guidelines.title" = "Design guidelines";
+"screens.about.app_information.name" = "Orange Design System Demo";
+"screens.about.app_information.description" = "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.";
+"screens.about.app_information.share.subject" = "The Orange Design System";
+"screens.about.app_information.share.description" = "Here, you will find the Orange Design System Mobile App that provides examples of design implementations";
+"screens.about.terms_of_service" = "Terms of Service";
+"screens.about.legal_information_text.default" = "Add Legal information here";
+"screens.about.app_information.description.default" = "Add here a short description of the application.";
+"screens.about.app_information.share.subject.default" = "Add the subject of the sharing";
+"screens.about.app_information.share.description.default" = "Add the description of the sharing";
+"screens.about.app_information.option_description.version" = "Version";
+"screens.about.app_information.option_description.description" = "Description";
+"screens.about.app_information.option_description.share" = "Share";
+"screens.about.app_information.option_description.feedback" = "Feedback";
+"screens.about.app_information.option_description.app_news" = "App News";
+"screens.about.app_information.option_description.legal_information" = "Legal Information";
+"screens.about.app_information.option_description.rate" = "Rate the app";
+"screens.about.file_load_failure" = "Unable to load file %@.%@";

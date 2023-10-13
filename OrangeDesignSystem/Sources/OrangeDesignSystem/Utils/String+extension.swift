@@ -15,7 +15,7 @@ extension String {
         NSLocalizedString(self, bundle: .ods, comment: self)
     }
     // swiftlint:enable nslocalizedstring_key
-    
+
     /// - Parameters:
     ///    - argument: The unique value to insert in the localized string with `self` as key
     ///    - bundle: The `Bundle` to use to load the localizables, default is current calling module

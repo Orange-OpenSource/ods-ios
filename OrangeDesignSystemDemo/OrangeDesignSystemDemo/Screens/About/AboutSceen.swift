@@ -1,59 +1,48 @@
-//
-// MIT License
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import SwiftUI
 import OrangeDesignSystem
 
-struct AboutChangeLogItemConfig: ODSAboutListItemConfig {
+// MARK: - About Changelog Item Config
+
+struct AboutChangelogItemConfig: ODSAboutListItemConfig {
     
     // =======================
     // MARK: Stored properties
     // =======================
-
+    
     let title: String
     let icon: Image
     let priority: ODSAboutListItemPriority
     let target: ODSAboutListItemTarget
-
+    
     // =================
     // MARK: Initializer
     // =================
-
+    
     init(priority: ODSAboutListItemPriority) {
-        title = "Change Log"
+        title = "screens.about.changelog.title".🌐
         icon = Image("ic_taskList", bundle: Bundle.ods)
         self.priority = priority
         target = .destination(AnyView(
-            AboutHtmlAndMarkdownView(title: "Change Log", markdownFileName: "CHANGELOG", convertToHtml: true)))
+            AboutHtmlAndMarkdownView(title: "screens.about.changelog.title".🌐, markdownFileName: "CHANGELOG", convertToHtml: true)))
     }
 }
 
+// MARK: - About Design Guidelines Item Config
 
 struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
     
     // =======================
     // MARK: Stored properties
     // =======================
-
+    
     let title: String
     let icon: Image
     let target: ODSAboutListItemTarget
@@ -62,14 +51,16 @@ struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
     // =================
     // MARK: Initializer
     // =================
-
+    
     init(priority: ODSAboutListItemPriority) {
-        title = "Design guidelines"
+        title = "screens.about.design_guidelines.title".🌐
         icon = Image("ic_tools", bundle: Bundle.main)
         self.priority = priority
         target = .action( { UIApplication.shared.open(URL(string: "https://system.design.orange.com/0c1af118d/p/95b685-ios/")!) })
     }
 }
+
+// MARK: - About Screen
 
 struct AboutScreen: View {
     
@@ -87,16 +78,16 @@ struct AboutScreen: View {
     // =================
     // MARK: Initializer
     // =================
-
+    
     init() {
         applicationInformation = ODSAboutApplicationInformation(
-            name: "Orange Design System Demo",
+            name: "screens.about.app_information.name".🌐,
             version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
-            description: "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.",
+            description: "screens.about.app_information.description".🌐,
             shareConfiguration: ODSAboutShareTheApplication(
                 storeUrl: storeUrl,
-                subject: "The Orange Design System",
-                description: "Here, you will find the Orange Design System Mobile App that provides examples of design implementations"),
+                subject: "screens.about.app_information.share.subject".🌐,
+                description: "screens.about.app_information.share.description".🌐),
             onFeedbackClicked: {
                 UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
             })
@@ -113,21 +104,21 @@ struct AboutScreen: View {
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: guideLinesPriority) as ODSAboutListItemConfig,
             ODSAboutAppNewsItemConfig(priority: appNewsPriority, path: appNewPath),
-            AboutChangeLogItemConfig(priority: changeLogPriority) as ODSAboutListItemConfig,
+            AboutChangelogItemConfig(priority: changeLogPriority) as ODSAboutListItemConfig,
         ]
     }
-
+    
     // ==========
     // MARK: Body
     // ==========
-
+    
     var body: some View {
         NavigationView {
             ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources("AboutImage"),
                            applicationInformation: applicationInformation,
                            privacyPolicy: privacyPolicy,
                            acessibilityStatement: accessibilityStatement,
-                           termsOfService: termOfService,
+                           termsOfService: termsOfService,
                            listItemConfigurations: customItems)
         }
         .navigationbarMenuForThemeSelection()
@@ -137,15 +128,16 @@ struct AboutScreen: View {
     // ====================
     // MARK: Private helper
     // ====================
-
+    
     @ViewBuilder
-    private func termOfService() -> some View {
-        AboutHtmlAndMarkdownView(title: "Terms of Serice", htmlFileName: "CGU")
+    private func termsOfService() -> some View {
+        AboutHtmlAndMarkdownView(title: "screens.about.terms_of_service".🌐, htmlFileName: "CGU")
     }
 }
 
-
 #if DEBUG
+// MARK: - About Screen Preview Provider
+
 struct AboutScreen_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {

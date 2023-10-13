@@ -1,27 +1,14 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import SwiftUI
+
+// MARK: - About Application Information View
 
 struct AboutApplicationInformation: View {
 
@@ -37,7 +24,7 @@ struct AboutApplicationInformation: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            Text(applicationInformation.name)
+            Text(LocalizedStringKey(applicationInformation.name))
                 .odsFont(.largeTitle)
                 .fixedSize(horizontal: false, vertical: true)
                 .accessibilityAddTraits(.isHeader)
@@ -45,7 +32,7 @@ struct AboutApplicationInformation: View {
             if applicationInformation.shareConfiguration != nil || applicationInformation.onFeedbackClicked != nil {
                 HStack(spacing: ODSSpacing.none) {
                     if let shareConfiguration = applicationInformation.shareConfiguration {
-                        ODSButton(text: Text("Share"), image: Image("ic_share", bundle: Bundle.ods), emphasis: .lowest) {
+                        ODSButton(text: Text("modules.about.share".localized()), image: Image("ic_share", bundle: Bundle.ods), emphasis: .lowest) {
                             ShareSheet.show(content: shareConfiguration.description, subject: shareConfiguration.subject, url: shareConfiguration.storeUrl)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -53,7 +40,7 @@ struct AboutApplicationInformation: View {
                     }
 
                     if let onFeedbackClicked = applicationInformation.onFeedbackClicked {
-                        ODSButton(text: Text("Feedback"), image: Image("ic_comments", bundle: Bundle.ods), emphasis: .lowest, action: onFeedbackClicked)
+                        ODSButton(text: Text("modules.about.feedback".localized()), image: Image("ic_comments", bundle: Bundle.ods), emphasis: .lowest, action: onFeedbackClicked)
                             .buttonStyle(PlainButtonStyle())
                             .foregroundColor(Color.accentColor)
                     }
@@ -65,13 +52,13 @@ struct AboutApplicationInformation: View {
             if let version = fullVersionText {
                 VStack(alignment: .leading) {
                     Text(version)
-                    Text(applicationInformation.copyrightNotice)
+                    Text(LocalizedStringKey(applicationInformation.copyrightNotice))
                 }
                 .fixedSize(horizontal: false, vertical: true)
             }
 
             if let description = applicationInformation.description {
-                Text(description).fixedSize(horizontal: false, vertical: true)
+                Text(LocalizedStringKey(description)).fixedSize(horizontal: false, vertical: true)
             }
         }
     }
@@ -85,8 +72,9 @@ struct AboutApplicationInformation: View {
             return nil
         }
 
-        return "Version \(version.marketingVersion)\(buildSuffix)"
+        return "modules.about.app_information.full_version_text".localized(with: "\(version.marketingVersion)\(buildSuffix)")
     }
+
     private var buildSuffix: String {
         guard let buildNumber = applicationInformation.version?.buildNumber,
               !buildNumber.isEmpty else {
@@ -94,6 +82,7 @@ struct AboutApplicationInformation: View {
         }
         return " (\(buildNumber))\(buildTypeSuffix)"
     }
+
     private var buildTypeSuffix: String {
         guard let buildType = applicationInformation.version?.buildType,
               !buildType.isEmpty else {
@@ -104,6 +93,8 @@ struct AboutApplicationInformation: View {
 }
 
 #if DEBUG
+// MARK: - Preview Provider
+
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
         let appInfo = ODSAboutApplicationInformation(
