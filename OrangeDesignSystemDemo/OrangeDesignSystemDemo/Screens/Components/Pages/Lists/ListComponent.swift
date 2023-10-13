@@ -47,6 +47,11 @@ struct ListVariants: View {
         VariantEntryItem(text: "Standard Lists", technicalElement: "ODSListStandardItem()"){
             StandardListVariant(model: StandardListVariantModel())
         }
+        
+        VariantEntryItem(text: "Nex", technicalElement: "ODSListItem()"){
+            ListItemVariant(model: ListItemVariantModel())
+        }
+
     }
 }
 

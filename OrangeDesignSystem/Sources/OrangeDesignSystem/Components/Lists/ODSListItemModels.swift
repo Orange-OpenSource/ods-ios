@@ -90,40 +90,40 @@ public class ODSListStandardItemModel: ODSListItemModel {
 /// A text or an "i" button are available.
 public struct ODSListItemTrailingActions {
 
-    public typealias OnIButtonClicked = () -> Void
-    let displayText: String?
-    let onIButtonClicked: OnIButtonClicked?
+    public typealias IButtonAction = () -> Void
+    let text: Text?
+    let iButtonAction: IButtonAction?
     let id: UUID
 
     /// Use to display a text
     ///
-    /// - Parameter displayText: Text to dsiplay
+    /// - Parameter text: Text to dsiplay
     ///
-    public init(displayText: String) {
-        self.displayText = displayText
-        self.onIButtonClicked = nil
+    public init(text: Text) {
+        self.text = text
+        self.iButtonAction = nil
         self.id = UUID()
     }
 
     /// Use to display "i" button providing callback to handle action
     ///
-    /// - Parameter onIButtonClicked: callback to be invoked when "i" button is being clicked.
+    /// - Parameter iButtonAction: callback to be invoked when "i" button is being clicked.
     ///
-    public init(onIButtonClicked: @escaping OnIButtonClicked) {
-        self.displayText = nil
-        self.onIButtonClicked = onIButtonClicked
+    public init(iButtonAction: @escaping IButtonAction) {
+        self.text = nil
+        self.iButtonAction = iButtonAction
         self.id = UUID()
     }
 
     /// Use to display a text and display "i" button
     ///
     /// - Parameters:
-    ///     - displayText: Text to dsiplay
-    ///     - onIButtonClicked: callback to be invoked when "i" button is being clicked.
+    ///     - text: Text to dsiplay
+    ///     - iButtonAction: callback to be invoked when "i" button is being clicked.
     ///
-    public init(displayText: String, onIButtonClicked: @escaping OnIButtonClicked) {
-        self.displayText = displayText
-        self.onIButtonClicked = onIButtonClicked
+    public init(text: Text, iButtonAction: @escaping IButtonAction) {
+        self.text = text
+        self.iButtonAction = iButtonAction
         self.id = UUID()
     }
 }

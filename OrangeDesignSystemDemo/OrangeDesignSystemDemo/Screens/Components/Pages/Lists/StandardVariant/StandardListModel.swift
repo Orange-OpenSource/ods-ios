@@ -176,11 +176,11 @@ class StandardListVariantModel: ObservableObject {
         
         switch (showText, showIButton) {
         case (true, true):
-            return ODSListItemTrailingActions(displayText: "Details", onIButtonClicked: onIButtonClicked)
+            return ODSListItemTrailingActions(text: Text("Details"), iButtonAction: iButtonAction)
         case (true, false):
-            return ODSListItemTrailingActions(displayText: "Details")
+            return ODSListItemTrailingActions(text: Text("Details"))
         case (false, true):
-            return ODSListItemTrailingActions(onIButtonClicked: onIButtonClicked)
+            return ODSListItemTrailingActions(iButtonAction: iButtonAction)
         default:
             return nil
         }
@@ -195,7 +195,7 @@ class StandardListVariantModel: ObservableObject {
     @Published var showSheetOnIButtonClicked: Bool = false
     
     // Info button action
-    func onIButtonClicked() {
+    func iButtonAction() {
         showSheetOnIButtonClicked = true
     }
 }

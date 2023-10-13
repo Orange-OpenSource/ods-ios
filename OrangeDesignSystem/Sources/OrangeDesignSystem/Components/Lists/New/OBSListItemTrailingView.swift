@@ -1,4 +1,4 @@
-//
+////
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,83 +23,81 @@
 
 import SwiftUI
 
-struct TrailingIcons: View {
+public struct ODSListItemTrailing: View {
 
-    // ======================
-    // MARK: Store Properties
-    // ======================
-
-    let model: ODSListItemModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        if let actionModel = (model as? ODSListStandardItemModel)?.trailingActions {
-            TrailingActions(model: actionModel)
-        }
-
-        if let selectionModel = model as? ODSListSelectionItemModel {
-            TrailingSelections(model: selectionModel)
-        }
+    enum MyType {
+        case textOnly(Text)
+        case iButton(() -> Void)
+        case iButtonAndText(() -> Void, Text)
+        case toggle(Binding<Bool>)
+        case checkmark(Bool)
     }
-}
 
-struct TrailingActions: View {
+    // =======================
+    // MARK: Stored Properties
+    // =======================
 
-    // ======================
-    // MARK: Store Properties
-    // ======================
+    @Environment(\.theme) private var theme
+    let mytype: ODSListItemTrailing.MyType
 
-    let model: ODSListItemTrailingActions
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    public init(text: Text) {
+        self.mytype = .textOnly(text)
+    }
+
+    public init(action: @escaping () -> Void) {
+        self.mytype = .iButton(action)
+    }
+
+    public init(text: Text, action: @escaping () -> Void) {
+        self.mytype = .iButtonAndText(action, text)
+    }
+
+    public init(toogleIsOn: Binding<Bool>) {
+        self.mytype = .toggle(toogleIsOn)
+    }
+    public init(checkmarkIsVisible: Bool) {
+        self.mytype = .checkmark(checkmarkIsVisible)
+    }
 
     // ==========
     // MARK: Body
     // ==========
 
-    var body: some View {
-        HStack(spacing: ODSSpacing.s) {
-            model.text?
-                .odsFont(.subhead)
-                .foregroundColor(Color(UIColor.systemGray3))
+    public var body: some View {
+        switch mytype {
+        case .textOnly(let text):
+            text
 
+        case .iButton(let action):
+            ODSIconButton(image: Image(systemName: "info.circle"), action: action)
+                .buttonStyle(PlainButtonStyle())
 
-            if let iButtonAction = model.iButtonAction {
-                ODSIconButton(image: Image(systemName: "info.circle"), action: iButtonAction)
+        case .iButtonAndText(let action, let text):
+            HStack {
+                text
+                ODSIconButton(image: Image(systemName: "info.circle"), action: action)
                     .buttonStyle(PlainButtonStyle())
             }
-        }
-    }
-}
 
-struct TrailingSelections: View {
-
-    // ======================
-    // MARK: Store Properties
-    // ======================
-
-    @ObservedObject var model: ODSListSelectionItemModel
-    @Environment(\.theme) var theme
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        switch model.trailingSelection {
-        case .toggle:
-            Toggle(isOn: $model.isSelected) {
+        case .toggle(let isOn):
+            Toggle(isOn: isOn) {
                 EmptyView()
             }
-        case .checkmark:
-            if model.isSelected {
+
+        case .checkmark(let isVisible):
+            if isVisible {
                 Image(systemName: "checkmark")
                     .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .font(.body.bold())
                     .foregroundColor(theme.componentColors.accent)
                     .frame(height: 44)
+            } else {
+                EmptyView()
             }
         }
     }
