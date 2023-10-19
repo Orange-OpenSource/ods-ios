@@ -51,6 +51,15 @@
 "a11y.tap_twice_to_get_more" = "Tap twice to get more information";
 "a11y.color_details" = "asset name: %@, RGB value is %@ . Hex value is %@";
 
+// =======================================
+// MARK: - Screens - Guidelines - Spacings
+// =======================================
+
+"screens.guidelines.spacings.title" = "Spacings";
+"screens.guidelines.spacings.description" = "Spacing tokens are used to position elements on the screen and layout within components. Spacing tokens can be applied as padding and margins.";
+
+"a11y.spacings_details" = "%@, token name : %@, ratio : %@";
+
 // =================
 // MARK: - Main View
 // =================

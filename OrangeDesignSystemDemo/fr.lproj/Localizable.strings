@@ -49,6 +49,15 @@
 "a11y.tap_twice_to_get_more" = "Tappez deux fois pour avoir davantage de détails";
 "a11y.color_details" = "Nom de la ressource: %@, valeur RGB %@ . Valeur hexadécimale %@";
 
+// =======================================
+// MARK: - Screens - Guidelines - Spacings
+// =======================================
+
+"screens.guidelines.spacings.title" = "Espacements";
+"screens.guidelines.spacings.description" = "Les éléments d'espacements sont utilisés pour positionner les éléments à l'écran et les mettre en page dans les composants. Les éléments d'espacements peuvent être appliqués en tant que remplissage et marges.";
+
+"a11y.spacings_details" = "%@, nom de l'espacement : %@, ratio : %@";
+
 // =================
 // MARK: - Main View
 // =================
