@@ -28,11 +28,26 @@
 "screens.about.app_information.option_description.rate" = "Évaluez l'app";
 "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";
 
-// =================================
-// MARK: - Screens - Guidelines list
-// =================================
+// ============================
+// MARK: - Screens - Guidelines
+// ============================
 
 "screens.guidelines_list.title" = "Règles";
+
+// =====================================
+// MARK: - Screens - Guidelines - Colors
+// =====================================
+
+"screens.guidelines.colors.title" = "Couleurs";
+"screens.guidelines.colors.description" = "C'est important d'utiliser les couleurs de fonds systèmes de iOS car elles sont dynamiques. Elles passent automatiquement d'une base légèrement plus foncée à une couleur légèrement plus claire, afin d'améliorer la perception de la profondeur et de la superposition.";
+"screens.guidelines.colors.palette.title" = "Palette";
+"screens.guidelines.colors.color_palette.title" = "Palette de couleurs";
+"screens.guidelines.colors.color_palette.on_light" = "Mode clair";
+"screens.guidelines.colors.color_palette.on_dark" = "Mode sombre";
+"screens.guidelines.colors.description.more" = "Certaines couleurs sont définies avec différentes teintes qui changent automatiquement. Pour les gris, vous pouvez utiliser les Apple System Greys. Pour les textes en noir et blanc, utilisez les couleurs du système dynamique Apple. Pour plus d'informations, consultez les [Règles de couleurs Apple](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
+
+"a11y.tap_twice_to_get_more" = "Tappez deux fois pour avoir davantage de détails";
+"a11y.color_details" = "Nom de la ressource: %@, valeur RGB %@ . Valeur hexadécimale %@";
 
 // =================
 // MARK: - Main View
@@ -42,3 +57,10 @@
 "main_view.tab.components" = "Composants";
 "main_view.tab.modules" = "Modules";
 "main_view.tab.about" = "À propos";
+
+// =====================
+// MARK: - Miscellaneous
+// =====================
+
+"misc.usage" = "Usage";
+"misc.coming_soon" = "À venir...";

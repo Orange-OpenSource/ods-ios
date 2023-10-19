@@ -30,11 +30,26 @@
 "screens.about.app_information.option_description.rate" = "Rate the app";
 "screens.about.file_load_failure" = "Unable to load file %@.%@";
 
-// =================================
-// MARK: - Screens - Guidelines list
-// =================================
+// ============================
+// MARK: - Screens - Guidelines
+// ============================
 
 "screens.guidelines_list.title" = "Guidelines";
+
+// =====================================
+// MARK: - Screens - Guidelines - Colors
+// =====================================
+
+"screens.guidelines.colors.title" = "Colors";
+"screens.guidelines.colors.description" = "It is important to use the iOS system background colours as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.";
+"screens.guidelines.colors.palette.title" = "Palette";
+"screens.guidelines.colors.color_palette.title" = "Color palette";
+"screens.guidelines.colors.color_palette.on_light" = "Light mode";
+"screens.guidelines.colors.color_palette.on_dark" = "Dark mode";
+"screens.guidelines.colors.description.more" = "Some colours are define with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
+
+"a11y.tap_twice_to_get_more" = "Tap twice to get more information";
+"a11y.color_details" = "asset name: %@, RGB value is %@ . Hex value is %@";
 
 // =================
 // MARK: - Main View
@@ -45,3 +60,9 @@
 "main_view.tab.modules" = "Modules";
 "main_view.tab.about" = "About";
 
+// =====================
+// MARK: - Miscellaneous
+// =====================
+
+"misc.usage" = "Usage";
+"misc.coming_soon" = "Coming soon...";
