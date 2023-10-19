@@ -60,6 +60,15 @@
 
 "a11y.spacings_details" = "%@, token name : %@, ratio : %@";
 
+// =========================================
+// MARK: - Screens - Guidelines - Typography
+// =========================================
+
+"screens.guidelines.typography.title" = "Typography";
+"screens.guidelines.typography.description" = "Apple proposes built-in text styles based on the Apple Dynamic Types and using the native typeface San Francisco for all Latin, Greek and Cyrillic alphabets. \nTo create you application you should use the following updated styles.";
+
+"a11y.typography_details" = "%@, token name is %@";
+
 // =================
 // MARK: - Main View
 // =================

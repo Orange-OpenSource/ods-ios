@@ -58,6 +58,15 @@
 
 "a11y.spacings_details" = "%@, nom de l'espacement : %@, ratio : %@";
 
+// =========================================
+// MARK: - Screens - Guidelines - Typography
+// =========================================
+
+"screens.guidelines.typography.title" = "Typographie";
+"screens.guidelines.typography.description" = "Apple propose des styles de texte intégrés basés sur les Apple Dynamic Types et utilisant la police de caractères native San Francisco pour tous les alphabets latin, grec et cyrillique. \nPour créer votre application, vous devez utiliser les styles mis à jour suivants.";
+
+"a11y.typography_details" = "%@, nom de l'élément : %@";
+
 // =================
 // MARK: - Main View
 // =================
