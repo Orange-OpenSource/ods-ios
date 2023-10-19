@@ -67,6 +67,22 @@
 
 "a11y.typography_details" = "%@, nom de l'élément : %@";
 
+// ======================================
+// MARK: - Screens - Guidelines - Banners
+// ======================================
+
+"screens.guidelines.banners.title" = "Bannières";
+"screens.guidelines.banners.description" = "Une bannière affiche un message important qui nécessite qu'une action soit ignorée.";
+"screens.guidelines.banners.variant.title" = "Bannière";
+"screens.guidelines.banners.demo.long_text" = "Le texte peut être sur plusieurs lignes. Mais, une à deux lignes est préférable sur mobile.";
+"screens.guidelines.banners.demo.short_text" = "Texte court";
+"screens.guidelines.banners.demo.button_hint" = "Action";
+"screens.guidelines.banners.demo.button_hint_1" = "Action n°1";
+"screens.guidelines.banners.demo.button_hint_2" = "Action n°2";
+"screens.guidelines.banners.demo.toggle_long_text_hint" = "Texte long";
+"screens.guidelines.banners.demo.toggle_image_hint" = "Image";
+"screens.guidelines.banners.demo.buttons_number_hint" = "Nombre de boutons : %@";
+
 // =================
 // MARK: - Main View
 // =================

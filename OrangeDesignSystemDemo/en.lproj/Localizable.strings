@@ -69,6 +69,22 @@
 
 "a11y.typography_details" = "%@, token name is %@";
 
+// ======================================
+// MARK: - Screens - Guidelines - Banners
+// ======================================
+
+"screens.guidelines.banners.title" = "Banners";
+"screens.guidelines.banners.description" = "A banner displays an important message which requires an action to be dismissed.";
+"screens.guidelines.banners.variant.title" = "Banner";
+"screens.guidelines.banners.demo.long_text" = "Text could be on several lines. But, One to two lines is preferable on mobile.";
+"screens.guidelines.banners.demo.short_text" = "Short text";
+"screens.guidelines.banners.demo.button_hint" = "Action";
+"screens.guidelines.banners.demo.button_hint_1" = "Action n°1";
+"screens.guidelines.banners.demo.button_hint_2" = "Action n°2";
+"screens.guidelines.banners.demo.toggle_long_text_hint" = "Long text";
+"screens.guidelines.banners.demo.toggle_image_hint" = "Image";
+"screens.guidelines.banners.demo.buttons_number_hint" = "Number of buttons: %@";
+
 // =================
 // MARK: - Main View
 // =================
