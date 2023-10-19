@@ -6,9 +6,9 @@
  * This software is distributed under the MIT license.
  */
 
-// ===============
-// MARK: - Screens
-// ===============
+// =======================
+// MARK: - Screens - About
+// =======================
 
 "screens.about.changelog.title" = "Changelog";
 "screens.about.design_guidelines.title" = "Règles de design";
@@ -27,3 +27,18 @@
 "screens.about.app_information.option_description.legal_information" = "Mentions légales";
 "screens.about.app_information.option_description.rate" = "Évaluez l'app";
 "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";
+
+// =================================
+// MARK: - Screens - Guidelines list
+// =================================
+
+"screens.guidelines_list.title" = "Règles";
+
+// =================
+// MARK: - Main View
+// =================
+
+"main_view.tab.guidelines" = "Règles";
+"main_view.tab.components" = "Composants";
+"main_view.tab.modules" = "Modules";
+"main_view.tab.about" = "À propos";
