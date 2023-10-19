@@ -20,7 +20,7 @@ struct ColorPageDescription: View {
     var body: some View {
         VariantEntryItem(text: "screens.guidelines.colors.color_palette.title".🌐, technicalElement: "ODSColorPalette()") {
             ColorList().environmentObject(self.screenState)
-                .navigationTitle("screens.guidelines.colors.color_palette.title".🌐)
+                .navigationTitle("screens.guidelines.colors.color_palette.title")
         }
     }
 }
