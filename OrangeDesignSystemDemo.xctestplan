@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "C01FC717-7548-4912-8501-CE14A5CF7E71",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:OrangeDesignSystemDemo.xcodeproj",
+      "identifier" : "EB0AA52F275652AE0012E192",
+      "name" : "OrangeDesignSystemDemo"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:OrangeDesignSystemDemo.xcodeproj",
+        "identifier" : "EB0AA53F275652AF0012E192",
+        "name" : "OrangeDesignSystemDemoTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:OrangeDesignSystemDemo.xcodeproj",
+        "identifier" : "EB0AA549275652AF0012E192",
+        "name" : "OrangeDesignSystemDemoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

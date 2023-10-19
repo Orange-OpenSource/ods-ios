@@ -61,10 +61,6 @@ let package = Package(
             name: "InnovationCupTheme",
             dependencies: ["OrangeDesignSystem"],
             path: "InnovationCupTheme/Sources"),
-        .testTarget(
-            name: "OrangeDesignSystemTests",
-            dependencies: ["OrangeDesignSystem"],
-            path: "OrangeDesignSystem/Tests"),
     ],
     swiftLanguageVersions: [.v5]
 )
