@@ -43,7 +43,7 @@
 		077C38672A9DDC79003D6B51 /* ToolBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38162A9DDC79003D6B51 /* ToolBarComponent.swift */; };
 		077C38682A9DDC79003D6B51 /* TabBarVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38182A9DDC79003D6B51 /* TabBarVariant.swift */; };
 		077C38692A9DDC79003D6B51 /* TabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38192A9DDC79003D6B51 /* TabBarComponent.swift */; };
-		077C386A2A9DDC79003D6B51 /* NavigatinBarModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381B2A9DDC79003D6B51 /* NavigatinBarModifiers.swift */; };
+		077C386A2A9DDC79003D6B51 /* NavigationBarModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381B2A9DDC79003D6B51 /* NavigationBarModifiers.swift */; };
 		077C386B2A9DDC79003D6B51 /* NavigationBarVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381C2A9DDC79003D6B51 /* NavigationBarVariant.swift */; };
 		077C386C2A9DDC79003D6B51 /* NavigationBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381D2A9DDC79003D6B51 /* NavigationBarComponent.swift */; };
 		077C386D2A9DDC79003D6B51 /* BannerVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381F2A9DDC79003D6B51 /* BannerVariantOptions.swift */; };
@@ -182,7 +182,7 @@
 		077C38162A9DDC79003D6B51 /* ToolBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarComponent.swift; sourceTree = "<group>"; };
 		077C38182A9DDC79003D6B51 /* TabBarVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVariant.swift; sourceTree = "<group>"; };
 		077C38192A9DDC79003D6B51 /* TabBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarComponent.swift; sourceTree = "<group>"; };
-		077C381B2A9DDC79003D6B51 /* NavigatinBarModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatinBarModifiers.swift; sourceTree = "<group>"; };
+		077C381B2A9DDC79003D6B51 /* NavigationBarModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarModifiers.swift; sourceTree = "<group>"; };
 		077C381C2A9DDC79003D6B51 /* NavigationBarVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarVariant.swift; sourceTree = "<group>"; };
 		077C381D2A9DDC79003D6B51 /* NavigationBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarComponent.swift; sourceTree = "<group>"; };
 		077C381F2A9DDC79003D6B51 /* BannerVariantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerVariantOptions.swift; sourceTree = "<group>"; };
@@ -507,7 +507,7 @@
 		077C381A2A9DDC79003D6B51 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				077C381B2A9DDC79003D6B51 /* NavigatinBarModifiers.swift */,
+				077C381B2A9DDC79003D6B51 /* NavigationBarModifiers.swift */,
 				077C381C2A9DDC79003D6B51 /* NavigationBarVariant.swift */,
 				077C381D2A9DDC79003D6B51 /* NavigationBarComponent.swift */,
 			);
@@ -1117,7 +1117,7 @@
 				075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */,
 				077C38762A9DDC79003D6B51 /* GuidelinePage.swift in Sources */,
 				077C38752A9DDC79003D6B51 /* Guideline.swift in Sources */,
-				077C386A2A9DDC79003D6B51 /* NavigatinBarModifiers.swift in Sources */,
+				077C386A2A9DDC79003D6B51 /* NavigationBarModifiers.swift in Sources */,
 				077C387B2A9DDC79003D6B51 /* ColorDetail.swift in Sources */,
 				077C386B2A9DDC79003D6B51 /* NavigationBarVariant.swift in Sources */,
 				07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */,

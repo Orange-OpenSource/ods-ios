@@ -6,6 +6,22 @@
  * This software is distributed under the MIT license.
  */
 
+// =================
+// MARK: - Main View
+// =================
+
+"main_view.tab.guidelines" = "Règles";
+"main_view.tab.components" = "Composants";
+"main_view.tab.modules" = "Modules";
+"main_view.tab.about" = "À propos";
+
+// =====================
+// MARK: - Miscellaneous
+// =====================
+
+"misc.usage" = "Usage";
+"misc.coming_soon" = "À venir...";
+
 // =======================
 // MARK: - Screens - About
 // =======================
@@ -83,18 +99,20 @@
 "screens.guidelines.banners.demo.toggle_image_hint" = "Image";
 "screens.guidelines.banners.demo.buttons_number_hint" = "Nombre de boutons : %@";
 
-// =================
-// MARK: - Main View
-// =================
+// ================================================
+// MARK: - Screens - Guidelines - Bars - Navigation
+// ================================================
 
-"main_view.tab.guidelines" = "Règles";
-"main_view.tab.components" = "Composants";
-"main_view.tab.modules" = "Modules";
-"main_view.tab.about" = "À propos";
-
-// =====================
-// MARK: - Miscellaneous
-// =====================
-
-"misc.usage" = "Usage";
-"misc.coming_soon" = "À venir...";
+"screens.guidelines.bars.navigation.title" = "Barres - navigation";
+"screens.guidelines.bars.navigation.description" = "Une barre de navigation s'affiche en haut de l'écran d'une application, sous la barre d'état, et permet de naviguer dans une série d'écrans hiérarchiques.";
+"screens.guidelines.bars.navigation.button.close" = "Fermer";
+"screens.guidelines.bars.navigation.button.edit" = "Action d'édition";
+"screens.guidelines.bars.navigation.button.share" = "Action de partage";
+"screens.guidelines.bars.navigation.standard_title.text" = "Titre";
+"screens.guidelines.bars.navigation.large_title.text" = "Titre large";
+"screens.guidelines.bars.navigation.standard_title.hint" = "Standard";
+"screens.guidelines.bars.navigation.large_title.hint" = "Large";
+"screens.guidelines.bars.navigation.size.hint" = "Taille";
+"screens.guidelines.bars.navigation.back_button.hint" = "Bouton retour";
+"screens.guidelines.bars.navigation.action_item_count" = "Nombre d'icônes d'action : %@";
+"screens.guidelines.bars.navigation.search.hint" = "Rechercher";

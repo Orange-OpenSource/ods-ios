@@ -6,6 +6,22 @@
  * This software is distributed under the MIT license.
  */
 
+// =================
+// MARK: - Main View
+// =================
+
+"main_view.tab.guidelines" = "Guidelines";
+"main_view.tab.components" = "Components";
+"main_view.tab.modules" = "Modules";
+"main_view.tab.about" = "About";
+
+// =====================
+// MARK: - Miscellaneous
+// =====================
+
+"misc.usage" = "Usage";
+"misc.coming_soon" = "Coming soon...";
+
 // =======================
 // MARK: - Screens - About
 // =======================
@@ -85,18 +101,20 @@
 "screens.guidelines.banners.demo.toggle_image_hint" = "Image";
 "screens.guidelines.banners.demo.buttons_number_hint" = "Number of buttons: %@";
 
-// =================
-// MARK: - Main View
-// =================
+// ================================================
+// MARK: - Screens - Guidelines - Bars - Navigation
+// ================================================
 
-"main_view.tab.guidelines" = "Guidelines";
-"main_view.tab.components" = "Components";
-"main_view.tab.modules" = "Modules";
-"main_view.tab.about" = "About";
-
-// =====================
-// MARK: - Miscellaneous
-// =====================
-
-"misc.usage" = "Usage";
-"misc.coming_soon" = "Coming soon...";
+"screens.guidelines.bars.navigation.title" = "Bars - navigation";
+"screens.guidelines.bars.navigation.description" = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.";
+"screens.guidelines.bars.navigation.button.close" = "Close";
+"screens.guidelines.bars.navigation.button.edit" = "Edit action";
+"screens.guidelines.bars.navigation.button.share" = "Share action";
+"screens.guidelines.bars.navigation.standard_title.text" = "Title";
+"screens.guidelines.bars.navigation.large_title.text" = "Large Title";
+"screens.guidelines.bars.navigation.standard_title.hint" = "Standard";
+"screens.guidelines.bars.navigation.large_title.hint" = "Large";
+"screens.guidelines.bars.navigation.size.hint" = "Size";
+"screens.guidelines.bars.navigation.back_button.hint" = "Back button";
+"screens.guidelines.bars.navigation.action_item_count" = "Action icon count: %@";
+"screens.guidelines.bars.navigation.search.hint" = "Search";
