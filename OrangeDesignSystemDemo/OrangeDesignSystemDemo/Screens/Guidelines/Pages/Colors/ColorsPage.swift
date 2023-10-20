@@ -33,12 +33,10 @@ struct ColorPageDescription: View {
     let screenState = ScreenState()
 
     var body: some View {
-        VariantEntryItem(text: "ColorPalette", technicalElement: "ODSColorPalette()") {
+        VariantEntryItem(title: "ColorPalette", technicalElement: "ODSColorPalette()") {
             ColorList().environmentObject(self.screenState)
                 .navigationTitle("ColorPalette")
         }
-        .listRowInsets(EdgeInsets())
-        .padding(.horizontal, ODSSpacing.m)
     }
 }
 

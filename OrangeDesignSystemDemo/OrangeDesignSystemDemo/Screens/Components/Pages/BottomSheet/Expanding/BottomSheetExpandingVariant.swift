@@ -116,17 +116,12 @@ fileprivate struct BottonSheetContent: View {
     private func examplePage() -> some View {
 //        List {
         ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
-                let listItemModel =
-                ODSListStandardItemModel(title: recipe.title, leadingIcon: .icon(Image(recipe.iconName)))
-
-                ODSListStandardItem(model: listItemModel)
-                    .padding(.horizontal, ODSSpacing.s)
-                    .listRowSeparator(Visibility.visible)
-                    .listRowInsets(EdgeInsets())
-                    .onTapGesture {
-                        model.selectedRecipe = recipe
-                    }
-            }
+            ODSListItem(title: Text(recipe.title), leading: .icon(Image(recipe.iconName)))
+                .odsListItemStyle()
+                .onTapGesture {
+                    model.selectedRecipe = recipe
+                }
+        }
 //        }
 //        .listStyle(.plain)
     }

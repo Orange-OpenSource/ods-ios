@@ -60,26 +60,22 @@ struct AboutListItems: View {
             Button {
                 action()
             } label: {
-                ODSListStandardItem(model: configuration.model)
+                ODSListItem(title: Text(configuration.title), leading: ODSListItem.Leading(icon: configuration.icon))
             }
-            .listRowInsets(EdgeInsets())
-            .listRowSeparator(.hidden)
+            .odsListItemStyle(showSeparator: false)
 
         case .destination(let destination):
-            NavigationLink(configuration.model) { destination.navigationTitle(configuration.title) }
-                .listRowInsets(EdgeInsets())
-                .listRowSeparator(.hidden)
+            NavigationLink{ 
+                destination.navigationTitle(configuration.title)
+            } label: {
+                ODSListItem(title: Text(configuration.title), leading: ODSListItem.Leading(icon: configuration.icon))
+            }
+            .odsListItemStyle(showSeparator: false)
         }
     }
 }
 
-extension ODSAboutListItemConfig {
-    var model: ODSListStandardItemModel {
-        ODSListStandardItemModel(title: self.title, leadingIcon: ODSListItemLeadingIcon(icon: self.icon))
-    }
-}
-
-extension ODSListItemLeadingIcon {
+extension ODSListItem.Leading {
     init?(icon: Image?) {
         guard let icon = icon else {
             return nil

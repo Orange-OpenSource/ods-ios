@@ -23,34 +23,52 @@
 
 import OrangeDesignSystem
 import SwiftUI
-import BottomSheet
 
-struct BottomSheetComponent: Component {
-    let title: String
-    let imageName: String
-    let description: String
-    let variants: AnyView
+// =============
+// MARK: Models
+// =============
+
+
+enum StandardTrailingOption: CaseIterable {
+    case text
+    case iButton
     
-    init() {
-        title = "Sheets: Bottom"
-        imageName = "BottomSheet"
-        description = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task."
-        variants = AnyView(BottomSheetVariants())
-    }
-}
-
-struct BottomSheetVariants: View {
-    var body: some View {
-        VariantEntryItem(text: "Expanding", technicalElement: ".odsBottomSheetExpanding()") {
-            ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
-                .navigationTitle("Expanding")
-            
+    var description: String {
+        switch self {
+        case .text:
+            return "Text"
+        case .iButton:
+            return "Info Button"
         }
+    }
+    
+    private var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
         
-        VariantEntryItem(text: "Standard", technicalElement: ".odsBottomSheetStandard()") {
-            StandardBottomSheetVariant()
-                .navigationTitle("Standard")
-        }
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }
 
+class ListItemStandardVariantModel: ObservableObject {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @Published var showSubtitle: Bool
+    @Published var leadingOption: LeadingOption
+    @Published var trailingOptions: [StandardTrailingOption]
+    @Published var navigate: Bool
+    
+    // ==================
+    // MARK: Initializers
+    // ==================
+    init() {
+        showSubtitle = true
+        leadingOption = .circle
+        trailingOptions = []
+        navigate = true
+    }
+}

@@ -24,54 +24,43 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SelectionListVariant: View {
-    
-    
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-    
-    let model: SelectionListVariantModel
-    
-    // ==========
-    // MARK: Body
-    // ==========
-    
-    var body: some View {
-        CustomizableVariant {
-            SelectionListVariantInner(model: model)
-        } options: {
-            SelectionListVariantOptions(model: model)
-        }
-    }
-}
+struct ListItemStandardVariantOptions: View {
 
-private struct SelectionListVariantInner: View {
-    
     // =======================
     // MARK: Stored Properties
     // =======================
-    
-    @ObservedObject var model: SelectionListVariantModel
-    @State var multiSelection: Set<UUID>? = nil
-    
+
+    @ObservedObject var model: ListItemStandardVariantModel
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
-        List /* (selection: $multiSelection) */ {
-            ForEach(model.itemModels, id: \.id) { itemModel in
-                ODSListSelectionItem(model: itemModel)
-                .listRowInsets(EdgeInsets())
-                .listRowSeparator(Visibility.visible)
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
             }
-            .onMove(perform: model.move)
-            .onDelete(perform: model.delete)
             .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Leading",
+                          selection: $model.leadingOption,
+                          chips: LeadingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Trailing",
+                          selection: $model.trailingOptions, 
+                          allowZeroSelection: true,
+                          chips: StandardTrailingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
+
+            Toggle(isOn: $model.navigate) {
+                Text("Navigate").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
         }
-        .toolbar { EditButton() }
-        .listStyle(.plain)
-        .navigationBarTitleDisplayMode(.inline)
+        .padding(.top, ODSSpacing.s)
     }
 }

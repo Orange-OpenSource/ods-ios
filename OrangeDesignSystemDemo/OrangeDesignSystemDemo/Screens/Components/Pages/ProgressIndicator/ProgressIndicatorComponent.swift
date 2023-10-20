@@ -42,12 +42,12 @@ struct ProgressIndicatorComponent: Component {
 private struct ProgressIndicatorVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "Progress bar demo", technicalElement: "ProgressView(value:, total:)") {
+        VariantEntryItem(title: "Progress bar demo", technicalElement: "ProgressView(value:, total:)") {
             ProgressBarVariant(model: ProgressBarVariantModel())
                 .navigationTitle("Progress bar demo")
         }
         
-        VariantEntryItem(text: "Activity indicator", technicalElement: "ProgressView()") {
+        VariantEntryItem(title: "Activity indicator", technicalElement: "ProgressView()") {
             ActivityIndicatorVariant(model: ActivityIndicatorModel())
                 .navigationTitle("Activity indicator")
         }

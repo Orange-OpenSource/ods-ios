@@ -23,20 +23,23 @@
 
 import SwiftUI
 
-struct LeadingIcon: View {
+struct LeadingView: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let model: ODSListItemLeadingIcon
+    let element: ODSListItem.Leading
+    let height: CGFloat
+    let width: CGFloat = 44
+    let wideWidth: CGFloat = 88
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        switch model {
+        switch element {
         case .icon(let image):
             image.renderingMode(.template)
         case .circularImage(let source):
@@ -49,25 +52,8 @@ struct LeadingIcon: View {
                 .clipShape(Rectangle())
         case .wideImage(let source):
             ODSImage(source: source)
-                .frame(width: width, height: height)
+                .frame(width: wideWidth, height: height)
                 .clipShape(Rectangle())
         }
-    }
-
-    // =====================
-    // MARK: Private helpers
-    // =====================
-
-    private var width: CGFloat {
-        switch model {
-        case  .icon, .circularImage, .squareImage:
-            return 44
-        case .wideImage:
-            return 80
-        }
-    }
-
-    private var height: CGFloat {
-        return 44
     }
 }
