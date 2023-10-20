@@ -211,3 +211,18 @@
 "screens.guidelines.card.position.trailing" = "Fin";
 "screens.guidelines.card.divider" = "Séparateur";
 "screens.guidelines.card.picker.position" = "Position de l'image";
+
+// ====================================
+// MARK: - Screens - Guidelines - Chips
+// ====================================
+
+"screens.guidelines.chips.title" = "Puces";
+"screens.guidelines.chips.description" = "Les puces sont de petits composants contenant un certain nombre d'éléments qui représentent un événement de calendrier ou un contact.";
+"screens.guidelines.chips.text_only" = "Texte seul";
+"screens.guidelines.chips.with_icon" = "Avec une icône depuis une image";
+"screens.guidelines.chips.with_system_icon" = "Avec une icône système";
+"screens.guidelines.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou pas */
+"screens.guidelines.chips.state.enable" = "Activer";
+"screens.guidelines.chips.state.selected" = "Selectionné";
+"screens.guidelines.chips.state.disabled" = "Désactivé";
+
