@@ -1,28 +1,17 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
+
+// ==========================
+// MARK: - Tool Bar Component
+// ==========================
 
 struct ToolBarComponent: Component {
     let title: String
@@ -31,29 +20,36 @@ struct ToolBarComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "Bars - tool"
+        title = "screens.guidelines.bars.tools.title".🌐
         imageName = "Bars - tool"
-        description = "A toolbar allows users to do specific actions regarding the entire page. It is placed at the bottom of the screen."
-        
+        description = "screens.guidelines.bars.tools.description".🌐
         variants = AnyView(ToolBarVariants())
     }
 }
 
+// =========================
+// MARK: - Tool Bar Variants
+// =========================
+
 private struct ToolBarVariants: View {
     
     var body: some View {
-        VariantEntryItem(title: "Bars - tool bar demo", technicalElement: "odsToolBar()") {
+        VariantEntryItem(text: "screens.guidelines.bars.tools.title".🌐, technicalElement: "odsToolBar()") {
             ToolBarVariantHome(model: ToolBarVariantModel())
-                .navigationTitle("Bars - tool bar demo")
+                .navigationTitle("screens.guidelines.bars.tools.title")
         }
     }
 }
 
+// ==============================
+// MARK: - Tool Bar Variants Home
+// ==============================
+
 private struct ToolBarVariantHome: View {
     
-    // ======================
-    // MARK: Store properties
-    // ======================
+    // ================
+    // MARK: Properties
+    // ================
     
     @ObservedObject private var model: ToolBarVariantModel
     @State private var showToolBar = false
@@ -73,7 +69,7 @@ private struct ToolBarVariantHome: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Customize the tool bar before opening sheet to see it.")
+                Text("screens.guidelines.bars.tools.hint")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
                 
@@ -81,7 +77,7 @@ private struct ToolBarVariantHome: View {
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.xl)
                 
-                ODSButton(text: Text("Open sheet"), emphasis: .high, fullWidth: true) {
+                ODSButton(text: Text("screens.guidelines.bars.tools.open.hint"), emphasis: .high, fullWidth: true) {
                     showToolBar = true
                 }
                 .padding(.horizontal, ODSSpacing.m)
@@ -94,19 +90,23 @@ private struct ToolBarVariantHome: View {
     }
 }
 
+// =================================
+// MARK: - Tool Bar Variants Content
+// =================================
+
 private struct ToolBarVariantContent: View {
     
-    // ======================
-    // MARK: Store properties
-    // ======================
+    // ================
+    // MARK: Properties
+    // ================
     
     @ObservedObject private var model: ToolBarVariantModel
     @Environment(\.dismiss) private var dismiss
-
+    
     // =================
     // MARK: Initializer
     // =================
-
+    
     init(model: ToolBarVariantModel) {
         self.model = model
     }
@@ -126,7 +126,7 @@ private struct ToolBarVariantContent: View {
                 
                 Spacer()
                 
-                ODSButton(text: Text("Close sheet"), emphasis: .high, fullWidth: true) {
+                ODSButton(text: Text("screens.guidelines.bars.tools.close.hint"), emphasis: .high, fullWidth: true) {
                     dismiss()
                 }
                 
@@ -134,10 +134,9 @@ private struct ToolBarVariantContent: View {
                 
                 switch model.itemType {
                 case .label:
-                    Text("Tool Bar with labels")
-                    
+                    Text("screens.guidelines.bars.tools.with_labels.title")
                 case .icon:
-                    Text("Tool Bar with icons")
+                    Text("screens.guidelines.bars.tools.with_icons.title")
                 }
             }
             .padding(.horizontal, ODSSpacing.m)
@@ -146,23 +145,27 @@ private struct ToolBarVariantContent: View {
             .modifier(ToolBarVariantContentModifier(model: model))
         }
         .alert(model.alertText, isPresented: $model.showAlert) {
-            Button("close", role: .cancel) {}
+            Button("screens.guidelines.bars.tools.button_close", role: .cancel) {}
         }
     }
 }
 
+// ==========================================
+// MARK: - Tool Bar Variants Content Modifier
+// ==========================================
+
 private struct ToolBarVariantContentModifier: ViewModifier {
     
-    // =======================
-    // MARK: Stored properties
-    // =======================
-
+    // ================
+    // MARK: Properties
+    // ================
+    
     @ObservedObject var model: ToolBarVariantModel
     
     // ==========
     // MARK: Body
     // ==========
-
+    
     func body(content: Content) -> some View {
         switch model.itemType {
         case .label:
@@ -172,7 +175,6 @@ private struct ToolBarVariantContentModifier: ViewModifier {
         }
     }
 }
-        
 
 #if DEBUG
 struct ToolBarComponent_Previews: PreviewProvider {
@@ -187,4 +189,3 @@ struct ToolBarComponent_Previews: PreviewProvider {
     }
 }
 #endif
-

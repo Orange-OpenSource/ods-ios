@@ -140,3 +140,24 @@
 "screens.guidelines.bars.tabs.badge.description.none" = "None";
 "screens.guidelines.bars.tabs.badge.description.count" = "Count";
 "screens.guidelines.bars.tabs.badge.description.text" = "Text";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Bars - Tool
+// ==========================================
+
+"screens.guidelines.bars.tools.title" = "Bars - tools";
+"screens.guidelines.bars.tools.description" = "A toolbar allows users to do specific actions regarding the entire page. It is placed at the bottom of the screen.";
+"screens.guidelines.bars.tools.hint" = "Customize the tool bar before opening sheet to see it.";
+"screens.guidelines.bars.tools.open.hint" = "Open sheet";
+"screens.guidelines.bars.tools.close.hint" = "Close sheet";
+"screens.guidelines.bars.tools.with_labels.title" = "Tool bar with labels";
+"screens.guidelines.bars.tools.with_icons.title" = "Tool bar with icons";
+"screens.guidelines.bars.tools.button_close" = "Close";
+"screens.guidelines.bars.tools.item_label" = "Label";
+"screens.guidelines.bars.tools.item_icon" = "Icon";
+"screens.guidelines.bars.tools.action_hint_1" = "Action n°1";
+"screens.guidelines.bars.tools.action_hint_2" = "Action n°2";
+"screens.guidelines.bars.tools.action_hint_3" = "Action n°3";
+"screens.guidelines.bars.tools.alert_hint" = "%@: clicked";
+"screens.guidelines.bars.tools.picker_hint" = "Items type";
+"screens.guidelines.bars.tools.stepper_hint" = "Number of items: %@";

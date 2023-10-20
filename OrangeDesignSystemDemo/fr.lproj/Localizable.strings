@@ -138,3 +138,24 @@
 "screens.guidelines.bars.tabs.badge.description.none" = "Aucun";
 "screens.guidelines.bars.tabs.badge.description.count" = "Compteur";
 "screens.guidelines.bars.tabs.badge.description.text" = "Texte";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Bars - Tool
+// ==========================================
+
+"screens.guidelines.bars.tools.title" = "Barres - outils";
+"screens.guidelines.bars.tools.description" = "Une barre d'outils permet aux utilisateurs d'effectuer des actions spécifiques concernant l'ensemble de la page. Il est placé en bas de l'écran.";
+"screens.guidelines.bars.tools.hint" = "Personnalisez la barre d'outils avant d'ouvrir la feuille pour la voir.";
+"screens.guidelines.bars.tools.open.hint" = "Ouvrir la page";
+"screens.guidelines.bars.tools.close.hint" = "Fermer la page";
+"screens.guidelines.bars.tools.with_labels.title" = "Barre d'outils avec labels";
+"screens.guidelines.bars.tools.with_icons.title" = "Barre d'outils avec icônes";
+"screens.guidelines.bars.tools.button_close" = "Fermer";
+"screens.guidelines.bars.tools.item_label" = "Label";
+"screens.guidelines.bars.tools.item_icon" = "Icône";
+"screens.guidelines.bars.tools.action_hint_1" = "Action n°1";
+"screens.guidelines.bars.tools.action_hint_2" = "Action n°2";
+"screens.guidelines.bars.tools.action_hint_3" = "Action n°3";
+"screens.guidelines.bars.tools.alert_hint" = "%@ : cliqué";
+"screens.guidelines.bars.tools.picker_hint" = "Type d'éléments";
+"screens.guidelines.bars.tools.stepper_hint" = "Nombre d'éléments : %@";
