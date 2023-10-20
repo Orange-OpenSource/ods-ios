@@ -110,7 +110,7 @@ struct MyMultipleOptionsSelection: View {
             ODSListItem(
                 title: Text("Option B"),
                 subtitle: Text("Option B description"),
-                trailingCheckmarkIsSelected: optionB)
+                trailingCheckmarkIsSelected: optionB
             )
             .odsListItemStyle()
             .onTapGesture {
