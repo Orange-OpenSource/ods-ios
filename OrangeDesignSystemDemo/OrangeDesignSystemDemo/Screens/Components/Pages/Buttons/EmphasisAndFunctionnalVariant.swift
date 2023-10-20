@@ -1,28 +1,17 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
+
+// ========================
+// MARK: - Emphasis Variant
+// ========================
 
 struct EmphasisVariant: View {
     
@@ -37,7 +26,7 @@ struct EmphasisVariant: View {
     // ==========
 
     var body: some View {
-        Text("High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.")
+        Text("screens.guidelines.buttons.variant.emphasis.description")
             .odsFont(.bodyRegular)
             .padding(.bottom, ODSSpacing.xs)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -56,11 +45,15 @@ struct EmphasisVariant: View {
                           emphasis: emphasis,
                           fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
-                    .accessibilityLabel("\(emphasis.rawValue) emphasis button")
+                    .accessibilityLabel("a11y.emphasis_button_hint".localized(with: ["\(emphasis.rawValue)"]))
             }
         }
     }
 }
+
+// ==========================
+// MARK: - Functional Variant
+// ==========================
 
 struct FunctionalVariant: View {
     
@@ -75,7 +68,7 @@ struct FunctionalVariant: View {
     // ==========
 
     var body: some View {
-        Text("If required, colour versions can also be used to inform users of positive or negative destructive actions.")
+        Text("screens.guidelines.buttons.variant.functional.description")
             .odsFont(.bodyRegular)
             .padding(.bottom, ODSSpacing.xs)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -93,7 +86,7 @@ struct FunctionalVariant: View {
                                     style: style,
                                     fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
-                    .accessibilityLabel("\(style.rawValue) functional button")
+                    .accessibilityLabel("a11y.functional_button_hint".localized(with: ["\(style.rawValue)"]))
             }
         }
     }
@@ -104,13 +97,15 @@ struct FunctionalVariant: View {
 
     private func description(for style: ODSFunctionalButton.Style) -> String {
         switch style {
-        case .negative: return "Negative"
-        case .positive: return "Positive"
+        case .negative: return "screens.guidelines.buttons.styles.description.negative".🌐
+        case .positive: return "screens.guidelines.buttons.styles.description.positive".🌐
         }
     }
 }
 
+// ========================================
 // MARK: - Emphasis and Functionnal Variant
+// ========================================
 
 class EmphasisAndFunctionnalVariantModel: ObservableObject {
     
@@ -139,7 +134,7 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
     // =====================
 
     var text: LocalizedStringKey {
-        showLongText ? "Terms and conditions" : (showEnabled ? "Enabled" : "Disabled")
+        showLongText ? "screens.guidelines.buttons.variant.long" : (showEnabled ? "screens.guidelines.buttons.state.enabled" : "screens.guidelines.buttons.state.disabled")
     }
 
     var icon: Image? {
@@ -161,10 +156,10 @@ struct EmphasisAndFunctionalVariantOptions: View {
 
     var body: some View {
         VStack {
-            Toggle("Icon", isOn: $model.showIcon)
-            Toggle("Full width", isOn: $model.showFullWidth)
-            Toggle("Enabled", isOn: $model.showEnabled)
-            Toggle("Long text", isOn: $model.showLongText)
+            Toggle("screens.guidelines.toggle.icon", isOn: $model.showIcon)
+            Toggle("screens.guidelines.toggle.full_width", isOn: $model.showFullWidth)
+            Toggle("screens.guidelines.toggle.enabled", isOn: $model.showEnabled)
+            Toggle("screens.guidelines.toggle.long_text", isOn: $model.showLongText)
         }
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)

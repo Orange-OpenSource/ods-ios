@@ -159,3 +159,31 @@
 "screens.guidelines.bars.tools.alert_hint" = "%@ : cliqué";
 "screens.guidelines.bars.tools.picker_hint" = "Type d'éléments";
 "screens.guidelines.bars.tools.stepper_hint" = "Nombre d'éléments : %@";
+
+// ======================================
+// MARK: - Screens - Guidelines - Buttons
+// ======================================
+
+"screens.guidelines.buttons.title" = "Boutons";
+"screens.guidelines.buttons.description" = "Un bouton personnalisé permet à un utilisateur d'effectuer un appel à l'action important. Ce bouton qui contient un texte";
+"screens.guidelines.buttons.variant.emphasis" = "Emphase";
+"screens.guidelines.buttons.variant.functional" = "Fonctionnel";
+"screens.guidelines.buttons.variant.icons" = "Icône";
+"screens.guidelines.buttons.variant.description" = "Les boutons simples sont les composants les plus omniprésents que l'on trouve dans toutes les applications. Composé d'une icône, il s'agit du style de bouton le plus simple.";
+"screens.guidelines.buttons.icon_add" = "Icône (ajout)";
+"screens.guidelines.buttons.icon_info" = "Icône (info)";
+"screens.guidelines.buttons.toggle_hint" = "Activé";
+"screens.guidelines.buttons.variant.emphasis.description" = "Les boutons avec emphase élevée sont utilisés pour guider l'utilisateur vers l'appel à l'action principale. Plusieurs boutons peuvent être combinés sur le même écran pour attirer l'attention sur l'action la plus importante tout en proposant des actions alternatives. Lorsque vous utilisez plusieurs boutons dans un écran, vous ne pouvez utiliser qu'un seul bouton avec emphase. Ces boutons peuvent également inclure une icône contextuelle.";
+"screens.guidelines.buttons.variant.functional.description" = "Si nécessaire, des versions couleur peuvent également être utilisées pour informer les utilisateurs d'actions destructrices positives ou négatives.";
+"screens.guidelines.buttons.styles.description.negative" = "Negative";
+"screens.guidelines.buttons.styles.description.positive" = "Positive";
+"screens.guidelines.buttons.variant.long" = "Termes et conditions";
+"screens.guidelines.buttons.state.enabled" = "Activé";
+"screens.guidelines.buttons.state.disabled" = "Désactivé";
+"screens.guidelines.toggle.icon" = "Avec icône";
+"screens.guidelines.toggle.full_width" = "Pleine largeur";
+"screens.guidelines.toggle.enabled" = "Activé";
+"screens.guidelines.toggle.long_text" = "Texte long";
+
+"a11y.emphasis_button_hint" = "%@ boutton d'emphase";
+"a11y.functional_button_hint" = "%@ bouton fonctionnel";

@@ -161,3 +161,31 @@
 "screens.guidelines.bars.tools.alert_hint" = "%@: clicked";
 "screens.guidelines.bars.tools.picker_hint" = "Items type";
 "screens.guidelines.bars.tools.stepper_hint" = "Number of items: %@";
+
+// ======================================
+// MARK: - Screens - Guidelines - Buttons
+// ======================================
+
+"screens.guidelines.buttons.title" = "Buttons";
+"screens.guidelines.buttons.description" = "A custom button allows a user to perform an important call to action. This button that contains a text";
+"screens.guidelines.buttons.variant.emphasis" = "Emphasis";
+"screens.guidelines.buttons.variant.functional" = "Functional";
+"screens.guidelines.buttons.variant.icons" = "Icons";
+"screens.guidelines.buttons.variant.description" = "Plain buttons are the most ubiquitous compoent found troughout applications. Consisting a icon, they are the most simple button style.";
+"screens.guidelines.buttons.icon_add" = "Icon (add)";
+"screens.guidelines.buttons.icon_info" = "Icon (info)";
+"screens.guidelines.buttons.toggle_hint" = "Enabled";
+"screens.guidelines.buttons.variant.emphasis.description" = "High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.";
+"screens.guidelines.buttons.variant.functional.description" = "If required, colour versions can also be used to inform users of positive or negative destructive actions.";
+"screens.guidelines.buttons.styles.description.negative" = "Negative";
+"screens.guidelines.buttons.styles.description.positive" = "Positive";
+"screens.guidelines.buttons.variant.long" = "Terms and conditions";
+"screens.guidelines.buttons.state.enabled" = "Enabled";
+"screens.guidelines.buttons.state.disabled" = "Disabled";
+"screens.guidelines.toggle.icon" = "Icon";
+"screens.guidelines.toggle.full_width" = "Full width";
+"screens.guidelines.toggle.enabled" = "Enabled";
+"screens.guidelines.toggle.enabled" = "Long text";
+
+"a11y.emphasis_button_hint" = "%@ emphasis button";
+"a11y.functional_button_hint" = "%@ functional button";
