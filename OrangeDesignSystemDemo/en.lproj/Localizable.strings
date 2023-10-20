@@ -189,3 +189,27 @@
 
 "a11y.emphasis_button_hint" = "%@ emphasis button";
 "a11y.functional_button_hint" = "%@ functional button";
+
+// ====================================
+// MARK: - Screens - Guidelines - Cards
+// ====================================
+
+"screens.guidelines.cards.title" = "Cards";
+"screens.guidelines.cards.description" = "Cards are a contained and independent element that can display content and actions on a single topic.";
+"screens.guidelines.cards.variant.vertical_image_first" = "Card Vertical Image First";
+"screens.guidelines.cards.variant.vertical_header_first" = "Card Vertical Header First";
+"screens.guidelines.cards.variant.small" = "Card Small";
+"screens.guidelines.cards.variant.horizontal" = "Card Horizontal";
+"screens.guidelines.card.button_1" = "Button n°1";
+"screens.guidelines.card.button_2" = "Button n°2";
+"screens.guidelines.card.alert" = "Card container clicked";
+"screens.guidelines.card.close" = "Close";
+"screens.guidelines.card.alert_2" = "%@ clicked";
+"screens.guidelines.card.thumbnail" = "Thumbnail";
+"screens.guidelines.card.subtitle" = "Subtitle";
+"screens.guidelines.card.text" = "Text";
+"screens.guidelines.card.buttons_number" = "Number of buttons: %@";
+"screens.guidelines.card.position.leading" = "Start";
+"screens.guidelines.card.position.trailing" = "End";
+"screens.guidelines.card.divider" = "Divider";
+"screens.guidelines.card.picker.position" = "Image position";

@@ -187,3 +187,27 @@
 
 "a11y.emphasis_button_hint" = "%@ boutton d'emphase";
 "a11y.functional_button_hint" = "%@ bouton fonctionnel";
+
+// ====================================
+// MARK: - Screens - Guidelines - Cards
+// ====================================
+
+"screens.guidelines.cards.title" = "Cartes";
+"screens.guidelines.cards.description" = "Les cartes sont un élément contenu et indépendant qui peut afficher du contenu et des actions sur un seul sujet.";
+"screens.guidelines.cards.variant.vertical_image_first" = "Carte avec image";
+"screens.guidelines.cards.variant.vertical_header_first" = "Carte avec en-tête";
+"screens.guidelines.cards.variant.small" = "Petite carte";
+"screens.guidelines.cards.variant.horizontal" = "Carte horizontale";
+"screens.guidelines.card.button_1" = "Boutton n°1";
+"screens.guidelines.card.button_2" = "Boutton n°2";
+"screens.guidelines.card.alert" = "Containeur de la carte tappé";
+"screens.guidelines.card.close" = "Fermer";
+"screens.guidelines.card.alert_2" = "%@ tappé";
+"screens.guidelines.card.thumbnail" = "Miniature";
+"screens.guidelines.card.subtitle" = "Sous-titre";
+"screens.guidelines.card.text" = "Texte";
+"screens.guidelines.card.buttons_number" = "Nombre de boutons : %@";
+"screens.guidelines.card.position.leading" = "Début";
+"screens.guidelines.card.position.trailing" = "Fin";
+"screens.guidelines.card.divider" = "Séparateur";
+"screens.guidelines.card.picker.position" = "Position de l'image";

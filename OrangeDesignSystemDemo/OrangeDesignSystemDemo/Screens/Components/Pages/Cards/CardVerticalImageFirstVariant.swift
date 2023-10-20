@@ -1,28 +1,17 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
+
+// ===============================================
+// MARK: - Card Vertical Image First Variant Model
+// ===============================================
 
 class CardVerticalImageFirstVariantModel: ObservableObject {
 
@@ -49,7 +38,8 @@ class CardVerticalImageFirstVariantModel: ObservableObject {
         buttonCount = 2
         showAlert = false
         
-        buttonsText = ["Button 1", "Button 2"]
+        buttonsText = ["screens.guidelines.card.button_1".🌐,
+                       "screens.guidelines.card.button_2".🌐]
         recipe = RecipeBook.shared.recipes[0]
     }
 
@@ -91,6 +81,10 @@ class CardVerticalImageFirstVariantModel: ObservableObject {
     }
 }
 
+// =========================================
+// MARK: - Card Vertical Image First Variant
+// =========================================
+
 struct CardVerticalImageFirstVariant: View {
 
     // =======================
@@ -111,11 +105,11 @@ struct CardVerticalImageFirstVariant: View {
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.top, ODSSpacing.m)
                     .onTapGesture {
-                        model.displayAlert(text: "Card container clicked")
+                        model.displayAlert(text: "screens.guidelines.card.alert")
                     }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
-                Button("close", role: .cancel) {}
+                Button("screens.guidelines.card.close", role: .cancel) {}
             }
         } options: {
             CardVerticalImageFirstVariantOptions(model: model)
@@ -143,7 +137,7 @@ struct CardVerticalImageFirstVariant: View {
                 text: model.text
             ) {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "\(model.firstButtonText) clicked")
+                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.firstButtonText)"]))
                 }
             }
         case 2:
@@ -154,11 +148,11 @@ struct CardVerticalImageFirstVariant: View {
                 text: model.text
             ) {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "\(model.firstButtonText) clicked")
+                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.firstButtonText)"]))
                 }
             } secondButton: {
                 Button(model.secondButtonText) {
-                    model.displayAlert(text: "\(model.secondButtonText) clicked")
+                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.secondButtonText)"]))
                 }
             }
         default:
@@ -166,6 +160,10 @@ struct CardVerticalImageFirstVariant: View {
         }
     }
 }
+
+// =================================================
+// MARK: - Card Vertical Image First Variant Options
+// =================================================
 
 private struct CardVerticalImageFirstVariantOptions: View {
 
@@ -181,10 +179,10 @@ private struct CardVerticalImageFirstVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("Subtitle", isOn: $model.showSubtitle)
-            Toggle("Text", isOn: $model.showText)
+            Toggle("screens.guidelines.card.subtitle", isOn: $model.showSubtitle)
+            Toggle("screens.guidelines.card.text", isOn: $model.showText)
             
-            Stepper("Number of buttons: \(model.buttonCount)",
+            Stepper("screens.guidelines.card.buttons_number".localized(with: ["\(model.buttonCount)"]),
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
         }
