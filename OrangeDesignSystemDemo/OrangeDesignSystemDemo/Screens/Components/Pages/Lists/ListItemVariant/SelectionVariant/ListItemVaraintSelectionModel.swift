@@ -24,11 +24,6 @@
 import OrangeDesignSystem
 import SwiftUI
 
-// =============
-// MARK: Models
-// =============
-
-
 enum SelectionTrailingOption: CaseIterable {
     case toggle
     case checkmark
