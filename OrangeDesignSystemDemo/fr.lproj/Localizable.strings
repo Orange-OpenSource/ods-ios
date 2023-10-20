@@ -116,3 +116,25 @@
 "screens.guidelines.bars.navigation.back_button.hint" = "Bouton retour";
 "screens.guidelines.bars.navigation.action_item_count" = "Nombre d'icônes d'action : %@";
 "screens.guidelines.bars.navigation.search.hint" = "Rechercher";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Bars - Tabs
+// ==========================================
+
+"screens.guidelines.bars.tabs.title" = "Barres - onglets";
+"screens.guidelines.bars.tabs.description" = "Une barre d'onglets est un élément disponible en permanence qui crée une navigation globale pour l'expérience des utilisateurs.";
+"screens.guidelines.bars.tabs.items_stepper.hint" = "Nombre d'éléments : %@";
+"screens.guidelines.bars.tabs.options_picker.hint" = "Options de badges";
+"screens.guidelines.bars.tabs.item_favorite.title" = "Favoris";
+"screens.guidelines.bars.tabs.item_favorite.description" = "Vue des favoris";
+"screens.guidelines.bars.tabs.item_search.title" = "Recherche";
+"screens.guidelines.bars.tabs.item_search.description" = "Vue de recherche";
+"screens.guidelines.bars.tabs.item_information.title" = "Information";
+"screens.guidelines.bars.tabs.item_information.description" = "Vue d'information";
+"screens.guidelines.bars.tabs.item_notification.title" = "Notification";
+"screens.guidelines.bars.tabs.item_notification.description" = "Vue des notifications";
+"screens.guidelines.bars.tabs.item_settings.title" = "Réglages";
+"screens.guidelines.bars.tabs.item_settings.description" = "Bue des réglages";
+"screens.guidelines.bars.tabs.badge.description.none" = "Aucun";
+"screens.guidelines.bars.tabs.badge.description.count" = "Compteur";
+"screens.guidelines.bars.tabs.badge.description.text" = "Texte";
