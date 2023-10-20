@@ -42,7 +42,7 @@ struct NavigationBarComponent: Component {
 struct NavigationBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(text: "Bar nav - demo",
+        VariantEntryItem(title: "Bar nav - demo",
                          technicalElement: "NavigationView",
                          showThemeSelectionInNavigationBar: false) {
             NavigationBarVariant(model: NavigationBarVariantModel())

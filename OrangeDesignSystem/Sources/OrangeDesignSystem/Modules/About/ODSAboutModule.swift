@@ -94,15 +94,13 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
 
-            Group {
-                AboutApplicationInformation(applicationInformation: applicationInformation)
-                    .padding(.vertical, ODSSpacing.m)
+            AboutApplicationInformation(applicationInformation: applicationInformation)
+                    .padding(.all, ODSSpacing.m)
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
 
-                AboutListItems(configurations: listItemConfigurations)
-            }
-            .padding(.horizontal, ODSSpacing.m)
+            AboutListItems(configurations: listItemConfigurations)
+
             .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)

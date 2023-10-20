@@ -21,47 +21,39 @@
 //
 //
 
+import OrangeDesignSystem
 import SwiftUI
 
-struct ODSListItemContent: View {
+struct ListItemSelectionVariantOptions: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let model: ODSListItemModel
+    @ObservedObject var model: ListItemSelectionVariantModel
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        HStack(alignment: .center, spacing: ODSSpacing.s) {
-            if let leadingIcon = model.leadingIcon {
-                LeadingIcon(model: leadingIcon)
-                    .padding(.vertical, ODSSpacing.s)
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
             }
-
-            VStack(alignment: .leading, spacing: ODSSpacing.xs) {
-                Text(LocalizedStringKey(model.title))
-                    .odsFont(.bodyRegular)
-                    .foregroundColor(.primary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-
-                if let subtitle = model.subtitle {
-                    Text(LocalizedStringKey(subtitle))
-                        .odsFont(.footnote)
-                        .foregroundColor(.primary)
-                        .multilineTextAlignment(.leading)
-                }
-            }
+            .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            Spacer()
+            ODSChipPicker(title: "Leading",
+                          selection: $model.leadingOption,
+                          chips: LeadingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
 
-            TrailingIcons(model: model)
+            ODSChipPicker(title: "Trailing",
+                          selection: $model.trailingOption,
+                          chips: SelectionTrailingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
         }
-        .frame(minHeight: 44)
+        .padding(.top, ODSSpacing.s)
     }
 }

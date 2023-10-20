@@ -41,13 +41,13 @@ struct BottomSheetComponent: Component {
 
 struct BottomSheetVariants: View {
     var body: some View {
-        VariantEntryItem(text: "Expanding", technicalElement: ".odsBottomSheetExpanding()") {
+        VariantEntryItem(title: "Expanding", technicalElement: ".odsBottomSheetExpanding()") {
             ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
                 .navigationTitle("Expanding")
             
         }
         
-        VariantEntryItem(text: "Standard", technicalElement: ".odsBottomSheetStandard()") {
+        VariantEntryItem(title: "Standard", technicalElement: ".odsBottomSheetStandard()") {
             StandardBottomSheetVariant()
                 .navigationTitle("Standard")
         }

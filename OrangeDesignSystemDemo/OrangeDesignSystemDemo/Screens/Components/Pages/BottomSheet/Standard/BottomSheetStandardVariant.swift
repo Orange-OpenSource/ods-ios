@@ -73,7 +73,6 @@ struct RecipesListSelection: View {
     // =======================
 
     private let selectedRecipe: Binding<Recipe?>
-    private let listItemModels: [ODSListStandardItemModel]
     fileprivate static let receipes: [Recipe] = Array(RecipeBook.shared.recipes.prefix(4))
     
     // =================
@@ -83,9 +82,6 @@ struct RecipesListSelection: View {
     init(selectedRecipe: Binding<Recipe?>) {
         self.selectedRecipe = selectedRecipe
         self.selectedRecipe.wrappedValue = Self.receipes.first
-        self.listItemModels = Self.receipes.map { recipe in
-            ODSListStandardItemModel(title: recipe.title, leadingIcon: .icon(Image(recipe.iconName)))
-        }
     }
 
     // ==========
@@ -94,13 +90,11 @@ struct RecipesListSelection: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(self.listItemModels, id: \.title) { listItemModel in
-                ODSListStandardItem(model: listItemModel)
-                    .padding(.horizontal, ODSSpacing.s)
-                    .listRowSeparator(Visibility.visible)
-                    .listRowInsets(EdgeInsets())
+            ForEach(Self.receipes, id: \.title) { recipe in
+                ODSListItem(title: Text(recipe.title), leading: .icon(Image(recipe.iconName)))
+                    .odsListItemStyle()
                     .onTapGesture {
-                        selectedRecipe.wrappedValue = Self.receipes.first { $0.title == listItemModel.title }
+                        selectedRecipe.wrappedValue = Self.receipes.first { $0.title == recipe.title }
                     }
             }
         }

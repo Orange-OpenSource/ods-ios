@@ -24,14 +24,13 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct ListItemVariant: View {
-    
-    
+struct ListItemStandardVariant: View {
+
     // =======================
     // MARK: Stored Properties
     // =======================
     
-    let model: ListItemVariantModel
+    let model: ListItemStandardVariantModel
     
     // ==========
     // MARK: Body
@@ -39,27 +38,29 @@ struct ListItemVariant: View {
     
     var body: some View {
         CustomizableVariant {
-            ListItemVariantInner(model: model)
+            ListItemStandardVariantInner(model: model)
         } options: {
-            ListItemVariantOptions(model: model)
+            ListItemStandardVariantOptions(model: model)
         }
     }
 }
 
-private struct ListItemVariantInner: View {
-    
-    
+private struct ListItemStandardVariantInner: View {
+
     // =======================
     // MARK: Stored Properties
     // =======================
-    
-    @ObservedObject var model: ListItemVariantModel
+
+    @ObservedObject var model: ListItemStandardVariantModel
     private let recipe: Recipe
-    
-    @State private var isSelected: Bool = true
+
     @State private var showAlert: Bool = false
 
-    init(model: ListItemVariantModel) {
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(model: ListItemStandardVariantModel) {
         self.model = model
         self.recipe = RecipeBook.shared.recipes[0]
     }
@@ -76,63 +77,62 @@ private struct ListItemVariantInner: View {
                 } label: {
                     listItem
                 }
+                .odsListItemStyle()
             } else {
                 listItem
-                    .onTapGesture {
-                        if case .checkmark = model.trailingOption {
-                            isSelected.toggle()
-                        }
-                    }
+                    .odsListItemStyle()
             }
-        }
-        .alert("Information icon tapped! Bon appétit", isPresented: $showAlert) {
-            Button("close", role: .cancel) {}
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    var listItem: some View {
-        VStack {
-            OBSListItem(
-                title: title,
-                subtitle: subtitle,
-                leadingIcon: leadingIcon
-            )
-            OBSListItem(
-                title: title,
-                subtitle: subtitle,
-                leadingIcon: leadingIcon,
-                tralingText: Text("Details")
-            )
-            OBSListItem(
-                title: title,
-                subtitle: subtitle,
-                leadingIcon: leadingIcon) {   
-                    ODSListItemTrailing(text: Text("Details"))
-                }
-            
-            OBSListItem(
-                title: title,
-                subtitle: subtitle,
-                leadingIcon: leadingIcon
-            ) {
-                iButtonAction()
-            }
-            OBSListItem(
-                title: title,
-                subtitle: subtitle,
-                leadingIcon: leadingIcon,
-                checkmarkIsSelected: isSelected)
-
+        .alert("Information icon tapped! Bon appétit", isPresented: $showAlert) {
+            Button("close", role: .cancel) {}
         }
-
     }
     
     // =====================
     // MARK: Private helpers
     // =====================
+
+    @ViewBuilder
+    private var listItem: some View {
+        let showText = model.trailingOptions.contains { $0 == .text }
+        let showIButton = model.trailingOptions.contains { $0 == .iButton }
         
+        switch (showText, showIButton) {
+        case (true, true):
+            ODSListItem(
+                title: title,
+                subtitle: subtitle,
+                leading: leading,
+                trailingText: Text("Details")) {
+                    iButtonAction()
+                }
+        case (true, false):
+            ODSListItem(
+                title: title,
+                subtitle: subtitle,
+                leading: leading,
+                trailingText: Text("Details")
+            )
+
+        case (false, true):
+            ODSListItem(
+                title: title,
+                subtitle: subtitle,
+                leading: leading) {
+                    iButtonAction()
+                }
+
+        case (false, false):
+            ODSListItem(
+                title: title,
+                subtitle: subtitle,
+                leading: leading
+            )
+        }
+    }
+            
     private var title: Text {
         Text(recipe.title)
     }
@@ -145,9 +145,9 @@ private struct ListItemVariantInner: View {
         }
     }
 
-    private var leadingIcon: ODSListItemLeadingIcon? {
+    private var leading: ODSListItem.Leading? {
         let emptyImage = Image("ods_empty", bundle: Bundle.ods)
-        switch model.leadingIconOption {
+        switch model.leadingOption {
         case .none:
             return nil
         case .icon:
@@ -161,32 +161,6 @@ private struct ListItemVariantInner: View {
         }
     }
     
-    
-    private var trailingAction: (() -> ODSListItemTrailing)? {
-        if let trailingOption = model.trailingOption {
-            return {
-                self.trailingAction(for: trailingOption)
-            }
-        } else {
-            return nil
-        }
-    }
-
-    private func trailingAction(for option: ListItemTrailingOption) -> ODSListItemTrailing{
-        switch option {
-        case .textOnly:
-            return ODSListItemTrailing(text: Text("Details"))
-        case .iButton:
-            return ODSListItemTrailing(action: iButtonAction)
-        case .iButtonAndText:
-            return ODSListItemTrailing(text: Text("Details"), action: iButtonAction)
-        case .toggle:
-            return ODSListItemTrailing(toogleIsOn: $isSelected)
-        case .checkmark:
-            return ODSListItemTrailing(checkmarkIsVisible: isSelected)
-        }
-    }
-    
     // =====================
     // MARK: Buttons actions
     // =====================
@@ -195,5 +169,4 @@ private struct ListItemVariantInner: View {
     private func iButtonAction() {
         showAlert = true
     }
-
 }

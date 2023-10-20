@@ -42,7 +42,7 @@ struct ToolBarComponent: Component {
 private struct ToolBarVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "Bars - tool bar demo", technicalElement: "odsToolBar()") {
+        VariantEntryItem(title: "Bars - tool bar demo", technicalElement: "odsToolBar()") {
             ToolBarVariantHome(model: ToolBarVariantModel())
                 .navigationTitle("Bars - tool bar demo")
         }

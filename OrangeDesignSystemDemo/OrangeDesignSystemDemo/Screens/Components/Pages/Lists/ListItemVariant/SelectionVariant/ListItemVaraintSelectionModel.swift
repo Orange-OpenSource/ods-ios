@@ -24,56 +24,49 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SelectionListVariantOptions: View {
+// =============
+// MARK: Models
+// =============
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
 
-    @ObservedObject var model: SelectionListVariantModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSubtitle) {
-                Text("Subtitle").odsFont(.bodyBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
-
-            ODSChipPicker(title: "Leading",
-                          selection: $model.leadingIconOption,
-                          chips: LeadingIconOption.chips)
-                .padding(.vertical, ODSSpacing.s)
-
-            ODSChipPicker(title: "Trailing",
-                          selection: $model.trailingOption,
-                          chips: ODSListSelectionItemModel.TrailingSelection.chips)
-                .padding(.vertical, ODSSpacing.s)
-        }
-        .padding(.top, ODSSpacing.s)
-    }
-}
-
-extension ODSListSelectionItemModel.TrailingSelection {
-
-    private var description: String {
+enum SelectionTrailingOption: CaseIterable {
+    case toggle
+    case checkmark
+    
+    var description: String {
         switch self {
+        case .toggle:
+            return "Switch"
         case .checkmark:
             return "checkmark"
-        case .toggle:
-            return "switch"
         }
     }
-        
+    
     private var chip: ODSChip<Self> {
         ODSChip(self, text: self.description)
     }
         
     static var chips: [ODSChip<Self>] {
         Self.allCases.map { $0.chip }
+    }
+}
+
+class ListItemSelectionVariantModel: ObservableObject {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    @Published var showSubtitle: Bool
+    @Published var leadingOption: LeadingOption
+    @Published var trailingOption: SelectionTrailingOption
+        
+    // ==================
+    // MARK: Initializers
+    // ==================
+    init() {
+        showSubtitle = true
+        leadingOption = .circle
+        trailingOption = .toggle
     }
 }
