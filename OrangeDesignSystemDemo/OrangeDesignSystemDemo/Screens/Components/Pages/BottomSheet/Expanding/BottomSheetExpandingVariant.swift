@@ -114,7 +114,7 @@ fileprivate struct BottonSheetContent: View {
     }
     
     private func examplePage() -> some View {
-        ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
+        ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
             ODSListItem(title: Text(recipe.title), leading: .icon(Image(recipe.iconName)))
                 .odsListItemStyle()
                 .onTapGesture {

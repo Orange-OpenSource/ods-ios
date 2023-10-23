@@ -90,7 +90,7 @@ struct RecipesListSelection: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(Self.receipes, id: \.title) { recipe in
+            ForEach(Self.receipes, id: \.id) { recipe in
                 ODSListItem(title: Text(recipe.title), leading: .icon(Image(recipe.iconName)))
                     .odsListItemStyle()
                     .onTapGesture {

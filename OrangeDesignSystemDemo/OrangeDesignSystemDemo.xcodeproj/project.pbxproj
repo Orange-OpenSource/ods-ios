@@ -93,6 +93,7 @@
 		079DDC052AE2D3270073A542 /* ListHeaderVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC042AE2D3270073A542 /* ListHeaderVariantOptions.swift */; };
 		079DDC082AE2D3560073A542 /* ListHeaderVariantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC072AE2D3560073A542 /* ListHeaderVariantModel.swift */; };
 		079DDC0A2AE2D3610073A542 /* ListHeaderVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC092AE2D3610073A542 /* ListHeaderVariant.swift */; };
+		079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
 		07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */; };
 		07B94DEB2AD9239700AAD1A5 /* ListItemVaraintStandardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemVaraintStandardModel.swift */; };
@@ -221,6 +222,7 @@
 		079DDC042AE2D3270073A542 /* ListHeaderVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderVariantOptions.swift; sourceTree = "<group>"; };
 		079DDC072AE2D3560073A542 /* ListHeaderVariantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderVariantModel.swift; sourceTree = "<group>"; };
 		079DDC092AE2D3610073A542 /* ListHeaderVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderVariant.swift; sourceTree = "<group>"; };
+		079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+id.swift"; sourceTree = "<group>"; };
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B030592AB0B454001764E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		07B0305A2AB0B4A9001764E7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
@@ -687,6 +689,7 @@
 				077C38912A9DEEDB003D6B51 /* RecipeBookModel.swift */,
 				077C38922A9DEEDC003D6B51 /* RecipesBook.swift */,
 				077C38932A9DEEDC003D6B51 /* RecipesLoader.swift */,
+				079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				077C38822A9DDC79003D6B51 /* SpacingsPage.swift in Sources */,
 				077C384A2A9DDC79003D6B51 /* CustomizableVariant.swift in Sources */,
 				077C389B2A9DEEDC003D6B51 /* RecipesBook.swift in Sources */,
+				079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */,
 				077C38802A9DDC79003D6B51 /* TypographyPage.swift in Sources */,
 				077C38832A9DDC79003D6B51 /* AboutMyRecipeItemConfiguration.swift in Sources */,
 				077C38972A9DEEDC003D6B51 /* Bundle+Extension.swift in Sources */,

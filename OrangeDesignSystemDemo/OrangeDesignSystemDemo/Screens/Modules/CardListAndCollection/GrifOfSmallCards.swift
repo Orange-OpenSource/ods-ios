@@ -41,7 +41,7 @@ struct GrifOfSmallCards: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
+                ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
                     NavigationLink {
                         Text("Bon appétit")
                             .navigationBarTitleDisplayMode(.inline)
