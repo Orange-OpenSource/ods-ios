@@ -296,3 +296,15 @@
 "screens.guidelines.bottom_sheets.size.medium" = "Medium";
 "screens.guidelines.bottom_sheets.size.large" = "Large";
 "screens.guidelines.bottom_sheets.size.hidden" = "Hidden";
+
+// ======================================
+// MARK: - Screens - Guidelines - Sliders
+// ======================================
+
+"screens.guidelines.sliders.title" = "Sliders";
+"screens.guidelines.sliders.description" = "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.";
+"screens.guidelines.sliders.slider.title" = "Sliders demo";
+"screens.guidelines.sliders.sample.volume" = "Volume";
+"screens.guidelines.sliders.sample.side_icons" = "Side icons";
+"screens.guidelines.sliders.sample.display_value" = "Display value";
+"screens.guidelines.sliders.sample.stepped" = "Stepped (0.5)";

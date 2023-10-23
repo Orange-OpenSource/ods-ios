@@ -295,3 +295,14 @@
 "screens.guidelines.bottom_sheets.size.large" = "Large";
 "screens.guidelines.bottom_sheets.size.hidden" = "Caché";
 
+// ======================================
+// MARK: - Screens - Guidelines - Sliders (Sacré Quinn Mallory)
+// ======================================
+
+"screens.guidelines.sliders.title" = "Curseurs";
+"screens.guidelines.sliders.description" = "Les curseurs permettent aux utilisateurs de sélectionner une valeur unique ou une plage de valeurs en déplaçant une poignée le long d'une piste horizontale.";
+"screens.guidelines.sliders.slider.title" = "Démos des curseurs";
+"screens.guidelines.sliders.sample.volume" = "Volume";
+"screens.guidelines.sliders.sample.side_icons" = "Icônes sur les côtés";
+"screens.guidelines.sliders.sample.display_value" = "Afficher value";
+"screens.guidelines.sliders.sample.stepped" = "Pas (par 0,5)";
