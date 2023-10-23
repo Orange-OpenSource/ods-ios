@@ -45,7 +45,7 @@ struct SliderVariants: View {
     // ==========
 
     var body: some View {
-        VariantEntryItem(text: "Sliders demo", technicalElement: "ODSSlider()") {
+        VariantEntryItem(title: "Sliders demo", technicalElement: "ODSSlider()") {
             SliderVariant(model: SliderVariantModel())
             .navigationTitle("Sliders demo")
         }

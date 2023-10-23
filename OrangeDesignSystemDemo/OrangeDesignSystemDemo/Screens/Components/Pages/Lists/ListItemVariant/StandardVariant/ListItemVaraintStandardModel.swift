@@ -24,54 +24,51 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct SelectionListVariant: View {
+// =============
+// MARK: Models
+// =============
+
+
+enum StandardTrailingOption: CaseIterable {
+    case text
+    case iButton
     
-    
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-    
-    let model: SelectionListVariantModel
-    
-    // ==========
-    // MARK: Body
-    // ==========
-    
-    var body: some View {
-        CustomizableVariant {
-            SelectionListVariantInner(model: model)
-        } options: {
-            SelectionListVariantOptions(model: model)
+    var description: String {
+        switch self {
+        case .text:
+            return "Text"
+        case .iButton:
+            return "Info Button"
         }
+    }
+    
+    private var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+        
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }
 
-private struct SelectionListVariantInner: View {
-    
+class ListItemStandardVariantModel: ObservableObject {
+
     // =======================
-    // MARK: Stored Properties
+    // MARK: Stored properties
     // =======================
+
+    @Published var showSubtitle: Bool
+    @Published var leadingOption: LeadingOption
+    @Published var trailingOptions: [StandardTrailingOption]
+    @Published var navigate: Bool
     
-    @ObservedObject var model: SelectionListVariantModel
-    @State var multiSelection: Set<UUID>? = nil
-    
-    // ==========
-    // MARK: Body
-    // ==========
-    
-    var body: some View {
-        List /* (selection: $multiSelection) */ {
-            ForEach(model.itemModels, id: \.id) { itemModel in
-                ODSListSelectionItem(model: itemModel)
-                .listRowInsets(EdgeInsets())
-                .listRowSeparator(Visibility.visible)
-            }
-            .onMove(perform: model.move)
-            .onDelete(perform: model.delete)
-            .padding(.horizontal, ODSSpacing.m)
-        }
-        .toolbar { EditButton() }
-        .listStyle(.plain)
-        .navigationBarTitleDisplayMode(.inline)
+    // ==================
+    // MARK: Initializers
+    // ==================
+    init() {
+        showSubtitle = true
+        leadingOption = .circle
+        trailingOptions = []
+        navigate = true
     }
 }

@@ -1,4 +1,3 @@
-
 //
 // MIT License
 // Copyright (c) 2021 Orange
@@ -25,42 +24,36 @@
 import OrangeDesignSystem
 import SwiftUI
 
-struct TabBarComponent: Component {
-    let title: String
-    let imageName: String
-    let description: String
-    let variants: AnyView
-    
-    init() {
-        title = "Bars - tab"
-        imageName = "Tab bar"
-        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
-        
-        variants = AnyView(TabBarVariants())
-    }
-}
+struct ListItemSelectionVariantOptions: View {
 
-private struct TabBarVariants: View {
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @ObservedObject var model: ListItemSelectionVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
-        VariantEntryItem(title: "Bars - tab demo", technicalElement: "TabView") {
-            TabBarVariant(model: TabBarVariantModel())
-                .navigationTitle("Bars - tab demo")
-        }
-    }
-}
-
-#if DEBUG
-struct TabBarComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeablePreviews {
-            NavigationView {
-                List {
-                    TabBarVariants()
-                }
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showSubtitle) {
+                Text("Subtitle").odsFont(.bodyBold)
             }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Leading",
+                          selection: $model.leadingOption,
+                          chips: LeadingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
+
+            ODSChipPicker(title: "Trailing",
+                          selection: $model.trailingOption,
+                          chips: SelectionTrailingOption.chips)
+                .padding(.vertical, ODSSpacing.s)
         }
+        .padding(.top, ODSSpacing.s)
     }
 }
-#endif
-

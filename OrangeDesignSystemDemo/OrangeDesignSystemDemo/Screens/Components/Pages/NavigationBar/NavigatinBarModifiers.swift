@@ -90,11 +90,8 @@ struct ListExample: View {
     var body: some View {
         List {
             ForEach(model.filteredListItems, id: \.self) { item in
-                ODSListStandardItem(model: ODSListStandardItemModel(title: item))
+                ODSListItem(title: Text(item)).odsListItemStyle(showSeparator: true)
             }
-            .listRowInsets(EdgeInsets())
-            .listRowSeparator(Visibility.visible)
-            .padding(.horizontal, ODSSpacing.m)
         }
         .listStyle(.plain)
     }

@@ -22,57 +22,37 @@
 //
 
 import OrangeDesignSystem
-import SwiftUI
 
-struct SelectionListVariantOptions: View {
+// =============
+// MARK: Options
+// =============
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @ObservedObject var model: SelectionListVariantModel
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSubtitle) {
-                Text("Subtitle").odsFont(.bodyBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
-
-            ODSChipPicker(title: "Leading",
-                          selection: $model.leadingIconOption,
-                          chips: LeadingIconOption.chips)
-                .padding(.vertical, ODSSpacing.s)
-
-            ODSChipPicker(title: "Trailing",
-                          selection: $model.trailingOption,
-                          chips: ODSListSelectionItemModel.TrailingSelection.chips)
-                .padding(.vertical, ODSSpacing.s)
-        }
-        .padding(.top, ODSSpacing.s)
-    }
-}
-
-extension ODSListSelectionItemModel.TrailingSelection {
-
-    private var description: String {
+enum LeadingOption: Int, CaseIterable {
+    case none
+    case icon
+    case circle
+    case wide
+    case square
+    
+    var description: String {
         switch self {
-        case .checkmark:
-            return "checkmark"
-        case .toggle:
-            return "switch"
+        case .none:
+            return "None"
+        case .icon:
+            return "Icon"
+        case .circle:
+            return "Circle"
+        case .wide:
+            return "Wide"
+        case .square:
+            return "Square"
         }
     }
-        
-    private var chip: ODSChip<Self> {
+    
+    var chip: ODSChip<Self> {
         ODSChip(self, text: self.description)
     }
-        
+    
     static var chips: [ODSChip<Self>] {
         Self.allCases.map { $0.chip }
     }

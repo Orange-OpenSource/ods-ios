@@ -33,7 +33,7 @@ struct RecipeBook {
     static let shared: RecipeBook = RecipeBook()
 }
 
-struct Food {
+struct Food: Equatable {
     let id: Int
     let name: String
     let image: URL?

@@ -42,7 +42,7 @@ struct BannerComponent: Component {
 struct BannerVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "Banner", technicalElement: "ODSBanner()") {
+        VariantEntryItem(title: "Banner", technicalElement: "ODSBanner()") {
             BannerVariant(model: BannerVariantModel())
                 .navigationTitle("Banner")
         }

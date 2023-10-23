@@ -1,4 +1,4 @@
-////
+//
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,7 +41,7 @@ struct GrifOfSmallCards: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
+                ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
                     NavigationLink {
                         Text("Bon appétit")
                             .navigationBarTitleDisplayMode(.inline)

@@ -1,5 +1,4 @@
-
-//
+////
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,45 +21,9 @@
 //
 //
 
-import OrangeDesignSystem
-import SwiftUI
-
-struct TabBarComponent: Component {
-    let title: String
-    let imageName: String
-    let description: String
-    let variants: AnyView
-    
-    init() {
-        title = "Bars - tab"
-        imageName = "Tab bar"
-        description = "A tab bar is a constantly available element which creates an overall navigation for users' experience."
-        
-        variants = AnyView(TabBarVariants())
+extension Recipe: Identifiable {
+    /// Id to identify the recipe in RecipeBook
+    var id: String {
+        title + subtitle + description + iconName
     }
 }
-
-private struct TabBarVariants: View {
-
-    var body: some View {
-        VariantEntryItem(title: "Bars - tab demo", technicalElement: "TabView") {
-            TabBarVariant(model: TabBarVariantModel())
-                .navigationTitle("Bars - tab demo")
-        }
-    }
-}
-
-#if DEBUG
-struct TabBarComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeablePreviews {
-            NavigationView {
-                List {
-                    TabBarVariants()
-                }
-            }
-        }
-    }
-}
-#endif
-

@@ -21,46 +21,56 @@
 //
 //
 
-import OrangeDesignSystem
 import SwiftUI
 
-struct StandardListVariantOptions: View {
+struct TrailingView: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @ObservedObject var model: StandardListVariantModel
+    @Environment(\.theme) private var theme
+    let element: ODSListItem.TrailingElement
+    let height: CGFloat
 
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
-        VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSubtitle) {
-                Text("Subtitle").odsFont(.bodyBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
+        switch element {
+        case .textOnly(let text):
+            text
+                .odsFont(.subhead)
+                .foregroundColor(Color(UIColor.systemGray3))
 
-            ODSChipPicker(title: "Leading",
-                          selection: $model.leadingIconOption,
-                          chips: LeadingIconOption.chips)
-                .padding(.vertical, ODSSpacing.s)
+        case .iButton(let action, let text):
+            HStack {
+                text
+                    .odsFont(.subhead)
+                    .foregroundColor(Color(UIColor.systemGray3))
 
-            ODSChipPicker(title: "Trailing",
-                          selection: $model.trailingOptions,
-                          allowZeroSelection: true,
-                          chips: TrailingOption.chips)
-                .padding(.vertical, ODSSpacing.s)
-            
-            Toggle(isOn: $model.showDetails) {
-                Text("Navigate").odsFont(.bodyBold)
+                ODSIconButton(image: Image(systemName: "info.circle"), action: action)
+                    .foregroundColor(theme.componentColors.accent)
+                    .buttonStyle(PlainButtonStyle())
             }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
+
+        case .toggle(let isOn):
+            Toggle(isOn: isOn) {
+                EmptyView()
+            }
+
+        case .checkmark(let isVisible):
+            if isVisible {
+                Image(systemName: "checkmark")
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .font(.body.bold())
+                    .foregroundColor(theme.componentColors.accent)
+                    .frame(height: height)
+            } else {
+                EmptyView()
+            }
         }
-        .padding(.top, ODSSpacing.s)
     }
 }

@@ -42,22 +42,22 @@ struct CardComponent: Component {
 struct CardVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "Card Vertical Image First", technicalElement: "ODSCardVerticalImageFirst()") {
+        VariantEntryItem(title: "Card Vertical Image First", technicalElement: "ODSCardVerticalImageFirst()") {
             CardVerticalImageFirstVariant(model: CardVerticalImageFirstVariantModel())
                 .navigationTitle("Card Vertical Image First")
         }
         
-        VariantEntryItem(text: "Card Vertical Header First", technicalElement: "ODSCardVerticalHeaderFirst()") {
+        VariantEntryItem(title: "Card Vertical Header First", technicalElement: "ODSCardVerticalHeaderFirst()") {
             CardVerticalHeaderFirstVariant(model: CardVerticalHeaderFirstVariantModel())
                 .navigationTitle("Card Vertical Header First")
         }
 
-        VariantEntryItem(text: "Card Small", technicalElement: "ODSCardSmall") {
+        VariantEntryItem(title: "Card Small", technicalElement: "ODSCardSmall") {
             CardSmallVariant(model: CardSmallVariantModel())
                 .navigationTitle("Card Small")
         }
         
-        VariantEntryItem(text: "Card Horizontal", technicalElement: "ODSCardHorizontal") {
+        VariantEntryItem(title: "Card Horizontal", technicalElement: "ODSCardHorizontal") {
             CardHorizontalVariant(model: CardHorizontalVariantModel())
                 .navigationTitle("Card Horizontal")
         }

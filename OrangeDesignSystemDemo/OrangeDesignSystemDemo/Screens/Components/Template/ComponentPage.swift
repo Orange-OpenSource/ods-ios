@@ -58,9 +58,6 @@ struct ComponentPage: View {
             .padding(.horizontal, ODSSpacing.none)
             
             component.variants
-                .listRowInsets(EdgeInsets())
-                .listRowSeparator(Visibility.hidden)
-                .padding(.horizontal, ODSSpacing.m)
         }
         .listRowSeparator(Visibility.hidden)
         .listStyle(.plain)
@@ -90,31 +87,47 @@ struct VariantsTitle: View {
 }
 
 struct VariantEntryItem<VariantPage>: View where VariantPage: View {
-
-    private let itemModel: ODSListStandardItemModel
-    private let variantPage: () -> VariantPage
+    
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+    
+    private let title: Text
+    private let technicalElement: Text
     private let showThemeSelectionInNavigationBar: Bool
+    private let variantPage: () -> VariantPage
+    
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(
+        title: String,
+        technicalElement: String,
+        showThemeSelectionInNavigationBar: Bool = true,
+        @ViewBuilder variantPage: @escaping () -> VariantPage
+    ) {
+        self.title = Text(title)
+        self.technicalElement = Text(technicalElement)
+        self.showThemeSelectionInNavigationBar = showThemeSelectionInNavigationBar
+        self.variantPage = variantPage
+    }
+
+    // ==========
+    // MARK: Body
+    // ==========
     
     var body: some View {
-        NavigationLink(itemModel) {
+        NavigationLink {
             if showThemeSelectionInNavigationBar {
                 variantPage().navigationbarMenuForThemeSelection()
             } else {
                 variantPage()
             }
+        } label: {
+            ODSListItem(title: title, subtitle: technicalElement, leading: .icon(Image(systemName: "play.circle")))
         }
-    }
-    
-    init(text: String, technicalElement: String,
-         showThemeSelectionInNavigationBar: Bool = true,
-         @ViewBuilder variantPage: @escaping () -> VariantPage) {
-        
-        self.showThemeSelectionInNavigationBar = showThemeSelectionInNavigationBar
-        let playIcon = ODSListItemLeadingIcon.icon(Image(systemName: "play.circle"))
-        self.itemModel = ODSListStandardItemModel(title: text,
-                                                  subtitle: technicalElement,
-                                                  leadingIcon: playIcon)
-        self.variantPage = variantPage
+        .odsListItemStyle(showSeparator: false)
     }
 }
 
@@ -137,7 +150,7 @@ struct ComponentPage_Previews: PreviewProvider {
 
     struct Variants: View {
         var body: some View {
-            VariantEntryItem(text: "Variant 1", technicalElement: "MyTestElement()") {
+            VariantEntryItem(title: "Variant 1", technicalElement: "MyTestElement()") {
                 Text("This is a Variant")
             }
         }

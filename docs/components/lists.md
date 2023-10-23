@@ -44,30 +44,44 @@ The leading icon is :
 ### Standard list item 
  
  For standard items, trailing icons can be added. Two types of icons are proposed:
-    - with info button to make an action
-    - with text (no action, only information)
+    - with text 
+    - with text and info button to make an action
     
 The standard item can be used in a `NavigationLink` (for example, display more details)
 
 ```swift
-// Create list items models
 
-let itemsModels = [ 
-                    ODSListStandardItemModel(title: "Title Only"),
-                    ODSListStandardItemModel(title: "Title with subtitle", subtitle: "subtitle"),    
-                    ODSListStandardItemModel(title: "Title with leading icon", leadingIcon: .icon(Image(systemName: "heart"))),
-                    ODSListStandardItemModel(title: "Title with trailing action", ODSListItemTrailingActions(displayText: "Details")),
-                ]
-
-// Build the List view using ODSListStandardItemModel.
+// Build the List view using ODSListItem withount navigation
 List {
-    ForEach(itemModels, id: \.id) { itemModel in
-        NavigationLink {
-            Text("The destination view")
-        } label: {
-            ODSListStandardItem(model: itemModel)
+    // Items without navigation   
+    ODSListItem(title: Text("Title Only")).odsListItemStyle()
+    ODSListItem(title: Text("Title with subtitle"), subtitle: Text("subtitle")).odsListItemStyle()    
+    ODSListItem(title: Text("Title with leading icon"), leading: .icon(Image(systemName: "heart"))).odsListItemStyle()
+    ODSListItem(title: Text("Title with trailing text"), trailingText: Text("Details")).odsListItemStyle()
+    ODSListItem(title: Text("Title with trailing text and info button"), trailingText: Text("Details")) {
+        // Add info button action here
+    }.odsListItemStyle()
+
+    // Item with navigation
+    NavigationLink {
+        Text("The destination view")
+    } label: {
+        ODSListItem(title: Text("Title without trailing element"))
+    }.odsListItemStyle()
+    
+    NavigationLink {
+        Text("The destination view")
+    } label: {
+        ODSListItem(title: Text("Title with trailing text"), trailingText: Text("Details"))
+    }.odsListItemStyle()
+    
+    NavigationLink {
+        Text("The destination view")
+    } label: {
+        ODSListItem(title: Text("Title with trailing text and info button"), trailingText: Text("Details")) {
+            // Add info button action here
         }
-    }
+    }.odsListItemStyle()
 }
 ```
 
@@ -76,33 +90,40 @@ List {
 The selection list items can be used to enumerate data as list in order to select elements.
 
 ```swift
-struct YourView: View {
-    let models: [ODSListSelectionItemModel]
+struct MyMultipleOptionsSelection: View {
 
-    init() {
-        let iconImage = Image(systemName: "heart")
-        models = [
-            ODSListSelectionItemModel(
-                title: "Title 1",
-                subtitle: "Subtitle 1",
-                leadingIcon: .icon(iconImage),
-                trailingSelection: .checkmark),
-            ODSListSelectionItemModel(
-                title: "Title 2",
-                subtitle: "Subtitle 2",
-                trailingSelection: .checkmark)
-        ]
-    }
-
+    @State private var optionA: Bool = false
+    @State private var optionB: Bool = false
+    
     var body: some View {
         List {
-            ForEach(models, id: \.id) { model in
-                ODSListSelectionItem(model: model)
+            ODSListItem(
+                title: Text("Option A"),
+                subtitle: Text("Option A description"),
+                trailingCheckmarkIsSelected: optionA
+            )
+            .odsListItemStyle()
+            .onTapGesture {
+                optionA.toggle()
+            }
+
+            ODSListItem(
+                title: Text("Option B"),
+                subtitle: Text("Option B description"),
+                trailingCheckmarkIsSelected: optionB
+            )
+            .odsListItemStyle()
+            .onTapGesture {
+                optionB.toggle()
             }
         }
     }
 }     
 ```
 
-**Note:** Don’t forget, if item is used in a `NavigationLink`, a chevron is automatically added by the system. For design purpose it is NOT recommended to add `ODSListSelectionItem` in a `NavigationLink`.
+**Note 1:** Don’t forget, if item is used in a `NavigationLink`, a chevron is automatically added by the system. For design purpose it is NOT recommended to add item with `trailingCheckmarkIsSelected` and `trailingToggleIsOn` parameters in a `NavigationLink`.
+
+**Note 2:**Don’t forget to apply the style on: 
+- __ODSListItem__ if it is not used with NavigationLink.
+- NavigationLink if __ODSListItem__ is its label.
 

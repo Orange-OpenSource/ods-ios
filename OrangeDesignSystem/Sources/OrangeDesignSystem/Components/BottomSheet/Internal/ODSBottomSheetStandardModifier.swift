@@ -201,13 +201,14 @@ struct StandardBottomSheetPreviewProvider_Previews: PreviewProvider {
             ODSBottomSheetStandard(isOpen: $isOpen,
                                    headerConfig: ODSBottomSheetStandardHeaderConfig(title: "Recipes", icon: Image(systemName: "chevron.up"))) {
                 VStack {
-                    ODSListStandardItem(model: ODSListStandardItemModel(title: "Summer Salad", leadingIcon: ODSListItemLeadingIcon.icon(Image(systemName: "sun.max"))))
-
-                    ODSListStandardItem(model: ODSListStandardItemModel(title: "Bocoli Soup", leadingIcon: ODSListItemLeadingIcon.icon(Image(systemName: "heart"))))
-
-                    ODSListStandardItem(model: ODSListStandardItemModel(title: "Pesto farfalle", leadingIcon: ODSListItemLeadingIcon.icon(Image(systemName: "music.note"))))
-
-                    ODSListStandardItem(model: ODSListStandardItemModel(title: "Fig Sponge Cake", leadingIcon: ODSListItemLeadingIcon.icon(Image(systemName: "star"))))
+                    ODSListItem(title: Text("Summer Salad"), leading: .icon(Image(systemName: "sun.max")))
+                        .odsListItemStyle()
+                    ODSListItem(title: Text("Bocoli Soup"), leading: .icon(Image(systemName: "heart")))
+                        .odsListItemStyle()
+                    ODSListItem(title: Text("Pesto farfalle"), leading: .icon(Image(systemName: "music.note")))
+                        .odsListItemStyle()
+                    ODSListItem(title: Text("Fig Sponge Cake"), leading: .icon(Image(systemName: "star")))
+                        .odsListItemStyle()
                 }
                 .padding(.horizontal, 16)
             }

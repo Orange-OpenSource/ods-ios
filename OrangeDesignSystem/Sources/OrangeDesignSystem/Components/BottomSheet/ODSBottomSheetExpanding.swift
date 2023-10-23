@@ -77,7 +77,7 @@ extension View {
     ) -> some View {
             self.modifier(ODSBottomSheetExpandingModifier(
                 title: title,
-                subtile: nil,
+                subtitle: nil,
                 icon: nil,
                 bottomSheetSize: bottomSheetSize,
                 content: content))
@@ -100,7 +100,7 @@ extension View {
     ) -> some View {
             self.modifier(ODSBottomSheetExpandingModifier(
                 title: title,
-                subtile: subtitle,
+                subtitle: subtitle,
                 icon: nil,
                 bottomSheetSize: bottomSheetSize,
                 content: content))
@@ -123,7 +123,7 @@ extension View {
     ) -> some View {
             self.modifier(ODSBottomSheetExpandingModifier(
                 title: title,
-                subtile: nil,
+                subtitle: nil,
                 icon: icon,
                 bottomSheetSize: bottomSheetSize,
                 content: content))
