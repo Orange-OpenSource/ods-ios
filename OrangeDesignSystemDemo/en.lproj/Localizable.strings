@@ -253,3 +253,18 @@
 "screens.guidelines.lists.options.description.text" = "Text";
 "screens.guidelines.lists.options.description.info_button" = "Info button";
 "screens.guidelines.list.details" = "Details";
+
+// ==================================================
+// MARK: - Screens - Guidelines - Progress indicators
+// ==================================================
+
+"screens.guidelines.progress_indicators.title" = "Progress indicators";
+"screens.guidelines.progress_indicators.description" = "Progress indicators show users that elements or pages are loading.";
+"screens.guidelines.progress_indicators.progress_bar.title" = "Progress bar demo";
+"screens.guidelines.progress_indicators.activity_bar.title" = "Progress bar demo";
+"screens.guidelines.progress_indicators.downloading" = "Downloading...";
+"screens.guidelines.progress_indicators.x_percent" = "%@ %%";
+"screens.guidelines.progress_indicators.toggle.label" = "Label";
+"screens.guidelines.progress_indicators.toggle.icon" = "Icon";
+"screens.guidelines.progress_indicators.toggle.current_value" = "Current value";
+"screens.guidelines.progress_indicators.toggle.loading" = "Loading...";

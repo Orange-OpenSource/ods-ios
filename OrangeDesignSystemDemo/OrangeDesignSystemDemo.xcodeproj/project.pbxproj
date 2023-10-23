@@ -104,6 +104,7 @@
 		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
 		51C776932AE1512200FD0AED /* DateFormatterCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776922AE1512200FD0AED /* DateFormatterCacheTest.swift */; };
 		51C776952AE1551600FD0AED /* CacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776942AE1551600FD0AED /* CacheTest.swift */; };
+		51F2E6D52AE6AC2B00377A07 /* String+extension Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E6D42AE6AC2B00377A07 /* String+extension Test.swift */; };
 		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
 		51F90B1E2ADEDAED007AAA45 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90B1D2ADEDAED007AAA45 /* String+extension.swift */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
@@ -244,6 +245,7 @@
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51C776922AE1512200FD0AED /* DateFormatterCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterCacheTest.swift; path = OrangeDesignSystemDemoTests/DateFormatterCacheTest.swift; sourceTree = "<group>"; };
 		51C776942AE1551600FD0AED /* CacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheTest.swift; path = OrangeDesignSystemDemoTests/CacheTest.swift; sourceTree = "<group>"; };
+		51F2E6D42AE6AC2B00377A07 /* String+extension Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension Test.swift"; sourceTree = "<group>"; };
 		51F90B1D2ADEDAED007AAA45 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B655A0B148F11BB69BCFF556 /* Pods-OrangeDesignSystemDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -761,6 +763,7 @@
 				F99FF08A2767B226006236A0 /* DateFormatterTest.swift */,
 				51C776922AE1512200FD0AED /* DateFormatterCacheTest.swift */,
 				51C776942AE1551600FD0AED /* CacheTest.swift */,
+				51F2E6D42AE6AC2B00377A07 /* String+extension Test.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1180,6 +1183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F99FF08C2767B23E006236A0 /* DateFormatterTest.swift in Sources */,
+				51F2E6D52AE6AC2B00377A07 /* String+extension Test.swift in Sources */,
 				51C776952AE1551600FD0AED /* CacheTest.swift in Sources */,
 				51C776932AE1512200FD0AED /* DateFormatterCacheTest.swift in Sources */,
 			);
