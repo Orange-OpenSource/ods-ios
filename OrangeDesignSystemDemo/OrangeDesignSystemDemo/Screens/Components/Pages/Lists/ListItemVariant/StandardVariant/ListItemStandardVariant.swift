@@ -52,18 +52,8 @@ private struct ListItemStandardVariantInner: View {
     // =======================
 
     @ObservedObject var model: ListItemStandardVariantModel
-    private let recipe: Recipe
-
     @State private var showAlert: Bool = false
-
-    // =================
-    // MARK: Initializer
-    // =================
-
-    init(model: ListItemStandardVariantModel) {
-        self.model = model
-        self.recipe = RecipeBook.shared.recipes[0]
-    }
+    private let recipe: Recipe = RecipeBook.shared.recipes[0]
 
     // ==========
     // MARK: Body

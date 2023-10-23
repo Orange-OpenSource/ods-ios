@@ -26,8 +26,7 @@ import SwiftUI
 ///
 /// Use the modifier to apply the right frame size and paddings.
 ///
-/// The modifier can be used direcrtly on the __ODSListItem__ if it used without
-/// navigation.
+/// The modifier can be used directly on the __ODSListItem__ if it used without navigation.
 /// If the __ODSListItem__ is used in a NavigationLink, don't forget to apply the modifier on it.
 ///
 /// - In a __NavigationLink__:

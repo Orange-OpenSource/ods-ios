@@ -42,13 +42,13 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
 
     init(
         title: String,
-        subtile: String? = nil,
+        subtitle: String? = nil,
         icon: Image? = nil,
         bottomSheetSize: Binding<ODSBottomSheetSize>,
         @ViewBuilder content: @escaping () -> ContentView
     ) {
         self.title = title
-        self.subtitle = subtile
+        self.subtitle = subtitle
         self.icon = icon
         self.mainContent = content
         self.bottomSheetSize = bottomSheetSize

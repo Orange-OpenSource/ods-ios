@@ -114,7 +114,6 @@ fileprivate struct BottonSheetContent: View {
     }
     
     private func examplePage() -> some View {
-//        List {
         ForEach(RecipeBook.shared.recipes, id: \.title) { recipe in
             ODSListItem(title: Text(recipe.title), leading: .icon(Image(recipe.iconName)))
                 .odsListItemStyle()
@@ -122,8 +121,6 @@ fileprivate struct BottonSheetContent: View {
                     model.selectedRecipe = recipe
                 }
         }
-//        }
-//        .listStyle(.plain)
     }
 }
 

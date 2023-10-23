@@ -28,7 +28,7 @@ import OrangeDesignSystem
 // =============
 
 enum LeadingOption: Int, CaseIterable {
-    case none = 0
+    case none
     case icon
     case circle
     case wide

@@ -52,18 +52,8 @@ private struct ListItemSelectionVariantInner: View {
     // =======================
 
     @ObservedObject var model: ListItemSelectionVariantModel
-    private let recipe: Recipe
-
     @State private var isSelected: Bool = true
-
-    // =================
-    // MARK: Initializer
-    // =================
-
-    init(model: ListItemSelectionVariantModel) {
-        self.model = model
-        self.recipe = RecipeBook.shared.recipes[0]
-    }
+    private let recipe: Recipe = RecipeBook.shared.recipes[0]
 
     // ==========
     // MARK: Body

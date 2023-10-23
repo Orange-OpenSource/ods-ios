@@ -31,9 +31,9 @@ import SwiftUI
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/63daa5-lists/b/47ebec" target="_blank">ODS Lists</a>.
 ///
-/// Two types of list item can be considered :
+/// Two types of list item can be considered:
 ///
-/// - standard: composed of leading icons, title, subtile and trailing actions.
+/// - standard: composed of leading icons, title, subtitle and trailing actions.
 /// This item allows to enumerate data and offers actions (get information, display details or navigate to a new
 /// page.
 ///
@@ -67,7 +67,7 @@ import SwiftUI
 ///         }
 ///     }
 ///
-/// - selection: composed of leading icons, title, subtile and trailing indicator or switch to select the element.
+/// - selection: composed of leading icons, title, subtitle and trailing indicator or switch to select the element.
 /// Click on the list item with select or unselect the item.
 ///
 /// The following example shows how to build a List with selection elements:
@@ -103,7 +103,7 @@ import SwiftUI
 ///         }
 ///     }
 ///
-/// REMARK: Don't forget top apply the style __.odsListItemStyle__ to get right frame height and paddings.
+/// REMARK: Don't forget to apply the style __.odsListItemStyle__ to get right frame height and paddings.
 ///
 public struct ODSListItem: View {
 
@@ -113,23 +113,38 @@ public struct ODSListItem: View {
     /// Until the image loads, the placeholder image is displayed.
     /// Image and placeholder are shaped (circular, wide or square)
     ///
-    /// Icons are loaded from ressources and no shape is applyed.
-    ///
+    /// Icons are loaded from resources and no shape is applyed.
     public enum Leading {
-        case icon(Image) // A Solaris icon from resource.
-        case circularImage(source: ODSImage.Source) // An image cropped into a circle.
-        case squareImage(source: ODSImage.Source) // An image cropped into a square.
-        case wideImage(source: ODSImage.Source) // An image cropped into a rectangle.
+        /// A Solaris icon from image resource.
+        case icon(Image)
+        
+        /// An image cropped into a circle.
+        /// - Parameter source: The source of the image
+        case circularImage(source: ODSImage.Source)
+
+        /// An image cropped into a square.
+        /// - Parameter source: The source of the image
+        case squareImage(source: ODSImage.Source)
+
+        /// An image cropped into a rectangle.
+        /// - Parameter source: The source of the image
+        case wideImage(source: ODSImage.Source)
     }
 
     /// Describes the trailing element of the list item.
     /// This type of element can be an information, a selection or an action
-    ///
     enum TrailingElement {
-        case textOnly(Text) // A text
-        case iButton(() -> Void, Text?) // A i button with its action and an optinal text.
-        case toggle(Binding<Bool>) // A toggle with its binding that determines whether it is on or off.
-        case checkmark(Bool) // A checkmark with a flag to indicate if it is visbile or not.
+        /// A single text should be short ideally one word.
+        case textOnly(Text)
+
+        /// An i button with its action and a single text (should be short ideally one word)
+        case iButton(() -> Void, Text?)
+
+        /// A toggle with its binding that determines whether it is on or off.
+        case toggle(Binding<Bool>)
+
+        /// A checkmark with a flag to indicate if chekmark is selected (visible) or not.
+        case checkmark(Bool)
     }
 
     // =======================
@@ -150,8 +165,8 @@ public struct ODSListItem: View {
     ///
     /// - Parameters:
     ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIcon: The leading icon of the list item (optional)
+    ///     - subtitle: The secondary text of the list item (optional)
+    ///     - leading: The leading icon of the list item (optional)
     ///
     public init(
         title: Text,
@@ -165,7 +180,7 @@ public struct ODSListItem: View {
     ///
     /// - Parameters:
     ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
+    ///     - subtitle: The secondary text of the list item (optional)
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///
@@ -182,8 +197,8 @@ public struct ODSListItem: View {
     ///
     /// - Parameters:
     ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIcon: The leading icon of the list item (optional)
+    ///     - subtitle: The secondary text of the list item (optional)
+    ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingIButtonAction: The action the i button on trailing
     ///
@@ -201,7 +216,7 @@ public struct ODSListItem: View {
     ///
     /// - Parameters:
     ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
+    ///     - subtitle: The secondary text of the list item (optional)
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingToggleIsOn: The binding to a property that determines whether the toggle is on or off.
@@ -212,15 +227,16 @@ public struct ODSListItem: View {
         leading: Leading? = nil,
         trailingToggleIsOn: Binding<Bool>
     ) {
-        self.init(title: title, subtitle: subtitle, leading: leading, trailing: .toggle(trailingToggleIsOn))
+        self.init(title: title, subtitle: subtitle, leading: leading, trailing:
+                .toggle(trailingToggleIsOn))
     }
 
     /// Describe the Item content with trailing checkmark.
     ///
     /// - Parameters:
     ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
-    ///     - leadingIcon: The leading icon of the list item (optional)
+    ///     - subtitle: The secondary text of the list item (optional)
+    ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingCheckmarkIsSelected: The flag to indicate if checkmark is visbile or not.
     ///
@@ -237,7 +253,7 @@ public struct ODSListItem: View {
     ///
     /// - Parameters:
     ///     - title: The primary text of the list item
-    ///     - subtile: The secondary text of the list item (optional)
+    ///     - subtitle: The secondary text of the list item (optional)
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailing: The trailing element
     ///
