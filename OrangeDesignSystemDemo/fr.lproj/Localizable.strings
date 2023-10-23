@@ -266,3 +266,32 @@
 "screens.guidelines.progress_indicators.toggle.icon" = "Icône";
 "screens.guidelines.progress_indicators.toggle.current_value" = "Valeur actuelle";
 "screens.guidelines.progress_indicators.toggle.loading" = "Chargement...";
+
+// ============================================
+// MARK: - Screens - Guidelines - Bottom Sheets
+// ============================================
+
+"screens.guidelines.bottom_sheets.title" = "Pages inférieures";
+"screens.guidelines.bottom_sheets.description" = "Par défaut, une page est modale, présentant une expérience ciblée qui empêche les utilisateurs d'interagir avec la vue parente, jusqu'à ce qu'ils ferment la page. Une page modale est utile pour demander une information spécifique ou activer une tâche simple.";
+"screens.guidelines.bottom_sheets.expanding" = "Étirable";
+"screens.guidelines.bottom_sheets.standard" = "Standard";
+"screens.guidelines.bottom_sheets.sample.title" = "Pages inférieures";
+"screens.guidelines.bottom_sheets.sample.subtitle" = "Produts français";
+"screens.guidelines.bottom_sheets.sample.recipe" = "Recette";
+"screens.guidelines.bottom_sheets.sample.start_preparing" = "Commencer la préparation";
+"screens.guidelines.bottom_sheets.sample.open_small" = "Pour ouvrir la page inférieure :\nFaîtes glisser le composant vers le haut";
+"screens.guidelines.bottom_sheets.sample.open_medium" = "Pour ouvrir ou fermer la page inférieure : - Faîtes glisser la poignée vers le haut ou vers le bas\n- Faîtes défiler le contenu\n- Appuyez sur la zone de gradation";
+"screens.guidelines.bottom_sheets.sample.open_large" = "Pour fermer la page inférieure :\n- Faîtes glisser la poignée vers le bas\n- Faîtes défiler le contenu\n- Appuyez sur la zone de gradation";
+"screens.guidelines.bottom_sheets.variant.customize" = "Personnalisez la feuille inférieure avant de l'ouvrir pour la voir.";
+"screens.guidelines.bottom_sheets.variant.see" = "Voir le composant";
+"screens.guidelines.bottom_sheets.variant.close" = "Fermer";
+"screens.guidelines.bottom_sheets.variant.selection" = "Page inférieure : %@";
+"screens.guidelines.bottom_sheets.variant.detent" = "Détente";
+"screens.guidelines.bottom_sheets.variant.content" = "Contenu";
+"screens.guidelines.bottom_sheets.variant.subtitle" = "Soustitre";
+"screens.guidelines.bottom_sheets.variant.icon" = "Icône";
+"screens.guidelines.bottom_sheets.size.small" = "Petit";
+"screens.guidelines.bottom_sheets.size.medium" = "Moyen";
+"screens.guidelines.bottom_sheets.size.large" = "Large";
+"screens.guidelines.bottom_sheets.size.hidden" = "Caché";
+
