@@ -227,3 +227,29 @@
 "screens.guidelines.chips.state.enable" = "Enable";
 "screens.guidelines.chips.state.selected" = "Selected";
 "screens.guidelines.chips.state.disabled" = "Disabled";
+
+// ====================================
+// MARK: - Screens - Guidelines - Lists
+// ====================================
+
+"screens.guidelines.lists.title" = "Lists";
+"screens.guidelines.lists.description" = "A list is a continuous vertical group of data entries like text, icons or images.";
+"screens.guidelines.lists.variant.with_selections" = "List with selection";
+"screens.guidelines.lists.variant.standard_lists" = "Standard lists";
+"screens.guidelines.lists.picker.leading" = "Leading";
+"screens.guidelines.lists.picker.trailing" = "Trailing";
+"screens.guidelines.lists.toggle.subtitle" = "Subtitle";
+"screens.guidelines.lists.picker.navigate" = "Navigate";
+"screens.guidelines.lists.selection.description.checkmark" = "checkmark";
+"screens.guidelines.lists.selection.description.switch" = "Switch";
+"screens.guidelines.lists.variant.clicked" = "%@ is clicked";
+"screens.guidelines.lists.variant.button.close" = "Close";
+"screens.guidelines.lists.alert" = "Information icon tapped! Bon appétit";
+"screens.guidelines.lists.icons.description.none" = "None";
+"screens.guidelines.lists.icons.description.icon" = "Icon";
+"screens.guidelines.lists.icons.description.circle" = "Circle";
+"screens.guidelines.lists.icons.description.wide" = "Wide";
+"screens.guidelines.lists.icons.description.square" = "Square";
+"screens.guidelines.lists.options.description.text" = "Text";
+"screens.guidelines.lists.options.description.info_button" = "Info button";
+"screens.guidelines.list.details" = "Details";

@@ -221,8 +221,33 @@
 "screens.guidelines.chips.text_only" = "Texte seul";
 "screens.guidelines.chips.with_icon" = "Avec une icône depuis une image";
 "screens.guidelines.chips.with_system_icon" = "Avec une icône système";
-"screens.guidelines.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou pas */
+"screens.guidelines.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou créature à la peau bleue */
 "screens.guidelines.chips.state.enable" = "Activer";
 "screens.guidelines.chips.state.selected" = "Selectionné";
 "screens.guidelines.chips.state.disabled" = "Désactivé";
 
+// ====================================
+// MARK: - Screens - Guidelines - Lists
+// ====================================
+
+"screens.guidelines.lists.title" = "Listes";
+"screens.guidelines.lists.description" = "Une liste est un groupe vertical continu d'entrées de données telles que du texte, des icônes ou des images.";
+"screens.guidelines.lists.variant.with_selections" = "Liste avec sélection";
+"screens.guidelines.lists.variant.standard_lists" = "Liste standard";
+"screens.guidelines.lists.picker.leading" = "Au début";
+"screens.guidelines.lists.picker.trailing" = "À la fin";
+"screens.guidelines.lists.toggle.subtitle" = "Soustitre";
+"screens.guidelines.lists.picker.navigate" = "Naviguer";
+"screens.guidelines.lists.selection.description.checkmark" = "Encoche";
+"screens.guidelines.lists.selection.description.switch" = "Commutateur";
+"screens.guidelines.lists.variant.clicked" = "%@ est tappé";
+"screens.guidelines.lists.variant.button.close" = "Fermer";
+"screens.guidelines.lists.alert" = "Icône d'information tappée ! Bon appétit";
+"screens.guidelines.lists.icons.description.none" = "Aucun";
+"screens.guidelines.lists.icons.description.icon" = "Icône";
+"screens.guidelines.lists.icons.description.circle" = "Cercle";
+"screens.guidelines.lists.icons.description.wide" = "Large";
+"screens.guidelines.lists.icons.description.square" = "Carré";
+"screens.guidelines.lists.options.description.text" = "Texte";
+"screens.guidelines.lists.options.description.info_button" = "Bouton d'information";
+"screens.guidelines.list.details" = "Détails";
