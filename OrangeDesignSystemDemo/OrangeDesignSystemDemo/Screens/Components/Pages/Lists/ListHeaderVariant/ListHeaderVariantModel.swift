@@ -21,35 +21,56 @@
 //
 //
 
-import Foundation
+import OrangeDesignSystem
 import SwiftUI
 
-// MARK: RecipeBook model
-
-struct RecipeBook {
-    let recipes: [Recipe]
-    let foods: [Food]
+enum ListStyleOption: Int, CaseIterable {
+    case plain
+    case grouped
+    case inset
+    case insetGrouped
+    case sidebar
     
-    static let shared: RecipeBook = RecipeBook()
+    var description: String {
+        switch self {
+        case .plain:
+            return "Plain"
+        case .grouped:
+            return "Grouped"
+        case .inset:
+            return "Inset"
+        case .insetGrouped:
+            return "InsetGrouped"
+        case .sidebar:
+            return "Sidebar"
+        }
+    }
+    
+    var chip: ODSChip<Self> {
+        ODSChip(self, text: self.description)
+    }
+    
+    static var chips: [ODSChip<Self>] {
+        Self.allCases.map { $0.chip }
+    }
 }
 
-struct Food: Equatable {
-    let id: Int
-    let name: String
-    let image: URL?
-}
+class ListHeaderVariantModel: ObservableObject {
 
-struct Recipe {
-    let title: String
-    let subtitle: String
-    let description: String
-    var ingredients: [Ingredient]
-    let url: URL
-    let iconName: String
-}
+    // =======================
+    // MARK: Stored properties
+    // =======================
 
-struct Ingredient: Decodable {
-    let food: Food
-    let quantity: String
+    @Published var showHeader: Bool
+    @Published var showFooter: Bool
+    @Published var listStyleOption: ListStyleOption
+        
+    // ==================
+    // MARK: Initializers
+    // ==================
+    init() {
+        showHeader = true
+        showFooter = true
+        listStyleOption = .plain
+    }
 }
-

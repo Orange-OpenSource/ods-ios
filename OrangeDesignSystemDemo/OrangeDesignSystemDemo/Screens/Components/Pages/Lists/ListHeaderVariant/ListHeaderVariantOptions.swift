@@ -21,35 +21,40 @@
 //
 //
 
-import Foundation
+import OrangeDesignSystem
 import SwiftUI
 
-// MARK: RecipeBook model
+struct ListHeaderVariantOptions: View {
 
-struct RecipeBook {
-    let recipes: [Recipe]
-    let foods: [Food]
-    
-    static let shared: RecipeBook = RecipeBook()
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    @ObservedObject var model: ListHeaderVariantModel
+
+    // ==========
+    // MARK: Body
+    // ==========
+
+    var body: some View {
+        VStack(spacing: ODSSpacing.none) {
+            Toggle(isOn: $model.showHeader) {
+                Text("Header").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+
+            Toggle(isOn: $model.showFooter) {
+                Text("Footer").odsFont(.bodyBold)
+            }
+            .padding(.horizontal, ODSSpacing.m)
+            .padding(.vertical, ODSSpacing.s)
+            
+            ODSChipPicker(title: "Style",
+                          selection: $model.listStyleOption,
+                          chips: ListStyleOption.chips)
+            .padding(.vertical, ODSSpacing.s)
+        }
+        .padding(.top, ODSSpacing.s)
+    }
 }
-
-struct Food: Equatable {
-    let id: Int
-    let name: String
-    let image: URL?
-}
-
-struct Recipe {
-    let title: String
-    let subtitle: String
-    let description: String
-    var ingredients: [Ingredient]
-    let url: URL
-    let iconName: String
-}
-
-struct Ingredient: Decodable {
-    let food: Food
-    let quantity: String
-}
-
