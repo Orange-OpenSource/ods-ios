@@ -45,11 +45,7 @@ struct ListVariants: View {
         }
         VariantEntryItem(title: "List Item Selection", technicalElement: "ODSListItem()"){
             ListItemSelectionVariant(model: ListItemSelectionVariantModel())
-        }
-        VariantEntryItem(title: "List Item Selection", technicalElement: "ODSListItem()"){
-            ListHeaderVariant(model: ListHeaderVariantModel())
-        }
-        
+        }        
     }
 }
 
