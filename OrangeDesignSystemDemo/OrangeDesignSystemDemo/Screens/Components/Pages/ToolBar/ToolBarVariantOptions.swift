@@ -82,7 +82,7 @@ class ToolBarVariantModel: ObservableObject {
         iconDescriptions = ["plus", "square.and.arrow.up", "square.and.pencil", "folder", "trash"]
             .enumerated().map { (index, str) in
                 ODSToolbarIconDesription(systemName: str) {
-                    self.showAlert(with: "icon \(index+1)")
+                    self.showAlert(with: "Item \(index+1)")
                 }
         }
     }
