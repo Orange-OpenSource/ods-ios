@@ -347,3 +347,11 @@
 "screens.modules.about.texts.add_cgu" = "Add terms of service here";
 "screens.modules.about.titles.my_review" = "My reviews";
 "screens.modules.about.titles.my_recipes" = "My recipes";
+
+// ============================================
+// MARK: - Screens - Modules - Card collections
+// ============================================
+
+"screens.modules.card_collections.titles.list" = "List of cards";
+"screens.modules.card_collections.titles.grid" = "Grid of small cards";
+"screens.modules.card_collections.texts.bon_app" = "Bon appétit !";

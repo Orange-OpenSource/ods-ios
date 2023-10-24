@@ -346,3 +346,10 @@
 "screens.modules.about.titles.my_review" = "Mes revues";
 "screens.modules.about.titles.my_recipes" = "Mes recettes";
 
+// ============================================
+// MARK: - Screens - Modules - Card collections
+// ============================================
+
+"screens.modules.card_collections.titles.list" = "Liste de cartes";
+"screens.modules.card_collections.titles.grid" = "Grille de petites cartes";
+"screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
