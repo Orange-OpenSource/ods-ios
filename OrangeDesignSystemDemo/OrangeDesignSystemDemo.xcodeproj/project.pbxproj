@@ -233,18 +233,14 @@
 		07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariant.swift; sourceTree = "<group>"; };
 		07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemVaraintSelectionModel.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		5107F55F2AE11BDD00D4D01F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/AppNews.json; sourceTree = "<group>"; };
 		5107F5612AE11BE200D4D01F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fr; path = fr.lproj/AppNews.json; sourceTree = "<group>"; };
-		5107F5632AE1209A00D4D01F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
 		5107F5652AE120A100D4D01F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
-		5107F5672AE1210700D4D01F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		5107F5692AE1210B00D4D01F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fr; path = fr.lproj/AccessibilityStatement.xml; sourceTree = "<group>"; };
-		5107F56B2AE1220900D4D01F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/CGU.html; sourceTree = "<group>"; };
 		5107F56D2AE1220C00D4D01F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/CGU.html; sourceTree = "<group>"; };
-		5138768F2ADD624B00AE53DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51C776922AE1512200FD0AED /* DateFormatterCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterCacheTest.swift; path = OrangeDesignSystemDemoTests/DateFormatterCacheTest.swift; sourceTree = "<group>"; };
 		51C776942AE1551600FD0AED /* CacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheTest.swift; path = OrangeDesignSystemDemoTests/CacheTest.swift; sourceTree = "<group>"; };
+		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51F2E6D42AE6AC2B00377A07 /* String+extension Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension Test.swift"; sourceTree = "<group>"; };
 		51F90B1D2ADEDAED007AAA45 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -933,11 +929,11 @@
 			};
 			buildConfigurationList = EB0AA52B275652AE0012E192 /* Build configuration list for PBXProject "OrangeDesignSystemDemo" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				fr,
+				Base,
 			);
 			mainGroup = EB0AA527275652AE0012E192;
 			packageReferences = (
@@ -1217,7 +1213,6 @@
 		5107F5602AE11BDD00D4D01F /* AppNews.json */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5107F55F2AE11BDD00D4D01F /* en */,
 				5107F5612AE11BE200D4D01F /* fr */,
 			);
 			name = AppNews.json;
@@ -1227,7 +1222,6 @@
 		5107F5642AE1209A00D4D01F /* PrivacyNotice.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5107F5632AE1209A00D4D01F /* en */,
 				5107F5652AE120A100D4D01F /* fr */,
 			);
 			name = PrivacyNotice.html;
@@ -1237,7 +1231,6 @@
 		5107F5682AE1210700D4D01F /* AccessibilityStatement.xml */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5107F5672AE1210700D4D01F /* en */,
 				5107F5692AE1210B00D4D01F /* fr */,
 			);
 			name = AccessibilityStatement.xml;
@@ -1246,7 +1239,6 @@
 		5107F56C2AE1220900D4D01F /* CGU.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5107F56B2AE1220900D4D01F /* en */,
 				5107F56D2AE1220C00D4D01F /* fr */,
 			);
 			name = CGU.html;
@@ -1256,8 +1248,8 @@
 		513876902ADD624B00AE53DF /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5138768F2ADD624B00AE53DF /* en */,
 				513876912ADD62A000AE53DF /* fr */,
+				51F058B62AE8083500B1F690 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
