@@ -57,7 +57,7 @@
 // MARK: - Screens - Guidelines - Colors
 // =====================================
 
-"screens.guidelines.colors.title" = "Colors";
+"screens.guidelines.colors.title" = "Colour";
 "screens.guidelines.colors.description" = "It is important to use the iOS system background colours as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.";
 "screens.guidelines.colors.palette.title" = "Palette";
 "screens.guidelines.colors.color_palette.title" = "Color palette";
@@ -72,7 +72,7 @@
 // MARK: - Screens - Guidelines - Spacings
 // =======================================
 
-"screens.guidelines.spacings.title" = "Spacings";
+"screens.guidelines.spacings.title" = "Spacing";
 "screens.guidelines.spacings.description" = "Spacing tokens are used to position elements on the screen and layout within components. Spacing tokens can be applied as padding and margins.";
 
 "a11y.spacings_details" = "%@, token name : %@, ratio : %@";
@@ -93,6 +93,7 @@
 "screens.guidelines.banners.title" = "Banners";
 "screens.guidelines.banners.description" = "A banner displays an important message which requires an action to be dismissed.";
 "screens.guidelines.banners.variant.title" = "Banner";
+"screens.guidelines.banners.variant.title_demo" = "Banners demo";
 "screens.guidelines.banners.demo.long_text" = "Text could be on several lines. But, One to two lines is preferable on mobile.";
 "screens.guidelines.banners.demo.short_text" = "Short text";
 "screens.guidelines.banners.demo.button_hint" = "Action";
@@ -168,7 +169,7 @@
 // ======================================
 
 "screens.guidelines.buttons.title" = "Buttons";
-"screens.guidelines.buttons.description" = "A custom button allows a user to perform an important call to action. This button that contains a text";
+"screens.guidelines.buttons.description" = "A button allows a user to perform an action or to navigate to another page. It contains a text label and a supporting icon can be displayed.";
 "screens.guidelines.buttons.variant.emphasis" = "Emphasis";
 "screens.guidelines.buttons.variant.functional" = "Functional";
 "screens.guidelines.buttons.variant.icons" = "Icons";
@@ -186,7 +187,7 @@
 "screens.guidelines.toggle.icon" = "Icon";
 "screens.guidelines.toggle.full_width" = "Full width";
 "screens.guidelines.toggle.enabled" = "Enabled";
-"screens.guidelines.toggle.enabled" = "Long text";
+"screens.guidelines.toggle.long_text" = "Long text";
 
 "a11y.emphasis_button_hint" = "%@ emphasis button";
 "a11y.functional_button_hint" = "%@ functional button";
@@ -196,7 +197,7 @@
 // ====================================
 
 "screens.guidelines.cards.title" = "Cards";
-"screens.guidelines.cards.description" = "Cards are a contained and independent element that can display content and actions on a single topic.";
+"screens.guidelines.cards.description" = "Cards are important components that can be used to organise and present a number of different types of related information.";
 "screens.guidelines.cards.variant.vertical_image_first" = "Card Vertical Image First";
 "screens.guidelines.cards.variant.vertical_header_first" = "Card Vertical Header First";
 "screens.guidelines.cards.variant.small" = "Card Small";
@@ -260,7 +261,7 @@
 // ==================================================
 
 "screens.guidelines.progress_indicators.title" = "Progress indicators";
-"screens.guidelines.progress_indicators.description" = "Progress indicators show users that elements or pages are loading.";
+"screens.guidelines.progress_indicators.description" = "Progress bar and activity indicator are used when a process is taking place to illustrate progress and to reassure users that something is happening, and if possible, how long it will take.";
 "screens.guidelines.progress_indicators.progress_bar.title" = "Progress bar demo";
 "screens.guidelines.progress_indicators.activity_bar.title" = "Progress bar demo";
 "screens.guidelines.progress_indicators.downloading" = "Downloading...";
@@ -303,7 +304,7 @@
 // ======================================
 
 "screens.guidelines.sliders.title" = "Sliders";
-"screens.guidelines.sliders.description" = "Sliders allow users to select a single value or a range of values by moving a handle along a horizontal track.";
+"screens.guidelines.sliders.description" = "Sliders enable the user to set a value by moving the slider thumb. The lowest value is always on the left. Sliders can be either continuous or discrete, where the slider thumb snaps to evenly spaced tick marks along the slider rail.";
 "screens.guidelines.sliders.slider.title" = "Sliders demo";
 "screens.guidelines.sliders.sample.volume" = "Volume";
 "screens.guidelines.sliders.sample.side_icons" = "Side icons";

@@ -22,8 +22,8 @@ struct GuidelinesList: View {
     init() {
         guidelines = [
             ColorsGuideline(),
-            SpacingsGuideline(),
-            TypographyGuideline()
+            TypographyGuideline(),
+            SpacingsGuideline()
         ]
     }
     
