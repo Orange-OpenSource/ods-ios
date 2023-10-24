@@ -306,3 +306,21 @@
 "screens.guidelines.sliders.sample.side_icons" = "Icônes sur les côtés";
 "screens.guidelines.sliders.sample.display_value" = "Afficher value";
 "screens.guidelines.sliders.sample.stepped" = "Pas (par 0,5)";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Text Fields
+// ==========================================
+
+"screens.guidelines.textfields.title" = "Champs de saisie de texte";
+"screens.guidelines.textfields.description" = "Le composant champ de texte comprend le champ de texte lui-même, la sélection de texte et le menu d'édition. Certains éléments sont stylés et d’autres sont natifs.";
+"screens.guidelines.textfields.variants.secure" = "Champ de saisie sécurisé";
+"screens.guidelines.textfields.variants.simple" = "Champ de saisie";
+"screens.guidelines.textfields.variants.editor" = "Éditeur de texte";
+"screens.guidelines.textfields.variants.secure.hint" = "Texte sécurisé à éditer";
+"screens.guidelines.textfields.variants.inputs.never" = "Aucune";
+"screens.guidelines.textfields.variants.inputs.characters" = "Lettres";
+"screens.guidelines.textfields.variants.inputs.words" = "Mots";
+"screens.guidelines.textfields.variants.inputs.sentences" = "Phrases";
+"screens.guidelines.textfields.variants.inputs.default.default" = "texte à éditer.";
+"screens.guidelines.textfields.variants.inputs.default.sentences" = "Text à éditer";
+"screens.guidelines.textfields.variants.inputs.options.capitalization" = "Capitalisation";
