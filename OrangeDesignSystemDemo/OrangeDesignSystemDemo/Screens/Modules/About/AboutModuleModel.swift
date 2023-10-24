@@ -104,7 +104,7 @@ class AboutModuleModel: ObservableObject {
             case .version:
                 return "screens.about.app_information.option_description.version".🌐
             case .description:
-                return "screens.about.app_information.option_description.descripption".🌐
+                return "screens.about.app_information.option_description.description".🌐
             case .share:
                 return "screens.about.app_information.option_description.share".🌐
             case .feedback:

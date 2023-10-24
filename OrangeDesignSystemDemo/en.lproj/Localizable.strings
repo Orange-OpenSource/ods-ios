@@ -326,3 +326,24 @@
 "screens.guidelines.textfields.variants.inputs.default.default" = "text to edit.";
 "screens.guidelines.textfields.variants.inputs.default.sentences" = "Text to edit";
 "screens.guidelines.textfields.variants.inputs.options.capitalization" = "Capitalization";
+
+// =================================
+// MARK: - Screens - Modules - About
+// =================================
+
+"screens.modules.about.titles.setup" = "About: Setup";
+"screens.modules.about.titles.about" = "About";
+"screens.modules.about.titles.card_collections" = "Card collections";
+"screens.modules.about.titles.modules" = "Modules";
+"screens.modules.about.description" = "An « About » screen should be displayed in all Orange applications to show the application name, software version as wall as all legal data protection, privacy, terms of service and accessibility statement.";
+"screens.modules.about.customize" = "Customize module";
+"screens.modules.about.mandatory" = "Some items such as: illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components:";
+"screens.modules.about.picker.app_section" = "Application section";
+"screens.modules.about.picker.optional_about_items" = "Optional about items";
+"screens.modules.about.picker.custom_items" = "Custom items: %@";
+"screens.modules.about.buttons.view_demo" = "View demo";
+"screens.modules.about.alert.feedback_clicked" = "Feedback clicked";
+"screens.modules.about.buttons.close" = "Close";
+"screens.modules.about.texts.add_cgu" = "Add terms of service here";
+"screens.modules.about.titles.my_review" = "My reviews";
+"screens.modules.about.titles.my_recipes" = "My recipes";

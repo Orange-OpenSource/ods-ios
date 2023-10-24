@@ -324,3 +324,25 @@
 "screens.guidelines.textfields.variants.inputs.default.default" = "texte à éditer.";
 "screens.guidelines.textfields.variants.inputs.default.sentences" = "Text à éditer";
 "screens.guidelines.textfields.variants.inputs.options.capitalization" = "Capitalisation";
+
+// =================================
+// MARK: - Screens - Modules - About
+// =================================
+
+"screens.modules.about.titles.setup" = "À propos : Introduction";
+"screens.modules.about.titles.about" = "À propos";
+"screens.modules.about.titles.card_collections" = "Collections de cartes";
+"screens.modules.about.titles.modules" = "Modules";
+"screens.modules.about.description" = "Un écran « À propos » doit être affiché dans toutes les applications Orange pour afficher le nom de l'application, la version du logiciel ainsi que toutes les mentions légales de protection des données, de confidentialité, de conditions de service et d'accessibilité.";
+"screens.modules.about.customize" = "Personnaliser le module";
+"screens.modules.about.mandatory" = "Certains éléments tels que : l'illustration (personnalisable), le nom de l'application, la politique de confidentialité, les conditions de service et la déclaration d'accessibilité sont obligatoires.\nÀ cet écran standard, vous pouvez ajouter des composants facultatifs :";
+"screens.modules.about.picker.app_section" = "Section application";
+"screens.modules.about.picker.optional_about_items" = "Items optionnels";
+"screens.modules.about.picker.custom_items" = "Items personnalisés : %@";
+"screens.modules.about.buttons.view_demo" = "Voir la démo";
+"screens.modules.about.alert.feedback_clicked" = "Avis cliqué";
+"screens.modules.about.buttons.close" = "Fermer";
+"screens.modules.about.texts.add_cgu" = "Ajouter les CGU ici";
+"screens.modules.about.titles.my_review" = "Mes revues";
+"screens.modules.about.titles.my_recipes" = "Mes recettes";
+
