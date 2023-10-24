@@ -20,14 +20,14 @@
 "shared.none" = "None";
 "shared.modules" = "Modules";
 "shared.about" = "About";
-"shared.text" = "Text"
+"shared.text" = "Text";
 "shared.subtitle" = "Subtitle";
 "shared.label" = "Label";
 "shared.icon" = "Icon";
 "shared.enabled" = "Enabled";
 "shared.disabled" = "Disabled";
 "shared.long_text" = "Long text";
-"shared.text_fied" = "Text field";
+"shared.text_field" = "Text field";
 
 // =====================
 // MARK: - Miscellaneous
@@ -332,3 +332,9 @@
 "screens.modules.card_collections.titles.list" = "List of cards";
 "screens.modules.card_collections.titles.grid" = "Grid of small cards";
 "screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
+
+// =======================================
+// MARK: - Screens - Components - Template
+// =======================================
+
+"screens.components.template.customize" = "Customize";

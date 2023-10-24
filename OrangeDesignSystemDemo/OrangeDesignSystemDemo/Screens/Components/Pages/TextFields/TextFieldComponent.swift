@@ -41,11 +41,11 @@ struct TextFieldVariants: View {
         }
 
         VariantEntryItem(text: "shared.text_field", technicalElement: "TextField()") {
-            TextFieldVariant().navigationTitle("screens.guidelines.textfields.variants.simple")
+            TextFieldVariant().navigationTitle("shared.text_field")
         }
 
         VariantEntryItem(text: "screens.guidelines.textfields.variants.editor", technicalElement: "TextEditor()") {
-            TextEditorVariant().navigationTitle("shared.text_field")
+            TextEditorVariant().navigationTitle("screens.guidelines.textfields.variants.editor")
         }
     }
 }

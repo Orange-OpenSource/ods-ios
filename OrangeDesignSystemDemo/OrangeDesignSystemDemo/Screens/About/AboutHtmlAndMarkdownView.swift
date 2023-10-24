@@ -97,7 +97,7 @@ struct AboutHtmlAndMarkdownView: View {
                !contentType.content.isEmpty {
                 showContent(contentType: contentType)
             } else {
-                Text("screens.about.file_load_failure".localized(with: [filename, fileExtension]))
+                Text("screens.about.file_load_failure" <- [filename, fileExtension])
                     .padding(.top, ODSSpacing.s)
                     .padding(.horizontal, ODSSpacing.l)
             }

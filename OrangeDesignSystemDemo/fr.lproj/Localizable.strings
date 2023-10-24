@@ -20,7 +20,7 @@
 "shared.none" = "Aucun";
 "shared.modules" = "Modules";
 "shared.about" = "À propos";
-"shared.text" = "Texte"
+"shared.text" = "Texte";
 "shared.subtitle" = "Sous-titre";
 "shared.label" = "Label";
 "shared.icon" = "Icône";
@@ -332,3 +332,9 @@
 "screens.modules.card_collections.titles.list" = "Liste de cartes";
 "screens.modules.card_collections.titles.grid" = "Grille de petites cartes";
 "screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
+
+// =======================================
+// MARK: - Screens - Components - Template
+// =======================================
+
+"screens.components.template.customize" = "Configurer";
