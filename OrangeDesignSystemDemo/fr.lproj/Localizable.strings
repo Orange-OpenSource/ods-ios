@@ -6,14 +6,28 @@
  * This software is distributed under the MIT license.
  */
 
-// =================
-// MARK: - Main View
-// =================
+// ========================
+// MARK: - Shared / commmon
+// ========================
 
-"main_view.tab.guidelines" = "Règles";
-"main_view.tab.components" = "Composants";
-"main_view.tab.modules" = "Modules";
-"main_view.tab.about" = "À propos";
+"shared.close" = "Fermer";
+"shared.guidelines" = "Règles";
+"shared.search" = "Rechercher";
+"shared.actions.action" = "Action";
+"shared.actions.action_1" = "Action n°1";
+"shared.actions.action_2" = "Action n°2";
+"shared.actions.action_3" = "Action n°3";
+"shared.none" = "Aucun";
+"shared.modules" = "Modules";
+"shared.about" = "À propos";
+"shared.text" = "Texte"
+"shared.subtitle" = "Sous-titre";
+"shared.label" = "Label";
+"shared.icon" = "Icône";
+"shared.enabled" = "Activé";
+"shared.disabled" = "Désactivé";
+"shared.long_text" = "Texte long";
+"shared.text_fied" = "Champ de saisie";
 
 // =====================
 // MARK: - Miscellaneous
@@ -22,6 +36,12 @@
 "misc.usage" = "Usage";
 "misc.coming_soon" = "À venir...";
 "misc.variants" = "Déclinaisons";
+
+// =================
+// MARK: - Main View
+// =================
+
+"main_view.tab.components" = "Composants";
 
 // =======================
 // MARK: - Screens - About
@@ -36,6 +56,8 @@
 "screens.about.terms_of_service" = "Conditions d'utilisation";
 "screens.about.legal_information_text.default" = "Ajouter les mentions légales";
 "screens.about.app_information.description.default" = "Ajouter ici une courte description de l'app";
+"screens.about.app_information.share.subject.default" = "Ajouter l'objet du partage";
+"screens.about.app_information.share.description.default" = "Ajouter ici une description pour le partage";
 "screens.about.app_information.option_description.version" = "Version";
 "screens.about.app_information.option_description.description" = "Description";
 "screens.about.app_information.option_description.share" = "Partager";
@@ -44,12 +66,6 @@
 "screens.about.app_information.option_description.legal_information" = "Mentions légales";
 "screens.about.app_information.option_description.rate" = "Évaluez l'app";
 "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";
-
-// ============================
-// MARK: - Screens - Guidelines
-// ============================
-
-"screens.guidelines_list.title" = "Règles";
 
 // =====================================
 // MARK: - Screens - Guidelines - Colors
@@ -94,10 +110,6 @@
 "screens.guidelines.banners.variant.title_demo" = "Banners demo";
 "screens.guidelines.banners.demo.long_text" = "Le texte peut être sur plusieurs lignes. Mais, une à deux lignes est préférable sur mobile.";
 "screens.guidelines.banners.demo.short_text" = "Texte court";
-"screens.guidelines.banners.demo.button_hint" = "Action";
-"screens.guidelines.banners.demo.button_hint_1" = "Action n°1";
-"screens.guidelines.banners.demo.button_hint_2" = "Action n°2";
-"screens.guidelines.banners.demo.toggle_long_text_hint" = "Texte long";
 "screens.guidelines.banners.demo.toggle_image_hint" = "Image";
 "screens.guidelines.banners.demo.buttons_number_hint" = "Nombre de boutons : %@";
 
@@ -107,7 +119,6 @@
 
 "screens.guidelines.bars.navigation.title" = "Barres - navigation";
 "screens.guidelines.bars.navigation.description" = "Une barre de navigation s'affiche en haut de l'écran d'une application, sous la barre d'état, et permet de naviguer dans une série d'écrans hiérarchiques.";
-"screens.guidelines.bars.navigation.button.close" = "Fermer";
 "screens.guidelines.bars.navigation.button.edit" = "Action d'édition";
 "screens.guidelines.bars.navigation.button.share" = "Action de partage";
 "screens.guidelines.bars.navigation.standard_title.text" = "Titre";
@@ -117,7 +128,6 @@
 "screens.guidelines.bars.navigation.size.hint" = "Taille";
 "screens.guidelines.bars.navigation.back_button.hint" = "Bouton retour";
 "screens.guidelines.bars.navigation.action_item_count" = "Nombre d'icônes d'action : %@";
-"screens.guidelines.bars.navigation.search.hint" = "Rechercher";
 
 // ==========================================
 // MARK: - Screens - Guidelines - Bars - Tabs
@@ -129,7 +139,6 @@
 "screens.guidelines.bars.tabs.options_picker.hint" = "Options de badges";
 "screens.guidelines.bars.tabs.item_favorite.title" = "Favoris";
 "screens.guidelines.bars.tabs.item_favorite.description" = "Vue des favoris";
-"screens.guidelines.bars.tabs.item_search.title" = "Recherche";
 "screens.guidelines.bars.tabs.item_search.description" = "Vue de recherche";
 "screens.guidelines.bars.tabs.item_information.title" = "Information";
 "screens.guidelines.bars.tabs.item_information.description" = "Vue d'information";
@@ -137,9 +146,7 @@
 "screens.guidelines.bars.tabs.item_notification.description" = "Vue des notifications";
 "screens.guidelines.bars.tabs.item_settings.title" = "Réglages";
 "screens.guidelines.bars.tabs.item_settings.description" = "Vue des réglages";
-"screens.guidelines.bars.tabs.badge.description.none" = "Aucun";
 "screens.guidelines.bars.tabs.badge.description.count" = "Compteur";
-"screens.guidelines.bars.tabs.badge.description.text" = "Texte";
 
 // ==========================================
 // MARK: - Screens - Guidelines - Bars - Tool
@@ -152,12 +159,6 @@
 "screens.guidelines.bars.tools.close.hint" = "Fermer la page";
 "screens.guidelines.bars.tools.with_labels.title" = "Barre d'outils avec labels";
 "screens.guidelines.bars.tools.with_icons.title" = "Barre d'outils avec icônes";
-"screens.guidelines.bars.tools.button_close" = "Fermer";
-"screens.guidelines.bars.tools.item_label" = "Label";
-"screens.guidelines.bars.tools.item_icon" = "Icône";
-"screens.guidelines.bars.tools.action_hint_1" = "Action n°1";
-"screens.guidelines.bars.tools.action_hint_2" = "Action n°2";
-"screens.guidelines.bars.tools.action_hint_3" = "Action n°3";
 "screens.guidelines.bars.tools.alert_hint" = "%@ : cliqué";
 "screens.guidelines.bars.tools.picker_hint" = "Type d'éléments";
 "screens.guidelines.bars.tools.stepper_hint" = "Nombre d'éléments : %@";
@@ -174,18 +175,12 @@
 "screens.guidelines.buttons.variant.description" = "Les boutons simples sont les composants les plus omniprésents que l'on trouve dans toutes les applications. Composé d'une icône, il s'agit du style de bouton le plus simple.";
 "screens.guidelines.buttons.icon_add" = "Icône (ajout)";
 "screens.guidelines.buttons.icon_info" = "Icône (info)";
-"screens.guidelines.buttons.toggle_hint" = "Activé";
 "screens.guidelines.buttons.variant.emphasis.description" = "Les boutons avec emphase élevée sont utilisés pour guider l'utilisateur vers l'appel à l'action principale. Plusieurs boutons peuvent être combinés sur le même écran pour attirer l'attention sur l'action la plus importante tout en proposant des actions alternatives. Lorsque vous utilisez plusieurs boutons dans un écran, vous ne pouvez utiliser qu'un seul bouton avec emphase. Ces boutons peuvent également inclure une icône contextuelle.";
 "screens.guidelines.buttons.variant.functional.description" = "Si nécessaire, des versions couleur peuvent également être utilisées pour informer les utilisateurs d'actions destructrices positives ou négatives.";
 "screens.guidelines.buttons.styles.description.negative" = "Négatif";
 "screens.guidelines.buttons.styles.description.positive" = "Positif";
 "screens.guidelines.buttons.variant.long" = "Termes et conditions";
-"screens.guidelines.buttons.state.enabled" = "Activé";
-"screens.guidelines.buttons.state.disabled" = "Désactivé";
-"screens.guidelines.toggle.icon" = "Avec icône";
 "screens.guidelines.toggle.full_width" = "Pleine largeur";
-"screens.guidelines.toggle.enabled" = "Activé";
-"screens.guidelines.toggle.long_text" = "Texte long";
 
 "a11y.emphasis_button_hint" = "%@ bouton d'emphase";
 "a11y.functional_button_hint" = "%@ bouton fonctionnel";
@@ -203,11 +198,8 @@
 "screens.guidelines.card.button_1" = "Bouton n°1";
 "screens.guidelines.card.button_2" = "Bouton n°2";
 "screens.guidelines.card.alert" = "Containeur de la carte tappé";
-"screens.guidelines.card.close" = "Fermer";
 "screens.guidelines.card.alert_2" = "%@ tappé";
 "screens.guidelines.card.thumbnail" = "Miniature";
-"screens.guidelines.card.subtitle" = "Sous-titre";
-"screens.guidelines.card.text" = "Texte";
 "screens.guidelines.card.buttons_number" = "Nombre de boutons : %@";
 "screens.guidelines.card.position.leading" = "Début";
 "screens.guidelines.card.position.trailing" = "Fin";
@@ -226,7 +218,6 @@
 "screens.guidelines.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou créature à la peau bleue */
 "screens.guidelines.chips.state.enable" = "Activer";
 "screens.guidelines.chips.state.selected" = "Selectionné";
-"screens.guidelines.chips.state.disabled" = "Désactivé";
 
 // ====================================
 // MARK: - Screens - Guidelines - Lists
@@ -238,19 +229,14 @@
 "screens.guidelines.lists.variant.standard_lists" = "Liste standard";
 "screens.guidelines.lists.picker.leading" = "Au début";
 "screens.guidelines.lists.picker.trailing" = "À la fin";
-"screens.guidelines.lists.toggle.subtitle" = "Soustitre";
 "screens.guidelines.lists.picker.navigate" = "Naviguer";
 "screens.guidelines.lists.selection.description.checkmark" = "Encoche";
 "screens.guidelines.lists.selection.description.switch" = "Commutateur";
 "screens.guidelines.lists.variant.clicked" = "%@ est tappé";
-"screens.guidelines.lists.variant.button.close" = "Fermer";
 "screens.guidelines.lists.alert" = "Icône d'information tappée ! Bon appétit";
-"screens.guidelines.lists.icons.description.none" = "Aucun";
-"screens.guidelines.lists.icons.description.icon" = "Icône";
 "screens.guidelines.lists.icons.description.circle" = "Cercle";
 "screens.guidelines.lists.icons.description.wide" = "Large";
 "screens.guidelines.lists.icons.description.square" = "Carré";
-"screens.guidelines.lists.options.description.text" = "Texte";
 "screens.guidelines.lists.options.description.info_button" = "Bouton d'information";
 "screens.guidelines.list.details" = "Détails";
 
@@ -265,7 +251,6 @@
 "screens.guidelines.progress_indicators.downloading" = "Téléchargement en cours...";
 "screens.guidelines.progress_indicators.x_percent" = "%@ %%";
 "screens.guidelines.progress_indicators.toggle.label" = "Label";
-"screens.guidelines.progress_indicators.toggle.icon" = "Icône";
 "screens.guidelines.progress_indicators.toggle.current_value" = "Valeur actuelle";
 "screens.guidelines.progress_indicators.toggle.loading" = "Chargement...";
 
@@ -286,12 +271,9 @@
 "screens.guidelines.bottom_sheets.sample.open_large" = "Pour fermer la page inférieure :\n- Faîtes glisser la poignée vers le bas\n- Faîtes défiler le contenu\n- Appuyez sur la zone de gradation";
 "screens.guidelines.bottom_sheets.variant.customize" = "Personnalisez la feuille inférieure avant de l'ouvrir pour la voir.";
 "screens.guidelines.bottom_sheets.variant.see" = "Voir le composant";
-"screens.guidelines.bottom_sheets.variant.close" = "Fermer";
 "screens.guidelines.bottom_sheets.variant.selection" = "Page inférieure : %@";
 "screens.guidelines.bottom_sheets.variant.detent" = "Détente";
 "screens.guidelines.bottom_sheets.variant.content" = "Contenu";
-"screens.guidelines.bottom_sheets.variant.subtitle" = "Soustitre";
-"screens.guidelines.bottom_sheets.variant.icon" = "Icône";
 "screens.guidelines.bottom_sheets.size.small" = "Petit";
 "screens.guidelines.bottom_sheets.size.medium" = "Moyen";
 "screens.guidelines.bottom_sheets.size.large" = "Large";
@@ -313,13 +295,11 @@
 // MARK: - Screens - Guidelines - Text Fields
 // ==========================================
 
-"screens.guidelines.textfields.title" = "Champs de saisie de texte";
 "screens.guidelines.textfields.description" = "Le composant champ de texte comprend le champ de texte lui-même, la sélection de texte et le menu d'édition. Certains éléments sont stylés et d’autres sont natifs.";
 "screens.guidelines.textfields.variants.secure" = "Champ de saisie sécurisé";
-"screens.guidelines.textfields.variants.simple" = "Champ de saisie";
 "screens.guidelines.textfields.variants.editor" = "Éditeur de texte";
 "screens.guidelines.textfields.variants.secure.hint" = "Texte sécurisé à éditer";
-"screens.guidelines.textfields.variants.inputs.never" = "Aucune";
+"screens.guidelines.textfields.variants.inputs.never" = "Jamais";
 "screens.guidelines.textfields.variants.inputs.characters" = "Lettres";
 "screens.guidelines.textfields.variants.inputs.words" = "Mots";
 "screens.guidelines.textfields.variants.inputs.sentences" = "Phrases";
@@ -332,9 +312,7 @@
 // =================================
 
 "screens.modules.about.titles.setup" = "À propos : Introduction";
-"screens.modules.about.titles.about" = "À propos";
 "screens.modules.about.titles.card_collections" = "Collections de cartes";
-"screens.modules.about.titles.modules" = "Modules";
 "screens.modules.about.description" = "Un écran « À propos » doit être affiché dans toutes les applications Orange pour afficher le nom de l'application, la version du logiciel ainsi que toutes les mentions légales de protection des données, de confidentialité, de conditions de service et d'accessibilité.";
 "screens.modules.about.customize" = "Personnaliser le module";
 "screens.modules.about.mandatory" = "Certains éléments tels que : l'illustration (personnalisable), le nom de l'application, la politique de confidentialité, les conditions de service et la déclaration d'accessibilité sont obligatoires.\nÀ cet écran standard, vous pouvez ajouter des composants facultatifs :";
@@ -343,7 +321,6 @@
 "screens.modules.about.picker.custom_items" = "Items personnalisés : %@";
 "screens.modules.about.buttons.view_demo" = "Voir la démo";
 "screens.modules.about.alert.feedback_clicked" = "Avis cliqué";
-"screens.modules.about.buttons.close" = "Fermer";
 "screens.modules.about.texts.add_cgu" = "Ajouter les CGU ici";
 "screens.modules.about.titles.my_review" = "Mes revues";
 "screens.modules.about.titles.my_recipes" = "Mes recettes";

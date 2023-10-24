@@ -105,7 +105,7 @@ struct IconVariantOptions: View {
 
     var body: some View {
         VStack {
-            Toggle("screens.guidelines.buttons.toggle_hint", isOn: $model.showEnabled)
+            Toggle("shared.enabled", isOn: $model.showEnabled)
         }
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)

@@ -105,7 +105,7 @@ private struct ProgressBarVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("screens.guidelines.progress_indicators.toggle.label", isOn: $model.showLabel)
             if model.showLabel {
-                Toggle("screens.guidelines.progress_indicators.toggle.icon", isOn: $model.showIconInLabel)
+                Toggle("shared.icon", isOn: $model.showIconInLabel)
             }
             Toggle("screens.guidelines.progress_indicators.toggle.current_value", isOn: $model.showCurrentValue)
         }

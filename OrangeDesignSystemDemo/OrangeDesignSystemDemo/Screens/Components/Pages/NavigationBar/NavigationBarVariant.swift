@@ -155,7 +155,7 @@ struct NavigationBarVariantOptions: View {
                         value: $model.actionIconCount,
                         in: 0 ... model.numberOfActions)
 
-                Toggle("screens.guidelines.bars.navigation.search.hint", isOn: $model.showSearch)
+                Toggle("shared.search", isOn: $model.showSearch)
             }
             .padding(.horizontal, ODSSpacing.m)
             .odsFont(.bodyBold)

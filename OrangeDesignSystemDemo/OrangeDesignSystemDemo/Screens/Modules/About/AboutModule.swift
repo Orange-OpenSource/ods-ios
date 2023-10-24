@@ -109,7 +109,7 @@ struct AboutModuleDemo: View {
                        termsOfService: termsOfService,
                        listItemConfigurations: listItemConfigurations)
         .alert("screens.modules.about.alert.feedback_clicked", isPresented: $model.showFeedbackPopup) {
-            Button("screens.modules.about.buttons.close", role: .cancel) {}
+            Button("shared.close", role: .cancel) {}
         }
     }
 

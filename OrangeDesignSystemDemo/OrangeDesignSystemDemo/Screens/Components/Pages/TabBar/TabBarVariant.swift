@@ -180,7 +180,7 @@ class TabBarVariantModel: ObservableObject {
                             contentText: "screens.guidelines.bars.tabs.item_favorite.description".🌐,
                             badgeOption: badgeOption),
             ItemDescription(iconName: "Search_19371",
-                            text: "screens.guidelines.bars.tabs.item_search.title".🌐,
+                            text: "shared.search".🌐,
                             contentText: "screens.guidelines.bars.tabs.item_search.description".🌐,
                             badgeOption: .none),
             ItemDescription(iconName: "Info_19371",
@@ -221,11 +221,11 @@ class TabBarVariantModel: ObservableObject {
         var description: String {
             switch self {
             case .none:
-                return "screens.guidelines.bars.tabs.badge.description.none".🌐
+                return "shared.none".🌐
             case .count:
                 return "screens.guidelines.bars.tabs.badge.description.count".🌐
             case .text:
-                return "screens.guidelines.bars.tabs.badge.description.text".🌐
+                return "shared.text".🌐
             }
         }
         

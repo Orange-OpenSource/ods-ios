@@ -57,7 +57,7 @@ struct CardSmallVariant: View {
             CardSmallVariantOptions(model: model)
         }
         .alert("screens.guidelines.card.alert", isPresented: $showAlert) {
-            Button("screens.guidelines.card.close", role: .cancel) {}
+            Button("shared.close", role: .cancel) {}
         }
     }
 }
@@ -76,7 +76,7 @@ private struct CardSmallVariantOptions: View {
     // ==========
 
     var body: some View {
-        Toggle("screens.guidelines.card.subtitle", isOn: $model.showSubtitle)
+        Toggle("shared.subtitle", isOn: $model.showSubtitle)
             .odsFont(.bodyRegular)
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.m)

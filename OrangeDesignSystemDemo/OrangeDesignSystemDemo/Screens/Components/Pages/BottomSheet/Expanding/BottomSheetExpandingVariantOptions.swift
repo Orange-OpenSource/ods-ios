@@ -125,7 +125,7 @@ struct ExpandingBottomSheetVariantHome: View {
                                 Button {
                                     showBottomSheet = false
                                 } label: {
-                                        Text("screens.guidelines.bottom_sheets.variant.close")
+                                        Text("shared.close")
                                 }
                             }
                         }
@@ -160,11 +160,11 @@ struct ExpandingBottomSheetVariantOptions: View {
                               selection: $model.contentType,
                               chips: ContentType.chips)
 
-                Toggle("screens.guidelines.bottom_sheets.variant.subtitle", isOn: $model.showSubtitle)
+                Toggle("shared.subtitle", isOn: $model.showSubtitle)
                     .padding(.horizontal, ODSSpacing.m)
                     .disabled(model.showIcon)
 
-                Toggle("screens.guidelines.bottom_sheets.variant.icon", isOn: $model.showIcon)
+                Toggle("shared.icon", isOn: $model.showIcon)
                     .padding(.horizontal, ODSSpacing.m)
                     .disabled(model.showSubtitle)
             }

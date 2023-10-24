@@ -41,9 +41,9 @@ class ToolBarVariantModel: ObservableObject {
         var description: String {
             switch self {
             case .label:
-                return "screens.guidelines.bars.tools.item_label".🌐
+                return "shared.label".🌐
             case .icon:
-                return "screens.guidelines.bars.tools.item_icon".🌐
+                return "shared.icon".🌐
             }
         }
         
@@ -71,9 +71,9 @@ class ToolBarVariantModel: ObservableObject {
 
         itemsCount = 2
         
-        labelDescriptions = ["screens.guidelines.bars.tools.action_hint_1".🌐,
-                             "screens.guidelines.bars.tools.action_hint_2".🌐,
-                             "screens.guidelines.bars.tools.action_hint_3".🌐].map { str in
+        labelDescriptions = ["shared.actions.action_1".🌐,
+                             "shared.actions.action_2".🌐,
+                             "shared.actions.action_3".🌐].map { str in
             ODSToolbarLabelDesription(text: str) {
                 self.showAlert(with: str)
             }

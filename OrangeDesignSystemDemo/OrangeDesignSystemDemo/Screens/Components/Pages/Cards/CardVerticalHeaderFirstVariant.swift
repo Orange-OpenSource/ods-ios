@@ -114,7 +114,7 @@ struct CardVerticalHeaderFirstVariant: View {
                     }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
-                Button("screens.guidelines.card.close", role: .cancel) {}
+                Button("shared.close", role: .cancel) {}
             }
         } options: {
             CardVerticalHeaderFirstVariantOptions(model: model)
@@ -184,8 +184,8 @@ private struct CardVerticalHeaderFirstVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("screens.guidelines.card.thumbnail", isOn: $model.showThumbnail)
-            Toggle("screens.guidelines.card.subtitle", isOn: $model.showSubtitle)
-            Toggle("screens.guidelines.card.text", isOn: $model.showText)
+            Toggle("shared.subtitle", isOn: $model.showSubtitle)
+            Toggle("shared.text", isOn: $model.showText)
             
             Stepper("screens.guidelines.card.buttons_number".localized(with: ["\(model.buttonCount)"]),
                     value: $model.buttonCount,

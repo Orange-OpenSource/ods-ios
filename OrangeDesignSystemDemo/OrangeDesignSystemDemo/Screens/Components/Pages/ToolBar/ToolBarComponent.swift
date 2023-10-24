@@ -145,7 +145,7 @@ private struct ToolBarVariantContent: View {
             .modifier(ToolBarVariantContentModifier(model: model))
         }
         .alert(model.alertText, isPresented: $model.showAlert) {
-            Button("screens.guidelines.bars.tools.button_close", role: .cancel) {}
+            Button("shared.closed", role: .cancel) {}
         }
     }
 }

@@ -138,7 +138,7 @@ struct CardHorizontalVariant: View {
                     }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
-                Button("screens.guidelines.card.close", role: .cancel) {}
+                Button("shared.close", role: .cancel) {}
             }
         } options: {
             CardHorizontalVariantOptions(model: model)
@@ -209,9 +209,9 @@ private struct CardHorizontalVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("screens.guidelines.card.subtitle", isOn: $model.showSubtitle)
+            Toggle("shared.subtitle", isOn: $model.showSubtitle)
                 .padding(.horizontal, ODSSpacing.m)
-            Toggle("screens.guidelines.card.text", isOn: $model.showText)
+            Toggle("shared.text", isOn: $model.showText)
                 .padding(.horizontal, ODSSpacing.m)
             
             ODSChipPicker(title: "screens.guidelines.card.picker.position".🌐,

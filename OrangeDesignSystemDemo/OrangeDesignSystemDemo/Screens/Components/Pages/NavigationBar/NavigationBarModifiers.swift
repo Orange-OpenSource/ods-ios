@@ -141,7 +141,7 @@ private struct ActionButton: View {
         }
         .foregroundColor(theme.componentColors.navigationBarForeground)
         .alert(actionText, isPresented: $showAlert) {
-            Button("screens.guidelines.bars.navigation.button.close", role: .cancel) {}
+            Button("shared.close", role: .cancel) {}
         }
     }
 }

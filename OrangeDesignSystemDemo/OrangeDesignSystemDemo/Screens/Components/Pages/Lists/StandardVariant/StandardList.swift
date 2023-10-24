@@ -68,7 +68,7 @@ private struct StandardListVariantInner: View {
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
         .alert("screens.guidelines.lists.alert", isPresented: $model.showSheetOnIButtonClicked) {
-            Button("screens.guidelines.lists.variant.button.close", role: .cancel) {}
+            Button("shared.close", role: .cancel) {}
         }
     }
 }

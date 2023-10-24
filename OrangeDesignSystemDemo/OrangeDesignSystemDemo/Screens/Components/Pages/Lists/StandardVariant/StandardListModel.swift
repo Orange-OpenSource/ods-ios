@@ -23,9 +23,9 @@ enum LeadingIconOption: Int, CaseIterable {
     var description: String {
         switch self {
         case .none:
-            return "screens.guidelines.lists.icons.description.none".🌐
+            return "shared.none".🌐
         case .icon:
-            return "screens.guidelines.lists.icons.description.icon".🌐
+            return "shared.icon".🌐
         case .circle:
             return "screens.guidelines.lists.icons.description.circle".🌐
         case .wide:
@@ -51,7 +51,7 @@ enum TrailingOption: Int, CaseIterable {
     var description: String {
         switch self {
         case .text:
-            return "screens.guidelines.lists.options.description.text".🌐
+            return "shared.text".🌐
         case .infoButton:
             return "screens.guidelines.lists.options.description.info_button".🌐
         }

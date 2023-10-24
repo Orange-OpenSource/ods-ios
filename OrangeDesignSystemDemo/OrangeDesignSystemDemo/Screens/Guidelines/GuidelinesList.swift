@@ -46,7 +46,7 @@ struct GuidelinesList: View {
                     }
                 }
                 .padding(.all, ODSSpacing.m)
-                .navigationTitle("screens.guidelines_list.title")
+                .navigationTitle("shared.guidelines")
                 .navigationbarMenuForThemeSelection()
             }
             

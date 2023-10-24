@@ -96,7 +96,7 @@ class ChipsVariantModel: ObservableObject {
         textOnlyChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, disabled: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, disabled: true),
         ]
 
         selectedTextOnlyChip = .selected
@@ -104,7 +104,7 @@ class ChipsVariantModel: ObservableObject {
         textOnlyRemovableChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐, removable: true),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐, removable: true),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, disabled: true, removable: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, disabled: true, removable: true),
         ]
 
         selectedTextOnlyRemovableChip = .selected
@@ -113,7 +113,7 @@ class ChipsVariantModel: ObservableObject {
         withIconChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐, thumbnail: .icon(iconImage)),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐, thumbnail: .icon(iconImage)),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, thumbnail: .icon(iconImage), disabled: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, thumbnail: .icon(iconImage), disabled: true),
         ]
 
         selectedWithIconChip = .selected
@@ -121,7 +121,7 @@ class ChipsVariantModel: ObservableObject {
         withIconRemovableChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐, thumbnail: .icon(iconImage), removable: true),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐, thumbnail: .icon(iconImage), removable: true),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, thumbnail: .icon(iconImage), disabled: true, removable: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, thumbnail: .icon(iconImage), disabled: true, removable: true),
         ]
 
         selectedWithIconRemovableChip = .selected
@@ -130,7 +130,7 @@ class ChipsVariantModel: ObservableObject {
         withSystemIconChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐, thumbnail: .iconSystem(name: "heart")),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐, thumbnail: .iconSystem(name: "heart")),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, thumbnail: .iconSystem(name: "heart"), disabled: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, thumbnail: .iconSystem(name: "heart"), disabled: true),
         ]
 
         selectedWithSystemIconChip = .selected
@@ -138,7 +138,7 @@ class ChipsVariantModel: ObservableObject {
         withSystemIconRemovableChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐, thumbnail: .iconSystem(name: "heart"), removable: true),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐, thumbnail: .iconSystem(name: "heart"), removable: true),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, thumbnail: .iconSystem(name: "heart"), disabled: true, removable: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, thumbnail: .iconSystem(name: "heart"), disabled: true, removable: true),
         ]
         selectedWithSystemIconRemovableChip = .selected
 
@@ -146,7 +146,7 @@ class ChipsVariantModel: ObservableObject {
         withAvatarChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐, thumbnail: .avatar(avatarImage)),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐, thumbnail: .avatar(avatarImage)),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, thumbnail: .avatar(avatarImage), disabled: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, thumbnail: .avatar(avatarImage), disabled: true),
         ]
 
         selectedWithAvatarChip = .selected
@@ -154,7 +154,7 @@ class ChipsVariantModel: ObservableObject {
         withAvatarRemovableChips = [
             ODSChip(.enabled, text: "screens.guidelines.chips.state.enable".🌐, thumbnail: .avatar(avatarImage), removable: true),
             ODSChip(.selected, text: "screens.guidelines.chips.state.selected".🌐, thumbnail: .avatar(avatarImage), removable: true),
-            ODSChip(.disabled, text: "screens.guidelines.chips.state.disabled".🌐, thumbnail: .avatar(avatarImage), disabled: true, removable: true),
+            ODSChip(.disabled, text: "shared.disabled".🌐, thumbnail: .avatar(avatarImage), disabled: true, removable: true),
         ]
 
         selectedWithAvatarRemovableChip = .selected

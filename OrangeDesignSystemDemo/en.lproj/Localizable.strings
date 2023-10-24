@@ -6,14 +6,28 @@
  * This software is distributed under the MIT license.
  */
 
-// =================
-// MARK: - Main View
-// =================
+// ========================
+// MARK: - Shared / commmon
+// ========================
 
-"main_view.tab.guidelines" = "Guidelines";
-"main_view.tab.components" = "Components";
-"main_view.tab.modules" = "Modules";
-"main_view.tab.about" = "About";
+"shared.close" = "Close";
+"shared.guidelines" = "Guidelines";
+"shared.search" = "Search";
+"shared.actions.action" = "Action";
+"shared.actions.action_1" = "Action n°1";
+"shared.actions.action_2" = "Action n°2";
+"shared.actions.action_3" = "Action n°3";
+"shared.none" = "None";
+"shared.modules" = "Modules";
+"shared.about" = "About";
+"shared.text" = "Text"
+"shared.subtitle" = "Subtitle";
+"shared.label" = "Label";
+"shared.icon" = "Icon";
+"shared.enabled" = "Enabled";
+"shared.disabled" = "Disabled";
+"shared.long_text" = "Long text";
+"shared.text_fied" = "Text field";
 
 // =====================
 // MARK: - Miscellaneous
@@ -22,6 +36,12 @@
 "misc.usage" = "Usage";
 "misc.coming_soon" = "Coming soon...";
 "misc.variants" = "Variants";
+
+// =================
+// MARK: - Main View
+// =================
+
+"main_view.tab.components" = "Components";
 
 // =======================
 // MARK: - Screens - About
@@ -47,12 +67,6 @@
 "screens.about.app_information.option_description.rate" = "Rate the app";
 "screens.about.file_load_failure" = "Unable to load file %@.%@";
 
-// ============================
-// MARK: - Screens - Guidelines
-// ============================
-
-"screens.guidelines_list.title" = "Guidelines";
-
 // =====================================
 // MARK: - Screens - Guidelines - Colors
 // =====================================
@@ -60,10 +74,10 @@
 "screens.guidelines.colors.title" = "Colour";
 "screens.guidelines.colors.description" = "It is important to use the iOS system background colours as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.";
 "screens.guidelines.colors.palette.title" = "Palette";
-"screens.guidelines.colors.color_palette.title" = "Color palette";
+"screens.guidelines.colors.color_palette.title" = "Colour palette";
 "screens.guidelines.colors.color_palette.on_light" = "Light mode";
 "screens.guidelines.colors.color_palette.on_dark" = "Dark mode";
-"screens.guidelines.colors.description.more" = "Some colours are define with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
+"screens.guidelines.colors.description.more" = "Some colours are defined with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
 
 "a11y.tap_twice_to_get_more" = "Tap twice to get more information";
 "a11y.color_details" = "asset name: %@, RGB value is %@ . Hex value is %@";
@@ -96,10 +110,6 @@
 "screens.guidelines.banners.variant.title_demo" = "Banners demo";
 "screens.guidelines.banners.demo.long_text" = "Text could be on several lines. But, One to two lines is preferable on mobile.";
 "screens.guidelines.banners.demo.short_text" = "Short text";
-"screens.guidelines.banners.demo.button_hint" = "Action";
-"screens.guidelines.banners.demo.button_hint_1" = "Action n°1";
-"screens.guidelines.banners.demo.button_hint_2" = "Action n°2";
-"screens.guidelines.banners.demo.toggle_long_text_hint" = "Long text";
 "screens.guidelines.banners.demo.toggle_image_hint" = "Image";
 "screens.guidelines.banners.demo.buttons_number_hint" = "Number of buttons: %@";
 
@@ -109,7 +119,6 @@
 
 "screens.guidelines.bars.navigation.title" = "Bars - navigation";
 "screens.guidelines.bars.navigation.description" = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.";
-"screens.guidelines.bars.navigation.button.close" = "Close";
 "screens.guidelines.bars.navigation.button.edit" = "Edit action";
 "screens.guidelines.bars.navigation.button.share" = "Share action";
 "screens.guidelines.bars.navigation.standard_title.text" = "Title";
@@ -119,7 +128,6 @@
 "screens.guidelines.bars.navigation.size.hint" = "Size";
 "screens.guidelines.bars.navigation.back_button.hint" = "Back button";
 "screens.guidelines.bars.navigation.action_item_count" = "Action icon count: %@";
-"screens.guidelines.bars.navigation.search.hint" = "Search";
 
 // ==========================================
 // MARK: - Screens - Guidelines - Bars - Tabs
@@ -131,7 +139,6 @@
 "screens.guidelines.bars.tabs.options_picker.hint" = "Badge options";
 "screens.guidelines.bars.tabs.item_favorite.title" = "Favorites";
 "screens.guidelines.bars.tabs.item_favorite.description" = "Favorites Content view";
-"screens.guidelines.bars.tabs.item_search.title" = "Search";
 "screens.guidelines.bars.tabs.item_search.description" = "Search Content view";
 "screens.guidelines.bars.tabs.item_information.title" = "Information";
 "screens.guidelines.bars.tabs.item_information.description" = "Information Content view";
@@ -139,9 +146,7 @@
 "screens.guidelines.bars.tabs.item_notification.description" = "Notification Content View";
 "screens.guidelines.bars.tabs.item_settings.title" = "Settings";
 "screens.guidelines.bars.tabs.item_settings.description" = "Settings Content View";
-"screens.guidelines.bars.tabs.badge.description.none" = "None";
 "screens.guidelines.bars.tabs.badge.description.count" = "Count";
-"screens.guidelines.bars.tabs.badge.description.text" = "Text";
 
 // ==========================================
 // MARK: - Screens - Guidelines - Bars - Tool
@@ -154,12 +159,6 @@
 "screens.guidelines.bars.tools.close.hint" = "Close sheet";
 "screens.guidelines.bars.tools.with_labels.title" = "Tool bar with labels";
 "screens.guidelines.bars.tools.with_icons.title" = "Tool bar with icons";
-"screens.guidelines.bars.tools.button_close" = "Close";
-"screens.guidelines.bars.tools.item_label" = "Label";
-"screens.guidelines.bars.tools.item_icon" = "Icon";
-"screens.guidelines.bars.tools.action_hint_1" = "Action n°1";
-"screens.guidelines.bars.tools.action_hint_2" = "Action n°2";
-"screens.guidelines.bars.tools.action_hint_3" = "Action n°3";
 "screens.guidelines.bars.tools.alert_hint" = "%@: clicked";
 "screens.guidelines.bars.tools.picker_hint" = "Items type";
 "screens.guidelines.bars.tools.stepper_hint" = "Number of items: %@";
@@ -176,18 +175,12 @@
 "screens.guidelines.buttons.variant.description" = "Plain buttons are the most ubiquitous compoent found troughout applications. Consisting a icon, they are the most simple button style.";
 "screens.guidelines.buttons.icon_add" = "Icon (add)";
 "screens.guidelines.buttons.icon_info" = "Icon (info)";
-"screens.guidelines.buttons.toggle_hint" = "Enabled";
 "screens.guidelines.buttons.variant.emphasis.description" = "High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.";
 "screens.guidelines.buttons.variant.functional.description" = "If required, colour versions can also be used to inform users of positive or negative destructive actions.";
 "screens.guidelines.buttons.styles.description.negative" = "Negative";
 "screens.guidelines.buttons.styles.description.positive" = "Positive";
 "screens.guidelines.buttons.variant.long" = "Terms and conditions";
-"screens.guidelines.buttons.state.enabled" = "Enabled";
-"screens.guidelines.buttons.state.disabled" = "Disabled";
-"screens.guidelines.toggle.icon" = "Icon";
 "screens.guidelines.toggle.full_width" = "Full width";
-"screens.guidelines.toggle.enabled" = "Enabled";
-"screens.guidelines.toggle.long_text" = "Long text";
 
 "a11y.emphasis_button_hint" = "%@ emphasis button";
 "a11y.functional_button_hint" = "%@ functional button";
@@ -205,11 +198,8 @@
 "screens.guidelines.card.button_1" = "Button n°1";
 "screens.guidelines.card.button_2" = "Button n°2";
 "screens.guidelines.card.alert" = "Card container clicked";
-"screens.guidelines.card.close" = "Close";
 "screens.guidelines.card.alert_2" = "%@ clicked";
 "screens.guidelines.card.thumbnail" = "Thumbnail";
-"screens.guidelines.card.subtitle" = "Subtitle";
-"screens.guidelines.card.text" = "Text";
 "screens.guidelines.card.buttons_number" = "Number of buttons: %@";
 "screens.guidelines.card.position.leading" = "Start";
 "screens.guidelines.card.position.trailing" = "End";
@@ -228,7 +218,6 @@
 "screens.guidelines.chips.with_avatar" = "With avatar";
 "screens.guidelines.chips.state.enable" = "Enable";
 "screens.guidelines.chips.state.selected" = "Selected";
-"screens.guidelines.chips.state.disabled" = "Disabled";
 
 // ====================================
 // MARK: - Screens - Guidelines - Lists
@@ -240,19 +229,14 @@
 "screens.guidelines.lists.variant.standard_lists" = "Standard lists";
 "screens.guidelines.lists.picker.leading" = "Leading";
 "screens.guidelines.lists.picker.trailing" = "Trailing";
-"screens.guidelines.lists.toggle.subtitle" = "Subtitle";
 "screens.guidelines.lists.picker.navigate" = "Navigate";
 "screens.guidelines.lists.selection.description.checkmark" = "checkmark";
 "screens.guidelines.lists.selection.description.switch" = "Switch";
 "screens.guidelines.lists.variant.clicked" = "%@ is clicked";
-"screens.guidelines.lists.variant.button.close" = "Close";
 "screens.guidelines.lists.alert" = "Information icon tapped! Bon appétit";
-"screens.guidelines.lists.icons.description.none" = "None";
-"screens.guidelines.lists.icons.description.icon" = "Icon";
 "screens.guidelines.lists.icons.description.circle" = "Circle";
 "screens.guidelines.lists.icons.description.wide" = "Wide";
 "screens.guidelines.lists.icons.description.square" = "Square";
-"screens.guidelines.lists.options.description.text" = "Text";
 "screens.guidelines.lists.options.description.info_button" = "Info button";
 "screens.guidelines.list.details" = "Details";
 
@@ -267,7 +251,6 @@
 "screens.guidelines.progress_indicators.downloading" = "Downloading...";
 "screens.guidelines.progress_indicators.x_percent" = "%@ %%";
 "screens.guidelines.progress_indicators.toggle.label" = "Label";
-"screens.guidelines.progress_indicators.toggle.icon" = "Icon";
 "screens.guidelines.progress_indicators.toggle.current_value" = "Current value";
 "screens.guidelines.progress_indicators.toggle.loading" = "Loading...";
 
@@ -288,12 +271,9 @@
 "screens.guidelines.bottom_sheets.sample.open_large" = "To close the bottom sheet:\nDrag the handle down\nScroll the content\nTap the dimming area";
 "screens.guidelines.bottom_sheets.variant.customize" = "Customize the bottom sheet before opening sheet to see it.";
 "screens.guidelines.bottom_sheets.variant.see" = "See the component";
-"screens.guidelines.bottom_sheets.variant.close" = "Close";
 "screens.guidelines.bottom_sheets.variant.selection" = "Sheet: Bottom %@";
 "screens.guidelines.bottom_sheets.variant.detent" = "Detent";
 "screens.guidelines.bottom_sheets.variant.content" = "Content";
-"screens.guidelines.bottom_sheets.variant.subtitle" = "Subtitle";
-"screens.guidelines.bottom_sheets.variant.icon" = "Icon";
 "screens.guidelines.bottom_sheets.size.small" = "Small";
 "screens.guidelines.bottom_sheets.size.medium" = "Medium";
 "screens.guidelines.bottom_sheets.size.large" = "Large";
@@ -315,13 +295,11 @@
 // MARK: - Screens - Guidelines - Text Fields
 // ==========================================
 
-"screens.guidelines.textfields.title" = "Text field";
 "screens.guidelines.textfields.description" = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.";
 "screens.guidelines.textfields.variants.secure" = "Secure text field";
 "screens.guidelines.textfields.variants.editor" = "Text editor";
-"screens.guidelines.textfields.variants.simple" = "Text field";
 "screens.guidelines.textfields.variants.secure.hint" = "Secure text to edit";
-"screens.guidelines.textfields.variants.inputs.never" = "None";
+"screens.guidelines.textfields.variants.inputs.never" = "Never";
 "screens.guidelines.textfields.variants.inputs.characters" = "Characters";
 "screens.guidelines.textfields.variants.inputs.words" = "Words";
 "screens.guidelines.textfields.variants.inputs.sentences" = "Sentences";
@@ -334,9 +312,7 @@
 // =================================
 
 "screens.modules.about.titles.setup" = "About: Setup";
-"screens.modules.about.titles.about" = "About";
 "screens.modules.about.titles.card_collections" = "Card collections";
-"screens.modules.about.titles.modules" = "Modules";
 "screens.modules.about.description" = "An « About » screen should be displayed in all Orange applications to show the application name, software version as wall as all legal data protection, privacy, terms of service and accessibility statement.";
 "screens.modules.about.customize" = "Customize module";
 "screens.modules.about.mandatory" = "Some items such as: illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components:";
@@ -345,7 +321,6 @@
 "screens.modules.about.picker.custom_items" = "Custom items: %@";
 "screens.modules.about.buttons.view_demo" = "View demo";
 "screens.modules.about.alert.feedback_clicked" = "Feedback clicked";
-"screens.modules.about.buttons.close" = "Close";
 "screens.modules.about.texts.add_cgu" = "Add terms of service here";
 "screens.modules.about.titles.my_review" = "My reviews";
 "screens.modules.about.titles.my_recipes" = "My recipes";

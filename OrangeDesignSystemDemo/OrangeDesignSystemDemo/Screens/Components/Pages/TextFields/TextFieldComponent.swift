@@ -26,7 +26,7 @@ struct TextFieldComponent: Component {
     // =================
 
     init() {
-        title = "screens.guidelines.textfields.title".🌐
+        title = "shared.text_field".🌐
         imageName = "Text edit menu"
         description = "screens.guidelines.textfields.description".🌐
         variants = AnyView(TextFieldVariants())
@@ -40,12 +40,12 @@ struct TextFieldVariants: View {
             SecureTextFieldVariant().navigationTitle("screens.guidelines.textfields.variants.secure")
         }
 
-        VariantEntryItem(text: "screens.guidelines.textfields.variants.simple", technicalElement: "TextField()") {
+        VariantEntryItem(text: "shared.text_field", technicalElement: "TextField()") {
             TextFieldVariant().navigationTitle("screens.guidelines.textfields.variants.simple")
         }
 
         VariantEntryItem(text: "screens.guidelines.textfields.variants.editor", technicalElement: "TextEditor()") {
-            TextEditorVariant().navigationTitle("screens.guidelines.textfields.variants.editor")
+            TextEditorVariant().navigationTitle("shared.text_field")
         }
     }
 }

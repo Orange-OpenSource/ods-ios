@@ -32,7 +32,7 @@ struct ModulesList: View {
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
-                            title: Text("screens.modules.about.titles.about"),
+                            title: Text("shared.about"),
                             imageSource: .image(imageFrom(resourceName: "AboutImage")))
                     }
                     
@@ -48,7 +48,7 @@ struct ModulesList: View {
                 }
                 .padding(.all, ODSSpacing.m)
             }
-            .navigationTitle("screens.modules.about.titles.modules")
+            .navigationTitle("shared.modules")
             .navigationbarMenuForThemeSelection()
         }
     }

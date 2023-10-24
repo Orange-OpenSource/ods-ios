@@ -134,7 +134,7 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
     // =====================
 
     var text: LocalizedStringKey {
-        showLongText ? "screens.guidelines.buttons.variant.long" : (showEnabled ? "screens.guidelines.buttons.state.enabled" : "screens.guidelines.buttons.state.disabled")
+        showLongText ? "screens.guidelines.buttons.variant.long" : (showEnabled ? "shared.enabled" : "shared.disabled")
     }
 
     var icon: Image? {
@@ -156,10 +156,10 @@ struct EmphasisAndFunctionalVariantOptions: View {
 
     var body: some View {
         VStack {
-            Toggle("screens.guidelines.toggle.icon", isOn: $model.showIcon)
+            Toggle("shared.icon", isOn: $model.showIcon)
             Toggle("screens.guidelines.toggle.full_width", isOn: $model.showFullWidth)
-            Toggle("screens.guidelines.toggle.enabled", isOn: $model.showEnabled)
-            Toggle("screens.guidelines.toggle.long_text", isOn: $model.showLongText)
+            Toggle("shared.enabled", isOn: $model.showEnabled)
+            Toggle("shared.long_text", isOn: $model.showLongText)
         }
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)
