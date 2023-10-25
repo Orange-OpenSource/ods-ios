@@ -26,7 +26,7 @@ struct TabBarComponent: Component {
 private struct TabBarVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "screens.guidelines.bars.tabs.title", technicalElement: "TabView") {
+        VariantEntryItem(title: "screens.guidelines.bars.tabs.title".🌐, technicalElement: "TabView") {
             TabBarVariant(model: TabBarVariantModel())
                 .navigationTitle("screens.guidelines.bars.tabs.title")
         }

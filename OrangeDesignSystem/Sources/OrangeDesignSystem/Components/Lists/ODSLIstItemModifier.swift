@@ -80,7 +80,7 @@ public struct ODSListItemModifier: ViewModifier {
 }
 
 extension View {
-    
+
     /// Use the modifier to apply the right frame size and paddings on the __OSDListItem__.
     /// See __ ODSListItemModifier__ for more details.
     /// 

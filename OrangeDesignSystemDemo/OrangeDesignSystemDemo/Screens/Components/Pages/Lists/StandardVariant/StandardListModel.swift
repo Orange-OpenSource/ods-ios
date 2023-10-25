@@ -27,11 +27,11 @@ enum LeadingIconOption: Int, CaseIterable {
         case .icon:
             return "shared.icon".🌐
         case .circle:
-            return "screens.guidelines.lists.icons.description.circle".🌐
+            return "shared.circle".🌐
         case .wide:
-            return "screens.guidelines.lists.icons.description.wide".🌐
+            return "shared.wide".🌐
         case .square:
-            return "screens.guidelines.lists.icons.description.square".🌐
+            return "shared.square".🌐
         }
     }
     

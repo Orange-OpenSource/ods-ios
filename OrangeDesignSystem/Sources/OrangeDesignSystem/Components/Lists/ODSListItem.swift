@@ -117,7 +117,7 @@ public struct ODSListItem: View {
     public enum Leading {
         /// A Solaris icon from image resource.
         case icon(Image)
-        
+
         /// An image cropped into a circle.
         /// - Parameter source: The source of the image
         case circularImage(source: ODSImage.Source)
@@ -302,4 +302,3 @@ public struct ODSListItem: View {
         .contentShape(Rectangle())
     }
 }
-

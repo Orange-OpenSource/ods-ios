@@ -24,10 +24,10 @@ struct ListComponent: Component {
 
 struct ListVariants: View {
     var body: some View {
-        VariantEntryItem(title:  "screens.guidelines.lists.variant.standard_lists", technicalElement: "ODSListItem()"){
+        VariantEntryItem(title:  "screens.guidelines.lists.variant.standard_lists".🌐, technicalElement: "ODSListItem()"){
             ListItemStandardVariant(model: ListItemStandardVariantModel())
         }
-        VariantEntryItem(title: "screens.guidelines.lists.variant.with_selections", technicalElement: "ODSListItem()"){
+        VariantEntryItem(title: "screens.guidelines.lists.variant.with_selections".🌐, technicalElement: "ODSListItem()"){
             ListItemSelectionVariant(model: ListItemSelectionVariantModel())
         }        
     }

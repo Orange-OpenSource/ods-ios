@@ -20,9 +20,9 @@ extension ODSCardHorizontal.ImagePosition: CaseIterable {
     var description: String {
         switch self {
         case .leading:
-            return "screens.guidelines.card.position.leading".🌐
+            return "shared.leading".🌐
         case .trailing:
-            return "screens.guidelines.card.position.trailing".🌐
+            return "shared.trailing".🌐
         }
     }
     

@@ -9,16 +9,21 @@
 import OrangeDesignSystem
 import SwiftUI
 
-enum SelectionTrailingOption: CaseIterable {
-    case toggle
-    case checkmark
+// =============
+// MARK: Models
+// =============
+
+
+enum StandardTrailingOption: CaseIterable {
+    case text
+    case iButton
     
     var description: String {
         switch self {
-        case .toggle:
-            return "screens.guidelines.lists.selection.description.switch".🌐
-        case .checkmark:
-            return "screens.guidelines.lists.selection.description.checkmark".🌐
+        case .text:
+            return "shared.text".🌐
+        case .iButton:
+            return "screens.guidelines.lists.options.description.info_button".🌐
         }
     }
     
@@ -31,7 +36,7 @@ enum SelectionTrailingOption: CaseIterable {
     }
 }
 
-class ListItemSelectionVariantModel: ObservableObject {
+class ListItemStandardVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties
@@ -39,14 +44,16 @@ class ListItemSelectionVariantModel: ObservableObject {
 
     @Published var showSubtitle: Bool
     @Published var leadingOption: LeadingOption
-    @Published var trailingOption: SelectionTrailingOption
-        
+    @Published var trailingOptions: [StandardTrailingOption]
+    @Published var navigate: Bool
+    
     // ==================
     // MARK: Initializers
     // ==================
     init() {
         showSubtitle = true
         leadingOption = .circle
-        trailingOption = .toggle
+        trailingOptions = []
+        navigate = true
     }
 }

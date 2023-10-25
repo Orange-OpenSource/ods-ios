@@ -26,13 +26,14 @@ struct BottomSheetComponent: Component {
 
 struct BottomSheetVariants: View {
     var body: some View {
-        VariantEntryItem(text: "screens.guidelines.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
+        
+        VariantEntryItem(title: "screens.guidelines.bottom_sheets.expanding".🌐, technicalElement: ".odsBottomSheetExpanding()") {
             ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
                 .navigationTitle("screens.guidelines.bottom_sheets.expanding")
             
         }
         
-        VariantEntryItem(text: "screens.guidelines.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
+        VariantEntryItem(title: "screens.guidelines.bottom_sheets.standard".🌐, technicalElement: ".odsBottomSheetStandard()") {
             StandardBottomSheetVariant()
                 .navigationTitle("screens.guidelines.bottom_sheets.standard")
         }

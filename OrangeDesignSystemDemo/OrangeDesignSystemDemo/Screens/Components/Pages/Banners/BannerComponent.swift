@@ -26,7 +26,7 @@ struct BannerComponent: Component {
 struct BannerVariants: View {
     
     var body: some View {
-        VariantEntryItem(text: "screens.guidelines.banners.variant.title_demo", technicalElement: "ODSBanner()") {
+        VariantEntryItem(title:"screens.guidelines.banners.variant.title_demo".🌐, technicalElement: "ODSBanner()") {
             BannerVariant(model: BannerVariantModel())
                 .navigationTitle("screens.guidelines.banners.variant.title")
         }

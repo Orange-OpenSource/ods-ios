@@ -37,15 +37,15 @@ enum LeadingOption: Int, CaseIterable {
     var description: String {
         switch self {
         case .none:
-            return "None"
+            return "shared.none".🌐
         case .icon:
-            return "Icon"
+            return "shared.icon".🌐
         case .circle:
-            return "Circle"
+            return "shared.circle".🌐
         case .wide:
-            return "Wide"
+            return "shared.wide".🌐
         case .square:
-            return "Square"
+            return "shared.square".🌐
         }
     }
     

@@ -183,7 +183,7 @@ public struct ODSCardHorizontal: View {
         .shadow(radius: ODSSpacing.xs)
         .padding(.all, ODSSpacing.s)
     }
-    
+
     // =====================
     // MARK: Private Helpers
     // =====================

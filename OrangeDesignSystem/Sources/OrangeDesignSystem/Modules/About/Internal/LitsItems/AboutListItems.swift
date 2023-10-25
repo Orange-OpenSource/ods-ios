@@ -50,7 +50,7 @@ struct AboutListItems: View {
             .odsListItemStyle(showSeparator: false)
 
         case .destination(let destination):
-            NavigationLink{ 
+            NavigationLink {
                 destination.navigationTitle(configuration.title)
             } label: {
                 ODSListItem(title: Text(configuration.title), leading: ODSListItem.Leading(icon: configuration.icon))

@@ -16,9 +16,9 @@ struct TypographyGuideline: Guideline {
     let description: String
     
     init() {
-        title = "screens.guidelines.typography.title".🌐
+        title = "screens.guidelines.typographies.title".🌐
         imageName = "Typography"
-        description = "screens.guidelines.typography.description".🌐
+        description = "screens.guidelines.typographies.description".🌐
         pageDescription = AnyView(TypographyPageDescription())
     }
 }

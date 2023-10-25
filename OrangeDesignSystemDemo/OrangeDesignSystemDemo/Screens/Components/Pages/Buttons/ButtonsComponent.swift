@@ -34,14 +34,14 @@ struct ButtonComponent: Component {
 struct ButtonVariants: View {
 
     var body: some View {
-        VariantEntryItem(text: "screens.guidelines.buttons.variant.emphasis", technicalElement: "ODSButton()") {
+        VariantEntryItem(title: "screens.guidelines.buttons.variant.emphasis".🌐, technicalElement: "ODSButton()") {
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 EmphasisVariant(model: model)
             }
             .navigationTitle("screens.guidelines.buttons.variant.emphasis")
         }
         
-        VariantEntryItem(text: "screens.guidelines.buttons.variant.functional", technicalElement: "ODSFunctionalButton()") {
+        VariantEntryItem(title: "screens.guidelines.buttons.variant.functional".🌐, technicalElement: "ODSFunctionalButton()") {
             
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 FunctionalVariant(model: model)
@@ -49,7 +49,7 @@ struct ButtonVariants: View {
             .navigationTitle("screens.guidelines.buttons.variant.functional")
         }
         
-        VariantEntryItem(text: "screens.guidelines.buttons.variant.icons", technicalElement: "ODSIconButton()") {
+        VariantEntryItem(title: "screens.guidelines.buttons.variant.icons".🌐, technicalElement: "ODSIconButton()") {
             IconVariant(model: IconVariantModel())
                 .navigationTitle("screens.guidelines.buttons.variant.icons")
         }

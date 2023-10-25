@@ -18,6 +18,9 @@
 "shared.actions.action_2" = "Action n°2";
 "shared.actions.action_3" = "Action n°3";
 "shared.none" = "Aucun";
+"shared.circle" = "Cercle";
+"shared.wide" = "Large";
+"shared.square" = "Carré";
 "shared.modules" = "Modules";
 "shared.about" = "À propos";
 "shared.text" = "Texte";
@@ -27,7 +30,9 @@
 "shared.enabled" = "Activé";
 "shared.disabled" = "Désactivé";
 "shared.long_text" = "Texte long";
-"shared.text_fied" = "Champ de saisie";
+"shared.text_field" = "Champ de saisie";
+"shared.leading" = "Au début";
+"shared.trailing" = "À la fin";
 
 // =====================
 // MARK: - Miscellaneous
@@ -41,7 +46,7 @@
 // MARK: - Main View
 // =================
 
-"main_view.tab.components" = "Composants";
+"main_view.tabs.components" = "Composants";
 
 // =======================
 // MARK: - Screens - About
@@ -95,8 +100,8 @@
 // MARK: - Screens - Guidelines - Typography
 // =========================================
 
-"screens.guidelines.typography.title" = "Typographie";
-"screens.guidelines.typography.description" = "Apple propose des styles de texte intégrés basés sur les Apple Dynamic Types et utilisant la police de caractères native San Francisco pour tous les alphabets latin, grec et cyrillique. \nPour créer votre application, vous devez utiliser les styles mis à jour suivants.";
+"screens.guidelines.typographies.title" = "Typographie";
+"screens.guidelines.typographies.description" = "Apple propose des styles de texte intégrés basés sur les Apple Dynamic Types et utilisant la police de caractères native San Francisco pour tous les alphabets latin, grec et cyrillique. \nPour créer votre application, vous devez utiliser les styles mis à jour suivants.";
 
 "a11y.typography_details" = "%@, nom de l'élément : %@";
 
@@ -201,8 +206,6 @@
 "screens.guidelines.card.alert_2" = "%@ tappé";
 "screens.guidelines.card.thumbnail" = "Miniature";
 "screens.guidelines.card.buttons_number" = "Nombre de boutons : %@";
-"screens.guidelines.card.position.leading" = "Début";
-"screens.guidelines.card.position.trailing" = "Fin";
 "screens.guidelines.card.divider" = "Séparateur";
 "screens.guidelines.card.picker.position" = "Position de l'image";
 
@@ -227,16 +230,11 @@
 "screens.guidelines.lists.description" = "Une liste est un groupe vertical continu d'entrées de données telles que du texte, des icônes ou des images.";
 "screens.guidelines.lists.variant.with_selections" = "Liste avec sélection";
 "screens.guidelines.lists.variant.standard_lists" = "Liste standard";
-"screens.guidelines.lists.picker.leading" = "Au début";
-"screens.guidelines.lists.picker.trailing" = "À la fin";
 "screens.guidelines.lists.picker.navigate" = "Naviguer";
 "screens.guidelines.lists.selection.description.checkmark" = "Encoche";
 "screens.guidelines.lists.selection.description.switch" = "Commutateur";
 "screens.guidelines.lists.variant.clicked" = "%@ est tappé";
 "screens.guidelines.lists.alert" = "Icône d'information tappée ! Bon appétit";
-"screens.guidelines.lists.icons.description.circle" = "Cercle";
-"screens.guidelines.lists.icons.description.wide" = "Large";
-"screens.guidelines.lists.icons.description.square" = "Carré";
 "screens.guidelines.lists.options.description.info_button" = "Bouton d'information";
 "screens.guidelines.list.details" = "Détails";
 

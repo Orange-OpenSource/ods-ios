@@ -19,7 +19,7 @@ struct MainTabView: View {
                 }
             ComponentsList()
                 .tabItem {
-                    Label("main_view.tab.components".🌐, image: "component-atom_32")
+                    Label("main_view.tabs.components".🌐, image: "component-atom_32")
                 }
             ModulesList()
                 .tabItem {
