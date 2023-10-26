@@ -16,9 +16,9 @@ struct ColorsGuideline: Guideline {
     let pageDescription: AnyView
     
     init() {
-        title = "screens.guidelines.colors.title".🌐
+        title = °°"screens.guidelines.colors.title"
         imageName = "Colour"
-        description = "screens.guidelines.colors.description".🌐
+        description = °°"screens.guidelines.colors.description"
         pageDescription = AnyView(ColorPageDescription())
     }
 }

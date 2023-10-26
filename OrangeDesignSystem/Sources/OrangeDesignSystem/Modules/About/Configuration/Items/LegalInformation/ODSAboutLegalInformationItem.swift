@@ -33,7 +33,7 @@ public struct ODSAboutLegalInformationItemConfig: ODSAboutListItemConfig {
     ///    - priority: Priority to adjust the position of the item in the list.
     ///    - legalInformation: A view builder to create a view that describes the `legalInformation`.
     public init<LegalInformation>(priority: ODSAboutListItemPriority = .legalInformation, @ViewBuilder legalInformation: () -> LegalInformation) where LegalInformation: View {
-        title = "modules.about.legal_information.title".localized()
+        title = "modules.about.legal_information.title".🌐
         icon = Image("ic_legal", bundle: Bundle.ods)
         self.priority = priority
         self.target = .destination(AnyView(legalInformation()))

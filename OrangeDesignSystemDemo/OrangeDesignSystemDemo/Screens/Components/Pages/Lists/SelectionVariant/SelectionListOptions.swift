@@ -29,12 +29,12 @@ struct SelectionListVariantOptions: View {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: "shared.leading".🌐,
+            ODSChipPicker(title: °°"shared.leading",
                           selection: $model.leadingIconOption,
                           chips: LeadingIconOption.chips)
                 .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: "shared.trailing".🌐,
+            ODSChipPicker(title: °°"shared.trailing",
                           selection: $model.trailingOption,
                           chips: ODSListSelectionItemModel.TrailingSelection.chips)
                 .padding(.vertical, ODSSpacing.s)
@@ -48,9 +48,9 @@ extension ODSListSelectionItemModel.TrailingSelection {
     private var description: String {
         switch self {
         case .checkmark:
-            return "screens.guidelines.lists.selection.description.checkmark".🌐
+            return °°"screens.guidelines.lists.selection.description.checkmark"
         case .toggle:
-            return "screens.guidelines.lists.selection.description.switch".🌐
+            return °°"screens.guidelines.lists.selection.description.switch"
         }
     }
         

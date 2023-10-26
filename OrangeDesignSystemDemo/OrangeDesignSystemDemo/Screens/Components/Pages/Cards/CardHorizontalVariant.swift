@@ -20,9 +20,9 @@ extension ODSCardHorizontal.ImagePosition: CaseIterable {
     var description: String {
         switch self {
         case .leading:
-            return "shared.leading".🌐
+            return °°"shared.leading"
         case .trailing:
-            return "shared.trailing".🌐
+            return °°"shared.trailing"
         }
     }
     
@@ -68,8 +68,8 @@ class CardHorizontalVariantModel: ObservableObject {
         showAlert = false
         showDivider = true
         alertText = ""
-        buttonsText = ["screens.guidelines.card.button_1".🌐,
-                       "screens.guidelines.card.button_2".🌐]
+        buttonsText = [°°"screens.guidelines.card.button_1",
+                       °°"screens.guidelines.card.button_2"]
         recipe = RecipeBook.shared.recipes[0]
     }
 
@@ -164,7 +164,7 @@ struct CardHorizontalVariant: View {
                 dividerEnabled: model.showDivider
             ) {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.firstButtonText)"]))
+                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
             }
         case 2:
@@ -177,11 +177,11 @@ struct CardHorizontalVariant: View {
                 dividerEnabled: model.showDivider
             ) {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.firstButtonText)"]))
+                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
             } secondButton: {
                 Button(model.secondButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.secondButtonText)"]))
+                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.secondButtonText)")
                 }
             }
             
@@ -214,14 +214,14 @@ private struct CardHorizontalVariantOptions: View {
             Toggle("shared.text", isOn: $model.showText)
                 .padding(.horizontal, ODSSpacing.m)
             
-            ODSChipPicker(title: "screens.guidelines.card.picker.position".🌐,
+            ODSChipPicker(title: °°"screens.guidelines.card.picker.position",
                           selection: $model.imagePosition,
                           chips: ODSCardHorizontal.ImagePosition.chips)
             
             Toggle("screens.guidelines.card.divider", isOn: $model.showDivider)
                 .padding(.horizontal, ODSSpacing.m)
 
-            Stepper("screens.guidelines.card.buttons_number".localized(with: ["\(model.buttonCount)"]),
+            Stepper("screens.guidelines.card.buttons_number" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
             .padding(.horizontal, ODSSpacing.m)

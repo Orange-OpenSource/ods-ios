@@ -17,7 +17,7 @@ struct AboutMyReviewsItemConfiguration: ODSAboutListItemConfig {
     var priority: OrangeDesignSystem.ODSAboutListItemPriority
     
     init() {
-        title = "screens.modules.about.titles.my_review".🌐
+        title = °°"screens.modules.about.titles.my_review"
         icon = Image("ic_subtitles")
         priority = 201
         target = .destination(AnyView(Text("screens.modules.about.titles.my_review")))

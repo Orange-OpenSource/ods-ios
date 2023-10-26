@@ -25,7 +25,7 @@ struct AboutAccessibilityStatementItemConfig: ODSAboutListItemConfig {
     // =================
 
     init(statementConfig: ODSAboutAccessibilityStatement) {
-        title = "modules.about.accessibility_statement.title".localized()
+        title = °°"modules.about.accessibility_statement.title"
         icon = Image("ic_accessibility", bundle: Bundle.ods)
         priority = .accessibilityStatement
         target = .destination(AnyView(

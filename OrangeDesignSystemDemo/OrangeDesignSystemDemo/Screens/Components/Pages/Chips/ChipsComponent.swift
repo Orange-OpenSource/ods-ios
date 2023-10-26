@@ -20,9 +20,9 @@ struct ChipsComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "screens.guidelines.chips.title".🌐
+        title = °°"screens.guidelines.chips.title"
         imageName = "Chips"
-        description = "screens.guidelines.chips.description".🌐
+        description = °°"screens.guidelines.chips.description"
         variants = AnyView(ChipsVariants(model: ChipsVariantModel()))
     }
 }
@@ -37,25 +37,25 @@ struct ChipsVariants: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            GroupedChips(title: "screens.guidelines.chips.text_only".🌐,
+            GroupedChips(title: °°"screens.guidelines.chips.text_only",
                          chips: model.textOnlyChips,
                          removableChips: model.textOnlyRemovableChips,
                          selection: $model.selectedTextOnlyChip,
                          selectionRemovableChips: $model.selectedTextOnlyRemovableChip)
             
-            GroupedChips(title: "screens.guidelines.chips.with_icon".🌐,
+            GroupedChips(title: °°"screens.guidelines.chips.with_icon",
                          chips: model.withIconChips,
                          removableChips: model.withIconRemovableChips,
                          selection: $model.selectedWithIconChip,
                          selectionRemovableChips: $model.selectedWithIconRemovableChip)
             
-            GroupedChips(title: "screens.guidelines.chips.with_system_icon".🌐,
+            GroupedChips(title: °°"screens.guidelines.chips.with_system_icon",
                          chips: model.withSystemIconChips,
                          removableChips: model.withSystemIconRemovableChips,
                          selection: $model.selectedWithSystemIconChip,
                          selectionRemovableChips: $model.selectedWithSystemIconRemovableChip)
             
-            GroupedChips(title: "screens.guidelines.chips.with_avatar".🌐,
+            GroupedChips(title: °°"screens.guidelines.chips.with_avatar",
                          chips: model.withAvatarChips,
                          removableChips: model.withAvatarRemovableChips,
                          selection: $model.selectedWithAvatarChip,

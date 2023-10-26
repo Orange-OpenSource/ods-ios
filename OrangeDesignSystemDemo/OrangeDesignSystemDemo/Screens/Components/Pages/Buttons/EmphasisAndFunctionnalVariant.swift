@@ -45,7 +45,7 @@ struct EmphasisVariant: View {
                           emphasis: emphasis,
                           fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
-                    .accessibilityLabel("a11y.emphasis_button_hint".localized(with: ["\(emphasis.rawValue)"]))
+                    .accessibilityLabel("a11y.emphasis_button_hint" <- "\(emphasis.rawValue)")
             }
         }
     }
@@ -86,7 +86,7 @@ struct FunctionalVariant: View {
                                     style: style,
                                     fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
-                    .accessibilityLabel("a11y.functional_button_hint".localized(with: ["\(style.rawValue)"]))
+                    .accessibilityLabel("a11y.functional_button_hint" <- "\(style.rawValue)")
             }
         }
     }
@@ -97,8 +97,8 @@ struct FunctionalVariant: View {
 
     private func description(for style: ODSFunctionalButton.Style) -> String {
         switch style {
-        case .negative: return "screens.guidelines.buttons.styles.description.negative".🌐
-        case .positive: return "screens.guidelines.buttons.styles.description.positive".🌐
+        case .negative: return °°"screens.guidelines.buttons.styles.description.negative"
+        case .positive: return °°"screens.guidelines.buttons.styles.description.positive"
         }
     }
 }

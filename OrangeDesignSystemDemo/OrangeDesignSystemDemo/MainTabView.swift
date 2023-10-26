@@ -15,19 +15,19 @@ struct MainTabView: View {
         TabView {
             GuidelinesList()
                 .tabItem {
-                    Label("shared.guidelines".🌐, image: "Guideline-DNA_32")
+                    Label(°°"shared.guidelines", image: "Guideline-DNA_32")
                 }
             ComponentsList()
                 .tabItem {
-                    Label("main_view.tabs.components".🌐, image: "component-atom_32")
+                    Label(°°"main_view.tabs.components", image: "component-atom_32")
                 }
             ModulesList()
                 .tabItem {
-                    Label("shared.modules".🌐, image: "Module-molecule_32")
+                    Label(°°"shared.modules", image: "Module-molecule_32")
                 }
             AboutScreen()
                 .tabItem {
-                    Label("shared.about".🌐, image: "info_32")
+                    Label(°°"shared.about", image: "info_32")
                 }
         }
     }

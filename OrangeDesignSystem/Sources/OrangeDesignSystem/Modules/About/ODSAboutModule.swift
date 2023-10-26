@@ -88,7 +88,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
             .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)
-        .navigationTitle("modules.about.title".localized())
+        .navigationTitle(°°"modules.about.title")
         .navigationBarTitleDisplayMode(.large)
         .background(ODSInternalColor.primaryBackground.color)
     }

@@ -35,7 +35,7 @@ struct AppNewsList: View {
     var body: some View {
         ScrollView {
             if releaseDescriptions.isEmpty {
-                Text("modules.about.app_news.no_news".localized())
+                Text(°°"modules.about.app_news.no_news")
             } else {
                 ForEach(releaseDescriptions, id: \.version) { releaseDescription in
                     AboutReleaaseDescriptionEntry(releaseDescription: releaseDescription)

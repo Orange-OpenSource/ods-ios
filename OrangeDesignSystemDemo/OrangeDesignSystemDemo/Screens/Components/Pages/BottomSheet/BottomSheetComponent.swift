@@ -17,9 +17,9 @@ struct BottomSheetComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "screens.guidelines.bottom_sheets.title".🌐
+        title = °°"screens.guidelines.bottom_sheets.title"
         imageName = "BottomSheet"
-        description = "screens.guidelines.bottom_sheets.description".🌐
+        description = °°"screens.guidelines.bottom_sheets.description"
         variants = AnyView(BottomSheetVariants())
     }
 }
@@ -27,13 +27,13 @@ struct BottomSheetComponent: Component {
 struct BottomSheetVariants: View {
     var body: some View {
         
-        VariantEntryItem(title: "screens.guidelines.bottom_sheets.expanding".🌐, technicalElement: ".odsBottomSheetExpanding()") {
+        VariantEntryItem(title: °°"screens.guidelines.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
             ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
                 .navigationTitle("screens.guidelines.bottom_sheets.expanding")
             
         }
         
-        VariantEntryItem(title: "screens.guidelines.bottom_sheets.standard".🌐, technicalElement: ".odsBottomSheetStandard()") {
+        VariantEntryItem(title: °°"screens.guidelines.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
             StandardBottomSheetVariant()
                 .navigationTitle("screens.guidelines.bottom_sheets.standard")
         }

@@ -37,7 +37,7 @@ public struct ODSAboutAppNewsItemConfig: ODSAboutListItemConfig {
     public init(priority: ODSAboutListItemPriority = .appNews, path: String) {
         self.path = path
         self.priority = priority
-        self.title = "modules.about.app_news.title".localized()
+        self.title = "modules.about.app_news.title".🌐
         self.icon = Image("ic_taskList", bundle: Bundle.ods)
         self.target = .destination(AnyView(AppNewsList(fromFile: path)))
     }

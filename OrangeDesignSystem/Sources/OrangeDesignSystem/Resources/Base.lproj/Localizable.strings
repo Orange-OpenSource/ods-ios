@@ -14,6 +14,7 @@
 "modules.about.share" = "Share";
 "modules.about.feedback" = "Feedback";
 "modules.about.app_information.full_version_text" = "Version %@";
+"modules.about.app_information.full_enriched_version_text" = "Version %@ (build %@)";
 "modules.about.app_news.title" = "App News";
 "modules.about.privacy_policy.title" = "Privacy Policy";
 "modules.about.terms_of_service.title" = "Terms of Service";

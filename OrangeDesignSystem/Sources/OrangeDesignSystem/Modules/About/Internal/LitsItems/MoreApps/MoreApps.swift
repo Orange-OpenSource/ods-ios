@@ -13,6 +13,6 @@ struct MoreApps: View {
     let url: URL
 
     var body: some View {
-        Text("modules.about.more_apps.more".localized())
+        Text(°°"modules.about.more_apps.more")
     }
 }

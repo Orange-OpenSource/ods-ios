@@ -32,7 +32,7 @@ struct AboutApplicationInformation: View {
             if applicationInformation.shareConfiguration != nil || applicationInformation.onFeedbackClicked != nil {
                 HStack(spacing: ODSSpacing.none) {
                     if let shareConfiguration = applicationInformation.shareConfiguration {
-                        ODSButton(text: Text("modules.about.share".localized()), image: Image("ic_share", bundle: Bundle.ods), emphasis: .lowest) {
+                        ODSButton(text: Text(°°"modules.about.share"), image: Image("ic_share", bundle: Bundle.ods), emphasis: .lowest) {
                             ShareSheet.show(content: shareConfiguration.description, subject: shareConfiguration.subject, url: shareConfiguration.storeUrl)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -40,7 +40,7 @@ struct AboutApplicationInformation: View {
                     }
 
                     if let onFeedbackClicked = applicationInformation.onFeedbackClicked {
-                        ODSButton(text: Text("modules.about.feedback".localized()), image: Image("ic_comments", bundle: Bundle.ods), emphasis: .lowest, action: onFeedbackClicked)
+                        ODSButton(text: Text(°°"modules.about.feedback"), image: Image("ic_comments", bundle: Bundle.ods), emphasis: .lowest, action: onFeedbackClicked)
                             .buttonStyle(PlainButtonStyle())
                             .foregroundColor(Color.accentColor)
                     }
@@ -72,7 +72,7 @@ struct AboutApplicationInformation: View {
             return nil
         }
 
-        return "modules.about.app_information.full_version_text".localized(with: "\(version.marketingVersion)\(buildSuffix)")
+        return "modules.about.app_information.full_version_text" <- "\(version.marketingVersion)\(buildSuffix)"
     }
 
     private var buildSuffix: String {

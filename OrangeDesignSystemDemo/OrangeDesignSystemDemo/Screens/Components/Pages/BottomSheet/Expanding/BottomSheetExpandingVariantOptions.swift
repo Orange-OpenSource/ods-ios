@@ -49,9 +49,9 @@ class BottomSheetVariantModel: ObservableObject {
         case .hidden, .large:
             return nil
         case .small:
-            return "screens.guidelines.bottom_sheets.sample.open_small".🌐
+            return °°"screens.guidelines.bottom_sheets.sample.open_small"
         case .medium:
-            return "screens.guidelines.bottom_sheets.sample.open_medium".🌐
+            return °°"screens.guidelines.bottom_sheets.sample.open_medium"
         }
     }
     
@@ -60,7 +60,7 @@ class BottomSheetVariantModel: ObservableObject {
         case .hidden, .small, .medium:
             return nil
         case .large:
-            return "screens.guidelines.bottom_sheets.sample.open_large".🌐
+            return °°"screens.guidelines.bottom_sheets.sample.open_large"
         }
     }
 }
@@ -152,11 +152,11 @@ struct ExpandingBottomSheetVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Group {
-                ODSChipPicker(title: "screens.guidelines.bottom_sheets.variant.detent".🌐,
+                ODSChipPicker(title: °°"screens.guidelines.bottom_sheets.variant.detent",
                               selection: $model.bottomSheetSize,
                               chips: ODSBottomSheetSize.chips)
 
-                ODSChipPicker(title: "screens.guidelines.bottom_sheets.variant.content".🌐,
+                ODSChipPicker(title: °°"screens.guidelines.bottom_sheets.variant.content",
                               selection: $model.contentType,
                               chips: ContentType.chips)
 
@@ -193,13 +193,13 @@ extension ODSBottomSheetSize {
     var description: String {
         switch self {
         case .small:
-            return "screens.guidelines.bottom_sheets.size.small".🌐
+            return °°"screens.guidelines.bottom_sheets.size.small"
         case .medium:
-            return "screens.guidelines.bottom_sheets.size.medium".🌐
+            return °°"screens.guidelines.bottom_sheets.size.medium"
         case .large:
-            return "screens.guidelines.bottom_sheets.size.large".🌐
+            return °°"screens.guidelines.bottom_sheets.size.large"
         case .hidden:
-            return "screens.guidelines.bottom_sheets.size.hidden".🌐
+            return °°"screens.guidelines.bottom_sheets.size.hidden"
         }
     }
     

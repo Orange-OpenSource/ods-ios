@@ -19,7 +19,7 @@ struct ColorDetail: View {
     @EnvironmentObject private var screenState: ScreenState
 
     let colorDescription: ODSColorDecription
-    let usage = "misc.coming_soon".🌐
+    let usage = °°"misc.coming_soon"
 
     // ==========
     // MARK: Body

@@ -41,9 +41,9 @@ class ToolBarVariantModel: ObservableObject {
         var description: String {
             switch self {
             case .label:
-                return "shared.label".🌐
+                return °°"shared.label"
             case .icon:
-                return "shared.icon".🌐
+                return °°"shared.icon"
             }
         }
         
@@ -71,9 +71,9 @@ class ToolBarVariantModel: ObservableObject {
 
         itemsCount = 2
         
-        labelDescriptions = ["shared.actions.action_1".🌐,
-                             "shared.actions.action_2".🌐,
-                             "shared.actions.action_3".🌐].map { str in
+        labelDescriptions = [°°"shared.actions.action_1",
+                             °°"shared.actions.action_2",
+                             °°"shared.actions.action_3"].map { str in
             ODSToolbarLabelDesription(text: str) {
                 self.showAlert(with: str)
             }
@@ -128,7 +128,7 @@ class ToolBarVariantModel: ObservableObject {
     // =============
 
     private func showAlert(with text: String) {
-        alertText = "screens.guidelines.bars.tools.alert_hint".localized(with: [text])
+        alertText = "screens.guidelines.bars.tools.alert_hint" <- text
         showAlert = true
     }
 }
@@ -151,18 +151,18 @@ struct ToolBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: "screens.guidelines.bars.tools.picker_hint".🌐,
+            ODSChipPicker(title: °°"screens.guidelines.bars.tools.picker_hint",
                               selection: $model.itemType,
                               chips: ToolBarVariantModel.ItemType.chips)
                 
             switch model.itemType {
             case .label:
-                Stepper("screens.guidelines.bars.tools.stepper_hint".localized(with: ["\(model.itemsCount)"]),
+                Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfLabelItems)
                 .padding(.horizontal, ODSSpacing.m)
             case .icon:
-                Stepper("screens.guidelines.bars.tools.stepper_hint".localized(with: ["\(model.itemsCount)"]),
+                Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfIconItems)
                 .padding(.horizontal, ODSSpacing.m)

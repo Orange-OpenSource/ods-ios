@@ -164,6 +164,6 @@ fileprivate enum Spacing: Double, CaseIterable {
     }
 
     var accessibilityLabel: String {
-        "a11y.spacings_details".localized(with: ["\(Int(rawValue)) \(rawValue < 2 ? "pixel" : "pixels")", name, ratioSpokenValue])
+        "a11y.spacings_details" <- ["\(Int(rawValue)) \(rawValue < 2 ? "pixel" : "pixels")", name, ratioSpokenValue]
     }
 }

@@ -16,9 +16,9 @@ struct ProgressIndicatorComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "screens.guidelines.progress_indicators.title".🌐
+        title = °°"screens.guidelines.progress_indicators.title"
         imageName = "Progress indicator"
-        description = "screens.guidelines.progress_indicators.description".🌐
+        description = °°"screens.guidelines.progress_indicators.description"
         variants = AnyView(ProgressIndicatorVariants())
     }
 }
@@ -26,12 +26,12 @@ struct ProgressIndicatorComponent: Component {
 private struct ProgressIndicatorVariants: View {
     
     var body: some View {
-        VariantEntryItem(title: "screens.guidelines.progress_indicators.progress_bar.title".🌐, technicalElement: "ProgressView(value:, total:)") {
+        VariantEntryItem(title: °°"screens.guidelines.progress_indicators.progress_bar.title", technicalElement: "ProgressView(value:, total:)") {
             ProgressBarVariant(model: ProgressBarVariantModel())
                 .navigationTitle("screens.guidelines.progress_indicators.progress_bar.title")
         }
         
-        VariantEntryItem(title: "screens.guidelines.progress_indicators.activity_bar.title".🌐, technicalElement: "ProgressView()") {
+        VariantEntryItem(title: °°"screens.guidelines.progress_indicators.activity_bar.title", technicalElement: "ProgressView()") {
             ActivityIndicatorVariant(model: ActivityIndicatorModel())
                 .navigationTitle("screens.guidelines.progress_indicators.activity_bar.title")
         }

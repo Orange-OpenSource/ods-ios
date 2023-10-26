@@ -122,14 +122,14 @@ struct TabBarVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Group {
-                Stepper("screens.guidelines.bars.tabs.items_stepper.hint".localized(with: ["\(model.itemsCount)"]),
+                Stepper("screens.guidelines.bars.tabs.items_stepper.hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfItems)
             }
             .padding(.horizontal, ODSSpacing.m)
             .odsFont(.bodyBold)
             
-            ODSChipPicker(title: "screens.guidelines.bars.tabs.options_picker.hint".🌐,
+            ODSChipPicker(title: °°"screens.guidelines.bars.tabs.options_picker.hint",
                           selection: $model.badgeOption,
                           chips: TabBarVariantModel.BadgeOption.chips)
         }
@@ -176,24 +176,24 @@ class TabBarVariantModel: ObservableObject {
         itemDescriptions = [
             // Display the badge only on the first item
             ItemDescription(iconName: "Heart_19371",
-                            text: "screens.guidelines.bars.tabs.item_favorite.title".🌐,
-                            contentText: "screens.guidelines.bars.tabs.item_favorite.description".🌐,
+                            text: °°"screens.guidelines.bars.tabs.item_favorite.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_favorite.description",
                             badgeOption: badgeOption),
             ItemDescription(iconName: "Search_19371",
-                            text: "shared.search".🌐,
-                            contentText: "screens.guidelines.bars.tabs.item_search.description".🌐,
+                            text: °°"shared.search",
+                            contentText: °°"screens.guidelines.bars.tabs.item_search.description",
                             badgeOption: .none),
             ItemDescription(iconName: "Info_19371",
-                            text: "screens.guidelines.bars.tabs.item_information.title".🌐,
-                            contentText: "screens.guidelines.bars.tabs.item_information.description".🌐,
+                            text: °°"screens.guidelines.bars.tabs.item_information.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_information.description",
                             badgeOption: .none),
             ItemDescription(iconName: "Notification_Alert_19371",
-                            text: "screens.guidelines.bars.tabs.item_notification.title".🌐,
-                            contentText: "screens.guidelines.bars.tabs.item_notification.description".🌐,
+                            text: °°"screens.guidelines.bars.tabs.item_notification.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_notification.description",
                             badgeOption: .none),
             ItemDescription(iconName: "Settings_19371",
-                            text: "screens.guidelines.bars.tabs.item_settings.title".🌐,
-                            contentText: "screens.guidelines.bars.tabs.item_settings.description".🌐,
+                            text: °°"screens.guidelines.bars.tabs.item_settings.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_settings.description",
                             badgeOption: .none),
         ]
     }
@@ -221,11 +221,11 @@ class TabBarVariantModel: ObservableObject {
         var description: String {
             switch self {
             case .none:
-                return "shared.none".🌐
+                return °°"shared.none"
             case .count:
-                return "screens.guidelines.bars.tabs.badge.description.count".🌐
+                return °°"screens.guidelines.bars.tabs.badge.description.count"
             case .text:
-                return "shared.text".🌐
+                return °°"shared.text"
             }
         }
         

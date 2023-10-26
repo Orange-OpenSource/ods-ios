@@ -27,11 +27,11 @@ class AboutModuleModel: ObservableObject {
     
     var applicationInformation: ODSAboutApplicationInformation {
         let version = ODSApplicationVersion(marketingVersion: "0.14.0", buildNumber: "123456", buildType: "ALPHA")
-        let description = "screens.about.app_information.description.default".🌐
+        let description = °°"screens.about.app_information.description.default"
         let shareConfiguration = ODSAboutShareTheApplication(
             storeUrl: URL(string: "https://www.apple.com")!,
-            subject: "screens.about.app_information.share.subject.default".🌐,
-            description: "screens.about.app_information.share.description.default".🌐)
+            subject: °°"screens.about.app_information.share.subject.default",
+            description: °°"screens.about.app_information.share.description.default")
         
         return ODSAboutApplicationInformation(name: "Orange Design System",
                                               version: applicationSectionOptions.contains(.version) ? version : nil,
@@ -58,7 +58,7 @@ class AboutModuleModel: ObservableObject {
     
     var legalInformationText: String? {
         optionalAboutItems.contains(.legalInformation)
-        ? "screens.about.legal_information_text.default".🌐
+        ? °°"screens.about.legal_information_text.default"
         : nil
     }
 
@@ -102,13 +102,13 @@ class AboutModuleModel: ObservableObject {
         var description: String {
             switch self {
             case .version:
-                return "screens.about.app_information.option_description.version".🌐
+                return °°"screens.about.app_information.option_description.version"
             case .description:
-                return "screens.about.app_information.option_description.description".🌐
+                return °°"screens.about.app_information.option_description.description"
             case .share:
-                return "screens.about.app_information.option_description.share".🌐
+                return °°"screens.about.app_information.option_description.share"
             case .feedback:
-                return "screens.about.app_information.option_description.feedback".🌐
+                return °°"screens.about.app_information.option_description.feedback"
             }
         }
         
@@ -133,11 +133,11 @@ class AboutModuleModel: ObservableObject {
         var description: String {
             switch self {
             case .appNews:
-                return "screens.about.app_information.option_description.app_news".🌐
+                return °°"screens.about.app_information.option_description.app_news"
             case .legalInformation:
-                return "screens.about.app_information.option_description.legal_information".🌐
+                return °°"screens.about.app_information.option_description.legal_information"
             case .rateTheApp:
-                return "screens.about.app_information.option_description.rate".🌐
+                return °°"screens.about.app_information.option_description.rate"
             }
         }
         

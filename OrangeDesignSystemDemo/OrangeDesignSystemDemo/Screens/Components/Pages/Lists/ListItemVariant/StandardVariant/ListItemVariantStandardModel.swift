@@ -21,9 +21,9 @@ enum StandardTrailingOption: CaseIterable {
     var description: String {
         switch self {
         case .text:
-            return "shared.text".🌐
+            return °°"shared.text"
         case .iButton:
-            return "screens.guidelines.lists.options.description.info_button".🌐
+            return °°"screens.guidelines.lists.options.description.info_button"
         }
     }
     

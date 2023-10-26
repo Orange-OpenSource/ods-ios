@@ -16,9 +16,9 @@ struct SpacingsGuideline: Guideline {
     let pageDescription: AnyView
     
     init() {
-        title = "screens.guidelines.spacings.title".🌐
+        title = °°"screens.guidelines.spacings.title"
         imageName = "Spacing"
-        description = "screens.guidelines.spacings.description".🌐
+        description = °°"screens.guidelines.spacings.description"
         pageDescription = AnyView(SpacingsPageDescription())
     }
 }

@@ -108,10 +108,10 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
         
         var description: String {
             switch self {
-            case .never: return "screens.guidelines.textfields.variants.inputs.never".🌐
-            case .characters: return "screens.guidelines.textfields.variants.inputs.characters".🌐
-            case .words: return "screens.guidelines.textfields.variants.inputs.words".🌐
-            case .sentences: return "screens.guidelines.textfields.variants.inputs.sentences".🌐
+            case .never: return °°"screens.guidelines.textfields.variants.inputs.never"
+            case .characters: return °°"screens.guidelines.textfields.variants.inputs.characters"
+            case .words: return °°"screens.guidelines.textfields.variants.inputs.words"
+            case .sentences: return °°"screens.guidelines.textfields.variants.inputs.sentences"
             }
         }
         
@@ -140,7 +140,7 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
     @Published var textToEdit: String = ""
     
     var defaultText: String  {
-        let text = "screens.guidelines.textfields.variants.inputs.default.default".🌐
+        let text = °°"screens.guidelines.textfields.variants.inputs.default.default"
         switch selectedCapitalizationType {
         case .never:
             return text
@@ -149,7 +149,7 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
         case .words:
             return text.capitalized
         case .sentences:
-            return "screens.guidelines.textfields.variants.inputs.default.sentences".🌐
+            return °°"screens.guidelines.textfields.variants.inputs.default.sentences"
         }
     }
     
@@ -191,7 +191,7 @@ private struct CapitalizedTextInputsVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
-            ODSChipPicker(title: "screens.guidelines.textfields.variants.inputs.options.capitalization".🌐,
+            ODSChipPicker(title: °°"screens.guidelines.textfields.variants.inputs.options.capitalization",
                           selection: $model.selectedCapitalizationType,
                           chips: CapitalizedTextInputsVariantModel.CapitalizationType.chips)
                 .padding(.vertical, ODSSpacing.s)

@@ -29,12 +29,12 @@ struct StandardListVariantOptions: View {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: "shared.leading".🌐,
+            ODSChipPicker(title: °°"shared.leading",
                           selection: $model.leadingIconOption,
                           chips: LeadingIconOption.chips)
                 .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: "shared.trailing".🌐,
+            ODSChipPicker(title: °°"shared.trailing",
                           selection: $model.trailingOptions,
                           allowZeroSelection: true,
                           chips: TrailingOption.chips)

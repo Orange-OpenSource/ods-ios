@@ -34,7 +34,7 @@ public struct ODSAboutRateTheAppItemCondfig: ODSAboutListItemConfig {
     ///    - priority: Priority to adjust the position of the item in the list.
     ///    - storeUrl: URL of the application on the store.
     public init(priority: ODSAboutListItemPriority = .rateTheApp, storeUrl: URL) {
-        title = "modules.about.rate.title".localized()
+        title = "modules.about.rate.title".🌐
         icon = Image("ic_review", bundle: Bundle.ods)
         self.priority = priority
         self.storeUrl = storeUrl

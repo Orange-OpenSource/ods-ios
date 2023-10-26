@@ -23,15 +23,15 @@ enum LeadingIconOption: Int, CaseIterable {
     var description: String {
         switch self {
         case .none:
-            return "shared.none".🌐
+            return °°"shared.none"
         case .icon:
-            return "shared.icon".🌐
+            return °°"shared.icon"
         case .circle:
-            return "shared.circle".🌐
+            return °°"shared.circle"
         case .wide:
-            return "shared.wide".🌐
+            return °°"shared.wide"
         case .square:
-            return "shared.square".🌐
+            return °°"shared.square"
         }
     }
     
@@ -51,9 +51,9 @@ enum TrailingOption: Int, CaseIterable {
     var description: String {
         switch self {
         case .text:
-            return "shared.text".🌐
+            return °°"shared.text"
         case .infoButton:
-            return "screens.guidelines.lists.options.description.info_button".🌐
+            return °°"screens.guidelines.lists.options.description.info_button"
         }
     }
         
@@ -161,9 +161,9 @@ class StandardListVariantModel: ObservableObject {
         
         switch (showText, showIButton) {
         case (true, true):
-            return ODSListItemTrailingActions(displayText: "screens.guidelines.list.details".🌐, onIButtonClicked: onIButtonClicked)
+            return ODSListItemTrailingActions(displayText: °°"screens.guidelines.list.details", onIButtonClicked: onIButtonClicked)
         case (true, false):
-            return ODSListItemTrailingActions(displayText: "screens.guidelines.list.details".🌐)
+            return ODSListItemTrailingActions(displayText: °°"screens.guidelines.list.details")
         case (false, true):
             return ODSListItemTrailingActions(onIButtonClicked: onIButtonClicked)
         default:

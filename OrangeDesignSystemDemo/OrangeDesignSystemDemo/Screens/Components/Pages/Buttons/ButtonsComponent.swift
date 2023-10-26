@@ -20,9 +20,9 @@ struct ButtonComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "screens.guidelines.buttons.title".🌐
+        title = °°"screens.guidelines.buttons.title"
         imageName = "Buttons - Shape"
-        description = "screens.guidelines.buttons.description".🌐
+        description = °°"screens.guidelines.buttons.description"
         variants = AnyView(ButtonVariants())
     }
 }
@@ -34,14 +34,14 @@ struct ButtonComponent: Component {
 struct ButtonVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: "screens.guidelines.buttons.variant.emphasis".🌐, technicalElement: "ODSButton()") {
+        VariantEntryItem(title: °°"screens.guidelines.buttons.variant.emphasis", technicalElement: "ODSButton()") {
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 EmphasisVariant(model: model)
             }
             .navigationTitle("screens.guidelines.buttons.variant.emphasis")
         }
         
-        VariantEntryItem(title: "screens.guidelines.buttons.variant.functional".🌐, technicalElement: "ODSFunctionalButton()") {
+        VariantEntryItem(title: °°"screens.guidelines.buttons.variant.functional", technicalElement: "ODSFunctionalButton()") {
             
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 FunctionalVariant(model: model)
@@ -49,7 +49,7 @@ struct ButtonVariants: View {
             .navigationTitle("screens.guidelines.buttons.variant.functional")
         }
         
-        VariantEntryItem(title: "screens.guidelines.buttons.variant.icons".🌐, technicalElement: "ODSIconButton()") {
+        VariantEntryItem(title: °°"screens.guidelines.buttons.variant.icons", technicalElement: "ODSIconButton()") {
             IconVariant(model: IconVariantModel())
                 .navigationTitle("screens.guidelines.buttons.variant.icons")
         }

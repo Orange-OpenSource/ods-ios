@@ -27,11 +27,11 @@ struct AboutChangelogItemConfig: ODSAboutListItemConfig {
     // =================
     
     init(priority: ODSAboutListItemPriority) {
-        title = "screens.about.changelog.title".🌐
+        title = °°"screens.about.changelog.title"
         icon = Image("ic_taskList", bundle: Bundle.ods)
         self.priority = priority
         target = .destination(AnyView(
-            AboutHtmlAndMarkdownView(title: "screens.about.changelog.title".🌐, markdownFileName: "CHANGELOG", convertToHtml: true)))
+            AboutHtmlAndMarkdownView(title: °°"screens.about.changelog.title", markdownFileName: "CHANGELOG", convertToHtml: true)))
     }
 }
 
@@ -53,7 +53,7 @@ struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
     // =================
     
     init(priority: ODSAboutListItemPriority) {
-        title = "screens.about.design_guidelines.title".🌐
+        title = °°"screens.about.design_guidelines.title"
         icon = Image("ic_tools", bundle: Bundle.main)
         self.priority = priority
         target = .action( { UIApplication.shared.open(URL(string: "https://system.design.orange.com/0c1af118d/p/95b685-ios/")!) })
@@ -81,13 +81,13 @@ struct AboutScreen: View {
     
     init() {
         applicationInformation = ODSAboutApplicationInformation(
-            name: "screens.about.app_information.name".🌐,
+            name: °°"screens.about.app_information.name",
             version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
-            description: "screens.about.app_information.description".🌐,
+            description: °°"screens.about.app_information.description",
             shareConfiguration: ODSAboutShareTheApplication(
                 storeUrl: storeUrl,
-                subject: "screens.about.app_information.share.subject".🌐,
-                description: "screens.about.app_information.share.description".🌐),
+                subject: °°"screens.about.app_information.share.subject",
+                description: °°"screens.about.app_information.share.description"),
             onFeedbackClicked: {
                 UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ods-ios/issues/new/choose")!)
             })
@@ -131,7 +131,7 @@ struct AboutScreen: View {
     
     @ViewBuilder
     private func termsOfService() -> some View {
-        AboutHtmlAndMarkdownView(title: "screens.about.terms_of_service".🌐, htmlFileName: "CGU")
+        AboutHtmlAndMarkdownView(title: °°"screens.about.terms_of_service", htmlFileName: "CGU")
     }
 }
 

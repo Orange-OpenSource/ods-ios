@@ -38,8 +38,8 @@ class CardVerticalImageFirstVariantModel: ObservableObject {
         buttonCount = 2
         showAlert = false
         
-        buttonsText = ["screens.guidelines.card.button_1".🌐,
-                       "screens.guidelines.card.button_2".🌐]
+        buttonsText = [°°"screens.guidelines.card.button_1",
+                       °°"screens.guidelines.card.button_2"]
         recipe = RecipeBook.shared.recipes[0]
     }
 
@@ -137,7 +137,7 @@ struct CardVerticalImageFirstVariant: View {
                 text: model.text
             ) {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.firstButtonText)"]))
+                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
             }
         case 2:
@@ -148,11 +148,11 @@ struct CardVerticalImageFirstVariant: View {
                 text: model.text
             ) {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.firstButtonText)"]))
+                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
             } secondButton: {
                 Button(model.secondButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2".localized(with: ["\(model.secondButtonText)"]))
+                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.secondButtonText)")
                 }
             }
         default:
@@ -182,7 +182,7 @@ private struct CardVerticalImageFirstVariantOptions: View {
             Toggle("shared.subtitle", isOn: $model.showSubtitle)
             Toggle("shared.text", isOn: $model.showText)
             
-            Stepper("screens.guidelines.card.buttons_number".localized(with: ["\(model.buttonCount)"]),
+            Stepper("screens.guidelines.card.buttons_number" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
         }

@@ -31,7 +31,7 @@ struct TypographyPageDescription: View {
                     Text("style: \(fontStyle.rawValue)").font(.system(.caption, design: .monospaced))
                 }
                 .accessibilityElement()
-                .accessibilityLabel("a11y.typography_details".localized(with: [fontStyle.description, fontStyle.rawValue]))
+                .accessibilityLabel("a11y.typography_details" <- [fontStyle.description, fontStyle.rawValue])
             }
         }
         .padding(.horizontal, ODSSpacing.m)

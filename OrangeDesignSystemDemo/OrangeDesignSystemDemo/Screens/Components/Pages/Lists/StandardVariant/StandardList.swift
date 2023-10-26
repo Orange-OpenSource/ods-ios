@@ -48,7 +48,7 @@ private struct StandardListVariantInner: View {
             ForEach(model.itemModels, id: \.id) { itemModel in
                 if model.showDetails {
                     NavigationLink(itemModel) {
-                        Text("screens.guidelines.lists.variant.clicked".localized(with: [itemModel.title]))
+                        Text("screens.guidelines.lists.variant.clicked" <- itemModel.title)
                             .navigationTitle(itemModel.title)
                     }
                     .listRowInsets(EdgeInsets())

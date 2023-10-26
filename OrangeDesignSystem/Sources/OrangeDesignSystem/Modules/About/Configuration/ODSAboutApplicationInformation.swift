@@ -89,7 +89,7 @@ public struct ODSAboutApplicationInformation {
     let name: String
     let version: ODSApplicationVersion?
     let description: String?
-    let copyrightNotice: String = "modules.about.copyright".localized()
+    let copyrightNotice: String = "modules.about.copyright".🌐
     let shareConfiguration: ODSAboutShareTheApplication?
     let onFeedbackClicked: (() -> Void)?
 

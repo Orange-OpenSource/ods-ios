@@ -38,9 +38,9 @@ struct NavigationBarVariantContent: View {
     private var title: String {
         switch model.titleSize {
         case .standard:
-            return "screens.guidelines.bars.navigation.standard_title.text".🌐
+            return °°"screens.guidelines.bars.navigation.standard_title.text"
         case .large:
-            return "screens.guidelines.bars.navigation.large_title.text".🌐
+            return °°"screens.guidelines.bars.navigation.large_title.text"
         }
     }
 }
@@ -68,8 +68,8 @@ class NavigationBarVariantModel: ObservableObject {
         showBackButton = true
         actions = [
             Action.showThemeSelection,
-            Action.showAlert(iconName: "square.and.pencil", actionText: "screens.guidelines.bars.navigation.button.edit".🌐),
-            Action.showAlert(iconName: "square.and.arrow.up", actionText: "screens.guidelines.bars.navigation.button.share".🌐),
+            Action.showAlert(iconName: "square.and.pencil", actionText: °°"screens.guidelines.bars.navigation.button.edit"),
+            Action.showAlert(iconName: "square.and.arrow.up", actionText: °°"screens.guidelines.bars.navigation.button.share"),
         ]
     }
 
@@ -102,8 +102,8 @@ class NavigationBarVariantModel: ObservableObject {
 
         var description: String {
             switch self {
-            case .standard: return "screens.guidelines.bars.navigation.standard_title.hint".🌐
-            case .large: return "screens.guidelines.bars.navigation.large_title.hint".🌐
+            case .standard: return °°"screens.guidelines.bars.navigation.standard_title.hint"
+            case .large: return °°"screens.guidelines.bars.navigation.large_title.hint"
             }
         }
 
@@ -145,13 +145,13 @@ struct NavigationBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: "screens.guidelines.bars.navigation.size.hint".🌐,
+            ODSChipPicker(title: °°"screens.guidelines.bars.navigation.size.hint",
                           selection: $model.titleSize,
                           chips: NavigationBarVariantModel.TitleSize.chips)
             Group {
                 Toggle("screens.guidelines.bars.navigation.back_button.hint", isOn: $model.showBackButton)
 
-                Stepper("screens.guidelines.bars.navigation.action_item_count".localized(with: ["\(model.actionIconCount)"]),
+                Stepper("screens.guidelines.bars.navigation.action_item_count" <- "\(model.actionIconCount)",
                         value: $model.actionIconCount,
                         in: 0 ... model.numberOfActions)
 

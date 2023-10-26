@@ -19,8 +19,8 @@ class BannerVariantModel: ObservableObject {
     @Published var showImage: Bool
     @Published var buttonCount: Int
     
-    let buttonsText = ["shared.actions.action_1".🌐,
-                       "shared.actions.action2".🌐]
+    let buttonsText = [°°"shared.actions.action_1",
+                       °°"shared.actions.action_2"]
 
     // =================
     // MARK: Initializer
@@ -37,8 +37,8 @@ class BannerVariantModel: ObservableObject {
     // =============
 
     var text: Text {
-        let longText = "screens.guidelines.banners.demo.long_text".🌐
-        let shortText = "screens.guidelines.banners.demo.short_text".🌐
+        let longText = °°"screens.guidelines.banners.demo.long_text"
+        let shortText = °°"screens.guidelines.banners.demo.short_text"
         
         return Text(showLongText ? longText : shortText)
     }
@@ -54,7 +54,7 @@ class BannerVariantModel: ObservableObject {
     }
     
     var buttonText: String {
-        "shared.actions.action_0".🌐
+        °°"shared.actions.action"
     }
     
     var firstButtonText: String {
@@ -86,7 +86,7 @@ struct BannerVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("shared.long_text", isOn: $model.showLongText)
             Toggle("screens.guidelines.banners.demo.toggle_image_hint", isOn: $model.showImage)
-            Stepper("screens.guidelines.banners.demo.buttons_number_hint".localized(with: ["\(model.buttonCount)"]),
+            Stepper("screens.guidelines.banners.demo.buttons_number_hint" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
         }

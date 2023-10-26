@@ -20,9 +20,9 @@ struct ToolBarComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "screens.guidelines.bars.tools.title".🌐
+        title = °°"screens.guidelines.bars.tools.title"
         imageName = "Bars - tool"
-        description = "screens.guidelines.bars.tools.description".🌐
+        description = °°"screens.guidelines.bars.tools.description"
         variants = AnyView(ToolBarVariants())
     }
 }
@@ -34,7 +34,7 @@ struct ToolBarComponent: Component {
 private struct ToolBarVariants: View {
     
     var body: some View {
-        VariantEntryItem(title: "screens.guidelines.bars.tools.title".🌐, technicalElement: "odsToolBar()") {
+        VariantEntryItem(title: °°"screens.guidelines.bars.tools.title", technicalElement: "odsToolBar()") {
             ToolBarVariantHome(model: ToolBarVariantModel())
                 .navigationTitle("screens.guidelines.bars.tools.title")
         }
@@ -145,7 +145,7 @@ private struct ToolBarVariantContent: View {
             .modifier(ToolBarVariantContentModifier(model: model))
         }
         .alert(model.alertText, isPresented: $model.showAlert) {
-            Button("shared.closed", role: .cancel) {}
+            Button("shared.close", role: .cancel) {}
         }
     }
 }

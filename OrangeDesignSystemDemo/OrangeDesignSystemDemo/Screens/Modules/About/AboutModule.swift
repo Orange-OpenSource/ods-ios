@@ -55,7 +55,7 @@ struct AboutSetup: View {
                 Text("screens.modules.about.mandatory")
 
                 ODSChipPicker(
-                    title: "screens.modules.about.picker.app_section".🌐,
+                    title: °°"screens.modules.about.picker.app_section",
                     selection: $model.applicationSectionOptions,
                     allowZeroSelection: true,
                     chips: AboutModuleModel.ApplicationInformationOption.chips)
@@ -63,7 +63,7 @@ struct AboutSetup: View {
                 .padding(.horizontal, -ODSSpacing.m)
                 
                 ODSChipPicker(
-                    title: "screens.modules.about.picker.optional_about_items".🌐,
+                    title: °°"screens.modules.about.picker.optional_about_items",
                     selection: $model.optionalAboutItems,
                     allowZeroSelection: true,
                     chips: AboutModuleModel.OptionalAboutItem.chips)

@@ -11,6 +11,6 @@
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../OrangeDesignSystemDemo.xctestplan">
+      location = "group:OrangeDesignSystemDemo.xctestplan">
    </FileRef>
 </Workspace>

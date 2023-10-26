@@ -6,6 +6,7 @@
  * This software is distributed under the MIT license.
  */
 
+import OrangeDesignSystem
 import SwiftUI
 
 struct ListComponent: Component {
@@ -15,19 +16,19 @@ struct ListComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "screens.guidelines.lists.title".🌐
+        title = °°"screens.guidelines.lists.title"
         imageName = "Lists"
-        description = "screens.guidelines.lists.description".🌐
+        description = °°"screens.guidelines.lists.description"
         variants = AnyView(ListVariants())
     }
 }
 
 struct ListVariants: View {
     var body: some View {
-        VariantEntryItem(title:  "screens.guidelines.lists.variant.standard_lists".🌐, technicalElement: "ODSListItem()"){
+        VariantEntryItem(title: °°"screens.guidelines.lists.variant.standard_lists", technicalElement: "ODSListItem()"){
             ListItemStandardVariant(model: ListItemStandardVariantModel())
         }
-        VariantEntryItem(title: "screens.guidelines.lists.variant.with_selections".🌐, technicalElement: "ODSListItem()"){
+        VariantEntryItem(title: °°"screens.guidelines.lists.variant.with_selections", technicalElement: "ODSListItem()"){
             ListItemSelectionVariant(model: ListItemSelectionVariantModel())
         }        
     }

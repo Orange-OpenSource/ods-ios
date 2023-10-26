@@ -59,7 +59,7 @@ struct ColorIllustration: View {
     
     private var accessibilityLabel: String {
         let rgba = colorDescription.uiColor.rgba(colorScheme: screenState.colorScheme)
-        return "a11y.color_details".localized(with: [colorDescription.assetName, rgba.accessibilityLabel, rgba.hexa])
+        return "a11y.color_details" <- [colorDescription.assetName, rgba.accessibilityLabel, rgba.hexa]
     }
 }
 

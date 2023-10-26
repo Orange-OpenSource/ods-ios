@@ -17,9 +17,9 @@ struct AboutMyRecipeItemConfiguration: ODSAboutListItemConfig {
     var priority: OrangeDesignSystem.ODSAboutListItemPriority
     
     init() {
-        title = "screens.modules.about.titles.my_recipes".🌐
+        title = °°"screens.modules.about.titles.my_recipes"
         icon = Image("ic_folderFavourite")
         priority = 200
-        target = .destination(AnyView(Text("screens.modules.about.titles.my_recipes".🌐)))
+        target = .destination(AnyView(Text(°°"screens.modules.about.titles.my_recipes")))
     }
 }
