@@ -27,6 +27,16 @@ struct ModulesList: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                     NavigationLink {
+                        ListModule()
+                            .navigationTitle("List")
+                            .navigationbarMenuForThemeSelection()
+                    } label: {
+                        ODSCardVerticalImageFirst(
+                            title: Text("List"),
+                            imageSource: .image(imageFrom(resourceName: "Lists")))
+                    }
+
+                    NavigationLink {
                         AboutModule()
                             .navigationTitle("screens.modules.about.titles.setup")
                             .navigationbarMenuForThemeSelection()

@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [Tooling] Downgrade version of activesupport (Cocoapods issue, CI/CD troubleshooting) [#501](https://github.com/Orange-OpenSource/ods-ios/issues/501)
 - [SDK] Internationalization support [#466](https://github.com/Orange-OpenSource/ods-ios/issues/466))
 - [Tooling] Fix security issues with activesupport transitive dependency (cocoapods gem) [#495](https://github.com/Orange-OpenSource/ods-ios/issues/495)
+- [DemoApp] Show List style and Header and Footer of Sections [#416](https://github.com/Orange-OpenSource/ods-ios/issues/416))
 - [DemoApp/SDK] Update ListItem api to use SwiftUI elements [#462](https://github.com/Orange-OpenSource/ods-ios/issues/462))
 - [DemoApp/SDK] Add accessibility statement in About module [#119](https://github.com/Orange-OpenSource/ods-ios/issues/119))
 - [SDK] Update CardSmall api to use SwiftUI elements [#485](https://github.com/Orange-OpenSource/ods-ios/issues/485))

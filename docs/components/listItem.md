@@ -1,6 +1,6 @@
 ---
 layout: detail
-title: Lists
+title: List item
 description: Lists are continuous, vertical indexes of text or images.
 ---
 

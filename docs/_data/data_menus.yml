@@ -30,8 +30,8 @@ toc2:
         url: components/cards_docs
       - page: Chips
         url: components/chips_docs
-      - page: Lists
-        url: components/lists_docs
+      - page: List item
+        url: components/listItem_docs
       - page: Progress indicator
         url: components/progressIndicator_docs
       - page: Slider
@@ -45,3 +45,6 @@ toc2:
     subfolderitems:
       - page: About
         url: modules/about_docs
+      - page: List
+        url: modules/list_docs
+
