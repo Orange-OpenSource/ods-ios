@@ -13,7 +13,7 @@ LANGUAGE
 This declaration was done in this language:
 (please use proper HTML lang attribute)
 -->
-<lang>en</lang>
+<lang>fr</lang>
 
 <!-- 
 STATUS
@@ -86,7 +86,7 @@ REFERENTIAL USED
 TECHNOLOGIES USED IN THE SITE
 -->
 <technologies>
-	<technology>Swift </technology>
+	<technology>Swift 🇫🇷</technology>
 </technologies>
 
 <!--

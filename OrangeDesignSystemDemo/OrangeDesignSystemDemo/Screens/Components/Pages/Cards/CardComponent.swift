@@ -1,28 +1,17 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
+
+// ======================
+// MARK: - Card Component
+// ======================
 
 struct CardComponent: Component {
     let title: String
@@ -31,35 +20,38 @@ struct CardComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "Cards"
+        title = °°"screens.guidelines.cards.title"
         imageName = "Cards_1"
-        description = "Cards are a contained and independent element that can display content and actions on a single topic."
-        
+        description = °°"screens.guidelines.cards.description"
         variants = AnyView(CardVariants())
     }
 }
 
+// =====================
+// MARK: - Card Variants
+// =====================
+
 struct CardVariants: View {
     
     var body: some View {
-        VariantEntryItem(title: "Card Vertical Image First", technicalElement: "ODSCardVerticalImageFirst()") {
+        VariantEntryItem(title: °°"screens.guidelines.cards.variant.vertical_image_first", technicalElement: "ODSCardVerticalImageFirst()") {
             CardVerticalImageFirstVariant(model: CardVerticalImageFirstVariantModel())
-                .navigationTitle("Card Vertical Image First")
+                .navigationTitle("screens.guidelines.cards.variant.vertical_image_first")
         }
         
-        VariantEntryItem(title: "Card Vertical Header First", technicalElement: "ODSCardVerticalHeaderFirst()") {
+        VariantEntryItem(title: °°"screens.guidelines.cards.variant.vertical_header_first", technicalElement: "ODSCardVerticalHeaderFirst()") {
             CardVerticalHeaderFirstVariant(model: CardVerticalHeaderFirstVariantModel())
-                .navigationTitle("Card Vertical Header First")
+                .navigationTitle("screens.guidelines.cards.variant.vertical_header_first")
         }
 
-        VariantEntryItem(title: "Card Small", technicalElement: "ODSCardSmall") {
+        VariantEntryItem(title: °°"screens.guidelines.cards.variant.small", technicalElement: "ODSCardSmall") {
             CardSmallVariant(model: CardSmallVariantModel())
-                .navigationTitle("Card Small")
+                .navigationTitle("screens.guidelines.cards.variant.small")
         }
         
-        VariantEntryItem(title: "Card Horizontal", technicalElement: "ODSCardHorizontal") {
+        VariantEntryItem(title: °°"screens.guidelines.cards.variant.horizontal", technicalElement: "ODSCardHorizontal") {
             CardHorizontalVariant(model: CardHorizontalVariantModel())
-                .navigationTitle("Card Horizontal")
+                .navigationTitle("screens.guidelines.cards.variant.horizontal")
         }
     }
 }

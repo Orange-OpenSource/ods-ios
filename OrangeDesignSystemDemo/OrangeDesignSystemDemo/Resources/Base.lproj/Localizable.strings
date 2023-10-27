@@ -1,0 +1,338 @@
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
+
+// ========================
+// MARK: - Shared / commmon
+// ========================
+
+"shared.close" = "Close";
+"shared.guidelines" = "Guidelines";
+"shared.search" = "Search";
+"shared.actions.action" = "Action";
+"shared.actions.action_1" = "Action n°1";
+"shared.actions.action_2" = "Action n°2";
+"shared.actions.action_3" = "Action n°3";
+"shared.none" = "None";
+"shared.circle" = "Circle";
+"shared.wide" = "Wide";
+"shared.square" = "Square";
+"shared.modules" = "Modules";
+"shared.about" = "About";
+"shared.text" = "Text";
+"shared.subtitle" = "Subtitle";
+"shared.label" = "Label";
+"shared.icon" = "Icon";
+"shared.enabled" = "Enabled";
+"shared.disabled" = "Disabled";
+"shared.long_text" = "Long text";
+"shared.text_field" = "Text field";
+"shared.leading" = "Leading";
+"shared.trailing" = "Trailing";
+
+// =====================
+// MARK: - Miscellaneous
+// =====================
+
+"misc.usage" = "Usage";
+"misc.coming_soon" = "Coming soon...";
+"misc.variants" = "Variants";
+
+// =================
+// MARK: - Main View
+// =================
+
+"main_view.tabs.components" = "Components";
+
+// =======================
+// MARK: - Screens - About
+// =======================
+
+"screens.about.changelog.title" = "Changelog";
+"screens.about.design_guidelines.title" = "Design guidelines";
+"screens.about.app_information.name" = "Orange Design System Demo";
+"screens.about.app_information.description" = "In this app you'll find implemented code examples of the guidelines, components and modules, for the themes of the Orange Design System.";
+"screens.about.app_information.share.subject" = "The Orange Design System";
+"screens.about.app_information.share.description" = "Here, you will find the Orange Design System Mobile App that provides examples of design implementations";
+"screens.about.app_information.description.default" = "Add here a short description of the application.";
+"screens.about.app_information.share.subject.default" = "Add the subject of the sharing";
+"screens.about.app_information.share.description.default" = "Add the description of the sharing";
+"screens.about.app_information.option_description.version" = "Version";
+"screens.about.app_information.option_description.description" = "Description";
+"screens.about.app_information.option_description.share" = "Share";
+"screens.about.app_information.option_description.feedback" = "Feedback";
+"screens.about.app_information.option_description.app_news" = "App News";
+"screens.about.app_information.option_description.legal_information" = "Legal Information";
+"screens.about.app_information.option_description.rate" = "Rate the app";
+"screens.about.file_load_failure" = "Unable to load file %@.%@";
+"screens.about.terms_of_service" = "Terms of Service";
+"screens.about.legal_information_text.default" = "Add Legal information here";
+
+// =====================================
+// MARK: - Screens - Guidelines - Colors
+// =====================================
+
+"screens.guidelines.colors.title" = "Colour";
+"screens.guidelines.colors.description" = "It is important to use the iOS system background colours as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.";
+"screens.guidelines.colors.palette.title" = "Palette";
+"screens.guidelines.colors.color_palette.title" = "Colour palette";
+"screens.guidelines.colors.color_palette.on_light" = "Light mode";
+"screens.guidelines.colors.color_palette.on_dark" = "Dark mode";
+"screens.guidelines.colors.description.more" = "Some colours are defined with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
+
+"a11y.tap_twice_to_get_more" = "Tap twice to get more information";
+"a11y.color_details" = "asset name: %@, RGB value is %@ . Hex value is %@";
+
+// =======================================
+// MARK: - Screens - Guidelines - Spacings
+// =======================================
+
+"screens.guidelines.spacings.title" = "Spacing";
+"screens.guidelines.spacings.description" = "Spacing tokens are used to position elements on the screen and layout within components. Spacing tokens can be applied as padding and margins.";
+
+"a11y.spacings_details" = "%@, token name : %@, ratio : %@";
+
+// =========================================
+// MARK: - Screens - Guidelines - Typography
+// =========================================
+
+"screens.guidelines.typographies.title" = "Typography";
+"screens.guidelines.typographies.description" = "Apple proposes built-in text styles based on the Apple Dynamic Types and using the native typeface San Francisco for all Latin, Greek and Cyrillic alphabets. \nTo create you application you should use the following updated styles.";
+
+"a11y.typography_details" = "%@, token name is %@";
+
+// ======================================
+// MARK: - Screens - Guidelines - Banners
+// ======================================
+
+"screens.guidelines.banners.title" = "Banners";
+"screens.guidelines.banners.description" = "A banner displays an important message which requires an action to be dismissed.";
+"screens.guidelines.banners.variant.title" = "Banner";
+"screens.guidelines.banners.variant.title_demo" = "Banners demo";
+"screens.guidelines.banners.demo.long_text" = "Text could be on several lines. But, One to two lines is preferable on mobile.";
+"screens.guidelines.banners.demo.short_text" = "Short text";
+"screens.guidelines.banners.demo.toggle_image_hint" = "Image";
+"screens.guidelines.banners.demo.buttons_number_hint" = "Number of buttons: %@";
+
+// ================================================
+// MARK: - Screens - Guidelines - Bars - Navigation
+// ================================================
+
+"screens.guidelines.bars.navigation.title" = "Bars - navigation";
+"screens.guidelines.bars.navigation.description" = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.";
+"screens.guidelines.bars.navigation.button.edit" = "Edit action";
+"screens.guidelines.bars.navigation.button.share" = "Share action";
+"screens.guidelines.bars.navigation.standard_title.text" = "Title";
+"screens.guidelines.bars.navigation.large_title.text" = "Large Title";
+"screens.guidelines.bars.navigation.standard_title.hint" = "Standard";
+"screens.guidelines.bars.navigation.large_title.hint" = "Large";
+"screens.guidelines.bars.navigation.size.hint" = "Size";
+"screens.guidelines.bars.navigation.back_button.hint" = "Back button";
+"screens.guidelines.bars.navigation.action_item_count" = "Action icon count: %@";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Bars - Tabs
+// ==========================================
+
+"screens.guidelines.bars.tabs.title" = "Bars - tabs";
+"screens.guidelines.bars.tabs.description" = "A tab bar is a constantly available element which creates an overall navigation for users' experience.";
+"screens.guidelines.bars.tabs.items_stepper.hint" = "Number of items: %@";
+"screens.guidelines.bars.tabs.options_picker.hint" = "Badge options";
+"screens.guidelines.bars.tabs.item_favorite.title" = "Favorites";
+"screens.guidelines.bars.tabs.item_favorite.description" = "Favorites Content view";
+"screens.guidelines.bars.tabs.item_search.description" = "Search Content view";
+"screens.guidelines.bars.tabs.item_information.title" = "Information";
+"screens.guidelines.bars.tabs.item_information.description" = "Information Content view";
+"screens.guidelines.bars.tabs.item_notification.title" = "Notification";
+"screens.guidelines.bars.tabs.item_notification.description" = "Notification Content View";
+"screens.guidelines.bars.tabs.item_settings.title" = "Settings";
+"screens.guidelines.bars.tabs.item_settings.description" = "Settings Content View";
+"screens.guidelines.bars.tabs.badge.description.count" = "Count";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Bars - Tool
+// ==========================================
+
+"screens.guidelines.bars.tools.title" = "Bars - tools";
+"screens.guidelines.bars.tools.description" = "A toolbar allows users to do specific actions regarding the entire page. It is placed at the bottom of the screen.";
+"screens.guidelines.bars.tools.hint" = "Customize the tool bar before opening sheet to see it.";
+"screens.guidelines.bars.tools.open.hint" = "Open sheet";
+"screens.guidelines.bars.tools.close.hint" = "Close sheet";
+"screens.guidelines.bars.tools.with_labels.title" = "Tool bar with labels";
+"screens.guidelines.bars.tools.with_icons.title" = "Tool bar with icons";
+"screens.guidelines.bars.tools.alert_hint" = "%@: clicked";
+"screens.guidelines.bars.tools.picker_hint" = "Items type";
+"screens.guidelines.bars.tools.stepper_hint" = "Number of items: %@";
+
+// ======================================
+// MARK: - Screens - Guidelines - Buttons
+// ======================================
+
+"screens.guidelines.buttons.title" = "Buttons";
+"screens.guidelines.buttons.description" = "A button allows a user to perform an action or to navigate to another page. It contains a text label and a supporting icon can be displayed.";
+"screens.guidelines.buttons.variant.emphasis" = "Emphasis";
+"screens.guidelines.buttons.variant.functional" = "Functional";
+"screens.guidelines.buttons.variant.icons" = "Icons";
+"screens.guidelines.buttons.variant.description" = "Plain buttons are the most ubiquitous compoent found troughout applications. Consisting a icon, they are the most simple button style.";
+"screens.guidelines.buttons.icon_add" = "Icon (add)";
+"screens.guidelines.buttons.icon_info" = "Icon (info)";
+"screens.guidelines.buttons.variant.emphasis.description" = "High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.";
+"screens.guidelines.buttons.variant.functional.description" = "If required, colour versions can also be used to inform users of positive or negative destructive actions.";
+"screens.guidelines.buttons.styles.description.negative" = "Negative";
+"screens.guidelines.buttons.styles.description.positive" = "Positive";
+"screens.guidelines.buttons.variant.long" = "Terms and conditions";
+"screens.guidelines.toggle.full_width" = "Full width";
+
+"a11y.emphasis_button_hint" = "%@ emphasis button";
+"a11y.functional_button_hint" = "%@ functional button";
+
+// ====================================
+// MARK: - Screens - Guidelines - Cards
+// ====================================
+
+"screens.guidelines.cards.title" = "Cards";
+"screens.guidelines.cards.description" = "Cards are important components that can be used to organise and present a number of different types of related information.";
+"screens.guidelines.cards.variant.vertical_image_first" = "Card Vertical Image First";
+"screens.guidelines.cards.variant.vertical_header_first" = "Card Vertical Header First";
+"screens.guidelines.cards.variant.small" = "Card Small";
+"screens.guidelines.cards.variant.horizontal" = "Card Horizontal";
+"screens.guidelines.card.button_1" = "Button n°1";
+"screens.guidelines.card.button_2" = "Button n°2";
+"screens.guidelines.card.alert" = "Card container clicked";
+"screens.guidelines.card.alert_2" = "%@ clicked";
+"screens.guidelines.card.thumbnail" = "Thumbnail";
+"screens.guidelines.card.buttons_number" = "Number of buttons: %@";
+"screens.guidelines.card.divider" = "Divider";
+"screens.guidelines.card.picker.position" = "Image position";
+
+// ====================================
+// MARK: - Screens - Guidelines - Chips
+// ====================================
+
+"screens.guidelines.chips.title" = "Chips";
+"screens.guidelines.chips.description" = "Chips are small components containing a number of elements that represent a calendar event or contact.";
+"screens.guidelines.chips.text_only" = "Text only";
+"screens.guidelines.chips.with_icon" = "With icon from image";
+"screens.guidelines.chips.with_system_icon" = "With system icon";
+"screens.guidelines.chips.with_avatar" = "With avatar";
+"screens.guidelines.chips.state.enable" = "Enable";
+"screens.guidelines.chips.state.selected" = "Selected";
+
+// ====================================
+// MARK: - Screens - Guidelines - Lists
+// ====================================
+
+"screens.guidelines.lists.title" = "Lists";
+"screens.guidelines.lists.description" = "A list is a continuous vertical group of data entries like text, icons or images.";
+"screens.guidelines.lists.variant.with_selections" = "List with selection";
+"screens.guidelines.lists.variant.standard_lists" = "Standard lists";
+"screens.guidelines.lists.picker.navigate" = "Navigate";
+"screens.guidelines.lists.selection.description.checkmark" = "checkmark";
+"screens.guidelines.lists.selection.description.switch" = "Switch";
+"screens.guidelines.lists.variant.clicked" = "%@ is clicked";
+"screens.guidelines.lists.alert" = "Information icon tapped! Bon appétit";
+"screens.guidelines.lists.options.description.info_button" = "Info button";
+"screens.guidelines.list.details" = "Details";
+
+// ==================================================
+// MARK: - Screens - Guidelines - Progress indicators
+// ==================================================
+
+"screens.guidelines.progress_indicators.title" = "Progress indicators";
+"screens.guidelines.progress_indicators.description" = "Progress bar and activity indicator are used when a process is taking place to illustrate progress and to reassure users that something is happening, and if possible, how long it will take.";
+"screens.guidelines.progress_indicators.progress_bar.title" = "Progress bar demo";
+"screens.guidelines.progress_indicators.activity_bar.title" = "Progress bar demo";
+"screens.guidelines.progress_indicators.downloading" = "Downloading...";
+"screens.guidelines.progress_indicators.x_percent" = "%@ %%";
+"screens.guidelines.progress_indicators.toggle.label" = "Label";
+"screens.guidelines.progress_indicators.toggle.current_value" = "Current value";
+"screens.guidelines.progress_indicators.toggle.loading" = "Loading...";
+
+// ============================================
+// MARK: - Screens - Guidelines - Bottom Sheets
+// ============================================
+
+"screens.guidelines.bottom_sheets.title" = "Sheets: Bottom";
+"screens.guidelines.bottom_sheets.description" = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task.";
+"screens.guidelines.bottom_sheets.expanding" = "Expanding";
+"screens.guidelines.bottom_sheets.standard" = "Standard";
+"screens.guidelines.bottom_sheets.sample.title" = "Sheets: Bottom";
+"screens.guidelines.bottom_sheets.sample.subtitle" = "French products";
+"screens.guidelines.bottom_sheets.sample.recipe" = "Recipe";
+"screens.guidelines.bottom_sheets.sample.start_preparing" = "Start preparing";
+"screens.guidelines.bottom_sheets.sample.open_small" = "To open the bottom sheet:\nDrag the component up";
+"screens.guidelines.bottom_sheets.sample.open_medium" = "To open or close the bottom sheet: Drag the handle up or down\nScroll the content\nTap the dimming area";
+"screens.guidelines.bottom_sheets.sample.open_large" = "To close the bottom sheet:\nDrag the handle down\nScroll the content\nTap the dimming area";
+"screens.guidelines.bottom_sheets.variant.customize" = "Customize the bottom sheet before opening sheet to see it.";
+"screens.guidelines.bottom_sheets.variant.see" = "See the component";
+"screens.guidelines.bottom_sheets.variant.selection" = "Sheet: Bottom %@";
+"screens.guidelines.bottom_sheets.variant.detent" = "Detent";
+"screens.guidelines.bottom_sheets.variant.content" = "Content";
+"screens.guidelines.bottom_sheets.size.small" = "Small";
+"screens.guidelines.bottom_sheets.size.medium" = "Medium";
+"screens.guidelines.bottom_sheets.size.large" = "Large";
+"screens.guidelines.bottom_sheets.size.hidden" = "Hidden";
+
+// ======================================
+// MARK: - Screens - Guidelines - Sliders
+// ======================================
+
+"screens.guidelines.sliders.title" = "Sliders";
+"screens.guidelines.sliders.description" = "Sliders enable the user to set a value by moving the slider thumb. The lowest value is always on the left. Sliders can be either continuous or discrete, where the slider thumb snaps to evenly spaced tick marks along the slider rail.";
+"screens.guidelines.sliders.slider.title" = "Sliders demo";
+"screens.guidelines.sliders.sample.volume" = "Volume";
+"screens.guidelines.sliders.sample.side_icons" = "Side icons";
+"screens.guidelines.sliders.sample.display_value" = "Display value";
+"screens.guidelines.sliders.sample.stepped" = "Stepped (0.5)";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Text Fields
+// ==========================================
+
+"screens.guidelines.textfields.description" = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.";
+"screens.guidelines.textfields.variants.secure" = "Secure text field";
+"screens.guidelines.textfields.variants.editor" = "Text editor";
+"screens.guidelines.textfields.variants.secure.hint" = "Secure text to edit";
+"screens.guidelines.textfields.variants.inputs.never" = "Never";
+"screens.guidelines.textfields.variants.inputs.characters" = "Characters";
+"screens.guidelines.textfields.variants.inputs.words" = "Words";
+"screens.guidelines.textfields.variants.inputs.sentences" = "Sentences";
+"screens.guidelines.textfields.variants.inputs.default.default" = "text to edit.";
+"screens.guidelines.textfields.variants.inputs.default.sentences" = "Text to edit";
+"screens.guidelines.textfields.variants.inputs.options.capitalization" = "Capitalization";
+
+// =================================
+// MARK: - Screens - Modules - About
+// =================================
+
+"screens.modules.about.titles.setup" = "About: Setup";
+"screens.modules.about.titles.card_collections" = "Card collections";
+"screens.modules.about.description" = "An « About » screen should be displayed in all Orange applications to show the application name, software version as wall as all legal data protection, privacy, terms of service and accessibility statement.";
+"screens.modules.about.customize" = "Customize module";
+"screens.modules.about.mandatory" = "Some items such as: illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components:";
+"screens.modules.about.picker.app_section" = "Application section";
+"screens.modules.about.picker.optional_about_items" = "Optional about items";
+"screens.modules.about.picker.custom_items" = "Custom items: %@";
+"screens.modules.about.buttons.view_demo" = "View demo";
+"screens.modules.about.alert.feedback_clicked" = "Feedback clicked";
+"screens.modules.about.texts.add_cgu" = "Add terms of service here";
+"screens.modules.about.titles.my_review" = "My reviews";
+"screens.modules.about.titles.my_recipes" = "My recipes";
+
+// ============================================
+// MARK: - Screens - Modules - Card collections
+// ============================================
+
+"screens.modules.card_collections.titles.list" = "List of cards";
+"screens.modules.card_collections.titles.grid" = "Grid of small cards";
+"screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
+
+// =======================================
+// MARK: - Screens - Components - Template
+// =======================================
+
+"screens.components.template.customize" = "Customize";

@@ -1,25 +1,10 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
@@ -32,24 +17,25 @@ struct BottomSheetComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "Sheets: Bottom"
+        title = °°"screens.guidelines.bottom_sheets.title"
         imageName = "BottomSheet"
-        description = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task."
+        description = °°"screens.guidelines.bottom_sheets.description"
         variants = AnyView(BottomSheetVariants())
     }
 }
 
 struct BottomSheetVariants: View {
     var body: some View {
-        VariantEntryItem(title: "Expanding", technicalElement: ".odsBottomSheetExpanding()") {
+        
+        VariantEntryItem(title: °°"screens.guidelines.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
             ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
-                .navigationTitle("Expanding")
+                .navigationTitle("screens.guidelines.bottom_sheets.expanding")
             
         }
         
-        VariantEntryItem(title: "Standard", technicalElement: ".odsBottomSheetStandard()") {
+        VariantEntryItem(title: °°"screens.guidelines.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
             StandardBottomSheetVariant()
-                .navigationTitle("Standard")
+                .navigationTitle("screens.guidelines.bottom_sheets.standard")
         }
     }
 }

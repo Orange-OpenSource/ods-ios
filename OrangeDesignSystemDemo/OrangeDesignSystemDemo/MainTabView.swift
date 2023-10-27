@@ -1,25 +1,10 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
@@ -30,19 +15,19 @@ struct MainTabView: View {
         TabView {
             GuidelinesList()
                 .tabItem {
-                    Label("Guidelines", image: "Guideline-DNA_32")
+                    Label(°°"shared.guidelines", image: "Guideline-DNA_32")
                 }
             ComponentsList()
                 .tabItem {
-                    Label("Components", image: "component-atom_32")
+                    Label(°°"main_view.tabs.components", image: "component-atom_32")
                 }
             ModulesList()
                 .tabItem {
-                    Label("Modules", image: "Module-molecule_32")
+                    Label(°°"shared.modules", image: "Module-molecule_32")
                 }
             AboutScreen()
                 .tabItem {
-                    Label("About", image: "info_32")
+                    Label(°°"shared.about", image: "info_32")
                 }
         }
     }

@@ -1,0 +1,26 @@
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
+
+// ====================
+// MARK: - About module
+// ====================
+
+"modules.about.title" = "About";
+"modules.about.share" = "Share";
+"modules.about.feedback" = "Feedback";
+"modules.about.app_information.full_version_text" = "Version %@";
+"modules.about.app_information.full_enriched_version_text" = "Version %@ (build %@)";
+"modules.about.app_news.title" = "App News";
+"modules.about.privacy_policy.title" = "Privacy Policy";
+"modules.about.terms_of_service.title" = "Terms of Service";
+"modules.about.accessibility_statement.title" = "Accessibility Statement";
+"modules.about.legal_information.title" = "Legal information";
+"modules.about.rate.title" = "Rate this app";
+"modules.about.copyright" = "Orange property. All rights reserved";
+"modules.about.app_news.no_news" = "No App news found in file";
+"modules.about.more_apps.more" = "More Apps will be here";

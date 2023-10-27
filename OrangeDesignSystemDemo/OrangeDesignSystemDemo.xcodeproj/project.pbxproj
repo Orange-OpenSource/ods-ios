@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		075326852AD45610003D8832 /* GrifOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GrifOfSmallCards.swift */; };
+		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
-		076B79072AC1B4A800CCF0E4 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */; };
 		077B673C2AE1500F0008C32B /* LeadingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B673B2AE1500F0008C32B /* LeadingOption.swift */; };
 		077C37CF2A9DD643003D6B51 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CA2A9DD643003D6B51 /* Colors.xcassets */; };
 		077C37D32A9DD643003D6B51 /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CE2A9DD643003D6B51 /* Recipes.json */; };
 		077C37D72A9DD6A4003D6B51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37D62A9DD6A3003D6B51 /* Preview Assets.xcassets */; };
-		077C37E32A9DDACC003D6B51 /* PrivacyNotice.html in Resources */ = {isa = PBXBuildFile; fileRef = 077C37E12A9DDACC003D6B51 /* PrivacyNotice.html */; };
-		077C37E42A9DDACC003D6B51 /* CGU.html in Resources */ = {isa = PBXBuildFile; fileRef = 077C37E22A9DDACC003D6B51 /* CGU.html */; };
 		077C37E62A9DDC1A003D6B51 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37E52A9DDC1A003D6B51 /* MainTabView.swift */; };
 		077C38482A9DDC79003D6B51 /* AboutSceen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37EB2A9DDC78003D6B51 /* AboutSceen.swift */; };
 		077C38492A9DDC79003D6B51 /* AboutHtmlAndMarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37EC2A9DDC78003D6B51 /* AboutHtmlAndMarkdownView.swift */; };
@@ -45,7 +42,7 @@
 		077C38672A9DDC79003D6B51 /* ToolBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38162A9DDC79003D6B51 /* ToolBarComponent.swift */; };
 		077C38682A9DDC79003D6B51 /* TabBarVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38182A9DDC79003D6B51 /* TabBarVariant.swift */; };
 		077C38692A9DDC79003D6B51 /* TabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38192A9DDC79003D6B51 /* TabBarComponent.swift */; };
-		077C386A2A9DDC79003D6B51 /* NavigatinBarModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381B2A9DDC79003D6B51 /* NavigatinBarModifiers.swift */; };
+		077C386A2A9DDC79003D6B51 /* NavigationBarModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381B2A9DDC79003D6B51 /* NavigationBarModifiers.swift */; };
 		077C386B2A9DDC79003D6B51 /* NavigationBarVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381C2A9DDC79003D6B51 /* NavigationBarVariant.swift */; };
 		077C386C2A9DDC79003D6B51 /* NavigationBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381D2A9DDC79003D6B51 /* NavigationBarComponent.swift */; };
 		077C386D2A9DDC79003D6B51 /* BannerVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C381F2A9DDC79003D6B51 /* BannerVariantOptions.swift */; };
@@ -76,8 +73,7 @@
 		077C38862A9DDC79003D6B51 /* AboutModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38452A9DDC79003D6B51 /* AboutModuleModel.swift */; };
 		077C38872A9DDC79003D6B51 /* ModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38462A9DDC79003D6B51 /* ModulesList.swift */; };
 		077C38882A9DDC79003D6B51 /* CardViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38472A9DDC79003D6B51 /* CardViewDemo.swift */; };
-		077C388B2A9DEE16003D6B51 /* AppNews.json in Resources */ = {isa = PBXBuildFile; fileRef = 077C388A2A9DEE16003D6B51 /* AppNews.json */; };
-		077C38972A9DEEDC003D6B51 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C388D2A9DEEDB003D6B51 /* Bundle+Extension.swift */; };
+		077C38972A9DEEDC003D6B51 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C388D2A9DEEDB003D6B51 /* Bundle+extension.swift */; };
 		077C38982A9DEEDC003D6B51 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C388E2A9DEEDB003D6B51 /* ToastView.swift */; };
 		077C38992A9DEEDC003D6B51 /* BackgroundBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C388F2A9DEEDB003D6B51 /* BackgroundBlurView.swift */; };
 		077C389A2A9DEEDC003D6B51 /* RecipeBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38912A9DEEDB003D6B51 /* RecipeBookModel.swift */; };
@@ -87,20 +83,27 @@
 		077C389E2A9DEEDC003D6B51 /* ThemeablePreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38962A9DEEDC003D6B51 /* ThemeablePreviews.swift */; };
 		077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 		077C38A52AA215BC003D6B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CB2A9DD643003D6B51 /* Assets.xcassets */; };
-		079DDC012AE2D2FE0073A542 /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
-		079DDC022AE2D2FE0073A542 /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
-		079DDC032AE2D2FE0073A542 /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
 		079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
 		07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */; };
-		07B94DEB2AD9239700AAD1A5 /* ListItemVaraintStandardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemVaraintStandardModel.swift */; };
+		07B94DEB2AD9239700AAD1A5 /* ListItemVariantStandardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */; };
 		07B94E0B2AD98D7900AAD1A5 /* ListItemStandardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */; };
 		07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */; };
 		07B94E0E2AD9904900AAD1A5 /* ListItemVaraintSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */; };
 		07B94E0F2AD9908300AAD1A5 /* ListItemSelectionVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */; };
+		5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5602AE11BDD00D4D01F /* AppNews.json */; };
+		5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5642AE1209A00D4D01F /* PrivacyNotice.html */; };
+		5107F56A2AE1220900D4D01F /* CGU.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F56C2AE1220900D4D01F /* CGU.html */; };
+		5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
+		5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
+		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
+		51C776932AE1512200FD0AED /* DateFormatterCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */; };
+		51C776952AE1551600FD0AED /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776942AE1551600FD0AED /* CacheTests.swift */; };
+		51F2E6D52AE6AC2B00377A07 /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */; };
+		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */; };
-		F99FF08C2767B23E006236A0 /* OrangeDesignSystemDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */; };
+		F99FF08C2767B23E006236A0 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08A2767B226006236A0 /* DateFormatterTests.swift */; };
 		F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */; };
 		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -131,9 +134,8 @@
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		07210C4C2A8FAD5900507988 /* Pluginfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pluginfile; path = fastlane/Pluginfile; sourceTree = "<group>"; };
-		075326832AD45610003D8832 /* GrifOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrifOfSmallCards.swift; sourceTree = "<group>"; };
+		075326832AD45610003D8832 /* GridOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridOfSmallCards.swift; sourceTree = "<group>"; };
 		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
-		076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AccessibilityStatement.xml; sourceTree = "<group>"; };
 		077B673B2AE1500F0008C32B /* LeadingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingOption.swift; sourceTree = "<group>"; };
 		077C37C12A9CED34003D6B51 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Gemfile; path = ../Gemfile; sourceTree = "<group>"; };
 		077C37C22A9CED5E003D6B51 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitattributes; path = ../.gitattributes; sourceTree = "<group>"; };
@@ -145,8 +147,6 @@
 		077C37CC2A9DD643003D6B51 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = OrangeDesignSystemDemo/Resources/Info.plist; sourceTree = "<group>"; };
 		077C37CE2A9DD643003D6B51 /* Recipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Recipes.json; path = OrangeDesignSystemDemo/Resources/Recipes.json; sourceTree = "<group>"; };
 		077C37D62A9DD6A3003D6B51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		077C37E12A9DDACC003D6B51 /* PrivacyNotice.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = PrivacyNotice.html; path = OrangeDesignSystemDemo/Resources/PrivacyNotice.html; sourceTree = "<group>"; };
-		077C37E22A9DDACC003D6B51 /* CGU.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = CGU.html; path = OrangeDesignSystemDemo/Resources/CGU.html; sourceTree = "<group>"; };
 		077C37E52A9DDC1A003D6B51 /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabView.swift; path = OrangeDesignSystemDemo/MainTabView.swift; sourceTree = "<group>"; };
 		077C37EB2A9DDC78003D6B51 /* AboutSceen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutSceen.swift; sourceTree = "<group>"; };
 		077C37EC2A9DDC78003D6B51 /* AboutHtmlAndMarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutHtmlAndMarkdownView.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		077C38162A9DDC79003D6B51 /* ToolBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarComponent.swift; sourceTree = "<group>"; };
 		077C38182A9DDC79003D6B51 /* TabBarVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVariant.swift; sourceTree = "<group>"; };
 		077C38192A9DDC79003D6B51 /* TabBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarComponent.swift; sourceTree = "<group>"; };
-		077C381B2A9DDC79003D6B51 /* NavigatinBarModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatinBarModifiers.swift; sourceTree = "<group>"; };
+		077C381B2A9DDC79003D6B51 /* NavigationBarModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarModifiers.swift; sourceTree = "<group>"; };
 		077C381C2A9DDC79003D6B51 /* NavigationBarVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarVariant.swift; sourceTree = "<group>"; };
 		077C381D2A9DDC79003D6B51 /* NavigationBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarComponent.swift; sourceTree = "<group>"; };
 		077C381F2A9DDC79003D6B51 /* BannerVariantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerVariantOptions.swift; sourceTree = "<group>"; };
@@ -207,8 +207,7 @@
 		077C38452A9DDC79003D6B51 /* AboutModuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutModuleModel.swift; sourceTree = "<group>"; };
 		077C38462A9DDC79003D6B51 /* ModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModulesList.swift; sourceTree = "<group>"; };
 		077C38472A9DDC79003D6B51 /* CardViewDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewDemo.swift; sourceTree = "<group>"; };
-		077C388A2A9DEE16003D6B51 /* AppNews.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AppNews.json; path = OrangeDesignSystemDemo/Resources/AppNews.json; sourceTree = "<group>"; };
-		077C388D2A9DEEDB003D6B51 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		077C388D2A9DEEDB003D6B51 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
 		077C388E2A9DEEDB003D6B51 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		077C388F2A9DEEDB003D6B51 /* BackgroundBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlurView.swift; sourceTree = "<group>"; };
 		077C38912A9DEEDB003D6B51 /* RecipeBookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBookModel.swift; sourceTree = "<group>"; };
@@ -221,12 +220,21 @@
 		07B030592AB0B454001764E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		07B0305A2AB0B4A9001764E7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
 		07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariantOptions.swift; sourceTree = "<group>"; };
-		07B94DE92AD9239700AAD1A5 /* ListItemVaraintStandardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemVaraintStandardModel.swift; sourceTree = "<group>"; };
+		07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemVariantStandardModel.swift; sourceTree = "<group>"; };
 		07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariant.swift; sourceTree = "<group>"; };
 		07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantOptions.swift; sourceTree = "<group>"; };
 		07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariant.swift; sourceTree = "<group>"; };
 		07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemVaraintSelectionModel.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		51664B4C2AEADEEE00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/AppNews.json; sourceTree = "<group>"; };
+		51664B4D2AEADEF600E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/CGU.html; sourceTree = "<group>"; };
+		51664B4E2AEADEFC00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
+		5166FE852AE9669A0038A4AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = OrangeDesignSystemDemo/Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterCacheTests.swift; path = OrangeDesignSystemDemoTests/DateFormatterCacheTests.swift; sourceTree = "<group>"; };
+		51C776942AE1551600FD0AED /* CacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheTests.swift; path = OrangeDesignSystemDemoTests/CacheTests.swift; sourceTree = "<group>"; };
+		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = OrangeDesignSystemDemo/Resources/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringLocalizationTests.swift; path = OrangeDesignSystemDemoTests/StringLocalizationTests.swift; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B655A0B148F11BB69BCFF556 /* Pods-OrangeDesignSystemDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,7 +243,7 @@
 		EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F913B85F2767969E001CB0AA /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemApp.swift; path = OrangeDesignSystemDemo/OrangeDesignSystemApp.swift; sourceTree = "<group>"; };
-		F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoTests.swift; path = OrangeDesignSystemDemoTests/OrangeDesignSystemDemoTests.swift; sourceTree = "<group>"; };
+		F99FF08A2767B226006236A0 /* DateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterTests.swift; path = OrangeDesignSystemDemoTests/DateFormatterTests.swift; sourceTree = "<group>"; };
 		F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITestsLaunchTests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITests.swift; sourceTree = "<group>"; };
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,9 +256,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				079DDC032AE2D2FE0073A542 /* OrangeTheme in Frameworks */,
-				079DDC022AE2D2FE0073A542 /* OrangeDesignSystem in Frameworks */,
-				079DDC012AE2D2FE0073A542 /* InnovationCupTheme in Frameworks */,
+				5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */,
+				5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */,
+				5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */,
 				07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,7 +310,7 @@
 		0753267E2AD00137003D8832 /* CardListAndCollection */ = {
 			isa = PBXGroup;
 			children = (
-				075326832AD45610003D8832 /* GrifOfSmallCards.swift */,
+				075326832AD45610003D8832 /* GridOfSmallCards.swift */,
 				075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */,
 				077C38472A9DDC79003D6B51 /* CardViewDemo.swift */,
 			);
@@ -324,15 +332,15 @@
 		077C37C92A9DD5FF003D6B51 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				513876902ADD624B00AE53DF /* Localizable.strings */,
 				077C37D52A9DD6A3003D6B51 /* Preview Content */,
 				077C37CB2A9DD643003D6B51 /* Assets.xcassets */,
 				077C37CA2A9DD643003D6B51 /* Colors.xcassets */,
 				077C37CC2A9DD643003D6B51 /* Info.plist */,
-				076B79062AC1B4A800CCF0E4 /* AccessibilityStatement.xml */,
 				077C37CE2A9DD643003D6B51 /* Recipes.json */,
-				077C388A2A9DEE16003D6B51 /* AppNews.json */,
-				077C37E22A9DDACC003D6B51 /* CGU.html */,
-				077C37E12A9DDACC003D6B51 /* PrivacyNotice.html */,
+				5107F5602AE11BDD00D4D01F /* AppNews.json */,
+				5107F56C2AE1220900D4D01F /* CGU.html */,
+				5107F5642AE1209A00D4D01F /* PrivacyNotice.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -488,7 +496,7 @@
 		077C381A2A9DDC79003D6B51 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				077C381B2A9DDC79003D6B51 /* NavigatinBarModifiers.swift */,
+				077C381B2A9DDC79003D6B51 /* NavigationBarModifiers.swift */,
 				077C381C2A9DDC79003D6B51 /* NavigationBarVariant.swift */,
 				077C381D2A9DDC79003D6B51 /* NavigationBarComponent.swift */,
 			);
@@ -652,7 +660,7 @@
 			isa = PBXGroup;
 			children = (
 				077C38A12A9E2512003D6B51 /* Recipes */,
-				077C388D2A9DEEDB003D6B51 /* Bundle+Extension.swift */,
+				077C388D2A9DEEDB003D6B51 /* Bundle+extension.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -702,7 +710,7 @@
 			children = (
 				07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */,
 				07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */,
-				07B94DE92AD9239700AAD1A5 /* ListItemVaraintStandardModel.swift */,
+				07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */,
 			);
 			path = StandardVariant;
 			sourceTree = "<group>";
@@ -725,6 +733,25 @@
 				E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51C776902AE14F5F00FD0AED /* OrangeDesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				51C776912AE14F6900FD0AED /* Utils */,
+			);
+			name = OrangeDesignSystem;
+			sourceTree = "<group>";
+		};
+		51C776912AE14F6900FD0AED /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F99FF08A2767B226006236A0 /* DateFormatterTests.swift */,
+				51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */,
+				51C776942AE1551600FD0AED /* CacheTests.swift */,
+				51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		5DEE13EE0B42A31B2EDDB804 /* Pods */ = {
@@ -786,7 +813,7 @@
 		F99FF0892767B20C006236A0 /* OrangeDesignSystemDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				F99FF08A2767B226006236A0 /* OrangeDesignSystemDemoTests.swift */,
+				51C776902AE14F5F00FD0AED /* OrangeDesignSystem */,
 			);
 			name = OrangeDesignSystemDemoTests;
 			sourceTree = "<group>";
@@ -892,11 +919,12 @@
 			};
 			buildConfigurationList = EB0AA52B275652AE0012E192 /* Build configuration list for PBXProject "OrangeDesignSystemDemo" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				fr,
 				Base,
+				en,
 			);
 			mainGroup = EB0AA527275652AE0012E192;
 			packageReferences = (
@@ -917,13 +945,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				077C388B2A9DEE16003D6B51 /* AppNews.json in Resources */,
-				077C37E32A9DDACC003D6B51 /* PrivacyNotice.html in Resources */,
+				51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */,
+				5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */,
+				5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */,
 				077C37D32A9DD643003D6B51 /* Recipes.json in Resources */,
 				077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */,
 				077C37D72A9DD6A4003D6B51 /* Preview Assets.xcassets in Resources */,
-				077C37E42A9DDACC003D6B51 /* CGU.html in Resources */,
-				076B79072AC1B4A800CCF0E4 /* AccessibilityStatement.xml in Resources */,
+				5107F56A2AE1220900D4D01F /* CGU.html in Resources */,
 				077C38A52AA215BC003D6B51 /* Assets.xcassets in Resources */,
 				077C37CF2A9DD643003D6B51 /* Colors.xcassets in Resources */,
 			);
@@ -1053,7 +1081,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075326852AD45610003D8832 /* GrifOfSmallCards.swift in Sources */,
+				075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */,
 				077C384F2A9DDC79003D6B51 /* IconVariant.swift in Sources */,
 				077C38522A9DDC79003D6B51 /* SecureVariant.swift in Sources */,
 				077C38642A9DDC79003D6B51 /* CardSmallVariant.swift in Sources */,
@@ -1061,7 +1089,7 @@
 				077C38662A9DDC79003D6B51 /* ToolBarVariantOptions.swift in Sources */,
 				077C38652A9DDC79003D6B51 /* CardComponent.swift in Sources */,
 				077C385B2A9DDC79003D6B51 /* ProgressBarVariant.swift in Sources */,
-				07B94DEB2AD9239700AAD1A5 /* ListItemVaraintStandardModel.swift in Sources */,
+				07B94DEB2AD9239700AAD1A5 /* ListItemVariantStandardModel.swift in Sources */,
 				077C38862A9DDC79003D6B51 /* AboutModuleModel.swift in Sources */,
 				077C387C2A9DDC79003D6B51 /* ColorIllustration.swift in Sources */,
 				077C38782A9DDC79003D6B51 /* ColorsPage.swift in Sources */,
@@ -1078,7 +1106,7 @@
 				075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */,
 				077C38762A9DDC79003D6B51 /* GuidelinePage.swift in Sources */,
 				077C38752A9DDC79003D6B51 /* Guideline.swift in Sources */,
-				077C386A2A9DDC79003D6B51 /* NavigatinBarModifiers.swift in Sources */,
+				077C386A2A9DDC79003D6B51 /* NavigationBarModifiers.swift in Sources */,
 				077C387B2A9DDC79003D6B51 /* ColorDetail.swift in Sources */,
 				077C386B2A9DDC79003D6B51 /* NavigationBarVariant.swift in Sources */,
 				07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */,
@@ -1096,7 +1124,7 @@
 				079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */,
 				077C38802A9DDC79003D6B51 /* TypographyPage.swift in Sources */,
 				077C38832A9DDC79003D6B51 /* AboutMyRecipeItemConfiguration.swift in Sources */,
-				077C38972A9DEEDC003D6B51 /* Bundle+Extension.swift in Sources */,
+				077C38972A9DEEDC003D6B51 /* Bundle+extension.swift in Sources */,
 				077C38532A9DDC79003D6B51 /* TextFieldComponent.swift in Sources */,
 				077C38872A9DDC79003D6B51 /* ModulesList.swift in Sources */,
 				077C38712A9DDC79003D6B51 /* BottomSheetStandardVariant.swift in Sources */,
@@ -1139,7 +1167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F99FF08C2767B23E006236A0 /* OrangeDesignSystemDemoTests.swift in Sources */,
+				F99FF08C2767B23E006236A0 /* DateFormatterTests.swift in Sources */,
+				51F2E6D52AE6AC2B00377A07 /* StringLocalizationTests.swift in Sources */,
+				51C776952AE1551600FD0AED /* CacheTests.swift in Sources */,
+				51C776932AE1512200FD0AED /* DateFormatterCacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1167,11 +1198,52 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		5107F5602AE11BDD00D4D01F /* AppNews.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51664B4C2AEADEEE00E92F83 /* Base */,
+			);
+			name = AppNews.json;
+			path = OrangeDesignSystemDemo/Resources;
+			sourceTree = "<group>";
+		};
+		5107F5642AE1209A00D4D01F /* PrivacyNotice.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51664B4E2AEADEFC00E92F83 /* Base */,
+			);
+			name = PrivacyNotice.html;
+			path = OrangeDesignSystemDemo/Resources;
+			sourceTree = "<group>";
+		};
+		5107F56C2AE1220900D4D01F /* CGU.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51664B4D2AEADEF600E92F83 /* Base */,
+			);
+			name = CGU.html;
+			path = OrangeDesignSystemDemo/Resources;
+			sourceTree = "<group>";
+		};
+		513876902ADD624B00AE53DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513876912ADD62A000AE53DF /* fr */,
+				51F058B62AE8083500B1F690 /* Base */,
+				5166FE852AE9669A0038A4AE /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		EB0AA552275652AF0012E192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1234,6 +1306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1293,6 +1366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1652713510;
 				DEVELOPMENT_ASSET_PATHS = "\"OrangeDesignSystemDemo/Resources/Preview Content\"";
@@ -1314,6 +1388,7 @@
 				MARKETING_VERSION = 0.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1328,10 +1403,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconRelease;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1652713510;
 				DEVELOPMENT_ASSET_PATHS = "\"OrangeDesignSystemDemo/Resources/Preview Content\"";
-				DEVELOPMENT_TEAM = MG2LSJNJB6;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MG2LSJNJB6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrangeDesignSystemDemo/Resources/Info.plist;
@@ -1349,6 +1426,8 @@
 				MARKETING_VERSION = 0.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "ods-demo-app-appstore-qualif";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

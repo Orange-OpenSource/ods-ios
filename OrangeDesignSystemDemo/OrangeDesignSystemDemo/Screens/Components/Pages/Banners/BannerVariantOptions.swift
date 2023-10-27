@@ -1,25 +1,10 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
@@ -34,7 +19,8 @@ class BannerVariantModel: ObservableObject {
     @Published var showImage: Bool
     @Published var buttonCount: Int
     
-    let buttonsText = ["Action 1", "Action 2"]
+    let buttonsText = [°°"shared.actions.action_1",
+                       °°"shared.actions.action_2"]
 
     // =================
     // MARK: Initializer
@@ -51,8 +37,8 @@ class BannerVariantModel: ObservableObject {
     // =============
 
     var text: Text {
-        let longText = "Text could be on several lines. But, One to two lines is preferable on mobile."
-        let shortText = "Short text"
+        let longText = °°"screens.guidelines.banners.demo.long_text"
+        let shortText = °°"screens.guidelines.banners.demo.short_text"
         
         return Text(showLongText ? longText : shortText)
     }
@@ -68,7 +54,7 @@ class BannerVariantModel: ObservableObject {
     }
     
     var buttonText: String {
-        "Action"
+        °°"shared.actions.action"
     }
     
     var firstButtonText: String {
@@ -98,9 +84,9 @@ struct BannerVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("Long Text", isOn: $model.showLongText)
-            Toggle("Image", isOn: $model.showImage)
-            Stepper("Number of buttons: \(model.buttonCount)",
+            Toggle("shared.long_text", isOn: $model.showLongText)
+            Toggle("screens.guidelines.banners.demo.toggle_image_hint", isOn: $model.showImage)
+            Stepper("screens.guidelines.banners.demo.buttons_number_hint" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
         }

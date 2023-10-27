@@ -1,25 +1,10 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
@@ -53,9 +38,9 @@ struct NavigationBarVariantContent: View {
     private var title: String {
         switch model.titleSize {
         case .standard:
-            return "Title"
-        case.large:
-            return "Large Title"
+            return °°"screens.guidelines.bars.navigation.standard_title.text"
+        case .large:
+            return °°"screens.guidelines.bars.navigation.large_title.text"
         }
     }
 }
@@ -83,8 +68,8 @@ class NavigationBarVariantModel: ObservableObject {
         showBackButton = true
         actions = [
             Action.showThemeSelection,
-            Action.showAlert(iconName: "square.and.pencil", actionText: "Edit action"),
-            Action.showAlert(iconName: "square.and.arrow.up", actionText: "Share action"),
+            Action.showAlert(iconName: "square.and.pencil", actionText: °°"screens.guidelines.bars.navigation.button.edit"),
+            Action.showAlert(iconName: "square.and.arrow.up", actionText: °°"screens.guidelines.bars.navigation.button.share"),
         ]
     }
 
@@ -117,8 +102,8 @@ class NavigationBarVariantModel: ObservableObject {
 
         var description: String {
             switch self {
-            case .standard: return "Standard"
-            case .large: return "Large"
+            case .standard: return °°"screens.guidelines.bars.navigation.standard_title.hint"
+            case .large: return °°"screens.guidelines.bars.navigation.large_title.hint"
             }
         }
 
@@ -160,17 +145,17 @@ struct NavigationBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: "Size",
+            ODSChipPicker(title: °°"screens.guidelines.bars.navigation.size.hint",
                           selection: $model.titleSize,
                           chips: NavigationBarVariantModel.TitleSize.chips)
             Group {
-                Toggle("Back button", isOn: $model.showBackButton)
+                Toggle("screens.guidelines.bars.navigation.back_button.hint", isOn: $model.showBackButton)
 
-                Stepper("Action icon count: \(model.actionIconCount)",
+                Stepper("screens.guidelines.bars.navigation.action_item_count" <- "\(model.actionIconCount)",
                         value: $model.actionIconCount,
                         in: 0 ... model.numberOfActions)
 
-                Toggle("Search", isOn: $model.showSearch)
+                Toggle("shared.search", isOn: $model.showSearch)
             }
             .padding(.horizontal, ODSSpacing.m)
             .odsFont(.bodyBold)
