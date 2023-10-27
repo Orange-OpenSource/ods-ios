@@ -1,34 +1,23 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
 
+// =======================
+// MARK: - Tab Bar Variant
+// =======================
+
 struct TabBarVariant: View {
 
-    // ======================
-    // MARK: Store properties
-    // ======================
+    // ================
+    // MARK: Properties
+    // ================
 
     @ObservedObject var model: TabBarVariantModel
     @State var spacerHeight: CGFloat
@@ -36,10 +25,10 @@ struct TabBarVariant: View {
     // =================
     // MARK: Initializer
     // =================
+    
     init(model: TabBarVariantModel) {
         self.model = model
-        self.spacerHeight = Self.computeSpacerHeight()
-        
+        spacerHeight = Self.computeSpacerHeight()
     }
     
     private static func computeSpacerHeight() -> CGFloat {
@@ -89,6 +78,10 @@ struct TabBarVariant: View {
     }
 }
 
+// ======================
+// MARK: - Badge Modifier
+// ======================
+
 private struct BadgeModifier: ViewModifier {
     
     // ======================
@@ -129,14 +122,14 @@ struct TabBarVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Group {
-                Stepper("Number of items: \(model.itemsCount)",
+                Stepper("screens.guidelines.bars.tabs.items_stepper.hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfItems)
             }
             .padding(.horizontal, ODSSpacing.m)
             .odsFont(.bodyBold)
             
-            ODSChipPicker(title: "Badge options",
+            ODSChipPicker(title: °°"screens.guidelines.bars.tabs.options_picker.hint",
                           selection: $model.badgeOption,
                           chips: TabBarVariantModel.BadgeOption.chips)
         }
@@ -144,6 +137,10 @@ struct TabBarVariantOptions: View {
         .padding(.vertical, ODSSpacing.m)
     }
 }
+
+// =============================
+// MARK: - Tab Bar Variant Model
+// =============================
 
 class TabBarVariantModel: ObservableObject {
     
@@ -174,14 +171,30 @@ class TabBarVariantModel: ObservableObject {
     // =============
     // MARK: Helpers
     // =============
+    
     private func updateItems() {
         itemDescriptions = [
             // Display the badge only on the first item
-            ItemDescription(iconName: "Heart_19371", text: "Favorites", contentText: "Favorites Content view", badgeOption: badgeOption),
-            ItemDescription(iconName: "Search_19371", text: "Search", contentText: "Search Content view", badgeOption: .none),
-            ItemDescription(iconName: "Info_19371", text: "Information", contentText: "Information Content view", badgeOption: .none),
-            ItemDescription(iconName: "Notification_Alert_19371", text: "Notification", contentText: "Notification Content view", badgeOption: .none),
-            ItemDescription(iconName: "Settings_19371", text: "Settings", contentText: "Settings Content view", badgeOption: .none),
+            ItemDescription(iconName: "Heart_19371",
+                            text: °°"screens.guidelines.bars.tabs.item_favorite.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_favorite.description",
+                            badgeOption: badgeOption),
+            ItemDescription(iconName: "Search_19371",
+                            text: °°"shared.search",
+                            contentText: °°"screens.guidelines.bars.tabs.item_search.description",
+                            badgeOption: .none),
+            ItemDescription(iconName: "Info_19371",
+                            text: °°"screens.guidelines.bars.tabs.item_information.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_information.description",
+                            badgeOption: .none),
+            ItemDescription(iconName: "Notification_Alert_19371",
+                            text: °°"screens.guidelines.bars.tabs.item_notification.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_notification.description",
+                            badgeOption: .none),
+            ItemDescription(iconName: "Settings_19371",
+                            text: °°"screens.guidelines.bars.tabs.item_settings.title",
+                            contentText: °°"screens.guidelines.bars.tabs.item_settings.description",
+                            badgeOption: .none),
         ]
     }
     
@@ -208,11 +221,11 @@ class TabBarVariantModel: ObservableObject {
         var description: String {
             switch self {
             case .none:
-                return "None"
+                return °°"shared.none"
             case .count:
-                return "Count"
+                return °°"screens.guidelines.bars.tabs.badge.description.count"
             case .text:
-                return "Text"
+                return °°"shared.text"
             }
         }
         

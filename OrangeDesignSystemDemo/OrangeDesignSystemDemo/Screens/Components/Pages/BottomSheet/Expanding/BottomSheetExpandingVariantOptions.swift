@@ -1,25 +1,10 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import SwiftUI
 import OrangeDesignSystem
@@ -64,19 +49,9 @@ class BottomSheetVariantModel: ObservableObject {
         case .hidden, .large:
             return nil
         case .small:
-            return
-                """
-                To open the bottom sheet :\n
-                Drag the component up
-                """
+            return °°"screens.guidelines.bottom_sheets.sample.open_small"
         case .medium:
-            return
-                """
-                To open or close the bottom sheet :\n
-                Drag the handle up or down\n
-                Scroll the content\n
-                Tap the dimming area
-                """
+            return °°"screens.guidelines.bottom_sheets.sample.open_medium"
         }
     }
     
@@ -85,13 +60,7 @@ class BottomSheetVariantModel: ObservableObject {
         case .hidden, .small, .medium:
             return nil
         case .large:
-            return
-                """
-                To close the bottom sheet :\n
-                Drag the handle down\n
-                Scroll the content\n
-                Tap the dimming area
-                """
+            return °°"screens.guidelines.bottom_sheets.sample.open_large"
         }
     }
 }
@@ -120,14 +89,14 @@ struct ExpandingBottomSheetVariantHome: View {
     var body: some View {
         ScrollView {
             VStack(spacing: ODSSpacing.m) {
-                Text("Customize the bottom sheet before opening sheet to see it.")
+                Text("screens.guidelines.bottom_sheets.variant.customize")
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
                 
                 ExpandingBottomSheetVariantOptions(model: model)
                 
-                ODSButton(text: Text("See the component"), emphasis: .high, fullWidth: true) {
+                ODSButton(text: Text("screens.guidelines.bottom_sheets.variant.see"), emphasis: .high, fullWidth: true) {
                     showBottomSheet = true
                 }
                 .multilineTextAlignment(.center)
@@ -149,14 +118,14 @@ struct ExpandingBottomSheetVariantHome: View {
             .fullScreenCover(isPresented: $showBottomSheet) {
                 NavigationView {
                     BottomSheetVariant(model: model)
-                        .navigationBarTitle("Sheet: Bottom \(model.contentType.rawValue)", displayMode: .inline)
+                        .navigationBarTitle("screens.guidelines.bottom_sheets.variant.selection" <- model.contentType.rawValue, displayMode: .inline)
                         .navigationbarMenuForThemeSelection()
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
                                 Button {
                                     showBottomSheet = false
                                 } label: {
-                                        Text("Close")
+                                        Text("shared.close")
                                 }
                             }
                         }
@@ -183,19 +152,19 @@ struct ExpandingBottomSheetVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Group {
-                ODSChipPicker(title: "Detent",
+                ODSChipPicker(title: °°"screens.guidelines.bottom_sheets.variant.detent",
                               selection: $model.bottomSheetSize,
                               chips: ODSBottomSheetSize.chips)
 
-                ODSChipPicker(title: "Content",
+                ODSChipPicker(title: °°"screens.guidelines.bottom_sheets.variant.content",
                               selection: $model.contentType,
                               chips: ContentType.chips)
 
-                Toggle("Subtitle", isOn: $model.showSubtitle)
+                Toggle("shared.subtitle", isOn: $model.showSubtitle)
                     .padding(.horizontal, ODSSpacing.m)
                     .disabled(model.showIcon)
 
-                Toggle("Icon", isOn: $model.showIcon)
+                Toggle("shared.icon", isOn: $model.showIcon)
                     .padding(.horizontal, ODSSpacing.m)
                     .disabled(model.showSubtitle)
             }
@@ -224,13 +193,13 @@ extension ODSBottomSheetSize {
     var description: String {
         switch self {
         case .small:
-            return "Small"
+            return °°"screens.guidelines.bottom_sheets.size.small"
         case .medium:
-            return "Medium"
+            return °°"screens.guidelines.bottom_sheets.size.medium"
         case .large:
-            return "Large"
+            return °°"screens.guidelines.bottom_sheets.size.large"
         case .hidden:
-            return "Hidden"
+            return °°"screens.guidelines.bottom_sheets.size.hidden"
         }
     }
     

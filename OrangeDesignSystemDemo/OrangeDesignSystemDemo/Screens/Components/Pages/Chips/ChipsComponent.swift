@@ -1,28 +1,17 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
+
+// =======================
+// MARK: - Chips Component
+// =======================
 
 struct ChipsComponent: Component {
     let title: String
@@ -31,39 +20,42 @@ struct ChipsComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "Chips"
+        title = °°"screens.guidelines.chips.title"
         imageName = "Chips"
-        description = "Chips are small components containing a number of elements that represent a calendar event or contact."
-        
+        description = °°"screens.guidelines.chips.description"
         variants = AnyView(ChipsVariants(model: ChipsVariantModel()))
     }
 }
 
+// ======================
+// MARK: - Chips Variants
+// ======================
+
 struct ChipsVariants: View {
-
+    
     @ObservedObject var model: ChipsVariantModel
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            GroupedChips(title: "Text only",
+            GroupedChips(title: °°"screens.guidelines.chips.text_only",
                          chips: model.textOnlyChips,
                          removableChips: model.textOnlyRemovableChips,
                          selection: $model.selectedTextOnlyChip,
                          selectionRemovableChips: $model.selectedTextOnlyRemovableChip)
             
-            GroupedChips(title: "With icon from image",
+            GroupedChips(title: °°"screens.guidelines.chips.with_icon",
                          chips: model.withIconChips,
                          removableChips: model.withIconRemovableChips,
                          selection: $model.selectedWithIconChip,
                          selectionRemovableChips: $model.selectedWithIconRemovableChip)
             
-            GroupedChips(title: "With system icon",
+            GroupedChips(title: °°"screens.guidelines.chips.with_system_icon",
                          chips: model.withSystemIconChips,
                          removableChips: model.withSystemIconRemovableChips,
                          selection: $model.selectedWithSystemIconChip,
                          selectionRemovableChips: $model.selectedWithSystemIconRemovableChip)
             
-            GroupedChips(title: "With avatar",
+            GroupedChips(title: °°"screens.guidelines.chips.with_avatar",
                          chips: model.withAvatarChips,
                          removableChips: model.withAvatarRemovableChips,
                          selection: $model.selectedWithAvatarChip,
@@ -71,6 +63,10 @@ struct ChipsVariants: View {
         }
     }
 }
+
+// =====================
+// MARK: - Grouped Chips
+// =====================
 
 struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovable: Hashable, ChipRemovable: Hashable {
 
@@ -85,7 +81,7 @@ struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovabl
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
             Text(title).odsFont(.title2).frame(maxWidth: .infinity, alignment: .leading)
 
-            VStack(spacing: 8) {
+            VStack(spacing: ODSSpacing.s) {
                 ODSChipPicker(selection: selection, chips: chips)
                 ODSChipPicker(selection: selectionRemovableChips, chips: removableChips)
             }

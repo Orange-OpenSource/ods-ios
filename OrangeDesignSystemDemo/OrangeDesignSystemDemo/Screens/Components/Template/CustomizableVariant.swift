@@ -55,7 +55,7 @@ struct CustomizableVariant<Variant, Options>: View  where Variant: View, Options
                     self.isOpen = true
                 }
             }
-            .odsBottomSheetStandard(isOpen: $isOpen, title: "Customize",
+            .odsBottomSheetStandard(isOpen: $isOpen, title: °°"screens.components.template.customize",
                                     icon: Image(systemName: "chevron.down"), annimateIcon: true,
                                     content: self.options)
     }

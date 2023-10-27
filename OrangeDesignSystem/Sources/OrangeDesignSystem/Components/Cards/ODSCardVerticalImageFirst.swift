@@ -22,7 +22,6 @@
 
 import SwiftUI
 
-
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
 ///
@@ -185,7 +184,6 @@ struct ODSCardVerticalImageFirst_Previews: PreviewProvider {
             }
         }
     }
-
 
     struct TestView: View {
         @State var showTextInToast: String?

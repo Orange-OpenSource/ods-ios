@@ -1,0 +1,338 @@
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
+
+// ========================
+// MARK: - Shared / commmon
+// ========================
+
+"shared.close" = "Fermer";
+"shared.guidelines" = "Règles";
+"shared.search" = "Rechercher";
+"shared.actions.action" = "Action";
+"shared.actions.action_1" = "Action n°1";
+"shared.actions.action_2" = "Action n°2";
+"shared.actions.action_3" = "Action n°3";
+"shared.none" = "Aucun";
+"shared.circle" = "Cercle";
+"shared.wide" = "Large";
+"shared.square" = "Carré";
+"shared.modules" = "Modules";
+"shared.about" = "À propos";
+"shared.text" = "Texte";
+"shared.subtitle" = "Sous-titre";
+"shared.label" = "Label";
+"shared.icon" = "Icône";
+"shared.enabled" = "Activé";
+"shared.disabled" = "Désactivé";
+"shared.long_text" = "Texte long";
+"shared.text_field" = "Champ de saisie";
+"shared.leading" = "Au début";
+"shared.trailing" = "À la fin";
+
+// =====================
+// MARK: - Miscellaneous
+// =====================
+
+"misc.usage" = "Usage";
+"misc.coming_soon" = "À venir...";
+"misc.variants" = "Déclinaisons";
+
+// =================
+// MARK: - Main View
+// =================
+
+"main_view.tabs.components" = "Composants";
+
+// =======================
+// MARK: - Screens - About
+// =======================
+
+"screens.about.changelog.title" = "Changelog";
+"screens.about.design_guidelines.title" = "Règles de design";
+"screens.about.app_information.name" = "Orange Design System Démo";
+"screens.about.app_information.description" = "Dans cette app vous trouverez des exemples de code implémenté des règles de design, que ce soient des composants comme des modules, pour les thèmes du design system Orange.";
+"screens.about.app_information.share.subject" = "Le Design System Orange";
+"screens.about.app_information.share.description" = "Ici, vous trouverez l'app mobile du design system Orange qui fournit des exemples d'implémentation de design";
+"screens.about.terms_of_service" = "Conditions d'utilisation";
+"screens.about.legal_information_text.default" = "Ajouter les mentions légales";
+"screens.about.app_information.description.default" = "Ajouter ici une courte description de l'app";
+"screens.about.app_information.share.subject.default" = "Ajouter l'objet du partage";
+"screens.about.app_information.share.description.default" = "Ajouter ici une description pour le partage";
+"screens.about.app_information.option_description.version" = "Version";
+"screens.about.app_information.option_description.description" = "Description";
+"screens.about.app_information.option_description.share" = "Partager";
+"screens.about.app_information.option_description.feedback" = "Avis";
+"screens.about.app_information.option_description.app_news" = "Actualités de l'app";
+"screens.about.app_information.option_description.legal_information" = "Mentions légales";
+"screens.about.app_information.option_description.rate" = "Évaluez l'app";
+"screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";
+
+// =====================================
+// MARK: - Screens - Guidelines - Colors
+// =====================================
+
+"screens.guidelines.colors.title" = "Couleurs";
+"screens.guidelines.colors.description" = "C'est important d'utiliser les couleurs de fonds systèmes de iOS car elles sont dynamiques. Elles passent automatiquement d'une base légèrement plus foncée à une couleur légèrement plus claire, afin d'améliorer la perception de la profondeur et de la superposition.";
+"screens.guidelines.colors.palette.title" = "Palette";
+"screens.guidelines.colors.color_palette.title" = "Palette de couleurs";
+"screens.guidelines.colors.color_palette.on_light" = "Mode clair";
+"screens.guidelines.colors.color_palette.on_dark" = "Mode sombre";
+"screens.guidelines.colors.description.more" = "Certaines couleurs sont définies avec différentes teintes qui changent automatiquement. Pour les gris, vous pouvez utiliser les Apple System Greys. Pour les textes en noir et blanc, utilisez les couleurs du système dynamique Apple. Pour plus d'informations, consultez les [Règles de couleurs Apple](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
+
+"a11y.tap_twice_to_get_more" = "Tappez deux fois pour avoir davantage de détails";
+"a11y.color_details" = "Nom de la ressource: %@, valeur RGB %@ . Valeur hexadécimale %@";
+
+// =======================================
+// MARK: - Screens - Guidelines - Spacings
+// =======================================
+
+"screens.guidelines.spacings.title" = "Espacements";
+"screens.guidelines.spacings.description" = "Les éléments d'espacements sont utilisés pour positionner les éléments à l'écran et les mettre en page dans les composants. Les éléments d'espacements peuvent être appliqués en tant que remplissage et marges.";
+
+"a11y.spacings_details" = "%@, nom de l'espacement : %@, ratio : %@";
+
+// =========================================
+// MARK: - Screens - Guidelines - Typography
+// =========================================
+
+"screens.guidelines.typographies.title" = "Typographie";
+"screens.guidelines.typographies.description" = "Apple propose des styles de texte intégrés basés sur les Apple Dynamic Types et utilisant la police de caractères native San Francisco pour tous les alphabets latin, grec et cyrillique. \nPour créer votre application, vous devez utiliser les styles mis à jour suivants.";
+
+"a11y.typography_details" = "%@, nom de l'élément : %@";
+
+// ======================================
+// MARK: - Screens - Guidelines - Banners
+// ======================================
+
+"screens.guidelines.banners.title" = "Bannières";
+"screens.guidelines.banners.description" = "Une bannière affiche un message important qui nécessite qu'une action soit ignorée.";
+"screens.guidelines.banners.variant.title" = "Bannière";
+"screens.guidelines.banners.variant.title_demo" = "Banners demo";
+"screens.guidelines.banners.demo.long_text" = "Le texte peut être sur plusieurs lignes. Mais, une à deux lignes est préférable sur mobile.";
+"screens.guidelines.banners.demo.short_text" = "Texte court";
+"screens.guidelines.banners.demo.toggle_image_hint" = "Image";
+"screens.guidelines.banners.demo.buttons_number_hint" = "Nombre de boutons : %@";
+
+// ================================================
+// MARK: - Screens - Guidelines - Bars - Navigation
+// ================================================
+
+"screens.guidelines.bars.navigation.title" = "Barres - navigation";
+"screens.guidelines.bars.navigation.description" = "Une barre de navigation s'affiche en haut de l'écran d'une application, sous la barre d'état, et permet de naviguer dans une série d'écrans hiérarchiques.";
+"screens.guidelines.bars.navigation.button.edit" = "Action d'édition";
+"screens.guidelines.bars.navigation.button.share" = "Action de partage";
+"screens.guidelines.bars.navigation.standard_title.text" = "Titre";
+"screens.guidelines.bars.navigation.large_title.text" = "Titre large";
+"screens.guidelines.bars.navigation.standard_title.hint" = "Standard";
+"screens.guidelines.bars.navigation.large_title.hint" = "Large";
+"screens.guidelines.bars.navigation.size.hint" = "Taille";
+"screens.guidelines.bars.navigation.back_button.hint" = "Bouton retour";
+"screens.guidelines.bars.navigation.action_item_count" = "Nombre d'icônes d'action : %@";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Bars - Tabs
+// ==========================================
+
+"screens.guidelines.bars.tabs.title" = "Barres - onglets";
+"screens.guidelines.bars.tabs.description" = "Une barre d'onglets est un élément disponible en permanence qui crée une navigation globale pour l'expérience des utilisateurs.";
+"screens.guidelines.bars.tabs.items_stepper.hint" = "Nombre d'éléments : %@";
+"screens.guidelines.bars.tabs.options_picker.hint" = "Options de badges";
+"screens.guidelines.bars.tabs.item_favorite.title" = "Favoris";
+"screens.guidelines.bars.tabs.item_favorite.description" = "Vue des favoris";
+"screens.guidelines.bars.tabs.item_search.description" = "Vue de recherche";
+"screens.guidelines.bars.tabs.item_information.title" = "Information";
+"screens.guidelines.bars.tabs.item_information.description" = "Vue d'information";
+"screens.guidelines.bars.tabs.item_notification.title" = "Notification";
+"screens.guidelines.bars.tabs.item_notification.description" = "Vue des notifications";
+"screens.guidelines.bars.tabs.item_settings.title" = "Réglages";
+"screens.guidelines.bars.tabs.item_settings.description" = "Vue des réglages";
+"screens.guidelines.bars.tabs.badge.description.count" = "Compteur";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Bars - Tool
+// ==========================================
+
+"screens.guidelines.bars.tools.title" = "Barres - outils";
+"screens.guidelines.bars.tools.description" = "Une barre d'outils permet aux utilisateurs d'effectuer des actions spécifiques concernant l'ensemble de la page. Il est placé en bas de l'écran.";
+"screens.guidelines.bars.tools.hint" = "Personnalisez la barre d'outils avant d'ouvrir la feuille pour la voir.";
+"screens.guidelines.bars.tools.open.hint" = "Ouvrir la page";
+"screens.guidelines.bars.tools.close.hint" = "Fermer la page";
+"screens.guidelines.bars.tools.with_labels.title" = "Barre d'outils avec labels";
+"screens.guidelines.bars.tools.with_icons.title" = "Barre d'outils avec icônes";
+"screens.guidelines.bars.tools.alert_hint" = "%@ : cliqué";
+"screens.guidelines.bars.tools.picker_hint" = "Type d'éléments";
+"screens.guidelines.bars.tools.stepper_hint" = "Nombre d'éléments : %@";
+
+// ======================================
+// MARK: - Screens - Guidelines - Buttons
+// ======================================
+
+"screens.guidelines.buttons.title" = "Boutons";
+"screens.guidelines.buttons.description" = "Un bouton personnalisé permet à un utilisateur d'effectuer un appel à l'action important. Ce bouton qui contient un texte";
+"screens.guidelines.buttons.variant.emphasis" = "Emphase";
+"screens.guidelines.buttons.variant.functional" = "Fonctionnel";
+"screens.guidelines.buttons.variant.icons" = "Icône";
+"screens.guidelines.buttons.variant.description" = "Les boutons simples sont les composants les plus omniprésents que l'on trouve dans toutes les applications. Composé d'une icône, il s'agit du style de bouton le plus simple.";
+"screens.guidelines.buttons.icon_add" = "Icône (ajout)";
+"screens.guidelines.buttons.icon_info" = "Icône (info)";
+"screens.guidelines.buttons.variant.emphasis.description" = "Les boutons avec emphase élevée sont utilisés pour guider l'utilisateur vers l'appel à l'action principale. Plusieurs boutons peuvent être combinés sur le même écran pour attirer l'attention sur l'action la plus importante tout en proposant des actions alternatives. Lorsque vous utilisez plusieurs boutons dans un écran, vous ne pouvez utiliser qu'un seul bouton avec emphase. Ces boutons peuvent également inclure une icône contextuelle.";
+"screens.guidelines.buttons.variant.functional.description" = "Si nécessaire, des versions couleur peuvent également être utilisées pour informer les utilisateurs d'actions destructrices positives ou négatives.";
+"screens.guidelines.buttons.styles.description.negative" = "Négatif";
+"screens.guidelines.buttons.styles.description.positive" = "Positif";
+"screens.guidelines.buttons.variant.long" = "Termes et conditions";
+"screens.guidelines.toggle.full_width" = "Pleine largeur";
+
+"a11y.emphasis_button_hint" = "%@ bouton d'emphase";
+"a11y.functional_button_hint" = "%@ bouton fonctionnel";
+
+// ====================================
+// MARK: - Screens - Guidelines - Cards
+// ====================================
+
+"screens.guidelines.cards.title" = "Cartes";
+"screens.guidelines.cards.description" = "Les cartes sont un élément contenu et indépendant qui peut afficher du contenu et des actions sur un seul sujet.";
+"screens.guidelines.cards.variant.vertical_image_first" = "Carte avec image";
+"screens.guidelines.cards.variant.vertical_header_first" = "Carte avec en-tête";
+"screens.guidelines.cards.variant.small" = "Petite carte";
+"screens.guidelines.cards.variant.horizontal" = "Carte horizontale";
+"screens.guidelines.card.button_1" = "Bouton n°1";
+"screens.guidelines.card.button_2" = "Bouton n°2";
+"screens.guidelines.card.alert" = "Containeur de la carte tappé";
+"screens.guidelines.card.alert_2" = "%@ tappé";
+"screens.guidelines.card.thumbnail" = "Miniature";
+"screens.guidelines.card.buttons_number" = "Nombre de boutons : %@";
+"screens.guidelines.card.divider" = "Séparateur";
+"screens.guidelines.card.picker.position" = "Position de l'image";
+
+// ====================================
+// MARK: - Screens - Guidelines - Chips
+// ====================================
+
+"screens.guidelines.chips.title" = "Puces";
+"screens.guidelines.chips.description" = "Les puces sont de petits composants contenant un certain nombre d'éléments qui représentent un événement de calendrier ou un contact.";
+"screens.guidelines.chips.text_only" = "Texte seul";
+"screens.guidelines.chips.with_icon" = "Avec une icône depuis une image";
+"screens.guidelines.chips.with_system_icon" = "Avec une icône système";
+"screens.guidelines.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou créature à la peau bleue */
+"screens.guidelines.chips.state.enable" = "Activer";
+"screens.guidelines.chips.state.selected" = "Selectionné";
+
+// ====================================
+// MARK: - Screens - Guidelines - Lists
+// ====================================
+
+"screens.guidelines.lists.title" = "Listes";
+"screens.guidelines.lists.description" = "Une liste est un groupe vertical continu d'entrées de données telles que du texte, des icônes ou des images.";
+"screens.guidelines.lists.variant.with_selections" = "Liste avec sélection";
+"screens.guidelines.lists.variant.standard_lists" = "Liste standard";
+"screens.guidelines.lists.picker.navigate" = "Naviguer";
+"screens.guidelines.lists.selection.description.checkmark" = "Encoche";
+"screens.guidelines.lists.selection.description.switch" = "Commutateur";
+"screens.guidelines.lists.variant.clicked" = "%@ est tappé";
+"screens.guidelines.lists.alert" = "Icône d'information tappée ! Bon appétit";
+"screens.guidelines.lists.options.description.info_button" = "Bouton d'information";
+"screens.guidelines.list.details" = "Détails";
+
+// ==================================================
+// MARK: - Screens - Guidelines - Progress indicators
+// ==================================================
+
+"screens.guidelines.progress_indicators.title" = "Indicateurs de progression indicators";
+"screens.guidelines.progress_indicators.description" = "Les indicateurs de progression indiquent aux utilisateurs que des éléments ou des pages sont en cours de chargement.";
+"screens.guidelines.progress_indicators.progress_bar.title" = "Barre de progression";
+"screens.guidelines.progress_indicators.activity_bar.title" = "Barre d'activité";
+"screens.guidelines.progress_indicators.downloading" = "Téléchargement en cours...";
+"screens.guidelines.progress_indicators.x_percent" = "%@ %%";
+"screens.guidelines.progress_indicators.toggle.label" = "Label";
+"screens.guidelines.progress_indicators.toggle.current_value" = "Valeur actuelle";
+"screens.guidelines.progress_indicators.toggle.loading" = "Chargement...";
+
+// ============================================
+// MARK: - Screens - Guidelines - Bottom Sheets
+// ============================================
+
+"screens.guidelines.bottom_sheets.title" = "Pages inférieures";
+"screens.guidelines.bottom_sheets.description" = "Par défaut, une page est modale, présentant une expérience ciblée qui empêche les utilisateurs d'interagir avec la vue parente, jusqu'à ce qu'ils ferment la page. Une page modale est utile pour demander une information spécifique ou activer une tâche simple.";
+"screens.guidelines.bottom_sheets.expanding" = "Étirable";
+"screens.guidelines.bottom_sheets.standard" = "Standard";
+"screens.guidelines.bottom_sheets.sample.title" = "Pages inférieures";
+"screens.guidelines.bottom_sheets.sample.subtitle" = "Produits français";
+"screens.guidelines.bottom_sheets.sample.recipe" = "Recette";
+"screens.guidelines.bottom_sheets.sample.start_preparing" = "Commencer la préparation";
+"screens.guidelines.bottom_sheets.sample.open_small" = "Pour ouvrir la page inférieure :\nFaîtes glisser le composant vers le haut";
+"screens.guidelines.bottom_sheets.sample.open_medium" = "Pour ouvrir ou fermer la page inférieure : - Faîtes glisser la poignée vers le haut ou vers le bas\n- Faîtes défiler le contenu\n- Appuyez sur la zone de gradation";
+"screens.guidelines.bottom_sheets.sample.open_large" = "Pour fermer la page inférieure :\n- Faîtes glisser la poignée vers le bas\n- Faîtes défiler le contenu\n- Appuyez sur la zone de gradation";
+"screens.guidelines.bottom_sheets.variant.customize" = "Personnalisez la feuille inférieure avant de l'ouvrir pour la voir.";
+"screens.guidelines.bottom_sheets.variant.see" = "Voir le composant";
+"screens.guidelines.bottom_sheets.variant.selection" = "Page inférieure : %@";
+"screens.guidelines.bottom_sheets.variant.detent" = "Détente";
+"screens.guidelines.bottom_sheets.variant.content" = "Contenu";
+"screens.guidelines.bottom_sheets.size.small" = "Petit";
+"screens.guidelines.bottom_sheets.size.medium" = "Moyen";
+"screens.guidelines.bottom_sheets.size.large" = "Large";
+"screens.guidelines.bottom_sheets.size.hidden" = "Caché";
+
+// ======================================
+// MARK: - Screens - Guidelines - Sliders (Sacré Quinn Mallory)
+// ======================================
+
+"screens.guidelines.sliders.title" = "Curseurs";
+"screens.guidelines.sliders.description" = "Les curseurs permettent aux utilisateurs de sélectionner une valeur unique ou une plage de valeurs en déplaçant une poignée le long d'une piste horizontale.";
+"screens.guidelines.sliders.slider.title" = "Démos des curseurs";
+"screens.guidelines.sliders.sample.volume" = "Volume";
+"screens.guidelines.sliders.sample.side_icons" = "Icônes sur les côtés";
+"screens.guidelines.sliders.sample.display_value" = "Afficher value";
+"screens.guidelines.sliders.sample.stepped" = "Pas (par 0,5)";
+
+// ==========================================
+// MARK: - Screens - Guidelines - Text Fields
+// ==========================================
+
+"screens.guidelines.textfields.description" = "Le composant champ de texte comprend le champ de texte lui-même, la sélection de texte et le menu d'édition. Certains éléments sont stylés et d’autres sont natifs.";
+"screens.guidelines.textfields.variants.secure" = "Champ de saisie sécurisé";
+"screens.guidelines.textfields.variants.editor" = "Éditeur de texte";
+"screens.guidelines.textfields.variants.secure.hint" = "Texte sécurisé à éditer";
+"screens.guidelines.textfields.variants.inputs.never" = "Jamais";
+"screens.guidelines.textfields.variants.inputs.characters" = "Lettres";
+"screens.guidelines.textfields.variants.inputs.words" = "Mots";
+"screens.guidelines.textfields.variants.inputs.sentences" = "Phrases";
+"screens.guidelines.textfields.variants.inputs.default.default" = "texte à éditer.";
+"screens.guidelines.textfields.variants.inputs.default.sentences" = "Text à éditer";
+"screens.guidelines.textfields.variants.inputs.options.capitalization" = "Capitalisation";
+
+// =================================
+// MARK: - Screens - Modules - About
+// =================================
+
+"screens.modules.about.titles.setup" = "À propos : Introduction";
+"screens.modules.about.titles.card_collections" = "Collections de cartes";
+"screens.modules.about.description" = "Un écran « À propos » doit être affiché dans toutes les applications Orange pour afficher le nom de l'application, la version du logiciel ainsi que toutes les mentions légales de protection des données, de confidentialité, de conditions de service et d'accessibilité.";
+"screens.modules.about.customize" = "Personnaliser le module";
+"screens.modules.about.mandatory" = "Certains éléments tels que : l'illustration (personnalisable), le nom de l'application, la politique de confidentialité, les conditions de service et la déclaration d'accessibilité sont obligatoires.\nÀ cet écran standard, vous pouvez ajouter des composants facultatifs :";
+"screens.modules.about.picker.app_section" = "Section application";
+"screens.modules.about.picker.optional_about_items" = "Items optionnels";
+"screens.modules.about.picker.custom_items" = "Items personnalisés : %@";
+"screens.modules.about.buttons.view_demo" = "Voir la démo";
+"screens.modules.about.alert.feedback_clicked" = "Avis cliqué";
+"screens.modules.about.texts.add_cgu" = "Ajouter les CGU ici";
+"screens.modules.about.titles.my_review" = "Mes revues";
+"screens.modules.about.titles.my_recipes" = "Mes recettes";
+
+// ============================================
+// MARK: - Screens - Modules - Card collections
+// ============================================
+
+"screens.modules.card_collections.titles.list" = "Liste de cartes";
+"screens.modules.card_collections.titles.grid" = "Grille de petites cartes";
+"screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
+
+// =======================================
+// MARK: - Screens - Components - Template
+// =======================================
+
+"screens.components.template.customize" = "Configurer";

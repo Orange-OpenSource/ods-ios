@@ -1,25 +1,10 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import SwiftUI
 
@@ -60,17 +45,17 @@ struct AboutSetup: View {
                 .accessibilityHidden(true)
 
             VStack(alignment: .leading) {
-                Text("An « About » screen should be displayed in all Orange applications to show the application name, software version as wall as all legal data protection, privacy, terms of service and accessibility statement.")
+                Text("screens.modules.about.description")
 
-                Text("Customize module")
+                Text("screens.modules.about.customize")
                     .odsFont(.headline)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.s)
 
-                Text("Some items such as : illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components :")
+                Text("screens.modules.about.mandatory")
 
                 ODSChipPicker(
-                    title: "Application section",
+                    title: °°"screens.modules.about.picker.app_section",
                     selection: $model.applicationSectionOptions,
                     allowZeroSelection: true,
                     chips: AboutModuleModel.ApplicationInformationOption.chips)
@@ -78,14 +63,14 @@ struct AboutSetup: View {
                 .padding(.horizontal, -ODSSpacing.m)
                 
                 ODSChipPicker(
-                    title: "Optional About Items",
+                    title: °°"screens.modules.about.picker.optional_about_items",
                     selection: $model.optionalAboutItems,
                     allowZeroSelection: true,
                     chips: AboutModuleModel.OptionalAboutItem.chips)
                 .padding(.vertical, ODSSpacing.s)
                 .padding(.horizontal, -ODSSpacing.m)
                 
-                Stepper("Custom item(s) : \(model.numberOfCustomItems)",
+                Stepper("screens.modules.about.picker.custom_items" <-  "\(model.numberOfCustomItems)",
                         value: $model.numberOfCustomItems,
                         in: 0 ... model.defaultCustomItems.count)
                     .padding(.vertical, ODSSpacing.s)
@@ -93,7 +78,7 @@ struct AboutSetup: View {
                 NavigationLink(isActive: $showDemo) {
                     AboutModuleDemo(model: model)
                 } label: {
-                    ODSButton(text: Text("View demo"), emphasis: .high, fullWidth: true) {
+                    ODSButton(text: Text("screens.modules.about.buttons.view_demo"), emphasis: .high, fullWidth: true) {
                         showDemo.toggle()
                     }
                 }
@@ -123,8 +108,8 @@ struct AboutModuleDemo: View {
                        acessibilityStatement: acessibilityStatement,
                        termsOfService: termsOfService,
                        listItemConfigurations: listItemConfigurations)
-        .alert("Feedback Clicked", isPresented: $model.showFeedbackPopup) {
-            Button("close", role: .cancel) {}
+        .alert("screens.modules.about.alert.feedback_clicked", isPresented: $model.showFeedbackPopup) {
+            Button("shared.close", role: .cancel) {}
         }
     }
 
@@ -145,7 +130,7 @@ struct AboutModuleDemo: View {
     
     @ViewBuilder
     private func termsOfService() -> some View {
-        Text("Add terms of service here")
+        Text("screens.modules.about.texts.add_cgu")
     }
 
     // ===========

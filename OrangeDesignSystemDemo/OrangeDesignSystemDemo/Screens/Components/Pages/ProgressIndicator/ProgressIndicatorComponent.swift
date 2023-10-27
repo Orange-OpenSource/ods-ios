@@ -1,25 +1,10 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
@@ -31,10 +16,9 @@ struct ProgressIndicatorComponent: Component {
     let variants: AnyView
     
     init() {
-        title = "Progress indicators"
+        title = °°"screens.guidelines.progress_indicators.title"
         imageName = "Progress indicator"
-        description =  "Progress indicators show users that elements or pages are loading."
-        
+        description = °°"screens.guidelines.progress_indicators.description"
         variants = AnyView(ProgressIndicatorVariants())
     }
 }
@@ -42,14 +26,14 @@ struct ProgressIndicatorComponent: Component {
 private struct ProgressIndicatorVariants: View {
     
     var body: some View {
-        VariantEntryItem(title: "Progress bar demo", technicalElement: "ProgressView(value:, total:)") {
+        VariantEntryItem(title: °°"screens.guidelines.progress_indicators.progress_bar.title", technicalElement: "ProgressView(value:, total:)") {
             ProgressBarVariant(model: ProgressBarVariantModel())
-                .navigationTitle("Progress bar demo")
+                .navigationTitle("screens.guidelines.progress_indicators.progress_bar.title")
         }
         
-        VariantEntryItem(title: "Activity indicator", technicalElement: "ProgressView()") {
+        VariantEntryItem(title: °°"screens.guidelines.progress_indicators.activity_bar.title", technicalElement: "ProgressView()") {
             ActivityIndicatorVariant(model: ActivityIndicatorModel())
-                .navigationTitle("Activity indicator")
+                .navigationTitle("screens.guidelines.progress_indicators.activity_bar.title")
         }
     }
 }

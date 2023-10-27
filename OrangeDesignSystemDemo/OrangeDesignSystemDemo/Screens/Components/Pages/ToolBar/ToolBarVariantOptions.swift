@@ -1,35 +1,23 @@
-//
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-//
+/*
+ * Software Name: Orange Design System (iOS)
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+ * SPDX-License-Identifier: MIT
+ *
+ * This software is distributed under the MIT license.
+ */
 
 import OrangeDesignSystem
 import SwiftUI
 
+// =============================
+// MARK: - Tab Bar Variant Model
+// =============================
 
 class ToolBarVariantModel: ObservableObject {
         
-    // ======================
-    // MARK: Store properties
-    // ======================
+    // ================
+    // MARK: Properties
+    // ================
 
     @Published var itemsCount: Int
     @Published var itemType: ItemType {
@@ -53,9 +41,9 @@ class ToolBarVariantModel: ObservableObject {
         var description: String {
             switch self {
             case .label:
-                return "Label"
+                return °°"shared.label"
             case .icon:
-                return "Icon"
+                return °°"shared.icon"
             }
         }
         
@@ -83,7 +71,9 @@ class ToolBarVariantModel: ObservableObject {
 
         itemsCount = 2
         
-        labelDescriptions = ["Action 1", "Action 2", "Action 3"].map { str in
+        labelDescriptions = [°°"shared.actions.action_1",
+                             °°"shared.actions.action_2",
+                             °°"shared.actions.action_3"].map { str in
             ODSToolbarLabelDesription(text: str) {
                 self.showAlert(with: str)
             }
@@ -92,7 +82,7 @@ class ToolBarVariantModel: ObservableObject {
         iconDescriptions = ["plus", "square.and.arrow.up", "square.and.pencil", "folder", "trash"]
             .enumerated().map { (index, str) in
                 ODSToolbarIconDesription(systemName: str) {
-                    self.showAlert(with: "icon \(index+1)")
+                    self.showAlert(with: "Item \(index+1)")
                 }
         }
     }
@@ -138,10 +128,14 @@ class ToolBarVariantModel: ObservableObject {
     // =============
 
     private func showAlert(with text: String) {
-        alertText = "\(text): clicked"
+        alertText = "screens.guidelines.bars.tools.alert_hint" <- text
         showAlert = true
     }
 }
+
+// ===============================
+// MARK: - Tab Bar Variant Options
+// ===============================
 
 struct ToolBarVariantOptions: View {
 
@@ -157,18 +151,18 @@ struct ToolBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-                ODSChipPicker(title: "Items type",
+            ODSChipPicker(title: °°"screens.guidelines.bars.tools.picker_hint",
                               selection: $model.itemType,
                               chips: ToolBarVariantModel.ItemType.chips)
                 
             switch model.itemType {
             case .label:
-                Stepper("Number of items: \(model.itemsCount)",
+                Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfLabelItems)
                 .padding(.horizontal, ODSSpacing.m)
             case .icon:
-                Stepper("Number of items: \(model.itemsCount)",
+                Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfIconItems)
                 .padding(.horizontal, ODSSpacing.m)
