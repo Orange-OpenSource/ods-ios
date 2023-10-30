@@ -160,6 +160,7 @@ platform :ios do
     rescue => error
         publish_mattermost_notification("🚨 An issue occurred during the build step (:build_and_upload), you should have a look on the logs")
         UI.error(error)
+        exit(1)
     end
   end
   
@@ -202,6 +203,7 @@ platform :ios do
     rescue => error
         publish_mattermost_notification("🚨 An issue occurred during the upload step (:build_and_upload), you should have a look on the logs")
         UI.error(error)
+        exit(1)
     end
   end
   
