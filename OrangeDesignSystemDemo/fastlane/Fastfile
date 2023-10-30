@@ -158,7 +158,7 @@ platform :ios do
         publish_mattermost_notification(news)
 
     rescue => error
-        publish_mattermost_notification("🚨 An issue occurred during the build step (:build_and_upload), you should have a look on the logs")
+        publish_mattermost_notification("🚨 An issue occurred during the build step (:build_and_upload): " + error)
         UI.error(error)
         exit(1)
     end
@@ -201,7 +201,7 @@ platform :ios do
         
         publish_mattermost_notification("✅ The upload to TestFlight has been done successfully")
     rescue => error
-        publish_mattermost_notification("🚨 An issue occurred during the upload step (:build_and_upload), you should have a look on the logs")
+        publish_mattermost_notification("🚨 An issue occurred during the upload step (:build_and_upload): " + error)
         UI.error(error)
         exit(1)
     end
