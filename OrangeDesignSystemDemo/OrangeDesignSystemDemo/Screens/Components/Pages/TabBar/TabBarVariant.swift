@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -21,16 +21,16 @@ struct TabBarVariant: View {
 
     @ObservedObject var model: TabBarVariantModel
     @State var spacerHeight: CGFloat
-    
+
     // =================
     // MARK: Initializer
     // =================
-    
+
     init(model: TabBarVariantModel) {
         self.model = model
         spacerHeight = Self.computeSpacerHeight()
     }
-    
+
     private static func computeSpacerHeight() -> CGFloat {
         return UIDevice.current.orientation.isLandscape ? 100.0 : 350.0
     }
@@ -41,7 +41,7 @@ struct TabBarVariant: View {
 
     var body: some View {
         CustomizableVariant {
-            GeometryReader { reader in
+            GeometryReader { _ in
                 VStack(alignment: .center, spacing: 0) {
                     VStack {
                         TabView {
@@ -52,7 +52,7 @@ struct TabBarVariant: View {
                         }
                     }
                     .border(.gray)
-                    
+
                     Spacer().frame(height: spacerHeight)
                 }
                 .padding(.horizontal, ODSSpacing.m)
@@ -69,7 +69,7 @@ struct TabBarVariant: View {
     // =============
     // MARK: Helpers
     // =============
-    
+
     private func tabBarItem(from itemDescription: TabBarVariantModel.ItemDescription) -> some View {
         Text(itemDescription.contentText)
             .tabItem {
@@ -83,7 +83,7 @@ struct TabBarVariant: View {
 // ======================
 
 private struct BadgeModifier: ViewModifier {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
@@ -128,7 +128,7 @@ struct TabBarVariantOptions: View {
             }
             .padding(.horizontal, ODSSpacing.m)
             .odsFont(.bodyBold)
-            
+
             ODSChipPicker(title: °°"screens.guidelines.bars.tabs.options_picker.hint",
                           selection: $model.badgeOption,
                           chips: TabBarVariantModel.BadgeOption.chips)
@@ -143,7 +143,7 @@ struct TabBarVariantOptions: View {
 // =============================
 
 class TabBarVariantModel: ObservableObject {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
@@ -154,7 +154,7 @@ class TabBarVariantModel: ObservableObject {
             updateItems()
         }
     }
-    
+
     var itemDescriptions: [ItemDescription]
 
     // =================
@@ -167,11 +167,11 @@ class TabBarVariantModel: ObservableObject {
         itemDescriptions = []
         updateItems()
     }
-    
+
     // =============
     // MARK: Helpers
     // =============
-    
+
     private func updateItems() {
         itemDescriptions = [
             // Display the badge only on the first item
@@ -197,27 +197,27 @@ class TabBarVariantModel: ObservableObject {
                             badgeOption: .none),
         ]
     }
-    
+
     var availableItems: [ItemDescription] {
         Array(itemDescriptions.prefix(itemsCount))
     }
-    
+
     var numberOfItems: Int {
         itemDescriptions.count
     }
-    
+
     struct ItemDescription {
         let iconName: String
         let text: String
         let contentText: String
         let badgeOption: BadgeOption
     }
-    
+
     enum BadgeOption: Int, CaseIterable {
         case none = 0
         case count
         case text
-        
+
         var description: String {
             switch self {
             case .none:
@@ -228,11 +228,11 @@ class TabBarVariantModel: ObservableObject {
                 return °°"shared.text"
             }
         }
-        
+
         var chip: ODSChip<Self> {
-            ODSChip(self, text: self.description)
+            ODSChip(self, text: description)
         }
-        
+
         static var chips: [ODSChip<Self>] {
             Self.allCases.map { $0.chip }
         }

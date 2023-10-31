@@ -1,29 +1,29 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import Foundation
 import OrangeDesignSystem
 import SwiftUI
 
 struct ComponentsList: View {
-    
+
     // =======================
     // MARK: Stored Properties
     // =======================
-    
+
     @EnvironmentObject private var themeProvider: ThemeProvider
     let components: [Component]
     let columns = [GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .center)]
-    
+
     // =================
     // MARK: Initializer
     // =================
-    
+
     init() {
         // Remark: Components are automatically displayed sorted by their name
         let components: [Component] = [
@@ -40,14 +40,14 @@ struct ComponentsList: View {
             ToolBarComponent(),
             TextFieldComponent(),
         ]
-        
+
         self.components = components.sorted { $0.title < $1.title }
     }
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -60,11 +60,11 @@ struct ComponentsList: View {
             }
             .navigationTitle("main_view.tabs.components")
             .navigationbarMenuForThemeSelection()
-            
+
             ComponentPage(component: components[0])
         }
     }
-    
+
     // =====================
     // MARK: Private helper
     // =====================
@@ -75,8 +75,7 @@ struct ComponentsList: View {
         } label: {
             ODSCardSmall(
                 title: Text(component.title),
-                imageSource: .image(themeProvider.imageFromResources(component.imageName))
-            )
+                imageSource: .image(themeProvider.imageFromResources(component.imageName)))
         }
     }
 }

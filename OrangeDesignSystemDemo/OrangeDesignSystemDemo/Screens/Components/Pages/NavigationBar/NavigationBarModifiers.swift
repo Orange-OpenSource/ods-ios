@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -14,23 +14,23 @@ import SwiftUI
 // ==================================
 
 class NavigationBarSearchModel: ObservableObject {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
-    
+
     @Published var searchQuery: String
     private var listItems: [String]
-        
+
     // ==================
     // MARK: Initializers
     // ==================
-    
+
     init() {
         searchQuery = ""
         listItems = (1 ... 10).map { "Item #\($0)" }
     }
-        
+
     var filteredListItems: [String] {
         if searchQuery.isEmpty {
             return listItems
@@ -65,13 +65,13 @@ struct SearchModifier: ViewModifier {
 }
 
 struct ListExample: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
-    
+
     @ObservedObject var model: NavigationBarSearchModel
-    
+
     // ======================
     // MARK: Body
     // ======================
@@ -91,9 +91,9 @@ struct ActionIconsModifier: ViewModifier {
     // ======================
     // MARK: Store properties
     // ======================
-    
+
     @ObservedObject var model: NavigationBarVariantModel
-    
+
     // ==========
     // MARK: Body
     // ==========
@@ -107,8 +107,8 @@ struct ActionIconsModifier: ViewModifier {
                             switch action {
                             case .showThemeSelection:
                                 ThemeSelectionButton()
-                                
-                            case .showAlert(let iconName, let actionText):
+
+                            case let .showAlert(iconName, actionText):
                                 ActionButton(iconName: iconName, actionText: actionText)
                             }
                         }
@@ -119,7 +119,7 @@ struct ActionIconsModifier: ViewModifier {
 }
 
 private struct ActionButton: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
@@ -128,7 +128,7 @@ private struct ActionButton: View {
     @Environment(\.theme) private var theme
     let iconName: String
     let actionText: String
-    
+
     // ===========
     // MARK: Body
     // ===========
@@ -145,4 +145,3 @@ private struct ActionButton: View {
         }
     }
 }
-

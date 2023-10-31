@@ -1,23 +1,9 @@
 //
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// This software is distributed under the MIT license.
 //
 
 import BottomSheet
@@ -45,14 +31,14 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
         subtitle: String? = nil,
         icon: Image? = nil,
         bottomSheetSize: Binding<ODSBottomSheetSize>,
-        @ViewBuilder content: @escaping () -> ContentView
-    ) {
+        @ViewBuilder content: @escaping () -> ContentView)
+    {
         self.title = title
         self.subtitle = subtitle
         self.icon = icon
-        self.mainContent = content
+        mainContent = content
         self.bottomSheetSize = bottomSheetSize
-        self.bottomSheetPosition = self.bottomSheetSize.wrappedValue.position
+        bottomSheetPosition = self.bottomSheetSize.wrappedValue.position
     }
 
     // ==========
@@ -61,38 +47,36 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
 
     func body(content: Content) -> some View {
         content
-        .bottomSheet(
-            bottomSheetPosition: $bottomSheetPosition,
-            switchablePositions: ODSBottomSheetSize.allCases.map { $0.position },
-            headerContent: {
-                BottomSheedHeader(title: title, subtitle: subtitle, icon: icon, applyRotation: false)
-                    .onTapGesture {
-                        switch self.bottomSheetSize.wrappedValue {
-                        case .small:
-                            self.bottomSheetPosition = ODSBottomSheetSize.medium.position
-                        case .medium:
-                            self.bottomSheetPosition = ODSBottomSheetSize.large.position
-                        case .large:
-                            self.bottomSheetPosition = ODSBottomSheetSize.small.position
-                        default:
-                             break
+            .bottomSheet(
+                bottomSheetPosition: $bottomSheetPosition,
+                switchablePositions: ODSBottomSheetSize.allCases.map { $0.position },
+                headerContent: {
+                    BottomSheedHeader(title: title, subtitle: subtitle, icon: icon, applyRotation: false)
+                        .onTapGesture {
+                            switch self.bottomSheetSize.wrappedValue {
+                            case .small:
+                                self.bottomSheetPosition = ODSBottomSheetSize.medium.position
+                            case .medium:
+                                self.bottomSheetPosition = ODSBottomSheetSize.large.position
+                            case .large:
+                                self.bottomSheetPosition = ODSBottomSheetSize.small.position
+                            default:
+                                break
+                            }
                         }
-                    }
-            },
-            mainContent: mainContent
-        )
-        .showDragIndicator(false)
-        .enableAppleScrollBehavior(true)
-        .enableContentDrag(true)
-        .enableTapToDismiss(true)
-        .onDismiss {
-            bottomSheetPosition = ODSBottomSheetSize.small.position
-        }
-        .customBackground(self.background)
-        .onChange(of: bottomSheetPosition) { newValue in
-            bottomSheetSize.wrappedValue = ODSBottomSheetSize(from: newValue)
-        }
-
+                },
+                mainContent: mainContent)
+            .showDragIndicator(false)
+            .enableAppleScrollBehavior(true)
+            .enableContentDrag(true)
+            .enableTapToDismiss(true)
+            .onDismiss {
+                bottomSheetPosition = ODSBottomSheetSize.small.position
+            }
+            .customBackground(background)
+            .onChange(of: bottomSheetPosition) { newValue in
+                bottomSheetSize.wrappedValue = ODSBottomSheetSize(from: newValue)
+            }
     }
 
     // =====================

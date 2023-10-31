@@ -1,24 +1,9 @@
 //
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
+// This software is distributed under the MIT license.
 //
 
 import SwiftUI
@@ -81,18 +66,18 @@ public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.St
     /// - Remark: Accessibilty recommendation:
     /// We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
     ///
-    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0...1, @ViewBuilder label: () -> Label, @ViewBuilder minimumValueLabel: () -> ValueLabel, @ViewBuilder maximumValueLabel: () -> ValueLabel, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0 ... 1, @ViewBuilder label: () -> Label, @ViewBuilder minimumValueLabel: () -> ValueLabel, @ViewBuilder maximumValueLabel: () -> ValueLabel, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
 
         _value = value
-        self.range = bounds
-        self.step = nil
+        range = bounds
+        step = nil
         self.onEditingChanged = onEditingChanged
         self.label = label()
         self.minimumValueLabel = minimumValueLabel()
         self.maximumValueLabel = maximumValueLabel()
 
-        self.values = nil
-        self._isEditing = State(initialValue: false)
+        values = nil
+        _isEditing = State(initialValue: false)
     }
 
     /// Creates a slider to select a value from a given range, subject to a
@@ -123,15 +108,15 @@ public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.St
     public init(value: Binding<V>, in bounds: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder label: () -> Label, @ViewBuilder minimumValueLabel: () -> ValueLabel, @ViewBuilder maximumValueLabel: () -> ValueLabel, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
 
         _value = value
-        self.range = bounds
+        range = bounds
         self.step = step
         self.onEditingChanged = onEditingChanged
         self.label = label()
         self.minimumValueLabel = minimumValueLabel()
         self.maximumValueLabel = maximumValueLabel()
 
-        self.values = Array(stride(from: range.lowerBound, through: range.upperBound, by: step))
-        self._isEditing = State(initialValue: false)
+        values = Array(stride(from: range.lowerBound, through: range.upperBound, by: step))
+        _isEditing = State(initialValue: false)
     }
 }
 
@@ -156,7 +141,7 @@ extension ODSSlider where ValueLabel == EmptyView {
     /// The slider calls `onEditingChanged` when editing begins and ends. For
     /// example, on iOS, editing begins when the user starts to drag the thumb
     /// along the slider's track.
-    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0...1, @ViewBuilder label: () -> Label, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0 ... 1, @ViewBuilder label: () -> Label, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         self.init(
             value: value,
             in: bounds,
@@ -213,7 +198,7 @@ extension ODSSlider where ValueLabel == EmptyView, Label == EmptyView {
     /// The slider calls `onEditingChanged` when editing begins and ends. For
     /// example, on iOS, editing begins when the user starts to drag the thumb
     /// along the slider's track.
-    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0...1, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0 ... 1, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
         self.init(
             value: value,
             in: bounds,
@@ -264,27 +249,27 @@ extension ODSSlider: View {
 
                 GeometryReader { geometry in
                     slider
-                    .gesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged { value in
-                                let newValue = computeNewValue(for: value.location.x, in: geometry.size.width)
-                                if !isEditing {
-                                    if newValue != self.$value.wrappedValue {
-                                        self.isEditing = true
+                        .gesture(
+                            DragGesture(minimumDistance: 0)
+                                .onChanged { value in
+                                    let newValue = computeNewValue(for: value.location.x, in: geometry.size.width)
+                                    if !isEditing {
+                                        if newValue != self.$value.wrappedValue {
+                                            self.isEditing = true
+                                        }
                                     }
-                                }
 
-                                self.$value.wrappedValue = newValue
-                            }
-                            .onEnded { value in
-                                self.$value.wrappedValue = computeNewValue(for: value.location.x, in: geometry.size.width)
-                                self.isEditing = false
-                            }
-                    )
-                    .frame(
-                        width: geometry.size.width,
-                        height: geometry.size.height,
-                        alignment: .center)
+                                    self.$value.wrappedValue = newValue
+                                }
+                                .onEnded { value in
+                                    self.$value.wrappedValue = computeNewValue(for: value.location.x, in: geometry.size.width)
+                                    self.isEditing = false
+                                }
+                        )
+                        .frame(
+                            width: geometry.size.width,
+                            height: geometry.size.height,
+                            alignment: .center)
                 }
 
                 maximumValueLabel
@@ -316,7 +301,7 @@ extension ODSSlider: View {
                 return range.lowerBound
             } else {
                 let percent = xPosition / globalWidth
-                let computedValue = (V(percent) * (self.range.upperBound - self.range.lowerBound)) + self.range.lowerBound
+                let computedValue = (V(percent) * (range.upperBound - range.lowerBound)) + range.lowerBound
 
                 // Adjust newValue according to step
                 return adjustNewValue(from: computedValue)
@@ -325,7 +310,7 @@ extension ODSSlider: View {
     }
 
     private func adjustNewValue(from computedValue: V) -> V {
-        guard let values = self.values else {
+        guard let values = values else {
             return computedValue
         }
 

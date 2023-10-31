@@ -1,11 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
-
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -21,7 +20,7 @@ public let cardExampleLongSubtitle = "Sed quasi illo in quidem consectetur sit c
 
 public let cardExampleLongSupportingText = "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit."
 
-public let cardExampleImage: ODSImage.Source = .image( Image("ods_empty", bundle: Bundle.ods))
+public let cardExampleImage: ODSImage.Source = .image(Image("ods_empty", bundle: Bundle.ods))
 
 #else
 let recipeForCardExample = RecipeBook.shared.recipes[0]

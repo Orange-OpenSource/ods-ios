@@ -1,4 +1,12 @@
 //
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
+
+//
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,7 +60,7 @@ extension View {
     /// - Returns: A tool bar with labeled items placed as decribed in design.
     ///
     public func odsToolBar(items: ODSToolbarLabeledItems) -> some View {
-        self.toolbar {
+        toolbar {
             ODSToolbarLabelContent(items: items)
         }
     }
@@ -64,7 +72,7 @@ extension View {
     /// - Returns: A tool bar with icon items placed as decribed in design.
     ///
     public func odsToolBar(items: ODSToolbarIconsItems) -> some View {
-        self.toolbar {
+        toolbar {
             ODSToolbarIconContent(items: items)
         }
     }
@@ -106,8 +114,8 @@ public struct ODSToolbarLabeledItems {
     public init(
         description1: ODSToolbarLabelDesription,
         description2: ODSToolbarLabelDesription,
-        description3: ODSToolbarLabelDesription? = nil
-    ) {
+        description3: ODSToolbarLabelDesription? = nil)
+    {
         self.description1 = description1
         self.description2 = description2
         self.description3 = description3
@@ -154,8 +162,8 @@ public struct ODSToolbarIconsItems {
         description2: ODSToolbarIconDesription,
         description3: ODSToolbarIconDesription? = nil,
         description4: ODSToolbarIconDesription? = nil,
-        description5: ODSToolbarIconDesription? = nil
-    ) {
+        description5: ODSToolbarIconDesription? = nil)
+    {
         self.description1 = description1
         self.description2 = description2
         self.description3 = description3

@@ -1,24 +1,9 @@
 //
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
+// This software is distributed under the MIT license.
 //
 
 import SwiftUI
@@ -101,25 +86,21 @@ struct SmallCardView_Previews: PreviewProvider {
                 LazyVGrid(columns: SmallCardView_Previews.columns, spacing: ODSSpacing.none) {
                     ODSCardSmall(
                         title: Text("1 Title"),
-                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods))
-                    )
+                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
 
                     ODSCardSmall(
                         title: Text("2 Title"),
                         imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-                        subtitle: Text("2 Subtitle")
-                    )
+                        subtitle: Text("2 Subtitle"))
 
                     ODSCardSmall(
                         title: Text("3 A long long title"),
                         imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-                        subtitle: Text("3 A long long Subtitle")
-                    )
+                        subtitle: Text("3 A long long Subtitle"))
 
                     ODSCardSmall(
                         title: Text("4 A long long Title"),
-                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods))
-                    )
+                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
                 }
                 .padding(.bottom, ODSSpacing.m)
 
@@ -131,8 +112,7 @@ struct SmallCardView_Previews: PreviewProvider {
                 ODSCardSmall(
                     title: Text("Title 4"),
                     imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
-                    subtitle: Text("Subtitle 4")
-                )
+                    subtitle: Text("Subtitle 4"))
             }
             .padding(.horizontal, ODSSpacing.m)
         }

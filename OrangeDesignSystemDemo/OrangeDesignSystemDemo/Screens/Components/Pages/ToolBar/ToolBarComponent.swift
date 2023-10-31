@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -18,7 +18,7 @@ struct ToolBarComponent: Component {
     let imageName: String
     let description: String
     let variants: AnyView
-    
+
     init() {
         title = °°"screens.guidelines.bars.tools.title"
         imageName = "Bars - tool"
@@ -32,7 +32,7 @@ struct ToolBarComponent: Component {
 // =========================
 
 private struct ToolBarVariants: View {
-    
+
     var body: some View {
         VariantEntryItem(title: °°"screens.guidelines.bars.tools.title", technicalElement: "odsToolBar()") {
             ToolBarVariantHome(model: ToolBarVariantModel())
@@ -46,37 +46,37 @@ private struct ToolBarVariants: View {
 // ==============================
 
 private struct ToolBarVariantHome: View {
-    
+
     // ================
     // MARK: Properties
     // ================
-    
+
     @ObservedObject private var model: ToolBarVariantModel
     @State private var showToolBar = false
-    
+
     // =================
     // MARK: Initializer
     // =================
-    
+
     init(model: ToolBarVariantModel) {
         self.model = model
     }
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         ScrollView {
             VStack {
                 Text("screens.guidelines.bars.tools.hint")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
-                
+
                 ToolBarVariantOptions(model: model)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.xl)
-                
+
                 ODSButton(text: Text("screens.guidelines.bars.tools.open.hint"), emphasis: .high, fullWidth: true) {
                     showToolBar = true
                 }
@@ -95,43 +95,43 @@ private struct ToolBarVariantHome: View {
 // =================================
 
 private struct ToolBarVariantContent: View {
-    
+
     // ================
     // MARK: Properties
     // ================
-    
+
     @ObservedObject private var model: ToolBarVariantModel
     @Environment(\.dismiss) private var dismiss
-    
+
     // =================
     // MARK: Initializer
     // =================
-    
+
     init(model: ToolBarVariantModel) {
         self.model = model
     }
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         NavigationView {
             VStack(spacing: ODSSpacing.m) {
-                
+
                 RoundedRectangle(cornerRadius: 4)
                     .frame(width: 55, height: 4, alignment: .center)
                     .padding(.top, ODSSpacing.s)
                     .padding(.bottom, ODSSpacing.xs)
-                
+
                 Spacer()
-                
+
                 ODSButton(text: Text("screens.guidelines.bars.tools.close.hint"), emphasis: .high, fullWidth: true) {
                     dismiss()
                 }
-                
+
                 Spacer()
-                
+
                 switch model.itemType {
                 case .label:
                     Text("screens.guidelines.bars.tools.with_labels.title")
@@ -155,17 +155,17 @@ private struct ToolBarVariantContent: View {
 // ==========================================
 
 private struct ToolBarVariantContentModifier: ViewModifier {
-    
+
     // ================
     // MARK: Properties
     // ================
-    
+
     @ObservedObject var model: ToolBarVariantModel
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     func body(content: Content) -> some View {
         switch model.itemType {
         case .label:

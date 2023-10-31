@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -14,7 +14,7 @@ struct ListComponent: Component {
     let imageName: String
     let description: String
     let variants: AnyView
-    
+
     init() {
         title = °°"screens.guidelines.lists.title"
         imageName = "Lists"
@@ -25,12 +25,12 @@ struct ListComponent: Component {
 
 struct ListVariants: View {
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.lists.variant.standard_lists", technicalElement: "ODSListItem()"){
+        VariantEntryItem(title: °°"screens.guidelines.lists.variant.standard_lists", technicalElement: "ODSListItem()") {
             ListItemStandardVariant(model: ListItemStandardVariantModel())
         }
-        VariantEntryItem(title: °°"screens.guidelines.lists.variant.with_selections", technicalElement: "ODSListItem()"){
+        VariantEntryItem(title: °°"screens.guidelines.lists.variant.with_selections", technicalElement: "ODSListItem()") {
             ListItemSelectionVariant(model: ListItemSelectionVariantModel())
-        }        
+        }
     }
 }
 

@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -18,7 +18,7 @@ struct ButtonComponent: Component {
     let imageName: String
     let description: String
     let variants: AnyView
-    
+
     init() {
         title = °°"screens.guidelines.buttons.title"
         imageName = "Buttons - Shape"
@@ -40,15 +40,15 @@ struct ButtonVariants: View {
             }
             .navigationTitle("screens.guidelines.buttons.variant.emphasis")
         }
-        
+
         VariantEntryItem(title: °°"screens.guidelines.buttons.variant.functional", technicalElement: "ODSFunctionalButton()") {
-            
+
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 FunctionalVariant(model: model)
             }
             .navigationTitle("screens.guidelines.buttons.variant.functional")
         }
-        
+
         VariantEntryItem(title: °°"screens.guidelines.buttons.variant.icons", technicalElement: "ODSIconButton()") {
             IconVariant(model: IconVariantModel())
                 .navigationTitle("screens.guidelines.buttons.variant.icons")
@@ -95,6 +95,6 @@ struct CommonButtonVariant<Variant>: View where Variant: View {
             .background(Color("componentBackground2"))
         } options: {
             EmphasisAndFunctionalVariantOptions(model: model)
-        }        
+        }
     }
 }

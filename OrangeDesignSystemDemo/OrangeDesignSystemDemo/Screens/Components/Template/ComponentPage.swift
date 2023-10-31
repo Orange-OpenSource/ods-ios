@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -17,7 +17,7 @@ struct ComponentPage: View {
 
     let component: Component
     @EnvironmentObject private var themeProvider: ThemeProvider
-    
+
     // ==========
     // MARK: Body
     // ==========
@@ -41,7 +41,7 @@ struct ComponentPage: View {
             }
             .listRowInsets(EdgeInsets())
             .padding(.horizontal, ODSSpacing.none)
-            
+
             component.variants
         }
         .listRowSeparator(Visibility.hidden)
@@ -72,16 +72,16 @@ struct VariantsTitle: View {
 }
 
 struct VariantEntryItem<VariantPage>: View where VariantPage: View {
-    
+
     // =======================
     // MARK: Stored Properties
     // =======================
-    
+
     private let title: Text
     private let technicalElement: Text
     private let showThemeSelectionInNavigationBar: Bool
     private let variantPage: () -> VariantPage
-    
+
     // =================
     // MARK: Initializer
     // =================
@@ -90,8 +90,8 @@ struct VariantEntryItem<VariantPage>: View where VariantPage: View {
         title: String,
         technicalElement: String,
         showThemeSelectionInNavigationBar: Bool = true,
-        @ViewBuilder variantPage: @escaping () -> VariantPage
-    ) {
+        @ViewBuilder variantPage: @escaping () -> VariantPage)
+    {
         self.title = Text(title)
         self.technicalElement = Text(technicalElement)
         self.showThemeSelectionInNavigationBar = showThemeSelectionInNavigationBar
@@ -101,7 +101,7 @@ struct VariantEntryItem<VariantPage>: View where VariantPage: View {
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         NavigationLink {
             if showThemeSelectionInNavigationBar {
@@ -123,12 +123,12 @@ struct ComponentPage_Previews: PreviewProvider {
         let imageName: String
         let description: String
         let variants: AnyView
-        
+
         init() {
             title = "Test"
             imageName = "Cards_1"
             description = "This is a long text to illustrate the description area"
-            
+
             variants = AnyView(Variants())
         }
     }
@@ -140,12 +140,11 @@ struct ComponentPage_Previews: PreviewProvider {
             }
         }
     }
-    
+
     static var previews: some View {
-        VStack{
+        VStack {
             ComponentPage(component: TestComponent())
         }
     }
-
 }
 #endif

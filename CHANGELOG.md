@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...qualif)
 
+- [DemoApp/SDK] Update source files headers to be compliant with SPDX format [#497](https://github.com/Orange-OpenSource/ods-ios/issues/497)
 - [DemoApp/SDK] Run tests plan in CI/CD chain [#506](https://github.com/Orange-OpenSource/ods-ios/issues/506)
 - [DemoApp/SDK] Add Mattermost notifications for build and upload lanes [#503](https://github.com/Orange-OpenSource/ods-ios/issues/503)
 - [DemoApp/SDK] Downgrade version of activesupport (Cocoapods issue, CI/CD troubleshooting) [#501](https://github.com/Orange-OpenSource/ods-ios/issues/501)

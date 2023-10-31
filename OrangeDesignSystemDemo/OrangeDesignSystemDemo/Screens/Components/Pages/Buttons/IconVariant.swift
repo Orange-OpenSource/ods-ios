@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -32,27 +32,27 @@ struct IconVariant: View {
             IconVariantOptions(model: model)
         }
     }
-    
+
     var variant: some View {
         ScrollView {
             VStack(spacing: ODSSpacing.m) {
                 Text("screens.guidelines.buttons.variant.description")
                     .odsFont(.bodyRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                
+
                 VariantsTitle().frame(maxWidth: .infinity, alignment: .leading)
-                
+
                 VStack(alignment: .center, spacing: ODSSpacing.l) {
                     VStack(alignment: .center, spacing: ODSSpacing.s) {
                         Text("screens.guidelines.buttons.icon_add").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         ODSIconButton(image: Image("Add")) {}
                             .disabled(!model.showEnabled)
                     }
-                    
+
                     VStack(alignment: .center, spacing: ODSSpacing.s) {
                         Text("screens.guidelines.buttons.icon_info").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         ODSIconButton(image: Image(systemName: "info.circle")) {}
                             .disabled(!model.showEnabled)
                     }

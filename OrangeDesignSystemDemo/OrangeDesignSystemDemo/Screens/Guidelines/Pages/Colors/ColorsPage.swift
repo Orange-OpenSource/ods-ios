@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -25,7 +25,7 @@ struct ColorPageDescription: View {
     }
 }
 
-fileprivate struct ColorList: View {
+private struct ColorList: View {
 
     // =======================
     // MARK: Stored Properties
@@ -37,9 +37,9 @@ fileprivate struct ColorList: View {
 
     private let columns = [
         GridItem(.flexible(minimum: 50.0)),
-        GridItem(.flexible(minimum: 50.0))
+        GridItem(.flexible(minimum: 50.0)),
     ]
-    
+
     // ==========
     // MARK: Body
     // ==========
@@ -75,7 +75,7 @@ fileprivate struct ColorList: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: {
                     ColorUsage()
-                } ) {
+                }) {
                     Text("misc.usage")
                 }
                 .foregroundColor(theme.componentColors.navigationBarForeground)
@@ -83,7 +83,7 @@ fileprivate struct ColorList: View {
         }
         .navigationTitle("screens.guidelines.colors.palette.title")
     }
-    
+
     // ============================
     // MARK: Private Implementation
     // ============================

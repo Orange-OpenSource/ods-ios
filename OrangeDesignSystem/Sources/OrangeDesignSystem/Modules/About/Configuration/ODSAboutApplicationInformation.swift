@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import Foundation
 import SwiftUI
@@ -44,8 +44,8 @@ public struct ODSApplicationVersion {
     ///    - marketingVersion: The current version of the application (something like: x.y.z)
     public init(marketingVersion: String) {
         self.marketingVersion = marketingVersion
-        self.buildNumber = nil
-        self.buildType = nil
+        buildNumber = nil
+        buildType = nil
     }
 }
 
@@ -111,7 +111,8 @@ public struct ODSAboutApplicationInformation {
         version: ODSApplicationVersion? = nil,
         description: String? = nil,
         shareConfiguration: ODSAboutShareTheApplication? = nil,
-        onFeedbackClicked: (() -> Void)? = nil) {
+        onFeedbackClicked: (() -> Void)? = nil)
+    {
         self.name = name
         self.version = version
         self.description = description

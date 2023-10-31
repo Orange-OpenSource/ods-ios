@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import SwiftUI
 
@@ -24,7 +24,7 @@ struct AboutSetup: View {
 
     @State var showDemo: Bool = false
     @ObservedObject var model: AboutModuleModel
-    
+
     // =================
     // MARK: Initializer
     // =================
@@ -59,22 +59,22 @@ struct AboutSetup: View {
                     selection: $model.applicationSectionOptions,
                     allowZeroSelection: true,
                     chips: AboutModuleModel.ApplicationInformationOption.chips)
-                .padding(.vertical, ODSSpacing.m)
-                .padding(.horizontal, -ODSSpacing.m)
-                
+                    .padding(.vertical, ODSSpacing.m)
+                    .padding(.horizontal, -ODSSpacing.m)
+
                 ODSChipPicker(
                     title: °°"screens.modules.about.picker.optional_about_items",
                     selection: $model.optionalAboutItems,
                     allowZeroSelection: true,
                     chips: AboutModuleModel.OptionalAboutItem.chips)
-                .padding(.vertical, ODSSpacing.s)
-                .padding(.horizontal, -ODSSpacing.m)
-                
-                Stepper("screens.modules.about.picker.custom_items" <-  "\(model.numberOfCustomItems)",
+                    .padding(.vertical, ODSSpacing.s)
+                    .padding(.horizontal, -ODSSpacing.m)
+
+                Stepper("screens.modules.about.picker.custom_items" <- "\(model.numberOfCustomItems)",
                         value: $model.numberOfCustomItems,
                         in: 0 ... model.defaultCustomItems.count)
                     .padding(.vertical, ODSSpacing.s)
-                
+
                 NavigationLink(isActive: $showDemo) {
                     AboutModuleDemo(model: model)
                 } label: {
@@ -88,9 +88,8 @@ struct AboutSetup: View {
     }
 }
 
-
 struct AboutModuleDemo: View {
-    
+
     // =======================
     // MARK: Stored Properties
     // =======================
@@ -108,26 +107,26 @@ struct AboutModuleDemo: View {
                        acessibilityStatement: acessibilityStatement,
                        termsOfService: termsOfService,
                        listItemConfigurations: listItemConfigurations)
-        .alert("screens.modules.about.alert.feedback_clicked", isPresented: $model.showFeedbackPopup) {
-            Button("shared.close", role: .cancel) {}
-        }
+            .alert("screens.modules.about.alert.feedback_clicked", isPresented: $model.showFeedbackPopup) {
+                Button("shared.close", role: .cancel) {}
+            }
     }
 
     // ==============================
     // MARK: Mandatory configurations
     // ==============================
-    
+
     let headerIllustration = ThemeProvider().imageFromResources("AboutImage")
     let acessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
-    
+
     var privacyPolicy: ODSPrivacyPolicy {
         model.privacyPolicy
     }
+
     var applicationInformation: ODSAboutApplicationInformation {
         model.applicationInformation
-        
     }
-    
+
     @ViewBuilder
     private func termsOfService() -> some View {
         Text("screens.modules.about.texts.add_cgu")
@@ -144,7 +143,7 @@ struct AboutModuleDemo: View {
             return nil
         }
     }
-    
+
     private var rateTheAppItemConfiguration: ODSAboutRateTheAppItemCondfig? {
         if let url = model.rateTheAppUrl {
             return ODSAboutRateTheAppItemCondfig(storeUrl: url)
@@ -163,14 +162,13 @@ struct AboutModuleDemo: View {
         }
     }
 
-    
     private var listItemConfigurations: [ODSAboutListItemConfig] {
         var configurations: [ODSAboutListItemConfig?] = [
             appNewsItemConfiguration,
             rateTheAppItemConfiguration,
-            legalInformationItemConfiguration
+            legalInformationItemConfiguration,
         ]
-        
+
         configurations.append(contentsOf: model.customItems)
         return configurations.compactMap { $0 }
     }
@@ -178,7 +176,7 @@ struct AboutModuleDemo: View {
 
 #if DEBUG
 struct ODSBanner_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         AboutSetup(model: AboutModuleModel())
     }

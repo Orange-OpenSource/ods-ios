@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -34,7 +34,7 @@ struct CardViewDemo: View {
                         title: Text("screens.modules.card_collections.titles.list"),
                         imageSource: .image(imageFrom(resourceName: "Cards")))
                 }
-                
+
                 NavigationLink {
                     GrifOfSmallCards()
                         .navigationTitle("screens.modules.card_collections.titles.grid")
