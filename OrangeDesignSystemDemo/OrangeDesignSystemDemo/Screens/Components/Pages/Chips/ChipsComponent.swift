@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -18,7 +18,7 @@ struct ChipsComponent: Component {
     let imageName: String
     let description: String
     let variants: AnyView
-    
+
     init() {
         title = °°"screens.guidelines.chips.title"
         imageName = "Chips"
@@ -32,9 +32,9 @@ struct ChipsComponent: Component {
 // ======================
 
 struct ChipsVariants: View {
-    
+
     @ObservedObject var model: ChipsVariantModel
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
             GroupedChips(title: °°"screens.guidelines.chips.text_only",
@@ -42,19 +42,19 @@ struct ChipsVariants: View {
                          removableChips: model.textOnlyRemovableChips,
                          selection: $model.selectedTextOnlyChip,
                          selectionRemovableChips: $model.selectedTextOnlyRemovableChip)
-            
+
             GroupedChips(title: °°"screens.guidelines.chips.with_icon",
                          chips: model.withIconChips,
                          removableChips: model.withIconRemovableChips,
                          selection: $model.selectedWithIconChip,
                          selectionRemovableChips: $model.selectedWithIconRemovableChip)
-            
+
             GroupedChips(title: °°"screens.guidelines.chips.with_system_icon",
                          chips: model.withSystemIconChips,
                          removableChips: model.withSystemIconRemovableChips,
                          selection: $model.selectedWithSystemIconChip,
                          selectionRemovableChips: $model.selectedWithSystemIconRemovableChip)
-            
+
             GroupedChips(title: °°"screens.guidelines.chips.with_avatar",
                          chips: model.withAvatarChips,
                          removableChips: model.withAvatarRemovableChips,

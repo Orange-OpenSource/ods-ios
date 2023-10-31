@@ -1,27 +1,27 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
 
 struct NavigationBarVariantContent: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
-    
+
     @ObservedObject var model: NavigationBarVariantModel
     let searchModel = NavigationBarSearchModel()
 
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         ListExample(model: searchModel)
             .navigationTitle(title)
@@ -34,7 +34,7 @@ struct NavigationBarVariantContent: View {
     // ============
     // MARK: Helper
     // ============
-    
+
     private var title: String {
         switch model.titleSize {
         case .standard:
@@ -80,7 +80,7 @@ class NavigationBarVariantModel: ObservableObject {
     var availableActions: [Action] {
         Array(actions.prefix(actionIconCount))
     }
-    
+
     var numberOfActions: Int {
         actions.count
     }
@@ -88,7 +88,7 @@ class NavigationBarVariantModel: ObservableObject {
     // ====================
     // MARK: Internal types
     // ====================
-    
+
     enum TitleSize: Int, CaseIterable {
         case standard
         case large
@@ -108,23 +108,23 @@ class NavigationBarVariantModel: ObservableObject {
         }
 
         var chip: ODSChip<TitleSize> {
-            ODSChip(self, text: self.description)
+            ODSChip(self, text: description)
         }
 
         static var chips: [ODSChip<Self>] {
             Self.allCases.map { $0.chip }
         }
     }
-    
+
     enum Action: Identifiable {
         case showThemeSelection
         case showAlert(iconName: String, actionText: String)
-        
+
         var id: String {
             switch self {
             case .showThemeSelection:
                 return UUID().uuidString
-            case .showAlert(let iconName, _):
+            case let .showAlert(iconName, _):
                 return iconName
             }
         }

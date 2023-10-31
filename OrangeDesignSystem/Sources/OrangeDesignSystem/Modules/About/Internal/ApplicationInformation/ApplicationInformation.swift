@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import SwiftUI
 
@@ -77,7 +77,8 @@ struct AboutApplicationInformation: View {
 
     private var buildSuffix: String {
         guard let buildNumber = applicationInformation.version?.buildNumber,
-              !buildNumber.isEmpty else {
+              !buildNumber.isEmpty
+        else {
             return ""
         }
         return " (\(buildNumber))\(buildTypeSuffix)"
@@ -85,7 +86,8 @@ struct AboutApplicationInformation: View {
 
     private var buildTypeSuffix: String {
         guard let buildType = applicationInformation.version?.buildType,
-              !buildType.isEmpty else {
+              !buildType.isEmpty
+        else {
             return ""
         }
         return " - \(buildType)"
@@ -104,7 +106,7 @@ struct AboutView_Previews: PreviewProvider {
 
         ForEach(ColorScheme.allCases, id: \.self) {
             AboutApplicationInformation(applicationInformation: appInfo)
-                    .preferredColorScheme($0)
+                .preferredColorScheme($0)
         }
     }
 }

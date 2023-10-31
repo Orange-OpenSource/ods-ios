@@ -1,23 +1,9 @@
 //
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// This software is distributed under the MIT license.
 //
 
 import SwiftUI
@@ -70,18 +56,18 @@ extension View {
     ///     the size of the sheet that you create in the modifier's `content` closure.
     ///   - content: A closure that returns the content of the bottom sheet.
     ///
-    public func odsBottomSheetExpanding<Content: View> (
+    public func odsBottomSheetExpanding<Content: View>(
         title: String,
         bottomSheetSize: Binding<ODSBottomSheetSize>,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View {
-            self.modifier(ODSBottomSheetExpandingModifier(
-                title: title,
-                subtitle: nil,
-                icon: nil,
-                bottomSheetSize: bottomSheetSize,
-                content: content))
-        }
+        @ViewBuilder content: @escaping () -> Content) -> some View
+    {
+        modifier(ODSBottomSheetExpandingModifier(
+            title: title,
+            subtitle: nil,
+            icon: nil,
+            bottomSheetSize: bottomSheetSize,
+            content: content))
+    }
 
     /// This modifier adds a bottom sheet containing title and subtitle in header and a complex content.
     ///
@@ -92,19 +78,19 @@ extension View {
     ///     the size of the sheet that you create in the modifier's `content` closure.
     ///   - content: A closure that returns the content of the bottom sheet.
     ///
-    public func odsBottomSheetExpanding<Content: View> (
+    public func odsBottomSheetExpanding<Content: View>(
         title: String,
         subtitle: String,
         bottomSheetSize: Binding<ODSBottomSheetSize>,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View {
-            self.modifier(ODSBottomSheetExpandingModifier(
-                title: title,
-                subtitle: subtitle,
-                icon: nil,
-                bottomSheetSize: bottomSheetSize,
-                content: content))
-        }
+        @ViewBuilder content: @escaping () -> Content) -> some View
+    {
+        modifier(ODSBottomSheetExpandingModifier(
+            title: title,
+            subtitle: subtitle,
+            icon: nil,
+            bottomSheetSize: bottomSheetSize,
+            content: content))
+    }
 
     /// This modifier adds a bottom sheet containing title and icon in header and a complex content.
     ///
@@ -115,17 +101,17 @@ extension View {
     ///     the size of the sheet that you create in the modifier's `content` closure.
     ///   - content: A closure that returns the content of the bottom sheet.
     ///
-    public func odsBottomSheetExpanding<Content: View> (
+    public func odsBottomSheetExpanding<Content: View>(
         title: String,
         icon: Image,
         bottomSheetSize: Binding<ODSBottomSheetSize>,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View {
-            self.modifier(ODSBottomSheetExpandingModifier(
-                title: title,
-                subtitle: nil,
-                icon: icon,
-                bottomSheetSize: bottomSheetSize,
-                content: content))
-        }
+        @ViewBuilder content: @escaping () -> Content) -> some View
+    {
+        modifier(ODSBottomSheetExpandingModifier(
+            title: title,
+            subtitle: nil,
+            icon: icon,
+            bottomSheetSize: bottomSheetSize,
+            content: content))
+    }
 }

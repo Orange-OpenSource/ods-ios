@@ -1,23 +1,9 @@
 //
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// This software is distributed under the MIT license.
 //
 
 import SwiftUI
@@ -143,8 +129,8 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
         isOpen: Binding<Bool>,
         headerSize: Binding<CGSize>? = nil,
         headerConfig: ODSBottomSheetStandardHeaderConfig,
-        @ViewBuilder content: @escaping () -> Content
-    ) {
+        @ViewBuilder content: @escaping () -> Content)
+    {
         self.isOpen = isOpen
         self.headerSize = headerSize
         self.headerConfig = headerConfig
@@ -164,14 +150,14 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
                                   subtitle: headerConfig.subtitle,
                                   icon: headerConfig.icon,
                                   applyRotation: applyRotation)
-                .onTapGesture {
-                    withAnimation(Animation.linear) {
-                        isOpen.wrappedValue.toggle()
+                    .onTapGesture {
+                        withAnimation(Animation.linear) {
+                            isOpen.wrappedValue.toggle()
+                        }
                     }
-                }
-                .readSize { size in
-                    headerSize?.wrappedValue = size
-                }
+                    .readSize { size in
+                        headerSize?.wrappedValue = size
+                    }
 
                 if isOpen.wrappedValue {
                     content
@@ -187,7 +173,7 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
     // ==============
 
     private var applyRotation: Bool {
-        headerConfig.animateIcon && self.isOpen.wrappedValue
+        headerConfig.animateIcon && isOpen.wrappedValue
     }
 }
 

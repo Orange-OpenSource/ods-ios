@@ -1,17 +1,17 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
 final class StringTests: XCTestCase {
-    
+
     // ================
     // MARK: - 🌐 sugar
     // ================
@@ -24,7 +24,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someWording, "Value under test is '\(result)'")
     }
-    
+
     // Expect the key "jack_miranda_liara_tali" is not available in any Localizables
     func test🌐WithMissingKey() {
         // Given
@@ -34,7 +34,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.list.details" = "Détails"
     func test🌐WithAppWording() {
         // Given
@@ -67,7 +67,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someWording, "Value under test is '\(result)'")
     }
-    
+
     // Expect the key "jack_miranda_liara_tali" is not available in any Localizables
     func testOOWithMissingKey() {
         // Given
@@ -77,7 +77,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.list.details" = "Détails"
     func testOOWithAppWording() {
         // Given
@@ -97,7 +97,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == "Terms of Service", "Value under test is '\(result)'")
     }
-    
+
     // ===================
     // MARK: - localized()
     // ===================
@@ -110,7 +110,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someWording, "Value under test is '\(result)'")
     }
-    
+
     // Expect the key "jack_miranda_liara_tali" is not available in any Localizables
     func testLocalizedWithMissingKey() {
         // Given
@@ -120,7 +120,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.list.details" = "Détails"
     func testLocalizedWithAppWording() {
         // Given
@@ -153,7 +153,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someWording, "Value under test is '\(result)'")
     }
-    
+
     // Expect the key "jack_miranda_liara_tali" is not available in any Localizables
     func testLocalizedWithOneArgWithMissingKey() {
         // Given
@@ -163,7 +163,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.lists.variant.clicked" = "%@ est tappé"
     func testLocalizedWithOneArgWithAppWording() {
         // Given
@@ -183,11 +183,11 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == "Version T101", "Value under test is '\(result)'")
     }
-    
+
     // ==========================
     // MARK: - localized(with:[])
     // ==========================
-    
+
     func testLocalizedWithSeveralArgsWithCommonWording() {
         // Given
         let someWording = "Valar Morghulis"
@@ -196,7 +196,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someWording, "Value under test is '\(result)'")
     }
-    
+
     // Expect the key "jack_miranda_liara_tali" is not available in any Localizables
     func testLocalizedWithSeveralArgsWithMissingKey() {
         // Given
@@ -206,7 +206,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in demo app for "fr" Localizables entry "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@"
     func testLocalizedWithSeveralArgsWithAppWording() {
         // Given
@@ -216,7 +216,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == "Impossible de charger le fichier eps3.8_stage3.torrent", "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in lib app Localizables entry "modules.about.app_information.full_enriched_version_text" = "Version %@ (build %@)"
     func testLocalizedWithSeveralArgWithLibWording() {
         // Given
@@ -226,23 +226,23 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == "Version Normandy (build SR-2)", "Value under test is '\(result)'")
     }
-    
+
     // ===================
     // MARK: - <- operator
     // ===================
-    
+
     func testArrowWithOneArg() {
         // Given
         let someLocalizable = "Émiettez votre arsenic dans %@"
         let someArg = "un verre de narcotique"
-        
+
         // When
         let completeSentence = someLocalizable <- someArg
-        
+
         // Then
         XCTAssertTrue(completeSentence == "Émiettez votre arsenic dans un verre de narcotique", "Value under test is '\(completeSentence)'")
     }
-    
+
     // Expect the key "jack_miranda_liara_tali" is not available in any Localizables
     func testArrowWithOneArgWithMissingKey() {
         // Given
@@ -252,7 +252,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.lists.variant.clicked" = "%@ est tappé";
     func testArrowWithOneArgWithAppWording() {
         // Given
@@ -272,7 +272,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == "Version T101", "Value under test is '\(result)'")
     }
-    
+
     func testArrowWithSeveralArgs() {
         // Given
         let someLocalizable = """
@@ -281,14 +281,14 @@ final class StringTests: XCTestCase {
         Ho ho, je vais en mettre %2$@
         """
         let someArgs = ["trois", "un seul"]
-        
+
         // When
         let completeSentence = someLocalizable <- someArgs
-        
+
         // Then
         XCTAssertTrue(completeSentence == "Pour adoucir le mélange, pressez trois quartiers d'orange. Ho ho, je vais en mettre un seul", "Value under test is '\(completeSentence)'")
     }
-    
+
     // Expect the key "jack_miranda_liara_tali" is not available in any Localizables
     func testArrowWithSeveralArgsWithMissingKey() {
         // Given
@@ -298,7 +298,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in demo app for "fr" Localizables entry "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@"
     func testArrowWithSeveralArgsWithAppWording() {
         // Given
@@ -308,7 +308,7 @@ final class StringTests: XCTestCase {
         // Then
         XCTAssertTrue(result == "Impossible de charger le fichier eps3.8_stage3.torrent", "Value under test is '\(result)'")
     }
-    
+
     // Expect to have in lib app Localizables entry "modules.about.app_information.full_enriched_version_text" = "Version %@ (build %@)"
     func testArrowWithSeveralArgsWithLibWording() {
         // Given

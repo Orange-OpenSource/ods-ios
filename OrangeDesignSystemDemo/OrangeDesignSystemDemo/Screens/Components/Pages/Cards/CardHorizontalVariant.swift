@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -16,7 +16,7 @@ import SwiftUI
 extension ODSCardHorizontal.ImagePosition: CaseIterable {
 
     public static var allCases: [ODSCardHorizontal.ImagePosition] = [.leading, .trailing]
-    
+
     var description: String {
         switch self {
         case .leading:
@@ -25,11 +25,11 @@ extension ODSCardHorizontal.ImagePosition: CaseIterable {
             return °°"shared.trailing"
         }
     }
-    
+
     var chip: ODSChip<Self> {
-        ODSChip(self, text: self.description)
+        ODSChip(self, text: description)
     }
-    
+
     static var chips: [ODSChip<Self>] {
         Self.allCases.map { $0.chip }
     }
@@ -51,15 +51,15 @@ class CardHorizontalVariantModel: ObservableObject {
     @Published var showAlert: Bool
     @Published var imagePosition: ODSCardHorizontal.ImagePosition
     @Published var showDivider: Bool
-    
+
     var alertText: String
     let buttonsText: [String]
     private let recipe: Recipe
-    
+
     // =================
     // MARK: Initializer
     // =================
-    
+
     init() {
         showSubtitle = true
         showText = true
@@ -76,36 +76,36 @@ class CardHorizontalVariantModel: ObservableObject {
     // ==================
     // MARK: Card Content
     // ==================
-    
+
     var title: Text {
         Text(recipe.title)
     }
-    
+
     var subtitle: Text? {
         showSubtitle ? Text(recipe.subtitle) : nil
     }
-    
+
     var imageSource: ODSImage.Source {
         .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods))
     }
-    
+
     var text: Text? {
         showText ? Text(recipe.description) : nil
     }
-    
+
     var firstButtonText: String {
         buttonsText[0]
     }
 
-    var secondButtonText: String  {
+    var secondButtonText: String {
         buttonsText[1]
     }
 
     func displayAlert(text: String) {
-        self.alertText = text
-        self.showAlert = true
+        alertText = text
+        showAlert = true
     }
-    
+
     var numberOfButtons: Int {
         buttonsText.count
     }
@@ -144,7 +144,7 @@ struct CardHorizontalVariant: View {
             CardHorizontalVariantOptions(model: model)
         }
     }
-    
+
     @ViewBuilder
     private var card: some View {
         switch model.buttonCount {
@@ -161,8 +161,8 @@ struct CardHorizontalVariant: View {
                 imagePosition: model.imagePosition,
                 subtitle: model.subtitle,
                 text: model.text,
-                dividerEnabled: model.showDivider
-            ) {
+                dividerEnabled: model.showDivider)
+            {
                 Button(model.firstButtonText) {
                     model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
@@ -174,8 +174,8 @@ struct CardHorizontalVariant: View {
                 imagePosition: model.imagePosition,
                 subtitle: model.subtitle,
                 text: model.text,
-                dividerEnabled: model.showDivider
-            ) {
+                dividerEnabled: model.showDivider)
+            {
                 Button(model.firstButtonText) {
                     model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
@@ -184,7 +184,7 @@ struct CardHorizontalVariant: View {
                     model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.secondButtonText)")
                 }
             }
-            
+
         default:
             EmptyView()
         }
@@ -213,18 +213,18 @@ private struct CardHorizontalVariantOptions: View {
                 .padding(.horizontal, ODSSpacing.m)
             Toggle("shared.text", isOn: $model.showText)
                 .padding(.horizontal, ODSSpacing.m)
-            
+
             ODSChipPicker(title: °°"screens.guidelines.card.picker.position",
                           selection: $model.imagePosition,
                           chips: ODSCardHorizontal.ImagePosition.chips)
-            
+
             Toggle("screens.guidelines.card.divider", isOn: $model.showDivider)
                 .padding(.horizontal, ODSSpacing.m)
 
             Stepper("screens.guidelines.card.buttons_number" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
-            .padding(.horizontal, ODSSpacing.m)
+                .padding(.horizontal, ODSSpacing.m)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)

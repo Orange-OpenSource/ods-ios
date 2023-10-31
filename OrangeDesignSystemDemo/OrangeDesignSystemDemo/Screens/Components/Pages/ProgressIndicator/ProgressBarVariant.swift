@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -31,7 +31,7 @@ struct ProgressBarVariant: View {
             ProgressBarVariantOptions(model: model)
         }
     }
-    
+
     // ====================
     // MARK: Private helper
     // ====================
@@ -40,7 +40,7 @@ struct ProgressBarVariant: View {
         VStack {
             ProgressView(value: secondsElapsed, total: maxSeconds) {
                 if model.showLabel {
-                    Label(title: {Text("screens.guidelines.progress_indicators.downloading")}, icon: {
+                    Label(title: { Text("screens.guidelines.progress_indicators.downloading") }, icon: {
                         if model.showIconInLabel {
                             Image(systemName: "tray.and.arrow.down")
                         }
@@ -61,7 +61,7 @@ struct ProgressBarVariant: View {
                     secondsElapsed = 0
                 }
             }
-            
+
             Spacer()
         }
         .padding(.all, ODSSpacing.m)
@@ -69,7 +69,7 @@ struct ProgressBarVariant: View {
 }
 
 class ProgressBarVariantModel: ObservableObject {
-    
+
     // ======================
     // MARK: Store properties
     // ======================

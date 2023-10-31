@@ -1,4 +1,13 @@
 //
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
+
+import OrangeDesignSystem
+//
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,7 +30,6 @@
 //
 //
 import SwiftUI
-import OrangeDesignSystem
 
 struct Toastable<Content>: View where Content: View {
 

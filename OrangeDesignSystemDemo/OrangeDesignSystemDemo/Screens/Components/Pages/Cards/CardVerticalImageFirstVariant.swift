@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -23,7 +23,7 @@ class CardVerticalImageFirstVariantModel: ObservableObject {
     @Published var showText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
-    
+
     var alertText: String = ""
     private let buttonsText: [String]
     private let recipe: Recipe
@@ -37,7 +37,7 @@ class CardVerticalImageFirstVariantModel: ObservableObject {
         showText = true
         buttonCount = 2
         showAlert = false
-        
+
         buttonsText = [°°"screens.guidelines.card.button_1",
                        °°"screens.guidelines.card.button_2"]
         recipe = RecipeBook.shared.recipes[0]
@@ -46,34 +46,34 @@ class CardVerticalImageFirstVariantModel: ObservableObject {
     // =============
     // MARK: Helpers
     // =============
-    
+
     var title: Text {
         Text(recipe.title)
     }
-    
+
     var subtitle: Text? {
         showSubtitle ? Text(recipe.subtitle) : nil
     }
-    
+
     var imageSource: ODSImage.Source {
         .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods))
     }
-    
+
     var text: Text? {
         showText ? Text(recipe.description) : nil
     }
-    
+
     var firstButtonText: String {
         buttonsText[0]
     }
 
-    var secondButtonText: String  {
+    var secondButtonText: String {
         buttonsText[1]
     }
-    
+
     func displayAlert(text: String) {
-        self.alertText = text
-        self.showAlert = true
+        alertText = text
+        showAlert = true
     }
 
     var numberOfButtons: Int {
@@ -115,7 +115,7 @@ struct CardVerticalImageFirstVariant: View {
             CardVerticalImageFirstVariantOptions(model: model)
         }
     }
-    
+
     // ===================
     // MARK: Pivate Helper
     // ===================
@@ -134,8 +134,8 @@ struct CardVerticalImageFirstVariant: View {
                 title: model.title,
                 imageSource: model.imageSource,
                 subtitle: model.subtitle,
-                text: model.text
-            ) {
+                text: model.text)
+            {
                 Button(model.firstButtonText) {
                     model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
@@ -145,8 +145,8 @@ struct CardVerticalImageFirstVariant: View {
                 title: model.title,
                 imageSource: model.imageSource,
                 subtitle: model.subtitle,
-                text: model.text
-            ) {
+                text: model.text)
+            {
                 Button(model.firstButtonText) {
                     model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
                 }
@@ -181,7 +181,7 @@ private struct CardVerticalImageFirstVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("shared.subtitle", isOn: $model.showSubtitle)
             Toggle("shared.text", isOn: $model.showText)
-            
+
             Stepper("screens.guidelines.card.buttons_number" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)

@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import Foundation
 @testable import OrangeDesignSystem
@@ -16,24 +16,24 @@ final class DateFormatterCacheTest: XCTestCase {
     override func setUp() {
         DateFormatterCache.shared.flush()
     }
-    
+
     // ==================
     // MARK: - Test cases
     // ==================
-    
+
     func testFormatterAvailabilityIfNotAdded() {
         // Given
         let locale = Locale(identifier: "fr")
         let dateStyle = DateFormatter.Style.short
         let timeStyle = DateFormatter.Style.none
-        
+
         // When
         let formatter = DateFormatterCache.shared.formatter(for: locale, dateStyle: dateStyle, timeStyle: timeStyle)
-        
+
         // Then
         XCTAssertNil(formatter)
     }
-    
+
     func testFormatterAvailabilityIfAdded() {
         // Given
         let locale = Locale(identifier: "fr")
@@ -44,17 +44,16 @@ final class DateFormatterCacheTest: XCTestCase {
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
         DateFormatterCache.shared.store(formatter: formatter)
-        
+
         // When
         guard let storedFormatter = DateFormatterCache.shared.formatter(for: locale, dateStyle: dateStyle, timeStyle: timeStyle) else {
             XCTFail("Nil value returned, must not")
             return
         }
-        
+
         // Then
         XCTAssertEqual(formatter.locale, storedFormatter.locale)
         XCTAssertEqual(formatter.dateStyle, storedFormatter.dateStyle)
         XCTAssertEqual(formatter.timeStyle, storedFormatter.timeStyle)
     }
 }
-

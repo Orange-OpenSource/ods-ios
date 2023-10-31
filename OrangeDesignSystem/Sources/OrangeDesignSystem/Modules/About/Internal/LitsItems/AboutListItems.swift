@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import SwiftUI
 
@@ -41,7 +41,7 @@ struct AboutListItems: View {
     @ViewBuilder
     private func item(from configuration: ODSAboutListItemConfig) -> some View {
         switch configuration.target {
-        case .action(let action):
+        case let .action(action):
             Button {
                 action()
             } label: {
@@ -49,7 +49,7 @@ struct AboutListItems: View {
             }
             .odsListItemStyle(showSeparator: false)
 
-        case .destination(let destination):
+        case let .destination(destination):
             NavigationLink {
                 destination.navigationTitle(configuration.title)
             } label: {

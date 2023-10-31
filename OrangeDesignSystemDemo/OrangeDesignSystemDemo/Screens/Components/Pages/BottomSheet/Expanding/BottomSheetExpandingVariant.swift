@@ -1,13 +1,13 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
-import SwiftUI
 import OrangeDesignSystem
+import SwiftUI
 
 struct BottomSheetVariant: View {
 
@@ -24,11 +24,10 @@ struct BottomSheetVariant: View {
     var body: some View {
         PageContent(model: model)
             .modifier(BottomSheetModifier(model: model))
-            
     }
 }
 
-fileprivate struct BottomSheetModifier: ViewModifier {
+private struct BottomSheetModifier: ViewModifier {
 
     // ======================
     // MARK: Store properties
@@ -45,32 +44,31 @@ fileprivate struct BottomSheetModifier: ViewModifier {
             content
                 .odsBottomSheetExpanding(title: °°"screens.guidelines.bottom_sheets.sample.title",
                                          subtitle: °°"screens.guidelines.bottom_sheets.sample.subtitle",
-                                bottomSheetSize: $model.bottomSheetSize,
-                                content: bottomSheetContent)
+                                         bottomSheetSize: $model.bottomSheetSize,
+                                         content: bottomSheetContent)
         } else {
             if model.showIcon {
                 content
                     .odsBottomSheetExpanding(title: °°"screens.guidelines.bottom_sheets.sample.title",
-                                    icon: Image("Heart_19371"),
-                                    bottomSheetSize: $model.bottomSheetSize,
-                                    content: bottomSheetContent)
+                                             icon: Image("Heart_19371"),
+                                             bottomSheetSize: $model.bottomSheetSize,
+                                             content: bottomSheetContent)
             } else {
                 content
                     .odsBottomSheetExpanding(title: °°"screens.guidelines.bottom_sheets.sample.title",
-                                    bottomSheetSize: $model.bottomSheetSize,
-                                    content: bottomSheetContent)
+                                             bottomSheetSize: $model.bottomSheetSize,
+                                             content: bottomSheetContent)
             }
         }
     }
-    
+
     private func bottomSheetContent() -> some View {
         BottonSheetContent(model: model)
             .background(Color(UIColor.systemBackground))
-
     }
 }
 
-fileprivate struct BottonSheetContent: View {
+private struct BottonSheetContent: View {
 
     // ======================
     // MARK: Store properties
@@ -89,7 +87,7 @@ fileprivate struct BottonSheetContent: View {
             examplePage()
         }
     }
-    
+
     // =============
     // MARK: Helpers
     // =============
@@ -97,7 +95,7 @@ fileprivate struct BottonSheetContent: View {
     private func tutorialPage() -> some View {
         TutorialText(message: model.tutorialTextOnBottomSheetContent)
     }
-    
+
     private func examplePage() -> some View {
         ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
             ODSListItem(title: Text(recipe.title), leading: .icon(Image(recipe.iconName)))
@@ -109,15 +107,14 @@ fileprivate struct BottonSheetContent: View {
     }
 }
 
-
-fileprivate struct PageContent: View {
+private struct PageContent: View {
 
     // ======================
     // MARK: Store properties
     // ======================
 
     @ObservedObject var model: BottomSheetVariantModel
-    
+
     // ==========
     // MARK: Body
     // ==========
@@ -143,13 +140,14 @@ fileprivate struct PageContent: View {
                 title: Text(recipe.title),
                 imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
                 subtitle: Text(recipe.subtitle),
-                text: Text(recipe.description)) {
-                    Button("screens.guidelines.bottom_sheets.sample.start_preparing") {}
-                }
-                .padding(.horizontal, ODSSpacing.s)
+                text: Text(recipe.description))
+            {
+                Button("screens.guidelines.bottom_sheets.sample.start_preparing") {}
+            }
+            .padding(.horizontal, ODSSpacing.s)
         }
     }
-    
+
     @ViewBuilder
     private func tutorialPage() -> some View {
         TutorialText(message: model.tutorialTextOnPageContent)
@@ -157,13 +155,13 @@ fileprivate struct PageContent: View {
 }
 
 struct TutorialText: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
 
     let message: String?
-    
+
     // ==========
     // MARK: Body
     // ==========

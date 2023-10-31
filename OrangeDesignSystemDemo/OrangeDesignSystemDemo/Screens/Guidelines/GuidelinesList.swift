@@ -1,36 +1,36 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
 
 struct GuidelinesList: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
-    
+
     @EnvironmentObject private var themeProvider: ThemeProvider
     private let guidelines: [Guideline]
     private let columns = [GridItem(.flexible(), alignment: .topLeading)]
-    
+
     init() {
         guidelines = [
             ColorsGuideline(),
             TypographyGuideline(),
-            SpacingsGuideline()
+            SpacingsGuideline(),
         ]
     }
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -49,15 +49,15 @@ struct GuidelinesList: View {
                 .navigationTitle("shared.guidelines")
                 .navigationbarMenuForThemeSelection()
             }
-            
+
             GuidelinePage(guideline: guidelines[0]) // Why ?
         }
     }
-    
+
     // ====================
     // MARK: Private helper
     // ====================
-    
+
     private func imageFrom(resourceName: String) -> Image {
         themeProvider.imageFromResources(resourceName)
     }

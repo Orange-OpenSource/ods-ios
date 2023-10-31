@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -32,7 +32,7 @@ struct SpacingsPageDescription: View {
     }
 }
 
-fileprivate struct SpacingItem: View {
+private struct SpacingItem: View {
 
     // ======================
     // MARK: Store properties
@@ -71,7 +71,7 @@ fileprivate struct SpacingItem: View {
     }
 }
 
-fileprivate struct SpacingVisual: View {
+private struct SpacingVisual: View {
 
     // ======================
     // MARK: Store properties
@@ -106,7 +106,7 @@ fileprivate struct SpacingVisual: View {
     }
 }
 
-fileprivate enum Spacing: Double, CaseIterable {
+private enum Spacing: Double, CaseIterable {
     case none
     case xs
     case s

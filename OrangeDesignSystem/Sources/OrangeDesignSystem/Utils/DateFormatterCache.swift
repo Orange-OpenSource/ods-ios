@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import Foundation
 
@@ -36,8 +36,8 @@ final class DateFormatterCache {
     /// - Parameter formatter: The `DateFormatter` to store according to its locale, date style and time style
     func store(formatter: DateFormatter) {
         cache[Configuration(locale: formatter.locale,
-                                         dateStyle: formatter.dateStyle,
-                                         timeStyle: formatter.timeStyle)] = formatter
+                            dateStyle: formatter.dateStyle,
+                            timeStyle: formatter.timeStyle)] = formatter
     }
 
     /// Deletes all the entries store din the cache

@@ -1,26 +1,26 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
 
 struct TypographyPageDescription: View {
-    
+
     // =======================
     // MARK: Stored Properties
     // =======================
-    
+
     let fontStyles = ODSFontStyle.allCases
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
             ForEach(fontStyles, id: \.rawValue) { fontStyle in
@@ -39,10 +39,9 @@ struct TypographyPageDescription: View {
     }
 }
 
-
 // MARK: Font syle description
-private extension ODSFontStyle {
-    var description: String {
+extension ODSFontStyle {
+    fileprivate var description: String {
         switch self {
         case .largeTitle:
             return "Large Title"

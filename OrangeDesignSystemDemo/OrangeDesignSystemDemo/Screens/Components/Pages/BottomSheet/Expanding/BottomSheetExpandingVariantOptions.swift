@@ -1,16 +1,16 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
-import SwiftUI
 import OrangeDesignSystem
+import SwiftUI
 
 class BottomSheetVariantModel: ObservableObject {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
@@ -20,26 +20,26 @@ class BottomSheetVariantModel: ObservableObject {
     @Published var showSubtitle: Bool {
         didSet { if showSubtitle { showIcon = false } }
     }
+
     @Published var showIcon: Bool {
         didSet { if showIcon { showSubtitle = false } }
     }
-    
-    @Published var selectedRecipe: Recipe?
 
+    @Published var selectedRecipe: Recipe?
 
     // =================
     // MARK: Initializer
     // =================
 
     init() {
-        self.bottomSheetSize = .medium
-        self.showSubtitle = false
-        self.showIcon = false
-        self.contentType = .tutorial
-        
-        self.selectedRecipe = RecipeBook.shared.recipes[0]
+        bottomSheetSize = .medium
+        showSubtitle = false
+        showIcon = false
+        contentType = .tutorial
+
+        selectedRecipe = RecipeBook.shared.recipes[0]
     }
-    
+
     // ==============
     // MARK: Tutorial
     // ==============
@@ -54,7 +54,7 @@ class BottomSheetVariantModel: ObservableObject {
             return °°"screens.guidelines.bottom_sheets.sample.open_medium"
         }
     }
-    
+
     var tutorialTextOnBottomSheetContent: String? {
         switch bottomSheetSize {
         case .hidden, .small, .medium:
@@ -66,26 +66,26 @@ class BottomSheetVariantModel: ObservableObject {
 }
 
 struct ExpandingBottomSheetVariantHome: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
-    
+
     @ObservedObject private var model: BottomSheetVariantModel
     @State private var showBottomSheet = false
-    
+
     // =================
     // MARK: Initializer
     // =================
-    
+
     init(model: BottomSheetVariantModel) {
         self.model = model
     }
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: ODSSpacing.m) {
@@ -93,18 +93,18 @@ struct ExpandingBottomSheetVariantHome: View {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
-                
+
                 ExpandingBottomSheetVariantOptions(model: model)
-                
+
                 ODSButton(text: Text("screens.guidelines.bottom_sheets.variant.see"), emphasis: .high, fullWidth: true) {
                     showBottomSheet = true
                 }
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)
-                
+
                 Spacer()
-                
+
                 // First solution: Show Variant in navigation
 //                NavigationLink(
 //                    destination:
@@ -125,7 +125,7 @@ struct ExpandingBottomSheetVariantHome: View {
                                 Button {
                                     showBottomSheet = false
                                 } label: {
-                                        Text("shared.close")
+                                    Text("shared.close")
                                 }
                             }
                         }
@@ -136,19 +136,18 @@ struct ExpandingBottomSheetVariantHome: View {
     }
 }
 
-
 struct ExpandingBottomSheetVariantOptions: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
-    
+
     @ObservedObject var model: BottomSheetVariantModel
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Group {
@@ -173,7 +172,6 @@ struct ExpandingBottomSheetVariantOptions: View {
     }
 }
 
-
 // MARK: - Internal type and extension
 
 enum ContentType: String, CaseIterable {
@@ -181,9 +179,9 @@ enum ContentType: String, CaseIterable {
     case example
 
     var chip: ODSChip<Self> {
-        ODSChip(self, text: self.rawValue.capitalized)
+        ODSChip(self, text: rawValue.capitalized)
     }
-    
+
     static var chips: [ODSChip<Self>] {
         Self.allCases.map { $0.chip }
     }
@@ -202,11 +200,11 @@ extension ODSBottomSheetSize {
             return °°"screens.guidelines.bottom_sheets.size.hidden"
         }
     }
-    
+
     var chip: ODSChip<Self> {
-        ODSChip(self, text: self.description)
+        ODSChip(self, text: description)
     }
-    
+
     static var chips: [ODSChip<Self>] {
         Self.allCases
             .filter { $0 != .hidden }

@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -18,7 +18,7 @@ struct CardComponent: Component {
     let imageName: String
     let description: String
     let variants: AnyView
-    
+
     init() {
         title = °°"screens.guidelines.cards.title"
         imageName = "Cards_1"
@@ -32,13 +32,13 @@ struct CardComponent: Component {
 // =====================
 
 struct CardVariants: View {
-    
+
     var body: some View {
         VariantEntryItem(title: °°"screens.guidelines.cards.variant.vertical_image_first", technicalElement: "ODSCardVerticalImageFirst()") {
             CardVerticalImageFirstVariant(model: CardVerticalImageFirstVariantModel())
                 .navigationTitle("screens.guidelines.cards.variant.vertical_image_first")
         }
-        
+
         VariantEntryItem(title: °°"screens.guidelines.cards.variant.vertical_header_first", technicalElement: "ODSCardVerticalHeaderFirst()") {
             CardVerticalHeaderFirstVariant(model: CardVerticalHeaderFirstVariantModel())
                 .navigationTitle("screens.guidelines.cards.variant.vertical_header_first")
@@ -48,7 +48,7 @@ struct CardVariants: View {
             CardSmallVariant(model: CardSmallVariantModel())
                 .navigationTitle("screens.guidelines.cards.variant.small")
         }
-        
+
         VariantEntryItem(title: °°"screens.guidelines.cards.variant.horizontal", technicalElement: "ODSCardHorizontal") {
             CardHorizontalVariant(model: CardHorizontalVariantModel())
                 .navigationTitle("screens.guidelines.cards.variant.horizontal")

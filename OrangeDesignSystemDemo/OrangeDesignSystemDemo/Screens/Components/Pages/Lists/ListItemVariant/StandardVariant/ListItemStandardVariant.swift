@@ -1,24 +1,9 @@
 //
-// MIT License
-// Copyright (c) 2021 Orange
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the  Software), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
+// This software is distributed under the MIT license.
 //
 
 import OrangeDesignSystem
@@ -29,13 +14,13 @@ struct ListItemStandardVariant: View {
     // =======================
     // MARK: Stored Properties
     // =======================
-    
+
     let model: ListItemStandardVariantModel
-    
+
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         CustomizableVariant {
             ListItemStandardVariantInner(model: model)
@@ -58,7 +43,7 @@ private struct ListItemStandardVariantInner: View {
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         List {
             if model.navigate {
@@ -79,7 +64,7 @@ private struct ListItemStandardVariantInner: View {
             Button("close", role: .cancel) {}
         }
     }
-    
+
     // =====================
     // MARK: Private helpers
     // =====================
@@ -88,45 +73,45 @@ private struct ListItemStandardVariantInner: View {
     private var listItem: some View {
         let showText = model.trailingOptions.contains { $0 == .text }
         let showIButton = model.trailingOptions.contains { $0 == .iButton }
-        
+
         switch (showText, showIButton) {
         case (true, true):
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
                 leading: leading,
-                trailingText: Text("Details")) {
-                    iButtonAction()
-                }
+                trailingText: Text("Details"))
+            {
+                iButtonAction()
+            }
         case (true, false):
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
                 leading: leading,
-                trailingText: Text("Details")
-            )
+                trailingText: Text("Details"))
 
         case (false, true):
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
-                leading: leading) {
-                    iButtonAction()
-                }
+                leading: leading)
+            {
+                iButtonAction()
+            }
 
         case (false, false):
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
-                leading: leading
-            )
+                leading: leading)
         }
     }
-            
+
     private var title: Text {
         Text(recipe.title)
     }
-    
+
     private var subtitle: Text? {
         if model.showSubtitle {
             return Text(recipe.subtitle)
@@ -150,11 +135,11 @@ private struct ListItemStandardVariantInner: View {
             return .wideImage(source: .asyncImage(recipe.url, emptyImage))
         }
     }
-    
+
     // =====================
     // MARK: Buttons actions
     // =====================
-    
+
     // Info button action
     private func iButtonAction() {
         showAlert = true
