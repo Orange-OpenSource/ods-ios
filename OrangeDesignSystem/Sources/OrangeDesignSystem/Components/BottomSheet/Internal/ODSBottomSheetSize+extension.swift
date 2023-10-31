@@ -1,4 +1,12 @@
 //
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
+
+//
 // MIT License
 // Copyright (c) 2021 Orange
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,7 +49,7 @@ extension ODSBottomSheetSize {
             self = .hidden
         case .dynamicBottom:
             self = .small
-        case .relative(let ratio) where ratio == 0.5:
+        case let .relative(ratio) where ratio == 0.5:
             self = .medium
         default:
             self = .large
@@ -53,7 +61,7 @@ extension ODSBottomSheetSize {
 extension BottomSheetPosition {
     public var description: String {
         switch self {
-        case .absolute(let s):
+        case let .absolute(s):
             return "absolute (\(s))"
         case .hidden:
             return "Hidden"
@@ -63,15 +71,15 @@ extension BottomSheetPosition {
             return "dynamic"
         case .dynamicTop:
             return "dynamicTop"
-        case .relativeBottom(let s):
+        case let .relativeBottom(s):
             return "dynamicBottom(\(s))"
-        case .relative(let s):
+        case let .relative(s):
             return "relative(\(s))"
-        case .relativeTop(let s):
+        case let .relativeTop(s):
             return "relativeTop(\(s))"
-        case .absoluteBottom(let s):
+        case let .absoluteBottom(s):
             return "absoluteBottom(\(s))"
-        case .absoluteTop(let s):
+        case let .absoluteTop(s):
             return "absoluteTop(\(s))"
         }
     }

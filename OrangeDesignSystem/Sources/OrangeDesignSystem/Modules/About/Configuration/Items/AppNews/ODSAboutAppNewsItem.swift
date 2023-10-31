@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import SwiftUI
 
@@ -37,8 +37,8 @@ public struct ODSAboutAppNewsItemConfig: ODSAboutListItemConfig {
     public init(priority: ODSAboutListItemPriority = .appNews, path: String) {
         self.path = path
         self.priority = priority
-        self.title = "modules.about.app_news.title".🌐
-        self.icon = Image("ic_taskList", bundle: Bundle.ods)
-        self.target = .destination(AnyView(AppNewsList(fromFile: path)))
+        title = "modules.about.app_news.title".🌐
+        icon = Image("ic_taskList", bundle: Bundle.ods)
+        target = .destination(AnyView(AppNewsList(fromFile: path)))
     }
 }
