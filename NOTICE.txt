@@ -1,5 +1,5 @@
 Parts list under Orange SA Copyright
-Copyright (C) 2016 - 2022 Orange SA All rights reserved
+Copyright (C) 2016 - 2023 Orange SA All rights reserved
 
 The following parts are proprietary information of Orange.
 You shall not use or display any trade names, trademarks, service marks, products names, illustrations or designs used within the software
@@ -26,7 +26,6 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_review
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_share.imageset/ic_share.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_taskList.imageset/ic_taskList.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_about.imageset/il_about.svg
-
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/App-Store-512@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@1x.png
@@ -145,4 +144,5 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/About/ic_folderFavourite.imageset/ic_folderFavourite.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/About/ic_subtitles.imageset/ic_subtitles.svg
+
 End of the parts list under Orange SA Copyright
