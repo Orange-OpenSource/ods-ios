@@ -1,0 +1,43 @@
+#
+# Software Name: Orange Design System (iOS)
+# SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+# SPDX-License-Identifier: MIT
+#
+# This software is distributed under the MIT license.
+#
+
+# Top-level files
+
+AUTHORS.txt @pylapp
+CONTRIBUTORS.txt @pylapp
+LICENSE @pylapp
+doctor.sh @pylapp
+
+NOTICE.txt @B3nz01d
+
+.gitattributes @ludovic35 @pylapp
+.gitignore @ludovic35 @pylapp
+.swiftformat @ludovic35 @pylapp
+.swiftlint @ludovic35 @pylapp
+CHANGELOG.md @ludovic35 @pylapp
+DEVELOP.md @ludovic35 @pylapp
+Gemfile @ludovic35 @pylapp
+Gemfile.lock @ludovic35 @pylapp
+Package.resolved @ludovic35 @pylapp
+Package.swift @ludovic35 @pylapp
+README.md @ludovic35 @pylapp
+THIRD-PARTY.md @ludovic35 @pylapp
+
+CONTRIBUTING @ludovic35 @pylapp @B3nz01d
+
+# Project
+
+/.github/ @julien-deramond 
+
+/docs/ @julien-deramond @ludovic35 @pylapp
+/docs_release/ @julien-deramond @ludovic35 @pylapp
+
+/InnovationCupTheme/ @ludovic35 @pylapp
+/OrangeDesignSystem/ @ludovic35 @pylapp
+/OrangeDesignSystemDemo/ @ludovic35 @pylapp
+/OrangeTheme/ @ludovic35 @pylapp
