@@ -28,14 +28,14 @@ struct ThemeablePreviews<Content>: View where Content: View {
     ///   - colorSchemes: All cases must be provided for previews
     ///   - content: A view builder that creates the content of this stack.
     ///
-    public init(colorSchemes: [ColorScheme] = ColorScheme.allCases,
-                @ViewBuilder content: @escaping () -> Content)
+    init(colorSchemes: [ColorScheme] = ColorScheme.allCases,
+         @ViewBuilder content: @escaping () -> Content)
     {
         self.colorSchemes = colorSchemes
         self.content = content
     }
 
-    public var body: some View {
+    var body: some View {
         if !colorSchemes.isEmpty {
             ForEach(colorSchemes, id: \.self) {
                 themeableView().preferredColorScheme($0)

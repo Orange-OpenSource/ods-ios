@@ -6,6 +6,20 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		512287F62AF1453F00B9E4EF /* Periphery (dead code finder) */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 512287F92AF1453F00B9E4EF /* Build configuration list for PBXAggregateTarget "Periphery (dead code finder)" */;
+			buildPhases = (
+				512287FA2AF1456400B9E4EF /* Periphery */,
+			);
+			dependencies = (
+			);
+			name = "Periphery (dead code finder)";
+			productName = "Periphery (dead code finder)";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
@@ -855,6 +869,9 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					512287F62AF1453F00B9E4EF = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					EB0AA52F275652AE0012E192 = {
 						CreatedOnToolsVersion = 13.1;
 						LastSwiftMigration = 1310;
@@ -883,6 +900,7 @@
 			targets = (
 				EB0AA52F275652AE0012E192 /* OrangeDesignSystemDemo */,
 				EB0AA53F275652AF0012E192 /* OrangeDesignSystemDemoTests */,
+				512287F62AF1453F00B9E4EF /* Periphery (dead code finder) */,
 			);
 		};
 /* End PBXProject section */
@@ -935,6 +953,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		512287FA2AF1456400B9E4EF /* Periphery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Periphery;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Periphery action to look for dead code\nperiphery scan --strict --workspace OrangeDesignSystemDemo.xcworkspace --schemes OrangeDesignSystemDemo --targets OrangeDesignSystemDemo --format xcode\n";
 		};
 		59A545B45A1BFD1A7DC83D74 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1165,6 +1201,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		512287F72AF1453F00B9E4EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MG2LSJNJB6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		512287F82AF1453F00B9E4EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MG2LSJNJB6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		EB0AA552275652AF0012E192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1415,6 +1469,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		512287F92AF1453F00B9E4EF /* Build configuration list for PBXAggregateTarget "Periphery (dead code finder)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				512287F72AF1453F00B9E4EF /* Debug */,
+				512287F82AF1453F00B9E4EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EB0AA52B275652AE0012E192 /* Build configuration list for PBXProject "OrangeDesignSystemDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -129,7 +129,7 @@ struct AboutHtmlAndMarkdownView: View {
         }
     }
 
-    public static func addHeader(to partialHTMLText: String) -> String {
+    private static func addHeader(to partialHTMLText: String) -> String {
         if partialHTMLText.contains("<html") {
             return partialHTMLText
         }

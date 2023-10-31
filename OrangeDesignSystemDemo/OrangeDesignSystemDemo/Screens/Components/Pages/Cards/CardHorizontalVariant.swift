@@ -105,10 +105,6 @@ class CardHorizontalVariantModel: ObservableObject {
         alertText = text
         showAlert = true
     }
-
-    var numberOfButtons: Int {
-        buttonsText.count
-    }
 }
 
 // ===============================
