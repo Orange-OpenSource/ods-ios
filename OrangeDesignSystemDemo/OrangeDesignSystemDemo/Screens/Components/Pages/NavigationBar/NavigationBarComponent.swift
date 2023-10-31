@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -14,12 +14,12 @@ struct NavigationBarComponent: Component {
     let imageName: String
     let description: String
     let variants: AnyView
-    
+
     init() {
         title = °°"screens.guidelines.bars.navigation.title"
         imageName = "Navigation bars"
         description = °°"screens.guidelines.bars.navigation.description"
-        
+
         variants = AnyView(NavigationBarVariants())
     }
 }
@@ -46,7 +46,7 @@ struct NavigationBarVariant: View {
     // ==========
     // MARK: Body
     // ==========
-    
+
     var body: some View {
         CustomizableVariant {
             NavigationBarVariantContent(model: model)

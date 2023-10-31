@@ -805,7 +805,7 @@
 			buildConfigurationList = EB0AA554275652AF0012E192 /* Build configuration list for PBXNativeTarget "OrangeDesignSystemDemo" */;
 			buildPhases = (
 				BBC04BF489B25C64717CAA71 /* [CP] Check Pods Manifest.lock */,
-				F913B86C2767A0D5001CB0AA /* SwiftFormat */,
+				F913B86C2767A0D5001CB0AA /* SwiftFormat (headers of sources) */,
 				F913B86D2767A147001CB0AA /* SwiftLint */,
 				EB0AA52C275652AE0012E192 /* Sources */,
 				EB0AA52D275652AE0012E192 /* Frameworks */,
@@ -975,7 +975,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F913B86C2767A0D5001CB0AA /* SwiftFormat */ = {
+		F913B86C2767A0D5001CB0AA /* SwiftFormat (headers of sources) */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -985,14 +985,14 @@
 			);
 			inputPaths = (
 			);
-			name = SwiftFormat;
+			name = "SwiftFormat (headers of sources)";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n#\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT/../OrangeDesignSystem\"\n";
+			shellScript = "# ------------------------------\n# Check if SwiftFormat available\n# ------------------------------\nif which \"${PROJECT_DIR}/Pods/SwiftFormat/CommandLineTool/swiftformat\" >/dev/null; then\n\n    # Header to apply\n    HEADER=\"//\\n//Software Name: Orange Design System (iOS)\\n// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA\\n// SPDX-License-Identifier: MIT\\n//\\n// This software is distributed under the MIT license.\\n//\"\n    \n    # Format sources of Demo App\n    \"${PROJECT_DIR}/Pods/SwiftFormat/CommandLineTool/swiftformat\" --header \"$HEADER\" \"$SRCROOT\"\n    \n    # Format sources of Orange Theme \n    \"${PROJECT_DIR}/Pods/SwiftFormat/CommandLineTool/swiftformat\" --header \"$HEADER\" \"$SRCROOT/../OrangeTheme\"\n        \n    # Format sources of Innovation Cup Theme\n    \"${PROJECT_DIR}/Pods/SwiftFormat/CommandLineTool/swiftformat\" --header \"$HEADER\" \"$SRCROOT/../InnovationCupTheme\"\n    \n    # Format sources of library\n    \"${PROJECT_DIR}/Pods/SwiftFormat/CommandLineTool/swiftformat\" --header \"$HEADER\" \"$SRCROOT/../OrangeDesignSystem\"\n\n# -------------------------    \n# SwiftFormat not available\n# -------------------------\nelse\n    echo \"warning: SwiftFormat not installed, download from https://github.com/xxx/swiftformat\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F913B86D2767A147001CB0AA /* SwiftLint */ = {

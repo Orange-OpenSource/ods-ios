@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -14,7 +14,7 @@ import SwiftUI
 // =============================
 
 class ToolBarVariantModel: ObservableObject {
-        
+
     // ================
     // MARK: Properties
     // ================
@@ -24,20 +24,20 @@ class ToolBarVariantModel: ObservableObject {
         didSet {
             switch itemType {
             case .label:
-                self.itemsCount = min(itemsCount, numberOfLabelItems)
+                itemsCount = min(itemsCount, numberOfLabelItems)
             case .icon:
                 break
             }
         }
     }
-    
+
     @Published var showAlert: Bool
     var alertText: String
-    
+
     enum ItemType: Int, CaseIterable {
         case label
         case icon
-        
+
         var description: String {
             switch self {
             case .label:
@@ -46,11 +46,11 @@ class ToolBarVariantModel: ObservableObject {
                 return °°"shared.icon"
             }
         }
-        
+
         var chip: ODSChip<Self> {
-            ODSChip(self, text: self.description)
+            ODSChip(self, text: description)
         }
-        
+
         static var chips: [ODSChip<Self>] {
             Self.allCases.map { $0.chip }
         }
@@ -65,12 +65,12 @@ class ToolBarVariantModel: ObservableObject {
 
     init() {
         itemType = .label
-        
+
         showAlert = false
         alertText = ""
 
         itemsCount = 2
-        
+
         labelDescriptions = [°°"shared.actions.action_1",
                              °°"shared.actions.action_2",
                              °°"shared.actions.action_3"].map { str in
@@ -80,11 +80,11 @@ class ToolBarVariantModel: ObservableObject {
         }
 
         iconDescriptions = ["plus", "square.and.arrow.up", "square.and.pencil", "folder", "trash"]
-            .enumerated().map { (index, str) in
+            .enumerated().map { index, str in
                 ODSToolbarIconDesription(systemName: str) {
-                    self.showAlert(with: "Item \(index+1)")
+                    self.showAlert(with: "Item \(index + 1)")
                 }
-        }
+            }
     }
 
     // =====================
@@ -100,29 +100,29 @@ class ToolBarVariantModel: ObservableObject {
                                       description2: description2,
                                       description3: description3)
     }
-    
+
     var numberOfLabelItems: Int {
         labelDescriptions.count
     }
-    
+
     var iconItems: ODSToolbarIconsItems {
         let description1 = iconDescriptions[0]
         let description2 = iconDescriptions[1]
         let description3 = itemsCount >= 3 ? iconDescriptions[2] : nil
         let description4 = itemsCount >= 4 ? iconDescriptions[3] : nil
         let description5 = itemsCount >= 5 ? iconDescriptions[4] : nil
-        
+
         return ODSToolbarIconsItems(description1: description1,
                                     description2: description2,
                                     description3: description3,
                                     description4: description4,
                                     description5: description5)
     }
-        
+
     var numberOfIconItems: Int {
         iconDescriptions.count
     }
-    
+
     // =============
     // MARK: Helpers
     // =============
@@ -152,20 +152,20 @@ struct ToolBarVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             ODSChipPicker(title: °°"screens.guidelines.bars.tools.picker_hint",
-                              selection: $model.itemType,
-                              chips: ToolBarVariantModel.ItemType.chips)
-                
+                          selection: $model.itemType,
+                          chips: ToolBarVariantModel.ItemType.chips)
+
             switch model.itemType {
             case .label:
                 Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfLabelItems)
-                .padding(.horizontal, ODSSpacing.m)
+                    .padding(.horizontal, ODSSpacing.m)
             case .icon:
                 Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfIconItems)
-                .padding(.horizontal, ODSSpacing.m)
+                    .padding(.horizontal, ODSSpacing.m)
             }
         }
         .odsFont(.bodyBold)

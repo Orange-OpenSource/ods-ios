@@ -1,16 +1,16 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
 
 struct SliderVariant: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
@@ -28,10 +28,9 @@ struct SliderVariant: View {
             variant
         } options: {
             SliderVariantOptions(model: model)
-        }   
+        }
     }
-    
-    
+
     // =====================
     // MARK: Private Helpers
     // =====================
@@ -44,7 +43,7 @@ struct SliderVariant: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .accessibilityHidden(true)
                 }
-                
+
                 if model.stepped {
                     ODSSlider(value: $value, in: range, step: 0.5) {
                         Text("screens.guidelines.sliders.sample.volume")
@@ -71,7 +70,7 @@ struct SliderVariant: View {
             .padding(.top, ODSSpacing.m)
         }
     }
-    
+
     @ViewBuilder
     func SliderLabel(show: Bool, systemName: String) -> some View {
         if show {
@@ -93,7 +92,7 @@ class SliderVariantModel: ObservableObject {
     // ==================
     // MARK: Initializers
     // ==================
-    
+
     init() {
         showSideIcons = true
         showValue = true

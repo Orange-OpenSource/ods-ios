@@ -1,13 +1,13 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
-import SwiftUI
 import OrangeDesignSystem
+import SwiftUI
 
 struct ListOfVerticalImageFirstCard: View {
 
@@ -34,8 +34,7 @@ struct ListOfVerticalImageFirstCard: View {
                             title: Text(recipe.title),
                             imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
                             subtitle: Text(recipe.subtitle),
-                            text: Text(recipe.description)
-                        )
+                            text: Text(recipe.description))
                     }
                 }
             }
@@ -48,15 +47,14 @@ struct ListOfVerticalImageFirstCard: View {
 struct ListOfVerticalImageFirstCard_Previews: PreviewProvider {
     static var previews: some View {
         ListOfVerticalImageFirstCard()
-                .previewInterfaceOrientation(.portrait)
-        
+            .previewInterfaceOrientation(.portrait)
+
         ListOfVerticalImageFirstCard()
             .previewInterfaceOrientation(.portrait)
             .environment(\.dynamicTypeSize, .accessibility3)
-        
+
         ListOfVerticalImageFirstCard()
-                .previewInterfaceOrientation(.landscapeRight)
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 #endif
-

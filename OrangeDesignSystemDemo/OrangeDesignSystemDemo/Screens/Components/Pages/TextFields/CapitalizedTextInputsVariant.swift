@@ -1,13 +1,13 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
-import SwiftUI
 import OrangeDesignSystem
+import SwiftUI
 
 // MARK: Variants
 
@@ -25,7 +25,7 @@ struct TextFieldVariant: View {
 }
 
 private struct CapitalizedTextInputsVariant: View {
-    
+
     // ======================
     // MARK: Store properties
     // ======================
@@ -50,21 +50,21 @@ private struct CapitalizedTextInputsVariant: View {
                     .onAppear {
                         isFocused = true
                     }
-                
+
                 Spacer()
             }
         } options: {
             CapitalizedTextInputsVariantOptions(model: model)
         }
     }
-    
+
     // ==================
     // MARK: Initializers
     // ==================
 
     init(model: CapitalizedTextInputsVariantModel) {
         self.model = model
-        
+
         if case .textEditor = model.inputType {
             UITextView.appearance().backgroundColor = .clear
         }
@@ -86,7 +86,7 @@ private struct CapitalizedTextInputsVariant: View {
 }
 
 private class CapitalizedTextInputsVariantModel: ObservableObject {
-    
+
     // ====================
     // MARK: Internal types
     // ====================
@@ -96,7 +96,7 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
         case characters
         case words
         case sentences
-        
+
         var textInputAutocapitalization: TextInputAutocapitalization {
             switch self {
             case .never: return .never
@@ -105,7 +105,7 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
             case .sentences: return .sentences
             }
         }
-        
+
         var description: String {
             switch self {
             case .never: return °°"screens.guidelines.textfields.variants.inputs.never"
@@ -114,21 +114,21 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
             case .sentences: return °°"screens.guidelines.textfields.variants.inputs.sentences"
             }
         }
-        
+
         var chip: ODSChip<Self> {
-            ODSChip(self, text: self.description)
+            ODSChip(self, text: description)
         }
-        
+
         static var chips: [ODSChip<Self>] {
             Self.allCases.map { $0.chip }
         }
     }
-    
+
     enum InputType {
         case textField
         case textEditor
     }
-    
+
     // ======================
     // MARK: Store properties
     // ======================
@@ -136,10 +136,10 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
     @Published var selectedCapitalizationType: CapitalizationType {
         didSet { reseetTextToEdit() }
     }
-    
+
     @Published var textToEdit: String = ""
-    
-    var defaultText: String  {
+
+    var defaultText: String {
         let text = °°"screens.guidelines.textfields.variants.inputs.default.default"
         switch selectedCapitalizationType {
         case .never:
@@ -152,21 +152,21 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
             return °°"screens.guidelines.textfields.variants.inputs.default.sentences"
         }
     }
-    
+
     let inputType: InputType
-    
+
     // ==================
     // MARK: Initializers
     // ==================
 
     init(inputType: InputType) {
-        
+
         self.inputType = inputType
         selectedCapitalizationType = CapitalizationType.never
-        
+
         reseetTextToEdit()
     }
-    
+
     private func reseetTextToEdit() {
         switch inputType {
         case .textField:

@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import Foundation
 import OrangeDesignSystem
@@ -13,7 +13,7 @@ import SwiftUI
 struct ColorUsage: View {
 
     @Environment(\.theme) private var theme
-    
+
     // MARK: - Body
     var body: some View {
         ScrollView {
@@ -24,7 +24,7 @@ struct ColorUsage: View {
                 Text("screens.guidelines.colors.description.more")
                     .accentColor(theme.componentColors.accent)
                     .padding(.top, ODSSpacing.m)
-                // TODO : make component
+                // TODO: make component
             }
         }
         .padding(EdgeInsets(top: ODSSpacing.none, leading: ODSSpacing.m, bottom: ODSSpacing.m, trailing: ODSSpacing.m))

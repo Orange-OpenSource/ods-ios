@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -39,7 +39,7 @@ struct StandardListVariantOptions: View {
                           allowZeroSelection: true,
                           chips: TrailingOption.chips)
                 .padding(.vertical, ODSSpacing.s)
-            
+
             Toggle(isOn: $model.showDetails) {
                 Text("screens.guidelines.lists.picker.navigate").odsFont(.bodyBold)
             }

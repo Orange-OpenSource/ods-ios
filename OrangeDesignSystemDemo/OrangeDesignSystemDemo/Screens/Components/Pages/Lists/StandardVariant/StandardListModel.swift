@@ -1,10 +1,10 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
 
 import OrangeDesignSystem
 import SwiftUI
@@ -19,7 +19,7 @@ enum LeadingIconOption: Int, CaseIterable {
     case circle
     case wide
     case square
-    
+
     var description: String {
         switch self {
         case .none:
@@ -34,11 +34,11 @@ enum LeadingIconOption: Int, CaseIterable {
             return °°"shared.square"
         }
     }
-    
+
     var chip: ODSChip<Self> {
-        ODSChip(self, text: self.description)
+        ODSChip(self, text: description)
     }
-    
+
     static var chips: [ODSChip<Self>] {
         Self.allCases.map { $0.chip }
     }
@@ -47,7 +47,7 @@ enum LeadingIconOption: Int, CaseIterable {
 enum TrailingOption: Int, CaseIterable {
     case text = 0
     case infoButton
-        
+
     var description: String {
         switch self {
         case .text:
@@ -56,11 +56,11 @@ enum TrailingOption: Int, CaseIterable {
             return °°"screens.guidelines.lists.options.description.info_button"
         }
     }
-        
+
     var chip: ODSChip<Self> {
-        ODSChip(self, text: self.description)
+        ODSChip(self, text: description)
     }
-        
+
     static var chips: [ODSChip<Self>] {
         Self.allCases.map { $0.chip }
     }
@@ -83,36 +83,36 @@ class StandardListVariantModel: ObservableObject {
     @Published var leadingIconOption: LeadingIconOption {
         didSet { updateItems() }
     }
-        
+
     @Published var trailingOptions: [TrailingOption] {
         didSet { updateItems() }
     }
 
     @Published var itemModels: [ODSListStandardItemModel] = []
-    
+
     @Published var showDetails: Bool
-    
+
     private var recipes: [Recipe] = []
-    
+
     // ==================
     // MARK: Initializers
     // ==================
-    
+
     init() {
-        self.recipes = RecipeBook.shared.recipes
-                
+        recipes = RecipeBook.shared.recipes
+
         showSubtitle = true
         leadingIconOption = .circle
         trailingOptions = [.text, .infoButton]
         showDetails = true
-        
+
         updateItems()
     }
-    
+
     //======================
     // MARK: Edition actions
     // =====================
-    
+
     func delete(at offsets: IndexSet) {
         recipes.remove(atOffsets: offsets)
         updateItems()
@@ -122,11 +122,11 @@ class StandardListVariantModel: ObservableObject {
         recipes.move(fromOffsets: source, toOffset: destination)
         updateItems()
     }
-    
+
     // =====================
     // MARK: Private helpers
     // =====================
-    
+
     private func updateItems() {
         itemModels = recipes.map { item(from: $0) }
     }
@@ -137,7 +137,7 @@ class StandardListVariantModel: ObservableObject {
                                         leadingIcon: leadingIcon(from: recipe),
                                         trailingActions: trailingActions)
     }
-    
+
     private func leadingIcon(from recipe: Recipe) -> ODSListItemLeadingIcon? {
         let emptyImage = Image("ods_empty", bundle: Bundle.ods)
         switch leadingIconOption {
@@ -153,12 +153,12 @@ class StandardListVariantModel: ObservableObject {
             return .wideImage(source: .asyncImage(recipe.url, emptyImage))
         }
     }
-    
+
     private var trailingActions: ODSListItemTrailingActions? {
 
         let showText = trailingOptions.contains { $0 == .text }
         let showIButton = trailingOptions.contains { $0 == .infoButton }
-        
+
         switch (showText, showIButton) {
         case (true, true):
             return ODSListItemTrailingActions(displayText: °°"screens.guidelines.list.details", onIButtonClicked: onIButtonClicked)
@@ -170,15 +170,14 @@ class StandardListVariantModel: ObservableObject {
             return nil
         }
     }
-    
-    
+
     // =====================
     // MARK: Buttons actions
     // =====================
 
     // Add button in navigation bar action
     @Published var showSheetOnIButtonClicked: Bool = false
-    
+
     // Info button action
     func onIButtonClicked() {
         showSheetOnIButtonClicked = true
