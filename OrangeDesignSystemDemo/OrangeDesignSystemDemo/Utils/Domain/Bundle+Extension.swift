@@ -14,10 +14,6 @@ extension Bundle {
     // MARK: API
     // =========
 
-    var name: String {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String) ?? "(no name)"
-    }
-
     var marketingVersion: String {
         string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
     }
