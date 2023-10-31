@@ -40,8 +40,10 @@ public struct ODSButton: View {
     /// - Parameters:
     ///   - text: Text displayed in the button.
     ///   - image: Painter of the icon. If `nil`, no icon will be displayed.
-    ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.highest` for an highlighted button style. To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
-    ///   - fullWidth: Defines the size of the button layout. Set to `true` means button takes all available space horizontally. Set to `false`, the size of the button is limited to the size of the text added by a padding round it.
+    ///   - emphasis: Controls the style of the button. Use `ODSButton.Emphasis.highest` for an highlighted button style.
+    ///   To get a bordered button use `ODSButton.Emphasis.medium` and get a text only use `ODSButton.Emphasis.low`.
+    ///   - fullWidth: Defines the size of the button layout. Set to `true` means button takes all available space horizontally.
+    ///   Set to `false`, the size of the button is limited to the size of the text added by a padding round it.
     ///   - action: Will be called when the user clicks the button.
     ///
     public init(

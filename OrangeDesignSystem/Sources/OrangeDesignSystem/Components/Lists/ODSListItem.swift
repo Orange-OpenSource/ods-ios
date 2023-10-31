@@ -88,7 +88,7 @@ import SwiftUI
 ///         }
 ///     }
 ///
-/// REMARK: Don't forget to apply the style __.odsListItemStyle__ to get right frame height and paddings.
+/// Remark: Don't forget to apply the style __.odsListItemStyle__ to get right frame height and paddings.
 ///
 public struct ODSListItem: View {
 
