@@ -105,7 +105,6 @@ public struct ODSAboutApplicationInformation {
     ///    - shareConfiguration: (Optional) The configuration to activate the application sharing.
     ///    - onFeedbackClicked: (Optional) The action to do when feedback button is clicked
     ///
-    // #swiftlint:disable multiline_parameters_brackets
     public init(
         name: String,
         version: ODSApplicationVersion? = nil,

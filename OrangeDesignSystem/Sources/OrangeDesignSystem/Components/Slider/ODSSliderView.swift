@@ -66,7 +66,13 @@ public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.St
     /// - Remark: Accessibilty recommendation:
     /// We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
     ///
-    public init(value: Binding<V>, in bounds: ClosedRange<V> = 0 ... 1, @ViewBuilder label: () -> Label, @ViewBuilder minimumValueLabel: () -> ValueLabel, @ViewBuilder maximumValueLabel: () -> ValueLabel, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+    public init(value: Binding<V>,
+                in bounds: ClosedRange<V> = 0 ... 1,
+                @ViewBuilder label: () -> Label,
+                @ViewBuilder minimumValueLabel: () -> ValueLabel,
+                @ViewBuilder maximumValueLabel: () -> ValueLabel,
+                onEditingChanged: @escaping (Bool) -> Void = { _ in })
+    {
 
         _value = value
         range = bounds
@@ -105,7 +111,14 @@ public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.St
     /// - Remark: Accessibilty recommendation:
     /// We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
     ///
-    public init(value: Binding<V>, in bounds: ClosedRange<V>, step: V.Stride = 1, @ViewBuilder label: () -> Label, @ViewBuilder minimumValueLabel: () -> ValueLabel, @ViewBuilder maximumValueLabel: () -> ValueLabel, onEditingChanged: @escaping (Bool) -> Void = { _ in }) {
+    public init(value: Binding<V>,
+                in bounds: ClosedRange<V>,
+                step: V.Stride = 1,
+                @ViewBuilder label: () -> Label,
+                @ViewBuilder minimumValueLabel: () -> ValueLabel,
+                @ViewBuilder maximumValueLabel: () -> ValueLabel,
+                onEditingChanged: @escaping (Bool) -> Void = { _ in })
+    {
 
         _value = value
         range = bounds

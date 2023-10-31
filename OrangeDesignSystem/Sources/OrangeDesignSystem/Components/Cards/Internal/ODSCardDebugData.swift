@@ -9,6 +9,7 @@
 #if DEBUG
 import SwiftUI
 
+// swiftlint:disable line_length
 enum ODSCCardPreviewData {
     static let title = "Title"
     static let subtitle = "Subtitle"
@@ -23,4 +24,5 @@ enum ODSCCardPreviewData {
     static let image = Image("ods_empty", bundle: Bundle.ods)
     static let thumbnail = Image("ods_empty", bundle: Bundle.ods)
 }
+// swiftlint:enable line_length
 #endif
