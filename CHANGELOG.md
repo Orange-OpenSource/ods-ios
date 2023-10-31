@@ -5,8 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...qualif)
 
-- [DemoApp/SDK] Run tests plan in CI/CD chain
-- [DemoApp/SDK] Add Mattermost notifications for build and upload lanes
+- [DemoApp/SDK] Run tests plan in CI/CD chain [#506](https://github.com/Orange-OpenSource/ods-ios/issues/506)
+- [DemoApp/SDK] Add Mattermost notifications for build and upload lanes [#503](https://github.com/Orange-OpenSource/ods-ios/issues/503)
 - [DemoApp/SDK] Downgrade version of activesupport (Cocoapods issue, CI/CD troubleshooting) [#501](https://github.com/Orange-OpenSource/ods-ios/issues/501)
 - [SDK] Internationalization support [#466](https://github.com/Orange-OpenSource/ods-ios/issues/466))
 - [DemoApp/SDK] Fix security issues with activesupport transitive dependency (cocoapods gem) [#495](https://github.com/Orange-OpenSource/ods-ios/issues/495)
