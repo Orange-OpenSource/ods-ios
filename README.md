@@ -11,17 +11,34 @@
   <a href="https://github.com/Orange-OpenSource/ods-ios/issues/new?assignees=B3nz01d&labels=feature%2C%F0%9F%94%8D%20triage&template=feature_request.yml&title=[feature]%3A+">Request feature</a>
 </p>
 
-[![version 0.13.0](https://img.shields.io/badge/version-0.13.0-brightgreen.svg)](CHANGELOG.md)
-[![iOS 15.0](https://img.shields.io/badge/iOS-15.0-informational.svg)](https://developer.apple.com/support/app-store "iOS 15 supports")
-[![Swift 5.8](https://img.shields.io/badge/Swift-5.8-informational.svg)](https://swift.org)
-[![Xcode 14.3](https://img.shields.io/badge/Xcode-14.3-informational.svg)](https://developer.apple.com/xcode)
-
 ## Table of contents
 
+- [Status](#status)
+- [Environment](#environment)
 - [Content](#content)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Copyright and license](#copyright-and-license)
+
+## Status
+
+[![version 0.13.0](https://img.shields.io/badge/version-0.13.0-brightgreen.svg)](CHANGELOG.md)
+[![iOS 15.0](https://img.shields.io/badge/iOS-15.0-informational.svg)](https://developer.apple.com/support/app-store "iOS 15 supports")
+[![MIT license](https://img.shields.io/github/license/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios/blob/qualif/LICENSE)
+[![Versions](https://img.shields.io/github/v/release/Orange-OpenSource/ods-ios?label=Last%20version)](https://github.com/Orange-OpenSource/ods-ios/releases)
+[![Still maintained](https://img.shields.io/maintenance/yes/2023)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
+[![Code size](https://img.shields.io/github/languages/code-size/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios)
+
+## Environment
+
+[![Swift 5.8](https://img.shields.io/badge/Swift-5.8-informational.svg)](https://swift.org)
+[![Xcode 14.3](https://img.shields.io/badge/Xcode-14.3-informational.svg)](https://developer.apple.com/xcode)
+[![SwiftLint 0.52.4](https://img.shields.io/badge/SwiftLint-0.52.4-informational.svg)](https://github.com/realm/SwiftLint)
+[![SwiftFormat 0.52.4](https://img.shields.io/badge/SwiftFormat-0.52.4-informational.svg)](https://github.com/nicklockwood/SwiftFormat)
+[![Periphery 2.15.0](https://img.shields.io/badge/Periphery-2.15.0-informational.svg)](https://github.com/peripheryapp/periphery)
+[![Fastlane 2.216.0](https://img.shields.io/badge/Fastlane-2.216.0-informational.svg)](https://fastlane.tools/)
+[![CocoaPods 1.13.0](https://img.shields.io/badge/CocoaPods-1.13.0-informational.svg)](https://cocoapods.org/)
+[![Bundler 2.3.16](https://img.shields.io/badge/Bundler-2.3.16-informational.svg)](https://bundler.io/)
 
 ## Content
 
