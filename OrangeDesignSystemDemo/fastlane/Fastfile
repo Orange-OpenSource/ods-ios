@@ -24,6 +24,17 @@ default_platform(:ios)
 
 platform :ios do
 
+  # ---------
+  # RUN TESTS
+  # ---------
+  desc "RUN TESTS BY TRIGGERING THE TESTS PLANS OF THE PROJECT"
+  lane :test do
+    # Should have on runner one device under at least iOS 15
+    # Check the available devices using `xcrun xctrace list devices`
+    # Add new environments using `xcodebuild -downloadPlatform iOS`
+    scan(scheme: "OrangeDesignSystemDemo")
+  end
+    
   # ------------------------------------------------------------
   # UPDATE BUILD NUMBER WITH TIMESTAMP
   # ------------------------------------------------------------

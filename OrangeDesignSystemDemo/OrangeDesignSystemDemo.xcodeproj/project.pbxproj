@@ -104,19 +104,10 @@
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */; };
 		F99FF08C2767B23E006236A0 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08A2767B226006236A0 /* DateFormatterTests.swift */; };
-		F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */; };
-		F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		EB0AA541275652AF0012E192 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB0AA528275652AE0012E192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB0AA52F275652AE0012E192;
-			remoteInfo = "ods-ios-swiftUI-demo";
-		};
-		EB0AA54B275652AF0012E192 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB0AA528275652AE0012E192 /* Project object */;
 			proxyType = 1;
@@ -240,12 +231,9 @@
 		E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA530275652AE0012E192 /* OrangeDesignSystemDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeDesignSystemDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0AA540275652AF0012E192 /* OrangeDesignSystemDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangeDesignSystemDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F913B85F2767969E001CB0AA /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemApp.swift; path = OrangeDesignSystemDemo/OrangeDesignSystemApp.swift; sourceTree = "<group>"; };
 		F99FF08A2767B226006236A0 /* DateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterTests.swift; path = OrangeDesignSystemDemoTests/DateFormatterTests.swift; sourceTree = "<group>"; };
-		F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITestsLaunchTests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemDemoUITests.swift; path = OrangeDesignSystemDemoUITests/OrangeDesignSystemDemoUITests.swift; sourceTree = "<group>"; };
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD347D2C28D4C00B00F451B8 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
@@ -268,13 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB0AA547275652AF0012E192 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +751,6 @@
 			children = (
 				07210C342A8FA6BC00507988 /* 🛠 */,
 				F99FF06D2767ADF0006236A0 /* OrangeDesignSystemDemo */,
-				F99FF08D2767B242006236A0 /* OrangeDesignSystemDemoUITests */,
 				F99FF0892767B20C006236A0 /* OrangeDesignSystemDemoTests */,
 				EB0AA531275652AE0012E192 /* Products */,
 				5DEE13EE0B42A31B2EDDB804 /* Pods */,
@@ -783,7 +763,6 @@
 			children = (
 				EB0AA530275652AE0012E192 /* OrangeDesignSystemDemo.app */,
 				EB0AA540275652AF0012E192 /* OrangeDesignSystemDemoTests.xctest */,
-				EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -816,15 +795,6 @@
 				51C776902AE14F5F00FD0AED /* OrangeDesignSystem */,
 			);
 			name = OrangeDesignSystemDemoTests;
-			sourceTree = "<group>";
-		};
-		F99FF08D2767B242006236A0 /* OrangeDesignSystemDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F99FF08F2767B265006236A0 /* OrangeDesignSystemDemoUITests.swift */,
-				F99FF08E2767B265006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift */,
-			);
-			name = OrangeDesignSystemDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -875,24 +845,6 @@
 			productReference = EB0AA540275652AF0012E192 /* OrangeDesignSystemDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EB0AA549275652AF0012E192 /* OrangeDesignSystemDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EB0AA55A275652AF0012E192 /* Build configuration list for PBXNativeTarget "OrangeDesignSystemDemoUITests" */;
-			buildPhases = (
-				EB0AA546275652AF0012E192 /* Sources */,
-				EB0AA547275652AF0012E192 /* Frameworks */,
-				EB0AA548275652AF0012E192 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EB0AA54C275652AF0012E192 /* PBXTargetDependency */,
-			);
-			name = OrangeDesignSystemDemoUITests;
-			productName = "ods-ios-swiftUI-demoUITests";
-			productReference = EB0AA54A275652AF0012E192 /* OrangeDesignSystemDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -908,10 +860,6 @@
 						LastSwiftMigration = 1310;
 					};
 					EB0AA53F275652AF0012E192 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = EB0AA52F275652AE0012E192;
-					};
-					EB0AA549275652AF0012E192 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = EB0AA52F275652AE0012E192;
 					};
@@ -935,7 +883,6 @@
 			targets = (
 				EB0AA52F275652AE0012E192 /* OrangeDesignSystemDemo */,
 				EB0AA53F275652AF0012E192 /* OrangeDesignSystemDemoTests */,
-				EB0AA549275652AF0012E192 /* OrangeDesignSystemDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -958,13 +905,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EB0AA53E275652AF0012E192 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB0AA548275652AF0012E192 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1174,15 +1114,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB0AA546275652AF0012E192 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F99FF0932767B38D006236A0 /* OrangeDesignSystemDemoUITestsLaunchTests.swift in Sources */,
-				F99FF0922767B38B006236A0 /* OrangeDesignSystemDemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1190,11 +1121,6 @@
 			isa = PBXTargetDependency;
 			target = EB0AA52F275652AE0012E192 /* OrangeDesignSystemDemo */;
 			targetProxy = EB0AA541275652AF0012E192 /* PBXContainerItemProxy */;
-		};
-		EB0AA54C275652AF0012E192 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB0AA52F275652AE0012E192 /* OrangeDesignSystemDemo */;
-			targetProxy = EB0AA54B275652AF0012E192 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1486,52 +1412,6 @@
 			};
 			name = Release;
 		};
-		EB0AA55B275652AF0012E192 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1652713510;
-				DEVELOPMENT_TEAM = MG2LSJNJB6;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.demoh.ods-ios-swiftUI-demoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "ods-ios-swiftUI-demo";
-			};
-			name = Debug;
-		};
-		EB0AA55C275652AF0012E192 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1652713510;
-				DEVELOPMENT_TEAM = MG2LSJNJB6;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.demoh.ods-ios-swiftUI-demoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "ods-ios-swiftUI-demo";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1558,15 +1438,6 @@
 			buildConfigurations = (
 				EB0AA558275652AF0012E192 /* Debug */,
 				EB0AA559275652AF0012E192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EB0AA55A275652AF0012E192 /* Build configuration list for PBXNativeTarget "OrangeDesignSystemDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB0AA55B275652AF0012E192 /* Debug */,
-				EB0AA55C275652AF0012E192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

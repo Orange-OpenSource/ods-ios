@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "E9DF63CB-9959-4E5B-A1D2-B1CF896FA2D9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-AppleLocale fr_FR"
+      },
+      {
+        "argument" : "-AppleLanguages (French)"
+      }
+    ],
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:OrangeDesignSystemDemo.xcodeproj",
+        "identifier" : "EB0AA53F275652AF0012E192",
+        "name" : "OrangeDesignSystemDemoTests"
+      }
+    }
+  ],
+  "version" : 1
+}

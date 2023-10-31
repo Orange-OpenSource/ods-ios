@@ -7,6 +7,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
   * [Publish release to GitHub](#publish-release-to-github)
   * [Announce the new release on FoODS](#announce-the-new-release-on-foods)<br /><br />
 - [Prepare Next Release]
+- [About CI/CD with Jenkins]
 
 ## Prepare release
 
@@ -122,3 +123,56 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     - Push them to the repository
     - Create a new pull request named `Update release U.V.W` on GitHub to merge your branch into `qualif`.
     - Review and merge this pull request on GitHub.<br /><br />
+
+## [About CI/CD with Jenkins]
+
+You can setup in your side a _Jenkins_ runner which can trigger some Fastlane actions for example each night.
+
+YOu can find bellow some pipeline script to fill and use:
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        
+        stage('Prepare') {
+             steps {
+                sh 'git clean -dxf'
+                sh 'gem install bundler -v $(tail -n1 Gemfile.lock)'
+                sh "bundle --version"
+                sh 'bundle check || (bundle install --jobs $(sysctl -n hw.logicalcpu) --path=vendor/bundle  --deployment)'
+            }
+        }
+        
+        stage('Tests') {
+            dir('OrangeDesignSystemDemo') {
+               sh "bundle exec fastlane ios test"
+            }
+        }
+        
+        stage('Beta') {
+            // Of course you must file all these environment variables
+            environment {
+                // Build and release
+                ODS_DEVELOPER_APP_IDENTIFIER = ...
+                ODS_FASTLANE_APPLE_ID = ...
+                ODS_DEVELOPER_PORTAL_TEAM_ID = ...
+                ODS_APPLE_KEY_ID = ...
+                ODS_APPLE_ISSUER_ID = ...
+                ODS_APPLE_KEY_CONTENT = ...
+                
+                // Mattermost webhooks notifications
+                ODS_MATTERMOST_HOOK_URL = ...
+                ODS_MATTERMOST_HOOK_BOT_NAME = ...
+                ODS_MATTERMOST_HOOK_BOT_ICON_URL = ...
+            }
+            steps {
+                dir('OrangeDesignSystemDemo') {
+                    sh "bundle exec fastlane qualif"
+                }
+            }
+        }
+        
+    }
+}
+```

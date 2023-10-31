@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../OrangeDesignSystemDemo.xctestplan"
+            reference = "container:OrangeDesignSystemTestsPlan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
