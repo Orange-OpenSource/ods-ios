@@ -8,39 +8,83 @@ requirements of the relevant license of the Third Party Software they are using.
 ## In Application
 
 ### accessibility-statement-lib-ios
+
+Copyright 2021-2023 Orange SA.
+
 *accessibility-statement-lib-ios* is distributed under the terms and conditions ot the [Apache 2.0 License](https://opensource.org/license/apache-2-0/).
 You may download the source code on the [following website](https://github.com/Orange-OpenSource/accessibility-statement-lib-ios).
 
 ### BottomSheet
+
+Version 3.1.0
+
+Copyright 2021-2022 Lucas Zischka.
+
 *BottomSheet* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/lucaszischka/BottomSheet).
 
 ### Parma
+
+Version 0.3.0
+
+Copyright 2020 Leonard Chan.
+
 *Parma* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/dasautoooo/Parma).
 
 ## In Project
 
 ### CocoaPods
+
+Version 1.13.0
+
+Copyright 2011 Eloy Durán, Fabio Pelosin, Samuel Giddins, Marius Rackwitz, Kyle Fuller, Boris Bügling, Orta Therox, Olivier Halligon, Danielle Tomlinson, Dimitris Koutsogiorgas, Paul Beusterien, Eric Amorde.
+
 *CocoaPods* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/CocoaPods/CocoaPods).
-
+                   
 ### Fastlane
+
+Version 2.111.0
+
+Copyright 2015-2022 The Fastlane Authors.
+
 *Fastlane* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/fastlane/fastlane).
 
 ### fastlane-plugin-changelog
+
+Version 0.16.0
+
+Copyright 2018 Pavel Procházka.
+
 *fastlane-plugin-changelog* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/pajapro/fastlane-plugin-changelog).
 
 ### fastlane-plugin-mattermost
+
+Version 1.3.2
+
+Copyright 2020 cpfriend1721994.
+
 *fastlane-plugin-mattermost* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
-You may download the source code on the [following website](https://github.com/pajapro/fastlane-plugin-mattermost).
+You may download the source code on the [following website](https://github.com/cpfriend1721994/fastlane-plugin-mattermost).
 
 ### SwiftFormat
+
+Version 0.49.18
+
+Copyright 2016 Nick Lockwood.
+
 *SwiftFormat* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/nicklockwood/SwiftFormat).
 
 ### SwiftLint
+
+Version 0.48.0
+
+Copyright 2020 Realm Inc.
+
 *SwiftLint* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/realm/SwiftLint).
+    
