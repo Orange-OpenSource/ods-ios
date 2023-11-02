@@ -145,8 +145,16 @@ pipeline {
         }
         
         stage('Tests') {
-            dir('OrangeDesignSystemDemo') {
-               sh "bundle exec fastlane ios test"
+            // Of course you must file all these environment variables
+            environment {
+                ODS_MATTERMOST_HOOK_URL = ...
+                ODS_MATTERMOST_HOOK_BOT_NAME = ...
+                ODS_MATTERMOST_HOOK_BOT_ICON_URL = ...
+            }
+            step {
+                dir('OrangeDesignSystemDemo') {
+                    sh "bundle exec fastlane ios test"
+                }
             }
         }
         
