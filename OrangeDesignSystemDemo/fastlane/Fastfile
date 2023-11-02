@@ -32,7 +32,14 @@ platform :ios do
     # Should have on runner one device under at least iOS 15
     # Check the available devices using `xcrun xctrace list devices`
     # Add new environments using `xcodebuild -downloadPlatform iOS`
-    scan(scheme: "OrangeDesignSystemDemo")
+    begin
+        scan(scheme: "OrangeDesignSystemDemo")
+        publish_mattermost_notification("🧪 ✅ No issue with tests")
+
+    rescue => error
+        publish_mattermost_notification("🧪 🚨 @channel Somme issue occured with tests (:test)")
+        raise error
+    end
   end
     
   # ------------------------------------------------------------
@@ -192,9 +199,10 @@ platform :ios do
             api_key: api_key
         )
         
-        publish_mattermost_notification("☁️ ✅ @channel The upload to TestFlight has been done successfully")
+        publish_mattermost_notification("📦 ✅ @channel The upload to TestFlight has been done successfully")
+        
     rescue => error
-        publish_mattermost_notification("☁️ 🚨 @channel An issue occurred during the upload step (:build_and_upload)")
+        publish_mattermost_notification("📦 🚨 @channel An issue occurred during the upload step (:build_and_upload)")
         raise error
     end
   end
