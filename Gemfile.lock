@@ -281,8 +281,8 @@ DEPENDENCIES
   activesupport (~> 7.0.8)
   cocoapods (= 1.13.0)
   fastlane (~> 2.211.0)
-  fastlane-plugin-changelog
-  fastlane-plugin-mattermost
+  fastlane-plugin-changelog (= 0.16.0)
+  fastlane-plugin-mattermost (= 1.3.2)
 
 BUNDLED WITH
    2.3.16
