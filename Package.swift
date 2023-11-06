@@ -30,7 +30,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("3.1.0")),
-        .package(url: "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git", .branch("master"))
+        .package(url: "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git", .exact("1.0.0"))
     ],
     targets: [
         .target(

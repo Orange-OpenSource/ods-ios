@@ -111,6 +111,7 @@
 		5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
 		5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
 		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
+		51BFDAB52AF9206E00FB8139 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */; };
 		51C776932AE1512200FD0AED /* DateFormatterCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */; };
 		51C776952AE1551600FD0AED /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776942AE1551600FD0AED /* CacheTests.swift */; };
 		51F2E6D52AE6AC2B00377A07 /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */; };
@@ -236,6 +237,7 @@
 		51664B4D2AEADEF600E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/CGU.html; sourceTree = "<group>"; };
 		51664B4E2AEADEFC00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
 		5166FE852AE9669A0038A4AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = OrangeDesignSystemDemo/Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		51BFDAB42AF9206E00FB8139 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterCacheTests.swift; path = OrangeDesignSystemDemoTests/DateFormatterCacheTests.swift; sourceTree = "<group>"; };
 		51C776942AE1551600FD0AED /* CacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheTests.swift; path = OrangeDesignSystemDemoTests/CacheTests.swift; sourceTree = "<group>"; };
 		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = OrangeDesignSystemDemo/Resources/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				077C37CB2A9DD643003D6B51 /* Assets.xcassets */,
 				077C37CA2A9DD643003D6B51 /* Colors.xcassets */,
 				077C37CC2A9DD643003D6B51 /* Info.plist */,
+				51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */,
 				077C37CE2A9DD643003D6B51 /* Recipes.json */,
 				5107F5602AE11BDD00D4D01F /* AppNews.json */,
 				5107F56C2AE1220900D4D01F /* CGU.html */,
@@ -910,6 +913,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51BFDAB52AF9206E00FB8139 /* AccessibilityStatement.xml in Resources */,
 				51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */,
 				5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */,
 				5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */,
@@ -1196,6 +1200,14 @@
 				5166FE852AE9669A0038A4AE /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51BFDAB42AF9206E00FB8139 /* fr */,
+			);
+			name = AccessibilityStatement.xml;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
