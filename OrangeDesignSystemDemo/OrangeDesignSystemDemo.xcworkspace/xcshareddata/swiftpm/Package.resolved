@@ -5,9 +5,9 @@
         "package": "DeclarationAccessibility",
         "repositoryURL": "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git",
         "state": {
-          "branch": "master",
-          "revision": "fd73ad1ddda9402582bd6b59af01a80e33a9e103",
-          "version": null
+          "branch": null,
+          "revision": "f438a7176f133728735d09889ea7a60ea99ca6c1",
+          "version": "1.0.0"
         }
       },
       {
