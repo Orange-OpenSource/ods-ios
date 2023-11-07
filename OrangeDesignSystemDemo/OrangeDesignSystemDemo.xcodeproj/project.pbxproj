@@ -116,6 +116,10 @@
 		51C776952AE1551600FD0AED /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776942AE1551600FD0AED /* CacheTests.swift */; };
 		51F2E6D52AE6AC2B00377A07 /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */; };
 		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
+		07C3C7FC2AE7E4E000833957 /* ListModuleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */; };
+		07C3C7FE2AE7E56100833957 /* ListModuleOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */; };
+		07E4C85C2AE7BC2D00FB4DAC /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */; };
+		07E4C8692AE7BC8E00FB4DAC /* ListModuleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */; };
 		F99FF08C2767B23E006236A0 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF08A2767B226006236A0 /* DateFormatterTests.swift */; };
@@ -231,6 +235,10 @@
 		07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantOptions.swift; sourceTree = "<group>"; };
 		07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariant.swift; sourceTree = "<group>"; };
 		07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemVaraintSelectionModel.swift; sourceTree = "<group>"; };
+		07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleDataModel.swift; sourceTree = "<group>"; };
+		07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleOptionsModel.swift; sourceTree = "<group>"; };
+		07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
+		07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleOptions.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51664B4C2AEADEEE00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/AppNews.json; sourceTree = "<group>"; };
@@ -616,6 +624,7 @@
 		077C38402A9DDC79003D6B51 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				07E4C85A2AE7BBE900FB4DAC /* Lists */,
 				0753267E2AD00137003D8832 /* CardListAndCollection */,
 				077C38412A9DDC79003D6B51 /* About */,
 				077C38462A9DDC79003D6B51 /* ModulesList.swift */,
@@ -721,6 +730,17 @@
 				07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */,
 			);
 			path = SelectionVariant;
+			sourceTree = "<group>";
+		};
+		07E4C85A2AE7BBE900FB4DAC /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */,
+				07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */,
+				07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */,
+				07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 		174EE48FFD62B367205CFF78 /* Frameworks */ = {
@@ -1097,6 +1117,7 @@
 				077C386E2A9DDC79003D6B51 /* BannerComponent.swift in Sources */,
 				077C38982A9DEEDC003D6B51 /* ToastView.swift in Sources */,
 				077C38992A9DEEDC003D6B51 /* BackgroundBlurView.swift in Sources */,
+				07C3C7FE2AE7E56100833957 /* ListModuleOptionsModel.swift in Sources */,
 				077C387D2A9DDC79003D6B51 /* ColorUsage.swift in Sources */,
 				077C38822A9DDC79003D6B51 /* SpacingsPage.swift in Sources */,
 				077C384A2A9DDC79003D6B51 /* CustomizableVariant.swift in Sources */,
@@ -1122,7 +1143,9 @@
 				077C38602A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift in Sources */,
 				07B94E0F2AD9908300AAD1A5 /* ListItemSelectionVariantOptions.swift in Sources */,
 				077C38622A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift in Sources */,
+				07E4C85C2AE7BC2D00FB4DAC /* ListModule.swift in Sources */,
 				077C38692A9DDC79003D6B51 /* TabBarComponent.swift in Sources */,
+				07E4C8692AE7BC8E00FB4DAC /* ListModuleOptions.swift in Sources */,
 				077C387E2A9DDC79003D6B51 /* ColorsGuideline.swift in Sources */,
 				077C386F2A9DDC79003D6B51 /* BottomSheetExpandingVariant.swift in Sources */,
 				077C385C2A9DDC79003D6B51 /* ProgressIndicatorComponent.swift in Sources */,
@@ -1137,6 +1160,7 @@
 				077C387F2A9DDC79003D6B51 /* TypographyGuideline.swift in Sources */,
 				077C389C2A9DEEDC003D6B51 /* RecipesLoader.swift in Sources */,
 				077C38742A9DDC79003D6B51 /* SliderComponent.swift in Sources */,
+				07C3C7FC2AE7E4E000833957 /* ListModuleDataModel.swift in Sources */,
 				077C389A2A9DEEDC003D6B51 /* RecipeBookModel.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */,
 				077C38502A9DDC79003D6B51 /* EmphasisAndFunctionnalVariant.swift in Sources */,
