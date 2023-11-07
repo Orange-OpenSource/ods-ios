@@ -24,14 +24,14 @@ struct ListModuleOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
             Toggle(isOn: $model.showHeader) {
-                Text("screens.modules.lists.options.section.header".🌐)
+                Text("screens.modules.lists.options.section.header")
                     .odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.showFooter) {
-                Text("screens.modules.lists.options.section.footer".🌐)
+                Text("screens.modules.lists.options.section.footer")
                     .odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
@@ -44,7 +44,7 @@ struct ListModuleOptions: View {
                 .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.isEditable) {
-                Text("screens.modules.lists.options.editable".🌐)
+                Text("screens.modules.lists.options.editable")
                     .odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)

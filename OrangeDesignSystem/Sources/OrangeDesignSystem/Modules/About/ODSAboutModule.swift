@@ -84,7 +84,6 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
                 .listRowSeparator(.hidden)
 
             AboutListItems(configurations: listItemConfigurations)
-
                 .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)

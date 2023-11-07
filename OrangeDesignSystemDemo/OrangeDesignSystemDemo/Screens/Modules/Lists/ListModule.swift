@@ -79,22 +79,22 @@ private struct ListModuleInner: View {
                 .onDelete(perform: dataModel.deleteRecipe)
             } header: {
                 if optionModel.showHeader {
-                    Text("shared.recipes".🌐)
+                    Text("shared.recipes")
                 }
             } footer: {
                 if optionModel.showFooter {
-                    Text("screens.modules.lists.section.footer.text".🌐)
+                    Text("screens.modules.lists.section.footer.text")
                         .odsFont(.caption2)
                 }
             }
 
             // The Foods section with expandable style for ios17
             if #available(iOS 17.0, *) {
-                Section("shared.foods".🌐, isExpanded: $foodsSectionExpanded) {
+                Section("shared.foods", isExpanded: $foodsSectionExpanded) {
                     foodSectionContent
                 }
             } else {
-                Section("shared.foods".🌐) {
+                Section("shared.foods") {
                     foodSectionContent
                 }
             }
