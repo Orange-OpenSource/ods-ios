@@ -62,7 +62,7 @@ private struct ListModuleInner: View {
     @Environment(\.editMode) private var editMode
     @ObservedObject var optionModel: ListModuleOptionsModel
     @ObservedObject var dataModel: ListModuleDataModel
-    @State private var foodsSectionExpanded: Bool = true // for ios > 17
+    @State private var foodsSectionExpanded: Bool = true // for ios >= 17
 
     // ==========
     // MARK: Body
@@ -72,29 +72,29 @@ private struct ListModuleInner: View {
         List {
             // The recipes section with header and footer according to options
             Section {
-                ForEach(dataModel.filtedReceipes, id: \.title) { recipe in
+                ForEach(dataModel.filteredReceipes, id: \.title) { recipe in
                     listItem(for: recipe).odsListItemStyle()
                 }
                 .onMove(perform: dataModel.moveRecipe)
                 .onDelete(perform: dataModel.deleteRecipe)
             } header: {
                 if optionModel.showHeader {
-                    Text("Recipes")
+                    Text("shared.recipes".🌐)
                 }
             } footer: {
                 if optionModel.showFooter {
-                    Text("All the recipes are made with selected ingredients.")
+                    Text("screens.modules.lists.section.footer.text".🌐)
                         .odsFont(.caption2)
                 }
             }
 
             // The Foods section with expandable style for ios17
             if #available(iOS 17.0, *) {
-                Section("Foods", isExpanded: $foodsSectionExpanded) {
+                Section("shared.foods".🌐, isExpanded: $foodsSectionExpanded) {
                     foodSectionContent
                 }
             } else {
-                Section("Foods") {
+                Section("shared.foods".🌐) {
                     foodSectionContent
                 }
             }

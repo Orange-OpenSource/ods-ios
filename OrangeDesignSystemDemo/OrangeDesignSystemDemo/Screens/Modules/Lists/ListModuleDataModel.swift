@@ -14,11 +14,11 @@ class ListModuleDataModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
-    @Published var selectedFoods: [Food] {
+    var selectedFoods: [Food] {
         didSet { updateRecipes() }
     }
 
-    @Published var filtedReceipes: [Recipe]
+    @Published var filteredReceipes: [Recipe]
 
     // =================
     // MARK: Initializer
@@ -26,13 +26,13 @@ class ListModuleDataModel: ObservableObject {
 
     init() {
         selectedFoods = []
-        filtedReceipes = []
+        filteredReceipes = []
 
         resetAll()
     }
 
     private func updateRecipes() {
-        filtedReceipes = filtedReceipes.filter { recipe in recipe.contains(foods: selectedFoods) }
+        filteredReceipes = filteredReceipes.filter { recipe in recipe.contains(foods: selectedFoods) }
     }
 
     //======================
@@ -49,15 +49,15 @@ class ListModuleDataModel: ObservableObject {
     }
 
     func deleteRecipe(at offsets: IndexSet) {
-        filtedReceipes.remove(atOffsets: offsets)
+        filteredReceipes.remove(atOffsets: offsets)
     }
 
     func moveRecipe(from source: IndexSet, to destination: Int) {
-        filtedReceipes.move(fromOffsets: source, toOffset: destination)
+        filteredReceipes.move(fromOffsets: source, toOffset: destination)
     }
 
     func resetAll() {
-        filtedReceipes = RecipeBook.shared.recipes
+        filteredReceipes = RecipeBook.shared.recipes
         selectedFoods = Array(RecipeBook.shared.foods.prefix(3))
     }
 }

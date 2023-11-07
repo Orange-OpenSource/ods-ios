@@ -28,11 +28,11 @@ struct ModulesList: View {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                     NavigationLink {
                         ListModule()
-                            .navigationTitle("List")
+                            .navigationTitle("screens.modules.lists.title")
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
-                            title: Text("List"),
+                            title: Text("screens.modules.lists.title"),
                             imageSource: .image(imageFrom(resourceName: "Lists")))
                     }
 

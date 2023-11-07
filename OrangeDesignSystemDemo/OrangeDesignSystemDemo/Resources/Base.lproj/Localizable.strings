@@ -33,6 +33,8 @@
 "shared.text_field" = "Text field";
 "shared.leading" = "Leading";
 "shared.trailing" = "Trailing";
+"shared.recipes" = "Recipes";
+"shared.foods" = "Foods";
 
 // =====================
 // MARK: - Miscellaneous
@@ -330,6 +332,22 @@
 "screens.modules.card_collections.titles.list" = "List of cards";
 "screens.modules.card_collections.titles.grid" = "Grid of small cards";
 "screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
+
+// =================================
+// MARK: - Screens - Modules - Lists
+// =================================
+
+"screens.modules.lists.title" = "List";
+"screens.modules.lists.options.section.header" = "Header";
+"screens.modules.lists.options.section.footer" = "Footer";
+"screens.modules.lists.options.style" = "Style";
+"screens.modules.lists.options.style.plain" = "Plain";
+"screens.modules.lists.options.style.grouped" = "Grouped";
+"screens.modules.lists.options.style.inset" = "Inset";
+"screens.modules.lists.options.style.insetGrouped" = "InsetGrouped";
+"screens.modules.lists.options.style.sidebar" = "Sidebar";
+"screens.modules.lists.options.editable" = "Editable";
+"screens.modules.lists.section.footer.text" = "All the recipes are made with selected ingredients.";
 
 // =======================================
 // MARK: - Screens - Components - Template

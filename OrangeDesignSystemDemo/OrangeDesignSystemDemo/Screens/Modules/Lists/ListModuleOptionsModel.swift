@@ -19,20 +19,20 @@ enum ListStyleOption: Int, CaseIterable {
     var description: String {
         switch self {
         case .plain:
-            return "Plain"
+            return "screens.modules.lists.options.style.plain"
         case .grouped:
-            return "Grouped"
+            return "screens.modules.lists.options.style.grouped"
         case .inset:
-            return "Inset"
+            return "screens.modules.lists.options.style.inset"
         case .insetGrouped:
-            return "InsetGrouped"
+            return "screens.modules.lists.options.style.insetGrouped"
         case .sidebar:
-            return "Sidebar"
+            return "screens.modules.lists.options.style.sidebar"
         }
     }
 
     var chip: ODSChip<Self> {
-        ODSChip(self, text: description)
+        ODSChip(self, text: description.🌐)
     }
 
     static var chips: [ODSChip<Self>] {
@@ -54,6 +54,7 @@ class ListModuleOptionsModel: ObservableObject {
     // ==================
     // MARK: Initializers
     // ==================
+
     init() {
         showHeader = true
         showFooter = true
