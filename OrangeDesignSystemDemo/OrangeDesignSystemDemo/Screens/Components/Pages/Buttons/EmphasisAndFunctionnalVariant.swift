@@ -157,7 +157,7 @@ struct EmphasisAndFunctionalVariantOptions: View {
     var body: some View {
         VStack {
             Toggle("shared.icon", isOn: $model.showIcon)
-            Toggle("screens.components.buttons.options.toggle.full.width", isOn: $model.showFullWidth)
+            Toggle("screens.components.buttons.options.toggle.full_width", isOn: $model.showFullWidth)
             Toggle("shared.enabled", isOn: $model.showEnabled)
             Toggle("shared.long_text", isOn: $model.showLongText)
         }

@@ -187,7 +187,7 @@
 "screens.components.buttons.styles.description.negative" = "Negative";
 "screens.components.buttons.styles.description.positive" = "Positive";
 "screens.components.buttons.variant.long" = "Terms and conditions";
-"screens.components.buttons.options.toggle.full.width" = "Full width";
+"screens.components.buttons.options.toggle.full_width" = "Full width";
 
 "a11y.emphasis_button_hint" = "%@ emphasis button";
 "a11y.functional_button_hint" = "%@ functional button";
@@ -238,7 +238,7 @@
 "screens.components.lists.variant.clicked" = "%@ is clicked";
 "screens.components.lists.alert" = "Information icon tapped! Bon appétit";
 "screens.components.lists.options.description.info_button" = "Info button";
-"screens.component.list.details" = "Details";
+"screens.components.list.details" = "Details";
 
 // ==================================================
 // MARK: - Screens - Components - Progress indicators

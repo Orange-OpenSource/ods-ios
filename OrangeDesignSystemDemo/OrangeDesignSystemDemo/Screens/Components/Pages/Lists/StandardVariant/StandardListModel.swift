@@ -161,9 +161,9 @@ class StandardListVariantModel: ObservableObject {
 
         switch (showText, showIButton) {
         case (true, true):
-            return ODSListItemTrailingActions(displayText: °°"screens.component.list.details", onIButtonClicked: onIButtonClicked)
+            return ODSListItemTrailingActions(displayText: °°"screens.components.list.details", onIButtonClicked: onIButtonClicked)
         case (true, false):
-            return ODSListItemTrailingActions(displayText: °°"screens.component.list.details")
+            return ODSListItemTrailingActions(displayText: °°"screens.components.list.details")
         case (false, true):
             return ODSListItemTrailingActions(onIButtonClicked: onIButtonClicked)
         default:
