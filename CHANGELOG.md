@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...qualif)
 
 - [DemoApp/SDK] Fix compilation issues (auto signing for release, remove ios 17 support) [#529](https://github.com/Orange-OpenSource/ods-ios/issues/529))
+- [DemoApp] Review the naming of the wording keys for components [#523](https://github.com/Orange-OpenSource/ods-ios/issues/523))
 - [DemoApp] Show List style and Header and Footer of Sections [#416](https://github.com/Orange-OpenSource/ods-ios/issues/416))
 - [Tooling] Add doctor script to check if project preconditions are filled and update README[#516](https://github.com/Orange-OpenSource/ods-ios/issues/516)
 - [DemoApp/SDK/Tooling] Add new Swiftlint rules and remove some warnings for cleaner source code [#514](https://github.com/Orange-OpenSource/ods-ios/issues/514)
