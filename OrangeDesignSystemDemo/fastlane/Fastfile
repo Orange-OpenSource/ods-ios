@@ -37,7 +37,7 @@ platform :ios do
         publish_mattermost_notification("🧪 ✅ No issue with tests")
 
     rescue => error
-        publish_mattermost_notification("🧪 🚨 @channel Somme issue occured with tests (:test)")
+        publish_mattermost_notification("🧪 🚨 @channel Some issue occured with tests (:test)")
         raise error
     end
   end
@@ -159,7 +159,7 @@ platform :ios do
         publish_mattermost_notification("🔨 ✅ @channel A new build has been done successfully")
 
     rescue => error
-        publish_mattermost_notification("🔨 🚨 @channel An issue occurred during the build step (:build_and_upload)")
+        publish_mattermost_notification("🔨 🚨 @channel Some issue occurred during the build step (:build_and_upload)")
         raise error
     end
   end
@@ -202,7 +202,7 @@ platform :ios do
         publish_mattermost_notification("📦 ✅ @channel The upload to TestFlight has been done successfully")
         
     rescue => error
-        publish_mattermost_notification("📦 🚨 @channel An issue occurred during the upload step (:build_and_upload)")
+        publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the upload step (:build_and_upload)")
         raise error
     end
   end
