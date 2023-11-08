@@ -40,8 +40,8 @@ class CardVerticalHeaderFirstVariantModel: ObservableObject {
         buttonCount = 2
         showAlert = false
 
-        buttonsText = [°°"screens.guidelines.card.button_1",
-                       °°"screens.guidelines.card.button_2"]
+        buttonsText = [°°"screens.components.card.button_1",
+                       °°"screens.components.card.button_2"]
         recipe = RecipeBook.shared.recipes[0]
     }
 
@@ -106,7 +106,7 @@ struct CardVerticalHeaderFirstVariant: View {
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.top, ODSSpacing.m)
                     .onTapGesture {
-                        model.displayAlert(text: "screens.guidelines.card.alert")
+                        model.displayAlert(text: "screens.components.card.alert")
                     }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
@@ -135,7 +135,7 @@ struct CardVerticalHeaderFirstVariant: View {
                 text: model.text)
             {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
+                    model.displayAlert(text: "screens.components.card.alert_2" <- "\(model.firstButtonText)")
                 }
             }
         case 2:
@@ -147,11 +147,11 @@ struct CardVerticalHeaderFirstVariant: View {
                 text: model.text)
             {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
+                    model.displayAlert(text: "screens.components.card.alert_2" <- "\(model.firstButtonText)")
                 }
             } secondButton: {
                 Button(model.secondButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.secondButtonText)")
+                    model.displayAlert(text: "screens.components.card.alert_2" <- "\(model.secondButtonText)")
                 }
             }
 
@@ -179,11 +179,11 @@ private struct CardVerticalHeaderFirstVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("screens.guidelines.card.thumbnail", isOn: $model.showThumbnail)
+            Toggle("screens.components.card.thumbnail", isOn: $model.showThumbnail)
             Toggle("shared.subtitle", isOn: $model.showSubtitle)
             Toggle("shared.text", isOn: $model.showText)
 
-            Stepper("screens.guidelines.card.buttons_number" <- "\(model.buttonCount)",
+            Stepper("screens.components.card.buttons_number" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
         }

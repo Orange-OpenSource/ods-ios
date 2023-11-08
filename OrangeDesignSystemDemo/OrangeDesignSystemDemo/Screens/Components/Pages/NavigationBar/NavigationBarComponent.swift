@@ -16,9 +16,9 @@ struct NavigationBarComponent: Component {
     let variants: AnyView
 
     init() {
-        title = °°"screens.guidelines.bars.navigation.title"
+        title = °°"screens.components.bars.navigation.title"
         imageName = "Navigation bars"
-        description = °°"screens.guidelines.bars.navigation.description"
+        description = °°"screens.components.bars.navigation.description"
 
         variants = AnyView(NavigationBarVariants())
     }
@@ -27,7 +27,7 @@ struct NavigationBarComponent: Component {
 struct NavigationBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.bars.navigation.title",
+        VariantEntryItem(title: °°"screens.components.bars.navigation.title",
                          technicalElement: "NavigationView",
                          showThemeSelectionInNavigationBar: false) {
             NavigationBarVariant(model: NavigationBarVariantModel())

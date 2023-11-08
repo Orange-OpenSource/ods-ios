@@ -128,7 +128,7 @@ class ToolBarVariantModel: ObservableObject {
     // =============
 
     private func showAlert(with text: String) {
-        alertText = "screens.guidelines.bars.tools.alert_hint" <- text
+        alertText = "screens.components.bars.tools.alert_hint" <- text
         showAlert = true
     }
 }
@@ -151,18 +151,18 @@ struct ToolBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: °°"screens.guidelines.bars.tools.picker_hint",
+            ODSChipPicker(title: °°"screens.components.bars.tools.picker_hint",
                           selection: $model.itemType,
                           chips: ToolBarVariantModel.ItemType.chips)
 
             switch model.itemType {
             case .label:
-                Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
+                Stepper("screens.components.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfLabelItems)
                     .padding(.horizontal, ODSSpacing.m)
             case .icon:
-                Stepper("screens.guidelines.bars.tools.stepper_hint" <- "\(model.itemsCount)",
+                Stepper("screens.components.bars.tools.stepper_hint" <- "\(model.itemsCount)",
                         value: $model.itemsCount,
                         in: 2 ... model.numberOfIconItems)
                     .padding(.horizontal, ODSSpacing.m)

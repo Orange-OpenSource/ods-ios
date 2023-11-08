@@ -35,10 +35,10 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.list.details" = "Détails"
+    // Expect to have in demo app for "fr" Localizables entry "screens.components.list.details" = "Détails"
     func test🌐WithAppWording() {
         // Given
-        let someAppLocalizable = "screens.guidelines.list.details"
+        let someAppLocalizable = "screens.components.list.details"
         // When
         let result = someAppLocalizable.🌐
         // Then
@@ -78,10 +78,10 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.list.details" = "Détails"
+    // Expect to have in demo app for "fr" Localizables entry "screens.components.list.details" = "Détails"
     func testOOWithAppWording() {
         // Given
-        let someAppLocalizable = "screens.guidelines.list.details"
+        let someAppLocalizable = "screens.components.list.details"
         // When
         let result = °°someAppLocalizable
         // Then
@@ -121,10 +121,10 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.list.details" = "Détails"
+    // Expect to have in demo app for "fr" Localizables entry "screens.components.list.details" = "Détails"
     func testLocalizedWithAppWording() {
         // Given
-        let someAppLocalizable = "screens.guidelines.list.details"
+        let someAppLocalizable = "screens.components.list.details"
         // When
         let result = someAppLocalizable.localized()
         // Then
@@ -164,10 +164,10 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.lists.variant.clicked" = "%@ est tappé"
+    // Expect to have in demo app for "fr" Localizables entry "screens.components.lists.variant.clicked" = "%@ est tappé"
     func testLocalizedWithOneArgWithAppWording() {
         // Given
-        let someAppLocalizable = "screens.guidelines.lists.variant.clicked"
+        let someAppLocalizable = "screens.components.lists.variant.clicked"
         // When
         let result = someAppLocalizable.localized(with: "Kenny")
         // Then
@@ -253,10 +253,10 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.guidelines.lists.variant.clicked" = "%@ est tappé";
+    // Expect to have in demo app for "fr" Localizables entry "screens.components.lists.variant.clicked" = "%@ est tappé";
     func testArrowWithOneArgWithAppWording() {
         // Given
-        let someAppLocalizable = "screens.guidelines.lists.variant.clicked"
+        let someAppLocalizable = "screens.components.lists.variant.clicked"
         // When
         let result = someAppLocalizable <- "Kenny"
         // Then

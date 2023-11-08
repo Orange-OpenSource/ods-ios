@@ -20,9 +20,9 @@ struct ToolBarComponent: Component {
     let variants: AnyView
 
     init() {
-        title = °°"screens.guidelines.bars.tools.title"
+        title = °°"screens.components.bars.tools.title"
         imageName = "Bars - tool"
-        description = °°"screens.guidelines.bars.tools.description"
+        description = °°"screens.components.bars.tools.description"
         variants = AnyView(ToolBarVariants())
     }
 }
@@ -34,9 +34,9 @@ struct ToolBarComponent: Component {
 private struct ToolBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.bars.tools.title", technicalElement: "odsToolBar()") {
+        VariantEntryItem(title: °°"screens.components.bars.tools.title", technicalElement: "odsToolBar()") {
             ToolBarVariantHome(model: ToolBarVariantModel())
-                .navigationTitle("screens.guidelines.bars.tools.title")
+                .navigationTitle("screens.components.bars.tools.title")
         }
     }
 }
@@ -69,7 +69,7 @@ private struct ToolBarVariantHome: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("screens.guidelines.bars.tools.hint")
+                Text("screens.components.bars.tools.hint")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
 
@@ -77,7 +77,7 @@ private struct ToolBarVariantHome: View {
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.xl)
 
-                ODSButton(text: Text("screens.guidelines.bars.tools.open.hint"), emphasis: .high, fullWidth: true) {
+                ODSButton(text: Text("screens.components.bars.tools.open.hint"), emphasis: .high, fullWidth: true) {
                     showToolBar = true
                 }
                 .padding(.horizontal, ODSSpacing.m)
@@ -126,7 +126,7 @@ private struct ToolBarVariantContent: View {
 
                 Spacer()
 
-                ODSButton(text: Text("screens.guidelines.bars.tools.close.hint"), emphasis: .high, fullWidth: true) {
+                ODSButton(text: Text("screens.components.bars.tools.close.hint"), emphasis: .high, fullWidth: true) {
                     dismiss()
                 }
 
@@ -134,9 +134,9 @@ private struct ToolBarVariantContent: View {
 
                 switch model.itemType {
                 case .label:
-                    Text("screens.guidelines.bars.tools.with_labels.title")
+                    Text("screens.components.bars.tools.with_labels.title")
                 case .icon:
-                    Text("screens.guidelines.bars.tools.with_icons.title")
+                    Text("screens.components.bars.tools.with_icons.title")
                 }
             }
             .padding(.horizontal, ODSSpacing.m)

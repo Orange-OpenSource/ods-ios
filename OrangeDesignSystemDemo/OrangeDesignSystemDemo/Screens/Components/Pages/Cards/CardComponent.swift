@@ -20,9 +20,9 @@ struct CardComponent: Component {
     let variants: AnyView
 
     init() {
-        title = °°"screens.guidelines.cards.title"
+        title = °°"screens.components.cards.title"
         imageName = "Cards_1"
-        description = °°"screens.guidelines.cards.description"
+        description = °°"screens.components.cards.description"
         variants = AnyView(CardVariants())
     }
 }
@@ -34,24 +34,24 @@ struct CardComponent: Component {
 struct CardVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.cards.variant.vertical_image_first", technicalElement: "ODSCardVerticalImageFirst()") {
+        VariantEntryItem(title: °°"screens.components.cards.variant.vertical_image_first", technicalElement: "ODSCardVerticalImageFirst()") {
             CardVerticalImageFirstVariant(model: CardVerticalImageFirstVariantModel())
-                .navigationTitle("screens.guidelines.cards.variant.vertical_image_first")
+                .navigationTitle("screens.components.cards.variant.vertical_image_first")
         }
 
-        VariantEntryItem(title: °°"screens.guidelines.cards.variant.vertical_header_first", technicalElement: "ODSCardVerticalHeaderFirst()") {
+        VariantEntryItem(title: °°"screens.components.cards.variant.vertical_header_first", technicalElement: "ODSCardVerticalHeaderFirst()") {
             CardVerticalHeaderFirstVariant(model: CardVerticalHeaderFirstVariantModel())
-                .navigationTitle("screens.guidelines.cards.variant.vertical_header_first")
+                .navigationTitle("screens.components.cards.variant.vertical_header_first")
         }
 
-        VariantEntryItem(title: °°"screens.guidelines.cards.variant.small", technicalElement: "ODSCardSmall") {
+        VariantEntryItem(title: °°"screens.components.cards.variant.small", technicalElement: "ODSCardSmall") {
             CardSmallVariant(model: CardSmallVariantModel())
-                .navigationTitle("screens.guidelines.cards.variant.small")
+                .navigationTitle("screens.components.cards.variant.small")
         }
 
-        VariantEntryItem(title: °°"screens.guidelines.cards.variant.horizontal", technicalElement: "ODSCardHorizontal") {
+        VariantEntryItem(title: °°"screens.components.cards.variant.horizontal", technicalElement: "ODSCardHorizontal") {
             CardHorizontalVariant(model: CardHorizontalVariantModel())
-                .navigationTitle("screens.guidelines.cards.variant.horizontal")
+                .navigationTitle("screens.components.cards.variant.horizontal")
         }
     }
 }

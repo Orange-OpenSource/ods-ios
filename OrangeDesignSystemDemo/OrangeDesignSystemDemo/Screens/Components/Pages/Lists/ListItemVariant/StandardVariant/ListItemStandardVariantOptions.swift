@@ -41,7 +41,7 @@ struct ListItemStandardVariantOptions: View {
                 .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.navigate) {
-                Text("screens.guidelines.lists.picker.navigate").odsFont(.bodyBold)
+                Text("screens.components.lists.picker.navigate").odsFont(.bodyBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)

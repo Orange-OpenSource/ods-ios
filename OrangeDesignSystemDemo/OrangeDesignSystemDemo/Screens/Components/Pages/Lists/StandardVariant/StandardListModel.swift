@@ -53,7 +53,7 @@ enum TrailingOption: Int, CaseIterable {
         case .text:
             return °°"shared.text"
         case .infoButton:
-            return °°"screens.guidelines.lists.options.description.info_button"
+            return °°"screens.components.lists.options.description.info_button"
         }
     }
 
@@ -161,9 +161,9 @@ class StandardListVariantModel: ObservableObject {
 
         switch (showText, showIButton) {
         case (true, true):
-            return ODSListItemTrailingActions(displayText: °°"screens.guidelines.list.details", onIButtonClicked: onIButtonClicked)
+            return ODSListItemTrailingActions(displayText: °°"screens.components.list.details", onIButtonClicked: onIButtonClicked)
         case (true, false):
-            return ODSListItemTrailingActions(displayText: °°"screens.guidelines.list.details")
+            return ODSListItemTrailingActions(displayText: °°"screens.components.list.details")
         case (false, true):
             return ODSListItemTrailingActions(onIButtonClicked: onIButtonClicked)
         default:

@@ -42,20 +42,20 @@ private struct BottomSheetModifier: ViewModifier {
     func body(content: Content) -> some View {
         if model.showSubtitle {
             content
-                .odsBottomSheetExpanding(title: °°"screens.guidelines.bottom_sheets.sample.title",
-                                         subtitle: °°"screens.guidelines.bottom_sheets.sample.subtitle",
+                .odsBottomSheetExpanding(title: °°"screens.components.bottom_sheets.sample.title",
+                                         subtitle: °°"screens.components.bottom_sheets.sample.subtitle",
                                          bottomSheetSize: $model.bottomSheetSize,
                                          content: bottomSheetContent)
         } else {
             if model.showIcon {
                 content
-                    .odsBottomSheetExpanding(title: °°"screens.guidelines.bottom_sheets.sample.title",
+                    .odsBottomSheetExpanding(title: °°"screens.components.bottom_sheets.sample.title",
                                              icon: Image("Heart_19371"),
                                              bottomSheetSize: $model.bottomSheetSize,
                                              content: bottomSheetContent)
             } else {
                 content
-                    .odsBottomSheetExpanding(title: °°"screens.guidelines.bottom_sheets.sample.title",
+                    .odsBottomSheetExpanding(title: °°"screens.components.bottom_sheets.sample.title",
                                              bottomSheetSize: $model.bottomSheetSize,
                                              content: bottomSheetContent)
             }
@@ -142,7 +142,7 @@ private struct PageContent: View {
                 subtitle: Text(recipe.subtitle),
                 text: Text(recipe.description))
             {
-                Button("screens.guidelines.bottom_sheets.sample.start_preparing") {}
+                Button("screens.components.bottom_sheets.sample.start_preparing") {}
             }
             .padding(.horizontal, ODSSpacing.s)
         }
