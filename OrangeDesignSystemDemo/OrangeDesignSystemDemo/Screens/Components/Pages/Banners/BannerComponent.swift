@@ -16,9 +16,9 @@ struct BannerComponent: Component {
     let variants: AnyView
 
     init() {
-        title = °°"screens.guidelines.banners.title"
+        title = °°"screens.components.banners.title"
         imageName = "Banners"
-        description = °°"screens.guidelines.banners.description"
+        description = °°"screens.components.banners.description"
         variants = AnyView(BannerVariants())
     }
 }
@@ -26,9 +26,9 @@ struct BannerComponent: Component {
 struct BannerVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.banners.variant.title_demo", technicalElement: "ODSBanner()") {
+        VariantEntryItem(title: °°"screens.components.banners.variant.title_demo", technicalElement: "ODSBanner()") {
             BannerVariant(model: BannerVariantModel())
-                .navigationTitle("screens.guidelines.banners.variant.title")
+                .navigationTitle("screens.components.banners.variant.title")
         }
     }
 }

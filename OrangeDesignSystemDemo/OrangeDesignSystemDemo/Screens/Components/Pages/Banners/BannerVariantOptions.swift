@@ -37,8 +37,8 @@ class BannerVariantModel: ObservableObject {
     // =============
 
     var text: Text {
-        let longText = °°"screens.guidelines.banners.demo.long_text"
-        let shortText = °°"screens.guidelines.banners.demo.short_text"
+        let longText = °°"screens.components.banners.demo.long_text"
+        let shortText = °°"screens.components.banners.demo.short_text"
 
         return Text(showLongText ? longText : shortText)
     }
@@ -81,8 +81,8 @@ struct BannerVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("shared.long_text", isOn: $model.showLongText)
-            Toggle("screens.guidelines.banners.demo.toggle_image_hint", isOn: $model.showImage)
-            Stepper("screens.guidelines.banners.demo.buttons_number_hint" <- "\(model.buttonCount)",
+            Toggle("screens.components.banners.demo.toggle_image_hint", isOn: $model.showImage)
+            Stepper("screens.components.banners.demo.buttons_number_hint" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
         }
