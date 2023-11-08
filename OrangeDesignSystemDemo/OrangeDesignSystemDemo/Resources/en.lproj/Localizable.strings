@@ -292,20 +292,20 @@
 "screens.components.sliders.sample.stepped" = "Stepped (0.5)";
 
 // ==========================================
-// MARK: - Screens - Guidelines - Text Fields
+// MARK: - Screens - Components - Text Fields
 // ==========================================
 
-"screens.guidelines.textfields.description" = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.";
-"screens.guidelines.textfields.variants.secure" = "Secure text field";
-"screens.guidelines.textfields.variants.editor" = "Text editor";
-"screens.guidelines.textfields.variants.secure.hint" = "Secure text to edit";
-"screens.guidelines.textfields.variants.inputs.never" = "Never";
-"screens.guidelines.textfields.variants.inputs.characters" = "Characters";
-"screens.guidelines.textfields.variants.inputs.words" = "Words";
-"screens.guidelines.textfields.variants.inputs.sentences" = "Sentences";
-"screens.guidelines.textfields.variants.inputs.default.default" = "text to edit.";
-"screens.guidelines.textfields.variants.inputs.default.sentences" = "Text to edit";
-"screens.guidelines.textfields.variants.inputs.options.capitalization" = "Capitalization";
+"screens.components.textfields.description" = "The text field component comprises the text field itself, text selection and the edit menu. Some elements are styled and some are native.";
+"screens.components.textfields.variants.secure" = "Secure text field";
+"screens.components.textfields.variants.editor" = "Text editor";
+"screens.components.textfields.variants.secure.hint" = "Secure text to edit";
+"screens.components.textfields.variants.inputs.never" = "Never";
+"screens.components.textfields.variants.inputs.characters" = "Characters";
+"screens.components.textfields.variants.inputs.words" = "Words";
+"screens.components.textfields.variants.inputs.sentences" = "Sentences";
+"screens.components.textfields.variants.inputs.default.default" = "text to edit.";
+"screens.components.textfields.variants.inputs.default.sentences" = "Text to edit";
+"screens.components.textfields.variants.inputs.options.capitalization" = "Capitalization";
 
 // =================================
 // MARK: - Screens - Modules - About

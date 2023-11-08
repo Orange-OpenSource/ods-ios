@@ -23,7 +23,7 @@ struct SecureTextFieldVariant: View {
 
     var body: some View {
         VStack {
-            SecureField("screens.guidelines.textfields.variants.secure.hint", text: $textToEdit)
+            SecureField("screens.components.textfields.variants.secure.hint", text: $textToEdit)
                 .odsTextFieldStyle()
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)

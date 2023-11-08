@@ -28,7 +28,7 @@ struct TextFieldComponent: Component {
     init() {
         title = °°"shared.text_field"
         imageName = "Text edit menu"
-        description = °°"screens.guidelines.textfields.description"
+        description = °°"screens.components.textfields.description"
         variants = AnyView(TextFieldVariants())
     }
 }
@@ -36,16 +36,16 @@ struct TextFieldComponent: Component {
 struct TextFieldVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.textfields.variants.secure", technicalElement: "SecureField()") {
-            SecureTextFieldVariant().navigationTitle("screens.guidelines.textfields.variants.secure")
+        VariantEntryItem(title: °°"screens.components.textfields.variants.secure", technicalElement: "SecureField()") {
+            SecureTextFieldVariant().navigationTitle("screens.components.textfields.variants.secure")
         }
 
         VariantEntryItem(title: °°"shared.text_field", technicalElement: "TextField()") {
             TextFieldVariant().navigationTitle("shared.text_field")
         }
 
-        VariantEntryItem(title: °°"screens.guidelines.textfields.variants.editor", technicalElement: "TextEditor()") {
-            TextEditorVariant().navigationTitle("screens.guidelines.textfields.variants.editor")
+        VariantEntryItem(title: °°"screens.components.textfields.variants.editor", technicalElement: "TextEditor()") {
+            TextEditorVariant().navigationTitle("screens.components.textfields.variants.editor")
         }
     }
 }
