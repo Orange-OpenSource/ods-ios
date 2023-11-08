@@ -225,20 +225,20 @@
 "screens.components.chips.state.selected" = "Selected";
 
 // ====================================
-// MARK: - Screens - Guidelines - Lists
+// MARK: - Screens - Components - Lists
 // ====================================
 
-"screens.guidelines.lists.title" = "Lists";
-"screens.guidelines.lists.description" = "A list is a continuous vertical group of data entries like text, icons or images.";
-"screens.guidelines.lists.variant.with_selections" = "List with selection";
-"screens.guidelines.lists.variant.standard_lists" = "Standard lists";
-"screens.guidelines.lists.picker.navigate" = "Navigate";
-"screens.guidelines.lists.selection.description.checkmark" = "checkmark";
-"screens.guidelines.lists.selection.description.switch" = "Switch";
-"screens.guidelines.lists.variant.clicked" = "%@ is clicked";
-"screens.guidelines.lists.alert" = "Information icon tapped! Bon appétit";
-"screens.guidelines.lists.options.description.info_button" = "Info button";
-"screens.guidelines.list.details" = "Details";
+"screens.components.lists.title" = "Lists";
+"screens.components.lists.description" = "A list is a continuous vertical group of data entries like text, icons or images.";
+"screens.components.lists.variant.with_selections" = "List with selection";
+"screens.components.lists.variant.standard_lists" = "Standard lists";
+"screens.components.lists.picker.navigate" = "Navigate";
+"screens.components.lists.selection.description.checkmark" = "checkmark";
+"screens.components.lists.selection.description.switch" = "Switch";
+"screens.components.lists.variant.clicked" = "%@ is clicked";
+"screens.components.lists.alert" = "Information icon tapped! Bon appétit";
+"screens.components.lists.options.description.info_button" = "Info button";
+"screens.component.list.details" = "Details";
 
 // ==================================================
 // MARK: - Screens - Guidelines - Progress indicators

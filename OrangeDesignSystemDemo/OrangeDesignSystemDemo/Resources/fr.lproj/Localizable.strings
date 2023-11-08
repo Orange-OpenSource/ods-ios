@@ -225,20 +225,20 @@
 "screens.components.chips.state.selected" = "Selectionné";
 
 // ====================================
-// MARK: - Screens - Guidelines - Lists
+// MARK: - Screens - Components - Lists
 // ====================================
 
-"screens.guidelines.lists.title" = "Listes";
-"screens.guidelines.lists.description" = "Une liste est un groupe vertical continu d'entrées de données telles que du texte, des icônes ou des images.";
-"screens.guidelines.lists.variant.with_selections" = "Liste avec sélection";
-"screens.guidelines.lists.variant.standard_lists" = "Liste standard";
-"screens.guidelines.lists.picker.navigate" = "Naviguer";
-"screens.guidelines.lists.selection.description.checkmark" = "Encoche";
-"screens.guidelines.lists.selection.description.switch" = "Commutateur";
-"screens.guidelines.lists.variant.clicked" = "%@ est tappé";
-"screens.guidelines.lists.alert" = "Icône d'information tappée ! Bon appétit";
-"screens.guidelines.lists.options.description.info_button" = "Bouton d'information";
-"screens.guidelines.list.details" = "Détails";
+"screens.components.lists.title" = "Listes";
+"screens.components.lists.description" = "Une liste est un groupe vertical continu d'entrées de données telles que du texte, des icônes ou des images.";
+"screens.components.lists.variant.with_selections" = "Liste avec sélection";
+"screens.components.lists.variant.standard_lists" = "Liste standard";
+"screens.components.lists.picker.navigate" = "Naviguer";
+"screens.components.lists.selection.description.checkmark" = "Encoche";
+"screens.components.lists.selection.description.switch" = "Commutateur";
+"screens.components.lists.variant.clicked" = "%@ est tappé";
+"screens.components.lists.alert" = "Icône d'information tappée ! Bon appétit";
+"screens.components.lists.options.description.info_button" = "Bouton d'information";
+"screens.component.list.details" = "Détails";
 
 // ==================================================
 // MARK: - Screens - Guidelines - Progress indicators

@@ -22,7 +22,7 @@ enum StandardTrailingOption: CaseIterable {
         case .text:
             return °°"shared.text"
         case .iButton:
-            return °°"screens.guidelines.lists.options.description.info_button"
+            return °°"screens.components.lists.options.description.info_button"
         }
     }
 

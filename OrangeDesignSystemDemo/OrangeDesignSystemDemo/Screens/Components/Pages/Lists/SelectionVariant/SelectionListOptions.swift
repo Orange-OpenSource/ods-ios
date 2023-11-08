@@ -48,9 +48,9 @@ extension ODSListSelectionItemModel.TrailingSelection {
     private var description: String {
         switch self {
         case .checkmark:
-            return °°"screens.guidelines.lists.selection.description.checkmark"
+            return °°"screens.components.lists.selection.description.checkmark"
         case .toggle:
-            return °°"screens.guidelines.lists.selection.description.switch"
+            return °°"screens.components.lists.selection.description.switch"
         }
     }
 

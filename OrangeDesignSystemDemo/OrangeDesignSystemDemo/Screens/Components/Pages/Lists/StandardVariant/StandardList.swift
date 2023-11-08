@@ -48,7 +48,7 @@ private struct StandardListVariantInner: View {
             ForEach(model.itemModels, id: \.id) { itemModel in
                 if model.showDetails {
                     NavigationLink(itemModel) {
-                        Text("screens.guidelines.lists.variant.clicked" <- itemModel.title)
+                        Text("screens.components.lists.variant.clicked" <- itemModel.title)
                             .navigationTitle(itemModel.title)
                     }
                     .listRowInsets(EdgeInsets())
@@ -67,7 +67,7 @@ private struct StandardListVariantInner: View {
         .toolbar { EditButton() }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("screens.guidelines.lists.alert", isPresented: $model.showSheetOnIButtonClicked) {
+        .alert("screens.components.lists.alert", isPresented: $model.showSheetOnIButtonClicked) {
             Button("shared.close", role: .cancel) {}
         }
     }
