@@ -193,15 +193,15 @@
 "a11y.functional_button_hint" = "%@ functional button";
 
 // ====================================
-// MARK: - Screens - Guidelines - Cards
+// MARK: - Screens - Components - Cards
 // ====================================
 
-"screens.guidelines.cards.title" = "Cards";
-"screens.guidelines.cards.description" = "Cards are important components that can be used to organise and present a number of different types of related information.";
-"screens.guidelines.cards.variant.vertical_image_first" = "Card Vertical Image First";
-"screens.guidelines.cards.variant.vertical_header_first" = "Card Vertical Header First";
-"screens.guidelines.cards.variant.small" = "Card Small";
-"screens.guidelines.cards.variant.horizontal" = "Card Horizontal";
+"screens.components.cards.title" = "Cards";
+"screens.components.cards.description" = "Cards are important components that can be used to organise and present a number of different types of related information.";
+"screens.components.cards.variant.vertical_image_first" = "Card Vertical Image First";
+"screens.components.cards.variant.vertical_header_first" = "Card Vertical Header First";
+"screens.components.cards.variant.small" = "Card Small";
+"screens.components.cards.variant.horizontal" = "Card Horizontal";
 "screens.guidelines.card.button_1" = "Button n°1";
 "screens.guidelines.card.button_2" = "Button n°2";
 "screens.guidelines.card.alert" = "Card container clicked";
