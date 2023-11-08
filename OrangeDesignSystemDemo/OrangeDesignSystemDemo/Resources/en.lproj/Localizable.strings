@@ -212,17 +212,17 @@
 "screens.guidelines.card.picker.position" = "Image position";
 
 // ====================================
-// MARK: - Screens - Guidelines - Chips
+// MARK: - Screens - Components - Chips
 // ====================================
 
-"screens.guidelines.chips.title" = "Chips";
-"screens.guidelines.chips.description" = "Chips are small components containing a number of elements that represent a calendar event or contact.";
-"screens.guidelines.chips.text_only" = "Text only";
-"screens.guidelines.chips.with_icon" = "With icon from image";
-"screens.guidelines.chips.with_system_icon" = "With system icon";
-"screens.guidelines.chips.with_avatar" = "With avatar";
-"screens.guidelines.chips.state.enable" = "Enable";
-"screens.guidelines.chips.state.selected" = "Selected";
+"screens.components.chips.title" = "Chips";
+"screens.components.chips.description" = "Chips are small components containing a number of elements that represent a calendar event or contact.";
+"screens.components.chips.text_only" = "Text only";
+"screens.components.chips.with_icon" = "With icon from image";
+"screens.components.chips.with_system_icon" = "With system icon";
+"screens.components.chips.with_avatar" = "With avatar";
+"screens.components.chips.state.enable" = "Enable";
+"screens.components.chips.state.selected" = "Selected";
 
 // ====================================
 // MARK: - Screens - Guidelines - Lists

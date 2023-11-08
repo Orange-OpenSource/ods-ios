@@ -212,17 +212,17 @@
 "screens.guidelines.card.picker.position" = "Position de l'image";
 
 // ====================================
-// MARK: - Screens - Guidelines - Chips
+// MARK: - Screens - Components - Chips
 // ====================================
 
-"screens.guidelines.chips.title" = "Puces";
-"screens.guidelines.chips.description" = "Les puces sont de petits composants contenant un certain nombre d'éléments qui représentent un événement de calendrier ou un contact.";
-"screens.guidelines.chips.text_only" = "Texte seul";
-"screens.guidelines.chips.with_icon" = "Avec une icône depuis une image";
-"screens.guidelines.chips.with_system_icon" = "Avec une icône système";
-"screens.guidelines.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou créature à la peau bleue */
-"screens.guidelines.chips.state.enable" = "Activer";
-"screens.guidelines.chips.state.selected" = "Selectionné";
+"screens.components.chips.title" = "Puces";
+"screens.components.chips.description" = "Les puces sont de petits composants contenant un certain nombre d'éléments qui représentent un événement de calendrier ou un contact.";
+"screens.components.chips.text_only" = "Texte seul";
+"screens.components.chips.with_icon" = "Avec une icône depuis une image";
+"screens.components.chips.with_system_icon" = "Avec une icône système";
+"screens.components.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou créature à la peau bleue */
+"screens.components.chips.state.enable" = "Activer";
+"screens.components.chips.state.selected" = "Selectionné";
 
 // ====================================
 // MARK: - Screens - Guidelines - Lists
