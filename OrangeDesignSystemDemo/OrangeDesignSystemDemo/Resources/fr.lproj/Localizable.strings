@@ -241,18 +241,18 @@
 "screens.component.list.details" = "Détails";
 
 // ==================================================
-// MARK: - Screens - Guidelines - Progress indicators
+// MARK: - Screens - Components - Progress indicators
 // ==================================================
 
-"screens.guidelines.progress_indicators.title" = "Indicateurs de progression indicators";
-"screens.guidelines.progress_indicators.description" = "Les indicateurs de progression indiquent aux utilisateurs que des éléments ou des pages sont en cours de chargement.";
-"screens.guidelines.progress_indicators.progress_bar.title" = "Barre de progression";
-"screens.guidelines.progress_indicators.activity_bar.title" = "Barre d'activité";
-"screens.guidelines.progress_indicators.downloading" = "Téléchargement en cours...";
-"screens.guidelines.progress_indicators.x_percent" = "%@ %%";
-"screens.guidelines.progress_indicators.toggle.label" = "Label";
-"screens.guidelines.progress_indicators.toggle.current_value" = "Valeur actuelle";
-"screens.guidelines.progress_indicators.toggle.loading" = "Chargement...";
+"screens.components.progress_indicators.title" = "Indicateurs de progression indicators";
+"screens.components.progress_indicators.description" = "Les indicateurs de progression indiquent aux utilisateurs que des éléments ou des pages sont en cours de chargement.";
+"screens.components.progress_indicators.progress_bar.title" = "Barre de progression";
+"screens.components.progress_indicators.activity_bar.title" = "Barre d'activité";
+"screens.components.progress_indicators.downloading" = "Téléchargement en cours...";
+"screens.components.progress_indicators.x_percent" = "%@ %%";
+"screens.components.progress_indicators.toggle.label" = "Label";
+"screens.components.progress_indicators.toggle.current_value" = "Valeur actuelle";
+"screens.components.progress_indicators.toggle.loading" = "Chargement...";
 
 // ============================================
 // MARK: - Screens - Guidelines - Bottom Sheets

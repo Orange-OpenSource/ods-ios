@@ -241,18 +241,18 @@
 "screens.component.list.details" = "Details";
 
 // ==================================================
-// MARK: - Screens - Guidelines - Progress indicators
+// MARK: - Screens - Components - Progress indicators
 // ==================================================
 
-"screens.guidelines.progress_indicators.title" = "Progress indicators";
-"screens.guidelines.progress_indicators.description" = "Progress bar and activity indicator are used when a process is taking place to illustrate progress and to reassure users that something is happening, and if possible, how long it will take.";
-"screens.guidelines.progress_indicators.progress_bar.title" = "Progress bar demo";
-"screens.guidelines.progress_indicators.activity_bar.title" = "Progress bar demo";
-"screens.guidelines.progress_indicators.downloading" = "Downloading...";
-"screens.guidelines.progress_indicators.x_percent" = "%@ %%";
-"screens.guidelines.progress_indicators.toggle.label" = "Label";
-"screens.guidelines.progress_indicators.toggle.current_value" = "Current value";
-"screens.guidelines.progress_indicators.toggle.loading" = "Loading...";
+"screens.components.progress_indicators.title" = "Progress indicators";
+"screens.components.progress_indicators.description" = "Progress bar and activity indicator are used when a process is taking place to illustrate progress and to reassure users that something is happening, and if possible, how long it will take.";
+"screens.components.progress_indicators.progress_bar.title" = "Progress bar demo";
+"screens.components.progress_indicators.activity_bar.title" = "Progress bar demo";
+"screens.components.progress_indicators.downloading" = "Downloading...";
+"screens.components.progress_indicators.x_percent" = "%@ %%";
+"screens.components.progress_indicators.toggle.label" = "Label";
+"screens.components.progress_indicators.toggle.current_value" = "Current value";
+"screens.components.progress_indicators.toggle.loading" = "Loading...";
 
 // ============================================
 // MARK: - Screens - Guidelines - Bottom Sheets

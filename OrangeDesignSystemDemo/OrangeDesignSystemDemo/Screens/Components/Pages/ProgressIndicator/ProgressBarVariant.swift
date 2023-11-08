@@ -40,7 +40,7 @@ struct ProgressBarVariant: View {
         VStack {
             ProgressView(value: secondsElapsed, total: maxSeconds) {
                 if model.showLabel {
-                    Label(title: { Text("screens.guidelines.progress_indicators.downloading") }, icon: {
+                    Label(title: { Text("screens.components.progress_indicators.downloading") }, icon: {
                         if model.showIconInLabel {
                             Image(systemName: "tray.and.arrow.down")
                         }
@@ -49,7 +49,7 @@ struct ProgressBarVariant: View {
             } currentValueLabel: {
                 if model.showCurrentValue {
                     let percent = String(format: "%.0f", secondsElapsed)
-                    Text("screens.guidelines.progress_indicators.x_percent" <- percent)
+                    Text("screens.components.progress_indicators.x_percent" <- percent)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
@@ -103,11 +103,11 @@ private struct ProgressBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("screens.guidelines.progress_indicators.toggle.label", isOn: $model.showLabel)
+            Toggle("screens.components.progress_indicators.toggle.label", isOn: $model.showLabel)
             if model.showLabel {
                 Toggle("shared.icon", isOn: $model.showIconInLabel)
             }
-            Toggle("screens.guidelines.progress_indicators.toggle.current_value", isOn: $model.showCurrentValue)
+            Toggle("screens.components.progress_indicators.toggle.current_value", isOn: $model.showCurrentValue)
         }
         .odsFont(.bodyRegular)
         .padding(.all, ODSSpacing.m)

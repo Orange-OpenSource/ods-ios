@@ -26,7 +26,7 @@ struct ActivityIndicatorVariant: View {
             VStack {
                 ProgressView {
                     if model.showLabel {
-                        Text("screens.guidelines.progress_indicators.toggle.loading")
+                        Text("screens.components.progress_indicators.toggle.loading")
                     }
                 }
                 Spacer()
@@ -69,7 +69,7 @@ private struct ActivityIndicatorVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("screens.guidelines.progress_indicators.toggle.label", isOn: $model.showLabel)
+            Toggle("screens.components.progress_indicators.toggle.label", isOn: $model.showLabel)
                 .odsFont(.bodyRegular)
                 .padding(.all, ODSSpacing.m)
         }
