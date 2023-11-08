@@ -62,7 +62,6 @@ private struct ListModuleInner: View {
     @Environment(\.editMode) private var editMode
     @ObservedObject var optionModel: ListModuleOptionsModel
     @ObservedObject var dataModel: ListModuleDataModel
-    @State private var foodsSectionExpanded: Bool = true // for ios >= 17
 
     // ==========
     // MARK: Body
@@ -88,16 +87,13 @@ private struct ListModuleInner: View {
                 }
             }
 
-            // The Foods section with expandable style for ios17
-            if #available(iOS 17.0, *) {
-                Section("shared.foods", isExpanded: $foodsSectionExpanded) {
-                    foodSectionContent
-                }
-            } else {
                 Section("shared.foods") {
-                    foodSectionContent
+                    ForEach(dataModel.selectedFoods, id: \.name) { food in
+                        listItem(for: food).odsListItemStyle()
+                    }
+                    .onDelete(perform: dataModel.deleteFood)
+                    .onMove(perform: dataModel.moveFood)
                 }
-            }
         }
         .toolbar {
             if optionModel.isEditable {
@@ -130,14 +126,6 @@ private struct ListModuleInner: View {
         } else {
             ODSListItem(title: Text(food.name), leading: .circularImage(source: .image(defaultImage)))
         }
-    }
-
-    private var foodSectionContent: some View {
-        ForEach(dataModel.selectedFoods, id: \.name) { food in
-            listItem(for: food).odsListItemStyle()
-        }
-        .onDelete(perform: dataModel.deleteFood)
-        .onMove(perform: dataModel.moveFood)
     }
 }
 
