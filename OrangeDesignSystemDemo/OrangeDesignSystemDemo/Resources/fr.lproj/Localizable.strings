@@ -121,54 +121,54 @@
 "screens.guidelines.banners.demo.buttons_number_hint" = "Nombre de boutons : %@";
 
 // ================================================
-// MARK: - Screens - Guidelines - Bars - Navigation
+// MARK: - Screens - Components - Bars - Navigation
 // ================================================
 
-"screens.guidelines.bars.navigation.title" = "Barres - navigation";
-"screens.guidelines.bars.navigation.description" = "Une barre de navigation s'affiche en haut de l'écran d'une application, sous la barre d'état, et permet de naviguer dans une série d'écrans hiérarchiques.";
-"screens.guidelines.bars.navigation.button.edit" = "Action d'édition";
-"screens.guidelines.bars.navigation.button.share" = "Action de partage";
-"screens.guidelines.bars.navigation.standard_title.text" = "Titre";
-"screens.guidelines.bars.navigation.large_title.text" = "Titre large";
-"screens.guidelines.bars.navigation.standard_title.hint" = "Standard";
-"screens.guidelines.bars.navigation.large_title.hint" = "Large";
-"screens.guidelines.bars.navigation.size.hint" = "Taille";
-"screens.guidelines.bars.navigation.back_button.hint" = "Bouton retour";
-"screens.guidelines.bars.navigation.action_item_count" = "Nombre d'icônes d'action : %@";
+"screens.components.bars.navigation.title" = "Barres - navigation";
+"screens.components.bars.navigation.description" = "Une barre de navigation s'affiche en haut de l'écran d'une application, sous la barre d'état, et permet de naviguer dans une série d'écrans hiérarchiques.";
+"screens.components.bars.navigation.button.edit" = "Action d'édition";
+"screens.components.bars.navigation.button.share" = "Action de partage";
+"screens.components.bars.navigation.standard_title.text" = "Titre";
+"screens.components.bars.navigation.large_title.text" = "Titre large";
+"screens.components.bars.navigation.standard_title.hint" = "Standard";
+"screens.components.bars.navigation.large_title.hint" = "Large";
+"screens.components.bars.navigation.size.hint" = "Taille";
+"screens.components.bars.navigation.back_button.hint" = "Bouton retour";
+"screens.components.bars.navigation.action_item_count" = "Nombre d'icônes d'action : %@";
 
 // ==========================================
-// MARK: - Screens - Guidelines - Bars - Tabs
+// MARK: - Screens - Components - Bars - Tabs
 // ==========================================
 
-"screens.guidelines.bars.tabs.title" = "Barres - onglets";
-"screens.guidelines.bars.tabs.description" = "Une barre d'onglets est un élément disponible en permanence qui crée une navigation globale pour l'expérience des utilisateurs.";
-"screens.guidelines.bars.tabs.items_stepper.hint" = "Nombre d'éléments : %@";
-"screens.guidelines.bars.tabs.options_picker.hint" = "Options de badges";
-"screens.guidelines.bars.tabs.item_favorite.title" = "Favoris";
-"screens.guidelines.bars.tabs.item_favorite.description" = "Vue des favoris";
-"screens.guidelines.bars.tabs.item_search.description" = "Vue de recherche";
-"screens.guidelines.bars.tabs.item_information.title" = "Information";
-"screens.guidelines.bars.tabs.item_information.description" = "Vue d'information";
-"screens.guidelines.bars.tabs.item_notification.title" = "Notification";
-"screens.guidelines.bars.tabs.item_notification.description" = "Vue des notifications";
-"screens.guidelines.bars.tabs.item_settings.title" = "Réglages";
-"screens.guidelines.bars.tabs.item_settings.description" = "Vue des réglages";
-"screens.guidelines.bars.tabs.badge.description.count" = "Compteur";
+"screens.components.bars.tabs.title" = "Barres - onglets";
+"screens.components.bars.tabs.description" = "Une barre d'onglets est un élément disponible en permanence qui crée une navigation globale pour l'expérience des utilisateurs.";
+"screens.components.bars.tabs.items_stepper.hint" = "Nombre d'éléments : %@";
+"screens.components.bars.tabs.options_picker.hint" = "Options de badges";
+"screens.components.bars.tabs.item_favorite.title" = "Favoris";
+"screens.components.bars.tabs.item_favorite.description" = "Vue des favoris";
+"screens.components.bars.tabs.item_search.description" = "Vue de recherche";
+"screens.components.bars.tabs.item_information.title" = "Information";
+"screens.components.bars.tabs.item_information.description" = "Vue d'information";
+"screens.components.bars.tabs.item_notification.title" = "Notification";
+"screens.components.bars.tabs.item_notification.description" = "Vue des notifications";
+"screens.components.bars.tabs.item_settings.title" = "Réglages";
+"screens.components.bars.tabs.item_settings.description" = "Vue des réglages";
+"screens.components.bars.tabs.badge.description.count" = "Compteur";
 
 // ==========================================
-// MARK: - Screens - Guidelines - Bars - Tool
+// MARK: - Screens - Components - Bars - Tool
 // ==========================================
 
-"screens.guidelines.bars.tools.title" = "Barres - outils";
-"screens.guidelines.bars.tools.description" = "Une barre d'outils permet aux utilisateurs d'effectuer des actions spécifiques concernant l'ensemble de la page. Il est placé en bas de l'écran.";
-"screens.guidelines.bars.tools.hint" = "Personnalisez la barre d'outils avant d'ouvrir la feuille pour la voir.";
-"screens.guidelines.bars.tools.open.hint" = "Ouvrir la page";
-"screens.guidelines.bars.tools.close.hint" = "Fermer la page";
-"screens.guidelines.bars.tools.with_labels.title" = "Barre d'outils avec labels";
-"screens.guidelines.bars.tools.with_icons.title" = "Barre d'outils avec icônes";
-"screens.guidelines.bars.tools.alert_hint" = "%@ : cliqué";
-"screens.guidelines.bars.tools.picker_hint" = "Type d'éléments";
-"screens.guidelines.bars.tools.stepper_hint" = "Nombre d'éléments : %@";
+"screens.components.bars.tools.title" = "Barres - outils";
+"screens.components.bars.tools.description" = "Une barre d'outils permet aux utilisateurs d'effectuer des actions spécifiques concernant l'ensemble de la page. Il est placé en bas de l'écran.";
+"screens.components.bars.tools.hint" = "Personnalisez la barre d'outils avant d'ouvrir la feuille pour la voir.";
+"screens.components.bars.tools.open.hint" = "Ouvrir la page";
+"screens.components.bars.tools.close.hint" = "Fermer la page";
+"screens.components.bars.tools.with_labels.title" = "Barre d'outils avec labels";
+"screens.components.bars.tools.with_icons.title" = "Barre d'outils avec icônes";
+"screens.components.bars.tools.alert_hint" = "%@ : cliqué";
+"screens.components.bars.tools.picker_hint" = "Type d'éléments";
+"screens.components.bars.tools.stepper_hint" = "Nombre d'éléments : %@";
 
 // ======================================
 // MARK: - Screens - Guidelines - Buttons

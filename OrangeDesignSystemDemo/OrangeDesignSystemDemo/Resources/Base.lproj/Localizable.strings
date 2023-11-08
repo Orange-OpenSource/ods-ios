@@ -121,54 +121,54 @@
 "screens.guidelines.banners.demo.buttons_number_hint" = "Number of buttons: %@";
 
 // ================================================
-// MARK: - Screens - Guidelines - Bars - Navigation
+// MARK: - Screens - Components - Bars - Navigation
 // ================================================
 
-"screens.guidelines.bars.navigation.title" = "Bars - navigation";
-"screens.guidelines.bars.navigation.description" = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.";
-"screens.guidelines.bars.navigation.button.edit" = "Edit action";
-"screens.guidelines.bars.navigation.button.share" = "Share action";
-"screens.guidelines.bars.navigation.standard_title.text" = "Title";
-"screens.guidelines.bars.navigation.large_title.text" = "Large Title";
-"screens.guidelines.bars.navigation.standard_title.hint" = "Standard";
-"screens.guidelines.bars.navigation.large_title.hint" = "Large";
-"screens.guidelines.bars.navigation.size.hint" = "Size";
-"screens.guidelines.bars.navigation.back_button.hint" = "Back button";
-"screens.guidelines.bars.navigation.action_item_count" = "Action icon count: %@";
+"screens.components.bars.navigation.title" = "Bars - navigation";
+"screens.components.bars.navigation.description" = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.";
+"screens.components.bars.navigation.button.edit" = "Edit action";
+"screens.components.bars.navigation.button.share" = "Share action";
+"screens.components.bars.navigation.standard_title.text" = "Title";
+"screens.components.bars.navigation.large_title.text" = "Large Title";
+"screens.components.bars.navigation.standard_title.hint" = "Standard";
+"screens.components.bars.navigation.large_title.hint" = "Large";
+"screens.components.bars.navigation.size.hint" = "Size";
+"screens.components.bars.navigation.back_button.hint" = "Back button";
+"screens.components.bars.navigation.action_item_count" = "Action icon count: %@";
 
 // ==========================================
-// MARK: - Screens - Guidelines - Bars - Tabs
+// MARK: - Screens - Components - Bars - Tabs
 // ==========================================
 
-"screens.guidelines.bars.tabs.title" = "Bars - tabs";
-"screens.guidelines.bars.tabs.description" = "A tab bar is a constantly available element which creates an overall navigation for users' experience.";
-"screens.guidelines.bars.tabs.items_stepper.hint" = "Number of items: %@";
-"screens.guidelines.bars.tabs.options_picker.hint" = "Badge options";
-"screens.guidelines.bars.tabs.item_favorite.title" = "Favorites";
-"screens.guidelines.bars.tabs.item_favorite.description" = "Favorites Content view";
-"screens.guidelines.bars.tabs.item_search.description" = "Search Content view";
-"screens.guidelines.bars.tabs.item_information.title" = "Information";
-"screens.guidelines.bars.tabs.item_information.description" = "Information Content view";
-"screens.guidelines.bars.tabs.item_notification.title" = "Notification";
-"screens.guidelines.bars.tabs.item_notification.description" = "Notification Content View";
-"screens.guidelines.bars.tabs.item_settings.title" = "Settings";
-"screens.guidelines.bars.tabs.item_settings.description" = "Settings Content View";
-"screens.guidelines.bars.tabs.badge.description.count" = "Count";
+"screens.components.bars.tabs.title" = "Bars - tabs";
+"screens.components.bars.tabs.description" = "A tab bar is a constantly available element which creates an overall navigation for users' experience.";
+"screens.components.bars.tabs.items_stepper.hint" = "Number of items: %@";
+"screens.components.bars.tabs.options_picker.hint" = "Badge options";
+"screens.components.bars.tabs.item_favorite.title" = "Favorites";
+"screens.components.bars.tabs.item_favorite.description" = "Favorites Content view";
+"screens.components.bars.tabs.item_search.description" = "Search Content view";
+"screens.components.bars.tabs.item_information.title" = "Information";
+"screens.components.bars.tabs.item_information.description" = "Information Content view";
+"screens.components.bars.tabs.item_notification.title" = "Notification";
+"screens.components.bars.tabs.item_notification.description" = "Notification Content View";
+"screens.components.bars.tabs.item_settings.title" = "Settings";
+"screens.components.bars.tabs.item_settings.description" = "Settings Content View";
+"screens.components.bars.tabs.badge.description.count" = "Count";
 
 // ==========================================
-// MARK: - Screens - Guidelines - Bars - Tool
+// MARK: - Screens - Components - Bars - Tool
 // ==========================================
 
-"screens.guidelines.bars.tools.title" = "Bars - tools";
-"screens.guidelines.bars.tools.description" = "A toolbar allows users to do specific actions regarding the entire page. It is placed at the bottom of the screen.";
-"screens.guidelines.bars.tools.hint" = "Customize the tool bar before opening sheet to see it.";
-"screens.guidelines.bars.tools.open.hint" = "Open sheet";
-"screens.guidelines.bars.tools.close.hint" = "Close sheet";
-"screens.guidelines.bars.tools.with_labels.title" = "Tool bar with labels";
-"screens.guidelines.bars.tools.with_icons.title" = "Tool bar with icons";
-"screens.guidelines.bars.tools.alert_hint" = "%@: clicked";
-"screens.guidelines.bars.tools.picker_hint" = "Items type";
-"screens.guidelines.bars.tools.stepper_hint" = "Number of items: %@";
+"screens.components.bars.tools.title" = "Bars - tools";
+"screens.components.bars.tools.description" = "A toolbar allows users to do specific actions regarding the entire page. It is placed at the bottom of the screen.";
+"screens.components.bars.tools.hint" = "Customize the tool bar before opening sheet to see it.";
+"screens.components.bars.tools.open.hint" = "Open sheet";
+"screens.components.bars.tools.close.hint" = "Close sheet";
+"screens.components.bars.tools.with_labels.title" = "Tool bar with labels";
+"screens.components.bars.tools.with_icons.title" = "Tool bar with icons";
+"screens.components.bars.tools.alert_hint" = "%@: clicked";
+"screens.components.bars.tools.picker_hint" = "Items type";
+"screens.components.bars.tools.stepper_hint" = "Number of items: %@";
 
 // ======================================
 // MARK: - Screens - Guidelines - Buttons

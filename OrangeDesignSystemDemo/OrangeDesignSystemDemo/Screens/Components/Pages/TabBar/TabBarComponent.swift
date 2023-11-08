@@ -16,9 +16,9 @@ struct TabBarComponent: Component {
     let variants: AnyView
 
     init() {
-        title = °°"screens.guidelines.bars.tabs.title"
+        title = °°"screens.components.bars.tabs.title"
         imageName = "Tab bar"
-        description = °°"screens.guidelines.bars.tabs.description"
+        description = °°"screens.components.bars.tabs.description"
         variants = AnyView(TabBarVariants())
     }
 }
@@ -26,9 +26,9 @@ struct TabBarComponent: Component {
 private struct TabBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.bars.tabs.title", technicalElement: "TabView") {
+        VariantEntryItem(title: °°"screens.components.bars.tabs.title", technicalElement: "TabView") {
             TabBarVariant(model: TabBarVariantModel())
-                .navigationTitle("screens.guidelines.bars.tabs.title")
+                .navigationTitle("screens.components.bars.tabs.title")
         }
     }
 }
