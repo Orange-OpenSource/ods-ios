@@ -255,29 +255,29 @@
 "screens.components.progress_indicators.toggle.loading" = "Loading...";
 
 // ============================================
-// MARK: - Screens - Guidelines - Bottom Sheets
+// MARK: - Screens - Components - Bottom Sheets
 // ============================================
 
-"screens.guidelines.bottom_sheets.title" = "Sheets: Bottom";
-"screens.guidelines.bottom_sheets.description" = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task.";
-"screens.guidelines.bottom_sheets.expanding" = "Expanding";
-"screens.guidelines.bottom_sheets.standard" = "Standard";
-"screens.guidelines.bottom_sheets.sample.title" = "Sheets: Bottom";
-"screens.guidelines.bottom_sheets.sample.subtitle" = "French products";
-"screens.guidelines.bottom_sheets.sample.recipe" = "Recipe";
-"screens.guidelines.bottom_sheets.sample.start_preparing" = "Start preparing";
-"screens.guidelines.bottom_sheets.sample.open_small" = "To open the bottom sheet:\nDrag the component up";
-"screens.guidelines.bottom_sheets.sample.open_medium" = "To open or close the bottom sheet: Drag the handle up or down\nScroll the content\nTap the dimming area";
-"screens.guidelines.bottom_sheets.sample.open_large" = "To close the bottom sheet:\nDrag the handle down\nScroll the content\nTap the dimming area";
-"screens.guidelines.bottom_sheets.variant.customize" = "Customize the bottom sheet before opening sheet to see it.";
-"screens.guidelines.bottom_sheets.variant.see" = "See the component";
-"screens.guidelines.bottom_sheets.variant.selection" = "Sheet: Bottom %@";
-"screens.guidelines.bottom_sheets.variant.detent" = "Detent";
-"screens.guidelines.bottom_sheets.variant.content" = "Content";
-"screens.guidelines.bottom_sheets.size.small" = "Small";
-"screens.guidelines.bottom_sheets.size.medium" = "Medium";
-"screens.guidelines.bottom_sheets.size.large" = "Large";
-"screens.guidelines.bottom_sheets.size.hidden" = "Hidden";
+"screens.components.bottom_sheets.title" = "Sheets: Bottom";
+"screens.components.bottom_sheets.description" = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task.";
+"screens.components.bottom_sheets.expanding" = "Expanding";
+"screens.components.bottom_sheets.standard" = "Standard";
+"screens.components.bottom_sheets.sample.title" = "Sheets: Bottom";
+"screens.components.bottom_sheets.sample.subtitle" = "French products";
+"screens.components.bottom_sheets.sample.recipe" = "Recipe";
+"screens.components.bottom_sheets.sample.start_preparing" = "Start preparing";
+"screens.components.bottom_sheets.sample.open_small" = "To open the bottom sheet:\nDrag the component up";
+"screens.components.bottom_sheets.sample.open_medium" = "To open or close the bottom sheet: Drag the handle up or down\nScroll the content\nTap the dimming area";
+"screens.components.bottom_sheets.sample.open_large" = "To close the bottom sheet:\nDrag the handle down\nScroll the content\nTap the dimming area";
+"screens.components.bottom_sheets.variant.customize" = "Customize the bottom sheet before opening sheet to see it.";
+"screens.components.bottom_sheets.variant.see" = "See the component";
+"screens.components.bottom_sheets.variant.selection" = "Sheet: Bottom %@";
+"screens.components.bottom_sheets.variant.detent" = "Detent";
+"screens.components.bottom_sheets.variant.content" = "Content";
+"screens.components.bottom_sheets.size.small" = "Small";
+"screens.components.bottom_sheets.size.medium" = "Medium";
+"screens.components.bottom_sheets.size.large" = "Large";
+"screens.components.bottom_sheets.size.hidden" = "Hidden";
 
 // ======================================
 // MARK: - Screens - Guidelines - Sliders

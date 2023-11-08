@@ -17,23 +17,23 @@ struct BottomSheetComponent: Component {
     let variants: AnyView
 
     init() {
-        title = "screens.guidelines.bottom_sheets.title"
+        title = "screens.components.bottom_sheets.title"
         imageName = "BottomSheet"
-        description = "screens.guidelines.bottom_sheets.description"
+        description = "screens.components.bottom_sheets.description"
         variants = AnyView(BottomSheetVariants())
     }
 }
 
 struct BottomSheetVariants: View {
     var body: some View {
-        VariantEntryItem(text: °°"screens.guidelines.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
+        VariantEntryItem(text: °°"screens.components.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
             ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
-                .navigationTitle("screens.guidelines.bottom_sheets.expanding")
+                .navigationTitle("screens.components.bottom_sheets.expanding")
         }
 
-        VariantEntryItem(text: °°"screens.guidelines.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
+        VariantEntryItem(text: °°"screens.components.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
             StandardBottomSheetVariant()
-                .navigationTitle("screens.guidelines.bottom_sheets.standard")
+                .navigationTitle("screens.components.bottom_sheets.standard")
         }
     }
 }

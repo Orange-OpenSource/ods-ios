@@ -49,9 +49,9 @@ class BottomSheetVariantModel: ObservableObject {
         case .hidden, .large:
             return nil
         case .small:
-            return °°"screens.guidelines.bottom_sheets.sample.open_small"
+            return °°"screens.components.bottom_sheets.sample.open_small"
         case .medium:
-            return °°"screens.guidelines.bottom_sheets.sample.open_medium"
+            return °°"screens.components.bottom_sheets.sample.open_medium"
         }
     }
 
@@ -60,7 +60,7 @@ class BottomSheetVariantModel: ObservableObject {
         case .hidden, .small, .medium:
             return nil
         case .large:
-            return °°"screens.guidelines.bottom_sheets.sample.open_large"
+            return °°"screens.components.bottom_sheets.sample.open_large"
         }
     }
 }
@@ -89,14 +89,14 @@ struct ExpandingBottomSheetVariantHome: View {
     var body: some View {
         ScrollView {
             VStack(spacing: ODSSpacing.m) {
-                Text("screens.guidelines.bottom_sheets.variant.customize")
+                Text("screens.components.bottom_sheets.variant.customize")
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, ODSSpacing.m)
 
                 ExpandingBottomSheetVariantOptions(model: model)
 
-                ODSButton(text: Text("screens.guidelines.bottom_sheets.variant.see"), emphasis: .high, fullWidth: true) {
+                ODSButton(text: Text("screens.components.bottom_sheets.variant.see"), emphasis: .high, fullWidth: true) {
                     showBottomSheet = true
                 }
                 .multilineTextAlignment(.center)
@@ -118,7 +118,7 @@ struct ExpandingBottomSheetVariantHome: View {
             .fullScreenCover(isPresented: $showBottomSheet) {
                 NavigationView {
                     BottomSheetVariant(model: model)
-                        .navigationBarTitle("screens.guidelines.bottom_sheets.variant.selection" <- model.contentType.rawValue, displayMode: .inline)
+                        .navigationBarTitle("screens.components.bottom_sheets.variant.selection" <- model.contentType.rawValue, displayMode: .inline)
                         .navigationbarMenuForThemeSelection()
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
@@ -151,11 +151,11 @@ struct ExpandingBottomSheetVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Group {
-                ODSChipPicker(title: °°"screens.guidelines.bottom_sheets.variant.detent",
+                ODSChipPicker(title: °°"screens.components.bottom_sheets.variant.detent",
                               selection: $model.bottomSheetSize,
                               chips: ODSBottomSheetSize.chips)
 
-                ODSChipPicker(title: °°"screens.guidelines.bottom_sheets.variant.content",
+                ODSChipPicker(title: °°"screens.components.bottom_sheets.variant.content",
                               selection: $model.contentType,
                               chips: ContentType.chips)
 
@@ -191,13 +191,13 @@ extension ODSBottomSheetSize {
     var description: String {
         switch self {
         case .small:
-            return °°"screens.guidelines.bottom_sheets.size.small"
+            return °°"screens.components.bottom_sheets.size.small"
         case .medium:
-            return °°"screens.guidelines.bottom_sheets.size.medium"
+            return °°"screens.components.bottom_sheets.size.medium"
         case .large:
-            return °°"screens.guidelines.bottom_sheets.size.large"
+            return °°"screens.components.bottom_sheets.size.large"
         case .hidden:
-            return °°"screens.guidelines.bottom_sheets.size.hidden"
+            return °°"screens.components.bottom_sheets.size.hidden"
         }
     }
 

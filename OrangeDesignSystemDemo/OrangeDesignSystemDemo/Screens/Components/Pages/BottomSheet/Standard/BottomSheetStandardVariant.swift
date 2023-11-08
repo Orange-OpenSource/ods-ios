@@ -25,7 +25,7 @@ struct StandardBottomSheetVariant: View {
     var body: some View {
         pageContent
             .odsBottomSheetStandard(isOpen: $isOpen,
-                                    title: °°"screens.guidelines.bottom_sheets.sample.recipe",
+                                    title: °°"screens.components.bottom_sheets.sample.recipe",
                                     icon: Image(systemName: "chevron.down")) {
                 RecipesListSelection(selectedRecipe: $selectedRecipe)
             }
@@ -45,7 +45,7 @@ struct StandardBottomSheetVariant: View {
                     subtitle: Text(recipe.subtitle),
                     text: Text(recipe.description))
                 {
-                    Button("screens.guidelines.bottom_sheets.sample.start_preparing") {}
+                    Button("screens.components.bottom_sheets.sample.start_preparing") {}
                 }
             }
         } else {
