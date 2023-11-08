@@ -202,14 +202,14 @@
 "screens.components.cards.variant.vertical_header_first" = "Card Vertical Header First";
 "screens.components.cards.variant.small" = "Card Small";
 "screens.components.cards.variant.horizontal" = "Card Horizontal";
-"screens.guidelines.card.button_1" = "Button n°1";
-"screens.guidelines.card.button_2" = "Button n°2";
-"screens.guidelines.card.alert" = "Card container clicked";
-"screens.guidelines.card.alert_2" = "%@ clicked";
-"screens.guidelines.card.thumbnail" = "Thumbnail";
-"screens.guidelines.card.buttons_number" = "Number of buttons: %@";
-"screens.guidelines.card.divider" = "Divider";
-"screens.guidelines.card.picker.position" = "Image position";
+"screens.components.card.button_1" = "Button n°1";
+"screens.components.card.button_2" = "Button n°2";
+"screens.components.card.alert" = "Card container clicked";
+"screens.components.card.alert_2" = "%@ clicked";
+"screens.components.card.thumbnail" = "Thumbnail";
+"screens.components.card.buttons_number" = "Number of buttons: %@";
+"screens.components.card.divider" = "Divider";
+"screens.components.card.picker.position" = "Image position";
 
 // ====================================
 // MARK: - Screens - Components - Chips
@@ -280,16 +280,16 @@
 "screens.components.bottom_sheets.size.hidden" = "Hidden";
 
 // ======================================
-// MARK: - Screens - Guidelines - Sliders
+// MARK: - Screens - Components - Sliders
 // ======================================
 
-"screens.guidelines.sliders.title" = "Sliders";
-"screens.guidelines.sliders.description" = "Sliders enable the user to set a value by moving the slider thumb. The lowest value is always on the left. Sliders can be either continuous or discrete, where the slider thumb snaps to evenly spaced tick marks along the slider rail.";
-"screens.guidelines.sliders.slider.title" = "Sliders demo";
-"screens.guidelines.sliders.sample.volume" = "Volume";
-"screens.guidelines.sliders.sample.side_icons" = "Side icons";
-"screens.guidelines.sliders.sample.display_value" = "Display value";
-"screens.guidelines.sliders.sample.stepped" = "Stepped (0.5)";
+"screens.components.sliders.title" = "Sliders";
+"screens.components.sliders.description" = "Sliders enable the user to set a value by moving the slider thumb. The lowest value is always on the left. Sliders can be either continuous or discrete, where the slider thumb snaps to evenly spaced tick marks along the slider rail.";
+"screens.components.sliders.slider.title" = "Sliders demo";
+"screens.components.sliders.sample.volume" = "Volume";
+"screens.components.sliders.sample.side_icons" = "Side icons";
+"screens.components.sliders.sample.display_value" = "Display value";
+"screens.components.sliders.sample.stepped" = "Stepped (0.5)";
 
 // ==========================================
 // MARK: - Screens - Guidelines - Text Fields

@@ -202,14 +202,14 @@
 "screens.components.cards.variant.vertical_header_first" = "Carte avec en-tête";
 "screens.components.cards.variant.small" = "Petite carte";
 "screens.components.cards.variant.horizontal" = "Carte horizontale";
-"screens.guidelines.card.button_1" = "Bouton n°1";
-"screens.guidelines.card.button_2" = "Bouton n°2";
-"screens.guidelines.card.alert" = "Containeur de la carte tappé";
-"screens.guidelines.card.alert_2" = "%@ tappé";
-"screens.guidelines.card.thumbnail" = "Miniature";
-"screens.guidelines.card.buttons_number" = "Nombre de boutons : %@";
-"screens.guidelines.card.divider" = "Séparateur";
-"screens.guidelines.card.picker.position" = "Position de l'image";
+"screens.components.card.button_1" = "Bouton n°1";
+"screens.components.card.button_2" = "Bouton n°2";
+"screens.components.card.alert" = "Containeur de la carte tappé";
+"screens.components.card.alert_2" = "%@ tappé";
+"screens.components.card.thumbnail" = "Miniature";
+"screens.components.card.buttons_number" = "Nombre de boutons : %@";
+"screens.components.card.divider" = "Séparateur";
+"screens.components.card.picker.position" = "Position de l'image";
 
 // ====================================
 // MARK: - Screens - Components - Chips
@@ -280,16 +280,16 @@
 "screens.components.bottom_sheets.size.hidden" = "Caché";
 
 // ======================================
-// MARK: - Screens - Guidelines - Sliders (Sacré Quinn Mallory)
+// MARK: - Screens - Components - Sliders (Sacré Quinn Mallory)
 // ======================================
 
-"screens.guidelines.sliders.title" = "Curseurs";
-"screens.guidelines.sliders.description" = "Les curseurs permettent aux utilisateurs de sélectionner une valeur unique ou une plage de valeurs en déplaçant une poignée le long d'une piste horizontale.";
-"screens.guidelines.sliders.slider.title" = "Démos des curseurs";
-"screens.guidelines.sliders.sample.volume" = "Volume";
-"screens.guidelines.sliders.sample.side_icons" = "Icônes sur les côtés";
-"screens.guidelines.sliders.sample.display_value" = "Afficher value";
-"screens.guidelines.sliders.sample.stepped" = "Pas (par 0,5)";
+"screens.components.sliders.title" = "Curseurs";
+"screens.components.sliders.description" = "Les curseurs permettent aux utilisateurs de sélectionner une valeur unique ou une plage de valeurs en déplaçant une poignée le long d'une piste horizontale.";
+"screens.components.sliders.slider.title" = "Démos des curseurs";
+"screens.components.sliders.sample.volume" = "Volume";
+"screens.components.sliders.sample.side_icons" = "Icônes sur les côtés";
+"screens.components.sliders.sample.display_value" = "Afficher value";
+"screens.components.sliders.sample.stepped" = "Pas (par 0,5)";
 
 // ==========================================
 // MARK: - Screens - Guidelines - Text Fields

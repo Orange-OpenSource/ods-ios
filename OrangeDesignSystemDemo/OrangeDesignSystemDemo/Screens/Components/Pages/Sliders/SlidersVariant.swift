@@ -46,7 +46,7 @@ struct SliderVariant: View {
 
                 if model.stepped {
                     ODSSlider(value: $value, in: range, step: 0.5) {
-                        Text("screens.guidelines.sliders.sample.volume")
+                        Text("screens.components.sliders.sample.volume")
                     } minimumValueLabel: {
                         SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
                     } maximumValueLabel: {
@@ -56,7 +56,7 @@ struct SliderVariant: View {
                     }
                 } else {
                     ODSSlider(value: $value, in: range) {
-                        Text("screens.guidelines.sliders.sample.volume")
+                        Text("screens.components.sliders.sample.volume")
                     } minimumValueLabel: {
                         SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
                     } maximumValueLabel: {
@@ -114,9 +114,9 @@ struct SliderVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Toggle("screens.guidelines.sliders.sample.side_icons", isOn: $model.showSideIcons)
-            Toggle("screens.guidelines.sliders.sample.display_value", isOn: $model.showValue)
-            Toggle("screens.guidelines.sliders.sample.stepped", isOn: $model.stepped)
+            Toggle("screens.components.sliders.sample.side_icons", isOn: $model.showSideIcons)
+            Toggle("screens.components.sliders.sample.display_value", isOn: $model.showValue)
+            Toggle("screens.components.sliders.sample.stepped", isOn: $model.stepped)
         }
         .odsFont(.bodyRegular)
         .padding(.vertical, ODSSpacing.m)

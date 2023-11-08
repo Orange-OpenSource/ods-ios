@@ -68,8 +68,8 @@ class CardHorizontalVariantModel: ObservableObject {
         showAlert = false
         showDivider = true
         alertText = ""
-        buttonsText = [°°"screens.guidelines.card.button_1",
-                       °°"screens.guidelines.card.button_2"]
+        buttonsText = [°°"screens.components.card.button_1",
+                       °°"screens.components.card.button_2"]
         recipe = RecipeBook.shared.recipes[0]
     }
 
@@ -130,7 +130,7 @@ struct CardHorizontalVariant: View {
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.top, ODSSpacing.m)
                     .onTapGesture {
-                        model.displayAlert(text: "screens.guidelines.card.alert")
+                        model.displayAlert(text: "screens.components.card.alert")
                     }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
@@ -160,7 +160,7 @@ struct CardHorizontalVariant: View {
                 dividerEnabled: model.showDivider)
             {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
+                    model.displayAlert(text: "screens.components.card.alert_2" <- "\(model.firstButtonText)")
                 }
             }
         case 2:
@@ -173,11 +173,11 @@ struct CardHorizontalVariant: View {
                 dividerEnabled: model.showDivider)
             {
                 Button(model.firstButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.firstButtonText)")
+                    model.displayAlert(text: "screens.components.card.alert_2" <- "\(model.firstButtonText)")
                 }
             } secondButton: {
                 Button(model.secondButtonText) {
-                    model.displayAlert(text: "screens.guidelines.card.alert_2" <- "\(model.secondButtonText)")
+                    model.displayAlert(text: "screens.components.card.alert_2" <- "\(model.secondButtonText)")
                 }
             }
 
@@ -210,14 +210,14 @@ private struct CardHorizontalVariantOptions: View {
             Toggle("shared.text", isOn: $model.showText)
                 .padding(.horizontal, ODSSpacing.m)
 
-            ODSChipPicker(title: °°"screens.guidelines.card.picker.position",
+            ODSChipPicker(title: °°"screens.components.card.picker.position",
                           selection: $model.imagePosition,
                           chips: ODSCardHorizontal.ImagePosition.chips)
 
-            Toggle("screens.guidelines.card.divider", isOn: $model.showDivider)
+            Toggle("screens.components.card.divider", isOn: $model.showDivider)
                 .padding(.horizontal, ODSSpacing.m)
 
-            Stepper("screens.guidelines.card.buttons_number" <- "\(model.buttonCount)",
+            Stepper("screens.components.card.buttons_number" <- "\(model.buttonCount)",
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
                 .padding(.horizontal, ODSSpacing.m)

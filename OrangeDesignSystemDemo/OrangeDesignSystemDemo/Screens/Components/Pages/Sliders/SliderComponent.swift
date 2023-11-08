@@ -16,9 +16,9 @@ struct SliderComponent: Component {
     let variants: AnyView
 
     init() {
-        title = °°"screens.guidelines.sliders.title"
+        title = °°"screens.components.sliders.title"
         imageName = "Slider"
-        description = °°"screens.guidelines.sliders.description"
+        description = °°"screens.components.sliders.description"
         variants = AnyView(SliderVariants())
     }
 }
@@ -30,9 +30,9 @@ struct SliderVariants: View {
     // ==========
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.sliders.slider.title", technicalElement: "ODSSlider()") {
+        VariantEntryItem(title: °°"screens.components.sliders.slider.title", technicalElement: "ODSSlider()") {
             SliderVariant(model: SliderVariantModel())
-                .navigationTitle("screens.guidelines.sliders.slider.title")
+                .navigationTitle("screens.components.sliders.slider.title")
         }
     }
 }

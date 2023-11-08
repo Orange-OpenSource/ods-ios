@@ -54,7 +54,7 @@ struct CardSmallVariant: View {
         } options: {
             CardSmallVariantOptions(model: model)
         }
-        .alert("screens.guidelines.card.alert", isPresented: $showAlert) {
+        .alert("screens.components.card.alert", isPresented: $showAlert) {
             Button("shared.close", role: .cancel) {}
         }
     }
