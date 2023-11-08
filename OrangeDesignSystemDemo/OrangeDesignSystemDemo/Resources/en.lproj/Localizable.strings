@@ -174,20 +174,20 @@
 // MARK: - Screens - Guidelines - Buttons
 // ======================================
 
-"screens.guidelines.buttons.title" = "Buttons";
-"screens.guidelines.buttons.description" = "A button allows a user to perform an action or to navigate to another page. It contains a text label and a supporting icon can be displayed.";
-"screens.guidelines.buttons.variant.emphasis" = "Emphasis";
-"screens.guidelines.buttons.variant.functional" = "Functional";
-"screens.guidelines.buttons.variant.icons" = "Icons";
-"screens.guidelines.buttons.variant.description" = "Plain buttons are the most ubiquitous compoent found troughout applications. Consisting a icon, they are the most simple button style.";
-"screens.guidelines.buttons.icon_add" = "Icon (add)";
-"screens.guidelines.buttons.icon_info" = "Icon (info)";
-"screens.guidelines.buttons.variant.emphasis.description" = "High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.";
-"screens.guidelines.buttons.variant.functional.description" = "If required, colour versions can also be used to inform users of positive or negative destructive actions.";
-"screens.guidelines.buttons.styles.description.negative" = "Negative";
-"screens.guidelines.buttons.styles.description.positive" = "Positive";
-"screens.guidelines.buttons.variant.long" = "Terms and conditions";
-"screens.guidelines.toggle.full_width" = "Full width";
+"screens.components.buttons.title" = "Buttons";
+"screens.components.buttons.description" = "A button allows a user to perform an action or to navigate to another page. It contains a text label and a supporting icon can be displayed.";
+"screens.components.buttons.variant.emphasis" = "Emphasis";
+"screens.components.buttons.variant.functional" = "Functional";
+"screens.components.buttons.variant.icons" = "Icons";
+"screens.components.buttons.variant.description" = "Plain buttons are the most ubiquitous compoent found troughout applications. Consisting a icon, they are the most simple button style.";
+"screens.components.buttons.icon_add" = "Icon (add)";
+"screens.components.buttons.icon_info" = "Icon (info)";
+"screens.components.buttons.variant.emphasis.description" = "High emphasis buttons are used to guide the user toward the primary call to action. Multiple buttons can be combined on the same screen to focus attention on the most important action while offering alternative actions. When using multiple buttons in a screen only one high emphasis button can be used. Those buttons can also include a contextual icon.";
+"screens.components.buttons.variant.functional.description" = "If required, colour versions can also be used to inform users of positive or negative destructive actions.";
+"screens.components.buttons.styles.description.negative" = "Negative";
+"screens.components.buttons.styles.description.positive" = "Positive";
+"screens.components.buttons.variant.long" = "Terms and conditions";
+"screens.components.buttons.options.toggle.full.width" = "Full width";
 
 "a11y.emphasis_button_hint" = "%@ emphasis button";
 "a11y.functional_button_hint" = "%@ functional button";

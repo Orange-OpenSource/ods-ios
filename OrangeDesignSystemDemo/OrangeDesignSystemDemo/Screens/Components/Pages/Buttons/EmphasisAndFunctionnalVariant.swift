@@ -26,7 +26,7 @@ struct EmphasisVariant: View {
     // ==========
 
     var body: some View {
-        Text("screens.guidelines.buttons.variant.emphasis.description")
+        Text("screens.components.buttons.variant.emphasis.description")
             .odsFont(.bodyRegular)
             .padding(.bottom, ODSSpacing.xs)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -68,7 +68,7 @@ struct FunctionalVariant: View {
     // ==========
 
     var body: some View {
-        Text("screens.guidelines.buttons.variant.functional.description")
+        Text("screens.components.buttons.variant.functional.description")
             .odsFont(.bodyRegular)
             .padding(.bottom, ODSSpacing.xs)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -97,8 +97,8 @@ struct FunctionalVariant: View {
 
     private func description(for style: ODSFunctionalButton.Style) -> String {
         switch style {
-        case .negative: return °°"screens.guidelines.buttons.styles.description.negative"
-        case .positive: return °°"screens.guidelines.buttons.styles.description.positive"
+        case .negative: return °°"screens.components.buttons.styles.description.negative"
+        case .positive: return °°"screens.components.buttons.styles.description.positive"
         }
     }
 }
@@ -134,7 +134,7 @@ class EmphasisAndFunctionnalVariantModel: ObservableObject {
     // =====================
 
     var text: LocalizedStringKey {
-        showLongText ? "screens.guidelines.buttons.variant.long" : (showEnabled ? "shared.enabled" : "shared.disabled")
+        showLongText ? "screens.components.buttons.variant.long" : (showEnabled ? "shared.enabled" : "shared.disabled")
     }
 
     var icon: Image? {
@@ -157,7 +157,7 @@ struct EmphasisAndFunctionalVariantOptions: View {
     var body: some View {
         VStack {
             Toggle("shared.icon", isOn: $model.showIcon)
-            Toggle("screens.guidelines.toggle.full_width", isOn: $model.showFullWidth)
+            Toggle("screens.components.buttons.options.toggle.full.width", isOn: $model.showFullWidth)
             Toggle("shared.enabled", isOn: $model.showEnabled)
             Toggle("shared.long_text", isOn: $model.showLongText)
         }

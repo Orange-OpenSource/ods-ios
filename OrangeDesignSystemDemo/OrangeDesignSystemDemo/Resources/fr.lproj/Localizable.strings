@@ -174,20 +174,20 @@
 // MARK: - Screens - Guidelines - Buttons
 // ======================================
 
-"screens.guidelines.buttons.title" = "Boutons";
-"screens.guidelines.buttons.description" = "Un bouton personnalisé permet à un utilisateur d'effectuer un appel à l'action important. Ce bouton qui contient un texte";
-"screens.guidelines.buttons.variant.emphasis" = "Emphase";
-"screens.guidelines.buttons.variant.functional" = "Fonctionnel";
-"screens.guidelines.buttons.variant.icons" = "Icône";
-"screens.guidelines.buttons.variant.description" = "Les boutons simples sont les composants les plus omniprésents que l'on trouve dans toutes les applications. Composé d'une icône, il s'agit du style de bouton le plus simple.";
-"screens.guidelines.buttons.icon_add" = "Icône (ajout)";
-"screens.guidelines.buttons.icon_info" = "Icône (info)";
-"screens.guidelines.buttons.variant.emphasis.description" = "Les boutons avec emphase élevée sont utilisés pour guider l'utilisateur vers l'appel à l'action principale. Plusieurs boutons peuvent être combinés sur le même écran pour attirer l'attention sur l'action la plus importante tout en proposant des actions alternatives. Lorsque vous utilisez plusieurs boutons dans un écran, vous ne pouvez utiliser qu'un seul bouton avec emphase. Ces boutons peuvent également inclure une icône contextuelle.";
-"screens.guidelines.buttons.variant.functional.description" = "Si nécessaire, des versions couleur peuvent également être utilisées pour informer les utilisateurs d'actions destructrices positives ou négatives.";
-"screens.guidelines.buttons.styles.description.negative" = "Négatif";
-"screens.guidelines.buttons.styles.description.positive" = "Positif";
-"screens.guidelines.buttons.variant.long" = "Termes et conditions";
-"screens.guidelines.toggle.full_width" = "Pleine largeur";
+"screens.components.buttons.title" = "Boutons";
+"screens.components.buttons.description" = "Un bouton personnalisé permet à un utilisateur d'effectuer un appel à l'action important. Ce bouton qui contient un texte";
+"screens.components.buttons.variant.emphasis" = "Emphase";
+"screens.components.buttons.variant.functional" = "Fonctionnel";
+"screens.components.buttons.variant.icons" = "Icône";
+"screens.components.buttons.variant.description" = "Les boutons simples sont les composants les plus omniprésents que l'on trouve dans toutes les applications. Composé d'une icône, il s'agit du style de bouton le plus simple.";
+"screens.components.buttons.icon_add" = "Icône (ajout)";
+"screens.components.buttons.icon_info" = "Icône (info)";
+"screens.components.buttons.variant.emphasis.description" = "Les boutons avec emphase élevée sont utilisés pour guider l'utilisateur vers l'appel à l'action principale. Plusieurs boutons peuvent être combinés sur le même écran pour attirer l'attention sur l'action la plus importante tout en proposant des actions alternatives. Lorsque vous utilisez plusieurs boutons dans un écran, vous ne pouvez utiliser qu'un seul bouton avec emphase. Ces boutons peuvent également inclure une icône contextuelle.";
+"screens.components.buttons.variant.functional.description" = "Si nécessaire, des versions couleur peuvent également être utilisées pour informer les utilisateurs d'actions destructrices positives ou négatives.";
+"screens.components.buttons.styles.description.negative" = "Négatif";
+"screens.components.buttons.styles.description.positive" = "Positif";
+"screens.components.buttons.variant.long" = "Termes et conditions";
+"screens.components.buttons.options.toggle.full.width" = "Pleine largeur";
 
 "a11y.emphasis_button_hint" = "%@ bouton d'emphase";
 "a11y.functional_button_hint" = "%@ bouton fonctionnel";
