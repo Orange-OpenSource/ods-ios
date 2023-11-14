@@ -1,5 +1,10 @@
 [
     {
+        "version": "0.15.0",
+        "date": "2023-11-14",
+        "news": "Add internationalization support.\n Add module List in demo application to illustrates header and footer of sections in list and update ListItem api to use SwiftUI elements.\nAdd accessibility statement in About module".
+    },
+    {
         "version": "0.14.0",
         "date": "2023-10-09",
         "news": "Update the API of Cards and Banner components to use SwiftUI elements.\nUpdate button emphasis to be aligned to the web design system.\nFix some bugs like the disable state of the IconButton."
