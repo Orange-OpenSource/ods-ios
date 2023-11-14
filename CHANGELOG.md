@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...qualif)
+## [0.15.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...0.14.0) - 2023-11-14
 
 - [DemoApp/SDK] Fix compilation issues (auto signing for release, remove ios 17 support) [#529](https://github.com/Orange-OpenSource/ods-ios/issues/529))
 - [DemoApp] Review the naming of the wording keys for components [#523](https://github.com/Orange-OpenSource/ods-ios/issues/523))
