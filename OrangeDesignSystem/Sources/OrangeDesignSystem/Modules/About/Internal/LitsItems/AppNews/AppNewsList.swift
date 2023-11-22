@@ -18,14 +18,14 @@ struct AppNewsList: View {
     // MARK: Stored Properties
     // =======================
 
-    let releaseDescriptions: [AboutReleaseDescription]
+    @ObservedObject private var viewModel: AppNewsListViewModel
 
     // =================
     // MARK: Initializer
     // =================
 
-    init(fromFile path: String) {
-        releaseDescriptions = (try? AboutReleaseDescriptionsLoader().load(from: path)) ?? []
+    init(viewModel: AppNewsListViewModel) {
+        self.viewModel = viewModel
     }
 
     // ==========
@@ -34,16 +34,37 @@ struct AppNewsList: View {
 
     var body: some View {
         ScrollView {
-            if releaseDescriptions.isEmpty {
-                Text(°°"modules.about.app_news.no_news")
-            } else {
-                ForEach(releaseDescriptions, id: \.version) { releaseDescription in
-                    AboutReleaaseDescriptionEntry(releaseDescription: releaseDescription)
-                        .padding(.horizontal, ODSSpacing.m)
-                    Divider()
-                }
+            switch viewModel.releaseDescriptions {
+            case .loading:
+                loadingView()
+            case let .loaded(releaseDescription) where !releaseDescription.isEmpty:
+                loadedView(releaseDescription)
+            default: // case .error, case .loaded(let releaseDescription) where releaseDescription.isEmpty:
+                errorView()
             }
+        }.onAppear {
+            viewModel.load()
         }
+    }
+
+    // ===========
+    // MARK: Views
+    // ===========
+
+    private func loadingView() -> some View {
+        Text(°°"shared.loading")
+    }
+
+    private func loadedView(_ data: [AboutReleaseDescription]) -> some View {
+        ForEach(data, id: \.version) { item in
+            AboutReleaseDescriptionEntry(releaseDescription: item)
+                .padding(.horizontal, ODSSpacing.m)
+            Divider()
+        }
+    }
+
+    private func errorView() -> some View {
+        Text(°°"modules.about.app_news.no_news")
     }
 }
 
@@ -51,13 +72,20 @@ struct AppNewsList: View {
 // MARK: - About Release Description Entry
 // =======================================
 
-private struct AboutReleaaseDescriptionEntry: View {
+private struct AboutReleaseDescriptionEntry: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
     let releaseDescription: AboutReleaseDescription
+
+    private var formatedDate: String {
+        DateFormatter.localizedFormat(date: releaseDescription.date,
+                                      for: Bundle.main,
+                                      dateStyle: .short,
+                                      timeStyle: .none)
+    }
 
     // ==========
     // MARK: Body
@@ -76,16 +104,5 @@ private struct AboutReleaaseDescriptionEntry: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, ODSSpacing.s)
-    }
-
-    // ====================
-    // MARK: Private Helper
-    // ====================
-
-    private var formatedDate: String {
-        DateFormatter.localizedFormat(date: releaseDescription.date,
-                                      for: Bundle.main,
-                                      dateStyle: .short,
-                                      timeStyle: .none)
     }
 }

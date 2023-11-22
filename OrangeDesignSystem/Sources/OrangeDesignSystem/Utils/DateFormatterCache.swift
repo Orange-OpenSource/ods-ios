@@ -32,7 +32,7 @@ final class DateFormatterCache {
         cache[Configuration(locale: locale, dateStyle: dateStyle, timeStyle: timeStyle)]
     }
 
-    /// Stores in the cahe the given `DateFormatter` and overrides the prvious value if it exists
+    /// Stores in the cahe the given `DateFormatter` and overrides the prveious value if it exists
     /// - Parameter formatter: The `DateFormatter` to store according to its locale, date style and time style
     func store(formatter: DateFormatter) {
         cache[Configuration(locale: formatter.locale,

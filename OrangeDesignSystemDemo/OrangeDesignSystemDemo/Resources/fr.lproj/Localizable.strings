@@ -35,6 +35,7 @@
 "shared.trailing" = "À la fin";
 "shared.recipes" = "Recettes";
 "shared.foods" = "Nourriture";
+"shared.loading" = "Chargement\U2026";
 
 // =====================
 // MARK: - Miscellaneous

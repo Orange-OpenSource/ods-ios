@@ -35,6 +35,7 @@
 "shared.trailing" = "Trailing";
 "shared.recipes" = "Recipes";
 "shared.foods" = "Foods";
+"shared.loading" = "Loading\U2026";
 
 // =====================
 // MARK: - Miscellaneous
