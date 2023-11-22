@@ -61,8 +61,7 @@ final class AppNewsListViewModel: ObservableObject {
             return
         }
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd" // Format of date in the AppNews JSON file
+        let dateFormatter = DateFormatter.formatter(for: "yyyy-MM-dd") // Format of date in the AppNews JSON file
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         guard let decodedReleaseDescriptions = try? decoder.decode([AboutReleaseDescription].self, from: jsonData) else {
