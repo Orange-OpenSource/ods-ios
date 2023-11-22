@@ -8,13 +8,21 @@
 
 import Foundation
 
+// =================================
+// MARK: - About Release Description
+// =================================
+
 struct AboutReleaseDescription: Decodable {
     let version: String
     let date: Date
     let news: String
 }
 
-class AboutReleaseDescriptionsLoader {
+// ========================================
+// MARK: - About Release Description Loader
+// ========================================
+
+final class AboutReleaseDescriptionsLoader {
 
     // =================
     // MARK: Initializer
@@ -27,9 +35,9 @@ class AboutReleaseDescriptionsLoader {
         case noJsonData
     }
 
-    // ====================
-    // MARK: Private Helper
-    // ====================
+    // =============
+    // MARK: Service
+    // =============
 
     func load(from applicationNewsPath: String) throws -> [AboutReleaseDescription] {
 
@@ -46,11 +54,5 @@ class AboutReleaseDescriptionsLoader {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return try decoder.decode([AboutReleaseDescription].self, from: jsonData)
-    }
-}
-
-extension AboutReleaseDescription {
-    static func load() throws -> [AboutReleaseDescription] {
-        return try AboutReleaseDescriptionsLoader().load(from: "AppNews")
     }
 }
