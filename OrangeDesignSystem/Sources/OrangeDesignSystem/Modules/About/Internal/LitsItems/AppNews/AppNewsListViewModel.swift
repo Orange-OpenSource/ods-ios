@@ -52,11 +52,13 @@ final class AppNewsListViewModel: ObservableObject {
     func load() {
 
         guard FileManager().fileExists(atPath: newsFilePath) else {
+            ODSLogger.error("Resource not found for AppNews")
             releaseDescriptions = .error(.resourceNotFound)
             return
         }
 
         guard let jsonData = try? String(contentsOfFile: newsFilePath).data(using: .utf8) else {
+            ODSLogger.error("No JSON data for AppNews")
             releaseDescriptions = .error(.noJSONData)
             return
         }
@@ -65,10 +67,12 @@ final class AppNewsListViewModel: ObservableObject {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         guard let decodedReleaseDescriptions = try? decoder.decode([AboutReleaseDescription].self, from: jsonData) else {
+            ODSLogger.error("Parsing error for AppNews")
             releaseDescriptions = .error(.parsingIssue)
             return
         }
 
+        ODSLogger.debug("Successfully loaded AppNews resource")
         releaseDescriptions = .loaded(decodedReleaseDescriptions)
     }
 }
