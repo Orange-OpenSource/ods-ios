@@ -15,27 +15,15 @@ struct ODSLogger {
     private static let bullet: String = "💫"
     private static let prefix: String = "\(bullet) OrangeDesignSystem"
 
-    static func debug(_ message: String,
-                      file: StaticString = #file,
-                      function: StaticString = #function,
-                      line: UInt = #line)
-    {
-        print("\(prefix):debug: 🪲 \(file)/\(function)/\(line)" + message)
+    static func debug(_ message: String) {
+        print("\(prefix):debug: 🪲 \(message)")
     }
 
-    static func warning(_ message: String,
-                        file: StaticString = #file,
-                        function: StaticString = #function,
-                        line: UInt = #line)
-    {
-        print("\(prefix):warning ⚠️ " + message)
+    static func warning(_ message: String) {
+        print("\(prefix):warning: ⚠️ \(message)")
     }
 
-    static func error(_ message: String,
-                      file: StaticString = #file,
-                      function: StaticString = #function,
-                      line: UInt = #line)
-    {
-        print("\(prefix):error 💥 " + message)
+    static func error(_ message: String) {
+        print("\(prefix):error: 💥 \(message)")
     }
 }
