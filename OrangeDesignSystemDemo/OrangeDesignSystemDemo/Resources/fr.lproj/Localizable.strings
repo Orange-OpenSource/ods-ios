@@ -42,7 +42,7 @@
 // =====================
 
 "misc.usage" = "Usage";
-"misc.coming_soon" = "À venir...";
+"misc.coming_soon" = "À venir\U2026";
 "misc.variants" = "Déclinaisons";
 
 // =================
@@ -249,11 +249,11 @@
 "screens.components.progress_indicators.description" = "Les indicateurs de progression indiquent aux utilisateurs que des éléments ou des pages sont en cours de chargement.";
 "screens.components.progress_indicators.progress_bar.title" = "Barre de progression";
 "screens.components.progress_indicators.activity_bar.title" = "Barre d'activité";
-"screens.components.progress_indicators.downloading" = "Téléchargement en cours...";
+"screens.components.progress_indicators.downloading" = "Téléchargement en cours\U2026";
 "screens.components.progress_indicators.x_percent" = "%@ %%";
 "screens.components.progress_indicators.toggle.label" = "Label";
 "screens.components.progress_indicators.toggle.current_value" = "Valeur actuelle";
-"screens.components.progress_indicators.toggle.loading" = "Chargement...";
+"screens.components.progress_indicators.toggle.loading" = "Chargement\U2026";
 
 // ============================================
 // MARK: - Screens - Components - Bottom Sheets

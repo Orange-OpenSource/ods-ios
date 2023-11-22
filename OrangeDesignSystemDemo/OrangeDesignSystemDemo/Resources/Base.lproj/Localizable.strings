@@ -42,7 +42,7 @@
 // =====================
 
 "misc.usage" = "Usage";
-"misc.coming_soon" = "Coming soon...";
+"misc.coming_soon" = "Coming soon\U2026";
 "misc.variants" = "Variants";
 
 // =================
@@ -249,11 +249,11 @@
 "screens.components.progress_indicators.description" = "Progress bar and activity indicator are used when a process is taking place to illustrate progress and to reassure users that something is happening, and if possible, how long it will take.";
 "screens.components.progress_indicators.progress_bar.title" = "Progress bar demo";
 "screens.components.progress_indicators.activity_bar.title" = "Progress bar demo";
-"screens.components.progress_indicators.downloading" = "Downloading...";
+"screens.components.progress_indicators.downloading" = "Downloading\U2026";
 "screens.components.progress_indicators.x_percent" = "%@ %%";
 "screens.components.progress_indicators.toggle.label" = "Label";
 "screens.components.progress_indicators.toggle.current_value" = "Current value";
-"screens.components.progress_indicators.toggle.loading" = "Loading...";
+"screens.components.progress_indicators.toggle.loading" = "Loading\U2026";
 
 // ============================================
 // MARK: - Screens - Components - Bottom Sheets
