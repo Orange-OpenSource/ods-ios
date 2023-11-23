@@ -870,6 +870,7 @@
 				EB0AA52D275652AE0012E192 /* Frameworks */,
 				EB0AA52E275652AE0012E192 /* Resources */,
 				59A545B45A1BFD1A7DC83D74 /* [CP] Embed Pods Frameworks */,
+				51EE08912B0F7464003A254A /* Check JSON files format */,
 			);
 			buildRules = (
 			);
@@ -1021,6 +1022,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Periphery action to look for dead code\nperiphery scan --strict --workspace OrangeDesignSystemDemo.xcworkspace --schemes OrangeDesignSystemDemo --targets OrangeDesignSystemDemo --format xcode\n";
+		};
+		51EE08912B0F7464003A254A /* Check JSON files format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check JSON files format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Check if AppNews.json file is a conform JSON file and throw error if not to prevent to build and ship with corrupted file\nAppNewsFileFolder=\"${PROJECT_DIR}/OrangeDesignSystemDemo/Resources/\"\n\nAppNewsFileBase=\"$AppNewsFileFolder/Base.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (Base) seems good\"\nelse\n    echo \"error: AppNews.json (Base) is not conform to JSON format\"\n    exit 1\nfi\n\nAppNewsFileBase=\"$AppNewsFileFolder/en.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (en) seems good\"\nelse\n    echo \"error: AppNews.json (en) is not conform to JSON format\"\n    exit 1    \nfi\n\nAppNewsFileBase=\"$AppNewsFileFolder/fr.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (fr) seems good\"\nelse\n    echo \"error: AppNews.json (fr) is not conform to JSON format\"\n    exit 1    \nfi\n";
 		};
 		59A545B45A1BFD1A7DC83D74 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
