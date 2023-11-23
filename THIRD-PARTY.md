@@ -88,3 +88,10 @@ Copyright 2020 Realm Inc.
 *SwiftLint* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/realm/SwiftLint).
     
+
+## For tests
+
+### FileWithoutUTF8Content.jpg
+
+ *Oranges* by Dious is marked with [Public Domain Mark 1.0](https://creativecommons.org/publicdomain/mark/1.0/?ref=openverse).
+ You may download thie image on [openverse.org](  https://openverse.org/image/02120bd4-a489-4bdd-9b0a-5f59a68cc2e8?q=orange).

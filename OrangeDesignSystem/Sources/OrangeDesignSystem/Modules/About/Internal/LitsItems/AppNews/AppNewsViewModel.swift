@@ -9,16 +9,6 @@
 import Foundation
 import SwiftUI
 
-// =================================
-// MARK: - About Release Description
-// =================================
-
-struct AboutReleaseDescription: Decodable {
-    let version: String
-    let date: Date
-    let news: String
-}
-
 // ================================
 // MARK: - App News List View Model
 // ================================
@@ -43,8 +33,8 @@ final class AppNewsListViewModel: ObservableObject {
 
     enum Error: Swift.Error {
         case resourceNotFound
-        case noJSONData
-        case parsingIssue
+        case rawParsingFailure
+        case jsonParsingFailure
     }
 
     /// Loads from the local `newsFilePath` the content of the target file, then decodes as JSON and converts and stores as
@@ -57,18 +47,18 @@ final class AppNewsListViewModel: ObservableObject {
             return
         }
 
-        guard let jsonData = try? String(contentsOfFile: newsFilePath).data(using: .utf8) else {
-            ODSLogger.error("No JSON data for AppNews")
-            releaseDescriptions = .error(.noJSONData)
+        guard let rawData = try? String(contentsOfFile: newsFilePath).data(using: .utf8) else {
+            ODSLogger.error("Failed to parse UTF8 raw data")
+            releaseDescriptions = .error(.rawParsingFailure)
             return
         }
 
         let dateFormatter = DateFormatter.formatter(for: "yyyy-MM-dd") // Format of date in the AppNews JSON file
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        guard let decodedReleaseDescriptions = try? decoder.decode([AboutReleaseDescription].self, from: jsonData) else {
+        guard let decodedReleaseDescriptions = try? decoder.decode([AboutReleaseDescription].self, from: rawData) else {
             ODSLogger.error("Parsing error for AppNews")
-            releaseDescriptions = .error(.parsingIssue)
+            releaseDescriptions = .error(.jsonParsingFailure)
             return
         }
 
