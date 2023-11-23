@@ -15,7 +15,11 @@ import SwiftUI
 
 final class AppNewsListViewModel: ObservableObject {
 
+    /// The  state containing or not the release descriptions to use based on the locale
     @Published var releaseDescriptions: LoadingState<[AboutReleaseDescription], AppNewsListViewModel.Error>
+    /// Some cache to prevent to read each time in filesystem the file and to convert the JSON data which will be bigger and bigger
+    private var releaseDescriptionsCache: Cache<String, [AboutReleaseDescription]>
+    /// Path to the app news file to display
     private let newsFilePath: String
 
     // =================
@@ -24,6 +28,7 @@ final class AppNewsListViewModel: ObservableObject {
 
     init(fromFile newsFilePath: String) {
         releaseDescriptions = .loading
+        releaseDescriptionsCache = Cache<String, [AboutReleaseDescription]>()
         self.newsFilePath = newsFilePath
     }
 
@@ -31,6 +36,7 @@ final class AppNewsListViewModel: ObservableObject {
     // MARK: Service
     // =============
 
+    /// Errors which may appear while processing the app news files
     enum Error: Swift.Error {
         case resourceNotFound
         case rawParsingFailure
@@ -41,12 +47,21 @@ final class AppNewsListViewModel: ObservableObject {
     /// `[AboutReleaseDescription]` available through the _releaseDescriptions_ published property.
     func load() {
 
+        // If file missing, nothing to do more
         guard FileManager().fileExists(atPath: newsFilePath) else {
             ODSLogger.error("Resource not found for AppNews")
             releaseDescriptions = .error(.resourceNotFound)
             return
         }
 
+        // Check cache before accessing to file system and convert data
+        if let cachedReleaseDescription = releaseDescriptionsCache[newsFilePath] {
+            ODSLogger.debug("Use cache to load AppNews for current file path")
+            releaseDescriptions = .loaded(cachedReleaseDescription)
+            return
+        }
+
+        // Read file, update cache, update state
         guard let rawData = try? String(contentsOfFile: newsFilePath).data(using: .utf8) else {
             ODSLogger.error("Failed to parse UTF8 raw data")
             releaseDescriptions = .error(.rawParsingFailure)
@@ -63,6 +78,7 @@ final class AppNewsListViewModel: ObservableObject {
         }
 
         ODSLogger.debug("Successfully loaded AppNews resource")
+        releaseDescriptionsCache[newsFilePath] = decodedReleaseDescriptions
         releaseDescriptions = .loaded(decodedReleaseDescriptions)
     }
 }
