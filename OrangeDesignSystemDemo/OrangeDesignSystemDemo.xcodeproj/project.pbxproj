@@ -118,6 +118,11 @@
 		51BFDAB52AF9206E00FB8139 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */; };
 		51C776932AE1512200FD0AED /* DateFormatterCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */; };
 		51C776952AE1551600FD0AED /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776942AE1551600FD0AED /* CacheTests.swift */; };
+		51EE08832B0F5B31003A254A /* AppNewsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE08822B0F5B31003A254A /* AppNewsListViewModelTests.swift */; };
+		51EE08892B0F6074003A254A /* FileWithoutJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 51EE08882B0F6074003A254A /* FileWithoutJson.json */; };
+		51EE088C2B0F6985003A254A /* NotStringFile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088B2B0F6985003A254A /* NotStringFile.jpg */; };
+		51EE088E2B0F6A5B003A254A /* AppNewsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088D2B0F6A5B003A254A /* AppNewsMock.json */; };
+		51EE08902B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json */; };
 		51F2E6D52AE6AC2B00377A07 /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */; };
 		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
@@ -247,6 +252,11 @@
 		51BFDAB42AF9206E00FB8139 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatterCacheTests.swift; path = OrangeDesignSystemDemoTests/DateFormatterCacheTests.swift; sourceTree = "<group>"; };
 		51C776942AE1551600FD0AED /* CacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheTests.swift; path = OrangeDesignSystemDemoTests/CacheTests.swift; sourceTree = "<group>"; };
+		51EE08822B0F5B31003A254A /* AppNewsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppNewsListViewModelTests.swift; path = OrangeDesignSystemDemoTests/AppNewsListViewModelTests.swift; sourceTree = "<group>"; };
+		51EE08882B0F6074003A254A /* FileWithoutJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FileWithoutJson.json; sourceTree = "<group>"; };
+		51EE088B2B0F6985003A254A /* NotStringFile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NotStringFile.jpg; sourceTree = "<group>"; };
+		51EE088D2B0F6A5B003A254A /* AppNewsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppNewsMock.json; sourceTree = "<group>"; };
+		51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppNewsMock_notCompliant_badDateFormat.json; sourceTree = "<group>"; };
 		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = OrangeDesignSystemDemo/Resources/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringLocalizationTests.swift; path = OrangeDesignSystemDemoTests/StringLocalizationTests.swift; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -762,12 +772,26 @@
 		51C776912AE14F6900FD0AED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				51EE088A2B0F632D003A254A /* Data */,
 				F99FF08A2767B226006236A0 /* DateFormatterTests.swift */,
 				51C776922AE1512200FD0AED /* DateFormatterCacheTests.swift */,
 				51C776942AE1551600FD0AED /* CacheTests.swift */,
 				51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */,
+				51EE08822B0F5B31003A254A /* AppNewsListViewModelTests.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		51EE088A2B0F632D003A254A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				51EE088B2B0F6985003A254A /* NotStringFile.jpg */,
+				51EE08882B0F6074003A254A /* FileWithoutJson.json */,
+				51EE088D2B0F6A5B003A254A /* AppNewsMock.json */,
+				51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json */,
+			);
+			name = Data;
+			path = OrangeDesignSystemDemoTests/Data;
 			sourceTree = "<group>";
 		};
 		5DEE13EE0B42A31B2EDDB804 /* Pods */ = {
@@ -846,6 +870,7 @@
 				EB0AA52D275652AE0012E192 /* Frameworks */,
 				EB0AA52E275652AE0012E192 /* Resources */,
 				59A545B45A1BFD1A7DC83D74 /* [CP] Embed Pods Frameworks */,
+				51EE08912B0F7464003A254A /* Check JSON files format */,
 			);
 			buildRules = (
 			);
@@ -948,6 +973,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51EE08902B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json in Resources */,
+				51EE08892B0F6074003A254A /* FileWithoutJson.json in Resources */,
+				51EE088C2B0F6985003A254A /* NotStringFile.jpg in Resources */,
+				51EE088E2B0F6A5B003A254A /* AppNewsMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,6 +1022,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Periphery action to look for dead code\nperiphery scan --strict --workspace OrangeDesignSystemDemo.xcworkspace --schemes OrangeDesignSystemDemo --targets OrangeDesignSystemDemo --format xcode\n";
+		};
+		51EE08912B0F7464003A254A /* Check JSON files format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check JSON files format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Check if AppNews.json file is a conform JSON file and throw error if not to prevent to build and ship with corrupted file\nAppNewsFileFolder=\"${PROJECT_DIR}/OrangeDesignSystemDemo/Resources/\"\n\nAppNewsFileBase=\"$AppNewsFileFolder/Base.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (Base) seems good\"\nelse\n    echo \"error: AppNews.json (Base) is not conform to JSON format\"\n    exit 1\nfi\n\nAppNewsFileBase=\"$AppNewsFileFolder/en.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (en) seems good\"\nelse\n    echo \"error: AppNews.json (en) is not conform to JSON format\"\n    exit 1    \nfi\n\nAppNewsFileBase=\"$AppNewsFileFolder/fr.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (fr) seems good\"\nelse\n    echo \"error: AppNews.json (fr) is not conform to JSON format\"\n    exit 1    \nfi\n";
 		};
 		59A545B45A1BFD1A7DC83D74 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1171,6 +1218,7 @@
 			files = (
 				F99FF08C2767B23E006236A0 /* DateFormatterTests.swift in Sources */,
 				51F2E6D52AE6AC2B00377A07 /* StringLocalizationTests.swift in Sources */,
+				51EE08832B0F5B31003A254A /* AppNewsListViewModelTests.swift in Sources */,
 				51C776952AE1551600FD0AED /* CacheTests.swift in Sources */,
 				51C776932AE1512200FD0AED /* DateFormatterCacheTests.swift in Sources */,
 			);

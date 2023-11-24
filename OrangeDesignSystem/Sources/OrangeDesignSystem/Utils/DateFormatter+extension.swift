@@ -39,9 +39,8 @@ extension DateFormatter {
         return dateFormatter.string(from: date)
     }
 
-    /// Creates if not yet done or jsut returns a `DateFormatter` using the given parameters.
+    /// Creates if not yet done or just returns a `DateFormatter` using the given parameters.
     /// Because the initialization of such objects could be costly  the object once created is stored locally.
-    /// See https://sarunw.com/posts/how-expensive-is-dateformatter/
     /// - Parameters:
     ///  - locale: The locale to use to format some date
     ///  - dateStyle: The date to apply for the format
@@ -55,7 +54,22 @@ extension DateFormatter {
             dateFormatter.locale = locale
             dateFormatter.dateStyle = dateStyle
             dateFormatter.timeStyle = timeStyle
-            DateFormatterCache.shared.store(formatter: dateFormatter)
+            DateFormatterCache.shared.store(formatter: dateFormatter, using: .localeDateTimeCache)
+            return dateFormatter
+        }
+    }
+
+    /// Creates if not yet done or just returns a `DateFormatter` using the given parameters.
+    /// Because the initialization of such objects could be costly the object once created is stored locally.
+    /// - Parameter dateFormat: The date format to apply to the date formatter
+    /// - Returns: A freshly created new `DateFormatter` or another objected stored previsouly when created before
+    static func formatter(for dateFormat: String) -> DateFormatter {
+        if let dateFormatter = DateFormatterCache.shared.formatter(for: dateFormat) {
+            return dateFormatter
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = dateFormat
+            DateFormatterCache.shared.store(formatter: dateFormatter, using: .dateFormatCache)
             return dateFormatter
         }
     }

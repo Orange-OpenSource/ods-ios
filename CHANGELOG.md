@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...qualif)
 
+- [Tooling] Add script phase to check if AppNews.json files are conform to JSON format
+- [DemoApp/SDK] Refactor About module (with view model, errors management and unit tests)
+- [DemoApp/SDK] Change wording by replacing ... by elipsis code
+- [DemoApp] Fix corrupted AppNews.json file
 
 ## [0.15.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...0.14.0) - 2023-11-14
 
