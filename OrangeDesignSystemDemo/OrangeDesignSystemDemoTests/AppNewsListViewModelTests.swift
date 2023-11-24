@@ -68,7 +68,7 @@ final class AppNewsListViewModelTests: XCTestCase {
         }
     }
 
-    func testAppNewsListViewModel_load_noJSONInFile() {
+    func testAppNewsListViewModel_load_badJSONContent() {
         // Given
         let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "FileWithoutJson", ofType: "json"))
 
