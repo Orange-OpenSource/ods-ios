@@ -17,8 +17,6 @@ final class AppNewsListViewModel: ObservableObject {
 
     /// The  state containing or not the release descriptions to use based on the locale
     @Published var releaseDescriptions: LoadingState<[AboutReleaseDescription], AppNewsListViewModel.Error>
-    /// Some cache to prevent to read each time in filesystem the file and to convert the JSON data which will be bigger and bigger
-    private var releaseDescriptionsCache: Cache<String, [AboutReleaseDescription]>
     /// Path to the app news file to display
     private let newsFilePath: String
 
@@ -28,7 +26,6 @@ final class AppNewsListViewModel: ObservableObject {
 
     init(fromFile newsFilePath: String) {
         releaseDescriptions = .loading
-        releaseDescriptionsCache = Cache<String, [AboutReleaseDescription]>()
         self.newsFilePath = newsFilePath
     }
 
@@ -45,19 +42,21 @@ final class AppNewsListViewModel: ObservableObject {
 
     /// Loads from the local `newsFilePath` the content of the target file, then decodes as JSON and converts and stores as
     /// `[AboutReleaseDescription]` available through the _releaseDescriptions_ published property.
+    ///
+    /// It expects to have an array of objects with the following attributes (see DEVELOP.md file for further details):
+    /// <pre>
+    ///     {
+    ///         "version": "Some x.y.z version",
+    ///         "date": "date in yyyy-MM-dd format",,
+    ///         "news": "News descriptions with /n symbol for new lines"
+    ///     }
+    /// </pre>
     func load() {
 
         // If file missing, nothing to do more
         guard FileManager().fileExists(atPath: newsFilePath) else {
             ODSLogger.error("Resource not found for AppNews")
             releaseDescriptions = .error(.resourceNotFound)
-            return
-        }
-
-        // Check cache before accessing to file system and convert data
-        if let cachedReleaseDescription = releaseDescriptionsCache[newsFilePath] {
-            ODSLogger.debug("Use cache to load AppNews for current file path")
-            releaseDescriptions = .loaded(cachedReleaseDescription)
             return
         }
 
@@ -78,7 +77,6 @@ final class AppNewsListViewModel: ObservableObject {
         }
 
         ODSLogger.debug("Successfully loaded AppNews resource")
-        releaseDescriptionsCache[newsFilePath] = decodedReleaseDescriptions
         releaseDescriptions = .loaded(decodedReleaseDescriptions)
     }
 }

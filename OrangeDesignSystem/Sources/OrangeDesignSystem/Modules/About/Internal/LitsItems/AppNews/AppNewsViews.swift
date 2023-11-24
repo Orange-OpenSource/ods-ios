@@ -42,7 +42,7 @@ struct AppNewsList: View {
             default: // case .error, case .loaded(let releaseDescription) where releaseDescription.isEmpty:
                 errorView()
             }
-        }.onAppear {
+        }.task {
             viewModel.load()
         }
     }

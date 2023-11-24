@@ -51,9 +51,9 @@ final class AppNewsListViewModelTests: XCTestCase {
         }
     }
 
-    func testAppNewsListViewModel_load_noUTF8ContentInFile() {
+    func testAppNewsListViewModel_load_notStringFile() {
         // Given
-        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "FileWithoutUTF8Content", ofType: "jpg"))
+        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "NotStringFile", ofType: "jpg"))
 
         // When
         viewModel.load()
@@ -86,9 +86,9 @@ final class AppNewsListViewModelTests: XCTestCase {
     }
 
     // "Not compliant" means date without expected format in JSON for example, i.e. requirements unmatched in view model parsing
-    func testAppNewsListViewModel_load_notCompliantObjects() {
+    func testAppNewsListViewModel_load_notCompliantObjects_badDateFormat() {
         // Given
-        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "AppNewsMock_notCompliant", ofType: "json"))
+        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "AppNewsMock_notCompliant_badDateFormat", ofType: "json"))
 
         // When
         viewModel.load()

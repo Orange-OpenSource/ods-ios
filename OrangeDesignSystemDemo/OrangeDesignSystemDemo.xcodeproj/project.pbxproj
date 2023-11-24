@@ -120,9 +120,9 @@
 		51C776952AE1551600FD0AED /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C776942AE1551600FD0AED /* CacheTests.swift */; };
 		51EE08832B0F5B31003A254A /* AppNewsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE08822B0F5B31003A254A /* AppNewsListViewModelTests.swift */; };
 		51EE08892B0F6074003A254A /* FileWithoutJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 51EE08882B0F6074003A254A /* FileWithoutJson.json */; };
-		51EE088C2B0F6985003A254A /* FileWithoutUTF8Content.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088B2B0F6985003A254A /* FileWithoutUTF8Content.jpg */; };
+		51EE088C2B0F6985003A254A /* NotStringFile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088B2B0F6985003A254A /* NotStringFile.jpg */; };
 		51EE088E2B0F6A5B003A254A /* AppNewsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088D2B0F6A5B003A254A /* AppNewsMock.json */; };
-		51EE08902B0F6FDD003A254A /* AppNewsMock_notCompliant.json in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant.json */; };
+		51EE08902B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = 51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json */; };
 		51F2E6D52AE6AC2B00377A07 /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */; };
 		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
@@ -254,9 +254,9 @@
 		51C776942AE1551600FD0AED /* CacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheTests.swift; path = OrangeDesignSystemDemoTests/CacheTests.swift; sourceTree = "<group>"; };
 		51EE08822B0F5B31003A254A /* AppNewsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppNewsListViewModelTests.swift; path = OrangeDesignSystemDemoTests/AppNewsListViewModelTests.swift; sourceTree = "<group>"; };
 		51EE08882B0F6074003A254A /* FileWithoutJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FileWithoutJson.json; sourceTree = "<group>"; };
-		51EE088B2B0F6985003A254A /* FileWithoutUTF8Content.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FileWithoutUTF8Content.jpg; sourceTree = "<group>"; };
+		51EE088B2B0F6985003A254A /* NotStringFile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NotStringFile.jpg; sourceTree = "<group>"; };
 		51EE088D2B0F6A5B003A254A /* AppNewsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppNewsMock.json; sourceTree = "<group>"; };
-		51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppNewsMock_notCompliant.json; sourceTree = "<group>"; };
+		51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppNewsMock_notCompliant_badDateFormat.json; sourceTree = "<group>"; };
 		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = OrangeDesignSystemDemo/Resources/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51F2E6D42AE6AC2B00377A07 /* StringLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringLocalizationTests.swift; path = OrangeDesignSystemDemoTests/StringLocalizationTests.swift; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -785,10 +785,10 @@
 		51EE088A2B0F632D003A254A /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				51EE088B2B0F6985003A254A /* FileWithoutUTF8Content.jpg */,
+				51EE088B2B0F6985003A254A /* NotStringFile.jpg */,
 				51EE08882B0F6074003A254A /* FileWithoutJson.json */,
 				51EE088D2B0F6A5B003A254A /* AppNewsMock.json */,
-				51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant.json */,
+				51EE088F2B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json */,
 			);
 			name = Data;
 			path = OrangeDesignSystemDemoTests/Data;
@@ -973,9 +973,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51EE08902B0F6FDD003A254A /* AppNewsMock_notCompliant.json in Resources */,
+				51EE08902B0F6FDD003A254A /* AppNewsMock_notCompliant_badDateFormat.json in Resources */,
 				51EE08892B0F6074003A254A /* FileWithoutJson.json in Resources */,
-				51EE088C2B0F6985003A254A /* FileWithoutUTF8Content.jpg in Resources */,
+				51EE088C2B0F6985003A254A /* NotStringFile.jpg in Resources */,
 				51EE088E2B0F6A5B003A254A /* AppNewsMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
