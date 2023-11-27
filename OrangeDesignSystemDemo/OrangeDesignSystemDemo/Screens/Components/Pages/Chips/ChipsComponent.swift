@@ -23,7 +23,7 @@ struct ChipsComponent: Component {
         title = °°"screens.components.chips.title"
         imageName = "Chips"
         description = °°"screens.components.chips.description"
-        variants = AnyView(ChipsVariants(model: ChipsVariantModel()))
+        variants = AnyView(ChipsVariants())
     }
 }
 
@@ -33,33 +33,51 @@ struct ChipsComponent: Component {
 
 struct ChipsVariants: View {
 
+    var body: some View {
+        VariantEntryItem(title: "screens.components.chips.variant.picker".🌐, technicalElement: "ODSChipPicker()") {
+            ChipPickerVariants(model: ChipsVariantModel())
+                .navigationTitle("screens.components.chips.variant.picker".🌐)
+        }
+
+        VariantEntryItem(title: "screens.components.chips.variant.choice".🌐, technicalElement: "ODSChoiceChip()") {
+            ChoiceChipVariant(model: ChoiceChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.choice".🌐)
+        }
+    }
+}
+
+struct ChipPickerVariants: View {
+
     @ObservedObject var model: ChipsVariantModel
 
     var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            GroupedChips(title: °°"screens.components.chips.text_only",
-                         chips: model.textOnlyChips,
-                         removableChips: model.textOnlyRemovableChips,
-                         selection: $model.selectedTextOnlyChip,
-                         selectionRemovableChips: $model.selectedTextOnlyRemovableChip)
+        ScrollView {
+            VStack(alignment: .leading, spacing: ODSSpacing.m) {
+                GroupedChips(title: °°"screens.components.chips.text_only",
+                             chips: model.textOnlyChips,
+                             removableChips: model.textOnlyRemovableChips,
+                             selection: $model.selectedTextOnlyChip,
+                             selectionRemovableChips: $model.selectedTextOnlyRemovableChip)
 
-            GroupedChips(title: °°"screens.components.chips.with_icon",
-                         chips: model.withIconChips,
-                         removableChips: model.withIconRemovableChips,
-                         selection: $model.selectedWithIconChip,
-                         selectionRemovableChips: $model.selectedWithIconRemovableChip)
+                GroupedChips(title: °°"screens.components.chips.with_icon",
+                             chips: model.withIconChips,
+                             removableChips: model.withIconRemovableChips,
+                             selection: $model.selectedWithIconChip,
+                             selectionRemovableChips: $model.selectedWithIconRemovableChip)
 
-            GroupedChips(title: °°"screens.components.chips.with_system_icon",
-                         chips: model.withSystemIconChips,
-                         removableChips: model.withSystemIconRemovableChips,
-                         selection: $model.selectedWithSystemIconChip,
-                         selectionRemovableChips: $model.selectedWithSystemIconRemovableChip)
+                GroupedChips(title: °°"screens.components.chips.with_system_icon",
+                             chips: model.withSystemIconChips,
+                             removableChips: model.withSystemIconRemovableChips,
+                             selection: $model.selectedWithSystemIconChip,
+                             selectionRemovableChips: $model.selectedWithSystemIconRemovableChip)
 
-            GroupedChips(title: °°"screens.components.chips.with_avatar",
-                         chips: model.withAvatarChips,
-                         removableChips: model.withAvatarRemovableChips,
-                         selection: $model.selectedWithAvatarChip,
-                         selectionRemovableChips: $model.selectedWithAvatarRemovableChip)
+                GroupedChips(title: °°"screens.components.chips.with_avatar",
+                             chips: model.withAvatarChips,
+                             removableChips: model.withAvatarRemovableChips,
+                             selection: $model.selectedWithAvatarChip,
+                             selectionRemovableChips: $model.selectedWithAvatarRemovableChip)
+            }
+            .padding(.horizontal, ODSSpacing.m)
         }
     }
 }
@@ -94,12 +112,12 @@ struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovabl
 struct ChipsViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChipsVariants(model: ChipsVariantModel())
+            ChipsVariants()
                 .previewInterfaceOrientation(.portrait)
         }
 
         NavigationView {
-            ChipsVariants(model: ChipsVariantModel())
+            ChipsVariants()
                 .previewInterfaceOrientation(.portrait)
                 .environment(\.dynamicTypeSize, .accessibility3)
         }

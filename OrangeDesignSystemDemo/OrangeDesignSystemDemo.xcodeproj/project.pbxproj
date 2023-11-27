@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */; };
 		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		077B673C2AE1500F0008C32B /* LeadingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B673B2AE1500F0008C32B /* LeadingOption.swift */; };
@@ -148,6 +149,7 @@
 		07210C462A8FACAA00507988 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
+		072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceChipsVariant.swift; sourceTree = "<group>"; };
 		075326832AD45610003D8832 /* GridOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridOfSmallCards.swift; sourceTree = "<group>"; };
 		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		077B673B2AE1500F0008C32B /* LeadingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingOption.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			children = (
 				077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */,
 				077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */,
+				072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */,
 			);
 			path = Chips;
 			sourceTree = "<group>";
@@ -1176,6 +1179,7 @@
 				077C38712A9DDC79003D6B51 /* BottomSheetStandardVariant.swift in Sources */,
 				077C384B2A9DDC79003D6B51 /* ComponentPage.swift in Sources */,
 				077C385F2A9DDC79003D6B51 /* ChipsComponentModel.swift in Sources */,
+				072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */,
 				07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */,
 				077C38772A9DDC79003D6B51 /* GuidelinesList.swift in Sources */,
 				077C38842A9DDC79003D6B51 /* AboutModule.swift in Sources */,

@@ -224,6 +224,8 @@
 "screens.components.chips.with_avatar" = "With avatar";
 "screens.components.chips.state.enable" = "Enable";
 "screens.components.chips.state.selected" = "Selected";
+"screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.variant.picker" = "Chips picker";
 
 // ====================================
 // MARK: - Screens - Components - Lists
