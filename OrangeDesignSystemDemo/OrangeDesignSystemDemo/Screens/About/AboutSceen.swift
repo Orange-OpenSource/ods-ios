@@ -11,7 +11,7 @@ import SwiftUI
 
 // MARK: - About Changelog Item Config
 
-struct AboutChangelogItemConfig: ODSAboutListItemConfig {
+fileprivate struct AboutChangelogItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored properties
@@ -37,7 +37,7 @@ struct AboutChangelogItemConfig: ODSAboutListItemConfig {
 
 // MARK: - About Design Guidelines Item Config
 
-struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
+fileprivate struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored properties
@@ -71,9 +71,7 @@ struct AboutScreen: View {
     private var applicationInformation: ODSAboutApplicationInformation
     private let privacyPolicy: ODSPrivacyPolicy
     private let accessibilityStatement: ODSAboutAccessibilityStatement
-    private let appNewPath: String
     private let customItems: [ODSAboutListItemConfig]
-    private let storeUrl = URL(string: "http://oran.ge/dsapp")!
 
     // =================
     // MARK: Initializer
@@ -85,7 +83,7 @@ struct AboutScreen: View {
             version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
             description: °°"screens.about.app_information.description",
             shareConfiguration: ODSAboutShareTheApplication(
-                storeUrl: storeUrl,
+                storeUrl: URL(string: "http://oran.ge/dsapp")!,
                 subject: °°"screens.about.app_information.share.subject",
                 description: °°"screens.about.app_information.share.description"),
             onFeedbackClicked: {
@@ -96,15 +94,10 @@ struct AboutScreen: View {
 
         accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
-        appNewPath = Bundle.main.path(forResource: "AppNews", ofType: "json")!
-
-        let guideLinesPriority = 202
-        let appNewsPriority = 201
-        let changeLogPriority = 200
         customItems = [
-            AboutDesignGuidelinesItemConfig(priority: guideLinesPriority) as ODSAboutListItemConfig,
-            ODSAboutAppNewsItemConfig(priority: appNewsPriority, path: appNewPath),
-            AboutChangelogItemConfig(priority: changeLogPriority) as ODSAboutListItemConfig,
+            AboutChangelogItemConfig(priority: 200) as ODSAboutListItemConfig,
+            ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
+            AboutDesignGuidelinesItemConfig(priority: 202) as ODSAboutListItemConfig
         ]
     }
 
