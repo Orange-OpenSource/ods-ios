@@ -33,7 +33,7 @@ public struct ODSChoiceChip: View {
     }
 }
 
-private struct ODSChoiceChipStyle: ButtonStyle {
+struct ODSChoiceChipStyle: ButtonStyle {
 
     @Environment(\.isEnabled) var isEnabled
     @Environment(\.theme) var theme

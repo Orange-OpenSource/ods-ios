@@ -225,7 +225,9 @@
 "screens.components.chips.state.enable" = "Activer";
 "screens.components.chips.state.selected" = "Selectionné";
 "screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.variant.action" = "Action chips";
 "screens.components.chips.variant.picker" = "Chips picker";
+"screens.components.chips.variant.action.clicked" = "%@ : cliqué";
 
 // ====================================
 // MARK: - Screens - Components - Lists

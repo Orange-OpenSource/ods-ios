@@ -225,7 +225,9 @@
 "screens.components.chips.state.enable" = "Enable";
 "screens.components.chips.state.selected" = "Selected";
 "screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.variant.action" = "Action chips";
 "screens.components.chips.variant.picker" = "Chips picker";
+"screens.components.chips.variant.action.clicked" = "%@ clicked";
 
 
 // ====================================

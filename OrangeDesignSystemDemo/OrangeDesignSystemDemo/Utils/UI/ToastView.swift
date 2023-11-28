@@ -14,8 +14,9 @@ struct Toastable<Content>: View where Content: View {
     // =======================
     // MARK: Stored Properties
     // =======================
+
     @Binding var showText: String?
-    private let content: () -> Content
+    let content: () -> Content
 
     // ==========
     // MARK: Body
@@ -33,6 +34,7 @@ struct Toast: View {
     // =======================
     // MARK: Stored Properties
     // =======================
+
     @Binding var showText: String?
 
     // ==========

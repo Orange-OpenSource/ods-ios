@@ -106,6 +106,7 @@
 		07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */; };
 		07B94E0E2AD9904900AAD1A5 /* ListItemVaraintSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */; };
 		07B94E0F2AD9908300AAD1A5 /* ListItemSelectionVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */; };
+		07BDEA932B150263005574A2 /* ActionChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDEA922B150263005574A2 /* ActionChipsVariant.swift */; };
 		07C3C7FC2AE7E4E000833957 /* ListModuleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */; };
 		07C3C7FE2AE7E56100833957 /* ListModuleOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */; };
 		07E4C85C2AE7BC2D00FB4DAC /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */; };
@@ -241,6 +242,7 @@
 		07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantOptions.swift; sourceTree = "<group>"; };
 		07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariant.swift; sourceTree = "<group>"; };
 		07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemVaraintSelectionModel.swift; sourceTree = "<group>"; };
+		07BDEA922B150263005574A2 /* ActionChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionChipsVariant.swift; sourceTree = "<group>"; };
 		07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleDataModel.swift; sourceTree = "<group>"; };
 		07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleOptionsModel.swift; sourceTree = "<group>"; };
 		07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */,
 				077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */,
 				072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */,
+				07BDEA922B150263005574A2 /* ActionChipsVariant.swift */,
 			);
 			path = Chips;
 			sourceTree = "<group>";
@@ -1156,6 +1159,7 @@
 				077C38752A9DDC79003D6B51 /* Guideline.swift in Sources */,
 				077C386A2A9DDC79003D6B51 /* NavigationBarModifiers.swift in Sources */,
 				077C387B2A9DDC79003D6B51 /* ColorDetail.swift in Sources */,
+				07BDEA932B150263005574A2 /* ActionChipsVariant.swift in Sources */,
 				077C386B2A9DDC79003D6B51 /* NavigationBarVariant.swift in Sources */,
 				07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */,
 				077C38542A9DDC79003D6B51 /* ListComponent.swift in Sources */,

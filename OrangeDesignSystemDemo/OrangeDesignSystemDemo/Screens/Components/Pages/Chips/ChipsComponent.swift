@@ -43,6 +43,11 @@ struct ChipsVariants: View {
             ChoiceChipVariant(model: ChoiceChipVariantModel())
                 .navigationTitle("screens.components.chips.variant.choice".🌐)
         }
+
+        VariantEntryItem(title: "screens.components.chips.variant.action".🌐, technicalElement: "ODsActionChip()") {
+            ActionChipVariant(model: ActionChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.action".🌐)
+        }
     }
 }
 

@@ -15,16 +15,28 @@ class ChoiceChipVariantModel: ObservableObject {
 
 struct ChoiceChipVariant: View {
 
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     @State var isSelected: Bool = false
     @ObservedObject var model: ChoiceChipVariantModel
     @State var selectedFood: String
     let foods: [Food]
+
+    // =================
+    // MARK: Initializer
+    // =================
 
     init(model: ChoiceChipVariantModel) {
         self.model = model
         foods = RecipeBook.shared.foods
         selectedFood = foods.first!.name
     }
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         CustomizableVariant {
@@ -86,6 +98,10 @@ struct ChoisceChipPicker<Value>: View where Value: Hashable {
 
     @Binding var selection: Value
     let elements: [Element]
+
+    // ==========
+    // MARK: Body
+    // ==========
 
     var body: some View {
         ScrollView(.horizontal) {
