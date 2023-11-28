@@ -143,9 +143,9 @@ struct AboutModuleDemo: View {
         }
     }
 
-    private var rateTheAppItemConfiguration: ODSAboutRateTheAppItemCondfig? {
+    private var rateTheAppItemConfiguration: ODSAboutRateTheAppItemConfig? {
         if let url = model.rateTheAppUrl {
-            return ODSAboutRateTheAppItemCondfig(storeUrl: url)
+            return ODSAboutRateTheAppItemConfig(storeUrl: url)
         } else {
             return nil
         }
