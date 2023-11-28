@@ -75,6 +75,7 @@
 "screens.about.file_load_failure" = "Unable to load file %@.%@";
 "screens.about.terms_of_service" = "Terms of Service";
 "screens.about.legal_information_text.default" = "Add Legal information here";
+"screens.about.apps_recirculation.title" = "More apps";
 
 // =====================================
 // MARK: - Screens - Guidelines - Colors

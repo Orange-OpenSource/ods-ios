@@ -75,6 +75,7 @@
 "screens.about.app_information.option_description.legal_information" = "Mentions légales";
 "screens.about.app_information.option_description.rate" = "Évaluez l'app";
 "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";
+"screens.about.apps_recirculation.title" = "Plus d'apps";
 
 // =====================================
 // MARK: - Screens - Guidelines - Colors

@@ -11,7 +11,7 @@ import SwiftUI
 
 // MARK: - About Changelog Item Config
 
-fileprivate struct AboutChangelogItemConfig: ODSAboutListItemConfig {
+private struct AboutChangelogItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored properties
@@ -37,7 +37,7 @@ fileprivate struct AboutChangelogItemConfig: ODSAboutListItemConfig {
 
 // MARK: - About Design Guidelines Item Config
 
-fileprivate struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
+private struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored properties
@@ -57,6 +57,31 @@ fileprivate struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
         icon = Image("ic_tools", bundle: Bundle.main)
         self.priority = priority
         target = .action { UIApplication.shared.open(URL(string: "https://system.design.orange.com/0c1af118d/p/95b685-ios/")!) }
+    }
+}
+
+// MARK: - Apps Recirculation Item Config
+
+private struct MoreAppsItemConfig: ODSAboutListItemConfig {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    let title: String
+    let icon: Image
+    let target: ODSAboutListItemTarget
+    let priority: ODSAboutListItemPriority
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init() {
+        title = °°"screens.about.apps_recirculation.title"
+        icon = Image("ic_mobile_apps", bundle: Bundle.main)
+        priority = .moreApps
+        target = .destination(AnyView(Text(°°"screens.about.apps_recirculation.title")))
     }
 }
 
@@ -95,9 +120,10 @@ struct AboutScreen: View {
         accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
         customItems = [
-            AboutChangelogItemConfig(priority: 200) as ODSAboutListItemConfig,
+            AboutDesignGuidelinesItemConfig(priority: 202),
             ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
-            AboutDesignGuidelinesItemConfig(priority: 202) as ODSAboutListItemConfig
+            AboutChangelogItemConfig(priority: 200),
+            MoreAppsItemConfig(),
         ]
     }
 
