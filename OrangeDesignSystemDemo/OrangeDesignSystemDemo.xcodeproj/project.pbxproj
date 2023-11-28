@@ -119,8 +119,15 @@
 		5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
 		5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
 		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
+		5166D4372B18991C0021600D /* MoreAppsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */; };
 		51A08F332B1637E900C14C86 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F322B1637E900C14C86 /* ArrayExtensionTests.swift */; };
 		51A08F352B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F342B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift */; };
+		51A08F3C2B165AB000C14C86 /* AppsPlusMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51A08F3B2B165AB000C14C86 /* AppsPlusMock.json */; };
+		51A08F402B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */; };
+		51A08F432B165D1600C14C86 /* XCTestCase+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F422B165D1600C14C86 /* XCTestCase+extension.swift */; };
+		51B64C8B2B176F7700B93EBF /* AppsPlusAppDetailsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */; };
+		51B64C8D2B17731600B93EBF /* AppsPlusSectionMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */; };
+		51B64C8F2B17763800B93EBF /* AppsPlusListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */; };
 		51BFDAB52AF9206E00FB8139 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */; };
 		51CD72842B162D19008CE57D /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CD72782B162D19008CE57D /* StringLocalizationTests.swift */; };
 		51CD72852B162D19008CE57D /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CD72792B162D19008CE57D /* CacheTests.swift */; };
@@ -258,9 +265,16 @@
 		51664B4C2AEADEEE00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/AppNews.json; sourceTree = "<group>"; };
 		51664B4D2AEADEF600E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/CGU.html; sourceTree = "<group>"; };
 		51664B4E2AEADEFC00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
+		5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsServiceTests.swift; sourceTree = "<group>"; };
 		5166FE852AE9669A0038A4AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = OrangeDesignSystemDemo/Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51A08F322B1637E900C14C86 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
 		51A08F342B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSAboutListItemPriorityTests.swift; sourceTree = "<group>"; };
+		51A08F3B2B165AB000C14C86 /* AppsPlusMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusMock.json; sourceTree = "<group>"; };
+		51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsAppsPlusMapperTests.swift; sourceTree = "<group>"; };
+		51A08F422B165D1600C14C86 /* XCTestCase+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+extension.swift"; sourceTree = "<group>"; };
+		51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusAppDetailsMock.json; sourceTree = "<group>"; };
+		51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusSectionMock.json; sourceTree = "<group>"; };
+		51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusListMock.json; sourceTree = "<group>"; };
 		51BFDAB42AF9206E00FB8139 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		51CD72782B162D19008CE57D /* StringLocalizationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringLocalizationTests.swift; sourceTree = "<group>"; };
 		51CD72792B162D19008CE57D /* CacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheTests.swift; sourceTree = "<group>"; };
@@ -777,6 +791,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		51A08F362B1657B500C14C86 /* AppNews */ = {
+			isa = PBXGroup;
+			children = (
+				51CD727F2B162D19008CE57D /* Data */,
+				51CD727E2B162D19008CE57D /* AppNewsListViewModelTests.swift */,
+			);
+			path = AppNews;
+			sourceTree = "<group>";
+		};
+		51A08F372B1657CA00C14C86 /* MoreApps */ = {
+			isa = PBXGroup;
+			children = (
+				51A08F382B1657D300C14C86 /* Data */,
+				51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */,
+				5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */,
+			);
+			path = MoreApps;
+			sourceTree = "<group>";
+		};
+		51A08F382B1657D300C14C86 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				51A08F3B2B165AB000C14C86 /* AppsPlusMock.json */,
+				51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */,
+				51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */,
+				51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		51A08F412B165CF600C14C86 /* _ */ = {
+			isa = PBXGroup;
+			children = (
+				51A08F422B165D1600C14C86 /* XCTestCase+extension.swift */,
+			);
+			name = _;
+			sourceTree = "<group>";
+		};
 		51C776902AE14F5F00FD0AED /* OrangeDesignSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,8 +863,8 @@
 		51CD727D2B162D19008CE57D /* About */ = {
 			isa = PBXGroup;
 			children = (
-				51CD727F2B162D19008CE57D /* Data */,
-				51CD727E2B162D19008CE57D /* AppNewsListViewModelTests.swift */,
+				51A08F372B1657CA00C14C86 /* MoreApps */,
+				51A08F362B1657B500C14C86 /* AppNews */,
 				51A08F342B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift */,
 			);
 			path = About;
@@ -886,6 +938,7 @@
 		F99FF0892767B20C006236A0 /* OrangeDesignSystemDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				51A08F412B165CF600C14C86 /* _ */,
 				51C776902AE14F5F00FD0AED /* OrangeDesignSystem */,
 			);
 			name = OrangeDesignSystemDemoTests;
@@ -1008,10 +1061,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51B64C8B2B176F7700B93EBF /* AppsPlusAppDetailsMock.json in Resources */,
 				51CD72892B162D1A008CE57D /* AppNewsMock.json in Resources */,
 				51CD728A2B162D1A008CE57D /* FileWithoutJson.json in Resources */,
+				51B64C8F2B17763800B93EBF /* AppsPlusListMock.json in Resources */,
 				51CD728B2B162D1A008CE57D /* NotStringFile.jpg in Resources */,
+				51B64C8D2B17731600B93EBF /* AppsPlusSectionMock.json in Resources */,
 				51CD728C2B162D1A008CE57D /* AppNewsMock_notCompliant_badDateFormat.json in Resources */,
+				51A08F3C2B165AB000C14C86 /* AppsPlusMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1257,10 +1314,13 @@
 			files = (
 				51CD72872B162D19008CE57D /* DateFormatterTests.swift in Sources */,
 				51CD72862B162D19008CE57D /* DateFormatterCacheTests.swift in Sources */,
+				5166D4372B18991C0021600D /* MoreAppsServiceTests.swift in Sources */,
 				51CD72882B162D19008CE57D /* AppNewsListViewModelTests.swift in Sources */,
 				51CD72852B162D19008CE57D /* CacheTests.swift in Sources */,
 				51CD72842B162D19008CE57D /* StringLocalizationTests.swift in Sources */,
 				51A08F332B1637E900C14C86 /* ArrayExtensionTests.swift in Sources */,
+				51A08F402B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift in Sources */,
+				51A08F432B165D1600C14C86 /* XCTestCase+extension.swift in Sources */,
 				51A08F352B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

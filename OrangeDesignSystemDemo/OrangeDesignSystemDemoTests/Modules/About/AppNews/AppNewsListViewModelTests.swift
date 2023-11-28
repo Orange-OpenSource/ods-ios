@@ -53,7 +53,7 @@ final class AppNewsListViewModelTests: XCTestCase {
 
     func testAppNewsListViewModel_load_notStringFile() {
         // Given
-        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "NotStringFile", ofType: "jpg"))
+        let viewModel = AppNewsListViewModel(fromFile: XCTestCase.stubPath(for: "NotStringFile", ofType: "jpg", inBundleOf: AppNewsListViewModelTests.self))
 
         // When
         viewModel.load()
@@ -70,7 +70,7 @@ final class AppNewsListViewModelTests: XCTestCase {
 
     func testAppNewsListViewModel_load_badJSONContent() {
         // Given
-        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "FileWithoutJson", ofType: "json"))
+        let viewModel = AppNewsListViewModel(fromFile: XCTestCase.stubPath(for: "FileWithoutJson", ofType: "json", inBundleOf: AppNewsListViewModelTests.self))
 
         // When
         viewModel.load()
@@ -88,7 +88,7 @@ final class AppNewsListViewModelTests: XCTestCase {
     // "Not compliant" means date without expected format in JSON for example, i.e. requirements unmatched in view model parsing
     func testAppNewsListViewModel_load_notCompliantObjects_badDateFormat() {
         // Given
-        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "AppNewsMock_notCompliant_badDateFormat", ofType: "json"))
+        let viewModel = AppNewsListViewModel(fromFile: XCTestCase.stubPath(for: "AppNewsMock_notCompliant_badDateFormat", ofType: "json", inBundleOf: AppNewsListViewModelTests.self))
 
         // When
         viewModel.load()
@@ -133,7 +133,7 @@ final class AppNewsListViewModelTests: XCTestCase {
         let expectedRelease3 = decode(from: jsonRawRelease3)!
 
         // AppNewsMock.json must match the objects above of coruse
-        let viewModel = AppNewsListViewModel(fromFile: stubPath(for: "AppNewsMock", ofType: "json"))
+        let viewModel = AppNewsListViewModel(fromFile: XCTestCase.stubPath(for: "AppNewsMock", ofType: "json", inBundleOf: AppNewsListViewModelTests.self))
 
         // When
         viewModel.load()
@@ -165,12 +165,5 @@ final class AppNewsListViewModelTests: XCTestCase {
             fatalError("Not possible to decoded raw JSON for tests")
         }
         return decodedRelease
-    }
-
-    func stubPath(for name: String, ofType ext: String) -> String {
-        guard let url = Bundle(for: AppNewsListViewModelTests.self).path(forResource: name, ofType: ext) else {
-            fatalError("Stub file '\(name).\(ext)' not found!")
-        }
-        return url
     }
 }
