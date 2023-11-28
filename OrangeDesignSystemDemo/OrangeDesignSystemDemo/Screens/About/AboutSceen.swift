@@ -11,7 +11,7 @@ import SwiftUI
 
 // MARK: - About Changelog Item Config
 
-private struct AboutChangelogItemConfig: ODSAboutListItemConfig {
+struct AboutChangelogItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored properties
@@ -37,7 +37,7 @@ private struct AboutChangelogItemConfig: ODSAboutListItemConfig {
 
 // MARK: - About Design Guidelines Item Config
 
-private struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
+struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored properties
@@ -62,7 +62,7 @@ private struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
 
 // MARK: - Apps Recirculation Item Config
 
-private struct MoreAppsItemConfig: ODSAboutListItemConfig {
+struct MoreAppsItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored properties
