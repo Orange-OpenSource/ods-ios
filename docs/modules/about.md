@@ -244,7 +244,7 @@ To create this item, define the url of the application on the store and the prio
 
 ```swift
 // This item opens the store in the external browser
-let rateTheAppItem = ODSAboutRateTheAppItemCondfig(
+let rateTheAppItem = ODSAboutRateTheAppItemConfig(
    priority: 501,
    storeUrl: URL(string: "https://www.apple.com/app-store/")!
 )
@@ -289,6 +289,15 @@ let legalInformationItem = ODSAboutLegalInformationItemConfig(priority: 500) {
     Text("This is Legal information content")
 }
 ```
+
+- More apps / apps recirculation
+
+You can also add an item to let people discover other apps of Orange, by using the following item:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig()
+```
+
 
 #### Create a custom item
 

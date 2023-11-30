@@ -117,6 +117,34 @@ struct AppsPlusAppDetailsDTO: Decodable {
     }
 }
 
+// ==================================
+// MARK: - More Apps Apps Plus Mapper
+// ===================================
+
+/// Helps to convert _data transfert objects_ picked from _AppsPlus_ backend to _business objects_ for the ODS modules.
+struct MoreAppsAppsPlusMapper {
+
+    func appsSections(from appsList: AppsPlusListDTO) -> [MoreAppsSection] {
+        appsList.sections.map { appsSection(from: $0) }
+    }
+
+    func appsDetails(from appsList: AppsPlusListDTO) -> [MoreAppsAppDetails] {
+        appsList.apps.map { appDetails(from: $0) }
+    }
+
+    func appsSection(from section: AppsPlusSectionDTO) -> MoreAppsSection {
+        MoreAppsSection(description: section.description,
+                        apps: section.apps.map { appDetails(from: $0) })
+    }
+
+    func appDetails(from details: AppsPlusAppDetailsDTO) -> MoreAppsAppDetails {
+        MoreAppsAppDetails(title: details.title,
+                           iconURL: URL(string: details.iconURL),
+                           description: details.description.isEmpty ? nil : details.description,
+                           storeURL: URL(string: details.storeLink))
+    }
+}
+
 // ===========================
 // MARK: - AppsPlus Repository
 // ===========================

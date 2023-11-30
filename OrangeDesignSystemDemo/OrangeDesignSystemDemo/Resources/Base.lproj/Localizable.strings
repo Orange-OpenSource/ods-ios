@@ -72,10 +72,10 @@
 "screens.about.app_information.option_description.app_news" = "App News";
 "screens.about.app_information.option_description.legal_information" = "Legal Information";
 "screens.about.app_information.option_description.rate" = "Rate the app";
+"screens.about.app_information.option_description.more_apps" = "More apps";
 "screens.about.file_load_failure" = "Unable to load file %@.%@";
 "screens.about.terms_of_service" = "Terms of Service";
 "screens.about.legal_information_text.default" = "Add Legal information here";
-"screens.about.apps_recirculation.title" = "More apps";
 
 // =====================================
 // MARK: - Screens - Guidelines - Colors

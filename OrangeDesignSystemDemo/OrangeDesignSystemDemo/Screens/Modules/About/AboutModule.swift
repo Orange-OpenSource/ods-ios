@@ -161,11 +161,17 @@ struct AboutModuleDemo: View {
         }
     }
 
+    // TODO: #64 - Use AboutModel to check if configuration/prerequisites are defined to make requests
+    private var moreAppsItemConfiguration: ODSMoreAppsItemConfig {
+        ODSMoreAppsItemConfig()
+    }
+
     private var listItemConfigurations: [ODSAboutListItemConfig] {
         var configurations: [ODSAboutListItemConfig?] = [
             appNewsItemConfiguration,
             rateTheAppItemConfiguration,
             legalInformationItemConfiguration,
+            moreAppsItemConfiguration,
         ]
 
         configurations.append(contentsOf: model.customItems)

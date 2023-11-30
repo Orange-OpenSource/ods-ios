@@ -60,31 +60,6 @@ struct AboutDesignGuidelinesItemConfig: ODSAboutListItemConfig {
     }
 }
 
-// MARK: - Apps Recirculation Item Config
-
-struct MoreAppsItemConfig: ODSAboutListItemConfig {
-
-    // =======================
-    // MARK: Stored properties
-    // =======================
-
-    let title: String
-    let icon: Image
-    let target: ODSAboutListItemTarget
-    let priority: ODSAboutListItemPriority
-
-    // =================
-    // MARK: Initializer
-    // =================
-
-    init() {
-        title = °°"screens.about.apps_recirculation.title"
-        icon = Image("ic_mobile_apps", bundle: Bundle.main)
-        priority = .moreApps
-        target = .destination(AnyView(Text(°°"screens.about.apps_recirculation.title")))
-    }
-}
-
 // MARK: - About Screen
 
 struct AboutScreen: View {
@@ -123,7 +98,7 @@ struct AboutScreen: View {
             AboutDesignGuidelinesItemConfig(priority: 202),
             ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
             AboutChangelogItemConfig(priority: 200),
-            MoreAppsItemConfig(),
+            ODSMoreAppsItemConfig(priority: 199),
         ]
     }
 

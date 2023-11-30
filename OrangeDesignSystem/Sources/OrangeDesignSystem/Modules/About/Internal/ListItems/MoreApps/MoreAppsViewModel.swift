@@ -6,13 +6,10 @@
 // This software is distributed under the MIT license.
 //
 
-import SwiftUI
+import Foundation
 
-struct MoreApps: View {
+// ============================
+// MARK: - More Apps View Model
+// ============================
 
-    let url: URL
-
-    var body: some View {
-        Text(°°"modules.about.more_apps.more")
-    }
-}
+final class MoreAppsViewModel {}

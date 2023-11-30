@@ -129,6 +129,7 @@ final class AboutModuleModel: ObservableObject {
         case appNews = 0
         case legalInformation
         case rateTheApp
+        case moreApps
 
         var description: LocalizedStringKey {
             switch self {
@@ -138,6 +139,8 @@ final class AboutModuleModel: ObservableObject {
                 return "screens.about.app_information.option_description.legal_information"
             case .rateTheApp:
                 return "screens.about.app_information.option_description.rate"
+            case .moreApps:
+                return "screens.about.app_information.option_description.more_apps"
             }
         }
 
