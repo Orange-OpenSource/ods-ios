@@ -266,6 +266,7 @@
 		51664B4D2AEADEF600E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/CGU.html; sourceTree = "<group>"; };
 		51664B4E2AEADEFC00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
 		5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsServiceTests.swift; sourceTree = "<group>"; };
+		5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AppDemoConfig.xcconfig; path = OrangeDesignSystemDemo/AppDemoConfig.xcconfig; sourceTree = "<group>"; };
 		5166FE852AE9669A0038A4AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = OrangeDesignSystemDemo/Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51A08F322B1637E900C14C86 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
 		51A08F342B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSAboutListItemPriorityTests.swift; sourceTree = "<group>"; };
@@ -895,6 +896,7 @@
 		EB0AA527275652AE0012E192 = {
 			isa = PBXGroup;
 			children = (
+				5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */,
 				07210C342A8FA6BC00507988 /* 🛠 */,
 				F99FF06D2767ADF0006236A0 /* OrangeDesignSystemDemo */,
 				F99FF0892767B20C006236A0 /* OrangeDesignSystemDemoTests */,
@@ -1404,6 +1406,7 @@
 		};
 		EB0AA552275652AF0012E192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1467,6 +1470,7 @@
 		};
 		EB0AA553275652AF0012E192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

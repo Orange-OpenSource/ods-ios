@@ -13,13 +13,18 @@ import XCTest
 /// Helps to test the `MoreAppsService` to check if JSON data (in local mocks) are well processed
 final class MoreAppsServiceTests: XCTestCase {
 
-    func testMoreAppsServiceApps() {
+    func testMoreAppsServiceApps() async {
         // Given
         let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository())
 
         // When
-        let moreAppsList = moreAppsService.availableAppsList()
-        let apps = moreAppsList.apps
+        var apps = [MoreAppsAppDetails]()
+        do {
+            let moreAppsList = try await moreAppsService.availableAppsList()
+            apps = moreAppsList.apps
+        } catch {
+            XCTFail("Not supposed to throw some error now")
+        }
 
         // Then
         XCTAssertTrue(apps.count == 3)
@@ -43,13 +48,19 @@ final class MoreAppsServiceTests: XCTestCase {
         XCTAssertNil(app3.description)
     }
 
-    func testMoreAppsServiceSections() {
+    func testMoreAppsServiceSections() async {
         // Given
         let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository())
 
         // When
-        let moreAppsList = moreAppsService.availableAppsList()
-        let sections = moreAppsList.sections
+
+        var sections = [MoreAppsSection]()
+        do {
+            let moreAppsList = try await moreAppsService.availableAppsList()
+            sections = moreAppsList.sections
+        } catch {
+            XCTFail("Not supposed to throw some error now")
+        }
 
         // Then
         XCTAssertTrue(sections.count == 2)
@@ -95,7 +106,7 @@ final class MoreAppsServiceTests: XCTestCase {
                 fatalError("Failed to process the JSON mock data!")
             }
 
-            let mapper = MoreAppsAppsPlusMapper()
+            let mapper = AppsPlusMoreAppsMapper()
             let moreAppsAppDetails = mapper.appsDetails(from: appsPlusDTOMock.items[0])
             let moreAppsSections = mapper.appsSections(from: appsPlusDTOMock.items[0])
 

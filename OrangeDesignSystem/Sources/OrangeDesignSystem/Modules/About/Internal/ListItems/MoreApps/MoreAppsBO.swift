@@ -46,7 +46,7 @@ struct MoreAppsAppDetails {
 
 /// Abstraction layer if in the future another data feed will be used to get other available apps.
 protocol MoreAppsRepositoryProtocol {
-    func availableAppsList() -> MoreAppsList
+    func availableAppsList() async throws -> MoreAppsList
 }
 
 // =========================
@@ -55,19 +55,18 @@ protocol MoreAppsRepositoryProtocol {
 
 protocol MoreAppsServiceProtocol {
     init(repository: MoreAppsRepositoryProtocol)
-    func availableAppsList() -> MoreAppsList
+    func availableAppsList() async throws -> MoreAppsList
 }
 
 /// Helps to test or use some data feeds to get available apps details
 struct MoreAppsService: MoreAppsServiceProtocol {
-
     private let repository: MoreAppsRepositoryProtocol
 
     init(repository: MoreAppsRepositoryProtocol) {
         self.repository = repository
     }
 
-    func availableAppsList() -> MoreAppsList {
-        repository.availableAppsList()
+    func availableAppsList() async throws -> MoreAppsList {
+        try await repository.availableAppsList()
     }
 }

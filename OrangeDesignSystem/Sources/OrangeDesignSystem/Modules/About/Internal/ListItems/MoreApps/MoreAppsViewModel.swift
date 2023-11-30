@@ -6,10 +6,47 @@
 // This software is distributed under the MIT license.
 //
 
+import Combine
 import Foundation
 
 // ============================
 // MARK: - More Apps View Model
 // ============================
 
-final class MoreAppsViewModel {}
+@MainActor
+final class MoreAppsViewModel: ObservableObject {
+
+    @Published var loadingState: LoadingState<MoreAppsList, MoreAppsViewModel.Error>
+
+    private let service: MoreAppsService
+
+    init() {
+        loadingState = .loading
+        service = MoreAppsService(repository: AppsPlusRepository())
+    }
+
+    // ===============
+    // MARK: - Service
+    // ===============
+
+    /// Errors which may appear while processing the app news files
+    enum Error: Swift.Error {
+        case configurationError
+        case unknownError
+    }
+
+    // swiftlint:disable force_cast
+    func fetchAvailableAppsList() {
+        Task {
+            do {
+                let appsList = try await service.availableAppsList()
+                loadingState = .loaded(appsList)
+            } catch let error where error is MoreAppsViewModel.Error {
+                loadingState = .error(error as! MoreAppsViewModel.Error)
+            } catch {
+                loadingState = .error(.unknownError)
+            }
+        }
+    }
+    // swiftlint:enable force_cast
+}

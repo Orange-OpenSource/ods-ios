@@ -298,7 +298,6 @@ You can also add an item to let people discover other apps of Orange, by using t
 let moreAppsItem = ODSMoreAppsItemConfig()
 ```
 
-
 #### Create a custom item
 
 To create a custom item and associate a target, follow this example:
@@ -317,4 +316,32 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
         self.target = .destination(AnyView(Text("This is the destination screen")))
     }
 }
+```
+
+### Configuration of apps recirculation feature
+
+The _about module_ exposes a feature allowing the users to get the available apps he or she can use.
+This feature is based on the _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
+To request the service a _AppDemoConfig.xcconfig_ configuration file must be defined in the hosting application.
+A key named **APPS_PLUS_URL** must be defined with the URL (containing the API key) defined.
+Then the **Info.plist** file of the app must have an entry with the same name.
+
+See the example for the .xcconfig :
+
+```text
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+// See also https://medium.com/swift-india/secure-secrets-in-ios-app-9f66085800b4
+
+APPS_PLUS_API_KEY = SoMeApIkEy
+APPS_PLUS_URL = https:/$()/url-to-api?apikey=$(APPS_PLUS_API_KEY)
+
+// Here $() prevents the // to be interpreted as comment, we suppose the URL has an apikey parameter and is GET only
+```
+
+And the entry for the Info.plist :
+
+```text
+    <key>APPS_PLUS_URL</key>
+    <string>${APPS_PLUS_URL}</string>
 ```

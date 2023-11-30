@@ -32,7 +32,7 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
     public init(priority: ODSAboutListItemPriority = .moreApps) {
         title = "modules.about.apps_recirculation.title".🌐
         icon = Image("ic_mobile_apps", bundle: Bundle.ods)
-        target = .destination(AnyView(MoreAppsView(viewModel: MoreAppsViewModel())))
+        target = .destination(AnyView(MoreAppsView()))
         self.priority = priority
     }
 }

@@ -122,7 +122,7 @@ struct AppsPlusAppDetailsDTO: Decodable {
 // ===================================
 
 /// Helps to convert _data transfert objects_ picked from _AppsPlus_ backend to _business objects_ for the ODS modules.
-struct MoreAppsAppsPlusMapper {
+struct AppsPlusMoreAppsMapper {
 
     func appsSections(from appsList: AppsPlusListDTO) -> [MoreAppsSection] {
         appsList.sections.map { appsSection(from: $0) }
@@ -151,7 +151,61 @@ struct MoreAppsAppsPlusMapper {
 
 struct AppsPlusRepository: MoreAppsRepositoryProtocol {
 
-    func availableAppsList() -> MoreAppsList {
-        MoreAppsList(sections: [], apps: []) // TODO: #64 - Request AppsPlus backend
+    enum Error: Swift.Error {
+        /// Prerequisites are not fullfilled to request the _Apps Plus_ service
+        case badConfigurationPrerequisites
+        /// Some issue occured with session or network requests
+        case sessionError
+        /// JSON decoding error
+        case jsonDecodingFailure
+    }
+
+    /// Forges the URL to use to reach the _Apps Plus_ service, then gets some `AppsPlusDTO` object,
+    /// parse it and returns a `MoreAppsList` with list of apps and sections of apps inside.
+    /// - Returns: The business object containing all apps and sections of apps
+    /// - Throws: `Error.badConfigurationPrerequisites` if not possible to build the URL for the _Apps Plus_ backend.
+    func availableAppsList() async throws -> MoreAppsList {
+        guard let serviceURL = forgeURL() else {
+            ODSLogger.error("Failed to forge the Apps Plus service URL")
+            throw Error.badConfigurationPrerequisites
+        }
+
+        let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData // No cache implemented in Apps Plus backend
+        let session = URLSession(configuration: sessionConfiguration)
+        var data: Data
+        do {
+            (data, _) = try await session.data(from: serviceURL)
+        } catch {
+            ODSLogger.error("Failed to send request to Apps Plus service")
+            throw Error.sessionError
+        }
+
+        var appsPlusAppsList: AppsPlusListDTO
+        do {
+            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: data).items[0] // Only one object sent by AppsPlus backend
+        } catch {
+            ODSLogger.error("Failed to decode Apps Plus service data")
+            throw Error.jsonDecodingFailure
+        }
+
+        let mapper = AppsPlusMoreAppsMapper()
+        let odsApps = mapper.appsDetails(from: appsPlusAppsList)
+        let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
+        return MoreAppsList(sections: odsAppsSections, apps: odsApps)
+    }
+
+    /// Reads from main `Bundle``infoDicationary` the URL of the _Apps Plus_ backend to reach (at **APPS_PLUS_URL**)
+    /// or use instead the given `String` if defined.
+    /// Then adds the current locale as a _lang_ argument, and tries to forge the final `URL`.
+    /// - Returns `URL?`: The final `URL` ready to use, or `nil` if the **APPS_PLUS_URL** was not found.
+    private func forgeURL() -> URL? {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] else {
+            ODSLogger.warning("No Apps Plus URL found in app settings")
+            return nil
+        }
+        let currentLocale = Bundle.main.preferredLocalizations[0]
+        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+        return URL(string: requestURL)
     }
 }

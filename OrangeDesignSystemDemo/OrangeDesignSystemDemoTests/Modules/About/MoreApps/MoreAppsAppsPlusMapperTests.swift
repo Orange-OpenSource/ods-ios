@@ -27,7 +27,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsAppDetails = MoreAppsAppsPlusMapper().appDetails(from: appsPlusAppDetailsDTOMock)
+        let moreAppsAppDetails = AppsPlusMoreAppsMapper().appDetails(from: appsPlusAppDetailsDTOMock)
 
         // Then
         compare(bo: moreAppsAppDetails, dto: appsPlusAppDetailsDTOMock)
@@ -47,7 +47,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsSection = MoreAppsAppsPlusMapper().appsSection(from: appsPlusSectionDTOMock)
+        let moreAppsSection = AppsPlusMoreAppsMapper().appsSection(from: appsPlusSectionDTOMock)
 
         // Then
         XCTAssertTrue(moreAppsSection.description == appsPlusSectionDTOMock.description)
@@ -71,7 +71,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
             fatalError("Failed to process the JSON mock data!")
         }
 
-        let mapper = MoreAppsAppsPlusMapper()
+        let mapper = AppsPlusMoreAppsMapper()
 
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusItemsMock)
         let lonelyApps: [MoreAppsAppDetails] = appsPlusItemsMock.apps.map { appDTO in
