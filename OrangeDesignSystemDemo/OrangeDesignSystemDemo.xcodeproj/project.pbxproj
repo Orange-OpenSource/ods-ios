@@ -125,6 +125,7 @@
 		51A08F3C2B165AB000C14C86 /* AppsPlusMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51A08F3B2B165AB000C14C86 /* AppsPlusMock.json */; };
 		51A08F402B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */; };
 		51A08F432B165D1600C14C86 /* XCTestCase+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F422B165D1600C14C86 /* XCTestCase+extension.swift */; };
+		51A8D6682B1A1CF900936F3F /* MoreAppsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A8D6672B1A1CF900936F3F /* MoreAppsConfiguration.swift */; };
 		51B64C8B2B176F7700B93EBF /* AppsPlusAppDetailsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */; };
 		51B64C8D2B17731600B93EBF /* AppsPlusSectionMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */; };
 		51B64C8F2B17763800B93EBF /* AppsPlusListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */; };
@@ -273,6 +274,7 @@
 		51A08F3B2B165AB000C14C86 /* AppsPlusMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusMock.json; sourceTree = "<group>"; };
 		51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsAppsPlusMapperTests.swift; sourceTree = "<group>"; };
 		51A08F422B165D1600C14C86 /* XCTestCase+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+extension.swift"; sourceTree = "<group>"; };
+		51A8D6672B1A1CF900936F3F /* MoreAppsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsConfiguration.swift; sourceTree = "<group>"; };
 		51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusAppDetailsMock.json; sourceTree = "<group>"; };
 		51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusSectionMock.json; sourceTree = "<group>"; };
 		51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusListMock.json; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 		077C38902A9DEEDB003D6B51 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				51A8D6662B1A1CDE00936F3F /* Configuration */,
 				077C38A12A9E2512003D6B51 /* Recipes */,
 				077C388D2A9DEEDB003D6B51 /* Bundle+extension.swift */,
 			);
@@ -828,6 +831,14 @@
 				51A08F422B165D1600C14C86 /* XCTestCase+extension.swift */,
 			);
 			name = _;
+			sourceTree = "<group>";
+		};
+		51A8D6662B1A1CDE00936F3F /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				51A8D6672B1A1CF900936F3F /* MoreAppsConfiguration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		51C776902AE14F5F00FD0AED /* OrangeDesignSystem */ = {
@@ -1279,6 +1290,7 @@
 				077C386D2A9DDC79003D6B51 /* BannerVariantOptions.swift in Sources */,
 				077C38682A9DDC79003D6B51 /* TabBarVariant.swift in Sources */,
 				077C384E2A9DDC79003D6B51 /* ButtonsComponent.swift in Sources */,
+				51A8D6682B1A1CF900936F3F /* MoreAppsConfiguration.swift in Sources */,
 				077C38792A9DDC79003D6B51 /* RGBA.swift in Sources */,
 				077C386C2A9DDC79003D6B51 /* NavigationBarComponent.swift in Sources */,
 				077C38602A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift in Sources */,

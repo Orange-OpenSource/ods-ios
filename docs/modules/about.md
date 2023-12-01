@@ -320,11 +320,22 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
 
 ### Configuration of apps recirculation feature
 
-The _about module_ exposes a feature allowing the users to get the available apps he or she can use.
+The _about module_ exposes a feature allowing the final users to get the available apps they can use.
 This feature is based on the _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
-To request the service a _AppDemoConfig.xcconfig_ configuration file must be defined in the hosting application.
-A key named **APPS_PLUS_URL** must be defined with the URL (containing the API key) defined.
-Then the **Info.plist** file of the app must have an entry with the same name.
+This service today is based on a simple URL containing both a lang parameter and an API key. 
+**This API key will define the type of data returned by the backend ;  maybe you should have your own API key which matches the suotable filters to get only a subggroup of apps.**
+
+To be able to call this service and display the list of available apps, you have to use the `ODSMoreAppsItemConfig`.
+This _struct_ has a `feedURL` parameter which must contain the full URL of the _Apps Plus_ service:
+
+```swift
+    ODSMoreAppsItemConfig(feedURL: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr")
+```
+
+You can for example for your app use a _AppDemoConfig.xcconfig_ configuration file to store such credentials.
+A key named **APPS_PLUS_URL** can be defined with the URL (containing the API key) to call.
+Then the **Info.plist** file of your app must have an entry with the same name.
+Of course the _AppDemoConfig.xcconfig_ file should not not versionned in Git, but our dmeo app implements this feature.
 
 See the example for the .xcconfig :
 
@@ -343,5 +354,24 @@ And the entry for the Info.plist :
 
 ```text
     <key>APPS_PLUS_URL</key>
-    <string>${APPS_PLUS_URL}</string>
+    <string>${APPS_PLUS_URL}</string> <!-- Or write here the full URL with API key but without lang -->
 ```
+
+Then in our code we just read the URL, get the local, and forge the final URL to give to `ODSMoreAppsItemConfig`.
+We could have choosen this implemention deeper in the repository but wanted to let ODS lib users choose their own way to deal with the URL.
+
+```swift
+    private func buildAppsPlusURL() -> URL {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] else {
+            fatalError("No Apps Plus URL found in app settings")
+        }
+        let currentLocale = Bundle.main.preferredLocalizations[0]
+        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+        guard let feedURL = URL(string: requestURL) else {
+            fatalError("Failed to forge the service URL to get more apps")
+        }
+        return feedURL
+    }
+    
+    // And then ODSMoreAppsItemConfig(feedURL: buildAppsPlusURL())
+``

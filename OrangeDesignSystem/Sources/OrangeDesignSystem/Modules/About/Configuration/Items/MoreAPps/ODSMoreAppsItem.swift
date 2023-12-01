@@ -28,11 +28,13 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
 
     /// Initializes the configuration.
     ///
-    /// - Parameter priority: Priority to adjust the position of the item in the list.
-    public init(priority: ODSAboutListItemPriority = .moreApps) {
+    /// - Parameters:
+    ///    - feedURL: The URL to use to get data from online feed
+    ///    - priority: Priority to adjust the position of the item in the list.
+    public init(feedURL: URL, priority: ODSAboutListItemPriority = .moreApps) {
         title = "modules.about.apps_recirculation.title".🌐
         icon = Image("ic_mobile_apps", bundle: Bundle.ods)
-        target = .destination(AnyView(MoreAppsView()))
+        target = .destination(AnyView(MoreAppsView(feedURL: feedURL)))
         self.priority = priority
     }
 }

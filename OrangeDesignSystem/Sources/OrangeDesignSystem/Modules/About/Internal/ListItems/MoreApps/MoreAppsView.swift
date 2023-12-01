@@ -12,8 +12,8 @@ struct MoreAppsView: View {
 
     @StateObject private var viewModel: MoreAppsViewModel
 
-    init() {
-        _viewModel = StateObject(wrappedValue: MoreAppsViewModel())
+    init(feedURL: URL) {
+        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(feedURL: feedURL))
     }
 
     var body: some View {

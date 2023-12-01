@@ -16,13 +16,12 @@ import Foundation
 @MainActor
 final class MoreAppsViewModel: ObservableObject {
 
+    private let service: MoreAppsService
     @Published var loadingState: LoadingState<MoreAppsList, MoreAppsViewModel.Error>
 
-    private let service: MoreAppsService
-
-    init() {
+    init(feedURL: URL) {
+        service = MoreAppsService(feedURL: feedURL, repository: AppsPlusRepository())
         loadingState = .loading
-        service = MoreAppsService(repository: AppsPlusRepository())
     }
 
     // ===============

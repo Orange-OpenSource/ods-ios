@@ -15,7 +15,7 @@ final class MoreAppsServiceTests: XCTestCase {
 
     func testMoreAppsServiceApps() async {
         // Given
-        let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository())
+        let moreAppsService = MoreAppsService(feedURL: URL(string: "https://opensource.orange.com/")!, repository: MockMoreAppsRepository())
 
         // When
         var apps = [MoreAppsAppDetails]()
@@ -50,7 +50,7 @@ final class MoreAppsServiceTests: XCTestCase {
 
     func testMoreAppsServiceSections() async {
         // Given
-        let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository())
+        let moreAppsService = MoreAppsService(feedURL: URL(string: "https://opensource.orange.com/")!, repository: MockMoreAppsRepository())
 
         // When
 
@@ -97,7 +97,7 @@ final class MoreAppsServiceTests: XCTestCase {
     // ===============
 
     private struct MockMoreAppsRepository: MoreAppsRepositoryProtocol {
-        func availableAppsList() -> MoreAppsList {
+        func availableAppsList(at feedURL: URL) -> MoreAppsList {
             let mockJsonPath = XCTestCase.stubPath(for: "AppsPlusMock", ofType: "json", inBundleOf: MoreAppsServiceTests.self)
             guard let jsonRawData = try? String(contentsOfFile: mockJsonPath).data(using: .utf8) else {
                 fatalError("Failed to convert the mock JSON for tests!")

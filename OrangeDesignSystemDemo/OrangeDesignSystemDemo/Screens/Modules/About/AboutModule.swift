@@ -10,11 +10,19 @@ import SwiftUI
 
 import OrangeDesignSystem
 
+// ====================
+// MARK: - About module
+// ====================
+
 struct AboutModule: View {
     var body: some View {
         AboutSetup(model: AboutModuleModel())
     }
 }
+
+// ===================
+// MARK: - About Setup
+// ===================
 
 struct AboutSetup: View {
 
@@ -86,6 +94,10 @@ struct AboutSetup: View {
         }
     }
 }
+
+// =========================
+// MARK: - About Module Demo
+// =========================
 
 struct AboutModuleDemo: View {
 
@@ -163,7 +175,7 @@ struct AboutModuleDemo: View {
 
     // TODO: #64 - Use AboutModel to check if configuration/prerequisites are defined to make requests
     private var moreAppsItemConfiguration: ODSMoreAppsItemConfig {
-        ODSMoreAppsItemConfig()
+        ODSMoreAppsItemConfig(feedURL: MoreAppsConfiguration().appsPlusURL)
     }
 
     private var listItemConfigurations: [ODSAboutListItemConfig] {
@@ -178,6 +190,10 @@ struct AboutModuleDemo: View {
         return configurations.compactMap { $0 }
     }
 }
+
+// ========================
+// MARK: - Preview Provider
+// ========================
 
 #if DEBUG
 struct ODSBanner_Previews: PreviewProvider {

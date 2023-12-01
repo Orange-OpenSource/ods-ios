@@ -35,7 +35,7 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         let accessiblityStatementItem = AboutAccessibilityStatementItemConfig(statementConfig: ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!))
         let appNewsItem = ODSAboutAppNewsItemConfig(path: "")
         let legalInformationItem = ODSAboutLegalInformationItemConfig(legalInformation: fakeView)
-        let moreAppsItem = ODSMoreAppsItemConfig()
+        let moreAppsItem = ODSMoreAppsItemConfig(feedURL: URL(string: "https://opensource.orange.com/")!)
         let rateTheAppItem = ODSAboutRateTheAppItemConfig(storeUrl: URL(string: "https://www.apple.com/app-store/")!)
         let aboutDesignGuidelinesItem = AboutDesignGuidelinesItemConfig(priority: 202)
         let aboutChangelogItem = AboutChangelogItemConfig(priority: 200)
