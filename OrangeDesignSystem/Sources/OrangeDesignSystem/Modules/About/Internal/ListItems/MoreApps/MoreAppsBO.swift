@@ -56,9 +56,9 @@ struct MoreAppsAppDetails {
 enum MoreAppsErrors: Error {
     /// Prerequisites are not fullfilled to request the feeder service
     case badConfigurationPrerequisites
-    /// Some issue occured with session or network requests
+    /// Some issue occured with session or network requests, and no cache can be used
     case sessionError
-    /// JSON decoding error
+    /// JSON decoding error, and nothing in cache can be used
     case jsonDecodingFailure
 }
 

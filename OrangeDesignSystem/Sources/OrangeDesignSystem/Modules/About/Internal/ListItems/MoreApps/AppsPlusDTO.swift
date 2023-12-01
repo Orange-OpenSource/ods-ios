@@ -153,6 +153,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
 
     /// Using the given URL gets some `AppsPlusDTO` object from the _Apps Plus_ backend, parse it
     /// and returns a `MoreAppsList` with list of apps and sections of apps inside.
+    /// The data got from the service is also saved in cache so as to be available if the device is offline or if some error occured.
     /// - Parameter feedURL: The URL ready to be used to to get data
     /// - Returns: The business object containing all apps and sections of apps
     /// - Throws: `Error.badConfigurationPrerequisites` if not possible to build the URL for the _Apps Plus_ backend.
@@ -161,25 +162,114 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
         // No cache implemented in Apps Plus backend
         sessionConfiguration.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         let session = URLSession(configuration: sessionConfiguration)
-        var data: Data
+
+        var appsPlusRawData: Data, response: URLResponse
         do {
-            (data, _) = try await session.data(from: feedURL)
+            (appsPlusRawData, response) = try await session.data(from: feedURL)
         } catch {
-            ODSLogger.error("Failed to send request to Apps Plus service")
+            ODSLogger.error("Failed to send request to AppsPlus service: '\(error.localizedDescription)'")
+            if let cachedMoreAppsList = cachedMoreAppsList() {
+                ODSLogger.debug("But AppsPlus data in cache available, use them")
+                return cachedMoreAppsList
+            }
             throw MoreAppsErrors.sessionError
         }
 
+        // If server error use cache (not sure it's relevant if client error like 401, 403 or 407)
+        if let response = response as? HTTPURLResponse, response.statusCode >= 500 {
+            ODSLogger.error("Server error: '\(response.statusCode)'")
+            if let cachedMoreAppsList = cachedMoreAppsList() {
+                ODSLogger.debug("But AppsPlus data in cache available, use them")
+                return cachedMoreAppsList
+            }
+        }
+
+        // Decode JSON payload
         var appsPlusAppsList: AppsPlusListDTO
         do {
-            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: data).items[0] // Only one object sent by AppsPlus backend
+            // Only one object sent by AppsPlus backend
+            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: appsPlusRawData).items[0]
         } catch {
-            ODSLogger.error("Failed to decode Apps Plus service data")
+            ODSLogger.error("Failed to decode AppsPlus service data: '\(error.localizedDescription)'")
+            if let cachedMoreAppsList = cachedMoreAppsList() {
+                ODSLogger.debug("But AppsPlus data in cache available, use them")
+                return cachedMoreAppsList
+            }
             throw MoreAppsErrors.jsonDecodingFailure
+        }
+        cache(data: appsPlusRawData)
+
+        ODSLogger.debug("Got data from AppsPlus service")
+        let mapper = AppsPlusMoreAppsMapper()
+        let odsApps = mapper.appsDetails(from: appsPlusAppsList)
+        let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
+        let moreAppsList = MoreAppsList(sections: odsAppsSections, apps: odsApps)
+        return moreAppsList
+    }
+
+    /// Saves in a cache file the given `Data` picked from AppsPlus backend
+    /// - Parameter payload: Data retrieved from `URLSession`
+    private func cache(data payload: Data) {
+        // Forge file URL
+        var fileURL: URL
+        do {
+            fileURL = try FileManager.default
+                .url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("AppsPlus.json")
+        } catch {
+            ODSLogger.error("Failed to get AppsPlus file in caches directory: '\(error.localizedDescription)'")
+            return
+        }
+
+        // Remove if exists and create new one
+        do {
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                try FileManager.default.removeItem(atPath: fileURL.path)
+                ODSLogger.debug("The AppsPlus JSON file already exists, removed it")
+            }
+            try payload.write(to: fileURL, options: .atomic)
+            ODSLogger.debug("JSON file for AppsPlus has been saved at '\(fileURL)'")
+        } catch {
+            ODSLogger.error("(ノಥ,_｣ಥ)ノ彡┻━┻ Impossible to save on device the AppsPlus JSON file: '\(error.localizedDescription)'")
+        }
+    }
+
+    /// Returns from the cache directory the content previously picked from AppsPlus backend, or nil if error occured
+    /// - Returns MoreAppsList.
+    private func cachedMoreAppsList() -> MoreAppsList? {
+        // Forge file URL
+        var fileURL: URL
+        do {
+            fileURL = try FileManager.default
+                .url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("AppsPlus.json")
+        } catch {
+            ODSLogger.error("Failed to get AppsPlus file in caches directory: '\(error.localizedDescription)'")
+            return nil
+        }
+
+        // Read file
+        var cachedRawData: Data
+        do {
+            cachedRawData = try Data(contentsOf: fileURL)
+        } catch {
+            ODSLogger.error("Failed to read AppsPlus file content in cache: '\(error.localizedDescription)'")
+            return nil
+        }
+
+        // Decode file
+        var appsPlusAppsList: AppsPlusListDTO
+        do {
+            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: cachedRawData).items[0]
+        } catch {
+            ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode AppsPlus JSON data in cache: '\(error.localizedDescription)'")
+            return nil
         }
 
         let mapper = AppsPlusMoreAppsMapper()
         let odsApps = mapper.appsDetails(from: appsPlusAppsList)
         let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
-        return MoreAppsList(sections: odsAppsSections, apps: odsApps)
+        let moreAppsList = MoreAppsList(sections: odsAppsSections, apps: odsApps)
+        return moreAppsList
     }
 }

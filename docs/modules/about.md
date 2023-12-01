@@ -320,10 +320,12 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
 
 ### Configuration of apps recirculation feature
 
+#### Use the feature
+
 The _about module_ exposes a feature allowing the final users to get the available apps they can use.
 This feature is based on the _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
 This service today is based on a simple URL containing both a lang parameter and an API key. 
-**This API key will define the type of data returned by the backend ;  maybe you should have your own API key which matches the suotable filters to get only a subggroup of apps.**
+**This API key will define the type of data returned by the backend ;  maybe you should have your own API key which matches the suotable filters to get only a subgroup of apps.**
 
 To be able to call this service and display the list of available apps, you have to use the `ODSMoreAppsItemConfig`.
 This _struct_ has a `feedURL` parameter which must contain the full URL of the _Apps Plus_ service:
@@ -331,6 +333,11 @@ This _struct_ has a `feedURL` parameter which must contain the full URL of the _
 ```swift
     ODSMoreAppsItemConfig(feedURL: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr")
 ```
+
+Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
+or if an error occured. Today the _Apps Plus_ service does not have any cache feature, and force to update data, so we send requests in time the feature is called.
+
+#### Define some configuration in your app
 
 You can for example for your app use a _AppDemoConfig.xcconfig_ configuration file to store such credentials.
 A key named **APPS_PLUS_URL** can be defined with the URL (containing the API key) to call.
