@@ -224,8 +224,9 @@
 "screens.components.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou créature à la peau bleue */
 "screens.components.chips.state.enable" = "Activer";
 "screens.components.chips.state.selected" = "Selectionné";
-"screens.components.chips.variant.choice" = "Choice chips";
 "screens.components.chips.variant.action" = "Action chips";
+"screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.variant.filter" = "Filter chips";
 "screens.components.chips.variant.picker" = "Chips picker";
 "screens.components.chips.variant.action.clicked" = "%@ : cliqué";
 

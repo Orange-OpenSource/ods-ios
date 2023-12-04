@@ -44,9 +44,14 @@ struct ChipsVariants: View {
                 .navigationTitle("screens.components.chips.variant.choice".🌐)
         }
 
-        VariantEntryItem(title: "screens.components.chips.variant.action".🌐, technicalElement: "ODsActionChip()") {
+        VariantEntryItem(title: "screens.components.chips.variant.action".🌐, technicalElement: "ODSActionChip()") {
             ActionChipVariant(model: ActionChipVariantModel())
                 .navigationTitle("screens.components.chips.variant.action".🌐)
+        }
+
+        VariantEntryItem(title: "screens.components.chips.variant.filter".🌐, technicalElement: "ODSFilterChip()") {
+            FilterChipVariant(model: FilterChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.filter".🌐)
         }
     }
 }

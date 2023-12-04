@@ -98,6 +98,7 @@
 		077C389E2A9DEEDC003D6B51 /* ThemeablePreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38962A9DEEDC003D6B51 /* ThemeablePreviews.swift */; };
 		077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 		077C38A52AA215BC003D6B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CB2A9DD643003D6B51 /* Assets.xcassets */; };
+		0786F7422B1649F100299A75 /* FilterChipVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F7412B1649F100299A75 /* FilterChipVariant.swift */; };
 		079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
 		07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */; };
@@ -232,6 +233,7 @@
 		077C38932A9DEEDC003D6B51 /* RecipesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesLoader.swift; sourceTree = "<group>"; };
 		077C38952A9DEEDC003D6B51 /* ThemeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
 		077C38962A9DEEDC003D6B51 /* ThemeablePreviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeablePreviews.swift; sourceTree = "<group>"; };
+		0786F7412B1649F100299A75 /* FilterChipVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChipVariant.swift; sourceTree = "<group>"; };
 		079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+id.swift"; sourceTree = "<group>"; };
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B030592AB0B454001764E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */,
 				072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */,
 				07BDEA922B150263005574A2 /* ActionChipsVariant.swift */,
+				0786F7412B1649F100299A75 /* FilterChipVariant.swift */,
 			);
 			path = Chips;
 			sourceTree = "<group>";
@@ -1135,6 +1138,7 @@
 				075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */,
 				077C384F2A9DDC79003D6B51 /* IconVariant.swift in Sources */,
 				077C38522A9DDC79003D6B51 /* SecureVariant.swift in Sources */,
+				0786F7422B1649F100299A75 /* FilterChipVariant.swift in Sources */,
 				077C38642A9DDC79003D6B51 /* CardSmallVariant.swift in Sources */,
 				07B94E0E2AD9904900AAD1A5 /* ListItemVaraintSelectionModel.swift in Sources */,
 				077C38662A9DDC79003D6B51 /* ToolBarVariantOptions.swift in Sources */,

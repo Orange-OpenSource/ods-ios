@@ -10,9 +10,17 @@ import SwiftUI
 
 public struct ODSActionChip: View {
 
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     private let text: Text
     private let leadingIcon: Image
     private let action: () -> Void
+
+    // ==================
+    // MARK: Initializers
+    // ==================
 
     public init(text: Text, leadingIcon: Image, action: @escaping () -> Void) {
         self.text = text
@@ -20,45 +28,15 @@ public struct ODSActionChip: View {
         self.action = action
     }
 
+    // ==========
+    // MARK: Body
+    // ==========
+
     public var body: some View {
-        Button {
-            action()
-        } label: {
-            HStack(alignment: .center, spacing: ODSSpacing.s) {
-                ODSIcon(leadingIcon, width: 24, height: 24)
-//                leadingIcon
-//                    .renderingMode(.template)
-//                    .resizable()
-//                    .frame(width: 24, height: 24, alignment: .center)
-                text.odsFont(.bodyRegular)
-            }
-            .padding(.vertical, ODSSpacing.xs)
-            .padding(.horizontal, ODSSpacing.s)
-        }
-        .buttonStyle(ODSActionChipStyle())
-    }
-}
-
-struct ODSActionChipStyle: ButtonStyle {
-
-    @Environment(\.isEnabled) var isEnabled
-    @Environment(\.theme) var theme
-
-    func makeBody(configuration: Configuration) -> some View {
-        if configuration.isPressed {
-            configuration
-                .label
-                .foregroundColor(.primary)
-                .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
-                .padding(.vertical, 1)
-                .opacity(0.5)
-        } else {
-            configuration
-                .label
-                .foregroundColor(.primary)
-                .overlay(Capsule().stroke(Color(UIColor.label), lineWidth: 1))
-                .padding(.vertical, 1)
-                .opacity(isEnabled ? 1 : 0.5)
+        Chip(isSelected: false, action: action) {
+            text.padding(.horizontal, ODSSpacing.s)
+        } leading: {
+            ODSImage(source: .image(leadingIcon))
         }
     }
 }

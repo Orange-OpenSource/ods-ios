@@ -25,6 +25,10 @@ public struct ODSImage: View {
     public enum Source {
         case image(Image)
         case asyncImage(URL, Image)
+
+        public init(url: URL, placeholder: Image = Image("ods_empty", bundle: Bundle.ods)) {
+            self = .asyncImage(url, placeholder)
+        }
     }
 
     let source: Source

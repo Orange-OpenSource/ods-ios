@@ -29,7 +29,7 @@ struct ActionChipVariant: View {
 
     init(model: ActionChipVariantModel) {
         self.model = model
-        foods = RecipeBook.shared.foods
+        foods = Array(RecipeBook.shared.foods.prefix(3))
     }
 
     // ==========
@@ -43,7 +43,7 @@ struct ActionChipVariant: View {
                     ScrollView(.horizontal) {
                         HStack(spacing: ODSSpacing.m) {
                             ForEach(foods, id: \.id) { food in
-                                ODSActionChip(text: Text(food.name), leadingIcon: Image("Cafe")) {
+                                ODSActionChip(text: Text(food.name), leadingIcon: Image("FoodsAndEntertainment")) {
                                     showText = "screens.components.chips.variant.action.clicked".localized(with: food.name)
                                 }
                             }
