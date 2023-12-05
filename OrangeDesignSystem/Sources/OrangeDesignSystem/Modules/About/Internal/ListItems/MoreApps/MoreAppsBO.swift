@@ -52,7 +52,7 @@ struct MoreAppsAppDetails {
 // MARK: - More Apps Service Errors
 // ================================
 
-/// Errors which can occur in repotitory or service layers and should be managed upside
+/// Errors which can occur in repository or service layers and should be managed upside
 enum MoreAppsErrors: Error {
     /// Prerequisites are not fullfilled to request the feeder service
     case badConfigurationPrerequisites
@@ -68,7 +68,17 @@ enum MoreAppsErrors: Error {
 
 /// Abstraction layer if in the future another data feed will be used to get other available apps.
 protocol MoreAppsRepositoryProtocol {
-    func availableAppsList(at feedURL: URL) async throws -> MoreAppsList
+
+    /// - Parameters:
+    ///    - feedURL: The URL where the data can be fetched
+    ///    - urlSessionConfiguration: The session configuration to use for the HTTP request (can be `URLSessionConfiguration.default`)
+    init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration)
+
+    /// The lcoation of the file is existing used as local cache (if network issues or errors in repository side when decoding or parsing)
+    var localCacheLocation: URL? { get }
+
+    /// Supposed to be async method to return the apps lists or to throw some error
+    func availableAppsList() async throws -> MoreAppsList
 }
 
 // =========================
@@ -76,22 +86,24 @@ protocol MoreAppsRepositoryProtocol {
 // =========================
 
 protocol MoreAppsServiceProtocol {
+    /// - Parameter repository: The object to use to get the raw data from a feeder
+    init(repository: MoreAppsRepositoryProtocol)
+
+    /// Supposed to be async method to return the apps lists or to throw some error, using the given `MoreAppsRepositoryProtocol`
     func availableAppsList() async throws -> MoreAppsList
 }
 
 /// Helps to test or use some data feeds to get available apps details
 struct MoreAppsService: MoreAppsServiceProtocol {
-    private let feedURL: URL
     private let repository: MoreAppsRepositoryProtocol
 
-    init(feedURL: URL, repository: MoreAppsRepositoryProtocol) {
-        self.feedURL = feedURL
+    init(repository: MoreAppsRepositoryProtocol) {
         self.repository = repository
     }
 
     /// Creates the URL to use to get data feed, then  through the `MoreAppsRepositoryProtocol` request data
     /// - Returns `MoreAppsList`: The parsed business objects
     func availableAppsList() async throws -> MoreAppsList {
-        try await repository.availableAppsList(at: feedURL)
+        try await repository.availableAppsList()
     }
 }

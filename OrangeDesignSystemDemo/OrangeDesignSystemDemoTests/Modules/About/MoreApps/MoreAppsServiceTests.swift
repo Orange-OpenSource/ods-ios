@@ -13,9 +13,10 @@ import XCTest
 /// Helps to test the `MoreAppsService` to check if JSON data (in local mocks) are well processed
 final class MoreAppsServiceTests: XCTestCase {
 
+    /// Assertions on the apps objects read from some mock JSON to test both mapper and service layers
     func testMoreAppsServiceApps() async {
         // Given
-        let moreAppsService = MoreAppsService(feedURL: URL(string: "https://opensource.orange.com/")!, repository: MockMoreAppsRepository())
+        let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository(feedURL: URL(string: "https://opensource.orange.com/")!))
 
         // When
         var apps = [MoreAppsAppDetails]()
@@ -48,9 +49,10 @@ final class MoreAppsServiceTests: XCTestCase {
         XCTAssertNil(app3.description)
     }
 
+    /// Assertions on the sections objects read from some mock JSON to test both mapper and service layers
     func testMoreAppsServiceSections() async {
         // Given
-        let moreAppsService = MoreAppsService(feedURL: URL(string: "https://opensource.orange.com/")!, repository: MockMoreAppsRepository())
+        let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository(feedURL: URL(string: "https://opensource.orange.com/")!))
 
         // When
 
@@ -97,7 +99,18 @@ final class MoreAppsServiceTests: XCTestCase {
     // ===============
 
     private struct MockMoreAppsRepository: MoreAppsRepositoryProtocol {
-        func availableAppsList(at feedURL: URL) -> MoreAppsList {
+
+        private let feedURL: URL
+        private let urlSessionConfiguration: URLSessionConfiguration
+
+        var localCacheLocation: URL? { nil }
+
+        init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
+            self.feedURL = feedURL
+            self.urlSessionConfiguration = urlSessionConfiguration
+        }
+
+        func availableAppsList() -> MoreAppsList {
             let mockJsonPath = XCTestCase.stubPath(for: "AppsPlusMock", ofType: "json", inBundleOf: MoreAppsServiceTests.self)
             guard let jsonRawData = try? String(contentsOfFile: mockJsonPath).data(using: .utf8) else {
                 fatalError("Failed to convert the mock JSON for tests!")

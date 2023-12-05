@@ -119,6 +119,9 @@
 		5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
 		5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
 		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
+		513DC6952B1F4627001F86A6 /* MockURLAndResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */; };
+		513DC6972B1F4907001F86A6 /* AppsPlusRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */; };
+		513DC6992B1F511B001F86A6 /* AppsPlusCache.json in Resources */ = {isa = PBXBuildFile; fileRef = 513DC6982B1F511B001F86A6 /* AppsPlusCache.json */; };
 		5166D4372B18991C0021600D /* MoreAppsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */; };
 		51A08F332B1637E900C14C86 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F322B1637E900C14C86 /* ArrayExtensionTests.swift */; };
 		51A08F352B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F342B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift */; };
@@ -263,6 +266,9 @@
 		07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleOptions.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLAndResponse.swift; sourceTree = "<group>"; };
+		513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPlusRepositoryTests.swift; sourceTree = "<group>"; };
+		513DC6982B1F511B001F86A6 /* AppsPlusCache.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusCache.json; sourceTree = "<group>"; };
 		51664B4C2AEADEEE00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/AppNews.json; sourceTree = "<group>"; };
 		51664B4D2AEADEF600E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/CGU.html; sourceTree = "<group>"; };
 		51664B4E2AEADEFC00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
@@ -810,6 +816,7 @@
 				51A08F382B1657D300C14C86 /* Data */,
 				51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */,
 				5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */,
+				513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */,
 			);
 			path = MoreApps;
 			sourceTree = "<group>";
@@ -821,6 +828,7 @@
 				51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */,
 				51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */,
 				51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */,
+				513DC6982B1F511B001F86A6 /* AppsPlusCache.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -829,6 +837,7 @@
 			isa = PBXGroup;
 			children = (
 				51A08F422B165D1600C14C86 /* XCTestCase+extension.swift */,
+				513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */,
 			);
 			name = _;
 			sourceTree = "<group>";
@@ -1078,6 +1087,7 @@
 				51CD72892B162D1A008CE57D /* AppNewsMock.json in Resources */,
 				51CD728A2B162D1A008CE57D /* FileWithoutJson.json in Resources */,
 				51B64C8F2B17763800B93EBF /* AppsPlusListMock.json in Resources */,
+				513DC6992B1F511B001F86A6 /* AppsPlusCache.json in Resources */,
 				51CD728B2B162D1A008CE57D /* NotStringFile.jpg in Resources */,
 				51B64C8D2B17731600B93EBF /* AppsPlusSectionMock.json in Resources */,
 				51CD728C2B162D1A008CE57D /* AppNewsMock_notCompliant_badDateFormat.json in Resources */,
@@ -1335,7 +1345,9 @@
 				51A08F332B1637E900C14C86 /* ArrayExtensionTests.swift in Sources */,
 				51A08F402B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift in Sources */,
 				51A08F432B165D1600C14C86 /* XCTestCase+extension.swift in Sources */,
+				513DC6952B1F4627001F86A6 /* MockURLAndResponse.swift in Sources */,
 				51A08F352B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift in Sources */,
+				513DC6972B1F4907001F86A6 /* AppsPlusRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

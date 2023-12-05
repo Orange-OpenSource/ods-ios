@@ -20,7 +20,7 @@ final class MoreAppsViewModel: ObservableObject {
     @Published var loadingState: LoadingState<MoreAppsList, MoreAppsViewModel.Error>
 
     init(feedURL: URL) {
-        service = MoreAppsService(feedURL: feedURL, repository: AppsPlusRepository())
+        service = MoreAppsService(repository: AppsPlusRepository(feedURL: feedURL))
         loadingState = .loading
     }
 
