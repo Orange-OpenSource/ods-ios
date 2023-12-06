@@ -20,7 +20,7 @@ struct ActionChipVariant: View {
     // =======================
 
     @ObservedObject var model: ActionChipVariantModel
-    let foods: [Food]
+    let food: Food
     @State var showText: String?
 
     // =================
@@ -29,7 +29,7 @@ struct ActionChipVariant: View {
 
     init(model: ActionChipVariantModel) {
         self.model = model
-        foods = Array(RecipeBook.shared.foods.prefix(3))
+        food = RecipeBook.shared.foods[0]
     }
 
     // ==========
@@ -40,19 +40,18 @@ struct ActionChipVariant: View {
         CustomizableVariant {
             Toastable(showText: $showText) {
                 ScrollView(.vertical) {
-                    ScrollView(.horizontal) {
-                        HStack(spacing: ODSSpacing.m) {
-                            ForEach(foods, id: \.id) { food in
-                                ODSActionChip(text: Text(food.name), leadingIcon: Image("FoodsAndEntertainment")) {
-                                    showText = "screens.components.chips.variant.action.clicked".localized(with: food.name)
-                                }
-                            }
+                    HStack(spacing: ODSSpacing.m) {
+                        ODSActionChip(
+                            text: Text(food.name),
+                            leadingIcon: Image("FoodsAndEntertainment"),
+                            action: { showText = "screens.components.chips.variant.chip.clicked".localized(with: food.name)
+                            })
                             .disabled(!model.showEnabled)
-                        }
-                        .padding(.leading, ODSSpacing.m)
-                        .padding(.vertical, ODSSpacing.s)
+
+                        Spacer()
                     }
                 }
+                .padding(.leading, ODSSpacing.m)
             }
             .padding(.top, ODSSpacing.m)
         } options: {
@@ -77,6 +76,7 @@ struct ActionChipVariantOptions: View {
         VStack {
             Toggle("shared.enabled", isOn: $model.showEnabled)
         }
+        .odsFont(.bodyBold)
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)
     }

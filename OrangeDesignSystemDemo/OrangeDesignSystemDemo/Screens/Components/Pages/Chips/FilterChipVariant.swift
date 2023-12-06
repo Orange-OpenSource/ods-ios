@@ -34,9 +34,9 @@ struct FilterChipVariant: View {
     // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: FilterChipVariantModel
-    @State var selectedFoods: [Food]
-    let foods: [Food]
+    @ObservedObject private var model: FilterChipVariantModel
+    @State private var selectedFoods: [Food]
+    private let foods: [Food]
 
     // =================
     // MARK: Initializer
@@ -55,8 +55,10 @@ struct FilterChipVariant: View {
     var body: some View {
         CustomizableVariant {
             ScrollView {
-                FilterChipPicker(selection: $selectedFoods, elements: foods.map { filterChipElement(for: $0) })
-                    .disabled(!model.showEnabled)
+                ChipPickerContainer(placement: .stacked, values: foods) { food in
+                    chip(for: food)
+                }
+                .disabled(!model.showEnabled)
             }
             .padding(.top, ODSSpacing.m)
         } options: {
@@ -64,11 +66,27 @@ struct FilterChipVariant: View {
         }
     }
 
-    func filterChipElement(for food: Food) -> FilterChipPicker<Food>.Element {
+    func leading(for food: Food) -> ODSImage.Source? {
         if model.leadingElement == .avatar, let url = food.image {
-            return FilterChipPicker.Element(value: food, text: Text(food.name), avatar: ODSImage.Source(url: url))
+            return ODSImage.Source(url: url)
         } else {
-            return FilterChipPicker.Element(value: food, text: Text(food.name), avatar: nil)
+            return nil
+        }
+    }
+
+    func chip(for food: Food) -> some View {
+        let index = selectedFoods.firstIndex(of: food)
+
+        return ODSFilterChip(
+            text: Text(food.name),
+            avatarSource: leading(for: food),
+            isSelected: index == nil)
+        {
+            if let index = index {
+                selectedFoods.remove(at: index)
+            } else {
+                selectedFoods.append(food)
+            }
         }
     }
 }
@@ -86,67 +104,21 @@ struct FilterChipVariantOptions: View {
     // ==========
 
     var body: some View {
-        VStack {
-            Text("Leading Element").frame(maxWidth: .infinity, alignment: .leading)
-            ChoisceChipPicker(
-                selection: $model.leadingElement,
-                elements: FilterChipVariantModel.LeadingElement.allCases.map {
-                    .init(value: $0, text: Text($0.description))
-                })
-
-            Toggle("shared.enabled", isOn: $model.showEnabled)
-        }
-        .padding(.horizontal, ODSSpacing.m)
-        .padding(.vertical, ODSSpacing.s)
-    }
-}
-
-struct FilterChipPicker<Value>: View where Value: Hashable {
-
-    // ===========
-    // MARK: Types
-    // ===========
-
-    public struct Element {
-        fileprivate let value: Value
-        fileprivate let text: Text
-        fileprivate let avatar: ODSImage.Source?
-
-        public init(value: Value, text: Text, avatar: ODSImage.Source? = nil) {
-            self.value = value
-            self.text = text
-            self.avatar = avatar
-        }
-    }
-
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    @Binding var selection: [Value]
-    let elements: [Element]
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        ScrollView(.horizontal) {
-            HStack(spacing: ODSSpacing.m) {
-                ForEach(elements, id: \.value) { element in
-                    let index = selection.firstIndex(of: element.value)
-
-                    ODSFilterChip(text: element.text, avatarSource: element.avatar, isSelected: index == nil) {
-                        if let index = index {
-                            selection.remove(at: index)
-                        } else {
-                            selection.append(element.value)
-                        }
-                    }
+        VStack(spacing: ODSSpacing.m) {
+            ChipPickerContainer(
+                title: Text("shared.leading"),
+                placement: .carousel,
+                values: FilterChipVariantModel.LeadingElement.allCases)
+            { leadingElement in
+                ODSChoiceChip(text: Text(leadingElement.description), isSelected: model.leadingElement == leadingElement) {
+                    model.leadingElement = leadingElement
                 }
             }
-            .padding(.leading, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
+
+            Toggle("shared.enabled", isOn: $model.showEnabled)
+                .padding(.horizontal, ODSSpacing.m)
         }
+        .odsFont(.bodyBold)
+        .padding(.vertical, ODSSpacing.s)
     }
 }

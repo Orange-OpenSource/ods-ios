@@ -227,8 +227,10 @@
 "screens.components.chips.variant.action" = "Action chips";
 "screens.components.chips.variant.choice" = "Choice chips";
 "screens.components.chips.variant.filter" = "Filter chips";
+"screens.components.chips.variant.input" = "Input chips";
 "screens.components.chips.variant.picker" = "Chips picker";
-"screens.components.chips.variant.action.clicked" = "%@ clicked";
+"screens.components.chips.variant.chip.clicked" = "%@ : cliqué";
+"screens.components.chips.variant.input.remove_clicked" = "remove  clicked";
 
 // ====================================
 // MARK: - Screens - Components - Lists

@@ -53,6 +53,10 @@ struct ChipsVariants: View {
             FilterChipVariant(model: FilterChipVariantModel())
                 .navigationTitle("screens.components.chips.variant.filter".🌐)
         }
+        VariantEntryItem(title: "screens.components.chips.variant.input".🌐, technicalElement: "ODSInputChip()") {
+            InputChipVariant(model: InputChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.input".🌐)
+        }
     }
 }
 

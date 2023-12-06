@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */; };
+		074CB4CF2B20B26900D7AD54 /* ChipPickerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB4CE2B20B26900D7AD54 /* ChipPickerContainer.swift */; };
 		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		077B673C2AE1500F0008C32B /* LeadingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B673B2AE1500F0008C32B /* LeadingOption.swift */; };
@@ -101,6 +102,7 @@
 		0786F7422B1649F100299A75 /* FilterChipVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F7412B1649F100299A75 /* FilterChipVariant.swift */; };
 		079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
+		07B1A09C2B1E191F00ABF0A1 /* InputChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */; };
 		07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */; };
 		07B94DEB2AD9239700AAD1A5 /* ListItemVariantStandardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */; };
 		07B94E0B2AD98D7900AAD1A5 /* ListItemStandardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */; };
@@ -152,6 +154,7 @@
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceChipsVariant.swift; sourceTree = "<group>"; };
+		074CB4CE2B20B26900D7AD54 /* ChipPickerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipPickerContainer.swift; sourceTree = "<group>"; };
 		075326832AD45610003D8832 /* GridOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridOfSmallCards.swift; sourceTree = "<group>"; };
 		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		077B673B2AE1500F0008C32B /* LeadingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingOption.swift; sourceTree = "<group>"; };
@@ -238,6 +241,7 @@
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B030592AB0B454001764E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		07B0305A2AB0B4A9001764E7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
+		07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChipsVariant.swift; sourceTree = "<group>"; };
 		07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariantOptions.swift; sourceTree = "<group>"; };
 		07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemVariantStandardModel.swift; sourceTree = "<group>"; };
 		07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariant.swift; sourceTree = "<group>"; };
@@ -324,6 +328,14 @@
 				07210C482A8FAD1500507988 /* Fastfile */,
 			);
 			name = Fastlane;
+			sourceTree = "<group>";
+		};
+		074CB4CD2B20B23700D7AD54 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				074CB4CE2B20B26900D7AD54 /* ChipPickerContainer.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		0753267E2AD00137003D8832 /* CardListAndCollection */ = {
@@ -476,11 +488,13 @@
 		077C380A2A9DDC79003D6B51 /* Chips */ = {
 			isa = PBXGroup;
 			children = (
+				074CB4CD2B20B23700D7AD54 /* Common */,
 				077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */,
 				077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */,
 				072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */,
 				07BDEA922B150263005574A2 /* ActionChipsVariant.swift */,
 				0786F7412B1649F100299A75 /* FilterChipVariant.swift */,
+				07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */,
 			);
 			path = Chips;
 			sourceTree = "<group>";
@@ -1152,6 +1166,7 @@
 				077C38482A9DDC79003D6B51 /* AboutSceen.swift in Sources */,
 				077C38672A9DDC79003D6B51 /* ToolBarComponent.swift in Sources */,
 				077C38812A9DDC79003D6B51 /* SpacingsGuideline.swift in Sources */,
+				074CB4CF2B20B26900D7AD54 /* ChipPickerContainer.swift in Sources */,
 				077C38852A9DDC79003D6B51 /* AboutMyReviewsItemConfiguration.swift in Sources */,
 				077C387A2A9DDC79003D6B51 /* ODSColors+extension.swift in Sources */,
 				077C38732A9DDC79003D6B51 /* SlidersVariant.swift in Sources */,
@@ -1212,6 +1227,7 @@
 				077C38612A9DDC79003D6B51 /* CardExampleData.swift in Sources */,
 				077C384D2A9DDC79003D6B51 /* ComponentList.swift in Sources */,
 				077C38512A9DDC79003D6B51 /* CapitalizedTextInputsVariant.swift in Sources */,
+				07B1A09C2B1E191F00ABF0A1 /* InputChipsVariant.swift in Sources */,
 				077C38632A9DDC79003D6B51 /* CardHorizontalVariant.swift in Sources */,
 				077C38882A9DDC79003D6B51 /* CardViewDemo.swift in Sources */,
 				077C387F2A9DDC79003D6B51 /* TypographyGuideline.swift in Sources */,

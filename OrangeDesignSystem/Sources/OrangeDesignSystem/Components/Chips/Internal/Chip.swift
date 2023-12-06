@@ -12,25 +12,36 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
 
     let isSelected: Bool
     let action: () -> Void
+    let removeAction: (() -> Void)?
     @ViewBuilder let text: () -> Text
     @ViewBuilder let leading: () -> Leading
 
-    init(isSelected: Bool, action: @escaping () -> Void,
+    @ScaledMetric(relativeTo: .body) private var leadingHeight = 24
+    @ScaledMetric(relativeTo: .body) private var frameHeight = 32
+    @ScaledMetric(relativeTo: .body) private var labelPadding = ODSSpacing.xs
+
+    init(isSelected: Bool,
+         action: @escaping () -> Void,
+         removeAction: (() -> Void)? = nil,
          @ViewBuilder text: @escaping () -> Text,
          @ViewBuilder leading: @escaping () -> Leading)
     {
-        self.text = text
         self.isSelected = isSelected
         self.action = action
+        self.removeAction = removeAction
+        self.text = text
         self.leading = leading
     }
 
-    init(isSelected: Bool, action: @escaping () -> Void,
+    init(isSelected: Bool,
+         action: @escaping () -> Void,
+         removeAction: (() -> Void)? = nil,
          @ViewBuilder text: @escaping () -> Text) where Leading == EmptyView
     {
-        self.text = text
         self.isSelected = isSelected
         self.action = action
+        self.removeAction = removeAction
+        self.text = text
         leading = { EmptyView() }
     }
 
@@ -38,31 +49,35 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
         Button {
             action()
         } label: {
-            Label { text() } icon: { leading() }
-                .labelStyle(ChipLabelStyle())
+            HStack(spacing: ODSSpacing.none) {
+                leading()
+                    .frame(width: leadingHeight, height: leadingHeight)
+                    .clipShape(Circle())
+
+                text()
+                    .odsFont(.bodyRegular)
+                    .multilineTextAlignment(.center)
+
+                removeButton
+                    .frame(width: leadingHeight, height: leadingHeight)
+            }
+            .padding(.all, labelPadding)
+            .frame(height: frameHeight)
         }
         .buttonStyle(ChipButtoonStyle(isSelected: isSelected))
     }
-}
 
-struct ChipLabelStyle: LabelStyle {
-
-    @ScaledMetric(relativeTo: .body) var leadingHeight = 24
-    @ScaledMetric(relativeTo: .body) var frameHeight = 32
-    @ScaledMetric(relativeTo: .body) var labelPadding = ODSSpacing.xs
-
-    func makeBody(configuration: Configuration) -> some View {
-        HStack(spacing: ODSSpacing.none) {
-            configuration.icon
-                .frame(width: leadingHeight, height: leadingHeight)
-                .clipShape(Circle())
-
-            configuration.title
-                .odsFont(.bodyRegular)
-                .multilineTextAlignment(.center)
+    @ViewBuilder
+    var removeButton: some View {
+        if let removeAction = removeAction {
+            Button(action: removeAction) {
+                Image("ic_close", bundle: Bundle.ods)
+                    .resizable()
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.primary)
+            }
         }
-        .padding(.all, labelPadding)
-        .frame(height: frameHeight)
     }
 }
 
@@ -78,13 +93,12 @@ struct ChipButtoonStyle: ButtonStyle {
                 .label
                 .foregroundColor(.primary)
                 .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
-                .padding(.vertical, 1)
-                .opacity(0.5)
+                .padding(.all, 1)
+                .opacity(0.3)
         } else {
             if isSelected {
                 configuration.label
                     .foregroundColor(.black)
-                    .padding(.vertical, 1)
                     .background(theme.componentColors.accent, in: Capsule())
                     .opacity(isEnabled ? 1 : 0.5)
             } else {
@@ -92,7 +106,7 @@ struct ChipButtoonStyle: ButtonStyle {
                     .label
                     .foregroundColor(.primary)
                     .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
-                    .padding(.vertical, 1)
+                    .padding(.all, 1)
                     .opacity(isEnabled ? 1 : 0.5)
             }
         }
