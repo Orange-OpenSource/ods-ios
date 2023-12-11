@@ -41,12 +41,18 @@ struct ChoiceChipVariant: View {
     var body: some View {
         CustomizableVariant {
             ScrollView {
-                ChipPickerContainer(title: nil, placement: .stacked, values: foods) { food in
-                    ODSChoiceChip(text: Text(food.name), isSelected: food == selectedFood) {
-                        selectedFood = food
+                VStack(alignment: .leading, spacing: ODSSpacing.m) {
+                    Text("screens.components.chips.choice.description")
+                        .padding(.horizontal, ODSSpacing.m)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    ChipPickerContainer(title: nil, placement: .stacked, values: foods) { food in
+                        ODSChoiceChip(text: Text(food.name), isSelected: food == selectedFood) {
+                            selectedFood = food
+                        }
                     }
+                    .disabled(!model.showEnabled)
                 }
-                .disabled(!model.showEnabled)
                 .padding(.vertical, ODSSpacing.m)
             }
         } options: {

@@ -91,7 +91,7 @@ struct ChipButtoonStyle: ButtonStyle {
         if configuration.isPressed {
             configuration
                 .label
-                .foregroundColor(.primary)
+                .foregroundColor(Color(UIColor.label))
                 .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
                 .padding(.all, 1)
                 .opacity(0.3)

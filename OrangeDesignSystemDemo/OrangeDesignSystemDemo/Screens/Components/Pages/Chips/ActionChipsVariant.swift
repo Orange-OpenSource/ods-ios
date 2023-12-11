@@ -40,20 +40,20 @@ struct ActionChipVariant: View {
         CustomizableVariant {
             Toastable(showText: $showText) {
                 ScrollView(.vertical) {
-                    HStack(spacing: ODSSpacing.m) {
+                    VStack(alignment: .leading, spacing: ODSSpacing.m) {
+                        Text("screens.components.chips.action.description")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
                         ODSActionChip(
                             text: Text(food.name),
-                            leadingIcon: Image("FoodsAndEntertainment"),
+                            leadingIcon: Image("FoodsAndEntertainment").renderingMode(.template),
                             action: { showText = "screens.components.chips.variant.chip.clicked".localized(with: food.name)
                             })
                             .disabled(!model.showEnabled)
-
-                        Spacer()
                     }
+                    .padding(.all, ODSSpacing.m)
                 }
-                .padding(.leading, ODSSpacing.m)
             }
-            .padding(.top, ODSSpacing.m)
         } options: {
             ActionChipVariantOptions(model: model)
         }

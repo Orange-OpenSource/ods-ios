@@ -44,7 +44,7 @@ struct FilterChipVariant: View {
 
     init(model: FilterChipVariantModel) {
         self.model = model
-        foods = Array(RecipeBook.shared.foods.prefix(3))
+        foods = Array(RecipeBook.shared.foods.prefix(6))
         selectedFoods = Array(RecipeBook.shared.foods.prefix(1))
     }
 
@@ -55,12 +55,18 @@ struct FilterChipVariant: View {
     var body: some View {
         CustomizableVariant {
             ScrollView {
-                ChipPickerContainer(placement: .stacked, values: foods) { food in
-                    chip(for: food)
+                VStack(alignment: .leading, spacing: ODSSpacing.m) {
+                    Text("screens.components.chips.filter.description")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, ODSSpacing.m)
+
+                    ChipPickerContainer(placement: .stacked, values: foods) { food in
+                        chip(for: food)
+                    }
+                    .disabled(!model.showEnabled)
                 }
-                .disabled(!model.showEnabled)
+                .padding(.top, ODSSpacing.m)
             }
-            .padding(.top, ODSSpacing.m)
         } options: {
             FilterChipVariantOptions(model: model)
         }

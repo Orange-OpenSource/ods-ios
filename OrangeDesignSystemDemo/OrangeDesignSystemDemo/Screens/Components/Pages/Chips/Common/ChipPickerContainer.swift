@@ -65,7 +65,7 @@ struct ChipPickerContainer<Value, ValueContent>: View where Value: Hashable, Val
             ZStack(alignment: .topLeading) {
                 ForEach(values, id: \.hashValue) { value in
                     valueContent(value)
-                        .padding(.all, 5)
+                        .padding(.all, ODSSpacing.xs)
                         .alignmentGuide(.leading) { dimension in
                             if abs(width - dimension.width) > geo.size.width {
                                 width = 0
@@ -91,7 +91,8 @@ struct ChipPickerContainer<Value, ValueContent>: View where Value: Hashable, Val
             }
         }
         .frame(height: lastHeight + ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.m)
+        .padding(.horizontal, ODSSpacing.xs)
+        .padding(.horizontal, ODSSpacing.s)
     }
 
     @ViewBuilder

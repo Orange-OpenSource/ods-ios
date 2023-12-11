@@ -225,9 +225,13 @@
 "screens.components.chips.state.enable" = "Enable";
 "screens.components.chips.state.selected" = "Selected";
 "screens.components.chips.variant.action" = "Action chips";
+"screens.components.chips.action.description" = "The user can initiate actions by tapping on a chip.";
 "screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.choice.description" = "The chips allow the user to select only one item within the proposed items.";
 "screens.components.chips.variant.filter" = "Filter chips";
+"screens.components.chips.filter.description" = "In a search by tags user can activated the chips upon will.";
 "screens.components.chips.variant.input" = "Input chips";
+"screens.components.chips.input.description" = "The user input searches are transformed into chips that can be added or deleted.";
 "screens.components.chips.variant.picker" = "Chips picker";
 "screens.components.chips.variant.chip.clicked" = "%@ : cliqué";
 "screens.components.chips.variant.input.remove_clicked" = "remove  clicked";

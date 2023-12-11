@@ -57,7 +57,10 @@ struct InputChipVariant: View {
         CustomizableVariant {
             Toastable(showText: $showText) {
                 ScrollView {
-                    HStack {
+                    VStack(alignment: .leading, spacing: ODSSpacing.m) {
+                        Text("screens.components.chips.input.description")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
                         ODSInputChip(
                             text: Text(food.name),
                             avatarSource: avatarSource(for: food),
@@ -68,12 +71,10 @@ struct InputChipVariant: View {
                                 showText = "screens.components.chips.variant.input.remove_clicked".🌐
                             })
                             .disabled(!model.showEnabled)
-
-                        Spacer()
                     }
                 }
+                .padding(.all, ODSSpacing.m)
             }
-            .padding(.all, ODSSpacing.m)
         } options: {
             InputChipVariantOptions(model: model)
         }

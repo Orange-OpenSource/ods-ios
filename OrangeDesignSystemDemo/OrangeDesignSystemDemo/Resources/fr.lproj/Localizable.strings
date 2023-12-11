@@ -225,13 +225,16 @@
 "screens.components.chips.state.enable" = "Activer";
 "screens.components.chips.state.selected" = "Selectionné";
 "screens.components.chips.variant.action" = "Action chips";
+"screens.components.chips.action.description" = "L'utilisateur peut effectuer une action en cliquant sur le chip.";
 "screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.choice.description" = "Les chips permettent  à l'utilisateur de selectionner un element parmis ceux proposés";
 "screens.components.chips.variant.filter" = "Filter chips";
+"screens.components.chips.filter.description" = "Lors d'une recherche par tags, l'utilisateur peut activer les chips souhaités.";
 "screens.components.chips.variant.input" = "Input chips";
+"screens.components.chips.input.description" = "Les recherches saisies par l'utilisateur sont transformées en chips qui peuvent être ajoutées ou supprimées.";
 "screens.components.chips.variant.picker" = "Chips picker";
 "screens.components.chips.variant.chip.clicked" = "%@ : cliqué";
 "screens.components.chips.variant.input.remove_clicked" = "suppression  cliqué";
-
 
 // ====================================
 // MARK: - Screens - Components - Lists

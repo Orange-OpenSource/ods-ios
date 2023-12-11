@@ -62,20 +62,12 @@ public struct ODSFilterChip: View {
 
     @ViewBuilder
     private var selectedLeading: some View {
-        if avatarSource == nil {
-            Image("iconsFunctionalUiEMIcFormTick", bundle: Bundle.ods)
-                .resizable()
-                .renderingMode(.template)
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.black)
-        } else {
-            Image("iconsFunctionalUiEMIcFormTick", bundle: Bundle.ods)
-                .resizable()
-                .renderingMode(.template)
-                .aspectRatio(contentMode: .fit)
-                .background(.black)
-                .foregroundColor(theme.componentColors.accent)
-        }
+        Image("iconsFunctionalUiEMIcFormTick", bundle: Bundle.ods)
+            .resizable()
+            .renderingMode(.template)
+            .aspectRatio(contentMode: .fit)
+            .background(avatarSource == nil ? .clear : .black)
+            .foregroundColor(avatarSource == nil ? .black : theme.componentColors.accent)
     }
 
     private var leadingTextPadding: CGFloat {

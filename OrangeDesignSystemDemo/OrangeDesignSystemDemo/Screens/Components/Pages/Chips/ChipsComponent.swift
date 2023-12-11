@@ -34,9 +34,19 @@ struct ChipsComponent: Component {
 struct ChipsVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: "screens.components.chips.variant.picker".🌐, technicalElement: "ODSChipPicker()") {
-            ChipPickerVariants(model: ChipsVariantModel())
-                .navigationTitle("screens.components.chips.variant.picker".🌐)
+//        VariantEntryItem(title: "screens.components.chips.variant.picker".🌐, technicalElement: "ODSChipPicker()") {
+//            ChipPickerVariants(model: ChipsVariantModel())
+//                .navigationTitle("screens.components.chips.variant.picker".🌐)
+//        }
+
+        VariantEntryItem(title: "screens.components.chips.variant.action".🌐, technicalElement: "ODSActionChip()") {
+            ActionChipVariant(model: ActionChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.action".🌐)
+        }
+
+        VariantEntryItem(title: "screens.components.chips.variant.input".🌐, technicalElement: "ODSInputChip()") {
+            InputChipVariant(model: InputChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.input".🌐)
         }
 
         VariantEntryItem(title: "screens.components.chips.variant.choice".🌐, technicalElement: "ODSChoiceChip()") {
@@ -44,18 +54,9 @@ struct ChipsVariants: View {
                 .navigationTitle("screens.components.chips.variant.choice".🌐)
         }
 
-        VariantEntryItem(title: "screens.components.chips.variant.action".🌐, technicalElement: "ODSActionChip()") {
-            ActionChipVariant(model: ActionChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.action".🌐)
-        }
-
         VariantEntryItem(title: "screens.components.chips.variant.filter".🌐, technicalElement: "ODSFilterChip()") {
             FilterChipVariant(model: FilterChipVariantModel())
                 .navigationTitle("screens.components.chips.variant.filter".🌐)
-        }
-        VariantEntryItem(title: "screens.components.chips.variant.input".🌐, technicalElement: "ODSInputChip()") {
-            InputChipVariant(model: InputChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.input".🌐)
         }
     }
 }
