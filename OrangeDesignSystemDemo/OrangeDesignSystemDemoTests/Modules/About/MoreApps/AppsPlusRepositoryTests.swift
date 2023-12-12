@@ -18,6 +18,23 @@ final class AppsPlusRepositoryTests: XCTestCase {
             MockResponse(httpCode: 500, data: Data())
         })
 
+        await assertForError()
+    }
+
+    func testCacheUsedIfTimeout() async {
+        // Given
+        MockURLMachine.setMock(mockHandler: { _ in
+            MockResponse(httpCode: 666, data: Data(), timeout: true)
+        })
+
+        await assertForError()
+    }
+
+    // ===============
+    // MARK: - Helpers
+    // ===============
+
+    private func assertForError() async {
         let urlSessionConfiguration = URLSessionConfiguration.default
         urlSessionConfiguration.protocolClasses?.insert(MockURLMachine.self, at: 0)
         let appsPlusRepository: MoreAppsRepositoryProtocol = AppsPlusRepository(feedURL: URL(string: "https://opensource.orange.com")!,
@@ -39,10 +56,6 @@ final class AppsPlusRepositoryTests: XCTestCase {
         XCTAssertTrue(appsList.apps[0].iconURL == URL(string: "https://appsplus-oma.apps-details.com/icons/cache.png"))
         XCTAssertTrue(appsList.apps[0].storeURL == URL(string: "https://itunes.apple.com/app/apple-store/cache"))
     }
-
-    // ===============
-    // MARK: - Helpers
-    // ===============
 
     private func readMockData() -> Data {
         let mockJsonPath = XCTestCase.stubPath(for: "AppsPlusCache", ofType: "json", inBundleOf: AppsPlusRepositoryTests.self)

@@ -41,17 +41,31 @@ struct MoreAppsView: View {
 
     @ViewBuilder
     private func loadedView(_ appsList: MoreAppsList) -> some View {
-        Text("===== APPS =====")
-        ForEach(appsList.apps, id: \.title) { app in
-            Text(app.title)
-        }
 
-        Text("===== SECTIONS =====")
-        ForEach(appsList.sections, id: \.description) { section in
-            Text(section.description)
-            ForEach(section.apps, id: \.title) { app in
-                Text(app.title)
-            }
-        }
+        Text("Bon appetit!")
+
+//        List {
+//            ForEach(appsList.apps, id: \.title) { app in
+//                NavigationLink {
+//                    Text("Bon appetit!")
+//                } label: {
+//                    ODSListItem(title: Text(app.title),
+//                                subtitle: app.description != nil ? Text(app.description!) : nil,
+//                                leading: app.iconURL != nil ? .circularImage(source: .asyncImage(app.iconURL!, Image("ods_empty"))) : nil)
+//                }
+//                // .odsListItemStyle()
+//            }
+//
+//            ForEach(appsList.sections, id: \.description) { section in
+//                NavigationLink {
+//                    Text("Bon appetit!")
+//                } label: {
+//                    ODSListItem(title: Text(section.description),
+//                                subtitle: nil)
+//                }
+//                // .odsListItemStyle()
+//            }
+//
+//        }.listStyle(.plain)
     }
 }
