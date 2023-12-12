@@ -43,7 +43,7 @@ private struct CapitalizedTextInputsVariant: View {
                 textField
                     .textInputAutocapitalization(model.selectedCapitalizationType.textInputAutocapitalization)
                     .odsTextFieldStyle()
-                    .id(model.selectedCapitalizationType.description)
+                    // TODO, why                   .id(model.selectedCapitalizationType.description)
                     .padding(.horizontal, ODSSpacing.s)
                     .padding(.top, ODSSpacing.m)
                     .focused($isFocused)
@@ -106,21 +106,21 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
             }
         }
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
-            case .never: return °°"screens.components.textfields.variants.inputs.never"
-            case .characters: return °°"screens.components.textfields.variants.inputs.characters"
-            case .words: return °°"screens.components.textfields.variants.inputs.words"
-            case .sentences: return °°"screens.components.textfields.variants.inputs.sentences"
+            case .never: return "screens.components.textfields.variants.inputs.never"
+            case .characters: return "screens.components.textfields.variants.inputs.characters"
+            case .words: return "screens.components.textfields.variants.inputs.words"
+            case .sentences: return "screens.components.textfields.variants.inputs.sentences"
             }
         }
 
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: description)
+        var element: ODSChoiceChipPicker<Self>.Element {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
+        static var elements: [ODSChoiceChipPicker<Self>.Element] {
+            Self.allCases.map { $0.element }
         }
     }
 
@@ -191,9 +191,10 @@ private struct CapitalizedTextInputsVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
-            ODSChipPicker(title: °°"screens.components.textfields.variants.inputs.options.capitalization",
-                          selection: $model.selectedCapitalizationType,
-                          chips: CapitalizedTextInputsVariantModel.CapitalizationType.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.textfields.variants.inputs.options.capitalization"),
+                elements: CapitalizedTextInputsVariantModel.CapitalizationType.elements,
+                selection: $model.selectedCapitalizationType)
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)

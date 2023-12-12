@@ -99,25 +99,25 @@ class AboutModuleModel: ObservableObject {
         case share
         case feedback
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
             case .version:
-                return °°"screens.about.app_information.option_description.version"
+                return "screens.about.app_information.option_description.version"
             case .description:
-                return °°"screens.about.app_information.option_description.description"
+                return "screens.about.app_information.option_description.description"
             case .share:
-                return °°"screens.about.app_information.option_description.share"
+                return "screens.about.app_information.option_description.share"
             case .feedback:
-                return °°"screens.about.app_information.option_description.feedback"
+                return "screens.about.app_information.option_description.feedback"
             }
         }
 
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: description)
+        var element: ODSFilterChipPcicker<Self>.Element {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
+        static var elements: [ODSFilterChipPcicker<Self>.Element] {
+            Self.allCases.map { $0.element }
         }
     }
 
@@ -130,23 +130,23 @@ class AboutModuleModel: ObservableObject {
         case legalInformation
         case rateTheApp
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
             case .appNews:
-                return °°"screens.about.app_information.option_description.app_news"
+                return "screens.about.app_information.option_description.app_news"
             case .legalInformation:
-                return °°"screens.about.app_information.option_description.legal_information"
+                return "screens.about.app_information.option_description.legal_information"
             case .rateTheApp:
-                return °°"screens.about.app_information.option_description.rate"
+                return "screens.about.app_information.option_description.rate"
             }
         }
 
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: description)
+        var element: ODSFilterChipPcicker<Self>.Element {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
+        static var elements: [ODSFilterChipPcicker<Self>.Element] {
+            Self.allCases.map { $0.element }
         }
     }
 }

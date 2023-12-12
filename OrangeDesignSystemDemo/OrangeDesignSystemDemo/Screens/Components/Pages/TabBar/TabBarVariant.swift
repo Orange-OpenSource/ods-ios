@@ -129,9 +129,10 @@ struct TabBarVariantOptions: View {
             .padding(.horizontal, ODSSpacing.m)
             .odsFont(.bodyLBold)
 
-            ODSChipPicker(title: °°"screens.components.bars.tabs.options_picker.hint",
-                          selection: $model.badgeOption,
-                          chips: TabBarVariantModel.BadgeOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.bars.tabs.options_picker.hint"),
+                elements: TabBarVariantModel.BadgeOption.elements,
+                selection: $model.badgeOption)
         }
         .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
@@ -218,23 +219,23 @@ class TabBarVariantModel: ObservableObject {
         case count
         case text
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
             case .none:
-                return °°"shared.none"
+                return "shared.none"
             case .count:
-                return °°"screens.components.bars.tabs.badge.description.count"
+                return "screens.components.bars.tabs.badge.description.count"
             case .text:
-                return °°"shared.text"
+                return "shared.text"
             }
         }
 
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: description)
+        var element: ODSChoiceChipPicker<Self>.Element {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
+        static var elements: [ODSChoiceChipPicker<Self>.Element] {
+            Self.allCases.map { $0.element }
         }
     }
 }

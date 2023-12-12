@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */; };
-		074CB4CF2B20B26900D7AD54 /* ChipPickerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB4CE2B20B26900D7AD54 /* ChipPickerContainer.swift */; };
 		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		077B673C2AE1500F0008C32B /* LeadingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B673B2AE1500F0008C32B /* LeadingOption.swift */; };
@@ -47,7 +46,6 @@
 		077C385C2A9DDC79003D6B51 /* ProgressIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38082A9DDC79003D6B51 /* ProgressIndicatorComponent.swift */; };
 		077C385D2A9DDC79003D6B51 /* ActivityIndicatorVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38092A9DDC79003D6B51 /* ActivityIndicatorVariant.swift */; };
 		077C385E2A9DDC79003D6B51 /* ChipsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */; };
-		077C385F2A9DDC79003D6B51 /* ChipsComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */; };
 		077C38602A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380E2A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift */; };
 		077C38612A9DDC79003D6B51 /* CardExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380F2A9DDC79003D6B51 /* CardExampleData.swift */; };
 		077C38622A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38102A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift */; };
@@ -103,11 +101,11 @@
 		079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
 		07B1A09C2B1E191F00ABF0A1 /* InputChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */; };
+		07B543E72B289B2100A2B6ED /* ListItemSelectionVariantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B543E62B289B2000A2B6ED /* ListItemSelectionVariantModel.swift */; };
 		07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */; };
-		07B94DEB2AD9239700AAD1A5 /* ListItemVariantStandardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */; };
+		07B94DEB2AD9239700AAD1A5 /* ListItemStandardVariantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemStandardVariantModel.swift */; };
 		07B94E0B2AD98D7900AAD1A5 /* ListItemStandardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */; };
 		07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */; };
-		07B94E0E2AD9904900AAD1A5 /* ListItemVaraintSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */; };
 		07B94E0F2AD9908300AAD1A5 /* ListItemSelectionVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */; };
 		07BDEA932B150263005574A2 /* ActionChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDEA922B150263005574A2 /* ActionChipsVariant.swift */; };
 		07C3C7FC2AE7E4E000833957 /* ListModuleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */; };
@@ -154,7 +152,6 @@
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceChipsVariant.swift; sourceTree = "<group>"; };
-		074CB4CE2B20B26900D7AD54 /* ChipPickerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipPickerContainer.swift; sourceTree = "<group>"; };
 		075326832AD45610003D8832 /* GridOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridOfSmallCards.swift; sourceTree = "<group>"; };
 		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		077B673B2AE1500F0008C32B /* LeadingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingOption.swift; sourceTree = "<group>"; };
@@ -186,7 +183,6 @@
 		077C38082A9DDC79003D6B51 /* ProgressIndicatorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorComponent.swift; sourceTree = "<group>"; };
 		077C38092A9DDC79003D6B51 /* ActivityIndicatorVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorVariant.swift; sourceTree = "<group>"; };
 		077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipsComponent.swift; sourceTree = "<group>"; };
-		077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipsComponentModel.swift; sourceTree = "<group>"; };
 		077C380E2A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardVerticalHeaderFirstVariant.swift; sourceTree = "<group>"; };
 		077C380F2A9DDC79003D6B51 /* CardExampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardExampleData.swift; sourceTree = "<group>"; };
 		077C38102A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardVerticalImageFirstVariant.swift; sourceTree = "<group>"; };
@@ -242,12 +238,12 @@
 		07B030592AB0B454001764E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		07B0305A2AB0B4A9001764E7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
 		07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChipsVariant.swift; sourceTree = "<group>"; };
+		07B543E62B289B2000A2B6ED /* ListItemSelectionVariantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantModel.swift; sourceTree = "<group>"; };
 		07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariantOptions.swift; sourceTree = "<group>"; };
-		07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemVariantStandardModel.swift; sourceTree = "<group>"; };
+		07B94DE92AD9239700AAD1A5 /* ListItemStandardVariantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariantModel.swift; sourceTree = "<group>"; };
 		07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariant.swift; sourceTree = "<group>"; };
 		07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantOptions.swift; sourceTree = "<group>"; };
 		07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariant.swift; sourceTree = "<group>"; };
-		07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemVaraintSelectionModel.swift; sourceTree = "<group>"; };
 		07BDEA922B150263005574A2 /* ActionChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionChipsVariant.swift; sourceTree = "<group>"; };
 		07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleDataModel.swift; sourceTree = "<group>"; };
 		07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleOptionsModel.swift; sourceTree = "<group>"; };
@@ -328,14 +324,6 @@
 				07210C482A8FAD1500507988 /* Fastfile */,
 			);
 			name = Fastlane;
-			sourceTree = "<group>";
-		};
-		074CB4CD2B20B23700D7AD54 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				074CB4CE2B20B26900D7AD54 /* ChipPickerContainer.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		0753267E2AD00137003D8832 /* CardListAndCollection */ = {
@@ -488,9 +476,7 @@
 		077C380A2A9DDC79003D6B51 /* Chips */ = {
 			isa = PBXGroup;
 			children = (
-				074CB4CD2B20B23700D7AD54 /* Common */,
 				077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */,
-				077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */,
 				072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */,
 				07BDEA922B150263005574A2 /* ActionChipsVariant.swift */,
 				0786F7412B1649F100299A75 /* FilterChipVariant.swift */,
@@ -746,9 +732,9 @@
 		07B94E062AD9890900AAD1A5 /* StandardVariant */ = {
 			isa = PBXGroup;
 			children = (
-				07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */,
 				07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */,
-				07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */,
+				07B94DE92AD9239700AAD1A5 /* ListItemStandardVariantModel.swift */,
+				07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */,
 			);
 			path = StandardVariant;
 			sourceTree = "<group>";
@@ -756,9 +742,9 @@
 		07B94E072AD9891E00AAD1A5 /* SelectionVariant */ = {
 			isa = PBXGroup;
 			children = (
-				07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */,
 				07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */,
-				07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */,
+				07B543E62B289B2000A2B6ED /* ListItemSelectionVariantModel.swift */,
+				07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */,
 			);
 			path = SelectionVariant;
 			sourceTree = "<group>";
@@ -1154,11 +1140,10 @@
 				077C38522A9DDC79003D6B51 /* SecureVariant.swift in Sources */,
 				0786F7422B1649F100299A75 /* FilterChipVariant.swift in Sources */,
 				077C38642A9DDC79003D6B51 /* CardSmallVariant.swift in Sources */,
-				07B94E0E2AD9904900AAD1A5 /* ListItemVaraintSelectionModel.swift in Sources */,
 				077C38662A9DDC79003D6B51 /* ToolBarVariantOptions.swift in Sources */,
 				077C38652A9DDC79003D6B51 /* CardComponent.swift in Sources */,
 				077C385B2A9DDC79003D6B51 /* ProgressBarVariant.swift in Sources */,
-				07B94DEB2AD9239700AAD1A5 /* ListItemVariantStandardModel.swift in Sources */,
+				07B94DEB2AD9239700AAD1A5 /* ListItemStandardVariantModel.swift in Sources */,
 				077C38862A9DDC79003D6B51 /* AboutModuleModel.swift in Sources */,
 				077C387C2A9DDC79003D6B51 /* ColorIllustration.swift in Sources */,
 				077C38782A9DDC79003D6B51 /* ColorsPage.swift in Sources */,
@@ -1166,7 +1151,6 @@
 				077C38482A9DDC79003D6B51 /* AboutSceen.swift in Sources */,
 				077C38672A9DDC79003D6B51 /* ToolBarComponent.swift in Sources */,
 				077C38812A9DDC79003D6B51 /* SpacingsGuideline.swift in Sources */,
-				074CB4CF2B20B26900D7AD54 /* ChipPickerContainer.swift in Sources */,
 				077C38852A9DDC79003D6B51 /* AboutMyReviewsItemConfiguration.swift in Sources */,
 				077C387A2A9DDC79003D6B51 /* ODSColors+extension.swift in Sources */,
 				077C38732A9DDC79003D6B51 /* SlidersVariant.swift in Sources */,
@@ -1201,7 +1185,6 @@
 				077C38872A9DDC79003D6B51 /* ModulesList.swift in Sources */,
 				077C38712A9DDC79003D6B51 /* BottomSheetStandardVariant.swift in Sources */,
 				077C384B2A9DDC79003D6B51 /* ComponentPage.swift in Sources */,
-				077C385F2A9DDC79003D6B51 /* ChipsComponentModel.swift in Sources */,
 				072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */,
 				07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */,
 				077C38772A9DDC79003D6B51 /* GuidelinesList.swift in Sources */,
@@ -1219,6 +1202,7 @@
 				077C38692A9DDC79003D6B51 /* TabBarComponent.swift in Sources */,
 				07E4C8692AE7BC8E00FB4DAC /* ListModuleOptions.swift in Sources */,
 				077C387E2A9DDC79003D6B51 /* ColorsGuideline.swift in Sources */,
+				07B543E72B289B2100A2B6ED /* ListItemSelectionVariantModel.swift in Sources */,
 				077C386F2A9DDC79003D6B51 /* BottomSheetExpandingVariant.swift in Sources */,
 				077C385C2A9DDC79003D6B51 /* ProgressIndicatorComponent.swift in Sources */,
 				07B94E0B2AD98D7900AAD1A5 /* ListItemStandardVariant.swift in Sources */,

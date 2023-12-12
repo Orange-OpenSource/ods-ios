@@ -16,7 +16,7 @@ enum ListStyleOption: Int, CaseIterable {
     case insetGrouped
     case sidebar
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .plain:
             return "screens.modules.lists.options.style.plain"
@@ -31,12 +31,12 @@ enum ListStyleOption: Int, CaseIterable {
         }
     }
 
-    var chip: ODSChip<Self> {
-        ODSChip(self, text: description.🌐)
+    var element: ODSChoiceChipPicker<Self>.Element {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
-        Self.allCases.map { $0.chip }
+    static var elemnts: [ODSChoiceChipPicker<Self>.Element] {
+        Self.allCases.map { $0.element }
     }
 }
 

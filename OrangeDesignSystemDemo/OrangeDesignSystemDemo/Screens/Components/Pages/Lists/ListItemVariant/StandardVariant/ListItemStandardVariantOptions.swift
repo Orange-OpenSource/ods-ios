@@ -29,15 +29,17 @@ struct ListItemStandardVariantOptions: View {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: °°"shared.leading",
-                          selection: $model.leadingOption,
-                          chips: LeadingOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("shared.leading"),
+                elements: LeadingOption.elements,
+                selection: $model.leadingOption)
                 .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: °°"shared.trailing",
-                          selection: $model.trailingOptions,
-                          allowZeroSelection: true,
-                          chips: StandardTrailingOption.chips)
+            ODSFilterChipPcicker(
+                title: Text("shared.trailing"),
+                elements: StandardTrailingOption.elements,
+                selection: $model.trailingOptions,
+                placement: .carousel)
                 .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.navigate) {

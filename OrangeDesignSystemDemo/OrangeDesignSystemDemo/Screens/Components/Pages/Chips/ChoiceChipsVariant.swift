@@ -46,12 +46,12 @@ struct ChoiceChipVariant: View {
                         .padding(.horizontal, ODSSpacing.m)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    ChipPickerContainer(title: nil, placement: .stacked, values: foods) { food in
-                        ODSChoiceChip(text: Text(food.name), isSelected: food == selectedFood) {
-                            selectedFood = food
-                        }
-                    }
-                    .disabled(!model.showEnabled)
+                    ODSChoiceChipPicker(
+                        elements: foods.map {
+                            .init(text: Text($0.name), value: $0)
+                        },
+                        selection: $selectedFood)
+                        .disabled(!model.showEnabled)
                 }
                 .padding(.vertical, ODSSpacing.m)
             }

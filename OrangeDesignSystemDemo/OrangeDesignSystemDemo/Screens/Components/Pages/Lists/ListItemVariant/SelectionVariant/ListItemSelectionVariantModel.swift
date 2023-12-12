@@ -13,21 +13,21 @@ enum SelectionTrailingOption: CaseIterable {
     case toggle
     case checkmark
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .toggle:
-            return °°"screens.components.lists.selection.description.switch"
+            return "screens.components.lists.selection.description.switch"
         case .checkmark:
-            return °°"screens.components.lists.selection.description.checkmark"
+            return "screens.components.lists.selection.description.checkmark"
         }
     }
 
-    private var chip: ODSChip<Self> {
-        ODSChip(self, text: description)
+    private var element: ODSChoiceChipPicker<Self>.Element {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
-        Self.allCases.map { $0.chip }
+    static var elements: [ODSChoiceChipPicker<Self>.Element] {
+        Self.allCases.map { $0.element }
     }
 }
 

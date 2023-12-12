@@ -91,6 +91,8 @@ struct ChipButtoonStyle: ButtonStyle {
         if configuration.isPressed {
             configuration
                 .label
+                .multilineTextAlignment(.center)
+                .lineLimit(10)
                 .foregroundColor(Color(UIColor.label))
                 .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
                 .padding(.all, 1)

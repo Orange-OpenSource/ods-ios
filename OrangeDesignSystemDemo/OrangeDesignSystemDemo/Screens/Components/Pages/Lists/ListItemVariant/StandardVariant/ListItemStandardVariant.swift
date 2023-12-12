@@ -48,7 +48,7 @@ private struct ListItemStandardVariantInner: View {
         List {
             if model.navigate {
                 NavigationLink {
-                    Text("Bon appetit!")
+                    Text("shared.bon_app")
                 } label: {
                     listItem
                 }
@@ -60,8 +60,8 @@ private struct ListItemStandardVariantInner: View {
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Information icon tapped! Bon appétit", isPresented: $showAlert) {
-            Button("close", role: .cancel) {}
+        .alert("screens.components.lists.alert", isPresented: $showAlert) {
+            Button("shared.close", role: .cancel) {}
         }
     }
 
@@ -80,7 +80,7 @@ private struct ListItemStandardVariantInner: View {
                 title: title,
                 subtitle: subtitle,
                 leading: leading,
-                trailingText: Text("Details"))
+                trailingText: Text("screens.components.list.details"))
             {
                 iButtonAction()
             }
@@ -89,7 +89,7 @@ private struct ListItemStandardVariantInner: View {
                 title: title,
                 subtitle: subtitle,
                 leading: leading,
-                trailingText: Text("Details"))
+                trailingText: Text("screens.components.list.details"))
 
         case (false, true):
             ODSListItem(

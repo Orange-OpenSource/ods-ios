@@ -25,6 +25,10 @@ class FilterChipVariantModel: ObservableObject {
             case .avatar: return "Avatar"
             }
         }
+
+        var element: ODSChoiceChipPicker<Self>.Element {
+            ODSChoiceChipPicker.Element(text: Text(description), value: self)
+        }
     }
 }
 
@@ -60,10 +64,14 @@ struct FilterChipVariant: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, ODSSpacing.m)
 
-                    ChipPickerContainer(placement: .stacked, values: foods) { food in
-                        chip(for: food)
-                    }
-                    .disabled(!model.showEnabled)
+                    ODSFilterChipPcicker(
+                        elements: foods.map { food in
+                            .init(text: Text(food.name),
+                                  avatarSource: leading(for: food),
+                                  value: food)
+                        },
+                        selection: $selectedFoods)
+                        .disabled(!model.showEnabled)
                 }
                 .padding(.top, ODSSpacing.m)
             }
@@ -79,22 +87,6 @@ struct FilterChipVariant: View {
             return nil
         }
     }
-
-    func chip(for food: Food) -> some View {
-        let index = selectedFoods.firstIndex(of: food)
-
-        return ODSFilterChip(
-            text: Text(food.name),
-            avatarSource: leading(for: food),
-            isSelected: index == nil)
-        {
-            if let index = index {
-                selectedFoods.remove(at: index)
-            } else {
-                selectedFoods.append(food)
-            }
-        }
-    }
 }
 
 struct FilterChipVariantOptions: View {
@@ -104,6 +96,7 @@ struct FilterChipVariantOptions: View {
     // =======================
 
     @ObservedObject var model: FilterChipVariantModel
+    let leadingElements = FilterChipVariantModel.LeadingElement.allCases
 
     // ==========
     // MARK: Body
@@ -111,15 +104,13 @@ struct FilterChipVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ChipPickerContainer(
+            ODSChoiceChipPicker(
                 title: Text("shared.leading"),
-                placement: .carousel,
-                values: FilterChipVariantModel.LeadingElement.allCases)
-            { leadingElement in
-                ODSChoiceChip(text: Text(leadingElement.description), isSelected: model.leadingElement == leadingElement) {
-                    model.leadingElement = leadingElement
-                }
-            }
+                elements: leadingElements.map {
+                    .init(text: Text($0.description), value: $0)
+                },
+                selection: $model.leadingElement,
+                placement: .carousel)
 
             Toggle("shared.enabled", isOn: $model.showEnabled)
                 .padding(.horizontal, ODSSpacing.m)

@@ -7,6 +7,7 @@
 //
 
 import OrangeDesignSystem
+import SwiftUI
 
 // =============
 // MARK: Options
@@ -19,26 +20,26 @@ enum LeadingOption: Int, CaseIterable {
     case wide
     case square
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .none:
-            return °°"shared.none"
+            return "shared.none"
         case .icon:
-            return °°"shared.icon"
+            return "shared.icon"
         case .circle:
-            return °°"shared.circle"
+            return "shared.circle"
         case .wide:
-            return °°"shared.wide"
+            return "shared.wide"
         case .square:
-            return °°"shared.square"
+            return "shared.square"
         }
     }
 
-    var chip: ODSChip<Self> {
-        ODSChip(self, text: description)
+    var element: ODSChoiceChipPicker<Self>.Element {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
-        Self.allCases.map { $0.chip }
+    static var elements: [ODSChoiceChipPicker<Self>.Element] {
+        Self.allCases.map { $0.element }
     }
 }

@@ -100,19 +100,19 @@ class NavigationBarVariantModel: ObservableObject {
             }
         }
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
-            case .standard: return °°"screens.components.bars.navigation.standard_title.hint"
-            case .large: return °°"screens.components.bars.navigation.large_title.hint"
+            case .standard: return "screens.components.bars.navigation.standard_title.hint"
+            case .large: return "screens.components.bars.navigation.large_title.hint"
             }
         }
 
-        var chip: ODSChip<TitleSize> {
-            ODSChip(self, text: description)
+        var element: ODSChoiceChipPicker<Self>.Element {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
+        static var elemens: [ODSChoiceChipPicker<Self>.Element] {
+            Self.allCases.map { $0.element }
         }
     }
 
@@ -145,9 +145,11 @@ struct NavigationBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: °°"screens.components.bars.navigation.size.hint",
-                          selection: $model.titleSize,
-                          chips: NavigationBarVariantModel.TitleSize.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.bars.navigation.size.hint"),
+                elements: NavigationBarVariantModel.TitleSize.elemens,
+                selection: $model.titleSize)
+
             Group {
                 Toggle("screens.components.bars.navigation.back_button.hint", isOn: $model.showBackButton)
 

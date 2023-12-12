@@ -38,21 +38,21 @@ class ToolBarVariantModel: ObservableObject {
         case label
         case icon
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
             case .label:
-                return °°"shared.label"
+                return "shared.label"
             case .icon:
-                return °°"shared.icon"
+                return "shared.icon"
             }
         }
 
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: description)
+        var element: ODSChoiceChipPicker<Self>.Element {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
-            Self.allCases.map { $0.chip }
+        static var elements: [ODSChoiceChipPicker<Self>.Element] {
+            Self.allCases.map { $0.element }
         }
     }
 
@@ -151,9 +151,10 @@ struct ToolBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: °°"screens.components.bars.tools.picker_hint",
-                          selection: $model.itemType,
-                          chips: ToolBarVariantModel.ItemType.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.bars.tools.picker_hint"),
+                elements: ToolBarVariantModel.ItemType.elements,
+                selection: $model.itemType)
 
             switch model.itemType {
             case .label:

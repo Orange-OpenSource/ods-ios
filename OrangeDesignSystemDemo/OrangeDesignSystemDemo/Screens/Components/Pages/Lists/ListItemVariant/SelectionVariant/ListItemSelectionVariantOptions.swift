@@ -29,14 +29,16 @@ struct ListItemSelectionVariantOptions: View {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: °°"shared.leading",
-                          selection: $model.leadingOption,
-                          chips: LeadingOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("shared.leading"),
+                elements: LeadingOption.elements,
+                selection: $model.leadingOption)
                 .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: °°"shared.trailing",
-                          selection: $model.trailingOption,
-                          chips: SelectionTrailingOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("shared.trailing"),
+                elements: SelectionTrailingOption.elements,
+                selection: $model.trailingOption)
                 .padding(.vertical, ODSSpacing.s)
         }
         .padding(.top, ODSSpacing.s)

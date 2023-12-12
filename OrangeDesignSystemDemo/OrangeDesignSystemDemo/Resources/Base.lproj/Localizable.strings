@@ -36,6 +36,7 @@
 "shared.recipes" = "Recipes";
 "shared.foods" = "Foods";
 "shared.loading" = "Loading\U2026";
+"shared.bon_app" = "Bon appétit !";
 
 // =====================
 // MARK: - Miscellaneous
@@ -218,12 +219,6 @@
 
 "screens.components.chips.title" = "Chips";
 "screens.components.chips.description" = "Chips are small components containing a number of elements that represent a calendar event or contact.";
-"screens.components.chips.text_only" = "Text only";
-"screens.components.chips.with_icon" = "With icon from image";
-"screens.components.chips.with_system_icon" = "With system icon";
-"screens.components.chips.with_avatar" = "With avatar";
-"screens.components.chips.state.enable" = "Enable";
-"screens.components.chips.state.selected" = "Selected";
 "screens.components.chips.variant.action" = "Action chips";
 "screens.components.chips.action.description" = "The user can initiate actions by tapping on a chip.";
 "screens.components.chips.variant.choice" = "Choice chips";
@@ -247,7 +242,6 @@
 "screens.components.lists.picker.navigate" = "Navigate";
 "screens.components.lists.selection.description.checkmark" = "checkmark";
 "screens.components.lists.selection.description.switch" = "Switch";
-"screens.components.lists.variant.clicked" = "%@ is clicked";
 "screens.components.lists.alert" = "Information icon tapped! Bon appétit";
 "screens.components.lists.options.description.info_button" = "Info button";
 "screens.components.list.details" = "Details";
@@ -274,6 +268,8 @@
 "screens.components.bottom_sheets.description" = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task.";
 "screens.components.bottom_sheets.expanding" = "Expanding";
 "screens.components.bottom_sheets.standard" = "Standard";
+"screens.components.bottom_sheets.example" = "Example";
+"screens.components.bottom_sheets.tutorial" = "Tutorial";
 "screens.components.bottom_sheets.sample.title" = "Sheets: Bottom";
 "screens.components.bottom_sheets.sample.subtitle" = "French products";
 "screens.components.bottom_sheets.sample.recipe" = "Recipe";
@@ -343,7 +339,6 @@
 
 "screens.modules.card_collections.titles.list" = "List of cards";
 "screens.modules.card_collections.titles.grid" = "Grid of small cards";
-"screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
 
 // =================================
 // MARK: - Screens - Modules - Lists

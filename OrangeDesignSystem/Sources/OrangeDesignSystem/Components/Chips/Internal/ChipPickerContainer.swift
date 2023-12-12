@@ -6,13 +6,7 @@
 // This software is distributed under the MIT license.
 //
 
-import OrangeDesignSystem
 import SwiftUI
-
-enum ChipPickerPlacement {
-    case carousel
-    case stacked
-}
 
 struct ChipPickerContainer<Value, ValueContent>: View where Value: Hashable, ValueContent: View {
 
@@ -21,7 +15,7 @@ struct ChipPickerContainer<Value, ValueContent>: View where Value: Hashable, Val
     // =======================
 
     let title: Text?
-    let placement: ChipPickerPlacement
+    let placement: ODSChipPickerPlacement
     let values: [Value]
     @ViewBuilder
     let valueContent: (_ value: Value) -> ValueContent
@@ -30,7 +24,7 @@ struct ChipPickerContainer<Value, ValueContent>: View where Value: Hashable, Val
     // MARK: Initializer
     // =================
 
-    init(title: Text? = nil, placement: ChipPickerPlacement, values: [Value], @ViewBuilder valueContent: @escaping (Value) -> ValueContent) {
+    init(title: Text? = nil, placement: ODSChipPickerPlacement, values: [Value], @ViewBuilder valueContent: @escaping (Value) -> ValueContent) {
         self.title = title
         self.placement = placement
         self.values = values
@@ -42,8 +36,9 @@ struct ChipPickerContainer<Value, ValueContent>: View where Value: Hashable, Val
     // ==========
 
     var body: some View {
-        VStack(spacing: ODSSpacing.xs) {
+        VStack(spacing: ODSSpacing.s) {
             title?
+                .odsFont(.bodyBold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, ODSSpacing.m)
             switch placement {

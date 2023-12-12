@@ -100,6 +100,7 @@ struct InputChipVariantOptions: View {
     // =======================
 
     @ObservedObject var model: InputChipVariantModel
+    let leadingElement = InputChipVariantModel.LeadingElement.allCases
 
     // ==========
     // MARK: Body
@@ -107,24 +108,19 @@ struct InputChipVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ChipPickerContainer(
+
+            ODSChoiceChipPicker(
                 title: Text("shared.leading"),
-                placement: .carousel,
-                values: InputChipVariantModel.LeadingElement.allCases)
-            {
-                chip(for: $0)
-            }
+                elements: leadingElement.map {
+                    .init(text: Text($0.description), value: $0)
+                },
+                selection: $model.leadingElement,
+                placement: .carousel)
 
             Toggle("shared.enabled", isOn: $model.showEnabled)
                 .padding(.horizontal, ODSSpacing.m)
         }
         .padding(.vertical, ODSSpacing.s)
         .odsFont(.bodyBold)
-    }
-
-    func chip(for leadingElement: InputChipVariantModel.LeadingElement) -> some View {
-        ODSChoiceChip(text: Text(leadingElement.description), isSelected: leadingElement == model.leadingElement) {
-            model.leadingElement = leadingElement
-        }
     }
 }

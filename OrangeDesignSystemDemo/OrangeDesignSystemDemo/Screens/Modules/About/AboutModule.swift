@@ -54,19 +54,18 @@ struct AboutSetup: View {
 
                 Text("screens.modules.about.mandatory")
 
-                ODSChipPicker(
-                    title: °°"screens.modules.about.picker.app_section",
-                    selection: $model.applicationSectionOptions,
-                    allowZeroSelection: true,
-                    chips: AboutModuleModel.ApplicationInformationOption.chips)
+                ODSFilterChipPcicker(
+                    title: Text("screens.modules.about.picker.app_section"),
+                    elements: AboutModuleModel.ApplicationInformationOption.elements,
+                    selection: $model.applicationSectionOptions)
                     .padding(.vertical, ODSSpacing.m)
                     .padding(.horizontal, -ODSSpacing.m)
 
-                ODSChipPicker(
-                    title: °°"screens.modules.about.picker.optional_about_items",
+                ODSFilterChipPcicker(
+                    title: Text("screens.modules.about.picker.optional_about_items"),
+                    elements: AboutModuleModel.OptionalAboutItem.elements,
                     selection: $model.optionalAboutItems,
-                    allowZeroSelection: true,
-                    chips: AboutModuleModel.OptionalAboutItem.chips)
+                    placement: .carousel)
                     .padding(.vertical, ODSSpacing.s)
                     .padding(.horizontal, -ODSSpacing.m)
 
