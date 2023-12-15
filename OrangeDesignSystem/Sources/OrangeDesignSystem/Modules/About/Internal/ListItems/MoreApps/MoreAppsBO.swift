@@ -32,6 +32,8 @@ struct MoreAppsSection {
     let apps: [MoreAppsAppDetails]
 }
 
+extension MoreAppsSection: Hashable {}
+
 // =============================
 // MARK: - More Apps App Details
 // =============================
@@ -47,6 +49,8 @@ struct MoreAppsAppDetails {
     /// Link to use to redirect the user to the app through the App Store
     let storeURL: URL?
 }
+
+extension MoreAppsAppDetails: Hashable {}
 
 // ================================
 // MARK: - More Apps Service Errors

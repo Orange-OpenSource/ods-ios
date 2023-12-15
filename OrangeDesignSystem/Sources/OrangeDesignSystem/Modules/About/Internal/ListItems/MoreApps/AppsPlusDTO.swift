@@ -26,7 +26,7 @@ enum AppsPlusDataTypeDTO: String, Decodable {
 /// Data transfer object for root object sent by _AppsPlus_ backend
 struct AppsPlusDTO: Decodable {
     let items: [AppsPlusListDTO]
-    
+
     enum CodingKeys: String, CodingKey {
         case items
     }
@@ -40,19 +40,19 @@ struct AppsPlusDTO: Decodable {
 struct AppsPlusListDTO: Decodable {
     let type: AppsPlusDataTypeDTO
     let children: [Decodable]
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case children
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decode(AppsPlusDataTypeDTO.self, forKey: .type)
-        
+
         var childrenContainer = try container.nestedUnkeyedContainer(forKey: .children)
         var decodedChildren: [Decodable] = []
-        
+
         while !childrenContainer.isAtEnd {
             if let appInfo = try? childrenContainer.decode(AppsPlusAppDetailsDTO.self) {
                 decodedChildren.append(appInfo)
@@ -60,18 +60,18 @@ struct AppsPlusListDTO: Decodable {
                 decodedChildren.append(sectionInfo)
             }
         }
-        
+
         children = decodedChildren
     }
 }
 
 // swiftlint:disable force_cast
 extension AppsPlusListDTO {
-    
+
     var apps: [AppsPlusAppDetailsDTO] {
         children.filter { $0 is AppsPlusAppDetailsDTO }.map { $0 as! AppsPlusAppDetailsDTO }
     }
-    
+
     var sections: [AppsPlusSectionDTO] {
         children.filter { $0 is AppsPlusSectionDTO }.map { $0 as! AppsPlusSectionDTO }
     }
@@ -88,7 +88,7 @@ struct AppsPlusSectionDTO: Decodable {
     let type: AppsPlusDataTypeDTO
     let description: String
     let apps: [AppsPlusAppDetailsDTO]
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case description
@@ -107,7 +107,7 @@ struct AppsPlusAppDetailsDTO: Decodable {
     let iconURL: String
     let description: String
     let storeLink: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case title
@@ -123,20 +123,20 @@ struct AppsPlusAppDetailsDTO: Decodable {
 
 /// Helps to convert _data transfert objects_ picked from _AppsPlus_ backend to _business objects_ for the ODS modules.
 struct AppsPlusMoreAppsMapper {
-    
+
     func appsSections(from appsList: AppsPlusListDTO) -> [MoreAppsSection] {
         appsList.sections.map { appsSection(from: $0) }
     }
-    
+
     func appsDetails(from appsList: AppsPlusListDTO) -> [MoreAppsAppDetails] {
         appsList.apps.map { appDetails(from: $0) }
     }
-    
+
     func appsSection(from section: AppsPlusSectionDTO) -> MoreAppsSection {
         MoreAppsSection(description: section.description,
                         apps: section.apps.map { appDetails(from: $0) })
     }
-    
+
     func appDetails(from details: AppsPlusAppDetailsDTO) -> MoreAppsAppDetails {
         MoreAppsAppDetails(title: details.title,
                            iconURL: URL(string: details.iconURL),
@@ -150,14 +150,14 @@ struct AppsPlusMoreAppsMapper {
 // ===========================
 
 struct AppsPlusRepository: MoreAppsRepositoryProtocol {
-    
+
     private let feedURL: URL
     private let urlSessionConfiguration: URLSessionConfiguration
-    
+
     // Store in user defaults because the ETag can vary times to times
     @UserDefaultsWrapper(key: "ODS_MoreApps_AppsPlus_lastResourceEtag", defaultValue: nil)
     private static var lastResourceEtag: String? // Static here to prevent to make calling methods "mutating"
-    
+
     /// Can return the `URL` of the file used as local cache (if network issues or errors in repository side when decoding or parsing)
     let localCacheLocation: URL? = {
         do {
@@ -169,24 +169,24 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             return nil
         }
     }()
-    
+
     init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
         self.feedURL = feedURL
         self.urlSessionConfiguration = urlSessionConfiguration
     }
-    
+
     /// Using some `URL` and  `URLSessionConfiguration` gets  `AppsPlusDTO` object from the _Apps Plus_ backend, parse it
     /// and returns a `MoreAppsList` with list of apps and sections of apps inside.
     /// The data got from the service is also saved in cache (local file) so as to be available if the device is offline or if some error occured.
     /// - Returns: The business object containing all apps and sections of apps
     /// - Throws: `Error.badConfigurationPrerequisites` if not possible to build the URL for the _Apps Plus_ backend.
     func availableAppsList() async throws -> MoreAppsList {
-        
+
         var request = URLRequest(url: feedURL)
         if let lastResourceEtag = Self.lastResourceEtag {
             request.addValue(lastResourceEtag, forHTTPHeaderField: "If-None-Match")
         }
-        
+
         /*
          Be cautious here because HTTP cache with ETag is used.
          So even if the backend returns a 304 status code, the `URLSession` sees it at 200 status code.
@@ -200,7 +200,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
         urlSessionConfiguration.timeoutIntervalForResource = 10 // 10 seconds are enough
         let urlSession = URLSession(configuration: urlSessionConfiguration)
         urlSession.sessionDescription = "ODS - MoreApps - AppsPlus Session" // Mainly for Instruments debuging
-        
+
         var appsPlusRawData: Data, response: URLResponse, httpResponse: HTTPURLResponse?
         var mustUpdateLocalCache = false
         do {
@@ -219,7 +219,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             }
             throw MoreAppsErrors.sessionError
         }
-        
+
         if let httpResponse = httpResponse {
             let reponseStatusCode = httpResponse.statusCode
             ODSLogger.debug("HTTP status code from AppsPlus backend: '\(reponseStatusCode)'")
@@ -232,7 +232,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
                 }
             }
         }
-        
+
         // Decode JSON payload
         var appsPlusAppsList: AppsPlusListDTO
         do {
@@ -246,10 +246,10 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             }
             throw MoreAppsErrors.jsonDecodingFailure
         }
-        
+
         // Operations on filesystem only if needed
         if mustUpdateLocalCache { cache(data: appsPlusRawData) }
-        
+
         let mapper = AppsPlusMoreAppsMapper()
         let odsApps = mapper.appsDetails(from: appsPlusAppsList)
         let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
@@ -257,11 +257,11 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
         ODSLogger.debug("Got data from AppsPlus service with \(odsApps.count) apps and \(odsAppsSections.count) sections")
         return moreAppsList
     }
-    
+
     // ==============
     // MARK: - Helper
     // ==============
-    
+
     /// Saves in a cache file the given `Data` picked from AppsPlus backend
     /// - Parameter payload: Data retrieved from `URLSession`
     private func cache(data payload: Data) {
@@ -280,7 +280,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             ODSLogger.error("(ノಥ,_｣ಥ)ノ彡┻━┻ Impossible to save on device the AppsPlus JSON file: '\(error.localizedDescription)'")
         }
     }
-    
+
     /// Returns from the cache directory the content previously picked from AppsPlus backend, or nil if error occured
     /// - Returns MoreAppsList.
     private func cachedMoreAppsList() -> MoreAppsList? {
@@ -296,7 +296,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             ODSLogger.error("Failed to read AppsPlus file content in cache: '\(error.localizedDescription)'")
             return nil
         }
-        
+
         // Decode file
         var appsPlusAppsList: AppsPlusListDTO
         do {
@@ -305,7 +305,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode AppsPlus JSON data in cache: '\(error.localizedDescription)'")
             return nil
         }
-        
+
         let mapper = AppsPlusMoreAppsMapper()
         let odsApps = mapper.appsDetails(from: appsPlusAppsList)
         let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
