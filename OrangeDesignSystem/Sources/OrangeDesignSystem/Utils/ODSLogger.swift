@@ -6,12 +6,12 @@
 // This software is distributed under the MIT license.
 //
 
-import os
 import Foundation
+import os
 
 /// Simple struct for logs in _Xcode_ outputs
 struct ODSLogger {
-    
+
     private init() {}
 
     private static let logger = Logger()
@@ -25,11 +25,11 @@ struct ODSLogger {
     static func log(_ message: String) {
         logger.log("\(prefix): \(message)")
     }
-    
+
     static func info(_ message: String) {
         logger.info("\(prefix):info: ℹ️ \(message)")
     }
-    
+
     static func warning(_ message: String) {
         logger.warning("\(prefix):warning: ⚠️ \(message)")
     }
