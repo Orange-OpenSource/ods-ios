@@ -115,12 +115,12 @@ private class CapitalizedTextInputsVariantModel: ObservableObject {
             }
         }
 
-        var element: ODSChoiceChipPicker<Self>.Element {
+        var chip: ODSChoiceChip<Self> {
             .init(text: Text(description), value: self)
         }
 
-        static var elements: [ODSChoiceChipPicker<Self>.Element] {
-            Self.allCases.map { $0.element }
+        static var chips: [ODSChoiceChip<Self>] {
+            Self.allCases.map { $0.chip }
         }
     }
 
@@ -193,7 +193,7 @@ private struct CapitalizedTextInputsVariantOptions: View {
         VStack(spacing: ODSSpacing.none) {
             ODSChoiceChipPicker(
                 title: Text("screens.components.textfields.variants.inputs.options.capitalization"),
-                elements: CapitalizedTextInputsVariantModel.CapitalizationType.elements,
+                chips: CapitalizedTextInputsVariantModel.CapitalizationType.chips,
                 selection: $model.selectedCapitalizationType)
                 .padding(.vertical, ODSSpacing.s)
         }

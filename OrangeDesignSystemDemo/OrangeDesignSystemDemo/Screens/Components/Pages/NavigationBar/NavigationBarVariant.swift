@@ -107,12 +107,12 @@ class NavigationBarVariantModel: ObservableObject {
             }
         }
 
-        var element: ODSChoiceChipPicker<Self>.Element {
+        var chip: ODSChoiceChip<Self> {
             .init(text: Text(description), value: self)
         }
 
-        static var elemens: [ODSChoiceChipPicker<Self>.Element] {
-            Self.allCases.map { $0.element }
+        static var elemens: [ODSChoiceChip<Self>] {
+            Self.allCases.map { $0.chip }
         }
     }
 
@@ -147,7 +147,7 @@ struct NavigationBarVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             ODSChoiceChipPicker(
                 title: Text("screens.components.bars.navigation.size.hint"),
-                elements: NavigationBarVariantModel.TitleSize.elemens,
+                chips: NavigationBarVariantModel.TitleSize.elemens,
                 selection: $model.titleSize)
 
             Group {

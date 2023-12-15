@@ -26,12 +26,12 @@ extension ODSCardHorizontal.ImagePosition: CaseIterable {
         }
     }
 
-    var element: ODSChoiceChipPicker<Self>.Element {
+    var chip: ODSChoiceChip<Self> {
         .init(text: Text(description), value: self)
     }
 
-    static var elements: [ODSChoiceChipPicker<Self>.Element] {
-        Self.allCases.map { $0.element }
+    static var chips: [ODSChoiceChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }
 
@@ -212,7 +212,7 @@ private struct CardHorizontalVariantOptions: View {
 
             ODSChoiceChipPicker(
                 title: Text("screens.components.card.picker.position"),
-                elements: ODSCardHorizontal.ImagePosition.elements,
+                chips: ODSCardHorizontal.ImagePosition.chips,
                 selection: $model.imagePosition)
 
             Toggle("screens.components.card.divider", isOn: $model.showDivider)

@@ -18,7 +18,7 @@ class FilterChipVariantModel: ObservableObject {
         case none
         case avatar
 
-        var description: String {
+        var description: LocalizedStringKey {
 
             switch self {
             case .none: return "None"
@@ -26,8 +26,12 @@ class FilterChipVariantModel: ObservableObject {
             }
         }
 
-        var element: ODSChoiceChipPicker<Self>.Element {
-            ODSChoiceChipPicker.Element(text: Text(description), value: self)
+        var chip: ODSChoiceChip<Self> {
+            .init(text: Text(description), value: self)
+        }
+
+        static var chips: [ODSChoiceChip<Self>] {
+            Self.allCases.map { $0.chip }
         }
     }
 }
@@ -64,11 +68,9 @@ struct FilterChipVariant: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, ODSSpacing.m)
 
-                    ODSFilterChipPcicker(
-                        elements: foods.map { food in
-                            .init(text: Text(food.name),
-                                  avatarSource: leading(for: food),
-                                  value: food)
+                    ODSFilterChipPicker(
+                        chips: foods.map { food in
+                            .init(text: Text(food.name), leading: leading(for: food), value: food)
                         },
                         selection: $selectedFoods)
                         .disabled(!model.showEnabled)
@@ -106,9 +108,7 @@ struct FilterChipVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             ODSChoiceChipPicker(
                 title: Text("shared.leading"),
-                elements: leadingElements.map {
-                    .init(text: Text($0.description), value: $0)
-                },
+                chips: leadingElements.map { .init(text: Text($0.description), value: $0) },
                 selection: $model.leadingElement,
                 placement: .carousel)
 

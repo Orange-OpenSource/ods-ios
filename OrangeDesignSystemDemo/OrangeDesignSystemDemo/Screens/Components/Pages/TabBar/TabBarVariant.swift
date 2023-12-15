@@ -131,7 +131,7 @@ struct TabBarVariantOptions: View {
 
             ODSChoiceChipPicker(
                 title: Text("screens.components.bars.tabs.options_picker.hint"),
-                elements: TabBarVariantModel.BadgeOption.elements,
+                chips: TabBarVariantModel.BadgeOption.chips,
                 selection: $model.badgeOption)
         }
         .odsFont(.bodyLRegular)
@@ -230,12 +230,12 @@ class TabBarVariantModel: ObservableObject {
             }
         }
 
-        var element: ODSChoiceChipPicker<Self>.Element {
+        var chip: ODSChoiceChip<Self> {
             .init(text: Text(description), value: self)
         }
 
-        static var elements: [ODSChoiceChipPicker<Self>.Element] {
-            Self.allCases.map { $0.element }
+        static var chips: [ODSChoiceChip<Self>] {
+            Self.allCases.map { $0.chip }
         }
     }
 }

@@ -31,12 +31,12 @@ enum ListStyleOption: Int, CaseIterable {
         }
     }
 
-    var element: ODSChoiceChipPicker<Self>.Element {
+    var chip: ODSChoiceChip<Self> {
         .init(text: Text(description), value: self)
     }
 
-    static var elemnts: [ODSChoiceChipPicker<Self>.Element] {
-        Self.allCases.map { $0.element }
+    static var elemnts: [ODSChoiceChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }
 

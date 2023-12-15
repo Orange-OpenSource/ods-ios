@@ -22,12 +22,12 @@ enum SelectionTrailingOption: CaseIterable {
         }
     }
 
-    private var element: ODSChoiceChipPicker<Self>.Element {
+    private var chip: ODSChoiceChip<Self> {
         .init(text: Text(description), value: self)
     }
 
-    static var elements: [ODSChoiceChipPicker<Self>.Element] {
-        Self.allCases.map { $0.element }
+    static var chips: [ODSChoiceChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }
 

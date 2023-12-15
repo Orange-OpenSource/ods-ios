@@ -152,12 +152,12 @@ struct ExpandingBottomSheetVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             ODSChoiceChipPicker(
                 title: Text("screens.components.bottom_sheets.variant.detent"),
-                elements: ODSBottomSheetSize.elements,
+                chips: ODSBottomSheetSize.chips,
                 selection: $model.bottomSheetSize)
 
             ODSChoiceChipPicker(
                 title: Text("screens.components.bottom_sheets.variant.content"),
-                elements: ContentType.elements,
+                chips: ContentType.chips,
                 selection: $model.contentType)
 
             Toggle("shared.subtitle", isOn: $model.showSubtitle)
@@ -187,12 +187,12 @@ enum ContentType: String, CaseIterable {
         }
     }
 
-    var element: ODSChoiceChipPicker<Self>.Element {
+    var chip: ODSChoiceChip<Self> {
         .init(text: Text(description), value: self)
     }
 
-    static var elements: [ODSChoiceChipPicker<Self>.Element] {
-        Self.allCases.map { $0.element }
+    static var chips: [ODSChoiceChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }
 
@@ -210,13 +210,11 @@ extension ODSBottomSheetSize {
         }
     }
 
-    var element: ODSChoiceChipPicker<Self>.Element {
+    var chip: ODSChoiceChip<Self> {
         .init(text: Text(description), value: self)
     }
 
-    static var elements: [ODSChoiceChipPicker<Self>.Element] {
-        Self.allCases
-            .filter { $0 != .hidden }
-            .map { $0.element }
+    static var chips: [ODSChoiceChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }

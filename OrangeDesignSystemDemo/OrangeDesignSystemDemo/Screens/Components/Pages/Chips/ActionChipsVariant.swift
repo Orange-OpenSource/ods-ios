@@ -46,7 +46,7 @@ struct ActionChipVariant: View {
 
                         ODSActionChip(
                             text: Text(food.name),
-                            leadingIcon: Image("FoodsAndEntertainment").renderingMode(.template),
+                            leadingIcon: Image("FoodsAndEntertainment"),
                             action: { showText = "screens.components.chips.variant.chip.clicked".localized(with: food.name)
                             })
                             .disabled(!model.showEnabled)

@@ -39,7 +39,7 @@ struct ListModuleOptions: View {
 
             ODSChoiceChipPicker(
                 title: Text("screens.modules.lists.options.style"),
-                elements: ListStyleOption.elemnts,
+                chips: ListStyleOption.elemnts,
                 selection: $model.listStyleOption)
                 .padding(.vertical, ODSSpacing.s)
 

@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+/// <a href="https://system.design.orange.com/0c1af118d/p/85a52b-components/b/1497a4" target="_blank">ODS Chips</a>.
+///
+/// Chips are small components containing a number of elements that represent a calendar event or contact.
+///
 public struct ODSActionChip: View {
 
     // =======================
@@ -22,6 +26,13 @@ public struct ODSActionChip: View {
     // MARK: Initializers
     // ==================
 
+    /// Create the chip.
+    ///
+    /// - Parameters:
+    ///     - text: Text to be displayed into the chip.
+    ///     - leadingIcon: Optional leading icon to be displayed at the start of the chip, preceding the content text.
+    ///     - action: Callback action invoked when chip is clicked.
+    ///
     public init(text: Text, leadingIcon: Image, action: @escaping () -> Void) {
         self.text = text
         self.leadingIcon = leadingIcon
@@ -36,7 +47,8 @@ public struct ODSActionChip: View {
         Chip(isSelected: false, action: action) {
             text.padding(.horizontal, ODSSpacing.s)
         } leading: {
-            ODSImage(source: .image(leadingIcon))
+            ODSImage(source: .image(leadingIcon.renderingMode(.template)))
+                .padding(.leading, ODSSpacing.xs)
         }
     }
 }

@@ -47,10 +47,9 @@ struct ChoiceChipVariant: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     ODSChoiceChipPicker(
-                        elements: foods.map {
-                            .init(text: Text($0.name), value: $0)
-                        },
-                        selection: $selectedFood)
+                        chips: foods.map { .init(text: Text($0.name), value: $0) },
+                        selection: $selectedFood,
+                        placement: .stacked)
                         .disabled(!model.showEnabled)
                 }
                 .padding(.vertical, ODSSpacing.m)

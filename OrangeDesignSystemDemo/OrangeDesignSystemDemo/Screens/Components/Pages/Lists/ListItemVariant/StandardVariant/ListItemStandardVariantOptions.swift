@@ -31,13 +31,13 @@ struct ListItemStandardVariantOptions: View {
 
             ODSChoiceChipPicker(
                 title: Text("shared.leading"),
-                elements: LeadingOption.elements,
+                chips: LeadingOption.chips,
                 selection: $model.leadingOption)
                 .padding(.vertical, ODSSpacing.s)
 
-            ODSFilterChipPcicker(
+            ODSFilterChipPicker(
                 title: Text("shared.trailing"),
-                elements: StandardTrailingOption.elements,
+                chips: StandardTrailingOption.chips,
                 selection: $model.trailingOptions,
                 placement: .carousel)
                 .padding(.vertical, ODSSpacing.s)

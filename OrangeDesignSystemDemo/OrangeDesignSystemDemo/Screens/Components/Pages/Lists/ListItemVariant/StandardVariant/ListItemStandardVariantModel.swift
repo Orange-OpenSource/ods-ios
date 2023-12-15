@@ -26,12 +26,12 @@ enum StandardTrailingOption: CaseIterable {
         }
     }
 
-    private var element: ODSFilterChipPcicker<Self>.Element {
+    private var chip: ODSFilterChip<Self> {
         .init(text: Text(description), value: self)
     }
 
-    static var elements: [ODSFilterChipPcicker<Self>.Element] {
-        Self.allCases.map { $0.element }
+    static var chips: [ODSFilterChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }
 

@@ -8,23 +8,59 @@
 
 import SwiftUI
 
-public struct ODSChoiceChip: View {
+/// <a href="https://system.design.orange.com/0c1af118d/p/85a52b-components/b/1497a4" target="_blank">ODS Chips</a>.
+///
+/// Chips are small components containing a number of elements that represent a calendar event or contact.
+///
+/// ODSChoiceChip represent a single choice from a set. Choice chips contain text describing an associated  value.
+///
+/// - remark: The associated view __ODSChoiceChipView__ is used by __ODsChocieChipPicker__ to wrap chips in stacked or carousel and propose a picker to catch the choice from a set of options.
+///
+public class ODSChoiceChip<Value> where Value: Hashable {
 
     // =======================
     // MARK: Stored properties
     // =======================
 
-    private let text: Text
-    private let isSelected: Bool
+    let text: Text
+    let value: Value
+
+    // =================
+    // MARK: Intializers
+    // =================
+
+    /// Initialize the chip.
+    ///
+    /// - Parameters:
+    ///     - text: Text to be displayed into the chip.
+    ///     - value: The value associated to the chip
+    ///
+    public init(text: Text, value: Value) {
+        self.text = text
+        self.value = value
+    }
+}
+
+///
+/// The view representing the choice chip.
+///
+public struct ODSChoiceChipView<Value>: View where Value: Hashable {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    private let chip: ODSChoiceChip<Value>
+    private let selected: Bool
     private let action: () -> Void
 
     // =================
     // MARK: Intializers
     // =================
 
-    public init(text: Text, isSelected: Bool, action: @escaping () -> Void) {
-        self.text = text
-        self.isSelected = isSelected
+    public init(chip: ODSChoiceChip<Value>, selected: Bool, action: @escaping () -> Void) {
+        self.chip = chip
+        self.selected = selected
         self.action = action
     }
 
@@ -33,8 +69,8 @@ public struct ODSChoiceChip: View {
     // ==========
 
     public var body: some View {
-        Chip(isSelected: isSelected, action: action) {
-            text.padding(.horizontal, ODSSpacing.s)
+        Chip(isSelected: selected, action: action) {
+            chip.text.padding(.horizontal, ODSSpacing.s)
         }
     }
 }

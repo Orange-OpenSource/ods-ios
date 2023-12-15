@@ -10,6 +10,10 @@ import SwiftUI
 
 struct Chip<Leading, Text>: View where Leading: View, Text: View {
 
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     let isSelected: Bool
     let action: () -> Void
     let removeAction: (() -> Void)?
@@ -19,6 +23,10 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
     @ScaledMetric(relativeTo: .body) private var leadingHeight = 24
     @ScaledMetric(relativeTo: .body) private var frameHeight = 32
     @ScaledMetric(relativeTo: .body) private var labelPadding = ODSSpacing.xs
+
+    // =================
+    // MARK: Intializers
+    // =================
 
     init(isSelected: Bool,
          action: @escaping () -> Void,
@@ -45,11 +53,16 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
         leading = { EmptyView() }
     }
 
+    // ==========
+    // MARK: Body
+    // ==========
+
     var body: some View {
         Button {
             action()
         } label: {
             HStack(spacing: ODSSpacing.none) {
+
                 leading()
                     .frame(width: leadingHeight, height: leadingHeight)
                     .clipShape(Circle())
@@ -62,9 +75,9 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
                     .frame(width: leadingHeight, height: leadingHeight)
             }
             .padding(.all, labelPadding)
+            .modifier(ChipContentModifier(isSelected: isSelected))
             .frame(height: frameHeight)
         }
-        .buttonStyle(ChipButtoonStyle(isSelected: isSelected))
     }
 
     @ViewBuilder
@@ -81,36 +94,24 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
     }
 }
 
-struct ChipButtoonStyle: ButtonStyle {
+struct ChipContentModifier: ViewModifier {
 
-    @Environment(\.isEnabled) var isEnabled
-    @Environment(\.theme) var theme
     let isSelected: Bool
+    @Environment(\.theme) var theme
+    @Environment(\.isEnabled) var isEnabled
 
-    func makeBody(configuration: Configuration) -> some View {
-        if configuration.isPressed {
-            configuration
-                .label
-                .multilineTextAlignment(.center)
-                .lineLimit(10)
-                .foregroundColor(Color(UIColor.label))
+    func body(content: Content) -> some View {
+        if isSelected {
+            content
+                .foregroundColor(.black)
+                .background(theme.componentColors.accent, in: Capsule())
+                .opacity(isEnabled ? 1 : 0.5)
+        } else {
+            content
+                .foregroundColor(.primary)
                 .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
                 .padding(.all, 1)
-                .opacity(0.3)
-        } else {
-            if isSelected {
-                configuration.label
-                    .foregroundColor(.black)
-                    .background(theme.componentColors.accent, in: Capsule())
-                    .opacity(isEnabled ? 1 : 0.5)
-            } else {
-                configuration
-                    .label
-                    .foregroundColor(.primary)
-                    .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
-                    .padding(.all, 1)
-                    .opacity(isEnabled ? 1 : 0.5)
-            }
+                .opacity(isEnabled ? 1 : 0.5)
         }
     }
 }

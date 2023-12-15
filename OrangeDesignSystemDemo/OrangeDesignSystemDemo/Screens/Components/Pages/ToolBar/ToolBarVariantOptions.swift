@@ -47,12 +47,12 @@ class ToolBarVariantModel: ObservableObject {
             }
         }
 
-        var element: ODSChoiceChipPicker<Self>.Element {
+        var chip: ODSChoiceChip<Self> {
             .init(text: Text(description), value: self)
         }
 
-        static var elements: [ODSChoiceChipPicker<Self>.Element] {
-            Self.allCases.map { $0.element }
+        static var chips: [ODSChoiceChip<Self>] {
+            Self.allCases.map { $0.chip }
         }
     }
 
@@ -153,7 +153,7 @@ struct ToolBarVariantOptions: View {
         VStack(spacing: ODSSpacing.m) {
             ODSChoiceChipPicker(
                 title: Text("screens.components.bars.tools.picker_hint"),
-                elements: ToolBarVariantModel.ItemType.elements,
+                chips: ToolBarVariantModel.ItemType.chips,
                 selection: $model.itemType)
 
             switch model.itemType {

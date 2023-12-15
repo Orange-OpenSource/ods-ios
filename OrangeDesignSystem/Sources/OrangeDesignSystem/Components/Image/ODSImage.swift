@@ -53,7 +53,7 @@ public struct ODSImage: View {
         case let .image(image):
             image
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
         }
     }
 }

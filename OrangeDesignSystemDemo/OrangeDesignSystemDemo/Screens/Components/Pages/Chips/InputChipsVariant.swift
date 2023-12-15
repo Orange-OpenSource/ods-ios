@@ -63,7 +63,7 @@ struct InputChipVariant: View {
 
                         ODSInputChip(
                             text: Text(food.name),
-                            avatarSource: avatarSource(for: food),
+                            leading: leading(for: food),
                             action: {
                                 showText = "screens.components.chips.variant.chip.clicked".localized(with: food.name)
                             },
@@ -80,7 +80,7 @@ struct InputChipVariant: View {
         }
     }
 
-    func avatarSource(for food: Food) -> ODSImage.Source? {
+    func leading(for food: Food) -> ODSImage.Source? {
         if model.leadingElement == .avatar, let url = food.image {
             return ODSImage.Source(url: url)
         }
@@ -111,7 +111,7 @@ struct InputChipVariantOptions: View {
 
             ODSChoiceChipPicker(
                 title: Text("shared.leading"),
-                elements: leadingElement.map {
+                chips: leadingElement.map {
                     .init(text: Text($0.description), value: $0)
                 },
                 selection: $model.leadingElement,

@@ -54,16 +54,16 @@ struct AboutSetup: View {
 
                 Text("screens.modules.about.mandatory")
 
-                ODSFilterChipPcicker(
+                ODSFilterChipPicker(
                     title: Text("screens.modules.about.picker.app_section"),
-                    elements: AboutModuleModel.ApplicationInformationOption.elements,
+                    chips: AboutModuleModel.ApplicationInformationOption.chips,
                     selection: $model.applicationSectionOptions)
                     .padding(.vertical, ODSSpacing.m)
                     .padding(.horizontal, -ODSSpacing.m)
 
-                ODSFilterChipPcicker(
+                ODSFilterChipPicker(
                     title: Text("screens.modules.about.picker.optional_about_items"),
-                    elements: AboutModuleModel.OptionalAboutItem.elements,
+                    chips: AboutModuleModel.OptionalAboutItem.chips,
                     selection: $model.optionalAboutItems,
                     placement: .carousel)
                     .padding(.vertical, ODSSpacing.s)
