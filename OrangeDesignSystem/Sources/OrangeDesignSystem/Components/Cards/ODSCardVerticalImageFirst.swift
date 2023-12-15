@@ -120,6 +120,7 @@ public struct ODSCardVerticalImageFirst: View {
                     text?
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .accessibilityElement(children: .combine)
                 .foregroundColor(.primary)
                 .padding(.horizontal, ODSSpacing.m)
                 .padding(.top, ODSSpacing.m)

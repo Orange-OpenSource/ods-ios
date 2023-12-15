@@ -135,6 +135,7 @@ public struct ODSCardVerticalHeaderFirst: View {
                     subtitle?
                         .odsFont(.bodyRegular)
                 }
+                .accessibilityElement(children: .combine)
             }
             .multilineTextAlignment(.leading)
             .foregroundColor(.primary)
