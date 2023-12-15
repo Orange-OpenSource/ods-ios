@@ -5,8 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...qualif)
 
-- [DemoApp] No title on Component - Lists - Standard and Selection screens (Bug [#545](https://github.com/Orange-OpenSource/ods-ios/issues/545))
 - [SDK] Accessibility - Group texts in cards for VoiceOver (Bug [#547](https://github.com/Orange-OpenSource/ods-ios/issues/547)) 
+- [DemoApp] No title on Component - Lists - Standard and Selection screens (Bug [#545](https://github.com/Orange-OpenSource/ods-ios/issues/545))
 - [Tooling] Add script phase to check if AppNews.json files are conform to JSON format
 - [DemoApp/SDK] Refactor About module (with view model, errors management and unit tests)
 - [DemoApp/SDK] Change wording by replacing ... by elipsis code
