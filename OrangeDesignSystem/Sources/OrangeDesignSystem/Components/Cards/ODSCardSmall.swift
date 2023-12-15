@@ -60,6 +60,7 @@ public struct ODSCardSmall: View {
                     .odsFont(.bodyRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .accessibilityElement(children: .combine)
             .padding(.all, ODSSpacing.m)
         }
         .foregroundColor(.primary)

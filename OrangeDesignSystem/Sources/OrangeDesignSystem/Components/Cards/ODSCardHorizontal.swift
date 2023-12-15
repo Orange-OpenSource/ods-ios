@@ -152,6 +152,7 @@ public struct ODSCardHorizontal: View {
                         .lineLimit(2)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .accessibilityElement(children: .combine)
                 .foregroundColor(.primary)
                 .padding(.all, ODSSpacing.m)
 
