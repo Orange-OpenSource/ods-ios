@@ -68,7 +68,7 @@ extension ODSFontStyle {
         case .labelMBold:
             return "Label M Bold"
         case .labelS:
-            return "Caption 2"
+            return "Label S"
         }
     }
 }
