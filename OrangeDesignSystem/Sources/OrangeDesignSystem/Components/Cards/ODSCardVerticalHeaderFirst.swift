@@ -129,11 +129,11 @@ public struct ODSCardVerticalHeaderFirst: View {
 
                 VStack(alignment: .leading, spacing: ODSSpacing.none) {
                     title
-                        .odsFont(.bodyBold)
+                        .odsFont(.bodyLBold)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     subtitle?
-                        .odsFont(.bodyRegular)
+                        .odsFont(.bodyLRegular)
                 }
                 .accessibilityElement(children: .combine)
             }
@@ -149,7 +149,7 @@ public struct ODSCardVerticalHeaderFirst: View {
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 text?
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyLRegular)
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.top, ODSSpacing.s)

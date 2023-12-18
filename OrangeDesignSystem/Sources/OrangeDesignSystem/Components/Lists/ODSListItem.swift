@@ -267,13 +267,13 @@ public struct ODSListItem: View {
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 title
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyLRegular)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
 
                 subtitle?
-                    .odsFont(.footnote)
+                    .odsFont(.labelL)
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.leading)
             }

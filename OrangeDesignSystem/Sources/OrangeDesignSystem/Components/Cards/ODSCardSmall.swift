@@ -52,12 +52,12 @@ public struct ODSCardSmall: View {
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 title
                     .lineLimit(1)
-                    .odsFont(.bodyBold)
+                    .odsFont(.bodyLBold)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 subtitle?
                     .lineLimit(1)
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyLRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .accessibilityElement(children: .combine)
@@ -80,7 +80,7 @@ struct SmallCardView_Previews: PreviewProvider {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
 
                 Text("Card in Vertical grid")
-                    .odsFont(.title1)
+                    .odsFont(.titleL)
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 
@@ -106,7 +106,7 @@ struct SmallCardView_Previews: PreviewProvider {
                 .padding(.bottom, ODSSpacing.m)
 
                 Text("Card in content view")
-                    .odsFont(.title1)
+                    .odsFont(.titleL)
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 

@@ -51,16 +51,16 @@ private struct SpacingItem: View {
                 SpacingVisual(spacing: spacing)
 
                 VStack(alignment: .leading) {
-                    Text(spacing.name).odsFont(.bodyRegular)
+                    Text(spacing.name).odsFont(.bodyLRegular)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("\(spacing.rawValue, specifier: "%.0f") px").odsFont(.bodyRegular)
+                    Text("\(spacing.rawValue, specifier: "%.0f") px").odsFont(.bodyLRegular)
                 }
 
                 Spacer()
 
                 Text(spacing.ratio)
                     .foregroundColor(Color(UIColor.secondaryLabel))
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyLRegular)
             }
             .padding(.top, ODSSpacing.s)
 

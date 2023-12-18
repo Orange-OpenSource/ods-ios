@@ -79,7 +79,7 @@ struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovabl
 
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            Text(title).odsFont(.title2).frame(maxWidth: .infinity, alignment: .leading)
+            Text(title).odsFont(.titleM).frame(maxWidth: .infinity, alignment: .leading)
 
             VStack(spacing: ODSSpacing.s) {
                 ODSChipPicker(selection: selection, chips: chips)

@@ -168,6 +168,6 @@ struct ToolBarVariantOptions: View {
                     .padding(.horizontal, ODSSpacing.m)
             }
         }
-        .odsFont(.bodyBold)
+        .odsFont(.bodyLBold)
     }
 }

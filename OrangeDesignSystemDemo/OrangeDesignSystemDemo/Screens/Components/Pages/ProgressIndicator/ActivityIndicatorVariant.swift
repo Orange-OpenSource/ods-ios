@@ -70,7 +70,7 @@ private struct ActivityIndicatorVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
             Toggle("screens.components.progress_indicators.toggle.label", isOn: $model.showLabel)
-                .odsFont(.bodyRegular)
+                .odsFont(.bodyLRegular)
                 .padding(.all, ODSSpacing.m)
         }
     }

@@ -26,13 +26,13 @@ struct TrailingView: View {
         switch element {
         case let .textOnly(text):
             text
-                .odsFont(.subhead)
+                .odsFont(.bodyS)
                 .foregroundColor(Color(UIColor.systemGray3))
 
         case let .iButton(action, text):
             HStack {
                 text
-                    .odsFont(.subhead)
+                    .odsFont(.bodyS)
                     .foregroundColor(Color(UIColor.systemGray3))
 
                 ODSIconButton(image: Image(systemName: "info.circle"), action: action)

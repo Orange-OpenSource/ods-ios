@@ -37,21 +37,21 @@ struct IconVariant: View {
         ScrollView {
             VStack(spacing: ODSSpacing.m) {
                 Text("screens.components.buttons.variant.description")
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyLRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 VariantsTitle().frame(maxWidth: .infinity, alignment: .leading)
 
                 VStack(alignment: .center, spacing: ODSSpacing.l) {
                     VStack(alignment: .center, spacing: ODSSpacing.s) {
-                        Text("screens.components.buttons.icon_add").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
+                        Text("screens.components.buttons.icon_add").odsFont(.headlineS).frame(maxWidth: .infinity, alignment: .leading)
 
                         ODSIconButton(image: Image("Add")) {}
                             .disabled(!model.showEnabled)
                     }
 
                     VStack(alignment: .center, spacing: ODSSpacing.s) {
-                        Text("screens.components.buttons.icon_info").odsFont(.headline).frame(maxWidth: .infinity, alignment: .leading)
+                        Text("screens.components.buttons.icon_info").odsFont(.headlineS).frame(maxWidth: .infinity, alignment: .leading)
 
                         ODSIconButton(image: Image(systemName: "info.circle")) {}
                             .disabled(!model.showEnabled)

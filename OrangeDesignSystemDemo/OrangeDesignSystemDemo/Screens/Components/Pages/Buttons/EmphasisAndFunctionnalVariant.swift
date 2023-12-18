@@ -27,7 +27,7 @@ struct EmphasisVariant: View {
 
     var body: some View {
         Text("screens.components.buttons.variant.emphasis.description")
-            .odsFont(.bodyRegular)
+            .odsFont(.bodyLRegular)
             .padding(.bottom, ODSSpacing.xs)
             .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -35,7 +35,7 @@ struct EmphasisVariant: View {
             VStack(alignment: .center, spacing: ODSSpacing.s) {
                 HStack {
                     Text("\(emphasis.rawValue)".capitalized)
-                        .odsFont(.headline)
+                        .odsFont(.headlineS)
                     Spacer()
                 }
                 .accessibilityAddTraits(.isHeader)
@@ -69,14 +69,14 @@ struct FunctionalVariant: View {
 
     var body: some View {
         Text("screens.components.buttons.variant.functional.description")
-            .odsFont(.bodyRegular)
+            .odsFont(.bodyLRegular)
             .padding(.bottom, ODSSpacing.xs)
             .frame(maxWidth: .infinity, alignment: .leading)
 
         ForEach(ODSFunctionalButton.Style.allCases, id: \.rawValue) { style in
             VStack(alignment: .center, spacing: ODSSpacing.s) {
                 HStack {
-                    Text(description(for: style)).odsFont(.headline)
+                    Text(description(for: style)).odsFont(.headlineS)
                     Spacer()
                 }
                 .accessibilityAddTraits(.isHeader)

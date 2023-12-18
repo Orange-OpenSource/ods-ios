@@ -301,31 +301,31 @@ public struct OrangeThemeFactory {
 
         theme.font = { style in
             switch style {
-            case .largeTitle:
+            case .headlineL:
                 return Font.largeTitle.bold()
-            case .title1:
-                return Font.title.bold()
-            case .title2:
-                return Font.title2.bold()
-            case .title3:
-                return Font.title3.bold()
-            case .headline:
+            case .headlineS:
                 return Font.headline.bold()
-            case .bodyRegular:
-                return Font.body
-            case .bodyBold:
+            case .titleL:
+                return Font.title.bold()
+            case .titleM:
+                return Font.title2.bold()
+            case .titleS:
+                return Font.title3.bold()
+            case .bodyLBold:
                 return Font.body.bold()
-            case .callout:
+            case .bodyLRegular:
+                return Font.body
+            case .bodyM:
                 return Font.callout
-            case .subhead:
+            case .bodyS:
                 return Font.subheadline.bold()
-            case .footnote:
+            case .labelL:
                 return Font.footnote
-            case .caption1Regular:
-                return Font.caption
-            case .caption1Bold:
+            case .labelMBold:
                 return Font.caption.bold()
-            case .caption2:
+            case .labelMRegular:
+                return Font.caption
+            case .labelS:
                 return Font.caption2
             }
         }

@@ -24,7 +24,7 @@ struct ListItemSelectionVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
             Toggle(isOn: $model.showSubtitle) {
-                Text("shared.subtitle").odsFont(.bodyBold)
+                Text("shared.subtitle").odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)

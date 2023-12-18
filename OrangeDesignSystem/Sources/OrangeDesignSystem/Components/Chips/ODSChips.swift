@@ -124,7 +124,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
     public var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.s) {
             if let title = title {
-                Text(title).odsFont(.headline)
+                Text(title).odsFont(.headlineS)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, ODSSpacing.m)
             }
@@ -145,7 +145,7 @@ public struct ODSChipPicker<Value>: View where Value: Hashable {
                                     }
 
                                     Text(chip.text)
-                                        .odsFont(.subhead)
+                                        .odsFont(.bodyS)
                                         .tint(isSelected(chip) ? .black : .primary)
                                         .padding(.vertical, 6)
                                         .padding(.leading, textLeadingPadding(for: chip))
@@ -317,17 +317,17 @@ struct ChipRemoveLabel: View {
 struct ODSChips_Previews: PreviewProvider {
 
     enum ChipsTest: Int, CaseIterable {
-        case title1 = 1
-        case title2
+        case titleL = 1
+        case titleM
         case removable1
         case removabele2
         case disabled
 
         var odsChip: ODSChip<ChipsTest> {
             switch self {
-            case .title1:
+            case .titleL:
                 return ODSChip(self, text: "Title 1")
-            case .title2:
+            case .titleM:
                 return ODSChip(self, text: "Title 2", thumbnail: .iconSystem(name: "heart"))
             case .removable1:
                 return ODSChip(self, text: "Removable 1", removable: true)
@@ -433,7 +433,7 @@ struct ODSChips_Previews: PreviewProvider {
 
     static var previews: some View {
         ODSChipPickerTest(chipsTest: ChipsTest.allCases,
-                          defaultSelectedChip: ChipsTest.title1)
+                          defaultSelectedChip: ChipsTest.titleL)
     }
 }
 #endif

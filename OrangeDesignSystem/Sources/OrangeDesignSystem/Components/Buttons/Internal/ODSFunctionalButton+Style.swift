@@ -41,7 +41,7 @@ private struct ODSFunctionalButtonStyleV2: ButtonStyle {
                             backgroundColor: backgroundColor,
                             borderColor: borderColor,
                             fullWidth: fullWidth)
-            .odsFont(.bodyBold)
+            .odsFont(.bodyLBold)
     }
 
     // ======================

@@ -187,7 +187,7 @@ private struct CardVerticalHeaderFirstVariantOptions: View {
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
         .padding(.horizontal, ODSSpacing.m)
     }

@@ -94,13 +94,13 @@ private struct AboutReleaseDescriptionEntry: View {
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.s) {
             HStack {
-                Text(releaseDescription.version).odsFont(.headline)
+                Text(releaseDescription.version).odsFont(.headlineS)
                 Spacer()
-                Text(formatedDate).odsFont(.caption1Regular)
+                Text(formatedDate).odsFont(.labelMRegular)
             }
 
             Text(releaseDescription.news)
-                .odsFont(.callout)
+                .odsFont(.bodyM)
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, ODSSpacing.s)

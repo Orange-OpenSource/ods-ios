@@ -24,7 +24,7 @@ struct ListItemStandardVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
             Toggle(isOn: $model.showSubtitle) {
-                Text("shared.subtitle").odsFont(.bodyBold)
+                Text("shared.subtitle").odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
@@ -41,7 +41,7 @@ struct ListItemStandardVariantOptions: View {
                 .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.navigate) {
-                Text("screens.components.lists.picker.navigate").odsFont(.bodyBold)
+                Text("screens.components.lists.picker.navigate").odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
