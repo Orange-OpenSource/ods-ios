@@ -14,13 +14,13 @@ import SwiftUI
 // =======================
 
 struct ChipsComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.chips.title"
+        name = °°"screens.components.chips.title"
         imageName = "Chips"
         description = °°"screens.components.chips.description"
         variants = AnyView(ChipsVariants())

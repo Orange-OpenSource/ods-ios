@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ListComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.lists.title"
+        name = °°"screens.components.lists.title"
         imageName = "Lists"
         description = °°"screens.components.lists.description"
         variants = AnyView(ListVariants())
@@ -25,11 +25,11 @@ struct ListComponent: Component {
 
 struct ListVariants: View {
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.lists.variant.standard_lists", technicalElement: "ODSListItem()") {
+        VariantEntryItem(title: "screens.components.lists.variant.standard_lists", technicalElement: "ODSListItem()") {
             ListItemStandardVariant(model: ListItemStandardVariantModel())
                 .navigationTitle("screens.components.lists.variant.standard_lists")
         }
-        VariantEntryItem(title: °°"screens.components.lists.variant.with_selections", technicalElement: "ODSListItem()") {
+        VariantEntryItem(title: "screens.components.lists.variant.with_selections", technicalElement: "ODSListItem()") {
             ListItemSelectionVariant(model: ListItemSelectionVariantModel())
                 .navigationTitle("screens.components.lists.variant.with_selections")
         }

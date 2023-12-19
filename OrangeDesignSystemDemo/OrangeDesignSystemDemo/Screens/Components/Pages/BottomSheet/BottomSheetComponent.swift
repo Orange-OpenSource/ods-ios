@@ -11,13 +11,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct BottomSheetComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.bottom_sheets.title"
+        name = °°"screens.components.bottom_sheets.title"
         imageName = "BottomSheet"
         description = °°"screens.components.bottom_sheets.description"
         variants = AnyView(BottomSheetVariants())
@@ -27,12 +27,12 @@ struct BottomSheetComponent: Component {
 struct BottomSheetVariants: View {
     var body: some View {
 
-        VariantEntryItem(title: °°"screens.components.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
+        VariantEntryItem(title: "screens.components.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
             ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
                 .navigationTitle("screens.components.bottom_sheets.expanding")
         }
 
-        VariantEntryItem(title: °°"screens.components.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
+        VariantEntryItem(title: "screens.components.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
             StandardBottomSheetVariant()
                 .navigationTitle("screens.components.bottom_sheets.standard")
         }
