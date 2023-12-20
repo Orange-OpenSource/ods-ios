@@ -168,7 +168,7 @@ struct ExpandingBottomSheetVariantOptions: View {
                     .disabled(model.showSubtitle)
             }
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
     }
 }
 

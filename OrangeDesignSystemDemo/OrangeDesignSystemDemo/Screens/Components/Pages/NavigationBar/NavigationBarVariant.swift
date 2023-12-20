@@ -158,9 +158,9 @@ struct NavigationBarVariantOptions: View {
                 Toggle("shared.search", isOn: $model.showSearch)
             }
             .padding(.horizontal, ODSSpacing.m)
-            .odsFont(.bodyBold)
+            .odsFont(.bodyLBold)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
     }
 }

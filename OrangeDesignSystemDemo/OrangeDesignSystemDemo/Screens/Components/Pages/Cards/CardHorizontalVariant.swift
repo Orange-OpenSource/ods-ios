@@ -222,7 +222,7 @@ private struct CardHorizontalVariantOptions: View {
                     in: 0 ... model.buttonsText.count)
                 .padding(.horizontal, ODSSpacing.m)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
     }
 }

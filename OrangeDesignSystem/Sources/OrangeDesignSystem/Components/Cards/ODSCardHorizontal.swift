@@ -142,7 +142,7 @@ public struct ODSCardHorizontal: View {
 
                 VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                     title
-                        .odsFont(.bodyBold)
+                        .odsFont(.bodyLBold)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     subtitle?

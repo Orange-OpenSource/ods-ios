@@ -86,7 +86,7 @@ struct BannerVariantOptions: View {
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.m)
     }

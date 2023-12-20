@@ -27,8 +27,8 @@ ODS library defines its own font style. The font associated to the style is defi
 Apply the font style on text like this:
 
 ``` swift
- Text("Sample").odsFont(.title3)
- TextField("A text field", text: $textToEdit).odsFont(.title3)
+ Text("Sample").odsFont(.titleS)
+ TextField("A text field", text: $textToEdit).odsFont(.titleS)
 ```
 
 ### Apply font style on view
@@ -38,13 +38,13 @@ In the example below, the first text field has a font style set directly, while 
 ``` swift
 VStack {
     Text("Font applied to a text view.")
-        .odsFont(.largeTitle)
+        .odsFont(.headlineL)
 
     VStack {
         Text("These two text views have the same font")
         Text("applied to their parent view.")
     }
-    .odsFont(.title3)
+    .odsFont(.titleS)
 }
 ```
 

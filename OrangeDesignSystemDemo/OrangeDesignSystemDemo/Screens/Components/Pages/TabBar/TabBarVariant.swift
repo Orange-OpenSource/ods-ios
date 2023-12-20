@@ -127,13 +127,13 @@ struct TabBarVariantOptions: View {
                         in: 2 ... model.numberOfItems)
             }
             .padding(.horizontal, ODSSpacing.m)
-            .odsFont(.bodyBold)
+            .odsFont(.bodyLBold)
 
             ODSChipPicker(title: °°"screens.components.bars.tabs.options_picker.hint",
                           selection: $model.badgeOption,
                           chips: TabBarVariantModel.BadgeOption.chips)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
     }
 }

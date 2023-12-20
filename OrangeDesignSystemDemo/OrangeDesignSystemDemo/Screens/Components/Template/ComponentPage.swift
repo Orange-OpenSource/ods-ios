@@ -57,7 +57,7 @@ private struct ComponentDescription: View {
     let text: String
     var body: some View {
         Text(text)
-            .odsFont(.bodyRegular)
+            .odsFont(.bodyLRegular)
             .fixedSize(horizontal: false, vertical: true)
             .padding(.top, ODSSpacing.xs)
     }
@@ -66,7 +66,7 @@ private struct ComponentDescription: View {
 struct VariantsTitle: View {
     var body: some View {
         Text("misc.variants")
-            .odsFont(.title1)
+            .odsFont(.titleL)
             .accessibilityAddTraits(.isHeader)
     }
 }

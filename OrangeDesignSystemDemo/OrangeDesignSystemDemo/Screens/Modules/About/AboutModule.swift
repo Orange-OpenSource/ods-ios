@@ -48,7 +48,7 @@ struct AboutSetup: View {
                 Text("screens.modules.about.description")
 
                 Text("screens.modules.about.customize")
-                    .odsFont(.headline)
+                    .odsFont(.headlineS)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.s)
 

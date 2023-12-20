@@ -36,18 +36,18 @@ struct BottomSheedHeader: View {
                         icon?
                             .foregroundColor(.primary)
                             .accessibility(hidden: true)
-                            .odsFont(.headline)
+                            .odsFont(.headlineS)
                             .animation(.linear, value: applyRotation)
                             .rotationEffect(.degrees(applyRotation ? 180 : 0))
 
                         VStack(alignment: .leading, spacing: ODSSpacing.none) {
                             Text(title)
-                                .odsFont(.headline)
+                                .odsFont(.headlineS)
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
                             if let subtitle = self.subtitle {
                                 Text(subtitle)
-                                    .odsFont(.subhead)
+                                    .odsFont(.bodyS)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
@@ -92,28 +92,28 @@ struct HeaderPreviewProvider_Previews: PreviewProvider {
         VStack(spacing: 50) {
             VStack {
                 Text("Title and Subtile")
-                    .odsFont(.title2)
+                    .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 BottomSheedHeader(title: "Title", subtitle: "Subtitle", icon: nil, applyRotation: false)
             }
 
             VStack {
                 Text("Title and icon (without rotation)")
-                    .odsFont(.title2)
+                    .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 BottomSheedHeader(title: "Title", subtitle: nil, icon: Image(systemName: "chevron.down"), applyRotation: false)
             }
 
             VStack {
                 Text("Title and icon (with rotation)")
-                    .odsFont(.title2)
+                    .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 BottomSheedHeader(title: "Title", subtitle: nil, icon: Image(systemName: "chevron.down"), applyRotation: true)
             }
 
             VStack {
                 Text("Title and icon (animated rotation)")
-                    .odsFont(.title2)
+                    .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 AnimatinoExample()
             }

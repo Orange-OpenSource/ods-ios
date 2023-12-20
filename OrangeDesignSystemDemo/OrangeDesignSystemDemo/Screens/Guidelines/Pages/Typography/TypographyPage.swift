@@ -43,32 +43,32 @@ struct TypographyPageDescription: View {
 extension ODSFontStyle {
     fileprivate var description: String {
         switch self {
-        case .largeTitle:
-            return "Large Title"
-        case .title1:
-            return "Title 1"
-        case .title2:
-            return "Title 2"
-        case .title3:
-            return "Title 3"
-        case .headline:
-            return "Headline"
-        case .bodyRegular:
-            return "Body (regular)"
-        case .bodyBold:
-            return "Body (bold)"
-        case .callout:
-            return "Callout"
-        case .subhead:
-            return "Subheadline"
-        case .footnote:
-            return "Footnote"
-        case .caption1Regular:
-            return "Caption 1 (regular)"
-        case .caption1Bold:
-            return "Caption 1 (bold)"
-        case .caption2:
-            return "Caption 2"
+        case .headlineL:
+            return "Headline L"
+        case .titleL:
+            return "Title L"
+        case .titleM:
+            return "Title M"
+        case .titleS:
+            return "Title S"
+        case .headlineS:
+            return "Headline S"
+        case .bodyLRegular:
+            return "Body L Regular"
+        case .bodyLBold:
+            return "Body L Bold"
+        case .bodyM:
+            return "Body M"
+        case .bodyS:
+            return "Body S"
+        case .labelL:
+            return "Label L"
+        case .labelMRegular:
+            return "Label M Regular"
+        case .labelMBold:
+            return "Label M Bold"
+        case .labelS:
+            return "Label S"
         }
     }
 }
