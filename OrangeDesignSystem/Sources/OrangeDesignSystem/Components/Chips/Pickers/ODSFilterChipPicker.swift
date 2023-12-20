@@ -46,7 +46,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
     public var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.s) {
             title?
-                .odsFont(.headline)
+                .odsFont(.headlineS)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, ODSSpacing.m)
 

@@ -68,7 +68,7 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
                     .clipShape(Circle())
 
                 text()
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyS)
                     .multilineTextAlignment(.center)
 
                 removeButton

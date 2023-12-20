@@ -76,7 +76,7 @@ struct ActionChipVariantOptions: View {
         VStack {
             Toggle("shared.enabled", isOn: $model.showEnabled)
         }
-        .odsFont(.bodyBold)
+        .odsFont(.bodyLBold)
         .padding(.horizontal, ODSSpacing.m)
         .padding(.vertical, ODSSpacing.s)
     }

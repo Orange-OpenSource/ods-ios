@@ -115,7 +115,7 @@ struct FilterChipVariantOptions: View {
             Toggle("shared.enabled", isOn: $model.showEnabled)
                 .padding(.horizontal, ODSSpacing.m)
         }
-        .odsFont(.bodyBold)
+        .odsFont(.bodyLBold)
         .padding(.vertical, ODSSpacing.s)
     }
 }

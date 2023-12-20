@@ -121,6 +121,6 @@ struct InputChipVariantOptions: View {
                 .padding(.horizontal, ODSSpacing.m)
         }
         .padding(.vertical, ODSSpacing.s)
-        .odsFont(.bodyBold)
+        .odsFont(.bodyLBold)
     }
 }
