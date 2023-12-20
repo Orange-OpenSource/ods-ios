@@ -63,14 +63,12 @@ struct ComponentPage_Previews: PreviewProvider {
         let imageName: String
         let description: String
         let variants: AnyView
-        let id: UUID
 
         init() {
             name = "Test"
             imageName = "Cards_1"
-            description = °°"This is a long text to illustrate the description area"
+            description = "This is a long text to illustrate the description area"
             variants = AnyView(Variants())
-            id = UUID()
         }
     }
 
