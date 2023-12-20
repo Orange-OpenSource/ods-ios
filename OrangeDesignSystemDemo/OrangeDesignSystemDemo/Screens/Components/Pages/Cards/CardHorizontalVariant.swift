@@ -39,7 +39,7 @@ extension ODSCardHorizontal.ImagePosition: CaseIterable {
 // MARK: - Card Horizontal Variant Model
 // =====================================
 
-class CardHorizontalVariantModel: ObservableObject {
+final class CardHorizontalVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties

@@ -23,7 +23,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
     // MARK: Initialzier
     // =================
 
-    /// Creates a picker manages a multiple selection that allows no element to be selected.
+    /// Creates a picker which manages a multiple selection that allows no element to be selected.
     ///
     /// - Parameters:
     ///     - title: Optional title above the picker

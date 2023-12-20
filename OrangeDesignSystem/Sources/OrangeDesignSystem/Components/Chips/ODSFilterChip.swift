@@ -13,9 +13,11 @@ import SwiftUI
 /// Chips are small components containing a number of elements that represent a calendar event or contact.
 /// This chip offers a layout used for filtering.
 ///
-/// - remark: The associated view __ODSFilterChipView__ is used by __ODSFilterChipPicker__ to wrap chips in stacked or carousel and propose a picker to apply a filter on elements easily.
+/// - remark: The associated view __ODSFilterChipView__ is used by
+/// __ODSFilterChipPicker__ to wrap chips in stacked or carousel and
+/// propose a picker to apply a filter on elements easily.
 ///
-public class ODSFilterChip<Value> where Value: Hashable {
+public final class ODSFilterChip<Value> where Value: Hashable {
 
     // =======================
     // MARK: Stored properties
@@ -70,7 +72,7 @@ public struct ODSFilterChipView<Value>: View where Value: Hashable {
     ///     - model: Model containing chip elements for layout.
     ///     - selected: Controls the selected state of the chip. When `true`, the chip is highlighted.
     ///     - action: The action when chip is clicked.
-
+    ///
     public init(chip: ODSFilterChip<Value>, selected: Bool, action: @escaping () -> Void) {
         model = chip
         self.selected = selected

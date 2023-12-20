@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class InputChipVariantModel: ObservableObject {
+final class InputChipVariantModel: ObservableObject {
 
     @Published var showEnabled: Bool = true
     @Published var leadingElement: LeadingElement = .none

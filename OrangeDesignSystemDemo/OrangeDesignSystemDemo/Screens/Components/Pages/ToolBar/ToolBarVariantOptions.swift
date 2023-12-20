@@ -13,7 +13,7 @@ import SwiftUI
 // MARK: - Tab Bar Variant Model
 // =============================
 
-class ToolBarVariantModel: ObservableObject {
+final class ToolBarVariantModel: ObservableObject {
 
     // ================
     // MARK: Properties

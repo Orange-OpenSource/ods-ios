@@ -79,7 +79,7 @@ struct SliderVariant: View {
     }
 }
 
-class SliderVariantModel: ObservableObject {
+final class SliderVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties

@@ -14,7 +14,7 @@ import SwiftUI
 // MARK: - About Module Model
 // ==========================
 
-class AboutModuleModel: ObservableObject {
+final class AboutModuleModel: ObservableObject {
 
     // ==================
     // MARK: - Properties

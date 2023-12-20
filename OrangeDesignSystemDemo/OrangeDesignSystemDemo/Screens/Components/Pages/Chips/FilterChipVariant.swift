@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class FilterChipVariantModel: ObservableObject {
+final class FilterChipVariantModel: ObservableObject {
 
     @Published var showEnabled: Bool = true
     @Published var leadingElement: LeadingElement = .none

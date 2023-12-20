@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class BottomSheetVariantModel: ObservableObject {
+final class BottomSheetVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties

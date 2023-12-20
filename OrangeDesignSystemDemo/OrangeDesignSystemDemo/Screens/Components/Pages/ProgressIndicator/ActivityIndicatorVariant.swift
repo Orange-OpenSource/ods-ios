@@ -38,7 +38,7 @@ struct ActivityIndicatorVariant: View {
     }
 }
 
-class ActivityIndicatorModel: ObservableObject {
+final class ActivityIndicatorModel: ObservableObject {
 
     // ======================
     // MARK: Store properties

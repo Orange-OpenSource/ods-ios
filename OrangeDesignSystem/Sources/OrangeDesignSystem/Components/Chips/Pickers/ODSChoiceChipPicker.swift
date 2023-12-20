@@ -27,7 +27,7 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
     // MARK: Initializer
     // =================
 
-    /// Creates a picker manages a multiple selection that allows no element to be selected.
+    /// Creates a picker which manages a multiple selection that allows no element to be selected.
     ///
     /// - Parameters:
     ///     - title: Optional title above the picker
@@ -63,7 +63,7 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
     }
 
     // =====================
-    // MARK: private Helpers
+    // MARK: Private Helpers
     // =====================
 
     private func content(for chip: ODSChoiceChip<Value>) -> some View {

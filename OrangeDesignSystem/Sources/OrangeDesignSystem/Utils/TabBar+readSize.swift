@@ -39,7 +39,7 @@ struct TabBarConfigurator: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 }
 
-class TabBarConfigurationViewController: UIViewController {
+final class TabBarConfigurationViewController: UIViewController {
 
     // =======================
     // MARK: Stored Properties

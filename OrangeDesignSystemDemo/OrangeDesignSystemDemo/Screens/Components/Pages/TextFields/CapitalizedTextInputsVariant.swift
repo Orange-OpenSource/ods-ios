@@ -43,7 +43,9 @@ private struct CapitalizedTextInputsVariant: View {
                 textField
                     .textInputAutocapitalization(model.selectedCapitalizationType.textInputAutocapitalization)
                     .odsTextFieldStyle()
-                    // TODO, why                   .id(model.selectedCapitalizationType.description)
+                    // Need id, to be shure the text filed is recreated when
+                    // CapitalizationType change in selection.
+                    .id(model.selectedCapitalizationType)
                     .padding(.horizontal, ODSSpacing.s)
                     .padding(.top, ODSSpacing.m)
                     .focused($isFocused)
@@ -85,7 +87,7 @@ private struct CapitalizedTextInputsVariant: View {
     }
 }
 
-private class CapitalizedTextInputsVariantModel: ObservableObject {
+private final class CapitalizedTextInputsVariantModel: ObservableObject {
 
     // ====================
     // MARK: Internal types

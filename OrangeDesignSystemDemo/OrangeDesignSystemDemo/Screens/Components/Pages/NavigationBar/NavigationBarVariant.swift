@@ -45,7 +45,7 @@ struct NavigationBarVariantContent: View {
     }
 }
 
-class NavigationBarVariantModel: ObservableObject {
+final class NavigationBarVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties

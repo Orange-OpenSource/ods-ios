@@ -143,7 +143,7 @@ struct TabBarVariantOptions: View {
 // MARK: - Tab Bar Variant Model
 // =============================
 
-class TabBarVariantModel: ObservableObject {
+final class TabBarVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties

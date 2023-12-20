@@ -31,7 +31,7 @@ enum SelectionTrailingOption: CaseIterable {
     }
 }
 
-class ListItemSelectionVariantModel: ObservableObject {
+final class ListItemSelectionVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

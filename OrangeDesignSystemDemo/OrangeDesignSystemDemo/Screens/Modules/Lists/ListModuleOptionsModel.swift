@@ -40,7 +40,7 @@ enum ListStyleOption: Int, CaseIterable {
     }
 }
 
-class ListModuleOptionsModel: ObservableObject {
+final class ListModuleOptionsModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

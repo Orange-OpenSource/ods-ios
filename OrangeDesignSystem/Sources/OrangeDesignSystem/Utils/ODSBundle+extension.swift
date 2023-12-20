@@ -20,5 +20,5 @@ extension Bundle {
 
 #if SWIFT_PACKAGE
 #else
-class ODSBundleResource {}
+final class ODSBundleResource {}
 #endif

@@ -12,11 +12,13 @@ import SwiftUI
 ///
 /// Chips are small components containing a number of elements that represent a calendar event or contact.
 ///
-/// ODSChoiceChip represent a single choice from a set. Choice chips contain text describing an associated  value.
+/// ODSChoiceChip represents a single choice from a set. Choice chips contain text describing an associated value.
 ///
-/// - remark: The associated view __ODSChoiceChipView__ is used by __ODsChocieChipPicker__ to wrap chips in stacked or carousel and propose a picker to catch the choice from a set of options.
+/// - remark: The associated view __ODSChoiceChipView__ is used by
+/// __ODsChocieChipPicker__ to wrap chips in stacked or carousel and
+/// propose a picker to catch the choice from a set of options.
 ///
-public class ODSChoiceChip<Value> where Value: Hashable {
+public final class ODSChoiceChip<Value> where Value: Hashable {
 
     // =======================
     // MARK: Stored properties

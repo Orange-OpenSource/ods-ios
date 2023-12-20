@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class ChoiceChipVariantModel: ObservableObject {
+final class ChoiceChipVariantModel: ObservableObject {
     @Published var showEnabled: Bool = true
 }
 
@@ -19,10 +19,10 @@ struct ChoiceChipVariant: View {
     // MARK: Stored properties
     // =======================
 
-    @State var isSelected: Bool = false
-    @ObservedObject var model: ChoiceChipVariantModel
-    @State var selectedFood: Food
-    let foods: [Food]
+    @ObservedObject private var model: ChoiceChipVariantModel
+    @State private var isSelected: Bool = false
+    @State private var selectedFood: Food
+    private let foods: [Food]
 
     // =================
     // MARK: Initializer

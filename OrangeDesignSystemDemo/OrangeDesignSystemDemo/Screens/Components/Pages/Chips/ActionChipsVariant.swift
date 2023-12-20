@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class ActionChipVariantModel: ObservableObject {
+final class ActionChipVariantModel: ObservableObject {
     @Published var showEnabled: Bool = true
 }
 
@@ -19,9 +19,9 @@ struct ActionChipVariant: View {
     // MARK: Stored properties
     // =======================
 
-    @ObservedObject var model: ActionChipVariantModel
-    let food: Food
-    @State var showText: String?
+    @ObservedObject private var model: ActionChipVariantModel
+    @State private var showText: String?
+    private let food: Food
 
     // =================
     // MARK: Initializer

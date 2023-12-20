@@ -68,7 +68,7 @@ struct ProgressBarVariant: View {
     }
 }
 
-class ProgressBarVariantModel: ObservableObject {
+final class ProgressBarVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties

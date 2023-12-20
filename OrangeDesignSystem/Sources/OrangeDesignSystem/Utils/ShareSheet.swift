@@ -26,7 +26,7 @@ enum ShareSheet {
     }
 }
 
-private class ShareItem: NSObject, UIActivityItemSource {
+private final class ShareItem: NSObject, UIActivityItemSource {
 
     let content: String
     let mailSubject: String

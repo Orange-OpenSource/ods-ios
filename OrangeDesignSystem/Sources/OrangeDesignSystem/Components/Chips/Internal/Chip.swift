@@ -14,11 +14,11 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
     // MARK: Stored properties
     // =======================
 
-    let isSelected: Bool
-    let action: () -> Void
-    let removeAction: (() -> Void)?
-    @ViewBuilder let text: () -> Text
-    @ViewBuilder let leading: () -> Leading
+    private let isSelected: Bool
+    private let action: () -> Void
+    private let removeAction: (() -> Void)?
+    @ViewBuilder private let text: () -> Text
+    @ViewBuilder private let leading: () -> Leading
 
     @ScaledMetric(relativeTo: .body) private var leadingHeight = 24
     @ScaledMetric(relativeTo: .body) private var frameHeight = 32

@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class BannerVariantModel: ObservableObject {
+final class BannerVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties

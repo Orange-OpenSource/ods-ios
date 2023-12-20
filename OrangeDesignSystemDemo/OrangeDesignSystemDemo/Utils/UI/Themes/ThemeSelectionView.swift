@@ -16,7 +16,7 @@ import SwiftUI
 /// demo application.
 /// It also stores the current theme, selected by user.
 ///
-class ThemeProvider: ObservableObject {
+final class ThemeProvider: ObservableObject {
 
     // =======================
     // MARK: Stored Properties
@@ -107,7 +107,7 @@ struct ThemeSelectionButton: View {
 // MARK: - Hot switch Warning
 
 /// Will be removed when hot switch will be supported
-class HotSwitchWarningIndicator: ObservableObject {
+final class HotSwitchWarningIndicator: ObservableObject {
     @Published var showAlert: Bool = false
 }
 
