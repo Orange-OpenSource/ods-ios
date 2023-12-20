@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...qualif)
 
+- [DemoApp] Udpate accessibility label on Functional and Emphasis buttons in demo app ([#546](https://github.com/Orange-OpenSource/ods-ios/issues/546))
 - [SDK] Update guidelines typography names ([#542](https://github.com/Orange-OpenSource/ods-ios/issues/542))
 - [DemoApp] Refactor variant page and entry ([#553](https://github.com/Orange-OpenSource/ods-ios/issues/553))
 - [SDK] Accessibility - Group texts in cards for VoiceOver (Bug [#547](https://github.com/Orange-OpenSource/ods-ios/issues/547)) 
