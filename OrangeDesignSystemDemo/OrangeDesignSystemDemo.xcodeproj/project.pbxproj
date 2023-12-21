@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */; };
 		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		077B673C2AE1500F0008C32B /* LeadingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B673B2AE1500F0008C32B /* LeadingOption.swift */; };
@@ -45,7 +46,6 @@
 		077C385C2A9DDC79003D6B51 /* ProgressIndicatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38082A9DDC79003D6B51 /* ProgressIndicatorComponent.swift */; };
 		077C385D2A9DDC79003D6B51 /* ActivityIndicatorVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38092A9DDC79003D6B51 /* ActivityIndicatorVariant.swift */; };
 		077C385E2A9DDC79003D6B51 /* ChipsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */; };
-		077C385F2A9DDC79003D6B51 /* ChipsComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */; };
 		077C38602A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380E2A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift */; };
 		077C38612A9DDC79003D6B51 /* CardExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C380F2A9DDC79003D6B51 /* CardExampleData.swift */; };
 		077C38622A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38102A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift */; };
@@ -97,14 +97,17 @@
 		077C389E2A9DEEDC003D6B51 /* ThemeablePreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C38962A9DEEDC003D6B51 /* ThemeablePreviews.swift */; };
 		077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */; };
 		077C38A52AA215BC003D6B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077C37CB2A9DD643003D6B51 /* Assets.xcassets */; };
+		0786F7422B1649F100299A75 /* FilterChipVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786F7412B1649F100299A75 /* FilterChipVariant.swift */; };
 		079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */; };
 		07AA3D4E28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */; };
+		07B1A09C2B1E191F00ABF0A1 /* InputChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */; };
+		07B543E72B289B2100A2B6ED /* ListItemSelectionVariantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B543E62B289B2000A2B6ED /* ListItemSelectionVariantModel.swift */; };
 		07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */; };
-		07B94DEB2AD9239700AAD1A5 /* ListItemVariantStandardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */; };
+		07B94DEB2AD9239700AAD1A5 /* ListItemStandardVariantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94DE92AD9239700AAD1A5 /* ListItemStandardVariantModel.swift */; };
 		07B94E0B2AD98D7900AAD1A5 /* ListItemStandardVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */; };
 		07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */; };
-		07B94E0E2AD9904900AAD1A5 /* ListItemVaraintSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */; };
 		07B94E0F2AD9908300AAD1A5 /* ListItemSelectionVariantOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */; };
+		07BDEA932B150263005574A2 /* ActionChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDEA922B150263005574A2 /* ActionChipsVariant.swift */; };
 		07C3C7FC2AE7E4E000833957 /* ListModuleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */; };
 		07C3C7FE2AE7E56100833957 /* ListModuleOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */; };
 		07E4C85C2AE7BC2D00FB4DAC /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */; };
@@ -148,6 +151,7 @@
 		07210C462A8FACAA00507988 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
+		072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceChipsVariant.swift; sourceTree = "<group>"; };
 		075326832AD45610003D8832 /* GridOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridOfSmallCards.swift; sourceTree = "<group>"; };
 		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		077B673B2AE1500F0008C32B /* LeadingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingOption.swift; sourceTree = "<group>"; };
@@ -179,7 +183,6 @@
 		077C38082A9DDC79003D6B51 /* ProgressIndicatorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorComponent.swift; sourceTree = "<group>"; };
 		077C38092A9DDC79003D6B51 /* ActivityIndicatorVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorVariant.swift; sourceTree = "<group>"; };
 		077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipsComponent.swift; sourceTree = "<group>"; };
-		077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipsComponentModel.swift; sourceTree = "<group>"; };
 		077C380E2A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardVerticalHeaderFirstVariant.swift; sourceTree = "<group>"; };
 		077C380F2A9DDC79003D6B51 /* CardExampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardExampleData.swift; sourceTree = "<group>"; };
 		077C38102A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardVerticalImageFirstVariant.swift; sourceTree = "<group>"; };
@@ -229,16 +232,19 @@
 		077C38932A9DEEDC003D6B51 /* RecipesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesLoader.swift; sourceTree = "<group>"; };
 		077C38952A9DEEDC003D6B51 /* ThemeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
 		077C38962A9DEEDC003D6B51 /* ThemeablePreviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeablePreviews.swift; sourceTree = "<group>"; };
+		0786F7412B1649F100299A75 /* FilterChipVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChipVariant.swift; sourceTree = "<group>"; };
 		079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+id.swift"; sourceTree = "<group>"; };
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B030592AB0B454001764E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		07B0305A2AB0B4A9001764E7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
+		07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChipsVariant.swift; sourceTree = "<group>"; };
+		07B543E62B289B2000A2B6ED /* ListItemSelectionVariantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantModel.swift; sourceTree = "<group>"; };
 		07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariantOptions.swift; sourceTree = "<group>"; };
-		07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemVariantStandardModel.swift; sourceTree = "<group>"; };
+		07B94DE92AD9239700AAD1A5 /* ListItemStandardVariantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariantModel.swift; sourceTree = "<group>"; };
 		07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariant.swift; sourceTree = "<group>"; };
 		07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantOptions.swift; sourceTree = "<group>"; };
 		07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariant.swift; sourceTree = "<group>"; };
-		07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemVaraintSelectionModel.swift; sourceTree = "<group>"; };
+		07BDEA922B150263005574A2 /* ActionChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionChipsVariant.swift; sourceTree = "<group>"; };
 		07C3C7FB2AE7E4E000833957 /* ListModuleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleDataModel.swift; sourceTree = "<group>"; };
 		07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleOptionsModel.swift; sourceTree = "<group>"; };
 		07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
@@ -471,7 +477,10 @@
 			isa = PBXGroup;
 			children = (
 				077C380B2A9DDC79003D6B51 /* ChipsComponent.swift */,
-				077C380C2A9DDC79003D6B51 /* ChipsComponentModel.swift */,
+				072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */,
+				07BDEA922B150263005574A2 /* ActionChipsVariant.swift */,
+				0786F7412B1649F100299A75 /* FilterChipVariant.swift */,
+				07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */,
 			);
 			path = Chips;
 			sourceTree = "<group>";
@@ -723,9 +732,9 @@
 		07B94E062AD9890900AAD1A5 /* StandardVariant */ = {
 			isa = PBXGroup;
 			children = (
-				07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */,
 				07B94E0A2AD98D7900AAD1A5 /* ListItemStandardVariant.swift */,
-				07B94DE92AD9239700AAD1A5 /* ListItemVariantStandardModel.swift */,
+				07B94DE92AD9239700AAD1A5 /* ListItemStandardVariantModel.swift */,
+				07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */,
 			);
 			path = StandardVariant;
 			sourceTree = "<group>";
@@ -733,9 +742,9 @@
 		07B94E072AD9891E00AAD1A5 /* SelectionVariant */ = {
 			isa = PBXGroup;
 			children = (
-				07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */,
 				07B94E082AD9892C00AAD1A5 /* ListItemSelectionVariant.swift */,
-				07B94E0C2AD98DAA00AAD1A5 /* ListItemVaraintSelectionModel.swift */,
+				07B543E62B289B2000A2B6ED /* ListItemSelectionVariantModel.swift */,
+				07B94E092AD9892C00AAD1A5 /* ListItemSelectionVariantOptions.swift */,
 			);
 			path = SelectionVariant;
 			sourceTree = "<group>";
@@ -1039,7 +1048,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Check if AppNews.json file is a conform JSON file and throw error if not to prevent to build and ship with corrupted file\nAppNewsFileFolder=\"${PROJECT_DIR}/OrangeDesignSystemDemo/Resources/\"\n\nAppNewsFileBase=\"$AppNewsFileFolder/Base.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (Base) seems good\"\nelse\n    echo \"error: AppNews.json (Base) is not conform to JSON format\"\n    exit 1\nfi\n\nAppNewsFileBase=\"$AppNewsFileFolder/en.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (en) seems good\"\nelse\n    echo \"error: AppNews.json (en) is not conform to JSON format\"\n    exit 1    \nfi\n\nAppNewsFileBase=\"$AppNewsFileFolder/fr.lproj/AppNews.json\"\nif cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n    echo \"AppNews.json (fr) seems good\"\nelse\n    echo \"error: AppNews.json (fr) is not conform to JSON format\"\n    exit 1    \nfi\n";
+			shellScript = "# ------------------------------\n# Check if jq available\n# ------------------------------\n\nif which \"jq\" >/dev/null; then\n    # Check if AppNews.json file is a conform JSON file and throw error if not to prevent to build and ship with corrupted file\n    AppNewsFileFolder=\"${PROJECT_DIR}/OrangeDesignSystemDemo/Resources/\"\n    \n    AppNewsFileBase=\"$AppNewsFileFolder/Base.lproj/AppNews.json\"\n    if cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n        echo \"AppNews.json (Base) seems good\"\n    else\n        echo \"error: AppNews.json (Base) is not conform to JSON format\"\n        exit 1\n    fi\n    \n    AppNewsFileBase=\"$AppNewsFileFolder/en.lproj/AppNews.json\"\n    if cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n        echo \"AppNews.json (en) seems good\"\n    else\n        echo \"error: AppNews.json (en) is not conform to JSON format\"\n        exit 1\n    fi\n    \n    AppNewsFileBase=\"$AppNewsFileFolder/fr.lproj/AppNews.json\"\n    if cat \"$AppNewsFileBase\" | jq >/dev/null 2>&1; then\n        echo \"AppNews.json (fr) seems good\"\n    else\n        echo \"error: AppNews.json (fr) is not conform to JSON format\"\n        exit 1\n    fi\n# -------------------------    \n# jq not available\n# -------------------------\nelse\n    echo \"warning: jq not installed. To install run `brew install jq`\"    \nfi\n\n";
 		};
 		59A545B45A1BFD1A7DC83D74 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1129,12 +1138,12 @@
 				075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */,
 				077C384F2A9DDC79003D6B51 /* IconVariant.swift in Sources */,
 				077C38522A9DDC79003D6B51 /* SecureVariant.swift in Sources */,
+				0786F7422B1649F100299A75 /* FilterChipVariant.swift in Sources */,
 				077C38642A9DDC79003D6B51 /* CardSmallVariant.swift in Sources */,
-				07B94E0E2AD9904900AAD1A5 /* ListItemVaraintSelectionModel.swift in Sources */,
 				077C38662A9DDC79003D6B51 /* ToolBarVariantOptions.swift in Sources */,
 				077C38652A9DDC79003D6B51 /* CardComponent.swift in Sources */,
 				077C385B2A9DDC79003D6B51 /* ProgressBarVariant.swift in Sources */,
-				07B94DEB2AD9239700AAD1A5 /* ListItemVariantStandardModel.swift in Sources */,
+				07B94DEB2AD9239700AAD1A5 /* ListItemStandardVariantModel.swift in Sources */,
 				077C38862A9DDC79003D6B51 /* AboutModuleModel.swift in Sources */,
 				077C387C2A9DDC79003D6B51 /* ColorIllustration.swift in Sources */,
 				077C38782A9DDC79003D6B51 /* ColorsPage.swift in Sources */,
@@ -1153,6 +1162,7 @@
 				077C38752A9DDC79003D6B51 /* Guideline.swift in Sources */,
 				077C386A2A9DDC79003D6B51 /* NavigationBarModifiers.swift in Sources */,
 				077C387B2A9DDC79003D6B51 /* ColorDetail.swift in Sources */,
+				07BDEA932B150263005574A2 /* ActionChipsVariant.swift in Sources */,
 				077C386B2A9DDC79003D6B51 /* NavigationBarVariant.swift in Sources */,
 				07B94E0D2AD9902A00AAD1A5 /* ListItemSelectionVariant.swift in Sources */,
 				077C38542A9DDC79003D6B51 /* ListComponent.swift in Sources */,
@@ -1175,7 +1185,7 @@
 				077C38872A9DDC79003D6B51 /* ModulesList.swift in Sources */,
 				077C38712A9DDC79003D6B51 /* BottomSheetStandardVariant.swift in Sources */,
 				077C384B2A9DDC79003D6B51 /* ComponentPage.swift in Sources */,
-				077C385F2A9DDC79003D6B51 /* ChipsComponentModel.swift in Sources */,
+				072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */,
 				07B94DEA2AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift in Sources */,
 				077C38772A9DDC79003D6B51 /* GuidelinesList.swift in Sources */,
 				077C38842A9DDC79003D6B51 /* AboutModule.swift in Sources */,
@@ -1192,6 +1202,7 @@
 				077C38692A9DDC79003D6B51 /* TabBarComponent.swift in Sources */,
 				07E4C8692AE7BC8E00FB4DAC /* ListModuleOptions.swift in Sources */,
 				077C387E2A9DDC79003D6B51 /* ColorsGuideline.swift in Sources */,
+				07B543E72B289B2100A2B6ED /* ListItemSelectionVariantModel.swift in Sources */,
 				077C386F2A9DDC79003D6B51 /* BottomSheetExpandingVariant.swift in Sources */,
 				077C385C2A9DDC79003D6B51 /* ProgressIndicatorComponent.swift in Sources */,
 				07B94E0B2AD98D7900AAD1A5 /* ListItemStandardVariant.swift in Sources */,
@@ -1200,6 +1211,7 @@
 				077C38612A9DDC79003D6B51 /* CardExampleData.swift in Sources */,
 				077C384D2A9DDC79003D6B51 /* ComponentList.swift in Sources */,
 				077C38512A9DDC79003D6B51 /* CapitalizedTextInputsVariant.swift in Sources */,
+				07B1A09C2B1E191F00ABF0A1 /* InputChipsVariant.swift in Sources */,
 				077C38632A9DDC79003D6B51 /* CardHorizontalVariant.swift in Sources */,
 				077C38882A9DDC79003D6B51 /* CardViewDemo.swift in Sources */,
 				077C387F2A9DDC79003D6B51 /* TypographyGuideline.swift in Sources */,

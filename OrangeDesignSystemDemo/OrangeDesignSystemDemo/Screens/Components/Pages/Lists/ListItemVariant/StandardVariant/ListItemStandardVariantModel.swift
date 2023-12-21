@@ -17,20 +17,20 @@ enum StandardTrailingOption: CaseIterable {
     case text
     case iButton
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .text:
-            return °°"shared.text"
+            return "shared.text"
         case .iButton:
-            return °°"screens.components.lists.options.description.info_button"
+            return "screens.components.lists.options.description.info_button"
         }
     }
 
-    private var chip: ODSChip<Self> {
-        ODSChip(self, text: description)
+    private var chip: ODSFilterChip<Self> {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
+    static var chips: [ODSFilterChip<Self>] {
         Self.allCases.map { $0.chip }
     }
 }

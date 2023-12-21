@@ -49,7 +49,7 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
         content
             .bottomSheet(
                 bottomSheetPosition: $bottomSheetPosition,
-                switchablePositions: ODSBottomSheetSize.allCases.map { $0.position },
+                switchablePositions: ODSBottomSheetSize.positions,
                 headerContent: {
                     BottomSheedHeader(title: title, subtitle: subtitle, icon: icon, applyRotation: false)
                         .onTapGesture {

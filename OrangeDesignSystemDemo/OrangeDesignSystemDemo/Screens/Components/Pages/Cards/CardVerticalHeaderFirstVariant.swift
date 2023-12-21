@@ -13,7 +13,7 @@ import SwiftUI
 // MARK: - Card Vertical Header First Variant Model
 // ================================================
 
-class CardVerticalHeaderFirstVariantModel: ObservableObject {
+final class CardVerticalHeaderFirstVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

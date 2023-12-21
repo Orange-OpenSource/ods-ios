@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class BottomSheetVariantModel: ObservableObject {
+final class BottomSheetVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties
@@ -150,23 +150,23 @@ struct ExpandingBottomSheetVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            Group {
-                ODSChipPicker(title: °°"screens.components.bottom_sheets.variant.detent",
-                              selection: $model.bottomSheetSize,
-                              chips: ODSBottomSheetSize.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.bottom_sheets.variant.detent"),
+                chips: ODSBottomSheetSize.chips,
+                selection: $model.bottomSheetSize)
 
-                ODSChipPicker(title: °°"screens.components.bottom_sheets.variant.content",
-                              selection: $model.contentType,
-                              chips: ContentType.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.bottom_sheets.variant.content"),
+                chips: ContentType.chips,
+                selection: $model.contentType)
 
-                Toggle("shared.subtitle", isOn: $model.showSubtitle)
-                    .padding(.horizontal, ODSSpacing.m)
-                    .disabled(model.showIcon)
+            Toggle("shared.subtitle", isOn: $model.showSubtitle)
+                .padding(.horizontal, ODSSpacing.m)
+                .disabled(model.showIcon)
 
-                Toggle("shared.icon", isOn: $model.showIcon)
-                    .padding(.horizontal, ODSSpacing.m)
-                    .disabled(model.showSubtitle)
-            }
+            Toggle("shared.icon", isOn: $model.showIcon)
+                .padding(.horizontal, ODSSpacing.m)
+                .disabled(model.showSubtitle)
         }
         .odsFont(.bodyLRegular)
     }
@@ -178,36 +178,43 @@ enum ContentType: String, CaseIterable {
     case tutorial
     case example
 
-    var chip: ODSChip<Self> {
-        ODSChip(self, text: rawValue.capitalized)
+    var description: LocalizedStringKey {
+        switch self {
+        case .tutorial:
+            return "screens.components.bottom_sheets.tutorial"
+        case .example:
+            return "screens.components.bottom_sheets.example"
+        }
     }
 
-    static var chips: [ODSChip<Self>] {
+    var chip: ODSChoiceChip<Self> {
+        .init(text: Text(description), value: self)
+    }
+
+    static var chips: [ODSChoiceChip<Self>] {
         Self.allCases.map { $0.chip }
     }
 }
 
 extension ODSBottomSheetSize {
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .small:
-            return °°"screens.components.bottom_sheets.size.small"
+            return "screens.components.bottom_sheets.size.small"
         case .medium:
-            return °°"screens.components.bottom_sheets.size.medium"
+            return "screens.components.bottom_sheets.size.medium"
         case .large:
-            return °°"screens.components.bottom_sheets.size.large"
+            return "screens.components.bottom_sheets.size.large"
         case .hidden:
-            return °°"screens.components.bottom_sheets.size.hidden"
+            return "screens.components.bottom_sheets.size.hidden"
         }
     }
 
-    var chip: ODSChip<Self> {
-        ODSChip(self, text: description)
+    var chip: ODSChoiceChip<Self> {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
-        Self.allCases
-            .filter { $0 != .hidden }
-            .map { $0.chip }
+    static var chips: [ODSChoiceChip<Self>] {
+        Self.allCases.map { $0.chip }
     }
 }

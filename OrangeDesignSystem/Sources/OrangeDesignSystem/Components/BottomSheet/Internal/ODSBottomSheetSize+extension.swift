@@ -8,7 +8,11 @@
 
 import BottomSheet
 
-extension ODSBottomSheetSize {
+extension ODSBottomSheetSize: CaseIterable {
+    public static var allCases: [ODSBottomSheetSize] = [
+        .hidden, .small, .medium, .large,
+    ]
+
     var position: BottomSheetPosition {
         switch self {
         case .hidden:
@@ -22,7 +26,11 @@ extension ODSBottomSheetSize {
         }
     }
 
-    public init(from position: BottomSheetPosition) {
+    static var positions: [BottomSheetPosition] {
+        Self.allCases.map { $0.position }
+    }
+
+    init(from position: BottomSheetPosition) {
         switch position {
         case .hidden:
             self = .hidden

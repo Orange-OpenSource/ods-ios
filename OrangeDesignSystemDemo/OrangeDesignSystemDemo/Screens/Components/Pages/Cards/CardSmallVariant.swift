@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardSmallVariantModel: ObservableObject {
+final class CardSmallVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

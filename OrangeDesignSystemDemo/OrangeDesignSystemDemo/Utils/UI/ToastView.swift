@@ -14,8 +14,9 @@ struct Toastable<Content>: View where Content: View {
     // =======================
     // MARK: Stored Properties
     // =======================
+
     @Binding var showText: String?
-    private let content: () -> Content
+    let content: () -> Content
 
     // ==========
     // MARK: Body
@@ -33,6 +34,7 @@ struct Toast: View {
     // =======================
     // MARK: Stored Properties
     // =======================
+
     @Binding var showText: String?
 
     // ==========
@@ -41,7 +43,9 @@ struct Toast: View {
     var body: some View {
         if let showText = self.showText {
             Text(showText)
-                .padding().background(Color(UIColor.systemGray4)).clipShape(Capsule())
+                .padding(.vertical, ODSSpacing.xs)
+                .padding(.horizontal, ODSSpacing.s)
+                .background(Color(UIColor.systemGray4)).clipShape(Capsule())
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.showText = nil

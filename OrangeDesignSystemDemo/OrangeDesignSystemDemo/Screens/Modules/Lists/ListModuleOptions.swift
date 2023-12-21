@@ -37,10 +37,10 @@ struct ListModuleOptions: View {
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(
-                title: "screens.modules.lists.options.style".🌐,
-                selection: $model.listStyleOption,
-                chips: ListStyleOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.modules.lists.options.style"),
+                chips: ListStyleOption.elemnts,
+                selection: $model.listStyleOption)
                 .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.isEditable) {

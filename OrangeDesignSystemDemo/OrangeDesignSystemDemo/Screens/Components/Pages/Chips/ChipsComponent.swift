@@ -23,7 +23,7 @@ struct ChipsComponent: Component {
         title = °°"screens.components.chips.title"
         imageName = "Chips"
         description = °°"screens.components.chips.description"
-        variants = AnyView(ChipsVariants(model: ChipsVariantModel()))
+        variants = AnyView(ChipsVariants())
     }
 }
 
@@ -33,59 +33,25 @@ struct ChipsComponent: Component {
 
 struct ChipsVariants: View {
 
-    @ObservedObject var model: ChipsVariantModel
-
     var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            GroupedChips(title: °°"screens.components.chips.text_only",
-                         chips: model.textOnlyChips,
-                         removableChips: model.textOnlyRemovableChips,
-                         selection: $model.selectedTextOnlyChip,
-                         selectionRemovableChips: $model.selectedTextOnlyRemovableChip)
-
-            GroupedChips(title: °°"screens.components.chips.with_icon",
-                         chips: model.withIconChips,
-                         removableChips: model.withIconRemovableChips,
-                         selection: $model.selectedWithIconChip,
-                         selectionRemovableChips: $model.selectedWithIconRemovableChip)
-
-            GroupedChips(title: °°"screens.components.chips.with_system_icon",
-                         chips: model.withSystemIconChips,
-                         removableChips: model.withSystemIconRemovableChips,
-                         selection: $model.selectedWithSystemIconChip,
-                         selectionRemovableChips: $model.selectedWithSystemIconRemovableChip)
-
-            GroupedChips(title: °°"screens.components.chips.with_avatar",
-                         chips: model.withAvatarChips,
-                         removableChips: model.withAvatarRemovableChips,
-                         selection: $model.selectedWithAvatarChip,
-                         selectionRemovableChips: $model.selectedWithAvatarRemovableChip)
+        VariantEntryItem(title: "screens.components.chips.variant.action".🌐, technicalElement: "ODSActionChip()") {
+            ActionChipVariant(model: ActionChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.action".🌐)
         }
-    }
-}
 
-// =====================
-// MARK: - Grouped Chips
-// =====================
+        VariantEntryItem(title: "screens.components.chips.variant.input".🌐, technicalElement: "ODSInputChip()") {
+            InputChipVariant(model: InputChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.input".🌐)
+        }
 
-struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovable: Hashable, ChipRemovable: Hashable {
+        VariantEntryItem(title: "screens.components.chips.variant.choice".🌐, technicalElement: "ODSChoiceChip()") {
+            ChoiceChipVariant(model: ChoiceChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.choice".🌐)
+        }
 
-    let title: String
-    var chips: [ODSChip<ChipNotRemovable>]
-    var removableChips: [ODSChip<ChipRemovable>]
-
-    let selection: Binding<ChipNotRemovable?>
-    let selectionRemovableChips: Binding<ChipRemovable?>
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: ODSSpacing.m) {
-            Text(title).odsFont(.titleM).frame(maxWidth: .infinity, alignment: .leading)
-
-            VStack(spacing: ODSSpacing.s) {
-                ODSChipPicker(selection: selection, chips: chips)
-                ODSChipPicker(selection: selectionRemovableChips, chips: removableChips)
-            }
-            .padding(.horizontal, -ODSSpacing.m)
+        VariantEntryItem(title: "screens.components.chips.variant.filter".🌐, technicalElement: "ODSFilterChip()") {
+            FilterChipVariant(model: FilterChipVariantModel())
+                .navigationTitle("screens.components.chips.variant.filter".🌐)
         }
     }
 }
@@ -94,12 +60,12 @@ struct GroupedChips<ChipNotRemovable, ChipRemovable>: View where ChipNotRemovabl
 struct ChipsViewDemoSandBox_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChipsVariants(model: ChipsVariantModel())
+            ChipsVariants()
                 .previewInterfaceOrientation(.portrait)
         }
 
         NavigationView {
-            ChipsVariants(model: ChipsVariantModel())
+            ChipsVariants()
                 .previewInterfaceOrientation(.portrait)
                 .environment(\.dynamicTypeSize, .accessibility3)
         }

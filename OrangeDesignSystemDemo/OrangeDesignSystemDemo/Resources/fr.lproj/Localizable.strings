@@ -36,6 +36,7 @@
 "shared.recipes" = "Recettes";
 "shared.foods" = "Nourriture";
 "shared.loading" = "Chargement\U2026";
+"shared.bon_app" = "Bon appétit !";
 
 // =====================
 // MARK: - Miscellaneous
@@ -218,12 +219,17 @@
 
 "screens.components.chips.title" = "Puces";
 "screens.components.chips.description" = "Les puces sont de petits composants contenant un certain nombre d'éléments qui représentent un événement de calendrier ou un contact.";
-"screens.components.chips.text_only" = "Texte seul";
-"screens.components.chips.with_icon" = "Avec une icône depuis une image";
-"screens.components.chips.with_system_icon" = "Avec une icône système";
-"screens.components.chips.with_avatar" = "Avec un avatar"; /* Dernier maître de l'air ou créature à la peau bleue */
-"screens.components.chips.state.enable" = "Activer";
-"screens.components.chips.state.selected" = "Selectionné";
+"screens.components.chips.variant.action" = "Action chips";
+"screens.components.chips.action.description" = "L'utilisateur peut effectuer une action en cliquant sur le chip.";
+"screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.choice.description" = "Les chips permettent  à l'utilisateur de selectionner un element parmis ceux proposés";
+"screens.components.chips.variant.filter" = "Filter chips";
+"screens.components.chips.filter.description" = "Lors d'une recherche par tags, l'utilisateur peut activer les chips souhaités.";
+"screens.components.chips.variant.input" = "Input chips";
+"screens.components.chips.input.description" = "Les recherches saisies par l'utilisateur sont transformées en chips qui peuvent être ajoutées ou supprimées.";
+"screens.components.chips.variant.picker" = "Chips picker";
+"screens.components.chips.variant.chip.clicked" = "%@ : cliqué";
+"screens.components.chips.variant.input.remove_clicked" = "suppression  cliqué";
 
 // ====================================
 // MARK: - Screens - Components - Lists
@@ -236,7 +242,6 @@
 "screens.components.lists.picker.navigate" = "Naviguer";
 "screens.components.lists.selection.description.checkmark" = "Encoche";
 "screens.components.lists.selection.description.switch" = "Commutateur";
-"screens.components.lists.variant.clicked" = "%@ est tappé";
 "screens.components.lists.alert" = "Icône d'information tappée ! Bon appétit";
 "screens.components.lists.options.description.info_button" = "Bouton d'information";
 "screens.components.list.details" = "Détails";
@@ -263,6 +268,8 @@
 "screens.components.bottom_sheets.description" = "Par défaut, une page est modale, présentant une expérience ciblée qui empêche les utilisateurs d'interagir avec la vue parente, jusqu'à ce qu'ils ferment la page. Une page modale est utile pour demander une information spécifique ou activer une tâche simple.";
 "screens.components.bottom_sheets.expanding" = "Étirable";
 "screens.components.bottom_sheets.standard" = "Standard";
+"screens.components.bottom_sheets.example" = "Exemple";
+"screens.components.bottom_sheets.tutorial" = "Tutoriel";
 "screens.components.bottom_sheets.sample.title" = "Pages inférieures";
 "screens.components.bottom_sheets.sample.subtitle" = "Produits français";
 "screens.components.bottom_sheets.sample.recipe" = "Recette";
@@ -332,7 +339,6 @@
 
 "screens.modules.card_collections.titles.list" = "Liste de cartes";
 "screens.modules.card_collections.titles.grid" = "Grille de petites cartes";
-"screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
 
 // =================================
 // MARK: - Screens - Modules - Lists

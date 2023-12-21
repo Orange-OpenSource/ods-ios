@@ -107,7 +107,7 @@ struct FunctionalVariant: View {
 // MARK: - Emphasis and Functionnal Variant
 // ========================================
 
-class EmphasisAndFunctionnalVariantModel: ObservableObject {
+final class EmphasisAndFunctionnalVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties

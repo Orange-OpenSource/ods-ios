@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class ScreenState: ObservableObject {
+final class ScreenState: ObservableObject {
     @Published var colorScheme: ColorScheme = .light
 }
 

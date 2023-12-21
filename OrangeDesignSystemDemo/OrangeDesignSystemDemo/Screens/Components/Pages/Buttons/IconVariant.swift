@@ -70,7 +70,7 @@ struct IconVariant: View {
 // MARK: - Icon Variant Model
 // ==========================
 
-class IconVariantModel: ObservableObject {
+final class IconVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

@@ -17,20 +17,20 @@ extension ODSCardHorizontal.ImagePosition: CaseIterable {
 
     public static var allCases: [ODSCardHorizontal.ImagePosition] = [.leading, .trailing]
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .leading:
-            return °°"shared.leading"
+            return "shared.leading"
         case .trailing:
-            return °°"shared.trailing"
+            return "shared.trailing"
         }
     }
 
-    var chip: ODSChip<Self> {
-        ODSChip(self, text: description)
+    var chip: ODSChoiceChip<Self> {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
+    static var chips: [ODSChoiceChip<Self>] {
         Self.allCases.map { $0.chip }
     }
 }
@@ -39,7 +39,7 @@ extension ODSCardHorizontal.ImagePosition: CaseIterable {
 // MARK: - Card Horizontal Variant Model
 // =====================================
 
-class CardHorizontalVariantModel: ObservableObject {
+final class CardHorizontalVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties
@@ -210,9 +210,10 @@ private struct CardHorizontalVariantOptions: View {
             Toggle("shared.text", isOn: $model.showText)
                 .padding(.horizontal, ODSSpacing.m)
 
-            ODSChipPicker(title: °°"screens.components.card.picker.position",
-                          selection: $model.imagePosition,
-                          chips: ODSCardHorizontal.ImagePosition.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.card.picker.position"),
+                chips: ODSCardHorizontal.ImagePosition.chips,
+                selection: $model.imagePosition)
 
             Toggle("screens.components.card.divider", isOn: $model.showDivider)
                 .padding(.horizontal, ODSSpacing.m)
