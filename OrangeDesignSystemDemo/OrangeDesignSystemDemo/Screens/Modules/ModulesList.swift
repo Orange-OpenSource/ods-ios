@@ -61,6 +61,7 @@ struct ModulesList: View {
             .navigationTitle("shared.modules")
             .navigationbarMenuForThemeSelection()
         }
+        .navigationViewStyle(.stack)
     }
 
     // ====================
