@@ -10,16 +10,15 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct NavigationBarComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.bars.navigation.title"
+        name = °°"screens.components.bars.navigation.title"
         imageName = "Navigation bars"
         description = °°"screens.components.bars.navigation.description"
-
         variants = AnyView(NavigationBarVariants())
     }
 }
@@ -27,7 +26,7 @@ struct NavigationBarComponent: Component {
 struct NavigationBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.bars.navigation.title",
+        VariantEntryItem(title: "screens.components.bars.navigation.title",
                          technicalElement: "NavigationView",
                          showThemeSelectionInNavigationBar: false) {
             NavigationBarVariant(model: NavigationBarVariantModel())

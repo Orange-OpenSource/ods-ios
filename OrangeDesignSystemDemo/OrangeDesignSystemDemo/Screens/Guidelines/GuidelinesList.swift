@@ -35,12 +35,12 @@ struct GuidelinesList: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                    ForEach(guidelines, id: \.title) { guideline in
+                    ForEach(guidelines, id: \.id) { guideline in
                         NavigationLink {
                             GuidelinePage(guideline: guideline)
                         } label: {
                             ODSCardVerticalImageFirst(
-                                title: Text(guideline.title),
+                                title: Text(guideline.name),
                                 imageSource: .image(imageFrom(resourceName: guideline.imageName)))
                         }
                     }

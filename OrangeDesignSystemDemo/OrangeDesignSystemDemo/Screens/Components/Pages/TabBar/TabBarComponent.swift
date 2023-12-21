@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct TabBarComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.bars.tabs.title"
+        name = °°"screens.components.bars.tabs.title"
         imageName = "Tab bar"
         description = °°"screens.components.bars.tabs.description"
         variants = AnyView(TabBarVariants())
@@ -26,7 +26,7 @@ struct TabBarComponent: Component {
 private struct TabBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.bars.tabs.title", technicalElement: "TabView") {
+        VariantEntryItem(title: "screens.components.bars.tabs.title", technicalElement: "TabView") {
             TabBarVariant(model: TabBarVariantModel())
                 .navigationTitle("screens.components.bars.tabs.title")
         }

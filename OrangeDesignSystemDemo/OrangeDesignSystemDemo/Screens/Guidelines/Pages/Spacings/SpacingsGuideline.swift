@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct SpacingsGuideline: Guideline {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let pageDescription: AnyView
 
     init() {
-        title = °°"screens.guidelines.spacings.title"
+        name = °°"screens.guidelines.spacings.title"
         imageName = "Spacing"
         description = °°"screens.guidelines.spacings.description"
         pageDescription = AnyView(SpacingsPageDescription())

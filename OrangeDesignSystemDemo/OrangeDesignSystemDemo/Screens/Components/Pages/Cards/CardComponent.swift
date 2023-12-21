@@ -14,13 +14,13 @@ import SwiftUI
 // ======================
 
 struct CardComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.cards.title"
+        name = °°"screens.components.cards.title"
         imageName = "Cards_1"
         description = °°"screens.components.cards.description"
         variants = AnyView(CardVariants())
@@ -34,22 +34,22 @@ struct CardComponent: Component {
 struct CardVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.cards.variant.vertical_image_first", technicalElement: "ODSCardVerticalImageFirst()") {
+        VariantEntryItem(title: "screens.components.cards.variant.vertical_image_first", technicalElement: "ODSCardVerticalImageFirst()") {
             CardVerticalImageFirstVariant(model: CardVerticalImageFirstVariantModel())
                 .navigationTitle("screens.components.cards.variant.vertical_image_first")
         }
 
-        VariantEntryItem(title: °°"screens.components.cards.variant.vertical_header_first", technicalElement: "ODSCardVerticalHeaderFirst()") {
+        VariantEntryItem(title: "screens.components.cards.variant.vertical_header_first", technicalElement: "ODSCardVerticalHeaderFirst()") {
             CardVerticalHeaderFirstVariant(model: CardVerticalHeaderFirstVariantModel())
                 .navigationTitle("screens.components.cards.variant.vertical_header_first")
         }
 
-        VariantEntryItem(title: °°"screens.components.cards.variant.small", technicalElement: "ODSCardSmall") {
+        VariantEntryItem(title: "screens.components.cards.variant.small", technicalElement: "ODSCardSmall") {
             CardSmallVariant(model: CardSmallVariantModel())
                 .navigationTitle("screens.components.cards.variant.small")
         }
 
-        VariantEntryItem(title: °°"screens.components.cards.variant.horizontal", technicalElement: "ODSCardHorizontal") {
+        VariantEntryItem(title: "screens.components.cards.variant.horizontal", technicalElement: "ODSCardHorizontal") {
             CardHorizontalVariant(model: CardHorizontalVariantModel())
                 .navigationTitle("screens.components.cards.variant.horizontal")
         }

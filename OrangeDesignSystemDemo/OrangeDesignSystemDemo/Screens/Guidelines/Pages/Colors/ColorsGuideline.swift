@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ColorsGuideline: Guideline {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let pageDescription: AnyView
 
     init() {
-        title = °°"screens.guidelines.colors.title"
+        name = °°"screens.guidelines.colors.title"
         imageName = "Colour"
         description = °°"screens.guidelines.colors.description"
         pageDescription = AnyView(ColorPageDescription())

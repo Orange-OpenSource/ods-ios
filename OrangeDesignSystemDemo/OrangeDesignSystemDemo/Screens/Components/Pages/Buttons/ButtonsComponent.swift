@@ -14,13 +14,13 @@ import SwiftUI
 // ========================
 
 struct ButtonComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.buttons.title"
+        name = °°"screens.components.buttons.title"
         imageName = "Buttons - Shape"
         description = °°"screens.components.buttons.description"
         variants = AnyView(ButtonVariants())
@@ -34,14 +34,14 @@ struct ButtonComponent: Component {
 struct ButtonVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.buttons.variant.emphasis", technicalElement: "ODSButton()") {
+        VariantEntryItem(title: "screens.components.buttons.variant.emphasis", technicalElement: "ODSButton()") {
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 EmphasisVariant(model: model)
             }
             .navigationTitle("screens.components.buttons.variant.emphasis")
         }
 
-        VariantEntryItem(title: °°"screens.components.buttons.variant.functional", technicalElement: "ODSFunctionalButton()") {
+        VariantEntryItem(title: "screens.components.buttons.variant.functional", technicalElement: "ODSFunctionalButton()") {
 
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 FunctionalVariant(model: model)
@@ -49,7 +49,7 @@ struct ButtonVariants: View {
             .navigationTitle("screens.components.buttons.variant.functional")
         }
 
-        VariantEntryItem(title: °°"screens.components.buttons.variant.icons", technicalElement: "ODSIconButton()") {
+        VariantEntryItem(title: "screens.components.buttons.variant.icons", technicalElement: "ODSIconButton()") {
             IconVariant(model: IconVariantModel())
                 .navigationTitle("screens.components.buttons.variant.icons")
         }

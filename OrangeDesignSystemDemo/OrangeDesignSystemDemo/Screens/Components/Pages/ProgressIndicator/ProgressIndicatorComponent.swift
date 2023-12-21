@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct ProgressIndicatorComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.progress_indicators.title"
+        name = °°"screens.components.progress_indicators.title"
         imageName = "Progress indicator"
         description = °°"screens.components.progress_indicators.description"
         variants = AnyView(ProgressIndicatorVariants())
@@ -26,12 +26,12 @@ struct ProgressIndicatorComponent: Component {
 private struct ProgressIndicatorVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.progress_indicators.progress_bar.title", technicalElement: "ProgressView(value:, total:)") {
+        VariantEntryItem(title: "screens.components.progress_indicators.progress_bar.title", technicalElement: "ProgressView(value:, total:)") {
             ProgressBarVariant(model: ProgressBarVariantModel())
                 .navigationTitle("screens.components.progress_indicators.progress_bar.title")
         }
 
-        VariantEntryItem(title: °°"screens.components.progress_indicators.activity_bar.title", technicalElement: "ProgressView()") {
+        VariantEntryItem(title: "screens.components.progress_indicators.activity_bar.title", technicalElement: "ProgressView()") {
             ActivityIndicatorVariant(model: ActivityIndicatorModel())
                 .navigationTitle("screens.components.progress_indicators.activity_bar.title")
         }
