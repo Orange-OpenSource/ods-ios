@@ -34,24 +34,24 @@ struct ChipsComponent: Component {
 struct ChipsVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: "screens.components.chips.variant.action".🌐, technicalElement: "ODSActionChip()") {
+        VariantEntryItem(title: "screens.components.chips.variant.action", technicalElement: "ODSActionChip()") {
             ActionChipVariant(model: ActionChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.action".🌐)
+                .navigationTitle("screens.components.chips.variant.action")
         }
 
-        VariantEntryItem(title: "screens.components.chips.variant.input".🌐, technicalElement: "ODSInputChip()") {
+        VariantEntryItem(title: "screens.components.chips.variant.input", technicalElement: "ODSInputChip()") {
             InputChipVariant(model: InputChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.input".🌐)
+                .navigationTitle("screens.components.chips.variant.input")
         }
 
-        VariantEntryItem(title: "screens.components.chips.variant.choice".🌐, technicalElement: "ODSChoiceChip()") {
+        VariantEntryItem(title: "screens.components.chips.variant.choice", technicalElement: "ODSChoiceChip()") {
             ChoiceChipVariant(model: ChoiceChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.choice".🌐)
+                .navigationTitle("screens.components.chips.variant.choice")
         }
 
-        VariantEntryItem(title: "screens.components.chips.variant.filter".🌐, technicalElement: "ODSFilterChip()") {
+        VariantEntryItem(title: "screens.components.chips.variant.filter", technicalElement: "ODSFilterChip()") {
             FilterChipVariant(model: FilterChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.filter".🌐)
+                .navigationTitle("screens.components.chips.variant.filter")
         }
     }
 }

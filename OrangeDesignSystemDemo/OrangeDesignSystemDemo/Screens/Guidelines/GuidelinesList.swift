@@ -52,6 +52,7 @@ struct GuidelinesList: View {
 
             GuidelinePage(guideline: guidelines[0]) // Why ?
         }
+        .navigationViewStyle(.stack)
     }
 
     // ====================

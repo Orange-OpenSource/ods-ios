@@ -100,7 +100,7 @@ struct ChipContentModifier: ViewModifier {
     @Environment(\.isEnabled) private var isEnabled
     private let lineWidth: CGFloat = 1.0
     let isSelected: Bool
-    
+
     func body(content: Content) -> some View {
         if isSelected {
             content

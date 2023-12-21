@@ -63,6 +63,7 @@ struct ComponentsList: View {
 
             ComponentPage(component: components[0])
         }
+        .navigationViewStyle(.stack)
     }
 
     // =====================

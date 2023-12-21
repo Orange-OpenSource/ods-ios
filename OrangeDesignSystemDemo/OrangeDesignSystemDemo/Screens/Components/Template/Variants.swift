@@ -12,7 +12,7 @@ import SwiftUI
 struct VariantsTitle: View {
     var body: some View {
         Text("misc.variants")
-            .odsFont(.title1)
+            .odsFont(.titleL)
             .accessibilityAddTraits(.isHeader)
     }
 }
