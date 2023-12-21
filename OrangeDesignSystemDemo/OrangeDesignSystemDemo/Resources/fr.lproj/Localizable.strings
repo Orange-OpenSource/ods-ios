@@ -191,9 +191,6 @@
 "screens.components.buttons.variant.long" = "Termes et conditions";
 "screens.components.buttons.options.toggle.full_width" = "Pleine largeur";
 
-"a11y.emphasis_button_hint" = "%@ bouton d'emphase";
-"a11y.functional_button_hint" = "%@ bouton fonctionnel";
-
 // ====================================
 // MARK: - Screens - Components - Cards
 // ====================================

@@ -45,7 +45,6 @@ struct EmphasisVariant: View {
                           emphasis: emphasis,
                           fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
-                    .accessibilityLabel("a11y.emphasis_button_hint" <- "\(emphasis.rawValue)")
             }
         }
     }
@@ -86,7 +85,6 @@ struct FunctionalVariant: View {
                                     style: style,
                                     fullWidth: model.showFullWidth) {}
                     .disabled(!model.showEnabled)
-                    .accessibilityLabel("a11y.functional_button_hint" <- "\(style.rawValue)")
             }
         }
     }
