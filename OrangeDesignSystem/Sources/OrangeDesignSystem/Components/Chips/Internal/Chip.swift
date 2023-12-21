@@ -96,10 +96,11 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
 
 struct ChipContentModifier: ViewModifier {
 
+    @Environment(\.theme) private var theme
+    @Environment(\.isEnabled) private var isEnabled
+    private let lineWidth: CGFloat = 1.0
     let isSelected: Bool
-    @Environment(\.theme) var theme
-    @Environment(\.isEnabled) var isEnabled
-
+    
     func body(content: Content) -> some View {
         if isSelected {
             content
@@ -109,8 +110,8 @@ struct ChipContentModifier: ViewModifier {
         } else {
             content
                 .foregroundColor(.primary)
-                .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
-                .padding(.all, 1)
+                .overlay(Capsule().stroke(Color.primary, lineWidth: lineWidth))
+                .padding(.all, lineWidth)
                 .opacity(isEnabled ? 1 : 0.5)
         }
     }

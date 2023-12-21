@@ -67,7 +67,7 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
     // =====================
 
     private func content(for chip: ODSChoiceChip<Value>) -> some View {
-        return ODSChoiceChipView(chip: chip, selected: selection.wrappedValue == chip.value) {
+        ODSChoiceChipView(chip: chip, selected: selection.wrappedValue == chip.value) {
             selection.wrappedValue = chip.value
         }
     }
