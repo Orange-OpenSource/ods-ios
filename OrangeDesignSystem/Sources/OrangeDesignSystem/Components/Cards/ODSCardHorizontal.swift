@@ -65,13 +65,13 @@ public struct ODSCardHorizontal: View {
     /// Initialization with one button.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - imagePosition: The side where image is placed.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - text: Optional text description to be displayed in the card. The text
+    ///  - title: Title displayed into the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - imagePosition: Side where image is placed.
+    ///  - subtitle: Optional subtitle displayed into the card.
+    ///  - text: Optional text description displayed intp the card. The text
     ///  displaying is limited to two lines (truncated tail).
-    ///  - button: The optional first (leading) button.
+    ///  - button:  Optional first (leading) button.
     ///  - dividerEnabled: Optional divider added at the top of the buttons area.
     ///
     public init(
@@ -97,14 +97,14 @@ public struct ODSCardHorizontal: View {
     /// Initialization with two buttons.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - imagePosition: The side where image is placed.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - text: Optional text description to be displayed in the card. The text
+    ///  - title: Title displayed into the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - imagePosition: Side where image is placed.
+    ///  - subtitle: Optional subtitle displayed into the card.
+    ///  - text: Optional text description displayed intp the card. The text
     ///  displaying is limited to two lines (truncated tail).
-    ///  - firstButton: The optional first (leading) button.
-    ///  - secondButton: The optional second (trailing) button.
+    ///  - firstButton: Optional first (leading) button.
+    ///  - secondButton: Optional second (trailing) button.
     ///  - dividerEnabled: Optional divider added at the top of the buttons area.
     ///
     public init(
