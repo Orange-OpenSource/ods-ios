@@ -6,9 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...qualif)
 
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
+- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [DemoApp/SDK] Thumbnail of card vertical header first not showing (Bug [#499](https://github.com/Orange-OpenSource/ods-ios/issues/499))
 - [DemoApp] Back button renamed after switching from lanscape to portrait mode (Bug [#562](https://github.com/Orange-OpenSource/ods-ios/issues/562))
-- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [DemoApp] Udpate accessibility label on Functional and Emphasis buttons in demo app ([#546](https://github.com/Orange-OpenSource/ods-ios/issues/546))
 - [SDK/DemoApp] Refactor chips component API ([#262](https://github.com/Orange-OpenSource/ods-ios/issues/262))
 - [SDK] Update guidelines typography names ([#542](https://github.com/Orange-OpenSource/ods-ios/issues/542))
