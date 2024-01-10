@@ -69,7 +69,7 @@ public struct ODSCardHorizontal: View {
     ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
     ///  - imagePosition: Side where image is placed.
     ///  - subtitle: Optional subtitle displayed into the card.
-    ///  - text: Optional text description displayed intp the card. The text
+    ///  - text: Optional text description displayed into the card. The text
     ///  displaying is limited to two lines (truncated tail).
     ///  - button:  Optional first (leading) button.
     ///  - dividerEnabled: Optional divider added at the top of the buttons area.
@@ -101,7 +101,7 @@ public struct ODSCardHorizontal: View {
     ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
     ///  - imagePosition: Side where image is placed.
     ///  - subtitle: Optional subtitle displayed into the card.
-    ///  - text: Optional text description displayed intp the card. The text
+    ///  - text: Optional text description displayed into the card. The text
     ///  displaying is limited to two lines (truncated tail).
     ///  - firstButton: Optional first (leading) button.
     ///  - secondButton: Optional second (trailing) button.
