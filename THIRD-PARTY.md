@@ -5,7 +5,7 @@ This document contains the list of Third Party Softwares along with the license 
 Third Party Software may impose additional restrictions and it is the user's responsibility to ensure that they have met the licensing
 requirements of the relevant license of the Third Party Software they are using.
 
-## In Application
+## In Library 
 
 ### accessibility-statement-lib-ios
 
@@ -22,6 +22,15 @@ Copyright 2021-2022 Lucas Zischka.
 
 *BottomSheet* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/lucaszischka/BottomSheet).
+
+### SwiftUI-Flow
+
+Copyright (c) 2023 Laszlo Teveli
+*SwiftUI-Flow* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
+
+You may download the source code on the [following website](https://github.com/tevelee/SwiftUI-Flow).
+
+## In Application
 
 ### Parma
 

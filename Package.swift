@@ -29,6 +29,7 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(url: "https://github.com/tevelee/SwiftUI-Flow", .exact("1.1.0")),
         .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("3.1.0")),
         .package(url: "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git", .exact("1.0.0"))
     ],
@@ -36,7 +37,8 @@ let package = Package(
         .target(
             name: "OrangeDesignSystem",
             dependencies: ["BottomSheet",
-                           .product(name: "DeclarationAccessibility", package: "accessibility-statement-lib-ios")
+                           .product(name: "DeclarationAccessibility", package: "accessibility-statement-lib-ios"),
+                           .product(name: "Flow", package: "SwiftUI-Flow"),
                            ],
             path: "OrangeDesignSystem/Sources"),
         .target(
