@@ -44,25 +44,25 @@ This card is composed of two parts:
 - Media: (today an image)
 - Content: with a title, an optional subtitle an optional supporting text and optional buttons (zero up to two)
 
+![Vertical image first card light](images/card_vertical_image_first_light.png) ![Vertical image first card dark](images/card_vertical_image_first_dark.png)
+
 > **Implementation**
 
-Card is configured using `ODSCardVerticalHeaderFirstModel` like this:
+Card is configured like this:
 
 ```swift
-let model = ODSCardVerticalImageFirstModel(
-    title: "Title",
-    subtitle: "Subtitle",
-    image: Image("ods_empty", bundle: Bundle.ods),
-    supportingText: "A supporting text to describe something")
-    
-ODSCardVerticalImageFirst(model: model) {
-    ODSButton(text: "Button 1", emphasis: .low) {
-            // do something here
-        }
-    } buttonContent2: {
-        ODSButton(text: "Button 1", emphasis: .low) {
-            // do something here
-        } 
+ODSCardVerticalImageFirst(
+    title: Text("Title"),
+    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    subtitle: Text("Subtitle"),
+    text: Text("A supporting text to describe something")
+) {
+   Button("Button 1") {
+        // do something here
+    }
+} secondButton: {
+    Button("Button 2") {
+        // do something here 
     }
 }
 ```
@@ -76,9 +76,11 @@ This card is composed of three parts:
 - Media: (today an image)
 - Content: with an optional supporting text and optional buttons (zero up to two)
 
+![Vertical header first card light](images/card_vertical_header_first_light.png) ![Vertical header first card dark](images/card_vertical_header_first_dark.png)
+
 > **Implementation**
 
-Card is configured using `ODSCardVerticalHeaderFirstModel` like this:
+Card is configured like this:
 
 ```swift
     
@@ -86,7 +88,7 @@ ODSCardVerticalHeaderFirst(
     title: Text("Title"),
     imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
     subtitle: Text("Subtitle"),
-    thumbnail: Image("ods_empty", bundle: Bundle.ods),
+    thumbnailSource: .image(Image("ods_empty", bundle: Bundle.ods)),
     text: Text("A supporting text to describe something")
 ) {
    Button("Button 1") {
@@ -107,6 +109,8 @@ Thes content is composed by:
 - a title
 - an optional subtitle
 - an optional text for larger description
+
+![Horizontal card light](images/card_horizontal_light.png) ![Horizontal card dark](images/card_horizontal_dark.png)
 
 > **Implementation**
 
@@ -135,6 +139,8 @@ ODSCardHorizontal(
 
 The small card if prefered for two-column portrait mobile screen display.
 As it is smaller than full-width cards, it contains only title and subtitle (optional) in one line (Truncated tail).
+
+![CardSmall](images/card_small_light.png) ![CardSmall dark](images/card_small_dark.png)
 
 > **Implementation**
 

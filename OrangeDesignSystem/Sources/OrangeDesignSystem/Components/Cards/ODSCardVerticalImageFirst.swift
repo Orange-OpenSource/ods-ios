@@ -28,10 +28,10 @@ public struct ODSCardVerticalImageFirst: View {
     /// Initialization without button.
     ///
     /// - Parameters:
-    ///  - title: The title.
-    ///  - imageSource: The source of the image.
-    ///  - subtitle: Optional subtitle.
-    ///  - text: Optional text description.
+    ///  - title: Title displayed into the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - subtitle: Optional subtitle displayed into the card.
+    ///  - text: Optional text description displayed into the card.
     ///
     public init(
         title: Text,
@@ -50,10 +50,10 @@ public struct ODSCardVerticalImageFirst: View {
     /// Initialization with one button.
     ///
     /// - Parameters:
-    ///  - title: The title.
-    ///  - imageSource: The source of the image.
-    ///  - subtitle: Optional subtitle.
-    ///  - text: Optional text description.
+    ///  - title: Title displayed into the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - subtitle: Optional subtitle displayed into the card.
+    ///  - text: Optional text description displayed into the card.
     ///  - button: The button with text only (lowest emphasis).
     ///
     public init(
@@ -74,10 +74,10 @@ public struct ODSCardVerticalImageFirst: View {
     /// Initialization with two buttons.
     ///
     /// - Parameters:
-    ///  - title: The title.
-    ///  - imageSource: The source of the image.
-    ///  - subtitle: Optional subtitle.
-    ///  - text: Optional text description.
+    ///  - title: Title displayed into the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - subtitle: Optional subtitle displayed into the card.
+    ///  - text: Optional text description displayed into the card.
     ///  - firstButton: The first (leading) button text.
     ///  - secondButton: The second (trailing) button text.
     ///

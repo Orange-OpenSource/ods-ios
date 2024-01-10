@@ -27,9 +27,9 @@ public struct ODSCardSmall: View {
     /// Initialization.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The source of the image.
-    ///  - subtitle: The optional subtitle.
+    ///  - title: Title displayed into the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - subtitle: Optional subtitle displayed into the card.
     ///
     public init(title: Text, imageSource: ODSImage.Source, subtitle: Text? = nil) {
         self.title = title
