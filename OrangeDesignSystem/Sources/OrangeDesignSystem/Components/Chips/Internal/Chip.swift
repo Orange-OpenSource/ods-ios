@@ -70,6 +70,7 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
                 text()
                     .odsFont(.bodyS)
                     .multilineTextAlignment(.center)
+                    .frame(minHeight: leadingHeight)
 
                 removeButton
                     .frame(width: leadingHeight, height: leadingHeight)
