@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp/SDK] Thumbnail of card vertical header first not showing (Bug [#499](https://github.com/Orange-OpenSource/ods-ios/issues/499))
 - [DemoApp] Back button renamed after switching from lanscape to portrait mode (Bug [#562](https://github.com/Orange-OpenSource/ods-ios/issues/562))
 - [DemoApp] Udpate accessibility label on Functional and Emphasis buttons in demo app ([#546](https://github.com/Orange-OpenSource/ods-ios/issues/546))
+- [SDK/DemoApp] Refactor chips component API ([#262](https://github.com/Orange-OpenSource/ods-ios/issues/262))
 - [SDK] Update guidelines typography names ([#542](https://github.com/Orange-OpenSource/ods-ios/issues/542))
 - [DemoApp] Refactor variant page and entry ([#553](https://github.com/Orange-OpenSource/ods-ios/issues/553))
 - [SDK] Accessibility - Group texts in cards for VoiceOver (Bug [#547](https://github.com/Orange-OpenSource/ods-ios/issues/547)) 
