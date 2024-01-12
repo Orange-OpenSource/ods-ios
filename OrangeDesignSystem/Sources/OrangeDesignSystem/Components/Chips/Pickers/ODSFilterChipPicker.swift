@@ -94,7 +94,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
     @ViewBuilder
     private var stackedContent: some View {
         if #available(iOS 16.0, *) {
-            HFlow(alignment: .top, spacing: ODSSpacing.xs) {
+            HFlow(alignment: .top, spacing: ODSSpacing.s) {
                 ForEach(chips, id: \.value) { chip in
                     content(for: chip)
                 }
