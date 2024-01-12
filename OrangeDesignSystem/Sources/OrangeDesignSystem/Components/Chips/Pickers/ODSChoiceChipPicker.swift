@@ -52,7 +52,7 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
             title?
                 .odsFont(.headlineS)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, ODSSpacing.m)
+                .padding(.horizontal, ODSSpacing.m)
 
             switch placement {
             case .carousel:
@@ -92,13 +92,12 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
     @ViewBuilder
     private var stackedContent: some View {
         if #available(iOS 16.0, *) {
-            HFlow(alignment: .top, spacing: 10) {
+            HFlow(alignment: .top, spacing: ODSSpacing.xs) {
                 ForEach(chips, id: \.value) { chip in
                     content(for: chip)
                 }
             }
-            .padding(.horizontal, ODSSpacing.xs)
-            .padding(.horizontal, ODSSpacing.s)
+            .padding(.horizontal, ODSSpacing.m)
         } else {
             var width = CGFloat.zero
             var height = CGFloat.zero
@@ -107,7 +106,8 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
                     ZStack(alignment: .topLeading) {
                         ForEach(chips, id: \.value) { chip in
                             content(for: chip)
-                                .padding(.all, ODSSpacing.xs)
+                                .padding(.top, ODSSpacing.xs)
+                                .padding(.trailing, ODSSpacing.xs)
                                 .alignmentGuide(.leading) { dimension in
                                     if abs(width - dimension.width) > geo.size.width {
                                         width = 0
@@ -130,15 +130,13 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
                                 }
                         }
                     }
-                    .padding(.all, ODSSpacing.xs)
                     .readSize { size in
                         finalSize = size
                     }
                 }
             }
             .frame(height: finalSize.height)
-            .padding(.horizontal, ODSSpacing.xs)
-            .padding(.horizontal, ODSSpacing.s)
+            .padding(.horizontal, ODSSpacing.m)
         }
     }
 }
