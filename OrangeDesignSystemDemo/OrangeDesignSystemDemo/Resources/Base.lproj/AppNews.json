@@ -1,5 +1,10 @@
 [
     {
+        "version": "0.16.0",
+        "date": "2024-01-15",
+        "news": "Update typography names.\n Update chips API and design.\nUpdate CardHeaderFirst to get thumbnail from resources or url.\nRefactor About module to manage errors when loading resources.\nFix some accessibility issues."
+    },
+    {
         "version": "0.15.0",
         "date": "2023-11-14",
         "news": "Add internationalization support.\n Add module List in demo application to illustrates header and footer of sections in list and update ListItem api to use SwiftUI elements.\nAdd accessibility statement in About module"
