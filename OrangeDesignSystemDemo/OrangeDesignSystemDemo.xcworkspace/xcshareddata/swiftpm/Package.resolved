@@ -18,6 +18,15 @@
           "revision": "4c9ef84552712e0117c37d4893270fdc28fb9288",
           "version": "3.1.0"
         }
+      },
+      {
+        "package": "Flow",
+        "repositoryURL": "https://github.com/tevelee/SwiftUI-Flow",
+        "state": {
+          "branch": null,
+          "revision": "76c03c9fa9fa0e5470cb6d8f2da17466b2efd63d",
+          "version": "1.1.0"
+        }
       }
     ]
   },

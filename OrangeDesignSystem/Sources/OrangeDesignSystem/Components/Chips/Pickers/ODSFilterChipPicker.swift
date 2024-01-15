@@ -6,6 +6,7 @@
 // This software is distributed under the MIT license.
 //
 
+import Flow
 import SwiftUI
 
 public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
@@ -48,7 +49,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
             title?
                 .odsFont(.headlineS)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, ODSSpacing.m)
+                .padding(.horizontal, ODSSpacing.m)
 
             switch placement {
             case .carousel:
@@ -88,44 +89,56 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
         }
     }
 
+    @State private var finalSize: CGSize = .zero
+
     @ViewBuilder
     private var stackedContent: some View {
-        var width = CGFloat.zero
-        var height = CGFloat.zero
-        var lastHeight = CGFloat.zero
-
-        GeometryReader { geo in
-            ZStack(alignment: .topLeading) {
+        if #available(iOS 16.0, *) {
+            HFlow(alignment: .top, spacing: ODSSpacing.s) {
                 ForEach(chips, id: \.value) { chip in
                     content(for: chip)
-                        .padding(.all, ODSSpacing.xs)
-                        .alignmentGuide(.leading) { dimension in
-                            if abs(width - dimension.width) > geo.size.width {
-                                width = 0
-                                height -= dimension.height
-                            }
-                            let result = width
-                            if chip.value == chips.last!.value {
-                                width = 0
-                            } else {
-                                width -= dimension.width
-                            }
-                            lastHeight = dimension.height
-                            return result
-                        }
-                        .alignmentGuide(.top) { _ in
-                            let result = height
-                            if chip.value == chips.last!.value {
-                                height = 0
-                            }
-                            return result
-                        }
                 }
             }
+            .padding(.horizontal, ODSSpacing.m)
+        } else {
+            var width = CGFloat.zero
+            var height = CGFloat.zero
+            VStack {
+                GeometryReader { geo in
+                    ZStack(alignment: .topLeading) {
+                        ForEach(chips, id: \.value) { chip in
+                            content(for: chip)
+                                .padding(.top, ODSSpacing.xs)
+                                .padding(.trailing, ODSSpacing.xs)
+                                .alignmentGuide(.leading) { dimension in
+                                    if abs(width - dimension.width) > geo.size.width {
+                                        width = 0
+                                        height -= dimension.height
+                                    }
+                                    let result = width
+                                    if chip.value == chips.last!.value {
+                                        width = 0
+                                    } else {
+                                        width -= dimension.width
+                                    }
+                                    return result
+                                }
+                                .alignmentGuide(.top) { _ in
+                                    let result = height
+                                    if chip.value == chips.last!.value {
+                                        height = 0
+                                    }
+                                    return result
+                                }
+                        }
+                    }
+                    .readSize { size in
+                        finalSize = size
+                    }
+                }
+            }
+            .frame(height: finalSize.height)
+            .padding(.horizontal, ODSSpacing.m)
         }
-        .padding(.all, ODSSpacing.xs)
-        .frame(height: lastHeight + ODSSpacing.m)
-        .padding(.horizontal, ODSSpacing.xs)
-        .padding(.horizontal, ODSSpacing.s)
     }
 }
