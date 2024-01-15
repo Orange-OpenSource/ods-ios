@@ -8,8 +8,7 @@
 
 import SwiftUI
 
-// swiftlint:disbale comment_spacing multiline_parameters_brackets vertical_parameter_alignment
-public enum ODSBottomSheetSize: String, CaseIterable {
+public enum ODSBottomSheetSize {
     case hidden /// The state where the BottomSheet is hidden
     case small /// The state where the BottomSheet is closed (`mainContent` is hidden)
     case medium /// The state where the height of the BottomSheet is 50% of the screen

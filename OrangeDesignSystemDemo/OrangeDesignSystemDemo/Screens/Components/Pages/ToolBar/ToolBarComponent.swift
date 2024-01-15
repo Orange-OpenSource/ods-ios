@@ -14,13 +14,13 @@ import SwiftUI
 // ==========================
 
 struct ToolBarComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.bars.tools.title"
+        name = °°"screens.components.bars.tools.title"
         imageName = "Bars - tool"
         description = °°"screens.components.bars.tools.description"
         variants = AnyView(ToolBarVariants())
@@ -34,7 +34,7 @@ struct ToolBarComponent: Component {
 private struct ToolBarVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.bars.tools.title", technicalElement: "odsToolBar()") {
+        VariantEntryItem(title: "screens.components.bars.tools.title", technicalElement: "odsToolBar()") {
             ToolBarVariantHome(model: ToolBarVariantModel())
                 .navigationTitle("screens.components.bars.tools.title")
         }

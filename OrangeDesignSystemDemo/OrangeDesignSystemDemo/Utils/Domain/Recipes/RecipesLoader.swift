@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RecipeLoader {
+final class RecipeLoader {
 
     // =================
     // MARK: Initializer

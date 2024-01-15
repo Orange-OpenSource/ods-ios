@@ -24,24 +24,26 @@ struct ListItemStandardVariantOptions: View {
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
             Toggle(isOn: $model.showSubtitle) {
-                Text("shared.subtitle").odsFont(.bodyBold)
+                Text("shared.subtitle").odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: °°"shared.leading",
-                          selection: $model.leadingOption,
-                          chips: LeadingOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("shared.leading"),
+                chips: LeadingOption.chips,
+                selection: $model.leadingOption)
                 .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(title: °°"shared.trailing",
-                          selection: $model.trailingOptions,
-                          allowZeroSelection: true,
-                          chips: StandardTrailingOption.chips)
+            ODSFilterChipPicker(
+                title: Text("shared.trailing"),
+                chips: StandardTrailingOption.chips,
+                selection: $model.trailingOptions,
+                placement: .carousel)
                 .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.navigate) {
-                Text("screens.components.lists.picker.navigate").odsFont(.bodyBold)
+                Text("screens.components.lists.picker.navigate").odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)

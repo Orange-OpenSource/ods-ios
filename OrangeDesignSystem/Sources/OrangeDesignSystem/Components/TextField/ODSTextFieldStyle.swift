@@ -43,7 +43,7 @@ private struct ODSTextFieldStyle: ViewModifier {
         content
             .accentColor(theme.componentColors.accent)
             .padding(.all, ODSSpacing.s)
-            .odsFont(.bodyRegular)
+            .odsFont(.bodyLRegular)
             .background(Color(.tertiarySystemFill), in: RoundedRectangle(cornerRadius: 8.0))
     }
 }

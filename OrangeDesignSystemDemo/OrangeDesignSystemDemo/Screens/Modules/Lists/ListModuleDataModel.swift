@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class ListModuleDataModel: ObservableObject {
+final class ListModuleDataModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

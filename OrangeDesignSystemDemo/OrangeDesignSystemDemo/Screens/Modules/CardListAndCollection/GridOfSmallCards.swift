@@ -28,7 +28,7 @@ struct GrifOfSmallCards: View {
             LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                 ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
                     NavigationLink {
-                        Text("screens.modules.card_collections.texts.bon_app")
+                        Text("shared.bon_app")
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationbarMenuForThemeSelection()
                     } label: {

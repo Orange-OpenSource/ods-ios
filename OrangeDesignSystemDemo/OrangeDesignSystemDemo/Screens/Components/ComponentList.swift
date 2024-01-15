@@ -37,11 +37,11 @@ struct ComponentsList: View {
             ProgressIndicatorComponent(),
             SliderComponent(),
             TabBarComponent(),
-            ToolBarComponent(),
             TextFieldComponent(),
+            ToolBarComponent(),
         ]
 
-        self.components = components.sorted { $0.title < $1.title }
+        self.components = components.sorted { $0.name < $1.name }
     }
 
     // ==========
@@ -52,7 +52,7 @@ struct ComponentsList: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-                    ForEach(components, id: \.title) { component in
+                    ForEach(components, id: \.id) { component in
                         smallCard(for: component)
                     }
                 }
@@ -63,6 +63,7 @@ struct ComponentsList: View {
 
             ComponentPage(component: components[0])
         }
+        .navigationViewStyle(.stack)
     }
 
     // =====================
@@ -74,7 +75,7 @@ struct ComponentsList: View {
             ComponentPage(component: component)
         } label: {
             ODSCardSmall(
-                title: Text(component.title),
+                title: Text(component.name),
                 imageSource: .image(themeProvider.imageFromResources(component.imageName)))
         }
     }

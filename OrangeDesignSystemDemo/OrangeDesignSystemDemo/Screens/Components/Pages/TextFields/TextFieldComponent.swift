@@ -11,22 +11,13 @@ import SwiftUI
 
 // MARK: Component
 struct TextFieldComponent: Component {
-
-    // ======================
-    // MARK: Store properties
-    // ======================
-
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
-    // =================
-    // MARK: Initilizers
-    // =================
-
     init() {
-        title = °°"shared.text_field"
+        name = °°"shared.text_field"
         imageName = "Text edit menu"
         description = °°"screens.components.textfields.description"
         variants = AnyView(TextFieldVariants())
@@ -36,15 +27,15 @@ struct TextFieldComponent: Component {
 struct TextFieldVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.textfields.variants.secure", technicalElement: "SecureField()") {
+        VariantEntryItem(title: "screens.components.textfields.variants.secure", technicalElement: "SecureField()") {
             SecureTextFieldVariant().navigationTitle("screens.components.textfields.variants.secure")
         }
 
-        VariantEntryItem(title: °°"shared.text_field", technicalElement: "TextField()") {
+        VariantEntryItem(title: "shared.text_field", technicalElement: "TextField()") {
             TextFieldVariant().navigationTitle("shared.text_field")
         }
 
-        VariantEntryItem(title: °°"screens.components.textfields.variants.editor", technicalElement: "TextEditor()") {
+        VariantEntryItem(title: "screens.components.textfields.variants.editor", technicalElement: "TextEditor()") {
             TextEditorVariant().navigationTitle("screens.components.textfields.variants.editor")
         }
     }

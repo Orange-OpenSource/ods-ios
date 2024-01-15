@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct SliderComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.sliders.title"
+        name = °°"screens.components.sliders.title"
         imageName = "Slider"
         description = °°"screens.components.sliders.description"
         variants = AnyView(SliderVariants())
@@ -30,7 +30,7 @@ struct SliderVariants: View {
     // ==========
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.sliders.slider.title", technicalElement: "ODSSlider()") {
+        VariantEntryItem(title: "screens.components.sliders.slider.title", technicalElement: "ODSSlider()") {
             SliderVariant(model: SliderVariantModel())
                 .navigationTitle("screens.components.sliders.slider.title")
         }

@@ -31,7 +31,10 @@ struct ComponentPage: View {
                     .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                    ComponentDescription(text: component.description)
+                    Text(component.description)
+                        .odsFont(.bodyLRegular)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.top, ODSSpacing.xs)
 
                     VariantsTitle()
                 }
@@ -48,87 +51,23 @@ struct ComponentPage: View {
         .listStyle(.plain)
         .padding(.top, ODSSpacing.none)
         .padding(.horizontal, ODSSpacing.none)
-        .navigationTitle(component.title)
+        .navigationTitle(component.name)
         .navigationbarMenuForThemeSelection()
-    }
-}
-
-private struct ComponentDescription: View {
-    let text: String
-    var body: some View {
-        Text(text)
-            .odsFont(.bodyRegular)
-            .fixedSize(horizontal: false, vertical: true)
-            .padding(.top, ODSSpacing.xs)
-    }
-}
-
-struct VariantsTitle: View {
-    var body: some View {
-        Text("misc.variants")
-            .odsFont(.title1)
-            .accessibilityAddTraits(.isHeader)
-    }
-}
-
-struct VariantEntryItem<VariantPage>: View where VariantPage: View {
-
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
-    private let title: Text
-    private let technicalElement: Text
-    private let showThemeSelectionInNavigationBar: Bool
-    private let variantPage: () -> VariantPage
-
-    // =================
-    // MARK: Initializer
-    // =================
-
-    init(
-        title: String,
-        technicalElement: String,
-        showThemeSelectionInNavigationBar: Bool = true,
-        @ViewBuilder variantPage: @escaping () -> VariantPage)
-    {
-        self.title = Text(title)
-        self.technicalElement = Text(technicalElement)
-        self.showThemeSelectionInNavigationBar = showThemeSelectionInNavigationBar
-        self.variantPage = variantPage
-    }
-
-    // ==========
-    // MARK: Body
-    // ==========
-
-    var body: some View {
-        NavigationLink {
-            if showThemeSelectionInNavigationBar {
-                variantPage().navigationbarMenuForThemeSelection()
-            } else {
-                variantPage()
-            }
-        } label: {
-            ODSListItem(title: title, subtitle: technicalElement, leading: .icon(Image(systemName: "play.circle")))
-        }
-        .odsListItemStyle(showSeparator: false)
     }
 }
 
 #if DEBUG
 struct ComponentPage_Previews: PreviewProvider {
     struct TestComponent: Component {
-        let title: String
+        let name: String
         let imageName: String
         let description: String
         let variants: AnyView
 
         init() {
-            title = "Test"
+            name = "Test"
             imageName = "Cards_1"
             description = "This is a long text to illustrate the description area"
-
             variants = AnyView(Variants())
         }
     }

@@ -83,17 +83,17 @@ private struct ListModuleInner: View {
             } footer: {
                 if optionModel.showFooter {
                     Text("screens.modules.lists.section.footer.text")
-                        .odsFont(.caption2)
+                        .odsFont(.labelS)
                 }
             }
 
-                Section("shared.foods") {
-                    ForEach(dataModel.selectedFoods, id: \.name) { food in
-                        listItem(for: food).odsListItemStyle()
-                    }
-                    .onDelete(perform: dataModel.deleteFood)
-                    .onMove(perform: dataModel.moveFood)
+            Section("shared.foods") {
+                ForEach(dataModel.selectedFoods, id: \.name) { food in
+                    listItem(for: food).odsListItemStyle()
                 }
+                .onDelete(perform: dataModel.deleteFood)
+                .onMove(perform: dataModel.moveFood)
+            }
         }
         .toolbar {
             if optionModel.isEditable {

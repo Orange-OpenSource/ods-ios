@@ -13,7 +13,7 @@ import SwiftUI
 // MARK: - Card Vertical Header First Variant Model
 // ================================================
 
-class CardVerticalHeaderFirstVariantModel: ObservableObject {
+final class CardVerticalHeaderFirstVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties
@@ -57,8 +57,8 @@ class CardVerticalHeaderFirstVariantModel: ObservableObject {
         showSubtitle ? Text(recipe.subtitle) : nil
     }
 
-    var thumbnail: Image? {
-        showThumbnail ? Image("ods_empty", bundle: Bundle.ods) : nil
+    var thumbnailSource: ODSImage.Source? {
+        showThumbnail ? .image(Image(recipe.iconName).renderingMode(.template)) : nil
     }
 
     var imageSource: ODSImage.Source {
@@ -106,7 +106,7 @@ struct CardVerticalHeaderFirstVariant: View {
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.top, ODSSpacing.m)
                     .onTapGesture {
-                        model.displayAlert(text: "screens.components.card.alert")
+                        model.displayAlert(text: "screens.components.card.alert".🌐)
                     }
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
@@ -124,14 +124,14 @@ struct CardVerticalHeaderFirstVariant: View {
             ODSCardVerticalHeaderFirst(title: model.title,
                                        imageSource: model.imageSource,
                                        subtitle: model.subtitle,
-                                       thumbnail: model.thumbnail,
+                                       thumbnailSource: model.thumbnailSource,
                                        text: model.text)
         case 1:
             ODSCardVerticalHeaderFirst(
                 title: model.title,
                 imageSource: model.imageSource,
                 subtitle: model.subtitle,
-                thumbnail: model.thumbnail,
+                thumbnailSource: model.thumbnailSource,
                 text: model.text)
             {
                 Button(model.firstButtonText) {
@@ -143,7 +143,7 @@ struct CardVerticalHeaderFirstVariant: View {
                 title: model.title,
                 imageSource: model.imageSource,
                 subtitle: model.subtitle,
-                thumbnail: model.thumbnail,
+                thumbnailSource: model.thumbnailSource,
                 text: model.text)
             {
                 Button(model.firstButtonText) {
@@ -187,7 +187,7 @@ private struct CardVerticalHeaderFirstVariantOptions: View {
                     value: $model.buttonCount,
                     in: 0 ... model.buttonsText.count)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
         .padding(.horizontal, ODSSpacing.m)
     }

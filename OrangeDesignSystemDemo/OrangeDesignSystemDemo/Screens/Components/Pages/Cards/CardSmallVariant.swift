@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class CardSmallVariantModel: ObservableObject {
+final class CardSmallVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties
@@ -75,7 +75,7 @@ private struct CardSmallVariantOptions: View {
 
     var body: some View {
         Toggle("shared.subtitle", isOn: $model.showSubtitle)
-            .odsFont(.bodyRegular)
+            .odsFont(.bodyLRegular)
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.m)
     }

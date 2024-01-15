@@ -3,31 +3,48 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.16.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
+
+- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
+- [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
+- [DemoApp/SDK] Thumbnail of card vertical header first not showing (Bug [#499](https://github.com/Orange-OpenSource/ods-ios/issues/499))
+- [DemoApp] Back button renamed after switching from lanscape to portrait mode (Bug [#562](https://github.com/Orange-OpenSource/ods-ios/issues/562))
+- [DemoApp] Udpate accessibility label on Functional and Emphasis buttons in demo app ([#546](https://github.com/Orange-OpenSource/ods-ios/issues/546))
+- [SDK/DemoApp] Refactor chips component API ([#262](https://github.com/Orange-OpenSource/ods-ios/issues/262))
+- [SDK] Update guidelines typography names ([#542](https://github.com/Orange-OpenSource/ods-ios/issues/542))
+- [DemoApp] Refactor variant page and entry ([#553](https://github.com/Orange-OpenSource/ods-ios/issues/553))
+- [SDK] Accessibility - Group texts in cards for VoiceOver (Bug [#547](https://github.com/Orange-OpenSource/ods-ios/issues/547)) 
+- [DemoApp] No title on Component - Lists - Standard and Selection screens (Bug [#545](https://github.com/Orange-OpenSource/ods-ios/issues/545))
+- [Tooling] Add script phase to check if AppNews.json files are conform to JSON format
+- [DemoApp/SDK] Refactor About module (with view model, errors management and unit tests)
+- [DemoApp/SDK] Change wording by replacing ... by elipsis code
+- [DemoApp] Fix corrupted AppNews.json file
+
 ## [0.15.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...0.14.0) - 2023-11-14
 
-- [DemoApp/SDK] Fix compilation issues (auto signing for release, remove ios 17 support) [#529](https://github.com/Orange-OpenSource/ods-ios/issues/529))
-- [DemoApp] Review the naming of the wording keys for components [#523](https://github.com/Orange-OpenSource/ods-ios/issues/523))
-- [DemoApp] Show List style and Header and Footer of Sections [#416](https://github.com/Orange-OpenSource/ods-ios/issues/416))
-- [Tooling] Add doctor script to check if project preconditions are filled and update README[#516](https://github.com/Orange-OpenSource/ods-ios/issues/516)
-- [DemoApp/SDK/Tooling] Add new Swiftlint rules and remove some warnings for cleaner source code [#514](https://github.com/Orange-OpenSource/ods-ios/issues/514)
-- [DemoApp] Remove dead code from app with Periphery [#511](https://github.com/Orange-OpenSource/ods-ios/issues/511)
-- [DemoApp/SDK/Tooling] Update source files headers to be compliant with SPDX format [#497](https://github.com/Orange-OpenSource/ods-ios/issues/497)
-- [Tooling] Run tests plan in CI/CD chain [#506](https://github.com/Orange-OpenSource/ods-ios/issues/506)
-- [Tooling] Add Mattermost notifications for build and upload lanes [#503](https://github.com/Orange-OpenSource/ods-ios/issues/503)
-- [Tooling] Downgrade version of activesupport (Cocoapods issue, CI/CD troubleshooting) [#501](https://github.com/Orange-OpenSource/ods-ios/issues/501)
-- [SDK] Internationalization support [#466](https://github.com/Orange-OpenSource/ods-ios/issues/466))
-- [Tooling] Fix security issues with activesupport transitive dependency (cocoapods gem) [#495](https://github.com/Orange-OpenSource/ods-ios/issues/495)
-- [DemoApp/SDK] Update ListItem api to use SwiftUI elements [#462](https://github.com/Orange-OpenSource/ods-ios/issues/462))
-- [DemoApp/SDK] Add accessibility statement in About module [#119](https://github.com/Orange-OpenSource/ods-ios/issues/119))
-- [SDK] Update CardSmall api to use SwiftUI elements [#485](https://github.com/Orange-OpenSource/ods-ios/issues/485))
+- [DemoApp/SDK] Fix compilation issues (auto signing for release, remove ios 17 support) ([#529](https://github.com/Orange-OpenSource/ods-ios/issues/529))
+- [DemoApp] Review the naming of the wording keys for components ([#523](https://github.com/Orange-OpenSource/ods-ios/issues/523))
+- [DemoApp] Show List style and Header and Footer of Sections ([#416](https://github.com/Orange-OpenSource/ods-ios/issues/416))
+- [Tooling] Add doctor script to check if project preconditions are filled and update README ([#516](https://github.com/Orange-OpenSource/ods-ios/issues/516))
+- [DemoApp/SDK/Tooling] Add new Swiftlint rules and remove some warnings for cleaner source code ([#514](https://github.com/Orange-OpenSource/ods-ios/issues/514))
+- [DemoApp] Remove dead code from app with Periphery ([#511](https://github.com/Orange-OpenSource/ods-ios/issues/511))
+- [DemoApp/SDK/Tooling] Update source files headers to be compliant with SPDX format ([#497](https://github.com/Orange-OpenSource/ods-ios/issues/497))
+- [Tooling] Run tests plan in CI/CD chain ([#506](https://github.com/Orange-OpenSource/ods-ios/issues/506))
+- [Tooling] Add Mattermost notifications for build and upload lanes ([#503](https://github.com/Orange-OpenSource/ods-ios/issues/503))
+- [Tooling] Downgrade version of activesupport (Cocoapods issue, CI/CD troubleshooting) ([#501](https://github.com/Orange-OpenSource/ods-ios/issues/501))
+- [SDK] Internationalization support ([#466](https://github.com/Orange-OpenSource/ods-ios/issues/466))
+- [Tooling] Fix security issues with activesupport transitive dependency (cocoapods gem) ([#495](https://github.com/Orange-OpenSource/ods-ios/issues/495)
+- [DemoApp/SDK] Update ListItem api to use SwiftUI elements ([#462](https://github.com/Orange-OpenSource/ods-ios/issues/462))
+- [DemoApp/SDK] Add accessibility statement in About module ([#119](https://github.com/Orange-OpenSource/ods-ios/issues/119))
+- [SDK] Update CardSmall api to use SwiftUI elements ([#485](https://github.com/Orange-OpenSource/ods-ios/issues/485))
 
 ## [0.14.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...0.13.1) - 2023-10-09
 
-- [SDK] Update CardVerticalImageFirst api to use SwiftUI elements [#481](https://github.com/Orange-OpenSource/ods-ios/issues/481))
-- [SDK] Update CardVerticalHeaderFirst api to use SwiftUI elements [#479](https://github.com/Orange-OpenSource/ods-ios/issues/479))
-- [SDK] Update CardHorizontal api to use SwiftUI elements [#477](https://github.com/Orange-OpenSource/ods-ios/issues/477))
-- [SDK] Update Button api to use SwiftUI elements and use a buttonStyle [#471](https://github.com/Orange-OpenSource/ods-ios/issues/471))
-- [SDK] Update banner api to use SwiftUI elements [#473](https://github.com/Orange-OpenSource/ods-ios/issues/473))
+- [SDK] Update CardVerticalImageFirst api to use SwiftUI elements ([#481](https://github.com/Orange-OpenSource/ods-ios/issues/481))
+- [SDK] Update CardVerticalHeaderFirst api to use SwiftUI elements ([#479](https://github.com/Orange-OpenSource/ods-ios/issues/479))
+- [SDK] Update CardHorizontal api to use SwiftUI elements ([#477](https://github.com/Orange-OpenSource/ods-ios/issues/477))
+- [SDK] Update Button api to use SwiftUI elements and use a buttonStyle ([#471](https://github.com/Orange-OpenSource/ods-ios/issues/471))
+- [SDK] Update banner api to use SwiftUI elements ([#473](https://github.com/Orange-OpenSource/ods-ios/issues/473))
 - [SDK] Accessibility Voice over - Application name is a header in the about screen  (Bug [#468](https://github.com/Orange-OpenSource/ods-ios/issues/468))
 - [DemoApp/SDK] Update the button emphasis scale naming ([#464](https://github.com/Orange-OpenSource/ods-ios/issues/464))
 - [DemoApp] Update configuration to display by default buttons in variable width and without icon  ([#459](https://github.com/Orange-OpenSource/ods-ios/issues/459))

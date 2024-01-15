@@ -27,9 +27,9 @@ public struct ODSCardSmall: View {
     /// Initialization.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The source of the image.
-    ///  - subtitle: The optional subtitle.
+    ///  - title: Title displayed into the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - subtitle: Optional subtitle displayed into the card.
     ///
     public init(title: Text, imageSource: ODSImage.Source, subtitle: Text? = nil) {
         self.title = title
@@ -52,14 +52,15 @@ public struct ODSCardSmall: View {
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 title
                     .lineLimit(1)
-                    .odsFont(.bodyBold)
+                    .odsFont(.bodyLBold)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 subtitle?
                     .lineLimit(1)
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyLRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .accessibilityElement(children: .combine)
             .padding(.all, ODSSpacing.m)
         }
         .foregroundColor(.primary)
@@ -79,7 +80,7 @@ struct SmallCardView_Previews: PreviewProvider {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
 
                 Text("Card in Vertical grid")
-                    .odsFont(.title1)
+                    .odsFont(.titleL)
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 
@@ -105,7 +106,7 @@ struct SmallCardView_Previews: PreviewProvider {
                 .padding(.bottom, ODSSpacing.m)
 
                 Text("Card in content view")
-                    .odsFont(.title1)
+                    .odsFont(.titleL)
                     .frame(width: .infinity, alignment: .leading)
                     .padding(.bottom, ODSSpacing.m)
 

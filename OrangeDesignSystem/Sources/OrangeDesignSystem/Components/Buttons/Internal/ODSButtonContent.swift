@@ -38,7 +38,7 @@ struct ODSButtonContent: View {
                 ODSIcon(image, size: 17)
             }
 
-            text.odsFont(.bodyBold)
+            text.odsFont(.bodyLBold)
         }
     }
 }

@@ -38,7 +38,7 @@ extension ODSAboutListItemPriority {
 public enum ODSAboutListItemTarget {
     /// Means the items is a navigation link that opens the provided view.
     case destination(AnyView)
-    /// Mmeans the item is like a button that runs action when it is tapped.
+    /// Means the item is like a button that runs action when it is tapped.
     case action(() -> Void)
 }
 

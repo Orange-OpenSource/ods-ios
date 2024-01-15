@@ -40,7 +40,7 @@ struct ColorIllustration: View {
                 .font(.system(.caption, design: .monospaced))
 
             Text(colorDescription.uiColor.hexa(colorScheme: screenState.colorScheme))
-                .odsFont(.caption1Regular)
+                .odsFont(.labelMRegular)
         }
         .background(Color(uiColor: UIColor.systemBackground))
         .colorScheme(self.screenState.colorScheme)
@@ -78,7 +78,7 @@ struct ColorName: View {
 
     var body: some View {
         if let colorName = colorName {
-            Text(colorName).odsFont(.headline)
+            Text(colorName).odsFont(.headlineS)
         }
     }
 

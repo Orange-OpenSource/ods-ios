@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct TypographyGuideline: Guideline {
-    let title: String
+    let name: String
     let imageName: String
-    let pageDescription: AnyView
     let description: String
+    let pageDescription: AnyView
 
     init() {
-        title = °°"screens.guidelines.typographies.title"
+        name = °°"screens.guidelines.typographies.title"
         imageName = "Typography"
         description = °°"screens.guidelines.typographies.description"
         pageDescription = AnyView(TypographyPageDescription())

@@ -48,25 +48,24 @@ struct AboutSetup: View {
                 Text("screens.modules.about.description")
 
                 Text("screens.modules.about.customize")
-                    .odsFont(.headline)
+                    .odsFont(.headlineS)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.s)
 
                 Text("screens.modules.about.mandatory")
 
-                ODSChipPicker(
-                    title: °°"screens.modules.about.picker.app_section",
-                    selection: $model.applicationSectionOptions,
-                    allowZeroSelection: true,
-                    chips: AboutModuleModel.ApplicationInformationOption.chips)
+                ODSFilterChipPicker(
+                    title: Text("screens.modules.about.picker.app_section"),
+                    chips: AboutModuleModel.ApplicationInformationOption.chips,
+                    selection: $model.applicationSectionOptions)
                     .padding(.vertical, ODSSpacing.m)
                     .padding(.horizontal, -ODSSpacing.m)
 
-                ODSChipPicker(
-                    title: °°"screens.modules.about.picker.optional_about_items",
+                ODSFilterChipPicker(
+                    title: Text("screens.modules.about.picker.optional_about_items"),
+                    chips: AboutModuleModel.OptionalAboutItem.chips,
                     selection: $model.optionalAboutItems,
-                    allowZeroSelection: true,
-                    chips: AboutModuleModel.OptionalAboutItem.chips)
+                    placement: .carousel)
                     .padding(.vertical, ODSSpacing.s)
                     .padding(.horizontal, -ODSSpacing.m)
 

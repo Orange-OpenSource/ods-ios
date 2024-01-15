@@ -36,14 +36,14 @@ struct ColorDetail: View {
                     .frame(width: 300, height: 150)
 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(colorDescription.assetName).odsFont(.headline)
-                    Text(colorDescription.uiColor.rgba(colorScheme: screenState.colorScheme).displayableValue).odsFont(.caption1Regular)
-                    Text(colorDescription.uiColor.hexa(colorScheme: screenState.colorScheme)).odsFont(.caption1Regular)
+                    Text(colorDescription.assetName).odsFont(.headlineS)
+                    Text(colorDescription.uiColor.rgba(colorScheme: screenState.colorScheme).displayableValue).odsFont(.labelMRegular)
+                    Text(colorDescription.uiColor.hexa(colorScheme: screenState.colorScheme)).odsFont(.labelMRegular)
 
                     Text("misc.usage")
-                        .odsFont(.headline)
+                        .odsFont(.headlineS)
                         .padding(.top, ODSSpacing.l)
-                    Text(usage).odsFont(.caption1Regular)
+                    Text(usage).odsFont(.labelMRegular)
                 }
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.l, trailing: ODSSpacing.m))
             }

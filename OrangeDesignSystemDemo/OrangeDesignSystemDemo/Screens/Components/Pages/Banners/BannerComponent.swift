@@ -10,13 +10,13 @@ import OrangeDesignSystem
 import SwiftUI
 
 struct BannerComponent: Component {
-    let title: String
+    let name: String
     let imageName: String
     let description: String
     let variants: AnyView
 
     init() {
-        title = °°"screens.components.banners.title"
+        name = °°"screens.components.banners.title"
         imageName = "Banners"
         description = °°"screens.components.banners.description"
         variants = AnyView(BannerVariants())
@@ -26,7 +26,7 @@ struct BannerComponent: Component {
 struct BannerVariants: View {
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.components.banners.variant.title_demo", technicalElement: "ODSBanner()") {
+        VariantEntryItem(title: "screens.components.banners.variant.title_demo", technicalElement: "ODSBanner()") {
             BannerVariant(model: BannerVariantModel())
                 .navigationTitle("screens.components.banners.variant.title")
         }

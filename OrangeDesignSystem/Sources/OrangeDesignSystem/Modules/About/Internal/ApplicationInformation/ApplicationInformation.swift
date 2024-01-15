@@ -25,7 +25,7 @@ struct AboutApplicationInformation: View {
     var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.m) {
             Text(LocalizedStringKey(applicationInformation.name))
-                .odsFont(.largeTitle)
+                .odsFont(.headlineL)
                 .fixedSize(horizontal: false, vertical: true)
                 .accessibilityAddTraits(.isHeader)
 

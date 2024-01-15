@@ -21,7 +21,7 @@ final class DateFormatterCacheTest: XCTestCase {
     // MARK: - Test cases
     // ==================
 
-    func testFormatterAvailabilityIfNotAdded() {
+    func testFormatterAvailabilityIfNotAdded_withLocaleDateTimeConfiguration() {
         // Given
         let locale = Locale(identifier: "fr")
         let dateStyle = DateFormatter.Style.short
@@ -34,7 +34,18 @@ final class DateFormatterCacheTest: XCTestCase {
         XCTAssertNil(formatter)
     }
 
-    func testFormatterAvailabilityIfAdded() {
+    func testFormatterAvailabilityIfNotAdded_withDateFormatConfiguration() {
+        // Given
+        let dateFormat = "yyyy-mm-dd"
+
+        // When
+        let formatter = DateFormatterCache.shared.formatter(for: dateFormat)
+
+        // Then
+        XCTAssertNil(formatter)
+    }
+
+    func testFormatterAvailabilityIfAdded_withLocaleDateTimeConfiguration() {
         // Given
         let locale = Locale(identifier: "fr")
         let dateStyle = DateFormatter.Style.short
@@ -43,7 +54,7 @@ final class DateFormatterCacheTest: XCTestCase {
         formatter.locale = locale
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
-        DateFormatterCache.shared.store(formatter: formatter)
+        DateFormatterCache.shared.store(formatter: formatter, using: .localeDateTimeCache)
 
         // When
         guard let storedFormatter = DateFormatterCache.shared.formatter(for: locale, dateStyle: dateStyle, timeStyle: timeStyle) else {
@@ -55,5 +66,22 @@ final class DateFormatterCacheTest: XCTestCase {
         XCTAssertEqual(formatter.locale, storedFormatter.locale)
         XCTAssertEqual(formatter.dateStyle, storedFormatter.dateStyle)
         XCTAssertEqual(formatter.timeStyle, storedFormatter.timeStyle)
+    }
+
+    func testFormatterAvailabilityIfAdded_withDateFormatConfiguration() {
+        // Given
+        let dateFormat = "dd-mm-yy"
+        let formatter = DateFormatter()
+        formatter.dateFormat = dateFormat
+        DateFormatterCache.shared.store(formatter: formatter, using: .dateFormatCache)
+
+        // When
+        guard let storedFormatter = DateFormatterCache.shared.formatter(for: dateFormat) else {
+            XCTFail("Nil value returned, must not")
+            return
+        }
+
+        // Then
+        XCTAssertEqual(formatter.dateFormat, storedFormatter.dateFormat)
     }
 }

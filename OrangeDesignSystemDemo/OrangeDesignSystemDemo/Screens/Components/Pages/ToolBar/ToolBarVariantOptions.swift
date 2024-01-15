@@ -13,7 +13,7 @@ import SwiftUI
 // MARK: - Tab Bar Variant Model
 // =============================
 
-class ToolBarVariantModel: ObservableObject {
+final class ToolBarVariantModel: ObservableObject {
 
     // ================
     // MARK: Properties
@@ -38,20 +38,20 @@ class ToolBarVariantModel: ObservableObject {
         case label
         case icon
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
             case .label:
-                return °°"shared.label"
+                return "shared.label"
             case .icon:
-                return °°"shared.icon"
+                return "shared.icon"
             }
         }
 
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: description)
+        var chip: ODSChoiceChip<Self> {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
+        static var chips: [ODSChoiceChip<Self>] {
             Self.allCases.map { $0.chip }
         }
     }
@@ -151,9 +151,10 @@ struct ToolBarVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.m) {
-            ODSChipPicker(title: °°"screens.components.bars.tools.picker_hint",
-                          selection: $model.itemType,
-                          chips: ToolBarVariantModel.ItemType.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.bars.tools.picker_hint"),
+                chips: ToolBarVariantModel.ItemType.chips,
+                selection: $model.itemType)
 
             switch model.itemType {
             case .label:
@@ -168,6 +169,6 @@ struct ToolBarVariantOptions: View {
                     .padding(.horizontal, ODSSpacing.m)
             }
         }
-        .odsFont(.bodyBold)
+        .odsFont(.bodyLBold)
     }
 }

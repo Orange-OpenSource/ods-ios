@@ -9,8 +9,12 @@
 import SwiftUI
 
 protocol Component {
-    var title: String { get }
+    var name: String { get }
     var imageName: String { get }
     var description: String { get }
     var variants: AnyView { get }
+}
+
+extension Component {
+    var id: String { name }
 }

@@ -39,7 +39,7 @@ struct SliderVariant: View {
             VStack {
                 if model.showValue {
                     Text(String(format: "%.2f", value))
-                        .odsFont(.bodyRegular)
+                        .odsFont(.bodyLRegular)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .accessibilityHidden(true)
                 }
@@ -79,7 +79,7 @@ struct SliderVariant: View {
     }
 }
 
-class SliderVariantModel: ObservableObject {
+final class SliderVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties
@@ -118,7 +118,7 @@ struct SliderVariantOptions: View {
             Toggle("screens.components.sliders.sample.display_value", isOn: $model.showValue)
             Toggle("screens.components.sliders.sample.stepped", isOn: $model.stepped)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
         .padding(.horizontal, ODSSpacing.m)
     }

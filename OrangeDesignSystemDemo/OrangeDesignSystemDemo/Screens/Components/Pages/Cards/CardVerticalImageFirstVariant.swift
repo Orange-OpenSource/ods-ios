@@ -13,7 +13,7 @@ import SwiftUI
 // MARK: - Card Vertical Image First Variant Model
 // ===============================================
 
-class CardVerticalImageFirstVariantModel: ObservableObject {
+final class CardVerticalImageFirstVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties
@@ -186,7 +186,7 @@ private struct CardVerticalImageFirstVariantOptions: View {
                     value: $model.buttonCount,
                     in: 0 ... model.numberOfButtons)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
         .padding(.horizontal, ODSSpacing.m)
     }

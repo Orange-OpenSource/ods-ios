@@ -14,17 +14,17 @@ import SwiftUI
 /// the `ODSTheme`.
 ///
 public enum ODSFontStyle: String, CaseIterable {
-    case largeTitle
-    case title1
-    case title2
-    case title3
-    case headline
-    case bodyRegular
-    case bodyBold
-    case callout
-    case subhead
-    case footnote
-    case caption1Regular
-    case caption1Bold
-    case caption2
+    case headlineL
+    case headlineS
+    case titleL
+    case titleM
+    case titleS
+    case bodyLBold
+    case bodyLRegular
+    case bodyM
+    case bodyS
+    case labelL
+    case labelMBold
+    case labelMRegular
+    case labelS
 }

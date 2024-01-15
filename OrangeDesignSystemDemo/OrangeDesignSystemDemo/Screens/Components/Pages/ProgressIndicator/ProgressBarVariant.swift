@@ -68,7 +68,7 @@ struct ProgressBarVariant: View {
     }
 }
 
-class ProgressBarVariantModel: ObservableObject {
+final class ProgressBarVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties
@@ -109,7 +109,7 @@ private struct ProgressBarVariantOptions: View {
             }
             Toggle("screens.components.progress_indicators.toggle.current_value", isOn: $model.showCurrentValue)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.all, ODSSpacing.m)
     }
 }

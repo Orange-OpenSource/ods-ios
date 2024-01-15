@@ -13,25 +13,25 @@ enum SelectionTrailingOption: CaseIterable {
     case toggle
     case checkmark
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .toggle:
-            return °°"screens.components.lists.selection.description.switch"
+            return "screens.components.lists.selection.description.switch"
         case .checkmark:
-            return °°"screens.components.lists.selection.description.checkmark"
+            return "screens.components.lists.selection.description.checkmark"
         }
     }
 
-    private var chip: ODSChip<Self> {
-        ODSChip(self, text: description)
+    private var chip: ODSChoiceChip<Self> {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
+    static var chips: [ODSChoiceChip<Self>] {
         Self.allCases.map { $0.chip }
     }
 }
 
-class ListItemSelectionVariantModel: ObservableObject {
+final class ListItemSelectionVariantModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

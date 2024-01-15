@@ -13,7 +13,7 @@ import SwiftUI
 // MARK: - NavigationBar search model
 // ==================================
 
-class NavigationBarSearchModel: ObservableObject {
+final class NavigationBarSearchModel: ObservableObject {
 
     // ======================
     // MARK: Store properties

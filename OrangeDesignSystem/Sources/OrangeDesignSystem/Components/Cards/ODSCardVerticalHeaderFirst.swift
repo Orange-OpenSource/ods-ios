@@ -21,7 +21,7 @@ public struct ODSCardVerticalHeaderFirst: View {
 
     private let title: Text
     private let subtitle: Text?
-    private let thumbnail: Image?
+    private let thumbnailSource: ODSImage.Source?
     private let imageSource: ODSImage.Source
     private let text: Text?
     private let firstButton: (() -> Button<Text>)?
@@ -34,22 +34,22 @@ public struct ODSCardVerticalHeaderFirst: View {
     /// Initialization without button.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - thumbnail: The optional thumbnail: avatar, logo or icon.
-    ///  - text: Optional text description to be displayed in the card.
+    ///  - title: Title displayed into the header of the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card
+    ///  - subtitle: Optional subtitle displayed into the header of the card.
+    ///  - thumbnailSource: Optional thumbnail (avatar, logo or icon) from source [ODSImage.Source] next to the title.
+    ///  - text: Optional text description displayed into the card.
     ///
     public init(
         title: Text,
         imageSource: ODSImage.Source,
         subtitle: Text?,
-        thumbnail: Image?,
+        thumbnailSource: ODSImage.Source?,
         text: Text? = nil)
     {
         self.title = title
         self.subtitle = subtitle
-        self.thumbnail = thumbnail
+        self.thumbnailSource = thumbnailSource
         self.imageSource = imageSource
         self.text = text
         firstButton = nil
@@ -59,24 +59,24 @@ public struct ODSCardVerticalHeaderFirst: View {
     /// Initialization with one button.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - thumbnail: The optional thumbnail: avatar, logo or icon.
-    ///  - text: Optional text description to be displayed in the card.
+    ///  - title: Title displayed into the header of the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - subtitle: Optional subtitle displayed into the header of the card.
+    ///  - thumbnailSource: Optional thumbnail (avatar, logo or icon) from source [ODSImage.Source] next to the title.
+    ///  - text: Optional text description displayed into the card.
     ///  - button: The optional button.
     ///
     public init(
         title: Text,
         imageSource: ODSImage.Source,
         subtitle: Text?,
-        thumbnail: Image?,
+        thumbnailSource: ODSImage.Source?,
         text: Text? = nil,
         @ViewBuilder button: @escaping () -> Button<Text>)
     {
         self.title = title
         self.subtitle = subtitle
-        self.thumbnail = thumbnail
+        self.thumbnailSource = thumbnailSource
         self.imageSource = imageSource
         self.text = text
         firstButton = button
@@ -86,11 +86,11 @@ public struct ODSCardVerticalHeaderFirst: View {
     /// Initialization with two buttons.
     ///
     /// - Parameters:
-    ///  - title: The title to be displayed in the card.
-    ///  - imageSource: The image to be displayed in the card.
-    ///  - subtitle: Optional subtitle to be displayed in the card.
-    ///  - thumbnail: The optional thumbnail: avatar, logo or icon.
-    ///  - text: Optional text description to be displayed in the card.
+    ///  - title: Title displayed into the header of the card.
+    ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
+    ///  - subtitle: Optional subtitle displayed into the header of the card.
+    ///  - thumbnailSource: Optional thumbnail (avatar, logo or icon) from source [ODSImage.Source] next to the title.
+    ///  - text: Optional text description displayed into the card.
     ///  - firstButton: The optional first (leading) button.
     ///  - secondButton: The optional second (trailing) button.
     ///
@@ -98,7 +98,7 @@ public struct ODSCardVerticalHeaderFirst: View {
         title: Text,
         imageSource: ODSImage.Source,
         subtitle: Text? = nil,
-        thumbnail: Image? = nil,
+        thumbnailSource: ODSImage.Source? = nil,
         text: Text? = nil,
         dividerEnabled: Bool = true,
         @ViewBuilder firstButton: @escaping () -> Button<Text>,
@@ -106,7 +106,7 @@ public struct ODSCardVerticalHeaderFirst: View {
     {
         self.title = title
         self.subtitle = subtitle
-        self.thumbnail = thumbnail
+        self.thumbnailSource = thumbnailSource
         self.imageSource = imageSource
         self.text = text
         self.firstButton = firstButton
@@ -120,21 +120,22 @@ public struct ODSCardVerticalHeaderFirst: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.s) {
-                thumbnail?
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 44.0, height: 44.0, alignment: .center)
-                    .clipShape(Circle())
-                    .accessibilityHidden(true)
+                if let thumbnailSource = thumbnailSource {
+                    ODSImage(source: thumbnailSource)
+                        .frame(width: 44.0, height: 44.0, alignment: .center)
+                        .clipShape(Circle())
+                        .accessibilityHidden(true)
+                }
 
                 VStack(alignment: .leading, spacing: ODSSpacing.none) {
                     title
-                        .odsFont(.bodyBold)
+                        .odsFont(.bodyLBold)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     subtitle?
-                        .odsFont(.bodyRegular)
+                        .odsFont(.bodyLRegular)
                 }
+                .accessibilityElement(children: .combine)
             }
             .multilineTextAlignment(.leading)
             .foregroundColor(.primary)
@@ -148,7 +149,7 @@ public struct ODSCardVerticalHeaderFirst: View {
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 text?
-                    .odsFont(.bodyRegular)
+                    .odsFont(.bodyLRegular)
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.top, ODSSpacing.s)
@@ -163,13 +164,6 @@ public struct ODSCardVerticalHeaderFirst: View {
     // =====================
     // MARK: Private Helpers
     // =====================
-
-    private var image: some View {
-        ODSImage(source: imageSource)
-            .accessibilityHidden(true)
-            .frame(width: 128)
-            .clipped()
-    }
 
     @ViewBuilder
     private func buttons() -> some View {
@@ -215,7 +209,7 @@ struct ODSCardVerticalHeaderFirst_Previews: PreviewProvider {
                     title: Text(ODSCCardPreviewData.title),
                     imageSource: .image(ODSCCardPreviewData.image),
                     subtitle: Text(ODSCCardPreviewData.subtitle),
-                    thumbnail: ODSCCardPreviewData.thumbnail,
+                    thumbnailSource: .image(ODSCCardPreviewData.thumbnail),
                     text: Text(ODSCCardPreviewData.supportingText))
                 {
                     Button("Button 1") {

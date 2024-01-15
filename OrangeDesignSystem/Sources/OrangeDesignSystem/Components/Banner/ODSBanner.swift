@@ -96,7 +96,7 @@ public struct ODSBanner: View {
                     }
 
                     text
-                        .odsFont(.subhead)
+                        .odsFont(.bodyS)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.top, ODSSpacing.m)

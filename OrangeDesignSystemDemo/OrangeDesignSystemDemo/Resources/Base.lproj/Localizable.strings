@@ -35,13 +35,15 @@
 "shared.trailing" = "Trailing";
 "shared.recipes" = "Recipes";
 "shared.foods" = "Foods";
+"shared.loading" = "Loading\U2026";
+"shared.bon_app" = "Bon appétit !";
 
 // =====================
 // MARK: - Miscellaneous
 // =====================
 
 "misc.usage" = "Usage";
-"misc.coming_soon" = "Coming soon...";
+"misc.coming_soon" = "Coming soon\U2026";
 "misc.variants" = "Variants";
 
 // =================
@@ -189,9 +191,6 @@
 "screens.components.buttons.variant.long" = "Terms and conditions";
 "screens.components.buttons.options.toggle.full_width" = "Full width";
 
-"a11y.emphasis_button_hint" = "%@ emphasis button";
-"a11y.functional_button_hint" = "%@ functional button";
-
 // ====================================
 // MARK: - Screens - Components - Cards
 // ====================================
@@ -217,12 +216,17 @@
 
 "screens.components.chips.title" = "Chips";
 "screens.components.chips.description" = "Chips are small components containing a number of elements that represent a calendar event or contact.";
-"screens.components.chips.text_only" = "Text only";
-"screens.components.chips.with_icon" = "With icon from image";
-"screens.components.chips.with_system_icon" = "With system icon";
-"screens.components.chips.with_avatar" = "With avatar";
-"screens.components.chips.state.enable" = "Enable";
-"screens.components.chips.state.selected" = "Selected";
+"screens.components.chips.variant.action" = "Action chips";
+"screens.components.chips.action.description" = "The user can initiate actions by tapping on a chip.";
+"screens.components.chips.variant.choice" = "Choice chips";
+"screens.components.chips.choice.description" = "The chips allow the user to select only one item within the proposed items.";
+"screens.components.chips.variant.filter" = "Filter chips";
+"screens.components.chips.filter.description" = "In a search by tags user can activate the chips upon will.";
+"screens.components.chips.variant.input" = "Input chips";
+"screens.components.chips.input.description" = "The user input searches are transformed into chips that can be added or deleted.";
+"screens.components.chips.variant.picker" = "Chips picker";
+"screens.components.chips.variant.chip.clicked" = "%@ : clicked";
+"screens.components.chips.variant.input.remove_clicked" = "remove clicked";
 
 // ====================================
 // MARK: - Screens - Components - Lists
@@ -235,7 +239,6 @@
 "screens.components.lists.picker.navigate" = "Navigate";
 "screens.components.lists.selection.description.checkmark" = "checkmark";
 "screens.components.lists.selection.description.switch" = "Switch";
-"screens.components.lists.variant.clicked" = "%@ is clicked";
 "screens.components.lists.alert" = "Information icon tapped! Bon appétit";
 "screens.components.lists.options.description.info_button" = "Info button";
 "screens.components.list.details" = "Details";
@@ -248,11 +251,11 @@
 "screens.components.progress_indicators.description" = "Progress bar and activity indicator are used when a process is taking place to illustrate progress and to reassure users that something is happening, and if possible, how long it will take.";
 "screens.components.progress_indicators.progress_bar.title" = "Progress bar demo";
 "screens.components.progress_indicators.activity_bar.title" = "Progress bar demo";
-"screens.components.progress_indicators.downloading" = "Downloading...";
+"screens.components.progress_indicators.downloading" = "Downloading\U2026";
 "screens.components.progress_indicators.x_percent" = "%@ %%";
 "screens.components.progress_indicators.toggle.label" = "Label";
 "screens.components.progress_indicators.toggle.current_value" = "Current value";
-"screens.components.progress_indicators.toggle.loading" = "Loading...";
+"screens.components.progress_indicators.toggle.loading" = "Loading\U2026";
 
 // ============================================
 // MARK: - Screens - Components - Bottom Sheets
@@ -262,6 +265,8 @@
 "screens.components.bottom_sheets.description" = "By default, a sheet is modal, presenting a focused experience that prevents users from interacting with the parent view, until they dismiss the sheet. A modal sheet is useful for requesting a specific information or enabling a simple task.";
 "screens.components.bottom_sheets.expanding" = "Expanding";
 "screens.components.bottom_sheets.standard" = "Standard";
+"screens.components.bottom_sheets.example" = "Example";
+"screens.components.bottom_sheets.tutorial" = "Tutorial";
 "screens.components.bottom_sheets.sample.title" = "Sheets: Bottom";
 "screens.components.bottom_sheets.sample.subtitle" = "French products";
 "screens.components.bottom_sheets.sample.recipe" = "Recipe";
@@ -331,7 +336,6 @@
 
 "screens.modules.card_collections.titles.list" = "List of cards";
 "screens.modules.card_collections.titles.grid" = "Grid of small cards";
-"screens.modules.card_collections.texts.bon_app" = "Bon appétit !";
 
 // =================================
 // MARK: - Screens - Modules - Lists

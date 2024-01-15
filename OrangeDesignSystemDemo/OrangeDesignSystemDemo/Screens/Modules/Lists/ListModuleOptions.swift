@@ -25,27 +25,27 @@ struct ListModuleOptions: View {
         VStack(spacing: ODSSpacing.none) {
             Toggle(isOn: $model.showHeader) {
                 Text("screens.modules.lists.options.section.header")
-                    .odsFont(.bodyBold)
+                    .odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.showFooter) {
                 Text("screens.modules.lists.options.section.footer")
-                    .odsFont(.bodyBold)
+                    .odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)
 
-            ODSChipPicker(
-                title: "screens.modules.lists.options.style".🌐,
-                selection: $model.listStyleOption,
-                chips: ListStyleOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.modules.lists.options.style"),
+                chips: ListStyleOption.elemnts,
+                selection: $model.listStyleOption)
                 .padding(.vertical, ODSSpacing.s)
 
             Toggle(isOn: $model.isEditable) {
                 Text("screens.modules.lists.options.editable")
-                    .odsFont(.bodyBold)
+                    .odsFont(.bodyLBold)
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.vertical, ODSSpacing.s)

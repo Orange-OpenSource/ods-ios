@@ -127,13 +127,14 @@ struct TabBarVariantOptions: View {
                         in: 2 ... model.numberOfItems)
             }
             .padding(.horizontal, ODSSpacing.m)
-            .odsFont(.bodyBold)
+            .odsFont(.bodyLBold)
 
-            ODSChipPicker(title: °°"screens.components.bars.tabs.options_picker.hint",
-                          selection: $model.badgeOption,
-                          chips: TabBarVariantModel.BadgeOption.chips)
+            ODSChoiceChipPicker(
+                title: Text("screens.components.bars.tabs.options_picker.hint"),
+                chips: TabBarVariantModel.BadgeOption.chips,
+                selection: $model.badgeOption)
         }
-        .odsFont(.bodyRegular)
+        .odsFont(.bodyLRegular)
         .padding(.vertical, ODSSpacing.m)
     }
 }
@@ -142,7 +143,7 @@ struct TabBarVariantOptions: View {
 // MARK: - Tab Bar Variant Model
 // =============================
 
-class TabBarVariantModel: ObservableObject {
+final class TabBarVariantModel: ObservableObject {
 
     // ======================
     // MARK: Store properties
@@ -218,22 +219,22 @@ class TabBarVariantModel: ObservableObject {
         case count
         case text
 
-        var description: String {
+        var description: LocalizedStringKey {
             switch self {
             case .none:
-                return °°"shared.none"
+                return "shared.none"
             case .count:
-                return °°"screens.components.bars.tabs.badge.description.count"
+                return "screens.components.bars.tabs.badge.description.count"
             case .text:
-                return °°"shared.text"
+                return "shared.text"
             }
         }
 
-        var chip: ODSChip<Self> {
-            ODSChip(self, text: description)
+        var chip: ODSChoiceChip<Self> {
+            .init(text: Text(description), value: self)
         }
 
-        static var chips: [ODSChip<Self>] {
+        static var chips: [ODSChoiceChip<Self>] {
             Self.allCases.map { $0.chip }
         }
     }

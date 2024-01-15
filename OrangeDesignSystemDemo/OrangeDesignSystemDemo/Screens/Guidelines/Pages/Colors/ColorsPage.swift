@@ -9,7 +9,7 @@
 import OrangeDesignSystem
 import SwiftUI
 
-class ScreenState: ObservableObject {
+final class ScreenState: ObservableObject {
     @Published var colorScheme: ColorScheme = .light
 }
 
@@ -18,7 +18,7 @@ struct ColorPageDescription: View {
     let screenState = ScreenState()
 
     var body: some View {
-        VariantEntryItem(title: °°"screens.guidelines.colors.color_palette.title", technicalElement: "ODSColorPalette()") {
+        VariantEntryItem(title: "screens.guidelines.colors.color_palette.title", technicalElement: "ODSColorPalette()") {
             ColorList().environmentObject(self.screenState)
                 .navigationTitle("screens.guidelines.colors.color_palette.title")
         }

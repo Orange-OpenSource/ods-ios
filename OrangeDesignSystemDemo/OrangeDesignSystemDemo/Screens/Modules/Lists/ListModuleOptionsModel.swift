@@ -16,7 +16,7 @@ enum ListStyleOption: Int, CaseIterable {
     case insetGrouped
     case sidebar
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .plain:
             return "screens.modules.lists.options.style.plain"
@@ -31,16 +31,16 @@ enum ListStyleOption: Int, CaseIterable {
         }
     }
 
-    var chip: ODSChip<Self> {
-        ODSChip(self, text: description.🌐)
+    var chip: ODSChoiceChip<Self> {
+        .init(text: Text(description), value: self)
     }
 
-    static var chips: [ODSChip<Self>] {
+    static var elemnts: [ODSChoiceChip<Self>] {
         Self.allCases.map { $0.chip }
     }
 }
 
-class ListModuleOptionsModel: ObservableObject {
+final class ListModuleOptionsModel: ObservableObject {
 
     // =======================
     // MARK: Stored properties

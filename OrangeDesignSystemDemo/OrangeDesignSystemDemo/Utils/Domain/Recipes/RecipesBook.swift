@@ -18,7 +18,7 @@ struct RecipeBook {
     static let shared: RecipeBook = .init()
 }
 
-struct Food: Equatable {
+struct Food: Equatable, Hashable {
     let id: Int
     let name: String
     let image: URL?
