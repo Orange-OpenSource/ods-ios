@@ -159,9 +159,9 @@ struct MoreAppsView: View {
     private func contextMenuPreview(_ title: String, _ description: String) -> some View {
         Group {
             Text(title)
-                .odsFont(.title1)
+                .odsFont(.titleL)
             Text(description)
-                .odsFont(.bodyRegular)
+                .odsFont(.bodyLRegular)
                 .frame(idealWidth: UIScreen.main.nativeBounds.size.width * 2, // Trick to be enough wide to get all available space
                        idealHeight: UIScreen.main.nativeBounds.size.height) // Trick to make the preview enough big to display more text
         }.padding(ODSSpacing.s)

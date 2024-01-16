@@ -30,7 +30,7 @@ public struct ODSImage: View {
             self = .asyncImage(url, placeholder)
         }
     }
-    
+
     // ==========
     // MARK: Body
     // ==========
@@ -41,7 +41,7 @@ public struct ODSImage: View {
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-            
+
         case let .asyncImage(url, placeHolder):
             AsyncImage(url: url) { image in
                 image

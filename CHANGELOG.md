@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- [DemoApp/SDK] Apps recirculation [#64](https://github.com/Orange-OpenSource/ods-ios/issues/64)
+
 ## [0.16.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
 
 - [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
@@ -19,7 +23,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp/SDK] Refactor About module (with view model, errors management and unit tests)
 - [DemoApp/SDK] Change wording by replacing ... by elipsis code
 - [DemoApp] Fix corrupted AppNews.json file
-- [DemoApp/SDK] Apps recirculation [#64](https://github.com/Orange-OpenSource/ods-ios/issues/64)
 
 ## [0.15.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...0.14.0) - 2023-11-14
 

@@ -80,13 +80,13 @@ struct AboutSetup: View {
                 if model.optionalAboutItems.contains(.moreApps) {
                     Toggle(isOn: $model.flattenAppsCategories) {
                         Text("screens.modules.about.flatten_more_apps_sections")
-                            .odsFont(.bodyBold)
+                            .odsFont(.bodyLBold)
                     }
                     .padding(.vertical, ODSSpacing.s)
 
                     Toggle(isOn: $model.cacheAppsIcons) {
                         Text("screens.modules.about.cache_more_apps_icons")
-                            .odsFont(.bodyBold)
+                            .odsFont(.bodyLBold)
                     }
                     .padding(.vertical, ODSSpacing.s)
 
