@@ -351,7 +351,14 @@ If you do not want to see these values put in cache, meaning e.g. displaying ins
 
 ```swift
 let moreAppsItem = ODSMoreAppsItemConfig(feedURL: ..., cacheAppsIcons: false)
-```  
+```
+
+The list of apps can trigger also haptic notifications, e.g. vibrations when the data have been lodaded or if an error occured.
+By default this feature is enabled, but it can be disabled:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(feedURL: ..., enableHaptics: false)
+```
 
 #### Define some configuration in your app
 

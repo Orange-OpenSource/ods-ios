@@ -11,10 +11,12 @@ import SwiftUI
 /// The view displaying the available apps in a list
 struct MoreAppsView: View {
 
+    private let enableHaptics: Bool
     @StateObject private var viewModel: MoreAppsViewModel
     @Environment(\.openURL) private var openURL
 
-    init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool) {
+    init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool, enableHaptics: Bool) {
+        self.enableHaptics = enableHaptics
         _viewModel = StateObject(wrappedValue: MoreAppsViewModel(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
     }
 
@@ -24,9 +26,17 @@ struct MoreAppsView: View {
             case .loading:
                 loadingView()
             case let .loaded(appsList):
-                loadedView(appsList)
+                loadedView(appsList).task {
+                    if enableHaptics {
+                        VibrationsManager.success()
+                    }
+                }
             case let .error(error):
-                errorView(error)
+                errorView(error).task {
+                    if enableHaptics {
+                        VibrationsManager.error()
+                    }
+                }
             }
         }
         .task {

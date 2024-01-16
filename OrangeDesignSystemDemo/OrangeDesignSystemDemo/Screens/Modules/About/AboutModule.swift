@@ -89,6 +89,12 @@ struct AboutSetup: View {
                             .odsFont(.bodyBold)
                     }
                     .padding(.vertical, ODSSpacing.s)
+
+                    Toggle(isOn: $model.enableHaptics) {
+                        Text("screens.modules.about.enable_haptics")
+                            .odsFont(.bodyLBold)
+                    }
+                    .padding(.vertical, ODSSpacing.s)
                 }
 
                 Stepper("screens.modules.about.picker.custom_items" <- "\(model.numberOfCustomItems)",
@@ -189,7 +195,10 @@ struct AboutModuleDemo: View {
 
     private var moreAppsItemConfiguration: ODSMoreAppsItemConfig? {
         if let feedURL = model.appsRecirculationFeedURL {
-            return ODSMoreAppsItemConfig(feedURL: feedURL, flattenApps: model.flattenAppsCategories, cacheAppsIcons: model.cacheAppsIcons)
+            return ODSMoreAppsItemConfig(feedURL: feedURL,
+                                         flattenApps: model.flattenAppsCategories,
+                                         cacheAppsIcons: model.cacheAppsIcons,
+                                         enableHaptics: model.enableHaptics)
         } else {
             return nil
         }

@@ -32,11 +32,12 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
     ///    - feedURL: The URL to use to get data from online feed
     ///    - flattenApps: True if all apps must be palced in one list without categories, false (default) to keep categories
     ///    - cacheAppsIcons: True (default) to use app cache to save locally the apps stores icons, false otherwise
+    ///    - enableHaptics: True (default) to enable vibrations with the module, false to disable
     ///    - priority: Priority to adjust the position of the item in the list.
-    public init(feedURL: URL, flattenApps: Bool = false, cacheAppsIcons: Bool = true, priority: ODSAboutListItemPriority = .moreApps) {
+    public init(feedURL: URL, flattenApps: Bool = false, cacheAppsIcons: Bool = true, enableHaptics: Bool = true, priority: ODSAboutListItemPriority = .moreApps) {
         title = "modules.about.apps_recirculation.title".🌐
         icon = Image("ic_mobile_apps", bundle: Bundle.ods)
-        target = .destination(AnyView(MoreAppsView(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons)))
+        target = .destination(AnyView(MoreAppsView(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)))
         self.priority = priority
     }
 }

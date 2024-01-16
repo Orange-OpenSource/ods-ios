@@ -332,6 +332,7 @@
 "screens.modules.about.titles.my_recipes" = "Mes recettes";
 "screens.modules.about.flatten_more_apps_sections" = "Ne pas catégoriser les apps";
 "screens.modules.about.cache_more_apps_icons" = "Mettre en cache les images";
+"screens.modules.about.enable_haptics" = "Activier les vibrations";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections

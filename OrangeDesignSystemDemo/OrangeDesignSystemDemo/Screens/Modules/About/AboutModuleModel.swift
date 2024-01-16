@@ -25,6 +25,7 @@ final class AboutModuleModel: ObservableObject {
     @Published var optionalAboutItems: [OptionalAboutItem]
     @Published var flattenAppsCategories: Bool
     @Published var cacheAppsIcons: Bool
+    @Published var enableHaptics: Bool
     @Published var numberOfCustomItems: Int
 
     var applicationInformation: ODSAboutApplicationInformation {
@@ -103,6 +104,7 @@ final class AboutModuleModel: ObservableObject {
         numberOfCustomItems = 2
         flattenAppsCategories = false
         cacheAppsIcons = true
+        enableHaptics = true
         defaultCustomItems = [
             AboutMyRecipeItemConfiguration(),
             AboutMyReviewsItemConfiguration(),
