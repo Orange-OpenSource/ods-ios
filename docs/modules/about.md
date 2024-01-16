@@ -295,8 +295,17 @@ let legalInformationItem = ODSAboutLegalInformationItemConfig(priority: 500) {
 You can also add an item to let people discover other apps of Orange, by using the following item:
 
 ```swift
-let moreAppsItem = ODSMoreAppsItemConfig()
+let moreAppsItem = ODSMoreAppsItemConfig(feedURL: yourFeederURL)
 ```
+
+The _feedURL_ is a `URL` object containing the URL of the backend to get the list of apps.
+Today the only supported backend is Orange proprietary backend _Apps Plus_.
+
+If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(feedURL: yourFeederURL, flattenApps: true)
+```  
 
 #### Create a custom item
 
@@ -323,7 +332,7 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
 #### Use the feature
 
 The _about module_ exposes a feature allowing the final users to get the available apps they can use.
-This feature is based on the _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
+This feature is based today only on the Orange proprietary _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
 This service today is based on a simple URL containing both a lang parameter and an API key. 
 **This API key will define the type of data returned by the backend ;  maybe you should have your own API key which matches the suotable filters to get only a subgroup of apps.**
 
@@ -335,14 +344,14 @@ This _struct_ has a `feedURL` parameter which must contain the full URL of the _
 ```
 
 Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
-or if an error occured. Today the _Apps Plus_ service does not have any cache feature, and force to update data, so we send requests in time the feature is called.
+or if an error occured.
 
 #### Define some configuration in your app
 
 You can for example for your app use a _AppDemoConfig.xcconfig_ configuration file to store such credentials.
 A key named **APPS_PLUS_URL** can be defined with the URL (containing the API key) to call.
 Then the **Info.plist** file of your app must have an entry with the same name.
-Of course the _AppDemoConfig.xcconfig_ file should not not versionned in Git, but our dmeo app implements this feature.
+Of course the _AppDemoConfig.xcconfig_ file should not be versionned in Git, but our demo app implements this feature.
 
 See the example for the .xcconfig :
 

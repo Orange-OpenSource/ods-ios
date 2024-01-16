@@ -123,6 +123,7 @@
 		513DC6972B1F4907001F86A6 /* AppsPlusRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */; };
 		513DC6992B1F511B001F86A6 /* AppsPlusCache.json in Resources */ = {isa = PBXBuildFile; fileRef = 513DC6982B1F511B001F86A6 /* AppsPlusCache.json */; };
 		5166D4372B18991C0021600D /* MoreAppsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */; };
+		518C3BDC2B5699B00003B76E /* MoreAppsBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C3BDB2B5699B00003B76E /* MoreAppsBOTests.swift */; };
 		51A08F332B1637E900C14C86 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F322B1637E900C14C86 /* ArrayExtensionTests.swift */; };
 		51A08F352B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A08F342B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift */; };
 		51A08F3C2B165AB000C14C86 /* AppsPlusMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51A08F3B2B165AB000C14C86 /* AppsPlusMock.json */; };
@@ -275,6 +276,7 @@
 		5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsServiceTests.swift; sourceTree = "<group>"; };
 		5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AppDemoConfig.xcconfig; path = OrangeDesignSystemDemo/AppDemoConfig.xcconfig; sourceTree = "<group>"; };
 		5166FE852AE9669A0038A4AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = OrangeDesignSystemDemo/Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		518C3BDB2B5699B00003B76E /* MoreAppsBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsBOTests.swift; sourceTree = "<group>"; };
 		51A08F322B1637E900C14C86 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
 		51A08F342B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODSAboutListItemPriorityTests.swift; sourceTree = "<group>"; };
 		51A08F3B2B165AB000C14C86 /* AppsPlusMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusMock.json; sourceTree = "<group>"; };
@@ -817,6 +819,7 @@
 				51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */,
 				5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */,
 				513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */,
+				518C3BDB2B5699B00003B76E /* MoreAppsBOTests.swift */,
 			);
 			path = MoreApps;
 			sourceTree = "<group>";
@@ -1343,6 +1346,7 @@
 				51CD72852B162D19008CE57D /* CacheTests.swift in Sources */,
 				51CD72842B162D19008CE57D /* StringLocalizationTests.swift in Sources */,
 				51A08F332B1637E900C14C86 /* ArrayExtensionTests.swift in Sources */,
+				518C3BDC2B5699B00003B76E /* MoreAppsBOTests.swift in Sources */,
 				51A08F402B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift in Sources */,
 				51A08F432B165D1600C14C86 /* XCTestCase+extension.swift in Sources */,
 				513DC6952B1F4627001F86A6 /* MockURLAndResponse.swift in Sources */,

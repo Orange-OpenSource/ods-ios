@@ -16,6 +16,10 @@ struct MoreAppsConfiguration {
         buildAppsPlusURL()
     }
 
+    var flattenApps: Bool {
+        mustFlattenApps()
+    }
+
     /// Reads from main `Bundle``infoDictionary` the URL of the _Apps Plus_ backend to reach (at **APPS_PLUS_URL**)
     /// Then adds the current locale as a _lang_ argument, and tries to forge the final `URL`.
     /// - Returns `URL?`: The final `URL` ready to use, or `nil` if the **APPS_PLUS_URL** was not found.
@@ -29,5 +33,17 @@ struct MoreAppsConfiguration {
             fatalError("Failed to forge the service URL to get more apps")
         }
         return feedURL
+    }
+
+    /// Reads from main `Bundle``infoDictionary` the flag at **APPS_PLUS_FLATTEN_APPS** to define wethe ror not list of apps and categories must be flatten.
+    /// If the value is "true" after being lower cased, returns true. Otherwise returns false.
+    /// - Returns `Bool`
+    private func mustFlattenApps() -> Bool {
+        guard let mustFlattenApps = Bundle.main.infoDictionary?["APPS_PLUS_FLATTEN_APPS"],
+              let mustFlattenApps = mustFlattenApps as? String
+        else {
+            return false
+        }
+        return mustFlattenApps.lowercased() == "true"
     }
 }

@@ -17,10 +17,12 @@ import Foundation
 final class MoreAppsViewModel: ObservableObject {
 
     private let service: MoreAppsService
+    private let flattenApps: Bool
     @Published var loadingState: LoadingState<MoreAppsList, MoreAppsViewModel.Error>
 
-    init(feedURL: URL) {
+    init(feedURL: URL, flattenApps: Bool) {
         service = MoreAppsService(repository: AppsPlusRepository(feedURL: feedURL))
+        self.flattenApps = flattenApps
         loadingState = .loading
     }
 
@@ -39,7 +41,7 @@ final class MoreAppsViewModel: ObservableObject {
         Task {
             do {
                 let appsList = try await service.availableAppsList()
-                loadingState = .loaded(appsList)
+                loadingState = .loaded(flattenApps ? appsList.flattened() : appsList)
             } catch let error where error is MoreAppsViewModel.Error {
                 loadingState = .error(error as! MoreAppsViewModel.Error)
             } catch {
@@ -47,5 +49,6 @@ final class MoreAppsViewModel: ObservableObject {
             }
         }
     }
+
     // swiftlint:enable force_cast
 }

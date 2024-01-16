@@ -20,6 +20,7 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
     public private(set) var title: String
     public private(set) var icon: Image
     public private(set) var target: ODSAboutListItemTarget
+    public private(set) var flattenApps: Bool
     public private(set) var priority: ODSAboutListItemPriority
 
     // =================
@@ -30,11 +31,13 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
     ///
     /// - Parameters:
     ///    - feedURL: The URL to use to get data from online feed
+    ///    - flattenApps: True if all apps must be palced in one list without categories, false (default) to keep categories
     ///    - priority: Priority to adjust the position of the item in the list.
-    public init(feedURL: URL, priority: ODSAboutListItemPriority = .moreApps) {
+    public init(feedURL: URL, flattenApps: Bool = false, priority: ODSAboutListItemPriority = .moreApps) {
         title = "modules.about.apps_recirculation.title".🌐
         icon = Image("ic_mobile_apps", bundle: Bundle.ods)
-        target = .destination(AnyView(MoreAppsView(feedURL: feedURL)))
+        target = .destination(AnyView(MoreAppsView(feedURL: feedURL, flattenApps: flattenApps)))
+        self.flattenApps = flattenApps
         self.priority = priority
     }
 }

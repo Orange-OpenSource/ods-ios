@@ -14,8 +14,8 @@ struct MoreAppsView: View {
     @StateObject private var viewModel: MoreAppsViewModel
     @Environment(\.openURL) private var openURL
 
-    init(feedURL: URL) {
-        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(feedURL: feedURL))
+    init(feedURL: URL, flattenApps: Bool) {
+        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(feedURL: feedURL, flattenApps: flattenApps))
     }
 
     var body: some View {
@@ -45,16 +45,22 @@ struct MoreAppsView: View {
     @ViewBuilder
     private func loadedView(_ appsList: MoreAppsList) -> some View {
         List {
-            Section {
+            if appsList.sections.isEmpty {
                 ForEach(appsList.apps, id: \.self) { app in
                     listItem(for: app).odsListItemStyle()
                 }
-            } header: {
-                Text("modules.about.apps_recirculation.uncategorized_apps".🌐)
-            }
+            } else {
+                Section {
+                    ForEach(appsList.apps, id: \.self) { app in
+                        listItem(for: app).odsListItemStyle()
+                    }
+                } header: {
+                    Text("modules.about.apps_recirculation.uncategorized_apps".🌐)
+                }
 
-            ForEach(appsList.sections, id: \.self) { section in
-                listItem(for: section)
+                ForEach(appsList.sections, id: \.self) { section in
+                    listItem(for: section)
+                }
             }
         }
         .listStyle(.insetGrouped)

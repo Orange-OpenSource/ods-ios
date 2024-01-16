@@ -175,7 +175,8 @@ struct AboutModuleDemo: View {
 
     // TODO: #64 - Use AboutModel to check if configuration/prerequisites are defined to make requests
     private var moreAppsItemConfiguration: ODSMoreAppsItemConfig {
-        ODSMoreAppsItemConfig(feedURL: MoreAppsConfiguration().appsPlusURL)
+        let configuration = MoreAppsConfiguration()
+        return ODSMoreAppsItemConfig(feedURL: configuration.appsPlusURL, flattenApps: configuration.flattenApps)
     }
 
     private var listItemConfigurations: [ODSAboutListItemConfig] {

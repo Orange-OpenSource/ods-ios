@@ -20,6 +20,20 @@ struct MoreAppsList {
     let apps: [MoreAppsAppDetails]
 }
 
+extension MoreAppsList {
+
+    /// Returns a fresh new object without any sections anymore but with all apps of all sections add in the_apps_.
+    /// Order of apps is based on order of previous sections.
+    /// - Returns MoreAppsList: Flattened version without changing `self`
+    func flattened() -> MoreAppsList {
+        var flattenedApps = apps
+        sections.forEach {
+            flattenedApps.append(contentsOf: $0.apps)
+        }
+        return MoreAppsList(sections: [], apps: flattenedApps)
+    }
+}
+
 // =========================
 // MARK: - More Apps Section
 // =========================
