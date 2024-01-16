@@ -90,9 +90,18 @@ struct MoreAppsView: View {
             } preview: {
                 contextMenuPreview(app.title, appDescription)
             }
+            .onTapGesture {
+                if let appStoreURL = app.storeURL {
+                    openURL(appStoreURL)
+                }
+            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
-            item
+            item.onTapGesture {
+                if let appStoreURL = app.storeURL {
+                    openURL(appStoreURL)
+                }
+            }
         }
     }
 
