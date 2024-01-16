@@ -26,3 +26,9 @@
 "modules.about.apps_recirculation.title" = "More apps";
 "modules.about.apps_recirculation.uncategorized_apps" = "Uncategorized apps";
 "modules.about.apps_recirculation.go_to_appstore" = "Open in App Store";
+
+// ============
+// MARK: - A11Y
+// ============
+
+"a11y.navigation.tap_twice_to_go_to_appstore" = "Tap twice to go to App Store";

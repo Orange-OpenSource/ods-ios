@@ -13,6 +13,7 @@ struct MoreAppsView: View {
 
     private let enableHaptics: Bool
     @StateObject private var viewModel: MoreAppsViewModel
+    @AccessibilityFocusState private var requestFocus: Focusable?
     @Environment(\.openURL) private var openURL
 
     init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool, enableHaptics: Bool) {
@@ -68,6 +69,7 @@ struct MoreAppsView: View {
                     }
                 } header: {
                     Text("modules.about.apps_recirculation.uncategorized_apps".🌐)
+                        .accessibilityFocused($requestFocus, equals: .uncategorizedAppsSection)
                 }
 
                 ForEach(appsList.sections, id: \.self) { section in
@@ -75,7 +77,18 @@ struct MoreAppsView: View {
                 }
             }
         }
+        .accessibilityFocused($requestFocus, equals: .moreApps)
         .listStyle(.insetGrouped)
+        .onAppear {
+            // Voice Over gives focus to some random item in the middle of the screen in the list, need to move focus
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                if appsList.sections.isEmpty {
+                    requestFocus = .moreApps
+                } else {
+                    requestFocus = .uncategorizedAppsSection
+                }
+            }
+        }
     }
 
     @ViewBuilder
@@ -95,6 +108,14 @@ struct MoreAppsView: View {
                                subtitle: app.description != nil ? Text(app.description!) : nil,
                                leading: app.iconURL != nil ? .squareImage(source: viewModel.appImage(at: app.iconURL!)) : nil)
             .lineLimit(3) // 3 lines asked
+            .accessibilityChildren {
+                Text(app.title)
+                if let description = app.description {
+                    Text(description)
+                }
+            }
+            .accessibilityElement(children: .combine)
+            .accessibilityHint(Text(°°"a11y.navigation.tap_twice_to_go_to_appstore"))
 
         /*
          Asked to let user read more text if possible even if lines are limited.
@@ -144,5 +165,14 @@ struct MoreAppsView: View {
                 .frame(idealWidth: UIScreen.main.nativeBounds.size.width * 2, // Trick to be enough wide to get all available space
                        idealHeight: UIScreen.main.nativeBounds.size.height) // Trick to make the preview enough big to display more text
         }.padding(ODSSpacing.s)
+    }
+
+    // ============
+    // MARK: - A11Y
+    // ============
+
+    private enum Focusable: Hashable {
+        case moreApps
+        case uncategorizedAppsSection
     }
 }
