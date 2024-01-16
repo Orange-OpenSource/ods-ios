@@ -77,6 +77,14 @@ struct AboutSetup: View {
                     .padding(.vertical, ODSSpacing.s)
                     .padding(.horizontal, -ODSSpacing.m)
 
+                if model.optionalAboutItems.contains(.moreApps) {
+                    Toggle(isOn: $model.flattenAppsCategories) {
+                        Text("screens.modules.about.flatten_more_apps_sections")
+                            .odsFont(.bodyBold)
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+                }
+
                 Stepper("screens.modules.about.picker.custom_items" <- "\(model.numberOfCustomItems)",
                         value: $model.numberOfCustomItems,
                         in: 0 ... model.defaultCustomItems.count)
@@ -173,10 +181,12 @@ struct AboutModuleDemo: View {
         }
     }
 
-    // TODO: #64 - Use AboutModel to check if configuration/prerequisites are defined to make requests
-    private var moreAppsItemConfiguration: ODSMoreAppsItemConfig {
-        let configuration = MoreAppsConfiguration()
-        return ODSMoreAppsItemConfig(feedURL: configuration.appsPlusURL, flattenApps: configuration.flattenApps)
+    private var moreAppsItemConfiguration: ODSMoreAppsItemConfig? {
+        if let feedURL = model.appsRecirculationFeedURL {
+            return ODSMoreAppsItemConfig(feedURL: feedURL, flattenApps: model.flattenAppsCategories)
+        } else {
+            return nil
+        }
     }
 
     private var listItemConfigurations: [ODSAboutListItemConfig] {

@@ -331,6 +331,7 @@
 "screens.modules.about.texts.add_cgu" = "Add terms of service here";
 "screens.modules.about.titles.my_review" = "My reviews";
 "screens.modules.about.titles.my_recipes" = "My recipes";
+"screens.modules.about.flatten_more_apps_sections" = "Do not categorize apps";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections

@@ -34,12 +34,14 @@ struct MoreAppsView: View {
         }
     }
 
+    // TODO: #64 - Implement loading view when the "empty state" module will be ready to be implemented
     private func loadingView() -> some View {
-        Text("Loading...") // TODO: #64 - Implement error view
+        Text("(/¯◡ ‿ ◡)/¯ ~ ┻━┻ Your data are loading, and we don't have nice stuff to show yet")
     }
 
+    // TODO: #64 - Implement error view when the "empty state" module will be ready to be implemented
     private func errorView(_ error: MoreAppsViewModel.Error) -> some View {
-        Text("error") // TODO: #64 - Implement error view
+        Text("(ノಠ益ಠ)ノ彡┻━┻ An error occured, and we don't have shiny screens yet")
     }
 
     @ViewBuilder
@@ -81,7 +83,7 @@ struct MoreAppsView: View {
     private func listItem(for app: MoreAppsAppDetails) -> some View {
         let item = ODSListItem(title: Text(app.title),
                                subtitle: app.description != nil ? Text(app.description!) : nil,
-                               leading: app.iconURL != nil ? .squareImage(source: .asyncImage(app.iconURL!, Image("ods_empty"))) : nil) // #TODO #64 - Check image if empty case
+                               leading: app.iconURL != nil ? .squareImage(source: .asyncImage(app.iconURL!, Image("ods_empty", bundle: Bundle.ods))) : nil)
             .lineLimit(3) // 3 lines asked
 
         /*

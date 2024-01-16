@@ -94,12 +94,11 @@ struct AboutScreen: View {
 
         accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
-        let moreAppsConfiguration = MoreAppsConfiguration()
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: 202),
             ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
             AboutChangelogItemConfig(priority: 200),
-            ODSMoreAppsItemConfig(feedURL: moreAppsConfiguration.appsPlusURL, flattenApps: moreAppsConfiguration.flattenApps, priority: 199),
+            ODSMoreAppsItemConfig(feedURL: AboutModuleModel.appsRecirculationFeedURL, priority: 199),
         ]
     }
 

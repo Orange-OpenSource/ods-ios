@@ -23,6 +23,7 @@ final class AboutModuleModel: ObservableObject {
     @Published var showFeedbackPopup: Bool
     @Published var applicationSectionOptions: [ApplicationInformationOption]
     @Published var optionalAboutItems: [OptionalAboutItem]
+    @Published var flattenAppsCategories: Bool
     @Published var numberOfCustomItems: Int
 
     var applicationInformation: ODSAboutApplicationInformation {
@@ -62,6 +63,14 @@ final class AboutModuleModel: ObservableObject {
             : nil
     }
 
+    var appsRecirculationFeedURL: URL? {
+        if optionalAboutItems.contains(.moreApps) {
+            return Self.appsRecirculationFeedURL
+        } else {
+            return nil
+        }
+    }
+
     var customItems: [ODSAboutListItemConfig] {
         defaultCustomItems.prefix(numberOfCustomItems).compactMap { $0 as ODSAboutListItemConfig }
     }
@@ -69,6 +78,18 @@ final class AboutModuleModel: ObservableObject {
     let defaultCustomItems: [ODSAboutListItemConfig]
 
     private static let privacyPolicyResourceUrl = Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!
+
+    static var appsRecirculationFeedURL: URL {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] else {
+            fatalError("No Apps Plus URL found in app settings")
+        }
+        let currentLocale = Bundle.main.preferredLocalizations[0]
+        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+        guard let feedURL = URL(string: requestURL) else {
+            fatalError("Failed to forge the service URL to get more apps")
+        }
+        return feedURL
+    }
 
     // =============
     // MARK: Methods
@@ -79,6 +100,7 @@ final class AboutModuleModel: ObservableObject {
         applicationSectionOptions = ApplicationInformationOption.allCases
         optionalAboutItems = OptionalAboutItem.allCases
         numberOfCustomItems = 2
+        flattenAppsCategories = false
         defaultCustomItems = [
             AboutMyRecipeItemConfiguration(),
             AboutMyReviewsItemConfiguration(),
