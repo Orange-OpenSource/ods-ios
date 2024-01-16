@@ -83,6 +83,12 @@ struct AboutSetup: View {
                             .odsFont(.bodyBold)
                     }
                     .padding(.vertical, ODSSpacing.s)
+
+                    Toggle(isOn: $model.cacheAppsIcons) {
+                        Text("screens.modules.about.cache_more_apps_icons")
+                            .odsFont(.bodyBold)
+                    }
+                    .padding(.vertical, ODSSpacing.s)
                 }
 
                 Stepper("screens.modules.about.picker.custom_items" <- "\(model.numberOfCustomItems)",
@@ -183,7 +189,7 @@ struct AboutModuleDemo: View {
 
     private var moreAppsItemConfiguration: ODSMoreAppsItemConfig? {
         if let feedURL = model.appsRecirculationFeedURL {
-            return ODSMoreAppsItemConfig(feedURL: feedURL, flattenApps: model.flattenAppsCategories)
+            return ODSMoreAppsItemConfig(feedURL: feedURL, flattenApps: model.flattenAppsCategories, cacheAppsIcons: model.cacheAppsIcons)
         } else {
             return nil
         }

@@ -8,6 +8,7 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 // ============================
 // MARK: - More Apps View Model
@@ -18,11 +19,13 @@ final class MoreAppsViewModel: ObservableObject {
 
     private let service: MoreAppsService
     private let flattenApps: Bool
+    private let cacheAppsIcons: Bool
     @Published var loadingState: LoadingState<MoreAppsList, MoreAppsViewModel.Error>
 
-    init(feedURL: URL, flattenApps: Bool) {
+    init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool) {
         service = MoreAppsService(repository: AppsPlusRepository(feedURL: feedURL))
         self.flattenApps = flattenApps
+        self.cacheAppsIcons = cacheAppsIcons
         loadingState = .loading
     }
 
@@ -51,4 +54,12 @@ final class MoreAppsViewModel: ObservableObject {
     }
 
     // swiftlint:enable force_cast
+
+    func appImage(at url: URL) -> ODSImage.Source {
+        if cacheAppsIcons {
+            .cachedAsyncImage(url, Image("ods_empty", bundle: Bundle.ods))
+        } else {
+            .asyncImage(url, Image("ods_empty", bundle: Bundle.ods))
+        }
+    }
 }

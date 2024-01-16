@@ -14,8 +14,8 @@ struct MoreAppsView: View {
     @StateObject private var viewModel: MoreAppsViewModel
     @Environment(\.openURL) private var openURL
 
-    init(feedURL: URL, flattenApps: Bool) {
-        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(feedURL: feedURL, flattenApps: flattenApps))
+    init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool) {
+        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
     }
 
     var body: some View {
@@ -83,7 +83,7 @@ struct MoreAppsView: View {
     private func listItem(for app: MoreAppsAppDetails) -> some View {
         let item = ODSListItem(title: Text(app.title),
                                subtitle: app.description != nil ? Text(app.description!) : nil,
-                               leading: app.iconURL != nil ? .squareImage(source: .asyncImage(app.iconURL!, Image("ods_empty", bundle: Bundle.ods))) : nil)
+                               leading: app.iconURL != nil ? .squareImage(source: viewModel.appImage(at: app.iconURL!)) : nil)
             .lineLimit(3) // 3 lines asked
 
         /*

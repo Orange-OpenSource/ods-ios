@@ -301,12 +301,6 @@ let moreAppsItem = ODSMoreAppsItemConfig(feedURL: yourFeederURL)
 The _feedURL_ is a `URL` object containing the URL of the backend to get the list of apps.
 Today the only supported backend is Orange proprietary backend _Apps Plus_.
 
-If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
-
-```swift
-let moreAppsItem = ODSMoreAppsItemConfig(feedURL: yourFeederURL, flattenApps: true)
-```  
-
 #### Create a custom item
 
 To create a custom item and associate a target, follow this example:
@@ -345,6 +339,19 @@ This _struct_ has a `feedURL` parameter which must contain the full URL of the _
 
 Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
 or if an error occured.
+
+If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(feedURL: ..., flattenApps: true)
+```  
+
+The apps icons displayed in the list of apps can also be cached.
+If you do not want to see these values put in cache, meaning e.g. displaying instead a placeholder if no network, use:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(feedURL: ..., cacheAppsIcons: false)
+```  
 
 #### Define some configuration in your app
 

@@ -24,6 +24,7 @@ final class AboutModuleModel: ObservableObject {
     @Published var applicationSectionOptions: [ApplicationInformationOption]
     @Published var optionalAboutItems: [OptionalAboutItem]
     @Published var flattenAppsCategories: Bool
+    @Published var cacheAppsIcons: Bool
     @Published var numberOfCustomItems: Int
 
     var applicationInformation: ODSAboutApplicationInformation {
@@ -101,6 +102,7 @@ final class AboutModuleModel: ObservableObject {
         optionalAboutItems = OptionalAboutItem.allCases
         numberOfCustomItems = 2
         flattenAppsCategories = false
+        cacheAppsIcons = true
         defaultCustomItems = [
             AboutMyRecipeItemConfiguration(),
             AboutMyReviewsItemConfiguration(),
