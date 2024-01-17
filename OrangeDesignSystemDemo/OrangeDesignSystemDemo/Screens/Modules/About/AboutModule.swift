@@ -72,35 +72,34 @@ struct AboutSetup: View {
                 ODSFilterChipPicker(
                     title: Text("screens.modules.about.picker.optional_about_items"),
                     chips: AboutModuleModel.OptionalAboutItem.chips,
-                    selection: $model.optionalAboutItems,
-                    placement: .carousel)
+                    selection: $model.optionalAboutItems)
                     .padding(.vertical, ODSSpacing.s)
                     .padding(.horizontal, -ODSSpacing.m)
-
-                if model.optionalAboutItems.contains(.moreApps) {
-                    Toggle(isOn: $model.flattenAppsCategories) {
-                        Text("screens.modules.about.flatten_more_apps_sections")
-                            .odsFont(.bodyLBold)
-                    }
-                    .padding(.vertical, ODSSpacing.s)
-
-                    Toggle(isOn: $model.cacheAppsIcons) {
-                        Text("screens.modules.about.cache_more_apps_icons")
-                            .odsFont(.bodyLBold)
-                    }
-                    .padding(.vertical, ODSSpacing.s)
-
-                    Toggle(isOn: $model.enableHaptics) {
-                        Text("screens.modules.about.enable_haptics")
-                            .odsFont(.bodyLBold)
-                    }
-                    .padding(.vertical, ODSSpacing.s)
-                }
 
                 Stepper("screens.modules.about.picker.custom_items" <- "\(model.numberOfCustomItems)",
                         value: $model.numberOfCustomItems,
                         in: 0 ... model.defaultCustomItems.count)
                     .padding(.vertical, ODSSpacing.s)
+
+                if model.optionalAboutItems.contains(.moreApps) {
+                    Text("screens.modules.about.more_apps_demo_section.title")
+                        .odsFont(.bodyLBold)
+
+                    Toggle(isOn: $model.flattenAppsCategories) {
+                        Text("screens.modules.about.more_apps_demo_section.flatten_more_apps_sections")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+
+                    Toggle(isOn: $model.cacheAppsIcons) {
+                        Text("screens.modules.about.more_apps_demo_section.cache_more_apps_icons")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+
+                    Toggle(isOn: $model.enableHaptics) {
+                        Text("screens.modules.about.more_apps_demo_section.enable_haptics")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+                }
 
                 NavigationLink(isActive: $showDemo) {
                     AboutModuleDemo(model: model)

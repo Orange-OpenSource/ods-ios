@@ -330,9 +330,10 @@
 "screens.modules.about.texts.add_cgu" = "Add terms of service here";
 "screens.modules.about.titles.my_review" = "My reviews";
 "screens.modules.about.titles.my_recipes" = "My recipes";
-"screens.modules.about.flatten_more_apps_sections" = "Do not categorize apps";
-"screens.modules.about.cache_more_apps_icons" = "Cache apps images";
-"screens.modules.about.enable_haptics" = "Enable vibrations";
+"screens.modules.about.more_apps_demo_section.flatten_more_apps_sections" = "Do not categorize apps";
+"screens.modules.about.more_apps_demo_section.cache_more_apps_icons" = "Cache apps images";
+"screens.modules.about.more_apps_demo_section.enable_haptics" = "Enable vibrations";
+"screens.modules.about.more_apps_demo_section.title" = "More apps settings";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections

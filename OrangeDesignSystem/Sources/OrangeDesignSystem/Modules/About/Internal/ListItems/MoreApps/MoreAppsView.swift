@@ -157,7 +157,8 @@ struct MoreAppsView: View {
 
     @ViewBuilder
     private func contextMenuPreview(_ title: String, _ description: String) -> some View {
-        Group {
+//        Group {
+        ScrollView {
             Text(title)
                 .odsFont(.titleL)
             Text(description)
