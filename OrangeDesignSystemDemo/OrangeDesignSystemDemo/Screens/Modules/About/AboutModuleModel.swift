@@ -65,14 +65,6 @@ final class AboutModuleModel: ObservableObject {
             : nil
     }
 
-    var appsRecirculationFeedURL: URL? {
-        if optionalAboutItems.contains(.moreApps) {
-            return Self.appsRecirculationFeedURL
-        } else {
-            return nil
-        }
-    }
-
     var customItems: [ODSAboutListItemConfig] {
         defaultCustomItems.prefix(numberOfCustomItems).compactMap { $0 as ODSAboutListItemConfig }
     }
@@ -81,16 +73,25 @@ final class AboutModuleModel: ObservableObject {
 
     private static let privacyPolicyResourceUrl = Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!
 
-    static var appsRecirculationFeedURL: URL {
-        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] else {
-            fatalError("No Apps Plus URL found in app settings")
+    static var appsRecirculationRemoteFeedURL: URL? {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
+            print("Warning: No Apps Plus URL found in app settings")
+            return nil
         }
         let currentLocale = Bundle.main.preferredLocalizations[0]
         let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
         guard let feedURL = URL(string: requestURL) else {
-            fatalError("Failed to forge the service URL to get more apps")
+            print("Warning: Failed to forge the service URL to get more apps")
+            return nil
         }
         return feedURL
+    }
+
+    static var appsRecirculationLocalDataPath: URL {
+        guard let localPath = Bundle.main.url(forResource: "AppsPlus", withExtension: "json") else { // Expected to be in demo app
+            fatalError("Failed to URL of local data file")
+        }
+        return localPath
     }
 
     // =============

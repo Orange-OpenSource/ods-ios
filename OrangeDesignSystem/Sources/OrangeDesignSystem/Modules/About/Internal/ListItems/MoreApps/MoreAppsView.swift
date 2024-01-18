@@ -18,7 +18,12 @@ struct MoreAppsView: View {
 
     init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool, enableHaptics: Bool) {
         self.enableHaptics = enableHaptics
-        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
+        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(dataSource: .remote(feedURL: feedURL), flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
+    }
+
+    init(localPath: URL, flattenApps: Bool, cacheAppsIcons: Bool, enableHaptics: Bool) {
+        self.enableHaptics = enableHaptics
+        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(dataSource: .local(filePath: localPath), flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
     }
 
     var body: some View {

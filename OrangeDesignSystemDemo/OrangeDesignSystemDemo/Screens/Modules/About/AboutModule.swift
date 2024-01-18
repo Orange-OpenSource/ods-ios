@@ -193,14 +193,18 @@ struct AboutModuleDemo: View {
     }
 
     private var moreAppsItemConfiguration: ODSMoreAppsItemConfig? {
-        if let feedURL = model.appsRecirculationFeedURL {
-            return ODSMoreAppsItemConfig(feedURL: feedURL,
-                                         flattenApps: model.flattenAppsCategories,
-                                         cacheAppsIcons: model.cacheAppsIcons,
-                                         enableHaptics: model.enableHaptics)
+        var source: ODSMoreAppsItemConfig.Source
+        if let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL {
+            print("Info: Source of data for MoreAps is Apps Plus backend")
+            source = .remote(feedURL: feedURL)
         } else {
-            return nil
+            print("Info: Source of data for MoreAps is local Apps Plus file")
+            source = .local(localPath: AboutModuleModel.appsRecirculationLocalDataPath)
         }
+        return ODSMoreAppsItemConfig(source: source,
+                                     flattenApps: model.flattenAppsCategories,
+                                     cacheAppsIcons: model.cacheAppsIcons,
+                                     enableHaptics: model.enableHaptics)
     }
 
     private var listItemConfigurations: [ODSAboutListItemConfig] {

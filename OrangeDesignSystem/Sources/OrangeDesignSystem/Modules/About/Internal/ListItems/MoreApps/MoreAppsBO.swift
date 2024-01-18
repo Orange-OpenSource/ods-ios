@@ -92,7 +92,7 @@ protocol MoreAppsRepositoryProtocol {
     ///    - urlSessionConfiguration: The session configuration to use for the HTTP request (can be `URLSessionConfiguration.default`)
     init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration)
 
-    /// The lcoation of the file is existing used as local cache (if network issues or errors in repository side when decoding or parsing)
+    /// The location of the file is existing used as local cache (if network issues or errors in repository side when decoding or parsing)
     var localCacheLocation: URL? { get }
 
     /// Supposed to be async method to return the apps lists or to throw some error

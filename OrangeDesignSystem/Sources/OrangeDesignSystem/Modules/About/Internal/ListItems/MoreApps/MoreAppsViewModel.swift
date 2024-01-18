@@ -22,11 +22,30 @@ final class MoreAppsViewModel: ObservableObject {
     private let cacheAppsIcons: Bool
     @Published var loadingState: LoadingState<MoreAppsList, MoreAppsViewModel.Error>
 
-    init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool) {
-        service = MoreAppsService(repository: AppsPlusRepository(feedURL: feedURL))
+    init(dataSource: MoreAppsViewModel.Source, flattenApps: Bool, cacheAppsIcons: Bool) {
+        switch dataSource {
+        case let .remote(feedURL):
+            ODSLogger.info("AppsPlus backend will be requested to get apps to display")
+            service = MoreAppsService(repository: AppsPlusRepository(feedURL: feedURL))
+        case let .local(filePath):
+            ODSLogger.info("Local data based on AppsPlus dump will be used to display apps")
+            service = MoreAppsService(repository: LocalAppsPlusRepository(feedURL: filePath))
+        }
         self.flattenApps = flattenApps
         self.cacheAppsIcons = cacheAppsIcons
         loadingState = .loading
+    }
+
+    // ==============
+    // MARK: - Source
+    // ==============
+
+    /// The source of data the module must use to get all available apps
+    public enum Source {
+        /// Fetch some backend available at `feedURL` with sufficient `URL` for data retrievement
+        case remote(feedURL: URL)
+        /// Get useful data from some local file available at `filePath`
+        case local(filePath: URL)
     }
 
     // ===============

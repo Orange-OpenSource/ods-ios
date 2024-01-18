@@ -12,7 +12,14 @@ import XCTest
 extension XCTestCase {
 
     static func stubPath(for name: String, ofType ext: String, inBundleOf anyClass: AnyClass) -> String {
-        guard let url = Bundle(for: anyClass).path(forResource: name, ofType: ext) else {
+        guard let path = Bundle(for: anyClass).path(forResource: name, ofType: ext) else {
+            fatalError("Stub file '\(name).\(ext)' not found!")
+        }
+        return path
+    }
+
+    static func stubURL(for name: String, ofType ext: String, inBundleOf anyClass: AnyClass) -> URL {
+        guard let url = Bundle(for: anyClass).url(forResource: name, withExtension: ext) else {
             fatalError("Stub file '\(name).\(ext)' not found!")
         }
         return url

@@ -22,6 +22,16 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
     public private(set) var target: ODSAboutListItemTarget
     public private(set) var priority: ODSAboutListItemPriority
 
+    // ==============
+    // MARK: - Source
+    // ==============
+
+    /// To define where the apps to display can be picked
+    public enum Source {
+        case remote(feedURL: URL)
+        case local(localPath: URL)
+    }
+
     // =================
     // MARK: Initializer
     // =================
@@ -29,15 +39,29 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
     /// Initializes the configuration.
     ///
     /// - Parameters:
-    ///    - feedURL: The URL to use to get data from online feed
+    ///    - source: The source to use to get data
     ///    - flattenApps: True if all apps must be palced in one list without categories, false (default) to keep categories
     ///    - cacheAppsIcons: True (default) to use app cache to save locally the apps stores icons, false otherwise
     ///    - enableHaptics: True (default) to enable vibrations with the module, false to disable
     ///    - priority: Priority to adjust the position of the item in the list.
-    public init(feedURL: URL, flattenApps: Bool = false, cacheAppsIcons: Bool = true, enableHaptics: Bool = true, priority: ODSAboutListItemPriority = .moreApps) {
+    public init(source: ODSMoreAppsItemConfig.Source,
+                flattenApps: Bool = false,
+                cacheAppsIcons: Bool = true,
+                enableHaptics: Bool = true,
+                priority: ODSAboutListItemPriority = .moreApps)
+    {
+
+        var moreAppsView: MoreAppsView
+        switch source {
+        case let .remote(feedURL):
+            moreAppsView = MoreAppsView(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
+        case let .local(localPath):
+            moreAppsView = MoreAppsView(localPath: localPath, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
+        }
+
         title = "modules.about.apps_recirculation.title".🌐
         icon = Image("ic_mobile_apps", bundle: Bundle.ods)
-        target = .destination(AnyView(MoreAppsView(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)))
+        target = .destination(AnyView(moreAppsView))
         self.priority = priority
     }
 }

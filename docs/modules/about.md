@@ -328,13 +328,17 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
 The _about module_ exposes a feature allowing the final users to get the available apps they can use.
 This feature is based today only on the Orange proprietary _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
 This service today is based on a simple URL containing both a lang parameter and an API key. 
-**This API key will define the type of data returned by the backend ;  maybe you should have your own API key which matches the suotable filters to get only a subgroup of apps.**
+**This API key will define the type of data returned by the backend ; maybe you should have your own API key which matches the suitable filters to get only a subgroup of apps.**
 
 To be able to call this service and display the list of available apps, you have to use the `ODSMoreAppsItemConfig`.
-This _struct_ has a `feedURL` parameter which must contain the full URL of the _Apps Plus_ service:
-
+This _struct_ has a `source` parameter of type `ODSMoreAppsItemConfig.Source` which must contain the type of source of data to display the apps:
+                                     
 ```swift
-    ODSMoreAppsItemConfig(feedURL: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr")
+    // Get data from the Apps Plus backend
+    ODSMoreAppsItemConfig(source: .remote(feedURL: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
+    
+    // Get data for some local files
+    ODSMoreAppsItemConfig(source: local(localPath: somePathToJSONFileInResources))
 ```
 
 Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
@@ -343,21 +347,21 @@ or if an error occured.
 If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
 
 ```swift
-let moreAppsItem = ODSMoreAppsItemConfig(feedURL: ..., flattenApps: true)
+let moreAppsItem = ODSMoreAppsItemConfig(source: ..., flattenApps: true)
 ```  
 
 The apps icons displayed in the list of apps can also be cached.
 If you do not want to see these values put in cache, meaning e.g. displaying instead a placeholder if no network, use:
 
 ```swift
-let moreAppsItem = ODSMoreAppsItemConfig(feedURL: ..., cacheAppsIcons: false)
+let moreAppsItem = ODSMoreAppsItemConfig(source: ..., cacheAppsIcons: false)
 ```
 
 The list of apps can trigger also haptic notifications, e.g. vibrations when the data have been lodaded or if an error occured.
 By default this feature is enabled, but it can be disabled:
 
 ```swift
-let moreAppsItem = ODSMoreAppsItemConfig(feedURL: ..., enableHaptics: false)
+let moreAppsItem = ODSMoreAppsItemConfig(source: ..., enableHaptics: false)
 ```
 
 #### Define some configuration in your app
@@ -403,5 +407,5 @@ We could have choosen this implemention deeper in the repository but wanted to l
         return feedURL
     }
     
-    // And then ODSMoreAppsItemConfig(feedURL: buildAppsPlusURL())
+    // And then ODSMoreAppsItemConfig(source: .remote(feedURL: buildAppsPlusURL()))
 ``

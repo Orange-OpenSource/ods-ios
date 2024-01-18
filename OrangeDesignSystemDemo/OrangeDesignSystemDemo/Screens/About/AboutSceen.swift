@@ -94,11 +94,19 @@ struct AboutScreen: View {
 
         accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
+        var moreAppsSource: ODSMoreAppsItemConfig.Source
+        if let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL {
+            print("Info: Source of data for MoreAps is Apps Plus backend")
+            moreAppsSource = .remote(feedURL: feedURL)
+        } else {
+            print("Iinfo: Source of data for MoreAps is local Apps Plus file")
+            moreAppsSource = .local(localPath: AboutModuleModel.appsRecirculationLocalDataPath)
+        }
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: 202),
             ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
             AboutChangelogItemConfig(priority: 200),
-            ODSMoreAppsItemConfig(feedURL: AboutModuleModel.appsRecirculationFeedURL, priority: 199),
+            ODSMoreAppsItemConfig(source: moreAppsSource, priority: 199),
         ]
     }
 

@@ -19,9 +19,9 @@ enum AppsPlusDataTypeDTO: String, Decodable {
     case app
 }
 
-// ====================
-// MARK: - AppsPlus DTO
-// ====================
+// ==================
+// MARK: AppsPlus DTO
+// ==================
 
 /// Data transfer object for root object sent by _AppsPlus_ backend
 struct AppsPlusDTO: Decodable {
@@ -32,9 +32,9 @@ struct AppsPlusDTO: Decodable {
     }
 }
 
-// ===========================
-// MARK: - AppsPlus Bundle DTO
-// ===========================
+// =========================
+// MARK: AppsPlus Bundle DTO
+// =========================
 
 /// Data transfer object gathering a group of apps or sections
 struct AppsPlusListDTO: Decodable {
@@ -79,9 +79,9 @@ extension AppsPlusListDTO {
 
 // swiftlint:enable force_cast
 
-// ============================
-// MARK: - AppsPlus Section DTO
-// ============================
+// ==========================
+// MARK: AppsPlus Section DTO
+// ==========================
 
 /// Data transfer object to gather a group of apps
 struct AppsPlusSectionDTO: Decodable {
@@ -96,9 +96,9 @@ struct AppsPlusSectionDTO: Decodable {
     }
 }
 
-// ================================
-// MARK: - AppsPlus App Details DTO
-// ================================
+// ==============================
+// MARK: AppsPlus App Details DTO
+// ==============================
 
 /// Data transfer object for an app available in the store, picked from the AppsPlus backend.
 struct AppsPlusAppDetailsDTO: Decodable {
@@ -145,10 +145,11 @@ struct AppsPlusMoreAppsMapper {
     }
 }
 
-// ===========================
-// MARK: - AppsPlus Repository
-// ===========================
+// ============================
+// MARK: - Apps Plus Repository
+// ============================
 
+/// Requests the Apps Plus backend to get list of availables apps, usging also HTTP cache and local file cache
 struct AppsPlusRepository: MoreAppsRepositoryProtocol {
 
     private let feedURL: URL
@@ -258,9 +259,9 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
         return moreAppsList
     }
 
-    // ==============
-    // MARK: - Helper
-    // ==============
+    // ============
+    // MARK: Helper
+    // ============
 
     /// Saves in a cache file the given `Data` picked from AppsPlus backend
     /// - Parameter payload: Data retrieved from `URLSession`
@@ -312,4 +313,64 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
         let moreAppsList = MoreAppsList(sections: odsAppsSections, apps: odsApps)
         return moreAppsList
     }
+}
+
+// ==================================
+// MARK: - Local Apps Plus Repository
+// ==================================
+
+/// Parses local JSON data from file, supposing to be Apps Plus data
+struct LocalAppsPlusRepository: MoreAppsRepositoryProtocol {
+
+    private let feedURL: URL
+    var localCacheLocation: URL?
+
+    init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) { // TODO: #64: Dégager le urlSessionConfiguration
+        self.feedURL = feedURL
+        localCacheLocation = nil
+    }
+
+    func availableAppsList() async throws -> MoreAppsList {
+        var appsPlusAppsList: AppsPlusListDTO
+        do {
+            let rawData = try Data(contentsOf: feedURL)
+            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: rawData).items[0]
+        } catch {
+            ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode local AppsPlus file: '\(error.localizedDescription)'")
+            throw MoreAppsErrors.jsonDecodingFailure
+        }
+
+        let mapper = AppsPlusMoreAppsMapper()
+        let odsApps = mapper.appsDetails(from: appsPlusAppsList)
+        let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
+        let moreAppsList = MoreAppsList(sections: odsAppsSections, apps: odsApps)
+        ODSLogger.debug("Got data from AppsPlus local file with \(odsApps.count) apps and \(odsAppsSections.count) sections")
+        return moreAppsList
+    }
+
+//    private let feedURL: URL
+//    var localCacheLocation: URL?
+//
+//    init(feedURL: URL) {
+//        self.feedURL = feedURL
+//        localCacheLocation = feedURL
+//    }
+//
+//    func availableAppsList() async throws -> MoreAppsList {
+//        var appsPlusAppsList: AppsPlusListDTO
+//        do {
+//            let rawData = try Data(contentsOf: feedURL)
+//            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: rawData).items[0]
+//        } catch {
+//            ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode local AppsPlus file: '\(error.localizedDescription)'")
+//            throw MoreAppsErrors.jsonDecodingFailure
+//        }
+//
+//        let mapper = AppsPlusMoreAppsMapper()
+//        let odsApps = mapper.appsDetails(from: appsPlusAppsList)
+//        let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
+//        let moreAppsList = MoreAppsList(sections: odsAppsSections, apps: odsApps)
+//        ODSLogger.debug("Got data from AppsPlus local file with \(odsApps.count) apps and \(odsAppsSections.count) sections")
+//        return moreAppsList
+//    }
 }

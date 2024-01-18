@@ -119,6 +119,8 @@
 		5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
 		5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
 		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
+		513C99F52B5812300043DAAE /* AppsPlus.json in Resources */ = {isa = PBXBuildFile; fileRef = 513C99F42B5812300043DAAE /* AppsPlus.json */; };
+		513C99F82B593A620043DAAE /* LocalAppsPlusRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */; };
 		513DC6952B1F4627001F86A6 /* MockURLAndResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */; };
 		513DC6972B1F4907001F86A6 /* AppsPlusRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */; };
 		513DC6992B1F511B001F86A6 /* AppsPlusCache.json in Resources */ = {isa = PBXBuildFile; fileRef = 513DC6982B1F511B001F86A6 /* AppsPlusCache.json */; };
@@ -266,6 +268,8 @@
 		07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleOptions.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		513C99F42B5812300043DAAE /* AppsPlus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppsPlus.json; path = OrangeDesignSystemDemo/Resources/AppsPlus.json; sourceTree = "<group>"; };
+		513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppsPlusRepositoryTest.swift; sourceTree = "<group>"; };
 		513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLAndResponse.swift; path = OrangeDesignSystemDemoTests/_/MockURLAndResponse.swift; sourceTree = "<group>"; };
 		513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPlusRepositoryTests.swift; sourceTree = "<group>"; };
 		513DC6982B1F511B001F86A6 /* AppsPlusCache.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusCache.json; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				5107F5602AE11BDD00D4D01F /* AppNews.json */,
 				5107F56C2AE1220900D4D01F /* CGU.html */,
 				5107F5642AE1209A00D4D01F /* PrivacyNotice.html */,
+				513C99F42B5812300043DAAE /* AppsPlus.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 				5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */,
 				513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */,
 				518C3BDB2B5699B00003B76E /* MoreAppsBOTests.swift */,
+				513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */,
 			);
 			path = MoreApps;
 			sourceTree = "<group>";
@@ -1063,6 +1069,7 @@
 				5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */,
 				5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */,
 				077C37D32A9DD643003D6B51 /* Recipes.json in Resources */,
+				513C99F52B5812300043DAAE /* AppsPlus.json in Resources */,
 				077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */,
 				077C37D72A9DD6A4003D6B51 /* Preview Assets.xcassets in Resources */,
 				5107F56A2AE1220900D4D01F /* CGU.html in Resources */,
@@ -1336,6 +1343,7 @@
 				51A08F332B1637E900C14C86 /* ArrayExtensionTests.swift in Sources */,
 				518C3BDC2B5699B00003B76E /* MoreAppsBOTests.swift in Sources */,
 				51A08F402B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift in Sources */,
+				513C99F82B593A620043DAAE /* LocalAppsPlusRepositoryTest.swift in Sources */,
 				51A08F432B165D1600C14C86 /* XCTestCase+extension.swift in Sources */,
 				513DC6952B1F4627001F86A6 /* MockURLAndResponse.swift in Sources */,
 				51A08F352B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift in Sources */,
