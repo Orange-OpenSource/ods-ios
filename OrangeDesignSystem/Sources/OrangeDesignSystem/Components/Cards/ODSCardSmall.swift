@@ -13,12 +13,15 @@ import SwiftUI
 ///
 /// A small card is a card which can be added in two columns grid.
 /// It contains an image and a title, and an optional subtitle placed below.
+/// If the accessibility sizes are used (i.e. greater or equal than 160%), title and subtitle are on more than one line.
 ///
 public struct ODSCardSmall: View {
 
     private let title: Text
     private let subtitle: Text?
     private let imageSource: ODSImage.Source
+
+    @Environment(\.sizeCategory) private var sizeCategory
 
     // =================
     // MARK: Initializer
@@ -51,12 +54,12 @@ public struct ODSCardSmall: View {
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 title
-                    .lineLimit(1)
+                    .lineLimit(sizeCategory.isAccessibilityCategory ? nil : 1)
                     .odsFont(.bodyLBold)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 subtitle?
-                    .lineLimit(1)
+                    .lineLimit(sizeCategory.isAccessibilityCategory ? nil : 1)
                     .odsFont(.bodyLRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
