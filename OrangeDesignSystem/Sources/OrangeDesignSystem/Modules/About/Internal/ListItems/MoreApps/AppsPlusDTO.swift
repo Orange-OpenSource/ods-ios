@@ -325,7 +325,7 @@ struct LocalAppsPlusRepository: MoreAppsRepositoryProtocol {
     private let feedURL: URL
     var localCacheLocation: URL?
 
-    init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) { // TODO: #64: Dégager le urlSessionConfiguration
+    init(feedURL: URL) {
         self.feedURL = feedURL
         localCacheLocation = nil
     }

@@ -87,11 +87,6 @@ enum MoreAppsErrors: Error {
 /// Abstraction layer if in the future another data feed will be used to get other available apps.
 protocol MoreAppsRepositoryProtocol {
 
-    /// - Parameters:
-    ///    - feedURL: The URL where the data can be fetched
-    ///    - urlSessionConfiguration: The session configuration to use for the HTTP request (can be `URLSessionConfiguration.default`)
-    init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration)
-
     /// The location of the file is existing used as local cache (if network issues or errors in repository side when decoding or parsing)
     var localCacheLocation: URL? { get }
 

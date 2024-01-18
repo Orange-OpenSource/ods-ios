@@ -52,12 +52,12 @@ struct MoreAppsView: View {
 
     // TODO: #64 - Implement loading view when the "empty state" module will be ready to be implemented
     private func loadingView() -> some View {
-        Text("(/¯◡ ‿ ◡)/¯ ~ ┻━┻ Your data are loading, and we don't have nice stuff to show yet")
+        Text("⏳ Loading")
     }
 
     // TODO: #64 - Implement error view when the "empty state" module will be ready to be implemented
     private func errorView(_ error: MoreAppsViewModel.Error) -> some View {
-        Text("(ノಠ益ಠ)ノ彡┻━┻ An error occured, and we don't have shiny screens yet")
+        Text("❌ An error occured: '\(error.localizedDescription)'")
     }
 
     @ViewBuilder
@@ -162,8 +162,7 @@ struct MoreAppsView: View {
 
     @ViewBuilder
     private func contextMenuPreview(_ title: String, _ description: String) -> some View {
-//        Group {
-        ScrollView {
+        Group {
             Text(title)
                 .odsFont(.titleL)
             Text(description)
