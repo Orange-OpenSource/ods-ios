@@ -9,6 +9,24 @@ To check these preconditions, run the command bellow and check its results.
 ./doctor.sh
 ```
 
+If some tools are missing, pick the suitable command line bellow:
+```bash
+# For SwiftLint (https://github.com/realm/SwiftLint)
+brew install swiftlint
+
+# For SwiftFormat (https://github.com/nicklockwood/SwiftFormat)
+brew install swiftformat
+
+# For Fastlane (https://github.com/fastlane/docs/blob/master/docs/includes/installing-fastlane.md)
+brew install fastlane
+
+# For Periphery (https://github.com/peripheryapp/periphery)
+brew install peripheryapp/periphery/periphery
+
+# For jq (https://jqlang.github.io/jq/)
+brew install jq
+```
+
 ## Build OrangeDesignSystemDemo
 
 To build the demo application follow those steps.

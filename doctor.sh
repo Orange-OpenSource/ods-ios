@@ -1,10 +1,15 @@
 #!/bin/bash
 #
-# Software Name: Orange Design System (iOS)
-# SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+# Software Name: Orange Design System
+# SPDX-FileCopyrightText: Copyright (c) Orange SA
 # SPDX-License-Identifier: MIT
 #
-# This software is distributed under the MIT license.
+# This software is distributed under the MIT license,
+# the text of which is available at https://opensource.org/license/MIT/
+# or see the "LICENSE" file for more details.
+#
+# Authors: See CONTRIBUTORS.txt
+# Software description: A SwiftUI components library with code examples for Orange Design System
 #
 
 set -eu
@@ -55,25 +60,16 @@ read -p "✋ Are you ready to check preconditions to work on the project? [PRESS
 echo -e "\n"
 
 # ================
-# Check n°1: Swift
-# ================
-
-read -p "✋ Let's check version of Swift (programming language)... [PRESS ANY KEY]"
-echo -e "\n"
-CheckIfRuntimeExists "swift" "swift --version" "5.8"
-echo -e "\n"
-
-# ================
-# Check n°2: Xcode
+# Check n°1: Xcode
 # ================
 
 read -p "✋ Let's check version of Xcode (IDE)... [PRESS ANY KEY]"
 echo -e "\n"
-CheckIfRuntimeExists "Xcode" "xcodebuild -version" "14.3"
+CheckIfRuntimeExists "Xcode" "xcodebuild -version" "15.2"
 echo -e "\n"
 
 # ==================
-# Check n°3: Bundler
+# Check n°2: Bundler
 # ==================
 
 read -p "✋ Let's check version of Bundler (to install and use tools)... [PRESS ANY KEY]"
@@ -82,7 +78,7 @@ CheckIfRuntimeExists "Bundler" "bundle --version" "2.3.16"
 echo -e "\n"
 
 # ====================
-# Check n°4: Cocoapods
+# Check n°3: Cocoapods
 # ====================
 
 read -p "✋ Let's check version of CocoaPods (one of the dependency manager in use)... [PRESS ANY KEY]"
@@ -91,7 +87,7 @@ CheckIfRuntimeExists "CocoaPods" "pod --version" "1.13.0"
 echo -e "\n"
 
 # ===================
-# Check n°5: Fastlane
+# Check n°4: Fastlane
 # ===================
 
 read -p "✋ Let's check version of Fastlane (for automation)... [PRESS ANY KEY]"
@@ -100,30 +96,39 @@ CheckIfRuntimeExists "Fastlane" "fastlane --version" "2.216.0"
 echo -e "\n"
 
 # ====================
-# Check n°6: SwiftLint
+# Check n°5: SwiftLint
 # ====================
 
 read -p "✋ Let's check version of SwiftLint (the linter for the sources)..."
 echo -e "\n"
-CheckIfRuntimeExists "SwiftLint" "swiftlint --version" "0.52.4"
+CheckIfRuntimeExists "SwiftLint" "swiftlint --version" "0.48.0"
 echo -e "\n"
 
 # ======================
-# Check n°7: SwiftFormat
+# Check n°6: SwiftFormat
 # ======================
 
 read -p "✋ Let's check version of SwiftFormat (for headers and code style)... [PRESS ANY KEY]"
 echo -e "\n"
-CheckIfRuntimeExists "SwiftFormat" "swiftformat --version" "0.52.4"
+CheckIfRuntimeExists "SwiftFormat" "swiftformat --version" "0.49.18"
 echo -e "\n"
 
 # ====================
-# Check n°8: Periphery
+# Check n°7: Periphery
 # ====================
 
 read -p "✋ Let's check version of Periphery (for dead code hunt)... [PRESS ANY KEY]"
 echo -e "\n"
 CheckIfRuntimeExists "Periphery" "periphery version" "2.15.0"
+echo -e "\n"
+
+# ==============
+# Check n°8: jq
+# ==============
+
+read -p "✋ Let's check version of jq (for JSON checks)... [PRESS ANY KEY]"
+echo -e "\n"
+CheckIfRuntimeExists "jq" "jq --version" "jq-1.6"
 echo -e "\n"
 
 # =============================
