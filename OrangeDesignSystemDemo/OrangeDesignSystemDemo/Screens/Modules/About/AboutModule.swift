@@ -10,11 +10,19 @@ import SwiftUI
 
 import OrangeDesignSystem
 
+// ====================
+// MARK: - About module
+// ====================
+
 struct AboutModule: View {
     var body: some View {
         AboutSetup(model: AboutModuleModel())
     }
 }
+
+// ===================
+// MARK: - About Setup
+// ===================
 
 struct AboutSetup: View {
 
@@ -64,8 +72,7 @@ struct AboutSetup: View {
                 ODSFilterChipPicker(
                     title: Text("screens.modules.about.picker.optional_about_items"),
                     chips: AboutModuleModel.OptionalAboutItem.chips,
-                    selection: $model.optionalAboutItems,
-                    placement: .carousel)
+                    selection: $model.optionalAboutItems)
                     .padding(.vertical, ODSSpacing.s)
                     .padding(.horizontal, -ODSSpacing.m)
 
@@ -73,6 +80,31 @@ struct AboutSetup: View {
                         value: $model.numberOfCustomItems,
                         in: 0 ... model.defaultCustomItems.count)
                     .padding(.vertical, ODSSpacing.s)
+
+                if model.optionalAboutItems.contains(.moreApps) {
+                    Text("screens.modules.about.more_apps_demo_section.title")
+                        .odsFont(.bodyLBold)
+
+                    Toggle(isOn: $model.useLocalMock) {
+                        Text("screens.modules.about.more_apps_demo_section.use_embeded_mock")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+
+                    Toggle(isOn: $model.flattenAppsCategories) {
+                        Text("screens.modules.about.more_apps_demo_section.flatten_more_apps_sections")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+
+                    Toggle(isOn: $model.cacheAppsIcons) {
+                        Text("screens.modules.about.more_apps_demo_section.cache_more_apps_icons")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+
+                    Toggle(isOn: $model.enableHaptics) {
+                        Text("screens.modules.about.more_apps_demo_section.enable_haptics")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+                }
 
                 NavigationLink(isActive: $showDemo) {
                     AboutModuleDemo(model: model)
@@ -86,6 +118,10 @@ struct AboutSetup: View {
         }
     }
 }
+
+// =========================
+// MARK: - About Module Demo
+// =========================
 
 struct AboutModuleDemo: View {
 
@@ -143,9 +179,9 @@ struct AboutModuleDemo: View {
         }
     }
 
-    private var rateTheAppItemConfiguration: ODSAboutRateTheAppItemCondfig? {
+    private var rateTheAppItemConfiguration: ODSAboutRateTheAppItemConfig? {
         if let url = model.rateTheAppUrl {
-            return ODSAboutRateTheAppItemCondfig(storeUrl: url)
+            return ODSAboutRateTheAppItemConfig(storeUrl: url)
         } else {
             return nil
         }
@@ -161,17 +197,40 @@ struct AboutModuleDemo: View {
         }
     }
 
+    private var moreAppsItemConfiguration: ODSMoreAppsItemConfig? {
+        var source: ODSMoreAppsItemConfig.Source
+        if model.useLocalMock {
+            print("Info: Source of data for MoreApps module is local Apps Plus file")
+            source = .local(path: AboutModuleModel.appsRecirculationLocalDataPath)
+        } else { // Use network request, supposing URL to reach is defined
+            guard let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL else {
+                fatalError("You were supposed to have a suitable URL, check your demo app configuration")
+            }
+            print("Info: Source of data for MoreApps module is Apps Plus backend")
+            source = .remote(url: feedURL)
+        }
+        return ODSMoreAppsItemConfig(source: source,
+                                     flattenApps: model.flattenAppsCategories,
+                                     cacheAppsIcons: model.cacheAppsIcons,
+                                     enableHaptics: model.enableHaptics)
+    }
+
     private var listItemConfigurations: [ODSAboutListItemConfig] {
         var configurations: [ODSAboutListItemConfig?] = [
             appNewsItemConfiguration,
             rateTheAppItemConfiguration,
             legalInformationItemConfiguration,
+            moreAppsItemConfiguration,
         ]
 
         configurations.append(contentsOf: model.customItems)
         return configurations.compactMap { $0 }
     }
 }
+
+// ========================
+// MARK: - Preview Provider
+// ========================
 
 #if DEBUG
 struct ODSBanner_Previews: PreviewProvider {

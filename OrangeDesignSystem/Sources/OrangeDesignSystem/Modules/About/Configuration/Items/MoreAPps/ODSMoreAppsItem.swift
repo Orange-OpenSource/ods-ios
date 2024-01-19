@@ -1,0 +1,67 @@
+//
+// Software Name: Orange Design System (iOS)
+// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license.
+//
+
+import SwiftUI
+
+/// Configuration to add in list the item that opens the apps recirculation view.
+///
+/// By default, this item is placed between legal information item and rate the app item. That can be changed with new priority set in the configuration.
+public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
+
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    public private(set) var title: String
+    public private(set) var icon: Image
+    public private(set) var target: ODSAboutListItemTarget
+    public private(set) var priority: ODSAboutListItemPriority
+
+    // ==============
+    // MARK: - Source
+    // ==============
+
+    /// To define where the apps to display can be picked
+    public enum Source {
+        case remote(url: URL)
+        case local(path: URL)
+    }
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    /// Initializes the configuration.
+    ///
+    /// - Parameters:
+    ///    - source: The source to use to get data
+    ///    - flattenApps: True if all apps must be palced in one list without categories, false (default) to keep categories
+    ///    - cacheAppsIcons: True (default) to use app cache to save locally the apps stores icons, false otherwise
+    ///    - enableHaptics: True (default) to enable vibrations with the module, false to disable
+    ///    - priority: Priority to adjust the position of the item in the list.
+    public init(source: ODSMoreAppsItemConfig.Source,
+                flattenApps: Bool = false,
+                cacheAppsIcons: Bool = true,
+                enableHaptics: Bool = true,
+                priority: ODSAboutListItemPriority = .moreApps)
+    {
+
+        var moreAppsView: MoreAppsView
+        switch source {
+        case let .remote(url):
+            moreAppsView = MoreAppsView(feedURL: url, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
+        case let .local(path):
+            moreAppsView = MoreAppsView(localPath: path, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
+        }
+
+        title = "modules.about.apps_recirculation.title".🌐
+        icon = Image("ic_mobile_apps", bundle: Bundle.ods)
+        target = .destination(AnyView(moreAppsView))
+        self.priority = priority
+    }
+}

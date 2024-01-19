@@ -56,13 +56,13 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
 
-        let internalItemsConfig = [
-            AboutPrivacyPolicyItem(policy: privacyPolicy) as ODSAboutListItemConfig,
-            AboutTermOfServiceItem(termsOfService: termsOfService) as ODSAboutListItemConfig,
-            AboutAccessibilityStatementItemConfig(statementConfig: acessibilityStatement) as ODSAboutListItemConfig,
+        let internalItemsConfig: [ODSAboutListItemConfig] = [
+            AboutPrivacyPolicyItem(policy: privacyPolicy),
+            AboutTermOfServiceItem(termsOfService: termsOfService),
+            AboutAccessibilityStatementItemConfig(statementConfig: acessibilityStatement),
         ]
 
-        self.listItemConfigurations = listItemConfigurations + internalItemsConfig
+        self.listItemConfigurations = (listItemConfigurations + internalItemsConfig).sorted()
     }
 
     // ==========

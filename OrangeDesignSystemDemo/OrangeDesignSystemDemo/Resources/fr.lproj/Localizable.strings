@@ -73,6 +73,7 @@
 "screens.about.app_information.option_description.feedback" = "Avis";
 "screens.about.app_information.option_description.app_news" = "Actualités de l'app";
 "screens.about.app_information.option_description.legal_information" = "Mentions légales";
+"screens.about.app_information.option_description.more_apps" = "Plus d'apps";
 "screens.about.app_information.option_description.rate" = "Évaluez l'app";
 "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";
 
@@ -329,6 +330,11 @@
 "screens.modules.about.texts.add_cgu" = "Ajouter les CGU ici";
 "screens.modules.about.titles.my_review" = "Mes revues";
 "screens.modules.about.titles.my_recipes" = "Mes recettes";
+"screens.modules.about.more_apps_demo_section.flatten_more_apps_sections" = "Ne pas catégoriser les apps";
+"screens.modules.about.more_apps_demo_section.use_embeded_mock" = "Utiliser un bouchon";
+"screens.modules.about.more_apps_demo_section.cache_more_apps_icons" = "Mettre en cache les images";
+"screens.modules.about.more_apps_demo_section.enable_haptics" = "Activer les vibrations";
+"screens.modules.about.more_apps_demo_section.title" = "Réglage pour la liste d'apps";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections

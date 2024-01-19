@@ -26,7 +26,7 @@ struct AboutPrivacyPolicyItem: ODSAboutListItemConfig {
     init(policy: ODSPrivacyPolicy) {
         title = °°"modules.about.privacy_policy.title"
         icon = Image("ic_dataProtection", bundle: Bundle.ods)
-        priority = ODSAboutListItemPriority.privacyPolicy
+        priority = .privacyPolicy
         target = .destination(AnyView(AboutPrivacyPolicy(policy: policy)))
     }
 }

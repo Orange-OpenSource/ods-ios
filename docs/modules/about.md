@@ -244,7 +244,7 @@ To create this item, define the url of the application on the store and the prio
 
 ```swift
 // This item opens the store in the external browser
-let rateTheAppItem = ODSAboutRateTheAppItemCondfig(
+let rateTheAppItem = ODSAboutRateTheAppItemConfig(
    priority: 501,
    storeUrl: URL(string: "https://www.apple.com/app-store/")!
 )
@@ -290,6 +290,17 @@ let legalInformationItem = ODSAboutLegalInformationItemConfig(priority: 500) {
 }
 ```
 
+- More apps / apps recirculation
+
+You can also add an item to let people discover other apps of Orange, by using the following item:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(feedURL: yourFeederURL)
+```
+
+The _feedURL_ is a `URL` object containing the URL of the backend to get the list of apps.
+Today the only supported backend is Orange proprietary backend _Apps Plus_.
+
 #### Create a custom item
 
 To create a custom item and associate a target, follow this example:
@@ -309,3 +320,92 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
     }
 }
 ```
+
+### Configuration of apps recirculation feature
+
+#### Use the feature
+
+The _about module_ exposes a feature allowing the final users to get the available apps they can use.
+This feature is based today only on the Orange proprietary _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
+This service today is based on a simple URL containing both a lang parameter and an API key. 
+**This API key will define the type of data returned by the backend ; maybe you should have your own API key which matches the suitable filters to get only a subgroup of apps.**
+
+To be able to call this service and display the list of available apps, you have to use the `ODSMoreAppsItemConfig`.
+This _struct_ has a `source` parameter of type `ODSMoreAppsItemConfig.Source` which must contain the type of source of data to display the apps:
+                                     
+```swift
+    // Get data from the Apps Plus backend
+    ODSMoreAppsItemConfig(source: .remote(url: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
+    
+    // Get data for some local files
+    ODSMoreAppsItemConfig(source: local(path: somePathToJSONFileInResources))
+```
+
+Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
+or if an error occured.
+
+If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(source: ..., flattenApps: true)
+```  
+
+The apps icons displayed in the list of apps can also be cached.
+If you do not want to see these values put in cache, meaning e.g. displaying instead a placeholder if no network, use:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(source: ..., cacheAppsIcons: false)
+```
+
+The list of apps can trigger also haptic notifications, e.g. vibrations when the data have been lodaded or if an error occured.
+By default this feature is enabled, but it can be disabled:
+
+```swift
+let moreAppsItem = ODSMoreAppsItemConfig(source: ..., enableHaptics: false)
+```
+
+#### Define some configuration in your app
+
+You can for example for your app use a _AppDemoConfig.xcconfig_ configuration file to store such credentials.
+A key named **APPS_PLUS_URL** can be defined with the URL (containing the API key) to call.
+Then the **Info.plist** file of your app must have an entry with the same name.
+Of course the _AppDemoConfig.xcconfig_ file should not be versionned in Git, but our demo app implements this feature.
+
+See the example for the .xcconfig :
+
+```text
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+// See also https://medium.com/swift-india/secure-secrets-in-ios-app-9f66085800b4
+
+APPS_PLUS_API_KEY = SoMeApIkEy
+APPS_PLUS_URL = https:/$()/url-to-api?apikey=$(APPS_PLUS_API_KEY)
+
+// Here $() prevents the // to be interpreted as comment, we suppose the URL has an apikey parameter and is GET only
+```
+
+And the entry for the Info.plist :
+
+```text
+    <key>APPS_PLUS_URL</key>
+    <string>${APPS_PLUS_URL}</string> <!-- Or write here the full URL with API key but without lang -->
+```
+
+Then in our code we just read the URL, get the local, and forge the final URL to give to `ODSMoreAppsItemConfig`.
+We could have choosen this implemention deeper in the repository but wanted to let ODS lib users choose their own way to deal with the URL.
+
+```swift
+    private func buildAppsPlusURL() -> URL {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] else {
+            fatalError("No Apps Plus URL found in app settings")
+        }
+        let currentLocale = Bundle.main.preferredLocalizations[0]
+        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+        guard let feedURL = URL(string: requestURL) else {
+            fatalError("Failed to forge the service URL to get more apps")
+        }
+        return feedURL
+    }
+    
+    // And then ODSMoreAppsItemConfig(source: .remote(url: buildAppsPlusURL()))
+``

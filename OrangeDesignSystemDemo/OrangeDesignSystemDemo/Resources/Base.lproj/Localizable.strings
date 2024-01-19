@@ -72,6 +72,7 @@
 "screens.about.app_information.option_description.app_news" = "App News";
 "screens.about.app_information.option_description.legal_information" = "Legal Information";
 "screens.about.app_information.option_description.rate" = "Rate the app";
+"screens.about.app_information.option_description.more_apps" = "More apps";
 "screens.about.file_load_failure" = "Unable to load file %@.%@";
 "screens.about.terms_of_service" = "Terms of Service";
 "screens.about.legal_information_text.default" = "Add Legal information here";
@@ -329,6 +330,11 @@
 "screens.modules.about.texts.add_cgu" = "Add terms of service here";
 "screens.modules.about.titles.my_review" = "My reviews";
 "screens.modules.about.titles.my_recipes" = "My recipes";
+"screens.modules.about.more_apps_demo_section.flatten_more_apps_sections" = "Do not categorize apps";
+"screens.modules.about.more_apps_demo_section.use_embeded_mock" = "Use local mock";
+"screens.modules.about.more_apps_demo_section.cache_more_apps_icons" = "Cache apps images";
+"screens.modules.about.more_apps_demo_section.enable_haptics" = "Enable vibrations";
+"screens.modules.about.more_apps_demo_section.title" = "More apps settings";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections

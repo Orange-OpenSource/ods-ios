@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// Priority of item in the list.
-/// The hightest means that the item is placed at the top of the list.
+/// The highest means that the item is placed at the top of the list.
 /// The lowest means that the item is placed at the end (bottom) of the list.
 ///
 /// @Remarks: pricacyPolicy, termsOfService and accessibility statement must be grouped, so their priority are fixed.
@@ -17,9 +17,10 @@ import SwiftUI
 /// Priorities are also defined for app news, legal information, more apps and rate the app items, but it is possible to use another priority in the associated item initializer.
 public typealias ODSAboutListItemPriority = Int
 
-/// Default priorities to order items in list
+/// Default priorities to order items in list.
+/// Consider that the bigger is the priority value, the higher wil be the item in the list.
 extension ODSAboutListItemPriority {
-    public static let hightest = Int.max
+    public static let highest = Int.max
     public static let lowest = Int.min
 
     /// Fixed positions of mandatory items
