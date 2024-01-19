@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+- [DemoApp] Update technical documentation with versions of tools ([#549](https://github.com/Orange-OpenSource/ods-ios/issues/549))
+
 ## [0.16.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
 
 - [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
