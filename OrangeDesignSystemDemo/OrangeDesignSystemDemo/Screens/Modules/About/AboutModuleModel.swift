@@ -23,6 +23,10 @@ final class AboutModuleModel: ObservableObject {
     @Published var showFeedbackPopup: Bool
     @Published var applicationSectionOptions: [ApplicationInformationOption]
     @Published var optionalAboutItems: [OptionalAboutItem]
+    @Published var useLocalMock: Bool
+    @Published var flattenAppsCategories: Bool
+    @Published var cacheAppsIcons: Bool
+    @Published var enableHaptics: Bool
     @Published var numberOfCustomItems: Int
 
     var applicationInformation: ODSAboutApplicationInformation {
@@ -70,6 +74,27 @@ final class AboutModuleModel: ObservableObject {
 
     private static let privacyPolicyResourceUrl = Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!
 
+    static var appsRecirculationRemoteFeedURL: URL? {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
+            print("Warning: No Apps Plus URL found in app settings")
+            return nil
+        }
+        let currentLocale = Bundle.main.preferredLocalizations[0]
+        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+        guard let feedURL = URL(string: requestURL) else {
+            print("Warning: Failed to forge the service URL to get more apps")
+            return nil
+        }
+        return feedURL
+    }
+
+    static var appsRecirculationLocalDataPath: URL {
+        guard let localPath = Bundle.main.url(forResource: "AppsPlus", withExtension: "json") else { // Expected to be in demo app
+            fatalError("Failed to URL of local data file")
+        }
+        return localPath
+    }
+
     // =============
     // MARK: Methods
     // =============
@@ -79,6 +104,10 @@ final class AboutModuleModel: ObservableObject {
         applicationSectionOptions = ApplicationInformationOption.allCases
         optionalAboutItems = OptionalAboutItem.allCases
         numberOfCustomItems = 2
+        flattenAppsCategories = false
+        useLocalMock = false
+        cacheAppsIcons = true
+        enableHaptics = true
         defaultCustomItems = [
             AboutMyRecipeItemConfiguration(),
             AboutMyReviewsItemConfiguration(),
@@ -129,6 +158,7 @@ final class AboutModuleModel: ObservableObject {
         case appNews = 0
         case legalInformation
         case rateTheApp
+        case moreApps
 
         var description: LocalizedStringKey {
             switch self {
@@ -138,6 +168,8 @@ final class AboutModuleModel: ObservableObject {
                 return "screens.about.app_information.option_description.legal_information"
             case .rateTheApp:
                 return "screens.about.app_information.option_description.rate"
+            case .moreApps:
+                return "screens.about.app_information.option_description.more_apps"
             }
         }
 

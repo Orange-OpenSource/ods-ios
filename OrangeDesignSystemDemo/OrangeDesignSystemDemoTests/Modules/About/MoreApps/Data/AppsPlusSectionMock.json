@@ -1,0 +1,26 @@
+{
+    "type": "section",
+    "description": "Business apps",
+    "children": [
+        {
+            "published": "2023-03-28",
+            "title": "Orange Pro, espace client pro",
+            "mid": "1064733638",
+            "type": "app",
+            "iconUrl": "https:\/\/appsplus-oma.apps-details.com\/icons\/1064733638.png",
+            "description": "D\u00e9couvrez Orange Pro, l'application mobile pour g\u00e9rer ses offres, options et services.  A tous nos clients du march\u00e9 PRO et PME, Orange pro est l\u2019application qui vous est d\u00e9di\u00e9e ! \nQuels sont les fonctionnalit\u00e9s de l\u2019application ? Laisser nous vous expliquer.\nVous pouvez :\n\u2022\tg\u00e9rer ses contras contrats Internet, fixe et\/ou mobile\n\u2022\tconsulter et t\u00e9l\u00e9charger vos factures\n\u2022\tavoir un acc\u00e8s au suivi conso et on est alert\u00e9 en cas de hors forfait\n\u2022\tparam\u00e9trer les services d\u2019une ligne mobile : code PUK, suspension de la ligne en cas de perte ou vol d'un mobile et d\u00e9simlocker un t\u00e9l\u00e9phone... \n\u2022\tacheter des recharges data en France et \u00e0 l\u2019\u00e9tranger pour chaque ligne mobile. Cet achat est possible par carte bancaire ou par facture entreprise\n\u2022\tparam\u00e9trer les services d\u2019un t\u00e9l\u00e9phone fixe : renvoi d\u2019appel, secret permanent, filtrer les appels sortants et pr\u00e9sentation du num\u00e9ro\n\u2022\tparam\u00e9trer les services d\u2019une ligne Internet et TV : consultation des identifiants, modification du mot de passe Internet\n\u2022\tdemander \u00e0 tout moment de l\u2019aide \u00e0 Djingo, l\u2019assistant virtuel \n\u2022\tprendre un RDV en boutique \n\u2022\tjoindre le service commercial par messaging ou en \u00e9tant rappel\u00e9\n\nUne rubrique sp\u00e9ciale pour g\u00e9rer votre r\u00e9seau et votre Livebox. Vous pouvez :\n\n\u2022\tB\u00e9n\u00e9ficier des tutoriels pour votre Livebox ainsi que d\u2019un accompagnement sur les voyants de la box\n\u2022\tVisualiser l'\u00e9tat des services Internet, t\u00e9l\u00e9phone et TV lorsque votre smartphone est connect\u00e9 \u00e0 votre Livebox Pro\n\u2022\tG\u00e9rer la Livebox : apr\u00e8s avoir saisi le mot de passe d'administration de la Livebox, vous pouvez partager et personnaliser la cl\u00e9 Wi-Fi, de la Livebox et modifier le nom des \u00e9quipements connect\u00e9s.\n\u2022\tV\u00e9rifiez la qualit\u00e9 du r\u00e9seau disponible sur votre smartphone avec le test de d\u00e9bit Wi-Fi\n\u2022\tUne question sur votre Livebox, sur votre d\u00e9codeur ou votre t\u00e9l\u00e9phone fixe ? Utiliser l'autodiagnostic d'Orange : guid\u00e9  en fonction de vos appareils, vous obtiendrez toutes les r\u00e9ponses \u00e0 vos questions sur l'utilisation et le d\u00e9pannage de vos diff\u00e9rents services. \n\nN'attendez plus, t\u00e9l\u00e9chargez l'application mobile Orange Pro pour profiter de l'ensemble de ces services.\n\nA tr\u00e8s vite sur Orange Pro, l'espace client des professionnels !",
+            "link": "https:\/\/itunes.apple.com\/app\/apple-store\/id1064733638?pt=20021&ct=XIsvjJaTcL&mt=8",
+            "providerId": "20021"
+        },
+        {
+            "published": "2023-01-24",
+            "title": "Orange Business Lounge",
+            "mid": "472332600",
+            "type": "app",
+            "iconUrl": "https:\/\/appsplus-oma.apps-details.com\/icons\/472332600.png",
+            "description": "Gr\u00e2ce \u00e0 votre ligne mobile entreprise Orange Business Services, vous disposez d\u2019un espace qui vous est d\u00e9di\u00e9. Notre objectif : vous accompagner de fa\u00e7on efficace et personnalis\u00e9e dans l\u2019utilisation de votre mobile professionnel.\nOrange Business Lounge est une application que nous avons con\u00e7ue avec vous, afin d\u2019\u00eatre intuitive et adapt\u00e9e \u00e0 vos principaux besoins :\n-          L\u2019\u00e9tat de votre suivi conso et la qualit\u00e9 du r\u00e9seau accessibles d\u00e8s la page d\u2019accueil\n-          Des alertes en cas de risque de d\u00e9bit r\u00e9duit et la possibilit\u00e9 d\u2019acheter une recharge data en quelques clics\n-          Un accompagnement pour pr\u00e9parer vos voyages \u00e0 l\u2019\u00e9tranger : mon forfait couvre-t-il cette destination ? Quelle recharge est disponible ? Quel num\u00e9ro de service client appeler depuis l\u2019\u00e9tranger ?\n-          Une assistance pour ne pas vous laisser sans solution : suspendre ma ligne en cas de vol ou perte de mon mobile (j\u2019acc\u00e8de \u00e0 mon compte sur la version web depuis une tablette, un PC ou un Mac ), d\u00e9bloquer mon code PUK, diagnostiquer un probl\u00e8me que je rencontre avec mon mobile, etc.\n \nN\u2019h\u00e9sitez pas \u00e0 nous contacter pour nous faire part de tous vos points d\u2019am\u00e9lioration \u00e0 l\u2019adresse suivante : contact.businesslounge@orange.com\nL'application Orange Business Lounge est compatible mais non optimis\u00e9e pour les tablettes et peut donc comporter quelques bugs.",
+            "link": "https:\/\/itunes.apple.com\/app\/apple-store\/id472332600?pt=20021&ct=XIsvjJaTcL&mt=8",
+            "providerId": "20021"
+        }
+    ]
+}

@@ -21,7 +21,7 @@ struct AboutListItems: View {
     // =================
 
     init(configurations: [ODSAboutListItemConfig]) {
-        self.configurations = configurations.sorted(by: { $0.priority > $1.priority })
+        self.configurations = configurations
     }
 
     // ==========

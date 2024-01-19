@@ -22,7 +22,7 @@ struct AboutTermOfServiceItem: ODSAboutListItemConfig {
     init<TermsOfService>(@ViewBuilder termsOfService: () -> TermsOfService) where TermsOfService: View {
         title = °°"modules.about.terms_of_service.title"
         icon = Image("ic_calendarEventInfo", bundle: Bundle.ods)
-        priority = ODSAboutListItemPriority.termOfService
+        priority = .termOfService
         target = .destination(AnyView(termsOfService()))
     }
 }

@@ -19,11 +19,15 @@ struct ODSLogger {
     private static let prefix: String = "\(bullet) OrangeDesignSystem"
 
     static func debug(_ message: String) {
+        #if DEBUG
         logger.debug("\(prefix):debug: 🪲 \(message)")
+        #endif
     }
 
     static func log(_ message: String) {
+        #if DEBUG
         logger.log("\(prefix): \(message)")
+        #endif
     }
 
     static func info(_ message: String) {

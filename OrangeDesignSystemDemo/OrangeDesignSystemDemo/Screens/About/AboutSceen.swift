@@ -71,9 +71,7 @@ struct AboutScreen: View {
     private var applicationInformation: ODSAboutApplicationInformation
     private let privacyPolicy: ODSPrivacyPolicy
     private let accessibilityStatement: ODSAboutAccessibilityStatement
-    private let appNewPath: String
     private let customItems: [ODSAboutListItemConfig]
-    private let storeUrl = URL(string: "http://oran.ge/dsapp")!
 
     // =================
     // MARK: Initializer
@@ -85,7 +83,7 @@ struct AboutScreen: View {
             version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
             description: °°"screens.about.app_information.description",
             shareConfiguration: ODSAboutShareTheApplication(
-                storeUrl: storeUrl,
+                storeUrl: URL(string: "http://oran.ge/dsapp")!,
                 subject: °°"screens.about.app_information.share.subject",
                 description: °°"screens.about.app_information.share.description"),
             onFeedbackClicked: {
@@ -96,15 +94,15 @@ struct AboutScreen: View {
 
         accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
-        appNewPath = Bundle.main.path(forResource: "AppNews", ofType: "json")!
+        guard let feedURL = Self.appsRecirculationRemoteFeedURL else {
+            fatalError("Missing configuration for this module, did you use a working URL?")
+        }
 
-        let guideLinesPriority = 202
-        let appNewsPriority = 201
-        let changeLogPriority = 200
         customItems = [
-            AboutDesignGuidelinesItemConfig(priority: guideLinesPriority) as ODSAboutListItemConfig,
-            ODSAboutAppNewsItemConfig(priority: appNewsPriority, path: appNewPath),
-            AboutChangelogItemConfig(priority: changeLogPriority) as ODSAboutListItemConfig,
+            AboutDesignGuidelinesItemConfig(priority: 202),
+            ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
+            AboutChangelogItemConfig(priority: 200),
+            ODSMoreAppsItemConfig(source: .remote(url: feedURL), priority: 199),
         ]
     }
 
@@ -132,6 +130,20 @@ struct AboutScreen: View {
     @ViewBuilder
     private func termsOfService() -> some View {
         AboutHtmlAndMarkdownView(title: °°"screens.about.terms_of_service", htmlFileName: "CGU")
+    }
+
+    private static var appsRecirculationRemoteFeedURL: URL? {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
+            print("Warning: No Apps Plus URL found in app settings")
+            return nil
+        }
+        let currentLocale = Bundle.main.preferredLocalizations[0]
+        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+        guard let feedURL = URL(string: requestURL) else {
+            print("Warning: Failed to forge the service URL to get more apps")
+            return nil
+        }
+        return feedURL
     }
 }
 

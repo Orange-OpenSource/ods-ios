@@ -23,6 +23,13 @@ Copyright 2021-2022 Lucas Zischka.
 *BottomSheet* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/lucaszischka/BottomSheet).
 
+### CachedAsyncImage
+
+Copyright (c) 2021 Lorenzo Fiamingo
+ 
+*CachedAsyncImage* is distributed under the terms and conditions ot the [MIT License](http://opensource.org/licenses/MIT).
+You may download the source code on the [following website](https://github.com/lorenzofiamingo/swiftui-cached-async-image).
+
 ### SwiftUI-Flow
 
 Copyright (c) 2023 Laszlo Teveli

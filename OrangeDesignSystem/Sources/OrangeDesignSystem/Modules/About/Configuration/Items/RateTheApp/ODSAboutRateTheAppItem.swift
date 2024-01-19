@@ -11,7 +11,7 @@ import SwiftUI
 /// Configuration to add in list the item that opens the application page on the Apple App Store.
 ///
 /// By default, this item is placed after the item of More Apps. That can be changed with new priority set in the configuration.
-public struct ODSAboutRateTheAppItemCondfig: ODSAboutListItemConfig {
+public struct ODSAboutRateTheAppItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored Properties
