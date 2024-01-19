@@ -331,6 +331,7 @@
 "screens.modules.about.titles.my_review" = "Mes revues";
 "screens.modules.about.titles.my_recipes" = "Mes recettes";
 "screens.modules.about.more_apps_demo_section.flatten_more_apps_sections" = "Ne pas catégoriser les apps";
+"screens.modules.about.more_apps_demo_section.use_embeded_mock" = "Utiliser un bouchon";
 "screens.modules.about.more_apps_demo_section.cache_more_apps_icons" = "Mettre en cache les images";
 "screens.modules.about.more_apps_demo_section.enable_haptics" = "Activer les vibrations";
 "screens.modules.about.more_apps_demo_section.title" = "Réglage pour la liste d'apps";

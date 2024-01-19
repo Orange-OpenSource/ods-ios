@@ -23,6 +23,7 @@ final class AboutModuleModel: ObservableObject {
     @Published var showFeedbackPopup: Bool
     @Published var applicationSectionOptions: [ApplicationInformationOption]
     @Published var optionalAboutItems: [OptionalAboutItem]
+    @Published var useLocalMock: Bool
     @Published var flattenAppsCategories: Bool
     @Published var cacheAppsIcons: Bool
     @Published var enableHaptics: Bool
@@ -104,6 +105,7 @@ final class AboutModuleModel: ObservableObject {
         optionalAboutItems = OptionalAboutItem.allCases
         numberOfCustomItems = 2
         flattenAppsCategories = false
+        useLocalMock = false
         cacheAppsIcons = true
         enableHaptics = true
         defaultCustomItems = [

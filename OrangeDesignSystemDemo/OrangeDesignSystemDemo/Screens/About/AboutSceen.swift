@@ -94,19 +94,15 @@ struct AboutScreen: View {
 
         accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
-        var moreAppsSource: ODSMoreAppsItemConfig.Source
-        if let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL {
-            print("Info: Source of data for MoreAps is Apps Plus backend")
-            moreAppsSource = .remote(url: feedURL)
-        } else {
-            print("Info: Source of data for MoreAps is local Apps Plus file")
-            moreAppsSource = .local(path: AboutModuleModel.appsRecirculationLocalDataPath)
+        guard let feedURL = Self.appsRecirculationRemoteFeedURL else {
+            fatalError("Missing configuration for this module, did you use a working URL?")
         }
+
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: 202),
             ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
             AboutChangelogItemConfig(priority: 200),
-            ODSMoreAppsItemConfig(source: moreAppsSource, priority: 199),
+            ODSMoreAppsItemConfig(source: .remote(url: feedURL), priority: 199),
         ]
     }
 
@@ -134,6 +130,20 @@ struct AboutScreen: View {
     @ViewBuilder
     private func termsOfService() -> some View {
         AboutHtmlAndMarkdownView(title: °°"screens.about.terms_of_service", htmlFileName: "CGU")
+    }
+
+    private static var appsRecirculationRemoteFeedURL: URL? {
+        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
+            print("Warning: No Apps Plus URL found in app settings")
+            return nil
+        }
+        let currentLocale = Bundle.main.preferredLocalizations[0]
+        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+        guard let feedURL = URL(string: requestURL) else {
+            print("Warning: Failed to forge the service URL to get more apps")
+            return nil
+        }
+        return feedURL
     }
 }
 

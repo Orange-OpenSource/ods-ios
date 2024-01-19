@@ -85,6 +85,11 @@ struct AboutSetup: View {
                     Text("screens.modules.about.more_apps_demo_section.title")
                         .odsFont(.bodyLBold)
 
+                    Toggle(isOn: $model.useLocalMock) {
+                        Text("screens.modules.about.more_apps_demo_section.use_embeded_mock")
+                    }
+                    .padding(.vertical, ODSSpacing.s)
+
                     Toggle(isOn: $model.flattenAppsCategories) {
                         Text("screens.modules.about.more_apps_demo_section.flatten_more_apps_sections")
                     }
@@ -194,12 +199,15 @@ struct AboutModuleDemo: View {
 
     private var moreAppsItemConfiguration: ODSMoreAppsItemConfig? {
         var source: ODSMoreAppsItemConfig.Source
-        if let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL {
-            print("Info: Source of data for MoreAps is Apps Plus backend")
-            source = .remote(url: feedURL)
-        } else {
-            print("Info: Source of data for MoreAps is local Apps Plus file")
+        if model.useLocalMock {
+            print("Info: Source of data for MoreApps module is local Apps Plus file")
             source = .local(path: AboutModuleModel.appsRecirculationLocalDataPath)
+        } else { // Use network request, supposing URL to reach is defined
+            guard let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL else {
+                fatalError("You were supposed to have a suitable URL, check your demo app configuration")
+            }
+            print("Info: Source of data for MoreApps module is Apps Plus backend")
+            source = .remote(url: feedURL)
         }
         return ODSMoreAppsItemConfig(source: source,
                                      flattenApps: model.flattenAppsCategories,
