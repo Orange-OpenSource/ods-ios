@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-- [DemoApp/SDK] Apps recirculation [#64](https://github.com/Orange-OpenSource/ods-ios/issues/64)
+- [DemoApp] Update technical documentation with versions of tools ([#549](https://github.com/Orange-OpenSource/ods-ios/issues/549))
+- [DemoApp/SDK] Apps recirculation ([#64](https://github.com/Orange-OpenSource/ods-ios/issues/64))
 
 ## [0.16.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
 
