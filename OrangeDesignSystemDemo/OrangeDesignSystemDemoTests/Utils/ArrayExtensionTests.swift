@@ -28,7 +28,7 @@ final class ArrayExtensionTests: XCTestCase {
         let items: [ODSAboutListItemConfig] = [item1, item2, item3, item4, item5]
 
         // When
-        let sortedItems = items.sort()
+        let sortedItems = items.sorted()
 
         // Then
         XCTAssertTrue(sortedItems[0].title == item3.title)

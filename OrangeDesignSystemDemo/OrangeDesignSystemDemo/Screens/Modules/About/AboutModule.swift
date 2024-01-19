@@ -196,10 +196,10 @@ struct AboutModuleDemo: View {
         var source: ODSMoreAppsItemConfig.Source
         if let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL {
             print("Info: Source of data for MoreAps is Apps Plus backend")
-            source = .remote(feedURL: feedURL)
+            source = .remote(url: feedURL)
         } else {
             print("Info: Source of data for MoreAps is local Apps Plus file")
-            source = .local(localPath: AboutModuleModel.appsRecirculationLocalDataPath)
+            source = .local(path: AboutModuleModel.appsRecirculationLocalDataPath)
         }
         return ODSMoreAppsItemConfig(source: source,
                                      flattenApps: model.flattenAppsCategories,

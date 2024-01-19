@@ -122,7 +122,6 @@
 		513C99F52B5812300043DAAE /* AppsPlus.json in Resources */ = {isa = PBXBuildFile; fileRef = 513C99F42B5812300043DAAE /* AppsPlus.json */; };
 		513C99F82B593A620043DAAE /* LocalAppsPlusRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */; };
 		513DC6952B1F4627001F86A6 /* MockURLAndResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */; };
-		513DC6972B1F4907001F86A6 /* AppsPlusRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */; };
 		513DC6992B1F511B001F86A6 /* AppsPlusCache.json in Resources */ = {isa = PBXBuildFile; fileRef = 513DC6982B1F511B001F86A6 /* AppsPlusCache.json */; };
 		5166D4372B18991C0021600D /* MoreAppsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */; };
 		518C3BDC2B5699B00003B76E /* MoreAppsBOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C3BDB2B5699B00003B76E /* MoreAppsBOTests.swift */; };
@@ -271,7 +270,6 @@
 		513C99F42B5812300043DAAE /* AppsPlus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppsPlus.json; path = OrangeDesignSystemDemo/Resources/AppsPlus.json; sourceTree = "<group>"; };
 		513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppsPlusRepositoryTest.swift; sourceTree = "<group>"; };
 		513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLAndResponse.swift; path = OrangeDesignSystemDemoTests/_/MockURLAndResponse.swift; sourceTree = "<group>"; };
-		513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPlusRepositoryTests.swift; sourceTree = "<group>"; };
 		513DC6982B1F511B001F86A6 /* AppsPlusCache.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusCache.json; sourceTree = "<group>"; };
 		51664B4C2AEADEEE00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/AppNews.json; sourceTree = "<group>"; };
 		51664B4D2AEADEF600E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/CGU.html; sourceTree = "<group>"; };
@@ -820,7 +818,6 @@
 				51A08F382B1657D300C14C86 /* Data */,
 				51A08F3F2B165B6C00C14C86 /* MoreAppsAppsPlusMapperTests.swift */,
 				5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */,
-				513DC6962B1F4907001F86A6 /* AppsPlusRepositoryTests.swift */,
 				518C3BDB2B5699B00003B76E /* MoreAppsBOTests.swift */,
 				513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */,
 			);
@@ -1347,7 +1344,6 @@
 				51A08F432B165D1600C14C86 /* XCTestCase+extension.swift in Sources */,
 				513DC6952B1F4627001F86A6 /* MockURLAndResponse.swift in Sources */,
 				51A08F352B163A3A00C14C86 /* ODSAboutListItemPriorityTests.swift in Sources */,
-				513DC6972B1F4907001F86A6 /* AppsPlusRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

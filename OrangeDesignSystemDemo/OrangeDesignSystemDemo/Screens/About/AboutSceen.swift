@@ -97,10 +97,10 @@ struct AboutScreen: View {
         var moreAppsSource: ODSMoreAppsItemConfig.Source
         if let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL {
             print("Info: Source of data for MoreAps is Apps Plus backend")
-            moreAppsSource = .remote(feedURL: feedURL)
+            moreAppsSource = .remote(url: feedURL)
         } else {
-            print("Iinfo: Source of data for MoreAps is local Apps Plus file")
-            moreAppsSource = .local(localPath: AboutModuleModel.appsRecirculationLocalDataPath)
+            print("Info: Source of data for MoreAps is local Apps Plus file")
+            moreAppsSource = .local(path: AboutModuleModel.appsRecirculationLocalDataPath)
         }
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: 202),

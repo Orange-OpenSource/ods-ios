@@ -28,8 +28,8 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
 
     /// To define where the apps to display can be picked
     public enum Source {
-        case remote(feedURL: URL)
-        case local(localPath: URL)
+        case remote(url: URL)
+        case local(path: URL)
     }
 
     // =================
@@ -53,10 +53,10 @@ public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
 
         var moreAppsView: MoreAppsView
         switch source {
-        case let .remote(feedURL):
-            moreAppsView = MoreAppsView(feedURL: feedURL, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
-        case let .local(localPath):
-            moreAppsView = MoreAppsView(localPath: localPath, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
+        case let .remote(url):
+            moreAppsView = MoreAppsView(feedURL: url, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
+        case let .local(path):
+            moreAppsView = MoreAppsView(localPath: path, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons, enableHaptics: enableHaptics)
         }
 
         title = "modules.about.apps_recirculation.title".🌐

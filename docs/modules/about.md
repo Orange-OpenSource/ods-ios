@@ -335,10 +335,10 @@ This _struct_ has a `source` parameter of type `ODSMoreAppsItemConfig.Source` wh
                                      
 ```swift
     // Get data from the Apps Plus backend
-    ODSMoreAppsItemConfig(source: .remote(feedURL: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
+    ODSMoreAppsItemConfig(source: .remote(url: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
     
     // Get data for some local files
-    ODSMoreAppsItemConfig(source: local(localPath: somePathToJSONFileInResources))
+    ODSMoreAppsItemConfig(source: local(path: somePathToJSONFileInResources))
 ```
 
 Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
@@ -407,5 +407,5 @@ We could have choosen this implemention deeper in the repository but wanted to l
         return feedURL
     }
     
-    // And then ODSMoreAppsItemConfig(source: .remote(feedURL: buildAppsPlusURL()))
+    // And then ODSMoreAppsItemConfig(source: .remote(url: buildAppsPlusURL()))
 ``

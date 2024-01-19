@@ -62,7 +62,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
             AboutAccessibilityStatementItemConfig(statementConfig: acessibilityStatement),
         ]
 
-        self.listItemConfigurations = (listItemConfigurations + internalItemsConfig).sort()
+        self.listItemConfigurations = (listItemConfigurations + internalItemsConfig).sorted()
     }
 
     // ==========

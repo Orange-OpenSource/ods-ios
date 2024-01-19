@@ -42,10 +42,10 @@ final class MoreAppsViewModel: ObservableObject {
 
     /// The source of data the module must use to get all available apps
     public enum Source {
-        /// Fetch some backend available at `feedURL` with sufficient `URL` for data retrievement
-        case remote(feedURL: URL)
-        /// Get useful data from some local file available at `filePath`
-        case local(filePath: URL)
+        /// Fetch some backend available at `url` with sufficient `URL` for data retrievement
+        case remote(url: URL)
+        /// Get useful data from some local file available at `path`
+        case local(path: URL)
     }
 
     // ===============
@@ -61,6 +61,7 @@ final class MoreAppsViewModel: ObservableObject {
     // swiftlint:disable force_cast
     func fetchAvailableAppsList() {
         Task {
+            loadingState = .loading
             do {
                 let appsList = try await service.availableAppsList()
                 loadingState = .loaded(flattenApps ? appsList.flattened() : appsList)

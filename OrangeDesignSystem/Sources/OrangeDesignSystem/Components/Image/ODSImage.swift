@@ -13,6 +13,7 @@ import SwiftUI
 ///
 /// For Async image, until the image loads, the view displays a standard placeholder that fills the available space.
 /// For more detail see __AsyncImage__.
+/// Async image can also be cached, meaning if the request to load the image fails some cache if existing ill be used to load the previously fetched data.
 public struct ODSImage: View {
 
     // =======================

@@ -35,7 +35,7 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         let accessiblityStatementItem = AboutAccessibilityStatementItemConfig(statementConfig: ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!))
         let appNewsItem = ODSAboutAppNewsItemConfig(path: "")
         let legalInformationItem = ODSAboutLegalInformationItemConfig(legalInformation: fakeView)
-        let moreAppsItem = ODSMoreAppsItemConfig(source: .remote(feedURL: URL(string: "https://opensource.orange.com/")!))
+        let moreAppsItem = ODSMoreAppsItemConfig(source: .remote(url: URL(string: "https://opensource.orange.com/")!))
         let rateTheAppItem = ODSAboutRateTheAppItemConfig(storeUrl: URL(string: "https://www.apple.com/app-store/")!)
         let aboutDesignGuidelinesItem = AboutDesignGuidelinesItemConfig(priority: 202)
         let aboutChangelogItem = AboutChangelogItemConfig(priority: 200)
@@ -43,7 +43,7 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         // When
         var aboutItemsConfig: [ODSAboutListItemConfig] = [privacyPoliceItem, termOfServiceItem, accessiblityStatementItem, appNewsItem, legalInformationItem, moreAppsItem, rateTheAppItem, aboutDesignGuidelinesItem, aboutChangelogItem]
         aboutItemsConfig.shuffle() // Just to be sure the array is a bit shuffled
-        let sortedAboutItemsConfig = aboutItemsConfig.sort()
+        let sortedAboutItemsConfig = aboutItemsConfig.sorted()
 
         // Then
         XCTAssertTrue(sortedAboutItemsConfig[0] is AboutDesignGuidelinesItemConfig) // 202 (hard-coded)

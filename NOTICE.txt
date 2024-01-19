@@ -1,5 +1,5 @@
 Parts list under Orange SA Copyright
-Copyright (C) 2016 - 2023 Orange SA All rights reserved
+Copyright (C) Orange SA
 
 The following parts are proprietary information of Orange.
 You shall not use or display any trade names, trademarks, service marks, products names, illustrations or designs used within the software
@@ -12,9 +12,6 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunc
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick@2x.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick@3x.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/Close.imageset/Close.pdf
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@2x.png
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@3x.png
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/ods_empty.imageset/ods_nopicture.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/controlsTableViewRowXCheckmark/controlsTableViewRowXCheckmark.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_accessibility.imageset/ic_accessibility.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_apps.imageset/ic_apps.svg
@@ -25,7 +22,11 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_legal.
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_review.imageset/ic_review.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_share.imageset/ic_share.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_taskList.imageset/ic_taskList.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_mobile_apps.imageset/ic_mobile_apps
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_about.imageset/il_about.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@2x.png
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@3x.png
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/ods_empty.imageset/ods_nopicture.png
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/App-Store-512@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@1x.png

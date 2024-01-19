@@ -65,19 +65,16 @@ struct AppsPlusListDTO: Decodable {
     }
 }
 
-// swiftlint:disable force_cast
 extension AppsPlusListDTO {
 
     var apps: [AppsPlusAppDetailsDTO] {
-        children.filter { $0 is AppsPlusAppDetailsDTO }.map { $0 as! AppsPlusAppDetailsDTO }
+        children.compactMap { $0 as? AppsPlusAppDetailsDTO }
     }
 
     var sections: [AppsPlusSectionDTO] {
-        children.filter { $0 is AppsPlusSectionDTO }.map { $0 as! AppsPlusSectionDTO }
+        children.compactMap { $0 as? AppsPlusSectionDTO }
     }
 }
-
-// swiftlint:enable force_cast
 
 // ==========================
 // MARK: AppsPlus Section DTO
@@ -154,26 +151,16 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
 
     private let feedURL: URL
     private let urlSessionConfiguration: URLSessionConfiguration
+    private let cache: URLCache
 
     // Store in user defaults because the ETag can vary times to times
     @UserDefaultsWrapper(key: "ODS_MoreApps_AppsPlus_lastResourceEtag", defaultValue: nil)
     private static var lastResourceEtag: String? // Static here to prevent to make calling methods "mutating"
 
-    /// Can return the `URL` of the file used as local cache (if network issues or errors in repository side when decoding or parsing)
-    let localCacheLocation: URL? = {
-        do {
-            return try FileManager.default
-                .url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                .appendingPathComponent("AppsPlus.json")
-        } catch {
-            ODSLogger.error("Failed to get AppsPlus file in caches directory: '\(error.localizedDescription)'")
-            return nil
-        }
-    }()
-
     init(feedURL: URL, urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
         self.feedURL = feedURL
         self.urlSessionConfiguration = urlSessionConfiguration
+        cache = .shared
     }
 
     /// Using some `URL` and  `URLSessionConfiguration` gets  `AppsPlusDTO` object from the _Apps Plus_ backend, parse it
@@ -196,25 +183,23 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
          See https://jonathanblog2000.blogspot.com/2017/07/ios-uiwebview-nsurlsession-cache.html
          */
         let urlSessionConfiguration = urlSessionConfiguration
-        urlSessionConfiguration.urlCache = URLCache.shared
+        urlSessionConfiguration.urlCache = cache
         urlSessionConfiguration.requestCachePolicy = .useProtocolCachePolicy
         urlSessionConfiguration.timeoutIntervalForResource = 10 // 10 seconds are enough
         let urlSession = URLSession(configuration: urlSessionConfiguration)
         urlSession.sessionDescription = "ODS - MoreApps - AppsPlus Session" // Mainly for Instruments debuging
 
         var appsPlusRawData: Data, response: URLResponse, httpResponse: HTTPURLResponse?
-        var mustUpdateLocalCache = false
         do {
             (appsPlusRawData, response) = try await urlSession.data(for: request)
             httpResponse = response as? HTTPURLResponse
             // If current ETag is different than the last known Etag, local cache must be updated (200), otherwise should be hidden 304
             if let httpResponse = httpResponse, let etag = httpResponse.allHeaderFields["Etag"] as? String, etag != Self.lastResourceEtag {
                 Self.lastResourceEtag = etag
-                mustUpdateLocalCache = true
             }
         } catch { // Timeout and connection issues managed here
             ODSLogger.error("Failed to send request to AppsPlus service: '\(error.localizedDescription)'")
-            if let cachedMoreAppsList = cachedMoreAppsList() {
+            if let cachedMoreAppsList = cachedMoreAppsList(for: request) {
                 ODSLogger.debug("But AppsPlus data in cache available, use them")
                 return cachedMoreAppsList
             }
@@ -227,7 +212,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             // If server error use cache (not sure it's relevant if client error like 401 Unauthorized, 403 Forbidden or 407 Proxy Authentication Required)
             if reponseStatusCode >= 500 {
                 ODSLogger.error("Server error: '\(httpResponse.statusCode)'")
-                if let cachedMoreAppsList = cachedMoreAppsList() {
+                if let cachedMoreAppsList = cachedMoreAppsList(for: request) {
                     ODSLogger.debug("But AppsPlus data in cache available, use them")
                     return cachedMoreAppsList
                 }
@@ -241,15 +226,12 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: appsPlusRawData).items[0]
         } catch {
             ODSLogger.error("Failed to decode AppsPlus service data: '\(error.localizedDescription)'")
-            if let cachedMoreAppsList = cachedMoreAppsList() {
+            if let cachedMoreAppsList = cachedMoreAppsList(for: request) {
                 ODSLogger.debug("But AppsPlus data in cache available, use them")
                 return cachedMoreAppsList
             }
             throw MoreAppsErrors.jsonDecodingFailure
         }
-
-        // Operations on filesystem only if needed
-        if mustUpdateLocalCache { cache(data: appsPlusRawData) }
 
         let mapper = AppsPlusMoreAppsMapper()
         let odsApps = mapper.appsDetails(from: appsPlusAppsList)
@@ -263,45 +245,17 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
     // MARK: Helper
     // ============
 
-    /// Saves in a cache file the given `Data` picked from AppsPlus backend
-    /// - Parameter payload: Data retrieved from `URLSession`
-    private func cache(data payload: Data) {
-        do {
-            if let localCacheLocation = localCacheLocation {
-                if FileManager.default.fileExists(atPath: localCacheLocation.path) {
-                    try FileManager.default.removeItem(atPath: localCacheLocation.path)
-                    ODSLogger.debug("The AppsPlus JSON file already exists, removed it")
-                }
-                try payload.write(to: localCacheLocation, options: .atomic)
-                ODSLogger.debug("JSON file for AppsPlus has been updated at '\(localCacheLocation.path)'")
-            } else {
-                ODSLogger.debug("It seems there is an issue with the local cache file location")
-            }
-        } catch {
-            ODSLogger.error("(ノಥ,_｣ಥ)ノ彡┻━┻ Impossible to save on device the AppsPlus JSON file: '\(error.localizedDescription)'")
-        }
-    }
-
     /// Returns from the cache directory the content previously picked from AppsPlus backend, or nil if error occured
-    /// - Returns MoreAppsList.
-    private func cachedMoreAppsList() -> MoreAppsList? {
-        var cachedRawData: Data
-        do {
-            if let localCacheLocation = localCacheLocation {
-                cachedRawData = try Data(contentsOf: localCacheLocation)
-            } else {
-                ODSLogger.debug("It seems there is an issue with the local cache file location")
-                return nil
-            }
-        } catch {
-            ODSLogger.error("Failed to read AppsPlus file content in cache: '\(error.localizedDescription)'")
+    /// - Returns MoreAppsList?
+    private func cachedMoreAppsList(for request: URLRequest) -> MoreAppsList? {
+        guard let cachedResponse = cache.cachedResponse(for: request) else {
+            ODSLogger.debug("No cache is available for this request")
             return nil
         }
 
-        // Decode file
         var appsPlusAppsList: AppsPlusListDTO
         do {
-            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: cachedRawData).items[0]
+            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: cachedResponse.data).items[0]
         } catch {
             ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode AppsPlus JSON data in cache: '\(error.localizedDescription)'")
             return nil
@@ -347,30 +301,4 @@ struct LocalAppsPlusRepository: MoreAppsRepositoryProtocol {
         ODSLogger.debug("Got data from AppsPlus local file with \(odsApps.count) apps and \(odsAppsSections.count) sections")
         return moreAppsList
     }
-
-//    private let feedURL: URL
-//    var localCacheLocation: URL?
-//
-//    init(feedURL: URL) {
-//        self.feedURL = feedURL
-//        localCacheLocation = feedURL
-//    }
-//
-//    func availableAppsList() async throws -> MoreAppsList {
-//        var appsPlusAppsList: AppsPlusListDTO
-//        do {
-//            let rawData = try Data(contentsOf: feedURL)
-//            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: rawData).items[0]
-//        } catch {
-//            ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode local AppsPlus file: '\(error.localizedDescription)'")
-//            throw MoreAppsErrors.jsonDecodingFailure
-//        }
-//
-//        let mapper = AppsPlusMoreAppsMapper()
-//        let odsApps = mapper.appsDetails(from: appsPlusAppsList)
-//        let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
-//        let moreAppsList = MoreAppsList(sections: odsAppsSections, apps: odsApps)
-//        ODSLogger.debug("Got data from AppsPlus local file with \(odsApps.count) apps and \(odsAppsSections.count) sections")
-//        return moreAppsList
-//    }
 }

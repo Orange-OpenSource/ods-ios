@@ -13,7 +13,7 @@ extension Array where Element == ODSAboutListItemConfig {
     /// Returns a sorted `Array` of `ODSAboutListItemConfig` using `priority` where
     /// higher priority are at the beginning of the array.
     /// - Returns: A new array
-    func sort() -> [ODSAboutListItemConfig] {
+    func sorted() -> [ODSAboutListItemConfig] {
         sorted(by: { $0.priority > $1.priority })
     }
 }

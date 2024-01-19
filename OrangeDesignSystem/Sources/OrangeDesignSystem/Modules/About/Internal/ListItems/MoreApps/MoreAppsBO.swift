@@ -87,9 +87,6 @@ enum MoreAppsErrors: Error {
 /// Abstraction layer if in the future another data feed will be used to get other available apps.
 protocol MoreAppsRepositoryProtocol {
 
-    /// The location of the file is existing used as local cache (if network issues or errors in repository side when decoding or parsing)
-    var localCacheLocation: URL? { get }
-
     /// Supposed to be async method to return the apps lists or to throw some error
     func availableAppsList() async throws -> MoreAppsList
 }
