@@ -126,9 +126,9 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 
 ## [About CI/CD with Jenkins]
 
-You can setup in your side a _Jenkins_ runner which can trigger some Fastlane actions for example each night.
+You can setup in your side a _Jenkins_ runner which can trigger some _Fastlane_ actions for example each night.
 
-YOu can find bellow some pipeline script to fill and use:
+You can find bellow some pipeline script to fill and use:
 
 ```groovy
 pipeline {
@@ -145,7 +145,7 @@ pipeline {
         }
         
         stage('Tests') {
-            // Of course you must file all these environment variables
+            // Of course you must fill all these environment variables
             environment {
                 ODS_MATTERMOST_HOOK_URL = ...
                 ODS_MATTERMOST_HOOK_BOT_NAME = ...
@@ -169,6 +169,9 @@ pipeline {
                 ODS_APPLE_ISSUER_ID = ...
                 ODS_APPLE_KEY_CONTENT = ...
                 
+                // Credentials to fill in the app
+                ODS_APPS_PLUS_SERVICE_URL = "https://url-to-api?apikey=APPS_PLUS_API_KEY"
+
                 // Mattermost webhooks notifications
                 ODS_MATTERMOST_HOOK_URL = ...
                 ODS_MATTERMOST_HOOK_BOT_NAME = ...
@@ -176,6 +179,7 @@ pipeline {
             }
             steps {
                 dir('OrangeDesignSystemDemo') {
+                    sh "bundle exec fastlane add_credentials_appsplus"
                     sh "bundle exec fastlane qualif"
                 }
             }
