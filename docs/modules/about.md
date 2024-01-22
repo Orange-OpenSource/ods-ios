@@ -364,12 +364,12 @@ By default this feature is enabled, but it can be disabled:
 let moreAppsItem = ODSMoreAppsItemConfig(source: ..., enableHaptics: false)
 ```
 
-#### Define some configuration in your app
+#### Example about definiton of Apps Plus credentials
 
 You can for example for your app use a _.xcconfig_ configuration settings file to store such credentials.
 A key named **APPS_PLUS_URL** can be defined with the URL (containing the API key) to call.
 Then the **Info.plist** file of your app must have an entry with the same name.
-Of course the _.xcconfig_ file should not be versionned in Git, but our demo app implements this feature (see _AppDemoConfig.xcconfig_).
+Of course the _.xcconfig_ file should not be versionned in Git, ensure this with [Gitleaks](https://github.com/gitleaks/gitleaks) for example.
 
 See the example for the _.xcconfig_:
 
@@ -391,7 +391,7 @@ And the entry for the _Info.plist_:
     <string>${APPS_PLUS_URL}</string> <!-- Key in the xcconfig side, or write here the full URL with API key but without lang -->
 ```
 
-Then in our code we just read the URL, get the locale, and forge the final URL to give to `ODSMoreAppsItemConfig`.
+Then in your code you can read the URL, get the locale, and forge the final URL to give to `ODSMoreAppsItemConfig`.
 We could have choosen this implemention deeper in the repository but wanted to let ODS lib users choose their own way to deal with the URL.
 
 ```swift

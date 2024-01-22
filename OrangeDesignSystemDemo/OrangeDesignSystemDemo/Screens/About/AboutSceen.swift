@@ -71,7 +71,7 @@ struct AboutScreen: View {
     private var applicationInformation: ODSAboutApplicationInformation
     private let privacyPolicy: ODSPrivacyPolicy
     private let accessibilityStatement: ODSAboutAccessibilityStatement
-    private let customItems: [ODSAboutListItemConfig]
+    private var customItems: [ODSAboutListItemConfig]
 
     // =================
     // MARK: Initializer
@@ -94,16 +94,17 @@ struct AboutScreen: View {
 
         accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
-        guard let feedURL = Self.appsRecirculationRemoteFeedURL else {
-            fatalError("Missing configuration for this module, did you use a working URL?")
-        }
-
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: 202),
             ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
             AboutChangelogItemConfig(priority: 200),
-            ODSMoreAppsItemConfig(source: .remote(url: feedURL), priority: 199),
         ]
+
+        if let feedURL = Self.appsRecirculationRemoteFeedURL {
+            customItems.append(ODSMoreAppsItemConfig(source: .remote(url: feedURL), priority: 199))
+        } else {
+            Log.warning("Missing configuration for this apps recirculation module, did you use a working URL?")
+        }
     }
 
     // ==========
@@ -134,13 +135,13 @@ struct AboutScreen: View {
 
     private static var appsRecirculationRemoteFeedURL: URL? {
         guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
-            print("Warning: No Apps Plus URL found in app settings")
+            Log.warning("No Apps Plus URL found in app settings")
             return nil
         }
         let currentLocale = Bundle.main.preferredLocalizations[0]
         let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
         guard let feedURL = URL(string: requestURL) else {
-            print("Warning: Failed to forge the service URL to get more apps")
+            Log.warning("Failed to forge the service URL to get more apps")
             return nil
         }
         return feedURL

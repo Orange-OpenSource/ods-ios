@@ -370,7 +370,7 @@ struct ODSSlider_Previews_with_label: PreviewProvider {
             } maximumValueLabel: {
                 Image(systemName: "speaker.wave.3.fill")
             } onEditingChanged: { isEditing in
-                print("isEditing(\(isEditing))")
+                ODSLogger.debug("isEditing(\(isEditing))")
             }
             .padding([.leading, .trailing], ODSSpacing.s)
         }
