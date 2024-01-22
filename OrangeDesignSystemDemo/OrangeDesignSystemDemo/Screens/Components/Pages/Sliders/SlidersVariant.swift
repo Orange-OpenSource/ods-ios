@@ -52,7 +52,7 @@ struct SliderVariant: View {
                     } maximumValueLabel: {
                         SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
                     } onEditingChanged: { isEditing in
-                        print("isEdition: \(isEditing)")
+                        Log.debug("isEdition: \(isEditing)")
                     }
                 } else {
                     ODSSlider(value: $value, in: range) {
@@ -62,7 +62,7 @@ struct SliderVariant: View {
                     } maximumValueLabel: {
                         SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
                     } onEditingChanged: { isEditing in
-                        print("isEdition: \(isEditing)")
+                        Log.debug("isEdition: \(isEditing)")
                     }
                 }
             }

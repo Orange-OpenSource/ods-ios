@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+- [DemoApp/Tooling] Demo app crashes if no URL defined, CI/CD fails because of unversioned xcconfig file (Bug [#612](https://github.com/Orange-OpenSource/ods-ios/issues/612))
 - [Tooling] Add Fastlane lane to copy Apps Plus credentials in CI/CD chain for nightly and release builds ([#610](https://github.com/Orange-OpenSource/ods-ios/issues/610))
 - [DemoApp] Update technical documentation with versions of tools ([#549](https://github.com/Orange-OpenSource/ods-ios/issues/549))
 - [DemoApp/SDK] Apps recirculation ([#64](https://github.com/Orange-OpenSource/ods-ios/issues/64))

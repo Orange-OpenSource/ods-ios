@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>APPS_PLUS_URL</key>
-	<string>${APPS_PLUS_URL}</string>
+	<string>🥜</string>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleIdentifier</key>

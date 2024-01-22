@@ -81,30 +81,7 @@ struct AboutSetup: View {
                         in: 0 ... model.defaultCustomItems.count)
                     .padding(.vertical, ODSSpacing.s)
 
-                if model.optionalAboutItems.contains(.moreApps) {
-                    Text("screens.modules.about.more_apps_demo_section.title")
-                        .odsFont(.bodyLBold)
-
-                    Toggle(isOn: $model.useLocalMock) {
-                        Text("screens.modules.about.more_apps_demo_section.use_embeded_mock")
-                    }
-                    .padding(.vertical, ODSSpacing.s)
-
-                    Toggle(isOn: $model.flattenAppsCategories) {
-                        Text("screens.modules.about.more_apps_demo_section.flatten_more_apps_sections")
-                    }
-                    .padding(.vertical, ODSSpacing.s)
-
-                    Toggle(isOn: $model.cacheAppsIcons) {
-                        Text("screens.modules.about.more_apps_demo_section.cache_more_apps_icons")
-                    }
-                    .padding(.vertical, ODSSpacing.s)
-
-                    Toggle(isOn: $model.enableHaptics) {
-                        Text("screens.modules.about.more_apps_demo_section.enable_haptics")
-                    }
-                    .padding(.vertical, ODSSpacing.s)
-                }
+                moreAppsConfigurationView()
 
                 NavigationLink(isActive: $showDemo) {
                     AboutModuleDemo(model: model)
@@ -115,6 +92,35 @@ struct AboutSetup: View {
                 }
             }
             .padding(.all, ODSSpacing.m)
+        }
+    }
+
+    @ViewBuilder
+    private func moreAppsConfigurationView() -> some View {
+        if model.optionalAboutItems.contains(.moreApps) {
+            Text("screens.modules.about.more_apps_demo_section.title")
+                .odsFont(.bodyLBold)
+
+            Toggle(isOn: $model.useLocalMock) {
+                Text("screens.modules.about.more_apps_demo_section.use_embeded_mock")
+            }
+            .padding(.vertical, ODSSpacing.s)
+            .disabled(!(AboutModuleModel.appsRecirculationRemoteFeedURL != nil)) // If no backend URL, force to use mocks
+
+            Toggle(isOn: $model.flattenAppsCategories) {
+                Text("screens.modules.about.more_apps_demo_section.flatten_more_apps_sections")
+            }
+            .padding(.vertical, ODSSpacing.s)
+
+            Toggle(isOn: $model.cacheAppsIcons) {
+                Text("screens.modules.about.more_apps_demo_section.cache_more_apps_icons")
+            }
+            .padding(.vertical, ODSSpacing.s)
+
+            Toggle(isOn: $model.enableHaptics) {
+                Text("screens.modules.about.more_apps_demo_section.enable_haptics")
+            }
+            .padding(.vertical, ODSSpacing.s)
         }
     }
 }
@@ -200,13 +206,14 @@ struct AboutModuleDemo: View {
     private var moreAppsItemConfiguration: ODSMoreAppsItemConfig? {
         var source: ODSMoreAppsItemConfig.Source
         if model.useLocalMock {
-            print("Info: Source of data for MoreApps module is local Apps Plus file")
+            Log.info("Source of data for MoreApps module is local Apps Plus file")
             source = .local(path: AboutModuleModel.appsRecirculationLocalDataPath)
-        } else { // Use network request, supposing URL to reach is defined
+        } else {
             guard let feedURL = AboutModuleModel.appsRecirculationRemoteFeedURL else {
+                // Should not happen, previous controls made before
                 fatalError("You were supposed to have a suitable URL, check your demo app configuration")
             }
-            print("Info: Source of data for MoreApps module is Apps Plus backend")
+            Log.info("Source of data for MoreApps module is Apps Plus backend")
             source = .remote(url: feedURL)
         }
         return ODSMoreAppsItemConfig(source: source,
@@ -222,7 +229,6 @@ struct AboutModuleDemo: View {
             legalInformationItemConfiguration,
             moreAppsItemConfiguration,
         ]
-
         configurations.append(contentsOf: model.customItems)
         return configurations.compactMap { $0 }
     }
