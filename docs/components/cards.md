@@ -140,7 +140,7 @@ ODSCardHorizontal(
 The small card if prefered for two-column portrait mobile screen display.
 As it is smaller than full-width cards, it contains only title and subtitle (optional) in one line (Truncated tail).
 
-![CardSmall](images/card_small_light.png) ![CardSmall dark](images/card_small_dark.png)
+![small card light](images/card_small_light.png) ![small card dark](images/card_small_dark.png)
 
 > **Implementation**
 

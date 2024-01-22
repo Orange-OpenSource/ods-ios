@@ -33,6 +33,8 @@ A tool bar allows users to do specific actions regarding the entire page. It is 
 
 ### With label items
 
+![tool bar labels light](images/bars_tool_labels_light.png) ![tool bar labels dark](images/bars_tool_labels_dark.png)
+
 A tool bar can display 2 to 3 label entries.
 
 Example with 3 label entries in toolBar :
@@ -59,6 +61,8 @@ NavigationView {
 ```
 
 ### With icon items
+
+![tool bar icons light](images/bars_tool_icons_light.png) ![tool bar icons dark](images/bars_tool_icons_dark.png)
 
 A tool bar can display 2 to 5 icon controls
 ```swift

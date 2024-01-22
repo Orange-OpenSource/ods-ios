@@ -23,7 +23,7 @@ toc2:
       - page: Bars - tab
         url: components/tabBar_docs
       - page: Bars - tool
-        url: components/toolBar_docs
+        url: components/bars_tool_docs
       - page: Buttons
         url: components/buttons_docs
       - page: Cards
