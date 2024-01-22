@@ -366,12 +366,12 @@ let moreAppsItem = ODSMoreAppsItemConfig(source: ..., enableHaptics: false)
 
 #### Define some configuration in your app
 
-You can for example for your app use a _AppDemoConfig.xcconfig_ configuration file to store such credentials.
+You can for example for your app use a _.xcconfig_ configuration settings file to store such credentials.
 A key named **APPS_PLUS_URL** can be defined with the URL (containing the API key) to call.
 Then the **Info.plist** file of your app must have an entry with the same name.
-Of course the _AppDemoConfig.xcconfig_ file should not be versionned in Git, but our demo app implements this feature.
+Of course the _.xcconfig_ file should not be versionned in Git, but our demo app implements this feature (see _AppDemoConfig.xcconfig_).
 
-See the example for the .xcconfig :
+See the example for the _.xcconfig_:
 
 ```text
 // Configuration settings file format documentation can be found at:
@@ -384,14 +384,14 @@ APPS_PLUS_URL = https:/$()/url-to-api?apikey=$(APPS_PLUS_API_KEY)
 // Here $() prevents the // to be interpreted as comment, we suppose the URL has an apikey parameter and is GET only
 ```
 
-And the entry for the Info.plist :
+And the entry for the _Info.plist_:
 
 ```text
-    <key>APPS_PLUS_URL</key>
-    <string>${APPS_PLUS_URL}</string> <!-- Or write here the full URL with API key but without lang -->
+    <key>APPS_PLUS_URL</key> <!-- Key used in the demo app code -->
+    <string>${APPS_PLUS_URL}</string> <!-- Key in the xcconfig side, or write here the full URL with API key but without lang -->
 ```
 
-Then in our code we just read the URL, get the local, and forge the final URL to give to `ODSMoreAppsItemConfig`.
+Then in our code we just read the URL, get the locale, and forge the final URL to give to `ODSMoreAppsItemConfig`.
 We could have choosen this implemention deeper in the repository but wanted to let ODS lib users choose their own way to deal with the URL.
 
 ```swift
@@ -408,4 +408,7 @@ We could have choosen this implemention deeper in the repository but wanted to l
     }
     
     // And then ODSMoreAppsItemConfig(source: .remote(url: buildAppsPlusURL()))
-``
+```
+
+In some CI/CD chain, like our old-school Jenkins server with Groovy pipelines, we can use a _Fastlane_ lane to read some previously environment variable and
+fill the _Info.Plist_ file in the suitable row.

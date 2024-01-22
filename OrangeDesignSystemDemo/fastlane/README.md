@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 RUN TESTS BY TRIGGERING THE TESTS PLANS OF THE PROJECT
 
+### ios add_credentials_appsplus
+
+```sh
+[bundle exec] fastlane ios add_credentials_appsplus
+```
+
+ADD APPS PLUS CREDENTIALS
+
 ### ios increment
 
 ```sh

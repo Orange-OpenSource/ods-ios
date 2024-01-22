@@ -11,6 +11,8 @@ APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
 DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
 
+APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
+
 MATTERMOST_HOOK_URL = ENV["ODS_MATTERMOST_HOOK_URL"]
 MATTERMOST_HOOK_BOT_NAME = ENV["ODS_MATTERMOST_HOOK_BOT_NAME"]
 MATTERMOST_HOOK_BOT_ICON_URL = ENV["ODS_MATTERMOST_HOOK_BOT_ICON_URL"]
@@ -42,6 +44,19 @@ platform :ios do
     end
   end
     
+  # ------------------------------------------------------------
+  # ADD APPS PLUS CREDENTIALS (About module)
+  # ------------------------------------------------------------
+  desc "ADD APPS PLUS CREDENTIALS"
+  lane :add_credentials_appsplus do
+    update_plist(
+      plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
+      block: proc do |plist|
+        plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
+      end
+    )
+  end
+
   # ------------------------------------------------------------
   # UPDATE BUILD NUMBER WITH TIMESTAMP
   # ------------------------------------------------------------
