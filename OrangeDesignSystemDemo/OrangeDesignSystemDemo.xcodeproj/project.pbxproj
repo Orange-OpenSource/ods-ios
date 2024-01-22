@@ -143,6 +143,7 @@
 		51CD728A2B162D1A008CE57D /* FileWithoutJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72812B162D19008CE57D /* FileWithoutJson.json */; };
 		51CD728B2B162D1A008CE57D /* NotStringFile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72822B162D19008CE57D /* NotStringFile.jpg */; };
 		51CD728C2B162D1A008CE57D /* AppNewsMock_notCompliant_badDateFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72832B162D19008CE57D /* AppNewsMock_notCompliant_badDateFormat.json */; };
+		51F6008A2B5E9AB200FF90F3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F600892B5E9AB200FF90F3 /* Logger.swift */; };
 		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
 		F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */; };
@@ -275,7 +276,6 @@
 		51664B4D2AEADEF600E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/CGU.html; sourceTree = "<group>"; };
 		51664B4E2AEADEFC00E92F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/PrivacyNotice.html; sourceTree = "<group>"; };
 		5166D4362B18991C0021600D /* MoreAppsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsServiceTests.swift; sourceTree = "<group>"; };
-		5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AppDemoConfig.xcconfig; path = OrangeDesignSystemDemo/AppDemoConfig.xcconfig; sourceTree = "<group>"; };
 		5166FE852AE9669A0038A4AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = OrangeDesignSystemDemo/Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		518C3BDB2B5699B00003B76E /* MoreAppsBOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsBOTests.swift; sourceTree = "<group>"; };
 		51A08F322B1637E900C14C86 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
@@ -297,6 +297,7 @@
 		51CD72822B162D19008CE57D /* NotStringFile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NotStringFile.jpg; sourceTree = "<group>"; };
 		51CD72832B162D19008CE57D /* AppNewsMock_notCompliant_badDateFormat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppNewsMock_notCompliant_badDateFormat.json; sourceTree = "<group>"; };
 		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = OrangeDesignSystemDemo/Resources/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		51F600892B5E9AB200FF90F3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B655A0B148F11BB69BCFF556 /* Pods-OrangeDesignSystemDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -708,6 +709,7 @@
 			children = (
 				077C38A02A9E24DB003D6B51 /* UI */,
 				077C38902A9DEEDB003D6B51 /* Domain */,
+				51F600892B5E9AB200FF90F3 /* Logger.swift */,
 			);
 			name = Utils;
 			path = OrangeDesignSystemDemo/Utils;
@@ -911,7 +913,6 @@
 		EB0AA527275652AE0012E192 = {
 			isa = PBXGroup;
 			children = (
-				5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */,
 				07210C342A8FA6BC00507988 /* 🛠 */,
 				F99FF06D2767ADF0006236A0 /* OrangeDesignSystemDemo */,
 				F99FF0892767B20C006236A0 /* OrangeDesignSystemDemoTests */,
@@ -1260,6 +1261,7 @@
 				077C38702A9DDC79003D6B51 /* BottomSheetExpandingVariantOptions.swift in Sources */,
 				077C384C2A9DDC79003D6B51 /* Component.swift in Sources */,
 				077C38722A9DDC79003D6B51 /* BottomSheetComponent.swift in Sources */,
+				51F6008A2B5E9AB200FF90F3 /* Logger.swift in Sources */,
 				075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */,
 				077C38762A9DDC79003D6B51 /* GuidelinePage.swift in Sources */,
 				077C38752A9DDC79003D6B51 /* Guideline.swift in Sources */,
@@ -1426,7 +1428,6 @@
 		};
 		EB0AA552275652AF0012E192 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1490,7 +1491,6 @@
 		};
 		EB0AA553275652AF0012E192 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5166D4382B18FE7C0021600D /* AppDemoConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
