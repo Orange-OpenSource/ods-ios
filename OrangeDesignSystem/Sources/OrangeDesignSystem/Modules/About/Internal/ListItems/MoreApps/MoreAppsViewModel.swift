@@ -76,10 +76,8 @@ final class MoreAppsViewModel: ObservableObject {
     // swiftlint:enable force_cast
 
     func appImage(at url: URL) -> ODSImage.Source {
-        if cacheAppsIcons {
-            .cachedAsyncImage(url, Image("ods_empty", bundle: Bundle.ods))
-        } else {
-            .asyncImage(url, Image("ods_empty", bundle: Bundle.ods))
-        }
+        return cacheAppsIcons
+            ? ODSImage.Source.cachedAsyncImage(url, Image("ods_empty", bundle: Bundle.ods))
+            : ODSImage.Source.asyncImage(url, Image("ods_empty", bundle: Bundle.ods))
     }
 }
