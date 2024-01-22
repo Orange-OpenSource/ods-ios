@@ -36,6 +36,8 @@ We recommand to not set information on `minimumValueLabel` and `maximumValueLabe
 
 Slider is a system Slider component with accent color set to coreOrange.
 
+![Sliders](images/sliders.png)
+
 ### Unlabeled slider
 
 Unlabelled sliders allow users to make easy selections that do not require any details or context.
