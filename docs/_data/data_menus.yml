@@ -19,11 +19,11 @@ toc2:
       - page: Banners
         url: components/banners_docs
       - page: Bars - navigation
-        url: components/navigationBar_docs
+        url: components/barsNavigation_docs
       - page: Bars - tab
-        url: components/tabBar_docs
+        url: components/barsTab_docs
       - page: Bars - tool
-        url: components/bars_tool_docs
+        url: components/barsTool_docs
       - page: Buttons
         url: components/buttons_docs
       - page: Cards
