@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+- [Docs] Update documentation with illustration ([#602](https://github.com/Orange-OpenSource/ods-ios/issues/602))
 - [DemoApp/Tooling] Update sources header, license file content, build phase and template ([#582](https://github.com/Orange-OpenSource/ods-ios/issues/582))
 - [DemoApp/Tooling] Demo app crashes if no URL defined, CI/CD fails because of unversioned xcconfig file (Bug [#612](https://github.com/Orange-OpenSource/ods-ios/issues/612))
 - [Tooling] Add Fastlane lane to copy Apps Plus credentials in CI/CD chain for nightly and release builds ([#610](https://github.com/Orange-OpenSource/ods-ios/issues/610))
