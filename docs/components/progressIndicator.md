@@ -29,11 +29,13 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 Progress indicators show users that elements or pages are loading.
 
-### Progress bars
+### Progress bar
 
 Progres bar is used to display **determinate** operations. It display the indicator increasing in width from 0 to 100% of the track, in sync with the process’s progress. 
 
 To display the indicator as progress bar with a specific color use the `tint`.
+
+![Progress bar](images/progress_bar.png)
 
 We recommend to use the theme for that using the accent color as shown in following exemple.  
  
@@ -57,6 +59,8 @@ ProgressView(value: value, total: 100) {
 ### Activity indicators
 
 Activity indicator is used to display **Indeterminate** operations. It spins while a task is performed. 
+
+![Activity indicator](images/activity_indicator.png)
 
 ```swift
 ProgressView()

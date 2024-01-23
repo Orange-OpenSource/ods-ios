@@ -25,6 +25,9 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 ## Standard tab bar
 
+![Tab bar light](images/bars_tab_light.png)
+![Tab bar dark](images/bars_tab_dark.png)
+
 Tab bar is a standard iOS component. It uses bar items to navigate between views.
 Bar Item contains an icon and a title.
 An additonal badge can be also added with a count value or a text.

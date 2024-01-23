@@ -43,9 +43,12 @@ The leading icon is :
  
 ### Standard list item 
  
- For standard items, trailing icons can be added. Two types of icons are proposed:
-    - with text 
-    - with text and info button to make an action
+For standard items, trailing icons can be added. Two types of icons are proposed:
+- with text 
+- with text and info button to make an action
+
+![List item standard square light](images/list_items_standard_square_light.png)
+![List item standard square dark](images/list_items_standard_square_dark.png)
     
 The standard item can be used in a `NavigationLink` (for example, display more details)
 
@@ -86,6 +89,9 @@ List {
 ```
 
 ### Selection list item
+
+![List item slection circle light](images/list_items_selection_circle_light.png)
+![List item slection circle dark](images/list_items_selection_circle_dark.png)
 
 The selection list items can be used to enumerate data as list in order to select elements.
 

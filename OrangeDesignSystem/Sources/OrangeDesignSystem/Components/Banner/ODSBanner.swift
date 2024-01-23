@@ -32,6 +32,7 @@ public struct ODSBanner: View {
     // ==================
 
     /// Initialize the banner with two buttons added under the text.
+    /// Remarks: The default lowest emphasis is automatically applied on buttons.
     ///
     /// - Parameters:
     ///   - text: Text displayed in the banner.
@@ -39,8 +40,6 @@ public struct ODSBanner: View {
     ///   - firstButton: First (leading) button (text only) added under the text.
     ///   - secondButton: Second (trailing) button (text only) added under the text.
     ///
-    /// - Remarks: The default lowest emphasis is automatically applied on buttons.
-
     public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
                 @ViewBuilder firstButton: @escaping () -> Button<Text>,
@@ -53,14 +52,13 @@ public struct ODSBanner: View {
     }
 
     /// Initialize the banner with one button.
+    /// Remarks: The default lowest emphasis is automatically applied on buttons.
     ///
     /// - Parameters:
     ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
     ///   - button: Button with text (only) added under the text.
     ///
-    /// - Remarks: The default lowest emphasis is automatically applied on buttons.
-
     public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
                 @ViewBuilder button: @escaping () -> Button<Text>)
@@ -76,7 +74,6 @@ public struct ODSBanner: View {
     /// - Parameters:
     ///   - text: Text displayed in the banner.
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
-    ///
     public init(_ text: Text, imageSource: ODSImage.Source? = nil) {
         self.text = text
         self.imageSource = imageSource

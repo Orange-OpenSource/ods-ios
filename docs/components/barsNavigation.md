@@ -28,6 +28,9 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 ## Standard navigation bar
 
+![Navigation bar standard light](images/bars_navigation_standard_light.png)
+![Navigation bar standard dark](images/bars_navigation_standard_dark.png)
+
 When using a navigation view, basic navigation is using 'inline' display mode by default. 
 
 ```swift
@@ -42,6 +45,9 @@ NavigationView {
 
 ## Navigation bar with large title
 
+![Navigation bar large light](images/bars_navigation_large_light.png)
+![Navigation bar large dark](images/bars_navigation_large_dark.png)
+
 Use 'large' display mode to enable large titles when scrolling up.
 
 ```swift
@@ -55,6 +61,10 @@ NavigationView {
 ```
 
 ## Navigation bar with search bar
+
+![Navigation bar search light](images/bars_navigation_search_light.png)
+![Navigation bar search dark](images/bars_navigation_search_dark.png)
+
 
 Use .searchable modifier to add a search bar in the navigation view.
 
@@ -72,6 +82,9 @@ NavigationView {
 ```
 
 ## Navigation bar with action item
+
+![Navigation bar items light](images/bars_navigation_items_light.png)
+![Navigation bar items dark](images/bars_navigation_items_dark.png)
 
 You can add one or several buttons (trailing or leading) in the navigation view by using .toolbar modifier
 
