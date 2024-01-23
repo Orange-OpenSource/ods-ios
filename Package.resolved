@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "DeclarationAccessibility",
+        "repositoryURL": "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "f438a7176f133728735d09889ea7a60ea99ca6c1",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "BottomSheet",
         "repositoryURL": "https://github.com/lucaszischka/BottomSheet",
         "state": {
           "branch": null,
-          "revision": "4c9ef84552712e0117c37d4893270fdc28fb9288",
-          "version": "3.1.0"
+          "revision": "720ddbd1371fef2a09cc1ab65fc503df37767f9c",
+          "version": "3.1.1"
+        }
+      },
+      {
+        "package": "Flow",
+        "repositoryURL": "https://github.com/tevelee/SwiftUI-Flow",
+        "state": {
+          "branch": null,
+          "revision": "76c03c9fa9fa0e5470cb6d8f2da17466b2efd63d",
+          "version": "1.1.0"
         }
       }
     ]
