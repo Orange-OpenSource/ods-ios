@@ -61,7 +61,7 @@ You may download the source code on the [following website](https://github.com/C
                    
 ### Fastlane
 
-Version 2.111.0
+Version 2.213.0
 
 Copyright 2015-2022 The Fastlane Authors.
 
@@ -86,6 +86,13 @@ Copyright 2020 cpfriend1721994.
 *fastlane-plugin-mattermost* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/cpfriend1721994/fastlane-plugin-mattermost).
 
+### Gitleaks
+
+Copyright (c) 2019 Zachary Rice
+
+*gitleaks* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
+You may download the source code on the [following website](https://github.com/gitleaks/gitleaks).
+
 ### SwiftFormat
 
 Version 0.49.18
@@ -104,7 +111,6 @@ Copyright 2020 Realm Inc.
 *SwiftLint* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/realm/SwiftLint).
     
-
 ## For tests
 
 ### FileWithoutUTF8Content.jpg

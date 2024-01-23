@@ -103,3 +103,33 @@ Then you can run the following command bellow to check if the _AppNews.json_ fil
 ```shell
 check-jsonschema --schemafile schema.json AppNews.json
 ```
+
+## Use of Gitleaks
+
+[Gitleaks](https://gitleaks.io/) can be used to check if secrets can be leaked or not.
+A [GitHub Action](https://github.com/gitleaks/gitleaks-action) has been integrated to the repository with a configuration file defined in _/github/workflows_ named _gitleaks-action.yaml_.
+It will launch the _Gitleaks_ tool automatically.
+
+Howevere this tool does not detect plain API key mixed in URL, that is a reason why _Gitleaks_ can be called in a pre-commit hook, using the _giteaks.toml_ at the root of the prokect.
+To call _Gitleaks_ in pre-commit hooks, create a file named **pre-commit** inside _.git/hooks_ (then run `chmod u+x` in the file).
+The place the bash code bellow in this file:
+
+```bash
+# Run Gitleaks before commits
+echo "Running pre-commit hook: Use of gitleaks"
+gitleaks detect -v -l debug --source .
+
+# If the command fails, prevent the commit
+if [ $? -ne 0 ]; then
+  echo "Pre-commit hook failed. Aborting commit."
+  exit 1
+fi
+```
+
+Or just run when you want the command:
+
+```shell
+gitleaks detect -v -l debug --source .
+```
+
+Note that we face some issues about the use of _Gitleaks GitHub Action_ and _Gitleaks_ as CLI command, for fur further details see [#131](https://github.com/gitleaks/gitleaks-action/issues/131), [#132](https://github.com/gitleaks/gitleaks-action/issues/132) and [#1331](https://github.com/gitleaks/gitleaks/issues/1331).
