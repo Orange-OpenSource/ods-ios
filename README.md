@@ -27,6 +27,7 @@
 [![iOS 15.0](https://img.shields.io/badge/iOS-15.0-informational.svg)](https://developer.apple.com/support/app-store "iOS 15 supports")
 [![Still maintained](https://img.shields.io/maintenance/yes/2023)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
 [![Code size](https://img.shields.io/github/languages/code-size/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios)
+<img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
 
 ## Environment
 
