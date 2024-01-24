@@ -13,7 +13,7 @@
 
 source "https://rubygems.org"
 
-gem "fastlane", '2.213.0'
+gem "fastlane", '2.219.0'
 
 gem 'fastlane-plugin-changelog', '0.16.0'
 gem 'fastlane-plugin-mattermost', '1.3.2'
