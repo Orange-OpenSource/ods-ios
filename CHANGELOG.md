@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+    0.49.18
+- [Tooling] Update version of SwiftFormat from 0.49.18 to 0.53.0
 - [Tooling] Update version of SwiftLint from 0.48.0 to 0.54.0
 - [Tooling] Update version of Fastlane from 2.213.0 to 2.219.0
 - [Tooling] Update version of CocoaPods from 1.13.0 to 1.14.0
