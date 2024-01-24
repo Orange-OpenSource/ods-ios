@@ -16,7 +16,7 @@ You may download the source code on the [following website](https://github.com/O
 
 ### BottomSheet
 
-Version 3.1.0
+Version 3.1.1
 
 Copyright 2021-2022 Lucas Zischka.
 
@@ -31,6 +31,8 @@ Copyright (c) 2021 Lorenzo Fiamingo
 You may download the source code on the [following website](https://github.com/lorenzofiamingo/swiftui-cached-async-image).
 
 ### SwiftUI-Flow
+
+Version 1.2.0
 
 Copyright (c) 2023 Laszlo Teveli
 *SwiftUI-Flow* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
@@ -95,7 +97,7 @@ You may download the source code on the [following website](https://github.com/g
 
 ### SwiftFormat
 
-Version 0.49.18
+Version 0.53.0
 
 Copyright 2016 Nick Lockwood.
 
@@ -104,7 +106,7 @@ You may download the source code on the [following website](https://github.com/n
 
 ### SwiftLint
 
-Version 0.48.0
+Version 0.54.0
 
 Copyright 2020 Realm Inc.
 

@@ -101,7 +101,7 @@ echo -e "\n"
 
 read -p "✋ Let's check version of SwiftLint (the linter for the sources)..."
 echo -e "\n"
-CheckIfRuntimeExists "SwiftLint" "swiftlint --version" "0.48.0"
+CheckIfRuntimeExists "SwiftLint" "swiftlint --version" "0.54.0"
 echo -e "\n"
 
 # ======================
@@ -110,7 +110,7 @@ echo -e "\n"
 
 read -p "✋ Let's check version of SwiftFormat (for headers and code style)... [PRESS ANY KEY]"
 echo -e "\n"
-CheckIfRuntimeExists "SwiftFormat" "swiftformat --version" "0.49.18"
+CheckIfRuntimeExists "SwiftFormat" "swiftformat --version" "0.53.0"
 echo -e "\n"
 
 # ====================
