@@ -161,7 +161,7 @@
 
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
-		070E3BFF2B614703008A8856 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; name = ".xcode-version"; path = "../.xcode-version"; sourceTree = "<group>"; };
+		070E3C002B614D92008A8856 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; name = ".xcode-version"; path = "fastlane/.xcode-version"; sourceTree = "<group>"; };
 		07210C402A8FAC6500507988 /* THIRD-PARTY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "THIRD-PARTY.md"; path = "../THIRD-PARTY.md"; sourceTree = "<group>"; };
 		07210C412A8FAC6500507988 /* NOTICE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NOTICE.txt; path = ../NOTICE.txt; sourceTree = "<group>"; };
 		07210C422A8FAC6500507988 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -353,6 +353,7 @@
 		07210C472A8FAD0000507988 /* Fastlane */ = {
 			isa = PBXGroup;
 			children = (
+				070E3C002B614D92008A8856 /* .xcode-version */,
 				07210C492A8FAD1600507988 /* Appfile */,
 				07210C482A8FAD1500507988 /* Fastfile */,
 			);
@@ -372,7 +373,6 @@
 		077C37C02A9CECFF003D6B51 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				070E3BFF2B614703008A8856 /* .xcode-version */,
 				077C37C22A9CED5E003D6B51 /* .gitattributes */,
 				077C37C42A9CED5E003D6B51 /* .gitignore */,
 				077C37C52A9CED5E003D6B51 /* .swiftformat */,
