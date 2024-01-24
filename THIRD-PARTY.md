@@ -32,6 +32,8 @@ You may download the source code on the [following website](https://github.com/l
 
 ### SwiftUI-Flow
 
+Version 1.2.0
+
 Copyright (c) 2023 Laszlo Teveli
 *SwiftUI-Flow* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 

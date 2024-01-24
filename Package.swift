@@ -34,7 +34,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/tevelee/SwiftUI-Flow", .exact("1.1.0")),
+        .package(url: "https://github.com/tevelee/SwiftUI-Flow", .exact("1.2.0")),
         .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("3.1.1")),
         .package(url: "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git", .exact("1.0.0"))
     ],
