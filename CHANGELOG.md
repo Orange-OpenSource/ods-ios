@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-    0.49.18
+- [DemoApp/SDK] Update version of BottomSheet from 3.1.0 to 3.1.1
 - [Tooling] Update version of SwiftFormat from 0.49.18 to 0.53.0
 - [Tooling] Update version of SwiftLint from 0.48.0 to 0.54.0
 - [Tooling] Update version of Fastlane from 2.213.0 to 2.219.0

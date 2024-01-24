@@ -16,7 +16,7 @@ You may download the source code on the [following website](https://github.com/O
 
 ### BottomSheet
 
-Version 3.1.0
+Version 3.1.1
 
 Copyright 2021-2022 Lucas Zischka.
 
