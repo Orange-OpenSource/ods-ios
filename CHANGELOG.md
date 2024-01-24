@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...qualif)
 
 - [Tooling] Upgrate to xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
 - [Tooling] Upgrade tools versions and internal librairies ([#639](https://github.com/Orange-OpenSource/ods-ios/issues/639))
@@ -15,7 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Update technical documentation with versions of tools ([#549](https://github.com/Orange-OpenSource/ods-ios/issues/549))
 - [DemoApp/SDK] Apps recirculation ([#64](https://github.com/Orange-OpenSource/ods-ios/issues/64))
 
-## [0.16.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
+## [0.16.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
 
 - [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
