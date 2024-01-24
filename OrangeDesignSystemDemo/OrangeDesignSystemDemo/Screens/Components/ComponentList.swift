@@ -45,7 +45,6 @@ struct ComponentsList: View {
             TextFieldComponent(),
             ToolBarComponent(),
         ]
-
         self.components = components.sorted { $0.name < $1.name }
     }
 

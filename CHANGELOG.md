@@ -3,15 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...qualif)
 
-- [DemoApp/SDK] Update version of SwiftUI-Flow from 1.1.0 to 1.2.0
-- [Tooling] Update version of jekyll-relative-links from 0.6.1 to 0.7.0
-- [DemoApp/SDK] Update version of BottomSheet from 3.1.0 to 3.1.1
-- [Tooling] Update version of SwiftFormat from 0.49.18 to 0.53.0
-- [Tooling] Update version of SwiftLint from 0.48.0 to 0.54.0
-- [Tooling] Update version of Fastlane from 2.213.0 to 2.219.0
-- [Tooling] Update version of CocoaPods from 1.13.0 to 1.14.0
+- [Tooling] Upgrate to xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
+- [Tooling] Upgrade tools versions and internal librairies ([#639](https://github.com/Orange-OpenSource/ods-ios/issues/639))
 - [Docs] Update documentation with illustration ([#602](https://github.com/Orange-OpenSource/ods-ios/issues/602))
 - [Tooling] Add GitHub Actions for Gitleaks runs to look for secrets leaks ([#605](https://github.com/Orange-OpenSource/ods-ios/issues/605))
 - [DemoApp/Tooling] Update sources header, license file content, build phase and template ([#582](https://github.com/Orange-OpenSource/ods-ios/issues/582))
@@ -20,7 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Update technical documentation with versions of tools ([#549](https://github.com/Orange-OpenSource/ods-ios/issues/549))
 - [DemoApp/SDK] Apps recirculation ([#64](https://github.com/Orange-OpenSource/ods-ios/issues/64))
 
-## [0.16.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
+## [0.16.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
 
 - [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
