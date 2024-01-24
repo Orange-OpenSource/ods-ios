@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+- [Tooling] Update version of Fastlane from 2.213.0 to 2.219.0
+- [Tooling] Update version of CocoaPods from 1.13.0 to 1.14.0
 - [Docs] Update documentation with illustration ([#602](https://github.com/Orange-OpenSource/ods-ios/issues/602))
 - [Tooling] Add GitHub Actions for Gitleaks runs to look for secrets leaks ([#605](https://github.com/Orange-OpenSource/ods-ios/issues/605))
 - [DemoApp/Tooling] Update sources header, license file content, build phase and template ([#582](https://github.com/Orange-OpenSource/ods-ios/issues/582))
