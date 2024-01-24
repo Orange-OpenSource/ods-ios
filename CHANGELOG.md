@@ -5,13 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-- [DemoApp/SDK] Update version of SwiftUI-Flow from 1.1.0 to 1.2.0
-- [Tooling] Update version of jekyll-relative-links from 0.6.1 to 0.7.0
-- [DemoApp/SDK] Update version of BottomSheet from 3.1.0 to 3.1.1
-- [Tooling] Update version of SwiftFormat from 0.49.18 to 0.53.0
-- [Tooling] Update version of SwiftLint from 0.48.0 to 0.54.0
-- [Tooling] Update version of Fastlane from 2.213.0 to 2.219.0
-- [Tooling] Update version of CocoaPods from 1.13.0 to 1.14.0
+- [Tooling] Upgrate to xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
+- [Tooling] Upgrade tools versions and internal librairies ([#639](https://github.com/Orange-OpenSource/ods-ios/issues/639))
 - [Docs] Update documentation with illustration ([#602](https://github.com/Orange-OpenSource/ods-ios/issues/602))
 - [Tooling] Add GitHub Actions for Gitleaks runs to look for secrets leaks ([#605](https://github.com/Orange-OpenSource/ods-ios/issues/605))
 - [DemoApp/Tooling] Update sources header, license file content, build phase and template ([#582](https://github.com/Orange-OpenSource/ods-ios/issues/582))
