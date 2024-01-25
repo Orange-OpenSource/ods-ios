@@ -12,6 +12,7 @@
 //
 
 import SwiftUI
+import Flow
 
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
@@ -139,7 +140,7 @@ public struct ODSCardHorizontal: View {
 
     public var body: some View {
 
-        VStack(spacing: ODSSpacing.none) {
+        VStack(alignment: .leading, spacing: ODSSpacing.none) {
             HStack(alignment: .center, spacing: ODSSpacing.none) {
                 if case .leading = imagePosition {
                     image
@@ -192,14 +193,16 @@ public struct ODSCardHorizontal: View {
             if dividerEnabled {
                 Divider()
             }
-
-            HStack(alignment: .center, spacing: ODSSpacing.none) {
-                firstButton()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
-                secondButton?()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
-
-                Spacer()
+            if #available(iOS 16.0, *) {
+                HFlow(alignment: .top, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                }
+            } else {
+                HStack(alignment: .center, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                }
             }
         }
     }

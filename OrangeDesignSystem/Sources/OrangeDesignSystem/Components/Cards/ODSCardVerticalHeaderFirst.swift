@@ -12,6 +12,7 @@
 //
 
 import SwiftUI
+import Flow
 
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
@@ -173,13 +174,17 @@ public struct ODSCardVerticalHeaderFirst: View {
     @ViewBuilder
     private func buttons() -> some View {
         if let firstButton = firstButton {
-            HStack(alignment: .center, spacing: ODSSpacing.none) {
-                firstButton()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
-                secondButton?()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
-
-                Spacer()
+            if #available(iOS 16.0, *) {
+                HFlow(alignment: .top, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                }
+            } else {
+                HStack(alignment: .center, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                    Spacer()
+                }
             }
         }
     }
