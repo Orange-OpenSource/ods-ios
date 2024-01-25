@@ -21,7 +21,7 @@ struct SpacingsPageDescription: View {
     // ======================
 
     private let spacings = Spacing.allCases
-
+    
     // ==========
     // MARK: Body
     // ==========
@@ -34,6 +34,7 @@ struct SpacingsPageDescription: View {
             .padding(.horizontal, ODSSpacing.m)
         }
         .padding(.bottom, ODSSpacing.m)
+        .accessibilityRespondsToUserInteraction(false) // Switch Control must not focus this view
     }
 }
 
