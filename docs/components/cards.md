@@ -200,6 +200,16 @@ ScrollView {
  
 ```
 
- 
+However for accessibility edge cases, like when text sizes are accessibility sizes, the behaviour is different for such components. They won't be displayed in one truncated line because the text will be too truncated and difficult to read. 
+If this choice is too impacting for your UI, it is possible to define the limit number of lines to use if a11y size are used 
 
-
+```swift
+ODSCardSmall(
+    title: Text("Title"),
+    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    subtitle: Text("Subtitle"),
+    // Here 3 is the number of lines you want for such edge cases
+    titleAccessibleLineLimit: 3,
+    subtitleAccessibleLineLimit: 3
+) 
+```
