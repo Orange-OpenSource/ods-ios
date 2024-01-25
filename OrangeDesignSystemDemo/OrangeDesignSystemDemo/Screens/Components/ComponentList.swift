@@ -17,11 +17,13 @@ import SwiftUI
 
 struct ComponentsList: View {
 
+    @Environment(\.sizeCategory) private var sizeCategory
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    
     // =======================
     // MARK: Stored Properties
     // =======================
-
-    @EnvironmentObject private var themeProvider: ThemeProvider
+    
     let components: [Component]
     let columns = [GridItem(.adaptive(minimum: 150.0), spacing: ODSSpacing.none, alignment: .center)]
 
@@ -55,12 +57,15 @@ struct ComponentsList: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-                    ForEach(components, id: \.id) { component in
-                        smallCard(for: component)
+                if sizeCategory.isAccessibilityCategory {
+                    smallCards()
+                        .padding(.all, ODSSpacing.s)
+                } else {
+                    LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
+                        smallCards()
                     }
+                    .padding(.all, ODSSpacing.s)
                 }
-                .padding(.all, ODSSpacing.s)
             }
             .navigationTitle("main_view.tabs.components")
             .navigationbarMenuForThemeSelection()
@@ -74,6 +79,12 @@ struct ComponentsList: View {
     // MARK: Private helper
     // =====================
 
+    private func smallCards() -> some View {
+        ForEach(components, id: \.id) { component in
+            smallCard(for: component)
+        }
+    }
+    
     private func smallCard(for component: Component) -> some View {
         NavigationLink {
             ComponentPage(component: component)
