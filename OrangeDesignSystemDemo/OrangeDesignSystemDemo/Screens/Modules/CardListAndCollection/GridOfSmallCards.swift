@@ -16,6 +16,8 @@ import SwiftUI
 
 struct GrifOfSmallCards: View {
 
+    @Environment(\.sizeCategory) private var sizeCategory
+    
     // =======================
     // MARK: Stored Properties
     // =======================
@@ -30,21 +32,30 @@ struct GrifOfSmallCards: View {
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
-                    NavigationLink {
-                        Text("shared.bon_app")
-                            .navigationBarTitleDisplayMode(.inline)
-                            .navigationbarMenuForThemeSelection()
-                    } label: {
-                        ODSCardSmall(
-                            title: Text(recipe.title),
-                            imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
-                            subtitle: Text(recipe.subtitle))
-                    }
+            if sizeCategory.isAccessibilityCategory {
+                recipesCards()
+                .padding(.all, ODSSpacing.m)
+            } else {
+                LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
+                    recipesCards()
                 }
+                .padding(.all, ODSSpacing.m)
             }
-            .padding(.all, ODSSpacing.m)
+        }
+    }
+    
+    private func recipesCards() -> some View {
+        ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
+            NavigationLink {
+                Text("shared.bon_app")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationbarMenuForThemeSelection()
+            } label: {
+                ODSCardSmall(
+                    title: Text(recipe.title),
+                    imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                    subtitle: Text(recipe.subtitle))
+            }
         }
     }
 }

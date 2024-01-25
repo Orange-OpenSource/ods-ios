@@ -7,6 +7,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - [SDK] Update cards to align buttons when text is too long ([#630](https://github.com/Orange-OpenSource/ods-ios/issues/6380))
 - [Tooling] Upgrate to xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
+- [DemoApp/SDK] ODSSmallCard and GridOfSmallCards a11i issue if accessible text sizes in use ([#598](https://github.com/Orange-OpenSource/ods-ios/issues/598))
+- [Tooling] Upgrade to Xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
 - [Tooling] Upgrade tools versions and internal librairies ([#639](https://github.com/Orange-OpenSource/ods-ios/issues/639))
 - [Docs] Update documentation with illustration ([#602](https://github.com/Orange-OpenSource/ods-ios/issues/602))
 - [Tooling] Add GitHub Actions for Gitleaks runs to look for secrets leaks ([#605](https://github.com/Orange-OpenSource/ods-ios/issues/605))
