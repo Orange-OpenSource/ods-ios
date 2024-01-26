@@ -86,9 +86,9 @@ public struct ODSCardSmall: View {
 // ===========================================
 
 private struct AccessibleMultilineTextAlignment: ViewModifier {
-    
+
     @Environment(\.sizeCategory) private var sizeCategory
-    
+
     func body(content: Content) -> some View {
         if sizeCategory.isAccessibilityCategory {
             content.multilineTextAlignment(.leading)

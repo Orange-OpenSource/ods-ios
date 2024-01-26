@@ -254,7 +254,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
         urlSession.sessionDescription = "ODS - MoreApps - AppsPlus Session" // Mainly for Instruments debuging
         return urlSession
     }
-    
+
     /// Returns from the cache directory the content previously picked from AppsPlus backend, or nil if error occured
     /// - Returns MoreAppsList?
     private func cachedMoreAppsList(for request: URLRequest) -> MoreAppsList? {
