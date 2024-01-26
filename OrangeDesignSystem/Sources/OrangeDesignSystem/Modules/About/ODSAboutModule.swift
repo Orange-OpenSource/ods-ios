@@ -29,6 +29,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
     private let headerIllustration: Image
     private let applicationInformation: ODSAboutApplicationInformation
     private let listItemConfigurations: [ODSAboutListItemConfig]
+    private let title: String
 
     // ==================
     // MARK: Initializers
@@ -68,6 +69,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
         ]
 
         self.listItemConfigurations = (listItemConfigurations + internalItemsConfig).sorted()
+        title = °°"modules.about.title"
     }
 
     // ==========
@@ -92,7 +94,12 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
                 .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)
-        .navigationTitle(°°"modules.about.title")
+        .navigationTitle(title)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                UIAccessibility.post(notification: .screenChanged, argument: title)
+            }
+        }
         .navigationBarTitleDisplayMode(.large)
         .background(ODSInternalColor.primaryBackground.color)
     }

@@ -16,11 +16,12 @@ import SwiftUI
 
 struct GuidelinesList: View {
 
-    // ======================
-    // MARK: Store properties
-    // ======================
-
     @EnvironmentObject private var themeProvider: ThemeProvider
+    
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
     private let guidelines: [Guideline]
     private let columns = [GridItem(.flexible(), alignment: .topLeading)]
 
@@ -51,8 +52,9 @@ struct GuidelinesList: View {
                     }
                 }
                 .padding(.all, ODSSpacing.m)
-                .navigationTitle("shared.guidelines")
                 .navigationbarMenuForThemeSelection()
+                .modifier(AccssibleNavigationTitleModifier(title: "shared.guidelines"))
+                
             }
 
             GuidelinePage(guideline: guidelines[0]) // Why ?

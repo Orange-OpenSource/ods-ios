@@ -34,7 +34,7 @@
 		077C384A2A9DDC79003D6B51 /* CustomizableVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37EF2A9DDC78003D6B51 /* CustomizableVariant.swift */; };
 		077C384B2A9DDC79003D6B51 /* ComponentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37F02A9DDC78003D6B51 /* ComponentPage.swift */; };
 		077C384C2A9DDC79003D6B51 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37F12A9DDC78003D6B51 /* Component.swift */; };
-		077C384D2A9DDC79003D6B51 /* ComponentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37F22A9DDC78003D6B51 /* ComponentList.swift */; };
+		077C384D2A9DDC79003D6B51 /* ComponentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37F22A9DDC78003D6B51 /* ComponentsList.swift */; };
 		077C384E2A9DDC79003D6B51 /* ButtonsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37F52A9DDC78003D6B51 /* ButtonsComponent.swift */; };
 		077C384F2A9DDC79003D6B51 /* IconVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37F62A9DDC78003D6B51 /* IconVariant.swift */; };
 		077C38502A9DDC79003D6B51 /* EmphasisAndFunctionnalVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C37F72A9DDC79003D6B51 /* EmphasisAndFunctionnalVariant.swift */; };
@@ -116,6 +116,7 @@
 		5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5602AE11BDD00D4D01F /* AppNews.json */; };
 		5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5642AE1209A00D4D01F /* PrivacyNotice.html */; };
 		5107F56A2AE1220900D4D01F /* CGU.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F56C2AE1220900D4D01F /* CGU.html */; };
+		512BF8F32B6411CF00F9FF67 /* AccssibleNavigationTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512BF8F22B6411CF00F9FF67 /* AccssibleNavigationTitleModifier.swift */; };
 		5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
 		5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
 		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
@@ -188,7 +189,7 @@
 		077C37EF2A9DDC78003D6B51 /* CustomizableVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableVariant.swift; sourceTree = "<group>"; };
 		077C37F02A9DDC78003D6B51 /* ComponentPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentPage.swift; sourceTree = "<group>"; };
 		077C37F12A9DDC78003D6B51 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
-		077C37F22A9DDC78003D6B51 /* ComponentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentList.swift; sourceTree = "<group>"; };
+		077C37F22A9DDC78003D6B51 /* ComponentsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsList.swift; sourceTree = "<group>"; };
 		077C37F52A9DDC78003D6B51 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		077C37F62A9DDC78003D6B51 /* IconVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconVariant.swift; sourceTree = "<group>"; };
 		077C37F72A9DDC79003D6B51 /* EmphasisAndFunctionnalVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphasisAndFunctionnalVariant.swift; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
 		07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleOptions.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		512BF8F22B6411CF00F9FF67 /* AccssibleNavigationTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccssibleNavigationTitleModifier.swift; sourceTree = "<group>"; };
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		513C99F42B5812300043DAAE /* AppsPlus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppsPlus.json; path = OrangeDesignSystemDemo/Resources/AppsPlus.json; sourceTree = "<group>"; };
 		513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppsPlusRepositoryTest.swift; sourceTree = "<group>"; };
@@ -435,7 +437,7 @@
 			children = (
 				077C37EE2A9DDC78003D6B51 /* Template */,
 				077C37F32A9DDC78003D6B51 /* Pages */,
-				077C37F22A9DDC78003D6B51 /* ComponentList.swift */,
+				077C37F22A9DDC78003D6B51 /* ComponentsList.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -741,6 +743,7 @@
 				077C38942A9DEEDC003D6B51 /* Themes */,
 				077C388F2A9DEEDB003D6B51 /* BackgroundBlurView.swift */,
 				077C388E2A9DEEDB003D6B51 /* ToastView.swift */,
+				512BF8F22B6411CF00F9FF67 /* AccssibleNavigationTitleModifier.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1295,7 +1298,7 @@
 				077C37E62A9DDC1A003D6B51 /* MainTabView.swift in Sources */,
 				077C385D2A9DDC79003D6B51 /* ActivityIndicatorVariant.swift in Sources */,
 				077C38612A9DDC79003D6B51 /* CardExampleData.swift in Sources */,
-				077C384D2A9DDC79003D6B51 /* ComponentList.swift in Sources */,
+				077C384D2A9DDC79003D6B51 /* ComponentsList.swift in Sources */,
 				077C38512A9DDC79003D6B51 /* CapitalizedTextInputsVariant.swift in Sources */,
 				07B1A09C2B1E191F00ABF0A1 /* InputChipsVariant.swift in Sources */,
 				077C38632A9DDC79003D6B51 /* CardHorizontalVariant.swift in Sources */,
@@ -1305,6 +1308,7 @@
 				077C38742A9DDC79003D6B51 /* SliderComponent.swift in Sources */,
 				07C3C7FC2AE7E4E000833957 /* ListModuleDataModel.swift in Sources */,
 				077C389A2A9DEEDC003D6B51 /* RecipeBookModel.swift in Sources */,
+				512BF8F32B6411CF00F9FF67 /* AccssibleNavigationTitleModifier.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */,
 				077C38502A9DDC79003D6B51 /* EmphasisAndFunctionnalVariant.swift in Sources */,
 			);

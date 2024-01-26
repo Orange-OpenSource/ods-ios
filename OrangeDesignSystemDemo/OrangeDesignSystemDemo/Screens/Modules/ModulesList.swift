@@ -63,7 +63,7 @@ struct ModulesList: View {
                 }
                 .padding(.all, ODSSpacing.m)
             }
-            .navigationTitle("shared.modules")
+            .modifier(AccssibleNavigationTitleModifier(title: "shared.modules"))
             .navigationbarMenuForThemeSelection()
         }
         .navigationViewStyle(.stack)

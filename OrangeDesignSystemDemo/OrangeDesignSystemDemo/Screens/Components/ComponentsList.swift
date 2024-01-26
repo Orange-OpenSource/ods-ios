@@ -67,8 +67,8 @@ struct ComponentsList: View {
                     .padding(.all, ODSSpacing.s)
                 }
             }
-            .navigationTitle("main_view.tabs.components")
             .navigationbarMenuForThemeSelection()
+            .modifier(AccssibleNavigationTitleModifier(title: "main_view.tabs.components"))
 
             ComponentPage(component: components[0])
         }
