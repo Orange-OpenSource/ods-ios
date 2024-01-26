@@ -180,19 +180,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             request.addValue(lastResourceEtag, forHTTPHeaderField: "If-None-Match")
         }
 
-        /*
-         Be cautious here because HTTP cache with ETag is used.
-         So even if the backend returns a 304 status code, the `URLSession` sees it at 200 status code.
-         The HTTP stack cache will be used transparently with this current configuration.
-         If the cache policy for URLRequest or URLSession is changed in this implementation, the 304 status code must be managed.
-         See https://jonathanblog2000.blogspot.com/2017/07/ios-uiwebview-nsurlsession-cache.html
-         */
-        let urlSessionConfiguration = urlSessionConfiguration
-        urlSessionConfiguration.urlCache = cache
-        urlSessionConfiguration.requestCachePolicy = .useProtocolCachePolicy
-        urlSessionConfiguration.timeoutIntervalForResource = 10 // 10 seconds are enough
-        let urlSession = URLSession(configuration: urlSessionConfiguration)
-        urlSession.sessionDescription = "ODS - MoreApps - AppsPlus Session" // Mainly for Instruments debuging
+        let urlSession = prepareSession()
 
         var appsPlusRawData: Data, response: URLResponse, httpResponse: HTTPURLResponse?
         do {
@@ -250,6 +238,23 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
     // MARK: Helper
     // ============
 
+    private func prepareSession() -> URLSession {
+        /*
+         Be cautious here because HTTP cache with ETag is used.
+         So even if the backend returns a 304 status code, the `URLSession` sees it at 200 status code.
+         The HTTP stack cache will be used transparently with this current configuration.
+         If the cache policy for URLRequest or URLSession is changed in this implementation, the 304 status code must be managed.
+         See https://jonathanblog2000.blogspot.com/2017/07/ios-uiwebview-nsurlsession-cache.html
+         */
+        let urlSessionConfiguration = urlSessionConfiguration
+        urlSessionConfiguration.urlCache = cache
+        urlSessionConfiguration.requestCachePolicy = .useProtocolCachePolicy
+        urlSessionConfiguration.timeoutIntervalForResource = 10 // 10 seconds are enough
+        let urlSession = URLSession(configuration: urlSessionConfiguration)
+        urlSession.sessionDescription = "ODS - MoreApps - AppsPlus Session" // Mainly for Instruments debuging
+        return urlSession
+    }
+    
     /// Returns from the cache directory the content previously picked from AppsPlus backend, or nil if error occured
     /// - Returns MoreAppsList?
     private func cachedMoreAppsList(for request: URLRequest) -> MoreAppsList? {
