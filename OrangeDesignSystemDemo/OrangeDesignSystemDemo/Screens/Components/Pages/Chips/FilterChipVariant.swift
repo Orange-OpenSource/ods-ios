@@ -30,14 +30,6 @@ final class FilterChipVariantModel: ObservableObject {
             case .avatar: return "Avatar"
             }
         }
-
-        var chip: ODSChoiceChip<Self> {
-            .init(text: Text(description), value: self)
-        }
-
-        static var chips: [ODSChoiceChip<Self>] {
-            Self.allCases.map { $0.chip }
-        }
     }
 }
 
