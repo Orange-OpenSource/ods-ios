@@ -14,14 +14,16 @@
 import Foundation
 import SwiftUI
 
+/// `ViewModifier` which defines a navigation title for the calling `View` and also use `UIAccessibility` to notify for screen changed.
+/// The title can be a wording key which will be localized.
 struct AccssibleNavigationTitleModifier: ViewModifier {
-    
-    let title: String
-    
+
+    private let title: String
+
     init(title: String) {
         self.title = title.localized()
     }
-    
+
     func body(content: Content) -> some View {
         content
             .navigationTitle(title)

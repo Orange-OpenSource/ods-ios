@@ -68,7 +68,7 @@ struct ComponentsList: View {
                 }
             }
             .navigationbarMenuForThemeSelection()
-            .modifier(AccssibleNavigationTitleModifier(title: "main_view.tabs.components"))
+            .odsNavigationTitle(title: "main_view.tabs.components")
 
             ComponentPage(component: components[0])
         }
