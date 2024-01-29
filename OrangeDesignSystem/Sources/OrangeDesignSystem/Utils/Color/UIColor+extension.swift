@@ -25,8 +25,8 @@ extension UIColor {
             return nil
         }
 
-        var rgbValue: UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
+        var rgbValue: UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
 
         let a = CGFloat((rgbValue & 0xFF00_0000) >> 24) / 255.0
         let r = CGFloat((rgbValue & 0x00FF_0000) >> 16) / 255.0

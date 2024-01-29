@@ -64,7 +64,6 @@ private struct ListModuleInner: View {
     // MARK: Stored Properties
     // =======================
 
-    @Environment(\.editMode) private var editMode
     @ObservedObject var optionModel: ListModuleOptionsModel
     @ObservedObject var dataModel: ListModuleDataModel
 

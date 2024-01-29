@@ -20,6 +20,8 @@
 import Foundation
 import SwiftUI
 
+// swiftlint:disable line_length
+
 // ==========================
 // MARK: - Cached Async Image
 // ==========================
@@ -75,7 +77,6 @@ import SwiftUI
 ///         }
 ///     }
 ///
-// swiftlint:disable line_length
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, *)
 struct CachedAsyncImage<Content>: View where Content: View {
 

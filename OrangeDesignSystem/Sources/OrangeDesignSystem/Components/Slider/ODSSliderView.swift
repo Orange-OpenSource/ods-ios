@@ -19,8 +19,6 @@ import SwiftUI
 /// Based on the native `Slider`, the `ODSSLider` offers to the user the possibility
 /// to type direcly on the slider's track to get a value.
 ///
-
-// MARK: - Initializers with labels.
 public struct ODSSlider<Label, ValueLabel, V> where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint, Label: View, ValueLabel: View {
 
     // =======================

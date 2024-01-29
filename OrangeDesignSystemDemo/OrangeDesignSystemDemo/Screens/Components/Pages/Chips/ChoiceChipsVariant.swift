@@ -25,7 +25,6 @@ struct ChoiceChipVariant: View {
     // =======================
 
     @ObservedObject private var model: ChoiceChipVariantModel
-    @State private var isSelected: Bool = false
     @State private var selectedFood: Food
     private let foods: [Food]
 
