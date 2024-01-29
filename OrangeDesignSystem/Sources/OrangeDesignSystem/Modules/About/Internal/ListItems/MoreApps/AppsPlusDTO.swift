@@ -180,6 +180,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             request.addValue(lastResourceEtag, forHTTPHeaderField: "If-None-Match")
         }
 
+        // Compute localy URL session: not possible to have struct property because try await data(for:) is mutating
         let urlSession = prepareSession()
 
         var appsPlusRawData: Data, response: URLResponse, httpResponse: HTTPURLResponse?
