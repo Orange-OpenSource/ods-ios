@@ -16,7 +16,11 @@ import SwiftUI
 
 extension View {
 
-    public func odsNavigationTitle(title: String) -> some View {
+    /// Adds a modifier to the current `View` so as to define a naivgation title using the current `title`
+    /// and also send a notification for accessibility layers for a change of screen when appeared.
+    /// - Parameter title: The wording or wording key for the navigation title
+    /// - Returns View: The view with a new modifier
+    public func odsNavigationTitle(_ title: String) -> some View {
         self.modifier(AccssibleNavigationTitleModifier(title: title))
     }
 }

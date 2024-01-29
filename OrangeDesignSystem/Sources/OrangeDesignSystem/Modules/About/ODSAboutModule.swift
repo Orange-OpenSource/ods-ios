@@ -94,12 +94,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
                 .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)
-        .navigationTitle(title)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                UIAccessibility.post(notification: .screenChanged, argument: title)
-            }
-        }
+        .odsNavigationTitle(title)
         .navigationBarTitleDisplayMode(.large)
         .background(ODSInternalColor.primaryBackground.color)
     }
