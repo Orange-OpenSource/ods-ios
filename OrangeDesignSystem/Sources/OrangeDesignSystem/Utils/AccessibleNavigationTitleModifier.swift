@@ -18,11 +18,7 @@ import SwiftUI
 /// The title can be a wording key which will be localized.
 struct AccssibleNavigationTitleModifier: ViewModifier {
 
-    private let title: String
-
-    init(title: String) {
-        self.title = title.localized()
-    }
+    let title: String
 
     func body(content: Content) -> some View {
         content

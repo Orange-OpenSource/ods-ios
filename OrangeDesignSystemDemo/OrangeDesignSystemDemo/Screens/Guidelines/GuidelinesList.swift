@@ -53,7 +53,7 @@ struct GuidelinesList: View {
                 }
                 .padding(.all, ODSSpacing.m)
                 .navigationbarMenuForThemeSelection()
-                .odsNavigationTitle("shared.guidelines")
+                .odsNavigationTitle("shared.guidelines".🌐)
             }
 
             GuidelinePage(guideline: guidelines[0]) // Why ?
