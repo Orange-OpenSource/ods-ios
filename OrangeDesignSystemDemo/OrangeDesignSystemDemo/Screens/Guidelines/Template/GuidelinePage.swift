@@ -16,12 +16,14 @@ import SwiftUI
 
 struct GuidelinePage: View {
 
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    @AccessibilityFocusState private var requestFocus: Bool
+    
     // =======================
     // MARK: Stored Properties
     // =======================
 
     let guideline: Guideline
-    @EnvironmentObject private var themeProvider: ThemeProvider
 
     // ==========
     // MARK: Body
@@ -37,6 +39,7 @@ struct GuidelinePage: View {
                     .accessibilityHidden(true)
 
                 Text(guideline.description)
+                    .accessibilityFocused($requestFocus)
                     .padding(.horizontal, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.m)
             }
@@ -51,8 +54,9 @@ struct GuidelinePage: View {
         .listStyle(.plain)
         .padding(.top, ODSSpacing.none)
         .padding(.horizontal, ODSSpacing.none)
-        .navigationTitle(guideline.name)
+        .odsNavigationTitle(guideline.name)
         .navigationbarMenuForThemeSelection()
         .background(Color(UIColor.systemBackground))
+        .odsRequestAccessibleFocus(_requestFocus)
     }
 }
