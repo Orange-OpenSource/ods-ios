@@ -48,4 +48,15 @@ extension View {
         self.modifier(RequestAccessibleFocusModifier(requestFocus: requestFocus,
                                                      deadline: .now() + AccessibilityDelay.accessibleFocusRequestDelay))
     }
+
+    /// Adds a modifier to the current `View` so as to defer a focus request after the view is displayed for the given elment
+    /// - Parameters:
+    ///    - requestFocus: The boolean binding (e.g. the `AccessibilityFocusState`)
+    ///    - target: The item which will get the focus
+    /// - Returns View: The view with a new modifier
+    public func odsRequestAccessibleFocus(_ requestFocus: AccessibilityFocusState<AccessibilityFocusable?>, for target: AccessibilityFocusable) -> some View {
+        self.modifier(RestrictedRequestAccessibleFocusModifier(requestFocus: requestFocus,
+                                                               target: target,
+                                                               deadline: .now() + AccessibilityDelay.accessibleFocusRequestDelay))
+    }
 }

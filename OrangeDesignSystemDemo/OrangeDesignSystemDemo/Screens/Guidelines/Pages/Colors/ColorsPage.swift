@@ -86,7 +86,7 @@ private struct ColorList: View {
                 .foregroundColor(theme.componentColors.navigationBarForeground)
             }
         }
-        .navigationTitle("screens.guidelines.colors.palette.title")
+        .odsNavigationTitle("screens.guidelines.colors.palette.title".🌐)
     }
 
     // ============================

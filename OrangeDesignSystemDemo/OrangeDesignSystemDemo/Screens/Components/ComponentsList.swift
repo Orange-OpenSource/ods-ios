@@ -19,6 +19,7 @@ struct ComponentsList: View {
 
     @Environment(\.sizeCategory) private var sizeCategory
     @EnvironmentObject private var themeProvider: ThemeProvider
+    @AccessibilityFocusState private var requestFocus: AccessibilityFocusable?
     
     // =======================
     // MARK: Stored Properties
@@ -67,10 +68,8 @@ struct ComponentsList: View {
                     .padding(.all, ODSSpacing.s)
                 }
             }
-            .navigationbarMenuForThemeSelection()
             .odsNavigationTitle("main_view.tabs.components".🌐)
-
-            ComponentPage(component: components[0])
+            .navigationbarMenuForThemeSelection()
         }
         .navigationViewStyle(.stack)
     }
@@ -92,9 +91,16 @@ struct ComponentsList: View {
             ODSCardSmall(
                 title: Text(component.name),
                 imageSource: .image(themeProvider.imageFromResources(component.imageName)))
+            .accessibilityFocused($requestFocus, equals: .some(id: component.id))
+            // Placed here below to be sure 'components' will be evaluated in good time (compared to some assignement higher and later in body)
+            .odsRequestAccessibleFocus(_requestFocus, for: .some(id: components[0].id)) // TODO: Dirty, need to find nicer solution
         }
     }
 }
+
+// ===============
+// MARK: - Preview
+// ===============
 
 #if DEBUG
 import OrangeTheme

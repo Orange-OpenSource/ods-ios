@@ -46,9 +46,36 @@ struct RequestAccessibleFocusModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content.onAppear {
-            // Voice Over gives focus to some random item in the middle of the screen in the list, need to move focus
             DispatchQueue.main.asyncAfter(deadline: deadline) {
                 requestFocus = true
+            }
+        }
+    }
+}
+
+// ===============================
+// MARK: - Accessibility Focusable
+// ===============================
+
+public enum AccessibilityFocusable: Hashable {
+    case none
+    case some(id: String)
+}
+
+// ====================================================
+// MARK: - Restricted Request Accessible Focus Modifier
+// ====================================================
+
+struct RestrictedRequestAccessibleFocusModifier: ViewModifier {
+
+    @AccessibilityFocusState var requestFocus: AccessibilityFocusable?
+    let target: AccessibilityFocusable
+    let deadline: DispatchTime
+
+   func body(content: Content) -> some View {
+        content.onAppear {
+            DispatchQueue.main.asyncAfter(deadline: deadline) {
+                requestFocus = target
             }
         }
     }
