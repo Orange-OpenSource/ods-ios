@@ -19,10 +19,7 @@ import SwiftUI
 
 struct AppNewsList: View {
 
-    // =======================
-    // MARK: Stored Properties
-    // =======================
-
+    @AccessibilityFocusState private var requestFocus: AccessibilityFocusable?
     @ObservedObject private var viewModel: AppNewsListViewModel
 
     // =================
@@ -64,6 +61,8 @@ struct AppNewsList: View {
         ForEach(data, id: \.version) { item in
             AboutReleaseDescriptionEntry(releaseDescription: item)
                 .padding(.horizontal, ODSSpacing.m)
+                .accessibilityFocused($requestFocus, equals: .some(id: item.version))
+                .odsRequestAccessibleFocus(_requestFocus, for: .some(id: data[0].version))
             Divider()
         }
     }
@@ -92,6 +91,10 @@ private struct AboutReleaseDescriptionEntry: View {
                                       timeStyle: .none)
     }
 
+    private var localizedAccessibleDate: String {
+        return DateFormatter.localizedString(from: releaseDescription.date, dateStyle: .long, timeStyle: .none)
+    }
+
     // ==========
     // MARK: Body
     // ==========
@@ -102,6 +105,7 @@ private struct AboutReleaseDescriptionEntry: View {
                 Text(releaseDescription.version).odsFont(.headlineS)
                 Spacer()
                 Text(formatedDate).odsFont(.labelMRegular)
+                    .accessibilityLabel(localizedAccessibleDate)
             }
 
             Text(releaseDescription.news)
@@ -109,5 +113,6 @@ private struct AboutReleaseDescriptionEntry: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, ODSSpacing.s)
+        .accessibilityElement(children: .combine)
     }
 }
