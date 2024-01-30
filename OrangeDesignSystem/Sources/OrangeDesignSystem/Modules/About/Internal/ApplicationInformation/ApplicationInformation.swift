@@ -17,6 +17,8 @@ import SwiftUI
 
 struct AboutApplicationInformation: View {
 
+    @AccessibilityFocusState private var requestFocus: Bool
+
     // =======================
     // MARK: Stored Properties
     // =======================
@@ -33,6 +35,8 @@ struct AboutApplicationInformation: View {
                 .odsFont(.headlineL)
                 .fixedSize(horizontal: false, vertical: true)
                 .accessibilityAddTraits(.isHeader)
+                .accessibilityFocused($requestFocus)
+                .odsRequestAccessibleFocus(_requestFocus)
 
             if applicationInformation.shareConfiguration != nil || applicationInformation.onFeedbackClicked != nil {
                 HStack(spacing: ODSSpacing.none) {

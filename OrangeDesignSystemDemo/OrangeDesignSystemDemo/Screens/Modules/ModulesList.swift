@@ -16,11 +16,13 @@ import SwiftUI
 
 struct ModulesList: View {
 
+    @AccessibilityFocusState private var requestFocus: Bool
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject private var themeProvider: ThemeProvider
     private let columns = [GridItem(.flexible(), alignment: .topLeading)]
 
     // ==========
@@ -39,6 +41,13 @@ struct ModulesList: View {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.lists.title"),
                             imageSource: .image(imageFrom(resourceName: "Lists")))
+                            .accessibilityFocused($requestFocus)
+                            //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    requestFocus = true
+                                }
+                            }
                     }
 
                     NavigationLink {

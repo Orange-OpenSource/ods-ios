@@ -17,6 +17,7 @@ import SwiftUI
 struct GuidelinesList: View {
 
     @EnvironmentObject private var themeProvider: ThemeProvider
+    @AccessibilityFocusState private var requestFocus: AccessibilityFocusable?
     
     // =======================
     // MARK: Stored properties
@@ -48,6 +49,8 @@ struct GuidelinesList: View {
                             ODSCardVerticalImageFirst(
                                 title: Text(guideline.name),
                                 imageSource: .image(imageFrom(resourceName: guideline.imageName)))
+                            .accessibilityFocused($requestFocus, equals: .some(id: guideline.id))
+                            .odsRequestAccessibleFocus(_requestFocus, for: .some(id: guidelines[0].id))
                         }
                     }
                 }

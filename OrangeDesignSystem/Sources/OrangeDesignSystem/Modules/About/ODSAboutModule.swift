@@ -21,7 +21,7 @@ import SwiftUI
 /// pages related to the service provided by the application
 /// (i.e. settings, tutorials, ...).
 public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
-
+    
     // =======================
     // MARK: Stored properties
     // =======================
