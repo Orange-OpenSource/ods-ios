@@ -34,12 +34,12 @@ struct BottomSheetVariants: View {
 
         VariantEntryItem(title: "screens.components.bottom_sheets.expanding", technicalElement: ".odsBottomSheetExpanding()") {
             ExpandingBottomSheetVariantHome(model: BottomSheetVariantModel())
-                .navigationTitle("screens.components.bottom_sheets.expanding")
+                .odsNavigationTitle("screens.components.bottom_sheets.expanding".🌐)
         }
 
         VariantEntryItem(title: "screens.components.bottom_sheets.standard", technicalElement: ".odsBottomSheetStandard()") {
             StandardBottomSheetVariant()
-                .navigationTitle("screens.components.bottom_sheets.standard")
+                .odsNavigationTitle("screens.components.bottom_sheets.standard".🌐)
         }
     }
 }
