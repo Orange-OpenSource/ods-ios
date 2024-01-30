@@ -33,15 +33,15 @@ struct TextFieldVariants: View {
 
     var body: some View {
         VariantEntryItem(title: "screens.components.textfields.variants.secure", technicalElement: "SecureField()") {
-            SecureTextFieldVariant().navigationTitle("screens.components.textfields.variants.secure")
+            SecureTextFieldVariant().odsNavigationTitle("screens.components.textfields.variants.secure".🌐)
         }
 
         VariantEntryItem(title: "shared.text_field", technicalElement: "TextField()") {
-            TextFieldVariant().navigationTitle("shared.text_field")
+            TextFieldVariant().odsNavigationTitle("shared.text_field".🌐)
         }
 
         VariantEntryItem(title: "screens.components.textfields.variants.editor", technicalElement: "TextEditor()") {
-            TextEditorVariant().navigationTitle("screens.components.textfields.variants.editor")
+            TextEditorVariant().odsNavigationTitle("screens.components.textfields.variants.editor".🌐)
         }
     }
 }
