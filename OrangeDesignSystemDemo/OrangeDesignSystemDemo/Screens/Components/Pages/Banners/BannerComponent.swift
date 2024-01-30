@@ -33,7 +33,7 @@ struct BannerVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.banners.variant.title_demo", technicalElement: "ODSBanner()") {
             BannerVariant(model: BannerVariantModel())
-                .navigationTitle("screens.components.banners.variant.title")
+                .odsNavigationTitle("screens.components.banners.variant.title".🌐)
         }
     }
 }
