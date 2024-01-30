@@ -41,22 +41,22 @@ struct CardVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.cards.variant.vertical_image_first", technicalElement: "ODSCardVerticalImageFirst()") {
             CardVerticalImageFirstVariant(model: CardVerticalImageFirstVariantModel())
-                .navigationTitle("screens.components.cards.variant.vertical_image_first")
+                .odsNavigationTitle("screens.components.cards.variant.vertical_image_first".🌐)
         }
 
         VariantEntryItem(title: "screens.components.cards.variant.vertical_header_first", technicalElement: "ODSCardVerticalHeaderFirst()") {
             CardVerticalHeaderFirstVariant(model: CardVerticalHeaderFirstVariantModel())
-                .navigationTitle("screens.components.cards.variant.vertical_header_first")
+                .odsNavigationTitle("screens.components.cards.variant.vertical_header_first".🌐)
         }
 
         VariantEntryItem(title: "screens.components.cards.variant.small", technicalElement: "ODSCardSmall") {
             CardSmallVariant(model: CardSmallVariantModel())
-                .navigationTitle("screens.components.cards.variant.small")
+                .odsNavigationTitle("screens.components.cards.variant.small".🌐)
         }
 
         VariantEntryItem(title: "screens.components.cards.variant.horizontal", technicalElement: "ODSCardHorizontal") {
             CardHorizontalVariant(model: CardHorizontalVariantModel())
-                .navigationTitle("screens.components.cards.variant.horizontal")
+                .odsNavigationTitle("screens.components.cards.variant.horizontal".🌐)
         }
     }
 }
