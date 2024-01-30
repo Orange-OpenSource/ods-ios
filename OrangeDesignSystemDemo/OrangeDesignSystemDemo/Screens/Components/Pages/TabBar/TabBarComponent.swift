@@ -33,7 +33,7 @@ private struct TabBarVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.bars.tabs.title", technicalElement: "TabView") {
             TabBarVariant(model: TabBarVariantModel())
-                .navigationTitle("screens.components.bars.tabs.title")
+                .odsNavigationTitle("screens.components.bars.tabs.title".🌐)
         }
     }
 }
