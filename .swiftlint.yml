@@ -52,6 +52,8 @@ disabled_rules:
 # =====================================
 
 opt_in_rules:
+- accessibility_label_for_image
+- accessibility_trait_for_button
 - anyobject_protocol
 - array_init
 - attributes
