@@ -74,6 +74,7 @@ private struct ListItemSelectionVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading,
                 trailingToggleIsOn: $isSelected)
 
@@ -81,6 +82,7 @@ private struct ListItemSelectionVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading,
                 trailingCheckmarkIsSelected: isSelected)
         }
@@ -91,12 +93,20 @@ private struct ListItemSelectionVariantInner: View {
     }
 
     private var subtitle: Text? {
-        if model.showSubtitle {
-            return Text(recipe.subtitle)
-        } else {
-            return nil
+        switch model.subtitleOption {
+        case .none: return nil
+        case .oneLine, .twoLines: return Text(recipe.description)
         }
     }
+
+    var subtitleNumberOfLines: ODSListItem.SubtitleNumberOfLines? {
+        switch model.subtitleOption {
+        case .none: return nil
+        case .oneLine: return .one
+        case .twoLines: return .two
+        }
+    }
+
 
     private var leading: ODSListItem.Leading? {
         let emptyImage = Image("ods_empty", bundle: Bundle.ods)

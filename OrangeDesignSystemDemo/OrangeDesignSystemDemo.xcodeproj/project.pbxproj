@@ -113,6 +113,7 @@
 		07C3C7FE2AE7E56100833957 /* ListModuleOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */; };
 		07E4C85C2AE7BC2D00FB4DAC /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */; };
 		07E4C8692AE7BC8E00FB4DAC /* ListModuleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */; };
+		07F580152B69290300C8A00A /* SubtitleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F580142B69290300C8A00A /* SubtitleOption.swift */; };
 		5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5602AE11BDD00D4D01F /* AppNews.json */; };
 		5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5642AE1209A00D4D01F /* PrivacyNotice.html */; };
 		5107F56A2AE1220900D4D01F /* CGU.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F56C2AE1220900D4D01F /* CGU.html */; };
@@ -267,6 +268,7 @@
 		07C3C7FD2AE7E56100833957 /* ListModuleOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleOptionsModel.swift; sourceTree = "<group>"; };
 		07E4C85B2AE7BC2D00FB4DAC /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
 		07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleOptions.swift; sourceTree = "<group>"; };
+		07F580142B69290300C8A00A /* SubtitleOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleOption.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		513C99F42B5812300043DAAE /* AppsPlus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppsPlus.json; path = OrangeDesignSystemDemo/Resources/AppsPlus.json; sourceTree = "<group>"; };
@@ -762,6 +764,7 @@
 				07B94E072AD9891E00AAD1A5 /* SelectionVariant */,
 				07B94E062AD9890900AAD1A5 /* StandardVariant */,
 				077B673B2AE1500F0008C32B /* LeadingOption.swift */,
+				07F580142B69290300C8A00A /* SubtitleOption.swift */,
 			);
 			path = ListItemVariant;
 			sourceTree = "<group>";
@@ -1299,6 +1302,7 @@
 				077C38512A9DDC79003D6B51 /* CapitalizedTextInputsVariant.swift in Sources */,
 				07B1A09C2B1E191F00ABF0A1 /* InputChipsVariant.swift in Sources */,
 				077C38632A9DDC79003D6B51 /* CardHorizontalVariant.swift in Sources */,
+				07F580152B69290300C8A00A /* SubtitleOption.swift in Sources */,
 				077C38882A9DDC79003D6B51 /* CardViewDemo.swift in Sources */,
 				077C387F2A9DDC79003D6B51 /* TypographyGuideline.swift in Sources */,
 				077C389C2A9DEEDC003D6B51 /* RecipesLoader.swift in Sources */,

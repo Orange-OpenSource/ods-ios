@@ -46,7 +46,7 @@ class ListItemStandardVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
-    @Published var showSubtitle: Bool
+    @Published var subtitleOption: SubtitleOption
     @Published var leadingOption: LeadingOption
     @Published var trailingOptions: [StandardTrailingOption]
     @Published var navigate: Bool
@@ -55,7 +55,7 @@ class ListItemStandardVariantModel: ObservableObject {
     // MARK: Initializers
     // ==================
     init() {
-        showSubtitle = true
+        subtitleOption = .twoLines
         leadingOption = .circle
         trailingOptions = []
         navigate = true

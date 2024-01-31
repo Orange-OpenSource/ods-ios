@@ -84,6 +84,7 @@ private struct ListItemStandardVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading,
                 trailingText: Text("screens.components.list.details"))
             {
@@ -93,6 +94,7 @@ private struct ListItemStandardVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading,
                 trailingText: Text("screens.components.list.details"))
 
@@ -100,6 +102,7 @@ private struct ListItemStandardVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading)
             {
                 iButtonAction()
@@ -109,6 +112,7 @@ private struct ListItemStandardVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading)
         }
     }
@@ -118,10 +122,17 @@ private struct ListItemStandardVariantInner: View {
     }
 
     private var subtitle: Text? {
-        if model.showSubtitle {
-            return Text(recipe.subtitle)
-        } else {
-            return nil
+        switch model.subtitleOption {
+        case .none: return nil
+        case .oneLine, .twoLines: return Text(recipe.subtitle)
+        }
+    }
+
+    var subtitleNumberOfLines: ODSListItem.SubtitleNumberOfLines? {
+        switch model.subtitleOption {
+        case .none: return nil
+        case .oneLine: return .one
+        case .twoLines: return .two
         }
     }
 

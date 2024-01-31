@@ -42,7 +42,7 @@ final class ListItemSelectionVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
-    @Published var showSubtitle: Bool
+    @Published var subtitleOption: SubtitleOption
     @Published var leadingOption: LeadingOption
     @Published var trailingOption: SelectionTrailingOption
 
@@ -50,7 +50,7 @@ final class ListItemSelectionVariantModel: ObservableObject {
     // MARK: Initializers
     // ==================
     init() {
-        showSubtitle = true
+        subtitleOption = .twoLines
         leadingOption = .circle
         trailingOption = .toggle
     }
