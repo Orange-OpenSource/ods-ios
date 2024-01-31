@@ -5,11 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...qualif)
 
+- [DemoApp/SDK] Focus order not coherent with Voice Over (Bug [#588](https://github.com/Orange-OpenSource/ods-ios/issues/588))
 - [DemoApp] Add configuration in the ListItem screeen to select the number of lines in subtitle([#650](https://github.com/Orange-OpenSource/ods-ios/issues/650))
 - [SDK] Update ListItem to limit title in one line and subtitle up to two lines ([#586](https://github.com/Orange-OpenSource/ods-ios/issues/586))
 - [DemoApp/SDK] Components page accessibility issues (Bug [#563](https://github.com/Orange-OpenSource/ods-ios/issues/563))
 - [DemoApp/SDK] Code cleanup ([#647](https://github.com/Orange-OpenSource/ods-ios/issues/647)])
-- [DemoApp/SDK] Focus order not coherent with Voice Over (Bug [#588](https://github.com/Orange-OpenSource/ods-ios/issues/588))
 - [SDK] Update Banners to align buttons when text is too long ([#642](https://github.com/Orange-OpenSource/ods-ios/issues/642))
 - [SDK] Update Cards to align buttons when text is too long ([#630](https://github.com/Orange-OpenSource/ods-ios/issues/630))
 - [Tooling] Upgrate to xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
