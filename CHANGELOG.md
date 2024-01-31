@@ -5,14 +5,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...qualif)
 
-- [DemoAPP] Add configuration in the ListItem screeen to select the number of lines in subtitle([#650](https://github.com/Orange-OpenSource/ods-ios/issues/650))
+- [DemoApp] Add configuration in the ListItem screeen to select the number of lines in subtitle([#650](https://github.com/Orange-OpenSource/ods-ios/issues/650))
 - [SDK] Update ListItem to limit title in one line and subtitle up to two lines ([#586](https://github.com/Orange-OpenSource/ods-ios/issues/586))
 - [DemoApp/SDK] Components page accessibility issues (Bug [#563](https://github.com/Orange-OpenSource/ods-ios/issues/563))
 - [DemoApp/SDK] Code cleanup ([#647](https://github.com/Orange-OpenSource/ods-ios/issues/647)])
 - [SDK] Update Banners to align buttons when text is too long ([#642](https://github.com/Orange-OpenSource/ods-ios/issues/642))
 - [SDK] Update Cards to align buttons when text is too long ([#630](https://github.com/Orange-OpenSource/ods-ios/issues/630))
 - [Tooling] Upgrate to xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
-- [DemoApp/SDK] ODSSmallCard and GridOfSmallCards a11i issue if accessible text sizes in use ([#598](https://github.com/Orange-OpenSource/ods-ios/issues/598))
+- [DemoApp/SDK] ODSSmallCard and GridOfSmallCards a11y issue if accessible text sizes in use ([#598](https://github.com/Orange-OpenSource/ods-ios/issues/598))
 - [Tooling] Upgrade to Xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
 - [Tooling] Upgrade tools versions and internal librairies ([#639](https://github.com/Orange-OpenSource/ods-ios/issues/639))
 - [Docs] Update documentation with illustration ([#602](https://github.com/Orange-OpenSource/ods-ios/issues/602))

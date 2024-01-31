@@ -46,8 +46,7 @@ struct TrailingView: View {
             }
 
         case .toggle:
-            // Do nothing here, because toggle is always
-            // manage in ODSListItem.
+            // Do nothing here, because toggle is always managed in ODSListItem.
             EmptyView()
 
         case let .checkmark(isVisible):

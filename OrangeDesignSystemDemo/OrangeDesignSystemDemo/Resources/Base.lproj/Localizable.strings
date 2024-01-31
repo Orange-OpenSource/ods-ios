@@ -251,7 +251,7 @@
 "screens.components.lists.subtitle_option.title" = "Sous titre";
 "screens.components.lists.subtitle_option.none" = "Sans";
 "screens.components.lists.subtitle_option.one_line" = "Une ligne";
-"screens.components.lists.subtitle_option.two_lines" = "Deux ligne";
+"screens.components.lists.subtitle_option.two_lines" = "Deux lignes";
 
 // ==================================================
 // MARK: - Screens - Components - Progress indicators
