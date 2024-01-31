@@ -78,7 +78,7 @@ private struct ODSEmphasisButtonStyle: ButtonStyle {
             case .medium:
                 return Color(UIColor.label)
             case .low:
-                return Color(UIColor.systemBackground)
+                return Color.clear
             case .lowest:
                 return Color.clear
             }
