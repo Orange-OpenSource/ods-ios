@@ -32,7 +32,7 @@ struct CardViewDemo: View {
             LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                 NavigationLink {
                     ListOfVerticalImageFirstCard()
-                        .navigationTitle("screens.modules.card_collections.titles.list")
+                        .odsNavigationTitle("screens.modules.card_collections.titles.list".🌐)
                         .navigationbarMenuForThemeSelection()
                 } label: {
                     ODSCardVerticalImageFirst(
@@ -42,7 +42,7 @@ struct CardViewDemo: View {
 
                 NavigationLink {
                     GrifOfSmallCards()
-                        .navigationTitle("screens.modules.card_collections.titles.grid")
+                        .odsNavigationTitle("screens.modules.card_collections.titles.grid".🌐)
                         .navigationbarMenuForThemeSelection()
                 } label: {
                     ODSCardVerticalImageFirst(

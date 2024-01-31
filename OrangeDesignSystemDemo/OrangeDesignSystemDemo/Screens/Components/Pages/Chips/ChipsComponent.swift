@@ -41,22 +41,22 @@ struct ChipsVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.chips.variant.action", technicalElement: "ODSActionChip()") {
             ActionChipVariant(model: ActionChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.action")
+                .odsNavigationTitle("screens.components.chips.variant.action".🌐)
         }
 
         VariantEntryItem(title: "screens.components.chips.variant.input", technicalElement: "ODSInputChip()") {
             InputChipVariant(model: InputChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.input")
+                .odsNavigationTitle("screens.components.chips.variant.input".🌐)
         }
 
         VariantEntryItem(title: "screens.components.chips.variant.choice", technicalElement: "ODSChoiceChip()") {
             ChoiceChipVariant(model: ChoiceChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.choice")
+                .odsNavigationTitle("screens.components.chips.variant.choice".🌐)
         }
 
         VariantEntryItem(title: "screens.components.chips.variant.filter", technicalElement: "ODSFilterChip()") {
             FilterChipVariant(model: FilterChipVariantModel())
-                .navigationTitle("screens.components.chips.variant.filter")
+                .odsNavigationTitle("screens.components.chips.variant.filter".🌐)
         }
     }
 }

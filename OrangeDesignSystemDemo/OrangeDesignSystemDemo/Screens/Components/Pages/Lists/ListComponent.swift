@@ -32,11 +32,11 @@ struct ListVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.lists.variant.standard_lists", technicalElement: "ODSListItem()") {
             ListItemStandardVariant(model: ListItemStandardVariantModel())
-                .navigationTitle("screens.components.lists.variant.standard_lists")
+                .odsNavigationTitle("screens.components.lists.variant.standard_lists".🌐)
         }
         VariantEntryItem(title: "screens.components.lists.variant.with_selections", technicalElement: "ODSListItem()") {
             ListItemSelectionVariant(model: ListItemSelectionVariantModel())
-                .navigationTitle("screens.components.lists.variant.with_selections")
+                .odsNavigationTitle("screens.components.lists.variant.with_selections".🌐)
         }
     }
 }

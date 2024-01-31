@@ -16,11 +16,13 @@ import SwiftUI
 
 struct ModulesList: View {
 
+    @AccessibilityFocusState private var requestFocus: Bool
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject private var themeProvider: ThemeProvider
     private let columns = [GridItem(.flexible(), alignment: .topLeading)]
 
     // ==========
@@ -33,17 +35,24 @@ struct ModulesList: View {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                     NavigationLink {
                         ListModule()
-                            .navigationTitle("screens.modules.lists.title")
+                            .odsNavigationTitle("screens.modules.lists.title".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.lists.title"),
                             imageSource: .image(imageFrom(resourceName: "Lists")))
+                            .accessibilityFocused($requestFocus)
+                            //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    requestFocus = true
+                                }
+                            }
                     }
 
                     NavigationLink {
                         AboutModule()
-                            .navigationTitle("screens.modules.about.titles.setup")
+                            .odsNavigationTitle("screens.modules.about.titles.setup".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
@@ -53,7 +62,7 @@ struct ModulesList: View {
 
                     NavigationLink {
                         CardViewDemo()
-                            .navigationTitle("screens.modules.about.titles.card_collections")
+                            .odsNavigationTitle("screens.modules.about.titles.card_collections".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(

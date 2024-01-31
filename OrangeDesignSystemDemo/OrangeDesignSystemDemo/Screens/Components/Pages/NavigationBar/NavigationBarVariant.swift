@@ -29,7 +29,7 @@ struct NavigationBarVariantContent: View {
 
     var body: some View {
         ListExample(model: searchModel)
-            .navigationTitle(title)
+            .odsNavigationTitle(title)
             .navigationBarTitleDisplayMode(model.titleSize.displayMode)
             .modifier(SearchModifier(showSearch: model.showSearch, model: searchModel))
             .modifier(ActionIconsModifier(model: model))

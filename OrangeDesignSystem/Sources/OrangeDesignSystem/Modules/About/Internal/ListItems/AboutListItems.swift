@@ -56,7 +56,7 @@ struct AboutListItems: View {
 
         case let .destination(destination):
             NavigationLink {
-                destination.navigationTitle(configuration.title)
+                destination.odsNavigationTitle(configuration.title)
             } label: {
                 ODSListItem(title: Text(configuration.title), leading: ODSListItem.Leading(icon: configuration.icon))
             }

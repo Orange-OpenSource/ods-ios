@@ -41,7 +41,7 @@ private struct ToolBarVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.bars.tools.title", technicalElement: "odsToolBar()") {
             ToolBarVariantHome(model: ToolBarVariantModel())
-                .navigationTitle("screens.components.bars.tools.title")
+                .odsNavigationTitle("screens.components.bars.tools.title".🌐)
         }
     }
 }

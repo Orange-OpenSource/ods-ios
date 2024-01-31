@@ -43,20 +43,19 @@ struct ButtonVariants: View {
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 EmphasisVariant(model: model)
             }
-            .navigationTitle("screens.components.buttons.variant.emphasis")
+            .odsNavigationTitle("screens.components.buttons.variant.emphasis".🌐)
         }
 
         VariantEntryItem(title: "screens.components.buttons.variant.functional", technicalElement: "ODSFunctionalButton()") {
-
             CommonButtonVariant(model: EmphasisAndFunctionnalVariantModel()) { model in
                 FunctionalVariant(model: model)
             }
-            .navigationTitle("screens.components.buttons.variant.functional")
+            .odsNavigationTitle("screens.components.buttons.variant.functional".🌐)
         }
 
         VariantEntryItem(title: "screens.components.buttons.variant.icons", technicalElement: "ODSIconButton()") {
             IconVariant(model: IconVariantModel())
-                .navigationTitle("screens.components.buttons.variant.icons")
+                .odsNavigationTitle("screens.components.buttons.variant.icons".🌐)
         }
     }
 }

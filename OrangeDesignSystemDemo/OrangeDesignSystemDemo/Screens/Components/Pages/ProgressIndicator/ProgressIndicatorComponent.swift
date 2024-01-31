@@ -33,12 +33,12 @@ private struct ProgressIndicatorVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.progress_indicators.progress_bar.title", technicalElement: "ProgressView(value:, total:)") {
             ProgressBarVariant(model: ProgressBarVariantModel())
-                .navigationTitle("screens.components.progress_indicators.progress_bar.title")
+                .odsNavigationTitle("screens.components.progress_indicators.progress_bar.title".🌐)
         }
 
         VariantEntryItem(title: "screens.components.progress_indicators.activity_bar.title", technicalElement: "ProgressView()") {
             ActivityIndicatorVariant(model: ActivityIndicatorModel())
-                .navigationTitle("screens.components.progress_indicators.activity_bar.title")
+                .odsNavigationTitle("screens.components.progress_indicators.activity_bar.title".🌐)
         }
     }
 }

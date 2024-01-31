@@ -37,7 +37,7 @@ struct SliderVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.sliders.slider.title", technicalElement: "ODSSlider()") {
             SliderVariant(model: SliderVariantModel())
-                .navigationTitle("screens.components.sliders.slider.title")
+                .odsNavigationTitle("screens.components.sliders.slider.title".🌐)
         }
     }
 }
