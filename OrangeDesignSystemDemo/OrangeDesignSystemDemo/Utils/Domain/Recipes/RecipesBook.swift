@@ -21,6 +21,11 @@ struct RecipeBook {
     let foods: [Food]
 
     static let shared: RecipeBook = .init()
+    
+    func randomRecipe() -> Recipe {
+        let selectedRecipesIndex = Int.random(in: 0..<RecipeBook.shared.recipes.count)
+        return recipes[selectedRecipesIndex]
+    }
 }
 
 struct Food: Equatable, Hashable {

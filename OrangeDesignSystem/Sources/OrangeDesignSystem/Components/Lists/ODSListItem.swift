@@ -137,12 +137,18 @@ public struct ODSListItem: View {
         case checkmark(Bool)
     }
 
+    public enum SubtitleNumberOfLines: Int {
+        case one = 1
+        case two = 2
+    }
+
     // =======================
     // MARK: Stored Properties
     // =======================
 
     private let title: Text
     private let subtitle: Text?
+    private let subtitleNumberOfLines: SubtitleNumberOfLines?
     private let leading: Leading?
     private let trailing: TrailingElement?
     private let height = ODSListItemModifier.defaultHeight
@@ -156,14 +162,17 @@ public struct ODSListItem: View {
     /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
+    ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not   design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///
     public init(
         title: Text,
         subtitle: Text? = nil,
+        subtitleNumberOfLines: SubtitleNumberOfLines? = .one,
         leading: Leading? = nil)
     {
-        self.init(title: title, subtitle: subtitle, leading: leading, trailing: nil)
+        self.init(title: title, subtitle: subtitle, subtitleNumberOfLines: subtitleNumberOfLines, leading: leading, trailing: nil)
     }
 
     /// Describe the Item content with trailing text.
@@ -171,16 +180,19 @@ public struct ODSListItem: View {
     /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
+    ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
+    ///     to 1 line or 2 lines.
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///
     public init(
         title: Text,
         subtitle: Text? = nil,
+        subtitleNumberOfLines: SubtitleNumberOfLines? = .one,
         leading: Leading? = nil,
         trailingText: Text)
     {
-        self.init(title: title, subtitle: subtitle, leading: leading, trailing: .textOnly(trailingText))
+        self.init(title: title, subtitle: subtitle, subtitleNumberOfLines: subtitleNumberOfLines, leading: leading, trailing: .textOnly(trailingText))
     }
 
     /// Describe the Item content with trailing text and iButton.
@@ -188,6 +200,8 @@ public struct ODSListItem: View {
     /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
+    ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not   design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingIButtonAction: The action the i button on trailing
@@ -195,11 +209,12 @@ public struct ODSListItem: View {
     public init(
         title: Text,
         subtitle: Text? = nil,
+        subtitleNumberOfLines: SubtitleNumberOfLines? = .one,
         leading: Leading? = nil,
         trailingText: Text? = nil,
         trailingIButtonAction: @escaping () -> Void)
     {
-        self.init(title: title, subtitle: subtitle, leading: leading, trailing: .iButton(trailingIButtonAction, trailingText))
+        self.init(title: title, subtitle: subtitle, subtitleNumberOfLines: subtitleNumberOfLines, leading: leading, trailing: .iButton(trailingIButtonAction, trailingText))
     }
 
     /// Describe the Item content with trailing toggle.
@@ -207,6 +222,8 @@ public struct ODSListItem: View {
     /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
+    ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not   design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingToggleIsOn: The binding to a property that determines whether the toggle is on or off.
@@ -214,10 +231,11 @@ public struct ODSListItem: View {
     public init(
         title: Text,
         subtitle: Text? = nil,
+        subtitleNumberOfLines: SubtitleNumberOfLines? = .one,
         leading: Leading? = nil,
         trailingToggleIsOn: Binding<Bool>)
     {
-        self.init(title: title, subtitle: subtitle, leading: leading, trailing:
+        self.init(title: title, subtitle: subtitle, subtitleNumberOfLines: subtitleNumberOfLines, leading: leading, trailing:
             .toggle(trailingToggleIsOn))
     }
 
@@ -226,6 +244,8 @@ public struct ODSListItem: View {
     /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
+    ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not   design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingCheckmarkIsSelected: The flag to indicate if checkmark is visbile or not.
@@ -233,10 +253,11 @@ public struct ODSListItem: View {
     public init(
         title: Text,
         subtitle: Text? = nil,
+        subtitleNumberOfLines: SubtitleNumberOfLines? = .one,
         leading: Leading? = nil,
         trailingCheckmarkIsSelected: Bool)
     {
-        self.init(title: title, subtitle: subtitle, leading: leading, trailing: .checkmark(trailingCheckmarkIsSelected))
+        self.init(title: title, subtitle: subtitle, subtitleNumberOfLines: subtitleNumberOfLines, leading: leading, trailing: .checkmark(trailingCheckmarkIsSelected))
     }
 
     /// Describe the Item content with trailing element.
@@ -244,17 +265,21 @@ public struct ODSListItem: View {
     /// - Parameters:
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
+    ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not   design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailing: The trailing element
     ///
     init(
         title: Text,
         subtitle: Text? = nil,
+        subtitleNumberOfLines: SubtitleNumberOfLines? = .one,
         leading: Leading? = nil,
         trailing: TrailingElement? = nil)
     {
         self.title = title
         self.subtitle = subtitle
+        self.subtitleNumberOfLines = subtitleNumberOfLines
         self.leading = leading
         self.trailing = trailing
     }
@@ -264,6 +289,18 @@ public struct ODSListItem: View {
     // ==========
 
     public var body: some View {
+        if case .toggle(let isOn) = trailing {
+            // Must be manage here, because if it is manged in
+            // TrailingView, an extra content (blank) is added by the SwiftUI.Toggle.
+            Toggle(isOn: isOn) {
+                content
+            }
+        } else {
+            content
+        }
+    }
+
+    private var content: some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
             if let leading = self.leading {
                 LeadingView(element: leading, height: height)
@@ -272,12 +309,16 @@ public struct ODSListItem: View {
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 title
+                    .lineLimit(1)
+                    .truncationMode(.tail)
                     .odsFont(.bodyLRegular)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
 
                 subtitle?
+                    .lineLimit(subtitleNumberOfLines?.rawValue)
+                    .truncationMode(.tail)
                     .odsFont(.labelL)
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.leading)

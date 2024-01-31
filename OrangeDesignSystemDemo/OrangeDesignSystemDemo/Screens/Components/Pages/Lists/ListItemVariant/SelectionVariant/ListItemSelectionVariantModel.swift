@@ -42,16 +42,23 @@ final class ListItemSelectionVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
-    @Published var showSubtitle: Bool
+    @Published var subtitleOption: SubtitleOption
     @Published var leadingOption: LeadingOption
     @Published var trailingOption: SelectionTrailingOption
+    @Published var recipe: Recipe
 
     // ==================
     // MARK: Initializers
     // ==================
     init() {
-        showSubtitle = true
+        subtitleOption = .twoLines
         leadingOption = .circle
         trailingOption = .toggle
+        self.recipe = RecipeBook.shared.randomRecipe()
+    }
+    
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
     }
 }
+

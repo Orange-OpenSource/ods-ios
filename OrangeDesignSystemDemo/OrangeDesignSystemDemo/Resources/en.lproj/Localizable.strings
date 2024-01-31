@@ -249,6 +249,11 @@
 "screens.components.lists.alert" = "Information icon tapped! Bon appétit";
 "screens.components.lists.options.description.info_button" = "Info button";
 "screens.components.list.details" = "Details";
+"screens.components.lists.subtitle_option.title" = "Subtitle";
+"screens.components.lists.subtitle_option.none" = "None";
+"screens.components.lists.subtitle_option.one_line" = "One line";
+"screens.components.lists.subtitle_option.two_lines" = "Two lines";
+
 
 // ==================================================
 // MARK: - Screens - Components - Progress indicators

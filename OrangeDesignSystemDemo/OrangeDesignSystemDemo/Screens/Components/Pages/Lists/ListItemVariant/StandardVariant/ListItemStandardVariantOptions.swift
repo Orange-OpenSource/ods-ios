@@ -28,11 +28,12 @@ struct ListItemStandardVariantOptions: View {
 
     var body: some View {
         VStack(spacing: ODSSpacing.none) {
-            Toggle(isOn: $model.showSubtitle) {
-                Text("shared.subtitle").odsFont(.bodyLBold)
-            }
-            .padding(.horizontal, ODSSpacing.m)
-            .padding(.vertical, ODSSpacing.s)
+            
+            ODSChoiceChipPicker(
+                title: Text("screens.components.lists.subtitle_option.title"),
+                chips: SubtitleOption.chips,
+                selection: $model.subtitleOption)
+                .padding(.vertical, ODSSpacing.s)
 
             ODSChoiceChipPicker(
                 title: Text("shared.leading"),

@@ -45,10 +45,9 @@ struct TrailingView: View {
                     .buttonStyle(PlainButtonStyle())
             }
 
-        case let .toggle(isOn):
-            Toggle(isOn: isOn) {
-                EmptyView()
-            }
+        case .toggle:
+            // Do nothing here, because toggle is always managed in ODSListItem.
+            EmptyView()
 
         case let .checkmark(isVisible):
             if isVisible {

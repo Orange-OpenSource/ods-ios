@@ -46,18 +46,25 @@ class ListItemStandardVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
-    @Published var showSubtitle: Bool
+    @Published var subtitleOption: SubtitleOption
     @Published var leadingOption: LeadingOption
     @Published var trailingOptions: [StandardTrailingOption]
     @Published var navigate: Bool
+    @Published var recipe: Recipe
 
     // ==================
     // MARK: Initializers
     // ==================
     init() {
-        showSubtitle = true
+        subtitleOption = .twoLines
         leadingOption = .circle
         trailingOptions = []
         navigate = true
+        
+        self.recipe = RecipeBook.shared.randomRecipe()
+    }
+    
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
     }
 }
