@@ -43,8 +43,15 @@ private struct ListItemStandardVariantInner: View {
 
     @ObservedObject var model: ListItemStandardVariantModel
     @State private var showAlert: Bool = false
-    private let recipe: Recipe = RecipeBook.shared.recipes[0]
+    
+    // =================
+    // MARK: Initializer
+    // =================
 
+    init(model: ListItemStandardVariantModel) {
+        self.model = model
+    }
+    
     // ==========
     // MARK: Body
     // ==========
@@ -62,6 +69,9 @@ private struct ListItemStandardVariantInner: View {
                 listItem
                     .odsListItemStyle()
             }
+        }
+        .refreshable {
+            model.updateRecipe()
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
@@ -118,13 +128,13 @@ private struct ListItemStandardVariantInner: View {
     }
 
     private var title: Text {
-        Text(recipe.title)
+        Text(model.recipe.title)
     }
 
     private var subtitle: Text? {
         switch model.subtitleOption {
         case .none: return nil
-        case .oneLine, .twoLines: return Text(recipe.subtitle)
+        case .oneLine, .twoLines: return Text(model.recipe.subtitle)
         }
     }
 
@@ -142,13 +152,13 @@ private struct ListItemStandardVariantInner: View {
         case .none:
             return nil
         case .icon:
-            return .icon(Image(recipe.iconName))
+            return .icon(Image(model.recipe.iconName))
         case .circle:
-            return .circularImage(source: .asyncImage(recipe.url, emptyImage))
+            return .circularImage(source: .asyncImage(model.recipe.url, emptyImage))
         case .square:
-            return .squareImage(source: .asyncImage(recipe.url, emptyImage))
+            return .squareImage(source: .asyncImage(model.recipe.url, emptyImage))
         case .wide:
-            return .wideImage(source: .asyncImage(recipe.url, emptyImage))
+            return .wideImage(source: .asyncImage(model.recipe.url, emptyImage))
         }
     }
 

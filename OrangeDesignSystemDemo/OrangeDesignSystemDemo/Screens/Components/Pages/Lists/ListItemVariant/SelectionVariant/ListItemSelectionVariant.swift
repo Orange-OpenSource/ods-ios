@@ -43,8 +43,15 @@ private struct ListItemSelectionVariantInner: View {
 
     @ObservedObject var model: ListItemSelectionVariantModel
     @State private var isSelected: Bool = true
-    private let recipe: Recipe = RecipeBook.shared.recipes[0]
+    
+    // =================
+    // MARK: Initializer
+    // =================
 
+    init(model: ListItemSelectionVariantModel) {
+        self.model = model
+    }
+    
     // ==========
     // MARK: Body
     // ==========
@@ -58,6 +65,9 @@ private struct ListItemSelectionVariantInner: View {
                         isSelected.toggle()
                     }
                 }
+        }
+        .refreshable {
+            model.updateRecipe()
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
@@ -89,13 +99,13 @@ private struct ListItemSelectionVariantInner: View {
     }
 
     private var title: Text {
-        Text(recipe.title)
+        Text(model.recipe.title)
     }
 
     private var subtitle: Text? {
         switch model.subtitleOption {
         case .none: return nil
-        case .oneLine, .twoLines: return Text(recipe.description)
+        case .oneLine, .twoLines: return Text(model.recipe.description)
         }
     }
 
@@ -114,13 +124,13 @@ private struct ListItemSelectionVariantInner: View {
         case .none:
             return nil
         case .icon:
-            return .icon(Image(recipe.iconName))
+            return .icon(Image(model.recipe.iconName))
         case .circle:
-            return .circularImage(source: .asyncImage(recipe.url, emptyImage))
+            return .circularImage(source: .asyncImage(model.recipe.url, emptyImage))
         case .square:
-            return .squareImage(source: .asyncImage(recipe.url, emptyImage))
+            return .squareImage(source: .asyncImage(model.recipe.url, emptyImage))
         case .wide:
-            return .wideImage(source: .asyncImage(recipe.url, emptyImage))
+            return .wideImage(source: .asyncImage(model.recipe.url, emptyImage))
         }
     }
 }

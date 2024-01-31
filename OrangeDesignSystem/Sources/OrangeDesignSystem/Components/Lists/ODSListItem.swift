@@ -289,6 +289,18 @@ public struct ODSListItem: View {
     // ==========
 
     public var body: some View {
+        if case .toggle(let isOn) = trailing {
+            // Must be manage here, because if it is manged in
+            // TrailingView, an extra content (blank) is added by the SwiftUI.Toggle.
+            Toggle(isOn: isOn) {
+                content
+            }
+        } else {
+            content
+        }
+    }
+
+    private var content: some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
             if let leading = self.leading {
                 LeadingView(element: leading, height: height)

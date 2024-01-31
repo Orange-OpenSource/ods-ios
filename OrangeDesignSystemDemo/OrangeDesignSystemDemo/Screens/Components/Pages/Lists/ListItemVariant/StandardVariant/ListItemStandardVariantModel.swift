@@ -50,6 +50,7 @@ class ListItemStandardVariantModel: ObservableObject {
     @Published var leadingOption: LeadingOption
     @Published var trailingOptions: [StandardTrailingOption]
     @Published var navigate: Bool
+    @Published var recipe: Recipe
 
     // ==================
     // MARK: Initializers
@@ -59,5 +60,11 @@ class ListItemStandardVariantModel: ObservableObject {
         leadingOption = .circle
         trailingOptions = []
         navigate = true
+        
+        self.recipe = RecipeBook.shared.randomRecipe()
+    }
+    
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
     }
 }

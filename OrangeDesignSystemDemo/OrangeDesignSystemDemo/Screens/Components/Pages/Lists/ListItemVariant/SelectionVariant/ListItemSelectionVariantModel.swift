@@ -45,6 +45,7 @@ final class ListItemSelectionVariantModel: ObservableObject {
     @Published var subtitleOption: SubtitleOption
     @Published var leadingOption: LeadingOption
     @Published var trailingOption: SelectionTrailingOption
+    @Published var recipe: Recipe
 
     // ==================
     // MARK: Initializers
@@ -53,5 +54,11 @@ final class ListItemSelectionVariantModel: ObservableObject {
         subtitleOption = .twoLines
         leadingOption = .circle
         trailingOption = .toggle
+        self.recipe = RecipeBook.shared.randomRecipe()
+    }
+    
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
     }
 }
+
