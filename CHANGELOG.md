@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...qualif)
 
+- [DemoAPP] Add configuration in the ListItem screeen to select the number of lines in subtitle([#650](https://github.com/Orange-OpenSource/ods-ios/issues/650))
+- [SDK] Update ListItem to limit title in one line and subtitle up to two lines ([#586](https://github.com/Orange-OpenSource/ods-ios/issues/586))
 - [DemoApp/SDK] Components page accessibility issues (Bug [#563](https://github.com/Orange-OpenSource/ods-ios/issues/563))
 - [DemoApp/SDK] Code cleanup ([#647](https://github.com/Orange-OpenSource/ods-ios/issues/647)])
 - [SDK] Update Banners to align buttons when text is too long ([#642](https://github.com/Orange-OpenSource/ods-ios/issues/642))
