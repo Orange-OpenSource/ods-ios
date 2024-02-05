@@ -20,7 +20,17 @@ final class CardSmallVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
-    @Published var showSubtitle: Bool = true
+    @Published var showSubtitle: Bool
+    @Published var recipe: Recipe
+
+    init() {
+        showSubtitle = true
+        recipe = RecipeBook.shared.recipes[0]
+    }
+
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
+    }
 }
 
 struct CardSmallVariant: View {
@@ -56,6 +66,9 @@ struct CardSmallVariant: View {
             }
             .padding(.horizontal, ODSSpacing.m)
             .padding(.top, ODSSpacing.m)
+            .refreshable {
+                model.updateRecipe()
+            }
         } options: {
             CardSmallVariantOptions(model: model)
         }

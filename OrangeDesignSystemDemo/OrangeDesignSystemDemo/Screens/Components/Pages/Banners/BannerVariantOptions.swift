@@ -37,7 +37,7 @@ final class BannerVariantModel: ObservableObject {
         showImage = true
         buttonCount = 0
         
-        self.recipe = RecipeBook.shared.randomRecipe()
+        self.recipe = RecipeBook.shared.recipes[0]
     }
     
     // =============
@@ -46,10 +46,6 @@ final class BannerVariantModel: ObservableObject {
 
     var text: Text {
         Text(showLongText ? recipe.description :  recipe.title)
-//        let longText = °°"screens.components.banners.demo.long_text"
-//        let shortText = °°"screens.components.banners.demo.short_text"
-//
-//        return Text(showLongText ? longText : shortText)
     }
 
     var imageSource: ODSImage.Source? {
