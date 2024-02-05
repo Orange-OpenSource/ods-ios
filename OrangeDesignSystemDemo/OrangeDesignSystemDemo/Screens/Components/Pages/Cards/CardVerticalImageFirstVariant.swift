@@ -28,10 +28,10 @@ final class CardVerticalImageFirstVariantModel: ObservableObject {
     @Published var showText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
+    @Published var recipe: Recipe
 
     var alertText: String = ""
     private let buttonsText: [String]
-    private let recipe: Recipe
 
     // =================
     // MARK: Initializer
@@ -43,8 +43,8 @@ final class CardVerticalImageFirstVariantModel: ObservableObject {
         buttonCount = 2
         showAlert = false
 
-        buttonsText = [°°"screens.components.card.button_1",
-                       °°"screens.components.card.button_2"]
+        buttonsText = ["screens.components.card.button_1".🌐,
+                       "screens.components.card.button_2".🌐]
         recipe = RecipeBook.shared.recipes[0]
     }
 
@@ -84,6 +84,10 @@ final class CardVerticalImageFirstVariantModel: ObservableObject {
     var numberOfButtons: Int {
         buttonsText.count
     }
+
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
+    }
 }
 
 // =========================================
@@ -104,7 +108,6 @@ struct CardVerticalImageFirstVariant: View {
 
     var body: some View {
         CustomizableVariant {
-            // Card demonstrator
             ScrollView {
                 card
                     .padding(.horizontal, ODSSpacing.m)
@@ -112,6 +115,9 @@ struct CardVerticalImageFirstVariant: View {
                     .onTapGesture {
                         model.displayAlert(text: "screens.components.card.alert")
                     }
+            }
+            .refreshable {
+                model.updateRecipe()
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("shared.close", role: .cancel) {}

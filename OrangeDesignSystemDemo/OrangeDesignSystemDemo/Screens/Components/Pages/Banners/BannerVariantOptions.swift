@@ -23,7 +23,8 @@ final class BannerVariantModel: ObservableObject {
     @Published var showLongText: Bool
     @Published var showImage: Bool
     @Published var buttonCount: Int
-
+    @Published var recipe: Recipe
+    
     let buttonsText = [°°"shared.actions.action_1",
                        °°"shared.actions.action_2"]
 
@@ -35,31 +36,25 @@ final class BannerVariantModel: ObservableObject {
         showLongText = true
         showImage = true
         buttonCount = 0
+        
+        self.recipe = RecipeBook.shared.recipes[0]
     }
-
+    
     // =============
     // MARK: Helpers
     // =============
 
     var text: Text {
-        let longText = °°"screens.components.banners.demo.long_text"
-        let shortText = °°"screens.components.banners.demo.short_text"
-
-        return Text(showLongText ? longText : shortText)
+        Text(showLongText ? recipe.description :  recipe.title)
     }
 
     var imageSource: ODSImage.Source? {
         let placeholder = Image("ods_empty", bundle: Bundle.ods)
-
-        if let url = RecipeBook.shared.recipes.first?.url {
-            return showImage ? .asyncImage(url, placeholder) : nil
-        } else {
-            return showImage ? .image(placeholder) : nil
-        }
+        return showImage ? .asyncImage(recipe.url, placeholder) : nil
     }
 
     var buttonText: String {
-        °°"shared.actions.action"
+        "shared.actions.action".🌐
     }
 
     var firstButtonText: String {
@@ -68,6 +63,10 @@ final class BannerVariantModel: ObservableObject {
 
     var secondButtonText: String {
         buttonsText[1]
+    }
+    
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
     }
 }
 

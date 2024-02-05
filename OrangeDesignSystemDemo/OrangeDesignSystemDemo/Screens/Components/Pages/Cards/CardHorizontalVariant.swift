@@ -56,10 +56,11 @@ final class CardHorizontalVariantModel: ObservableObject {
     @Published var showAlert: Bool
     @Published var imagePosition: ODSCardHorizontal.ImagePosition
     @Published var showDivider: Bool
+    @Published var recipe: Recipe
 
     var alertText: String
     let buttonsText: [String]
-    private let recipe: Recipe
+    
 
     // =================
     // MARK: Initializer
@@ -110,6 +111,10 @@ final class CardHorizontalVariantModel: ObservableObject {
         alertText = text
         showAlert = true
     }
+
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
+    }
 }
 
 // ===============================
@@ -137,6 +142,9 @@ struct CardHorizontalVariant: View {
                     .onTapGesture {
                         model.displayAlert(text: "screens.components.card.alert")
                     }
+            }
+            .refreshable {
+                model.updateRecipe()
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("shared.close", role: .cancel) {}

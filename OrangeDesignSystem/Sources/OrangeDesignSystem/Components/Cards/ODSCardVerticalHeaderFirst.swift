@@ -151,6 +151,8 @@ public struct ODSCardVerticalHeaderFirst: View {
 
             ODSImage(source: imageSource)
                 .aspectRatio(contentMode: .fill)
+                .frame(maxHeight: 192, alignment: .center)
+                .clipped()
                 .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {

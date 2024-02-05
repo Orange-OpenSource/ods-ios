@@ -21,9 +21,9 @@ struct BannerComponent: Component {
     let variants: AnyView
 
     init() {
-        name = °°"screens.components.banners.title"
+        name = "screens.components.banners.title".🌐
         imageName = "Banners"
-        description = °°"screens.components.banners.description"
+        description = "screens.components.banners.description".🌐
         variants = AnyView(BannerVariants())
     }
 }
@@ -72,31 +72,36 @@ struct BannerVariantContent: View {
     // ==========
 
     var body: some View {
-        VStack {
-            switch model.buttonCount {
-            case 0:
-                ODSBanner(model.text, imageSource: model.imageSource)
-            case 1:
-                ODSBanner(model.text, imageSource: model.imageSource) {
-                    Button(model.buttonText) {
-                        // Do something
+        ScrollView {
+            VStack {
+                switch model.buttonCount {
+                case 0:
+                    ODSBanner(model.text, imageSource: model.imageSource)
+                case 1:
+                    ODSBanner(model.text, imageSource: model.imageSource) {
+                        Button(model.buttonText) {
+                            // Do something
+                        }
                     }
+                case 2:
+                    ODSBanner(model.text, imageSource: model.imageSource) {
+                        Button(model.firstButtonText) {
+                            // Do something
+                        }
+                    } secondButton: {
+                        Button(model.secondButtonText) {
+                            // Do something
+                        }
+                    }
+                default:
+                    EmptyView()
                 }
-            case 2:
-                ODSBanner(model.text, imageSource: model.imageSource) {
-                    Button(model.firstButtonText) {
-                        // Do something
-                    }
-                } secondButton: {
-                    Button(model.secondButtonText) {
-                        // Do something
-                    }
-                }
-            default:
-                EmptyView()
+                
+                Spacer()
             }
-
-            Spacer()
+        }
+        .refreshable {
+            model.updateRecipe()
         }
     }
 }

@@ -29,10 +29,10 @@ final class CardVerticalHeaderFirstVariantModel: ObservableObject {
     @Published var showText: Bool
     @Published var buttonCount: Int
     @Published var showAlert: Bool
-
+    @Published var recipe: Recipe
+    
     var alertText: String = ""
     let buttonsText: [String]
-    private let recipe: Recipe
 
     // =================
     // MARK: Initializer
@@ -86,6 +86,10 @@ final class CardVerticalHeaderFirstVariantModel: ObservableObject {
         alertText = text
         showAlert = true
     }
+
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
+    }
 }
 
 // ==========================================
@@ -113,6 +117,9 @@ struct CardVerticalHeaderFirstVariant: View {
                     .onTapGesture {
                         model.displayAlert(text: "screens.components.card.alert".🌐)
                     }
+            }
+            .refreshable {
+                model.updateRecipe()
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("shared.close", role: .cancel) {}

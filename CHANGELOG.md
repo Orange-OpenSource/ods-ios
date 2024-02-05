@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...qualif)
 
+- [DemoApp] Add pull to refresh on Cards and Banner screens ([#655](https://github.com/Orange-OpenSource/ods-ios/issues/655))
 - [SDK] ODSButton with low emphasis has incorrect background color (Bug [#578](https://github.com/Orange-OpenSource/ods-ios/issues/578))
 - [DemoApp/SDK] Focus order not coherent with Voice Over (Bug [#588](https://github.com/Orange-OpenSource/ods-ios/issues/588))
 - [DemoApp] Add configuration in the ListItem screeen to select the number of lines in subtitle([#650](https://github.com/Orange-OpenSource/ods-ios/issues/650))
