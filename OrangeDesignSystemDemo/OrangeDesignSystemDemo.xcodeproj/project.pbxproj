@@ -134,7 +134,6 @@
 		51B64C8B2B176F7700B93EBF /* AppsPlusAppDetailsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */; };
 		51B64C8D2B17731600B93EBF /* AppsPlusSectionMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */; };
 		51B64C8F2B17763800B93EBF /* AppsPlusListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */; };
-		51BFDAB52AF9206E00FB8139 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */; };
 		51CD72842B162D19008CE57D /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CD72782B162D19008CE57D /* StringLocalizationTests.swift */; };
 		51CD72852B162D19008CE57D /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CD72792B162D19008CE57D /* CacheTests.swift */; };
 		51CD72862B162D19008CE57D /* DateFormatterCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CD727A2B162D19008CE57D /* DateFormatterCacheTests.swift */; };
@@ -271,7 +270,6 @@
 		07F580142B69290300C8A00A /* SubtitleOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleOption.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		510AC65F2B727ED2006EBC49 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		513C99F42B5812300043DAAE /* AppsPlus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppsPlus.json; path = OrangeDesignSystemDemo/Resources/AppsPlus.json; sourceTree = "<group>"; };
 		513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppsPlusRepositoryTest.swift; sourceTree = "<group>"; };
 		513DC6942B1F4627001F86A6 /* MockURLAndResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLAndResponse.swift; path = OrangeDesignSystemDemoTests/_/MockURLAndResponse.swift; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 		51B64C8A2B176F7700B93EBF /* AppsPlusAppDetailsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusAppDetailsMock.json; sourceTree = "<group>"; };
 		51B64C8C2B17731600B93EBF /* AppsPlusSectionMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusSectionMock.json; sourceTree = "<group>"; };
 		51B64C8E2B17763800B93EBF /* AppsPlusListMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusListMock.json; sourceTree = "<group>"; };
-		51BFDAB42AF9206E00FB8139 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		51CD72782B162D19008CE57D /* StringLocalizationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringLocalizationTests.swift; sourceTree = "<group>"; };
 		51CD72792B162D19008CE57D /* CacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheTests.swift; sourceTree = "<group>"; };
 		51CD727A2B162D19008CE57D /* DateFormatterCacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterCacheTests.swift; sourceTree = "<group>"; };
@@ -310,7 +307,7 @@
 		F913B85F2767969E001CB0AA /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		F99FF06E2767AE2A006236A0 /* OrangeDesignSystemApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeDesignSystemApp.swift; path = OrangeDesignSystemDemo/OrangeDesignSystemApp.swift; sourceTree = "<group>"; };
 		FB859C964985A86562A19502 /* Pods-OrangeDesignSystemDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemoTests/Pods-OrangeDesignSystemDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		FD347D2C28D4C00B00F451B8 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		FD347D2C28D4C00B00F451B8 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,7 +390,6 @@
 				077C37CB2A9DD643003D6B51 /* Assets.xcassets */,
 				077C37CA2A9DD643003D6B51 /* Colors.xcassets */,
 				077C37CC2A9DD643003D6B51 /* Info.plist */,
-				51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */,
 				077C37CE2A9DD643003D6B51 /* Recipes.json */,
 				5107F5602AE11BDD00D4D01F /* AppNews.json */,
 				5107F56C2AE1220900D4D01F /* CGU.html */,
@@ -1042,10 +1038,9 @@
 			};
 			buildConfigurationList = EB0AA52B275652AE0012E192 /* Build configuration list for PBXProject "OrangeDesignSystemDemo" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = fr;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				fr,
 				Base,
 				en,
 			);
@@ -1068,7 +1063,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51BFDAB52AF9206E00FB8139 /* AccessibilityStatement.xml in Resources */,
 				51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */,
 				5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */,
 				5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */,
@@ -1377,19 +1371,10 @@
 		513876902ADD624B00AE53DF /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				513876912ADD62A000AE53DF /* fr */,
 				51F058B62AE8083500B1F690 /* Base */,
 				5166FE852AE9669A0038A4AE /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		51BFDAB32AF9206E00FB8139 /* AccessibilityStatement.xml */ = {
-			isa = PBXVariantGroup;
-			children = (
-				51BFDAB42AF9206E00FB8139 /* fr */,
-			);
-			name = AccessibilityStatement.xml;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1542,7 +1527,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1707239231;
+				CURRENT_PROJECT_VERSION = 1707239806;
 				DEVELOPMENT_ASSET_PATHS = "\"OrangeDesignSystemDemo/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = MG2LSJNJB6;
 				ENABLE_PREVIEWS = YES;
@@ -1579,7 +1564,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1707239231;
+				CURRENT_PROJECT_VERSION = 1707239806;
 				DEVELOPMENT_ASSET_PATHS = "\"OrangeDesignSystemDemo/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = MG2LSJNJB6;
 				ENABLE_PREVIEWS = YES;
