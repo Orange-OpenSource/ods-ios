@@ -40,14 +40,14 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.components.list.details" = "Détails"
+    // Expect to have in demo app for "en" Localizables entry "screens.components.list.details" = "Details"
     func test🌐WithAppWording() {
         // Given
         let someAppLocalizable = "screens.components.list.details"
         // When
         let result = someAppLocalizable.🌐
         // Then
-        XCTAssertTrue(result == "Détails", "Value under test is '\(result)'")
+        XCTAssertTrue(result == "Details", "Value under test is '\(result)'")
     }
 
     // Expect to have in lib app Localizables entry "modules.about.terms_of_service.title" = "Terms of Service"
@@ -83,14 +83,14 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.components.list.details" = "Détails"
+    // Expect to have in demo app for "en" Localizables entry "screens.components.list.details" = "Details"
     func testOOWithAppWording() {
         // Given
         let someAppLocalizable = "screens.components.list.details"
         // When
         let result = °°someAppLocalizable
         // Then
-        XCTAssertTrue(result == "Détails", "Value under test is '\(result)'")
+        XCTAssertTrue(result == "Details", "Value under test is '\(result)'")
     }
 
     // Expect to have in lib app Localizables entry "modules.about.terms_of_service.title" = "Terms of Service"
@@ -126,14 +126,14 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.components.list.details" = "Détails"
+    // Expect to have in demo app for "en" Localizables entry "screens.components.list.details" = "Details"
     func testLocalizedWithAppWording() {
         // Given
         let someAppLocalizable = "screens.components.list.details"
         // When
         let result = someAppLocalizable.localized()
         // Then
-        XCTAssertTrue(result == "Détails", "Value under test is '\(result)'")
+        XCTAssertTrue(result == "Details", "Value under test is '\(result)'")
     }
 
     // Expect to have in lib app Localizables entry "modules.about.terms_of_service.title" = "Terms of Service"
@@ -169,14 +169,14 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.components.card.alert_2" = "%@ tappé"
+    // Expect to have in demo app for "en" Localizables entry "screens.components.card.alert_2" = "%@ clicked"
     func testLocalizedWithOneArgWithAppWording() {
         // Given
         let someAppLocalizable = "screens.components.card.alert_2"
         // When
         let result = someAppLocalizable.localized(with: "Kenny")
         // Then
-        XCTAssertTrue(result == "Kenny tappé", "Value under test is '\(result)'")
+        XCTAssertTrue(result == "Kenny clicked", "Value under test is '\(result)'")
     }
 
     // Expect to have in lib app Localizables entry "modules.about.app_information.full_version_text" = "Version %@"
@@ -212,14 +212,14 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@"
+    // Expect to have in demo app for "en" Localizables entry "screens.about.file_load_failure" = "Unable to load file %@.%@"
     func testLocalizedWithSeveralArgsWithAppWording() {
         // Given
         let someAppLocalizable = "screens.about.file_load_failure"
         // When
         let result = someAppLocalizable.localized(with: ["eps3.8_stage3", "torrent"])
         // Then
-        XCTAssertTrue(result == "Impossible de charger le fichier eps3.8_stage3.torrent", "Value under test is '\(result)'")
+        XCTAssertTrue(result == "Unable to load file eps3.8_stage3.torrent", "Value under test is '\(result)'")
     }
 
     // Expect to have in lib app Localizables entry "modules.about.app_information.full_enriched_version_text" = "Version %@ (build %@)"
@@ -258,14 +258,14 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.components.card.alert_2" = "%@ tappé";
+    // Expect to have in demo app for "en" Localizables entry "screens.components.card.alert_2" = "%@ clicked";
     func testArrowWithOneArgWithAppWording() {
         // Given
         let someAppLocalizable = "screens.components.card.alert_2"
         // When
         let result = someAppLocalizable <- "Kenny"
         // Then
-        XCTAssertTrue(result == "Kenny tappé", "Value under test is '\(result)'")
+        XCTAssertTrue(result == "Kenny clicked", "Value under test is '\(result)'")
     }
 
     // Expect to have in lib app Localizables entry "modules.about.app_information.full_version_text" = "Version %@"
@@ -304,14 +304,14 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == someFakeKey, "Value under test is '\(result)'")
     }
 
-    // Expect to have in demo app for "fr" Localizables entry "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@"
+    // Expect to have in demo app for "en" Localizables entry "screens.about.file_load_failure" = "Unable to load file %@.%@"
     func testArrowWithSeveralArgsWithAppWording() {
         // Given
         let someAppLocalizable = "screens.about.file_load_failure"
         // When
         let result = someAppLocalizable <- ["eps3.8_stage3", "torrent"]
         // Then
-        XCTAssertTrue(result == "Impossible de charger le fichier eps3.8_stage3.torrent", "Value under test is '\(result)'")
+        XCTAssertTrue(result == "Unable to load file eps3.8_stage3.torrent", "Value under test is '\(result)'")
     }
 
     // Expect to have in lib app Localizables entry "modules.about.app_information.full_enriched_version_text" = "Version %@ (build %@)"
