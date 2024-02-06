@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [DemoApp] Remove french wordings because not enough ready yet ([#663](https://github.com/Orange-OpenSource/ods-ios/issues/663))
 - [Tooling] Various updates ([#667](https://github.com/Orange-OpenSource/ods-ios/issues/667))
 - [DemoApp] Remove duplicate files preventing build to be done
 
