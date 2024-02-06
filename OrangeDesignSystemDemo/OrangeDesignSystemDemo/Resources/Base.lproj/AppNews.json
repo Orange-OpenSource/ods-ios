@@ -1,5 +1,10 @@
 [
     {
+        "version": "0.18.0",
+        "date": "2024-02-06",
+        "news": "Remove french localisation."
+    },
+    {
         "version": "0.17.0",
         "date": "2024-02-06",
         "news": "New apps recirculation module is added.\n Update Benners and Cards to align buttons when text is too long.\nFix the background color of low empasis buttons.\nUpdate ListItem to limite number of lines on title and subtitle.\nFix some accessibility issues like Small cards and Grid of small cards to avoid truncated text at accessibility level."
