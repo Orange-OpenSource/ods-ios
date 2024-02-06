@@ -12,7 +12,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 ## Prepare release
 
 - Create a branch named `prepare-release` to prepare the new release for ODS iOS version X.Y.Z.
-- Switch to this branch and apply following chnages:
+- Switch to this branch and apply following changes:
     
     - Update the changelog.
 
@@ -109,7 +109,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 
 - Create a branch named `prepare-new-release` to prepare the new release for ODS iOS version U.V.W.
 
-- Switch to this branch and apply following chnages:
+- Switch to this branch and apply following changes:
     
     - Update the changelog.
     
