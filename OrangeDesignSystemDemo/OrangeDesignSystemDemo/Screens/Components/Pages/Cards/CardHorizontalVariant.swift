@@ -1,9 +1,14 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import OrangeDesignSystem
@@ -51,10 +56,11 @@ final class CardHorizontalVariantModel: ObservableObject {
     @Published var showAlert: Bool
     @Published var imagePosition: ODSCardHorizontal.ImagePosition
     @Published var showDivider: Bool
+    @Published var recipe: Recipe
 
     var alertText: String
     let buttonsText: [String]
-    private let recipe: Recipe
+    
 
     // =================
     // MARK: Initializer
@@ -105,6 +111,10 @@ final class CardHorizontalVariantModel: ObservableObject {
         alertText = text
         showAlert = true
     }
+
+    func updateRecipe() {
+        recipe = RecipeBook.shared.randomRecipe()
+    }
 }
 
 // ===============================
@@ -132,6 +142,9 @@ struct CardHorizontalVariant: View {
                     .onTapGesture {
                         model.displayAlert(text: "screens.components.card.alert")
                     }
+            }
+            .refreshable {
+                model.updateRecipe()
             }
             .alert(model.alertText, isPresented: $model.showAlert) {
                 Button("shared.close", role: .cancel) {}

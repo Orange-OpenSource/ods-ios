@@ -1,9 +1,14 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import OrangeDesignSystem
@@ -11,11 +16,13 @@ import SwiftUI
 
 struct ModulesList: View {
 
+    @AccessibilityFocusState private var requestFocus: Bool
+    @EnvironmentObject private var themeProvider: ThemeProvider
+    
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @EnvironmentObject private var themeProvider: ThemeProvider
     private let columns = [GridItem(.flexible(), alignment: .topLeading)]
 
     // ==========
@@ -28,17 +35,24 @@ struct ModulesList: View {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                     NavigationLink {
                         ListModule()
-                            .navigationTitle("screens.modules.lists.title")
+                            .odsNavigationTitle("screens.modules.lists.title".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.lists.title"),
                             imageSource: .image(imageFrom(resourceName: "Lists")))
+                            .accessibilityFocused($requestFocus)
+                            //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    requestFocus = true
+                                }
+                            }
                     }
 
                     NavigationLink {
                         AboutModule()
-                            .navigationTitle("screens.modules.about.titles.setup")
+                            .odsNavigationTitle("screens.modules.about.titles.setup".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
@@ -48,7 +62,7 @@ struct ModulesList: View {
 
                     NavigationLink {
                         CardViewDemo()
-                            .navigationTitle("screens.modules.about.titles.card_collections")
+                            .odsNavigationTitle("screens.modules.about.titles.card_collections".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
@@ -58,7 +72,7 @@ struct ModulesList: View {
                 }
                 .padding(.all, ODSSpacing.m)
             }
-            .navigationTitle("shared.modules")
+            .odsNavigationTitle("shared.modules".🌐)
             .navigationbarMenuForThemeSelection()
         }
         .navigationViewStyle(.stack)

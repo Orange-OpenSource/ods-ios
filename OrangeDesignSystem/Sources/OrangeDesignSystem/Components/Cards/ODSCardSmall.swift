@@ -1,9 +1,14 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import SwiftUI
@@ -19,6 +24,10 @@ public struct ODSCardSmall: View {
     private let title: Text
     private let subtitle: Text?
     private let imageSource: ODSImage.Source
+    private let titleAccessibleLineLimit: Int?
+    private let subtitleAccessibleLineLimit: Int?
+
+    @Environment(\.sizeCategory) private var sizeCategory
 
     // =================
     // MARK: Initializer
@@ -29,12 +38,15 @@ public struct ODSCardSmall: View {
     /// - Parameters:
     ///  - title: Title displayed into the card.
     ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
-    ///  - subtitle: Optional subtitle displayed into the card.
-    ///
-    public init(title: Text, imageSource: ODSImage.Source, subtitle: Text? = nil) {
+    ///  - subtitle: Optional subtitle displayed into the card,d efault set to `nil`
+    ///  - titleAccessibleLineLimit: The line limit to apply to the title is size category is accessibility category, default set to `nil`
+    ///  - subtitleAccessibleLineLimit: The line limit to apply to the subtitle is size category is accessibility category, default set to `nil`
+    public init(title: Text, imageSource: ODSImage.Source, subtitle: Text? = nil, titleAccessibleLineLimit: Int? = nil, subtitleAccessibleLineLimit: Int? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.imageSource = imageSource
+        self.titleAccessibleLineLimit = titleAccessibleLineLimit
+        self.subtitleAccessibleLineLimit = subtitleAccessibleLineLimit
     }
 
     // ==========
@@ -51,22 +63,44 @@ public struct ODSCardSmall: View {
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 title
-                    .lineLimit(1)
+                    .lineLimit(sizeCategory.isAccessibilityCategory ? titleAccessibleLineLimit : 1)
                     .odsFont(.bodyLBold)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 subtitle?
-                    .lineLimit(1)
+                    .lineLimit(sizeCategory.isAccessibilityCategory ? subtitleAccessibleLineLimit : 1)
                     .odsFont(.bodyLRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .accessibilityElement(children: .combine)
             .padding(.all, ODSSpacing.m)
+            .modifier(AccessibleMultilineTextAlignment())
         }
         .foregroundColor(.primary)
         .modifier(CardShadowModifier())
     }
 }
+
+// ===========================================
+// MARK: - Accessible Multiline Text Alignment
+// ===========================================
+
+private struct AccessibleMultilineTextAlignment: ViewModifier {
+
+    @Environment(\.sizeCategory) private var sizeCategory
+
+    func body(content: Content) -> some View {
+        if sizeCategory.isAccessibilityCategory {
+            content.multilineTextAlignment(.leading)
+        } else {
+            content
+        }
+    }
+}
+
+// ========================
+// MARK: - Preview Provider
+// ========================
 
 #if DEBUG
 struct SmallCardView_Previews: PreviewProvider {

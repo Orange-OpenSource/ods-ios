@@ -1,15 +1,22 @@
 #
-# Software Name: Orange Design System (iOS)
-# SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
+# Software Name: Orange Design System
+# SPDX-FileCopyrightText: Copyright (c) Orange SA
 # SPDX-License-Identifier: MIT
 #
-# This software is distributed under the MIT license.
+# This software is distributed under the MIT license,
+# the text of which is available at https://opensource.org/license/MIT/
+# or see the "LICENSE" file for more details.
+#
+# Authors: See CONTRIBUTORS.txt
+# Software description: A SwiftUI components library with code examples for Orange Design System
 #
 
 APPLE_ISSUER_ID = ENV["ODS_APPLE_ISSUER_ID"]
 APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
 DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
+
+APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
 
 MATTERMOST_HOOK_URL = ENV["ODS_MATTERMOST_HOOK_URL"]
 MATTERMOST_HOOK_BOT_NAME = ENV["ODS_MATTERMOST_HOOK_BOT_NAME"]
@@ -23,6 +30,10 @@ ODS_PROPROFILE = ENV["ODS_PROPROFILE"]
 default_platform(:ios)
 
 platform :ios do
+
+  before_all do
+    xcodes(select_for_current_build_only: true)
+  end
 
   # ---------
   # RUN TESTS
@@ -42,6 +53,19 @@ platform :ios do
     end
   end
     
+  # ------------------------------------------------------------
+  # ADD APPS PLUS CREDENTIALS (About module)
+  # ------------------------------------------------------------
+  desc "ADD APPS PLUS CREDENTIALS"
+  lane :add_credentials_appsplus do
+    update_plist(
+      plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
+      block: proc do |plist|
+        plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
+      end
+    )
+  end
+
   # ------------------------------------------------------------
   # UPDATE BUILD NUMBER WITH TIMESTAMP
   # ------------------------------------------------------------

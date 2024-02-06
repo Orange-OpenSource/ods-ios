@@ -1,12 +1,18 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import SwiftUI
+import Flow
 
 /// A banner displays an important message which requires an
 /// action to be dismissed.
@@ -103,7 +109,7 @@ public struct ODSBanner: View {
                 .padding(.bottom, firstButton == nil ? ODSSpacing.m : ODSSpacing.none)
                 .padding(.horizontal, ODSSpacing.m)
 
-                bottomButtons()
+                buttons()
             }
 
             Divider()
@@ -115,13 +121,18 @@ public struct ODSBanner: View {
     // =============
 
     @ViewBuilder
-    private func bottomButtons() -> some View {
+    private func buttons() -> some View {
         if let firstButton = firstButton {
-            HStack(spacing: ODSSpacing.none) {
-                firstButton()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
-                secondButton?()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
+            if #available(iOS 16.0, *) {
+                HFlow(alignment: .top, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                }
+            } else {
+                HStack(alignment: .center, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                }
             }
         }
     }

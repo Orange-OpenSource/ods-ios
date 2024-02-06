@@ -1,12 +1,18 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import SwiftUI
+import Flow
 
 ///
 /// <a href="https://system.design.orange.com/0c1af118d/p/66bac5-cards/b/1591fb" target="_blank">ODS Card</a>.
@@ -145,6 +151,8 @@ public struct ODSCardVerticalHeaderFirst: View {
 
             ODSImage(source: imageSource)
                 .aspectRatio(contentMode: .fill)
+                .frame(maxHeight: 192, alignment: .center)
+                .clipped()
                 .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
@@ -168,13 +176,17 @@ public struct ODSCardVerticalHeaderFirst: View {
     @ViewBuilder
     private func buttons() -> some View {
         if let firstButton = firstButton {
-            HStack(alignment: .center, spacing: ODSSpacing.none) {
-                firstButton()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
-                secondButton?()
-                    .odsEmphasisButtonStyle(emphasis: .lowest)
-
-                Spacer()
+            if #available(iOS 16.0, *) {
+                HFlow(alignment: .top, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                }
+            } else {
+                HStack(alignment: .center, spacing: ODSSpacing.none) {
+                    firstButton().odsEmphasisButtonStyle(emphasis: .lowest)
+                    secondButton?().odsEmphasisButtonStyle(emphasis: .lowest)
+                    Spacer()
+                }
             }
         }
     }

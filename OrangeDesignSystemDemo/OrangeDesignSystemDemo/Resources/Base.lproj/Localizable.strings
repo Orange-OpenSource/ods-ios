@@ -1,10 +1,15 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
+//
 
 // ========================
 // MARK: - Shared / commmon
@@ -72,6 +77,7 @@
 "screens.about.app_information.option_description.app_news" = "App News";
 "screens.about.app_information.option_description.legal_information" = "Legal Information";
 "screens.about.app_information.option_description.rate" = "Rate the app";
+"screens.about.app_information.option_description.more_apps" = "More apps";
 "screens.about.file_load_failure" = "Unable to load file %@.%@";
 "screens.about.terms_of_service" = "Terms of Service";
 "screens.about.legal_information_text.default" = "Add Legal information here";
@@ -242,6 +248,10 @@
 "screens.components.lists.alert" = "Information icon tapped! Bon appétit";
 "screens.components.lists.options.description.info_button" = "Info button";
 "screens.components.list.details" = "Details";
+"screens.components.lists.subtitle_option.title" = "Sous titre";
+"screens.components.lists.subtitle_option.none" = "Sans";
+"screens.components.lists.subtitle_option.one_line" = "Une ligne";
+"screens.components.lists.subtitle_option.two_lines" = "Deux lignes";
 
 // ==================================================
 // MARK: - Screens - Components - Progress indicators
@@ -329,6 +339,11 @@
 "screens.modules.about.texts.add_cgu" = "Add terms of service here";
 "screens.modules.about.titles.my_review" = "My reviews";
 "screens.modules.about.titles.my_recipes" = "My recipes";
+"screens.modules.about.more_apps_demo_section.flatten_more_apps_sections" = "Do not categorize apps";
+"screens.modules.about.more_apps_demo_section.use_embeded_mock" = "Use local mock";
+"screens.modules.about.more_apps_demo_section.cache_more_apps_icons" = "Cache apps images";
+"screens.modules.about.more_apps_demo_section.enable_haptics" = "Enable vibrations";
+"screens.modules.about.more_apps_demo_section.title" = "More apps settings";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections

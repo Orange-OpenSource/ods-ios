@@ -1,0 +1,19 @@
+{
+    "items": [
+        {
+            "type": "list",
+            "children": [
+                {
+                    "published": "2023-12-05",
+                    "title": "Astonishing app in cache",
+                    "mid": "1234567890",
+                    "type": "app",
+                    "iconUrl": "https:\/\/appsplus-oma.apps-details.com\/icons\/cache.png",
+                    "description": "Some awesome cache description",
+                    "link": "https:\/\/itunes.apple.com\/app\/apple-store\/cache",
+                    "providerId": "1234567890"
+                }
+            ]
+        }
+    ]
+}

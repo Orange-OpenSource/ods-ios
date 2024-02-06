@@ -1,9 +1,14 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import SwiftUI
@@ -24,6 +29,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
     private let headerIllustration: Image
     private let applicationInformation: ODSAboutApplicationInformation
     private let listItemConfigurations: [ODSAboutListItemConfig]
+    private let title: String
 
     // ==================
     // MARK: Initializers
@@ -56,13 +62,14 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
         self.headerIllustration = headerIllustration
         self.applicationInformation = applicationInformation
 
-        let internalItemsConfig = [
-            AboutPrivacyPolicyItem(policy: privacyPolicy) as ODSAboutListItemConfig,
-            AboutTermOfServiceItem(termsOfService: termsOfService) as ODSAboutListItemConfig,
-            AboutAccessibilityStatementItemConfig(statementConfig: acessibilityStatement) as ODSAboutListItemConfig,
+        let internalItemsConfig: [ODSAboutListItemConfig] = [
+            AboutPrivacyPolicyItem(policy: privacyPolicy),
+            AboutTermOfServiceItem(termsOfService: termsOfService),
+            AboutAccessibilityStatementItemConfig(statementConfig: acessibilityStatement),
         ]
 
-        self.listItemConfigurations = listItemConfigurations + internalItemsConfig
+        self.listItemConfigurations = (listItemConfigurations + internalItemsConfig).sorted()
+        title = °°"modules.about.title"
     }
 
     // ==========
@@ -87,7 +94,7 @@ public struct ODSAboutModule<TermsOfService>: View where TermsOfService: View {
                 .padding(.bottom, ODSSpacing.s)
         }
         .listStyle(.plain)
-        .navigationTitle(°°"modules.about.title")
+        .odsNavigationTitle(title)
         .navigationBarTitleDisplayMode(.large)
         .background(ODSInternalColor.primaryBackground.color)
     }

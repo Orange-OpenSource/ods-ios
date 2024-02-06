@@ -3,8 +3,38 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.16.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
+## [0.17.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-02-06
 
+- [DemoApp] Add pull to refresh on Cards and Banners screens ([#655](https://github.com/Orange-OpenSource/ods-ios/issues/655))
+- [SDK] ODSButton with low emphasis has incorrect background color (Bug [#578](https://github.com/Orange-OpenSource/ods-ios/issues/578))
+- [DemoApp/SDK] Focus order not coherent with Voice Over (Bug [#588](https://github.com/Orange-OpenSource/ods-ios/issues/588))
+- [DemoApp] Add configuration in the ListItem screeen to select the number of lines in subtitle([#650](https://github.com/Orange-OpenSource/ods-ios/issues/650))
+- [SDK] Update ListItem to limit title in one line and subtitle up to two lines ([#586](https://github.com/Orange-OpenSource/ods-ios/issues/586))
+- [DemoApp/SDK] Components page accessibility issues (Bug [#563](https://github.com/Orange-OpenSource/ods-ios/issues/563))
+- [DemoApp/SDK] Code cleanup ([#647](https://github.com/Orange-OpenSource/ods-ios/issues/647)])
+- [SDK] Update Banners to align buttons when text is too long ([#642](https://github.com/Orange-OpenSource/ods-ios/issues/642))
+- [SDK] Update Cards to align buttons when text is too long ([#630](https://github.com/Orange-OpenSource/ods-ios/issues/630))
+- [Tooling] Upgrate to xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
+- [DemoApp/SDK] ODSSmallCard and GridOfSmallCards a11y issue if accessible text sizes in use ([#598](https://github.com/Orange-OpenSource/ods-ios/issues/598))
+- [Tooling] Upgrade to Xcode 15 ([#638](https://github.com/Orange-OpenSource/ods-ios/issues/638))
+- [Tooling] Upgrade tools versions and internal librairies ([#639](https://github.com/Orange-OpenSource/ods-ios/issues/639))
+- [Docs] Update documentation with illustration ([#602](https://github.com/Orange-OpenSource/ods-ios/issues/602))
+- [Tooling] Add GitHub Actions for Gitleaks runs to look for secrets leaks ([#605](https://github.com/Orange-OpenSource/ods-ios/issues/605))
+- [DemoApp/Tooling] Update sources header, license file content, build phase and template ([#582](https://github.com/Orange-OpenSource/ods-ios/issues/582))
+- [DemoApp/Tooling] Demo app crashes if no URL defined, CI/CD fails because of unversioned xcconfig file (Bug [#612](https://github.com/Orange-OpenSource/ods-ios/issues/612))
+- [Tooling] Add Fastlane lane to copy Apps Plus credentials in CI/CD chain for nightly and release builds ([#610](https://github.com/Orange-OpenSource/ods-ios/issues/610))
+- [DemoApp] Update technical documentation with versions of tools ([#549](https://github.com/Orange-OpenSource/ods-ios/issues/549))
+- [DemoApp/SDK] Apps recirculation ([#64](https://github.com/Orange-OpenSource/ods-ios/issues/64))
+
+## [0.16.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
+
+- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
+- [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
+- [DemoApp/SDK] Thumbnail of card vertical header first not showing (Bug [#499](https://github.com/Orange-OpenSource/ods-ios/issues/499))
+- [DemoApp] Back button renamed after switching from lanscape to portrait mode (Bug [#562](https://github.com/Orange-OpenSource/ods-ios/issues/562))
+- [DemoApp] Udpate accessibility label on Functional and Emphasis buttons in demo app ([#546](https://github.com/Orange-OpenSource/ods-ios/issues/546))
+- [SDK/DemoApp] Refactor chips component API ([#262](https://github.com/Orange-OpenSource/ods-ios/issues/262))
+- [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
 - [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
 - [DemoApp/SDK] Thumbnail of card vertical header first not showing (Bug [#499](https://github.com/Orange-OpenSource/ods-ios/issues/499))
