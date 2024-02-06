@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.18.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...0.18.0) - 2024-02-06
+
+- [DemoApp] Remove french wordings because not enough ready yet ([#663](https://github.com/Orange-OpenSource/ods-ios/issues/663))
+- [Tooling] Various updates ([#667](https://github.com/Orange-OpenSource/ods-ios/issues/667))
+- [DemoApp] Remove duplicate files preventing build to be done
+
 ## [0.17.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-02-06
 
 - [DemoApp] Add pull to refresh on Cards and Banners screens ([#655](https://github.com/Orange-OpenSource/ods-ios/issues/655))
@@ -26,7 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp] Update technical documentation with versions of tools ([#549](https://github.com/Orange-OpenSource/ods-ios/issues/549))
 - [DemoApp/SDK] Apps recirculation ([#64](https://github.com/Orange-OpenSource/ods-ios/issues/64))
 
-## [0.16.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.15.0) - 2024-01-15
+## [0.16.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...0.16.0) - 2024-01-15
 
 - [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
@@ -50,7 +56,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp/SDK] Change wording by replacing ... by elipsis code
 - [DemoApp] Fix corrupted AppNews.json file
 
-## [0.15.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...0.14.0) - 2023-11-14
+## [0.15.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...0.15.0) - 2023-11-14
 
 - [DemoApp/SDK] Fix compilation issues (auto signing for release, remove ios 17 support) ([#529](https://github.com/Orange-OpenSource/ods-ios/issues/529))
 - [DemoApp] Review the naming of the wording keys for components ([#523](https://github.com/Orange-OpenSource/ods-ios/issues/523))
@@ -68,7 +74,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp/SDK] Add accessibility statement in About module ([#119](https://github.com/Orange-OpenSource/ods-ios/issues/119))
 - [SDK] Update CardSmall api to use SwiftUI elements ([#485](https://github.com/Orange-OpenSource/ods-ios/issues/485))
 
-## [0.14.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.14.0...0.13.1) - 2023-10-09
+## [0.14.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.1...0.14.0) - 2023-10-09
 
 - [SDK] Update CardVerticalImageFirst api to use SwiftUI elements ([#481](https://github.com/Orange-OpenSource/ods-ios/issues/481))
 - [SDK] Update CardVerticalHeaderFirst api to use SwiftUI elements ([#479](https://github.com/Orange-OpenSource/ods-ios/issues/479))
@@ -82,11 +88,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [Doc] Add documentation for release process ([#451](https://github.com/Orange-OpenSource/ods-ios/issues/451))
 - [DemoApp/SDK] About module: Review The ShareTheApp content because url is presented twice ([#435](https://github.com/Orange-OpenSource/ods-ios/issues/435))
 
-## [0.13.1](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.1...0.12.0) - 2023-09-13
+## [0.13.1](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.0...0.13.1) - 2023-09-13
 
 - [DemoApp] Update AppNews for release
 
-## [0.13.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.13.0...0.12.0) - 2023-09-12
+## [0.13.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...0.13.0) - 2023-09-12
 
 - [SDK] Add documentation for the About module ([#441](https://github.com/Orange-OpenSource/ods-ios/issues/441))
 - [SDK] Udpate colors for Orange and InnovationCup themes (Bug [#423](https://github.com/Orange-OpenSource/ods-ios/issues/423))
@@ -96,7 +102,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp/SDK] Reorganize repository and Xcode project ([#419](https://github.com/Orange-OpenSource/ods-ios/issues/419))
 - [DemoApp/SDK] First version (intermediate) of the About Module with new design and features ([#63](https://github.com/Orange-OpenSource/ods-ios/issues/63))
 
-## [0.12.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.12.0...0.11.0) - 2023-04-14
+## [0.12.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.2...0.12.0) - 2023-04-14
 
 - [DemoApp/SDK] Add Bottom Sheet component ([#325](https://github.com/Orange-OpenSource/ods-ios/issues/325))
 - [SDK] Accessibility issues on Slider (Bug [#385](https://github.com/Orange-OpenSource/ods-ios/issues/385))
@@ -107,16 +113,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [SDK] Value is not computed well if Slider configured with step less than 1 (Bug [#313](https://github.com/Orange-OpenSource/ods-ios/issues/313))
 - [DemoApp] Update About module illustrations with B&W images ([#371](https://github.com/Orange-OpenSource/ods-ios/issues/371))
 
-## [0.11.2](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.2...0.10.0) - 2023-03-27
+## [0.11.2](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.1...0.11.2) - 2023-03-27
 
 - [DemoApp] No default item selected on iPad at launch ([#396](https://github.com/Orange-OpenSource/ods-ios/issues/396))
 - [SDK] Update Readme and ThirdParty files ([#394](https://github.com/Orange-OpenSource/ods-ios/issues/394))
 
-## [0.11.1](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.1...0.10.0) - 2023-03-16
+## [0.11.1](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...0.11.1) - 2023-03-16
 
 - [DemoApp] Rename Application([#388](https://github.com/Orange-OpenSource/ods-ios/issues/388))
 
-## [0.11.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.11.0...0.10.0) - 2023-02-28
+## [0.11.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.10.0...0.11.0) - 2023-02-28
 
 - [DemoApp/SDK] Fix mistake in wording and documentation ([#364](https://github.com/Orange-OpenSource/ods-ios/issues/364))
 - [DemoApp/SDK] Add parameter in CardHorizontal configuration to show/hide divider above buttons ([#362](https://github.com/Orange-OpenSource/ods-ios/issues/362)) 

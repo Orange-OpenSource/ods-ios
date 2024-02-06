@@ -118,7 +118,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     \## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/X.Y.Z...qualif)
     ```
     
-    - Update in Xcode the version of OrangeDesigneSystemDemo targetto U.V.W (the new version)
+    - Update in Xcode the version of OrangeDesignSystemDemo target to U.V.W (the new version you suppose it will be)
     - Commit your modifications
     - Push them to the repository
     - Create a new pull request named `Update release U.V.W` on GitHub to merge your branch into `qualif`.

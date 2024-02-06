@@ -6,8 +6,6 @@
 	<string>🥜</string>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleSpokenName</key>
 	<string>Orange Design System</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
