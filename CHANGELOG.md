@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
+
+- [Tooling] Various updates ([#667](https://github.com/Orange-OpenSource/ods-ios/issues/667))
+- [DemoApp] Remove duplicate files preventing build to be done
+
 ## [0.17.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-02-06
 
 - [DemoApp] Add pull to refresh on Cards and Banners screens ([#655](https://github.com/Orange-OpenSource/ods-ios/issues/655))
