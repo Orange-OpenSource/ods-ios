@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.18.0...qualif)
+
 ## [0.18.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...0.18.0) - 2024-02-06
 
 - [DemoApp] Remove french wordings because not enough ready yet ([#663](https://github.com/Orange-OpenSource/ods-ios/issues/663))
