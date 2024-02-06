@@ -117,6 +117,30 @@
 		5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5602AE11BDD00D4D01F /* AppNews.json */; };
 		5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F5642AE1209A00D4D01F /* PrivacyNotice.html */; };
 		5107F56A2AE1220900D4D01F /* CGU.html in Resources */ = {isa = PBXBuildFile; fileRef = 5107F56C2AE1220900D4D01F /* CGU.html */; };
+		510AC6312B727D9D006EBC49 /* MockURLAndResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC62F2B727D9D006EBC49 /* MockURLAndResponse.swift */; };
+		510AC6322B727D9D006EBC49 /* XCTestCase+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6302B727D9D006EBC49 /* XCTestCase+extension.swift */; };
+		510AC6472B727DA6006EBC49 /* MoreAppsAppsPlusMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6362B727DA6006EBC49 /* MoreAppsAppsPlusMapperTests.swift */; };
+		510AC6482B727DA6006EBC49 /* LocalAppsPlusRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6372B727DA6006EBC49 /* LocalAppsPlusRepositoryTest.swift */; };
+		510AC6492B727DA6006EBC49 /* MoreAppsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6382B727DA6006EBC49 /* MoreAppsServiceTests.swift */; };
+		510AC64A2B727DA6006EBC49 /* MoreAppsBOTests.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6392B727DA6006EBC49 /* MoreAppsBOTests.swift.swift */; };
+		510AC64B2B727DA6006EBC49 /* AppsPlusCache.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC63B2B727DA6006EBC49 /* AppsPlusCache.json */; };
+		510AC64C2B727DA6006EBC49 /* AppsPlusAppDetailsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC63C2B727DA6006EBC49 /* AppsPlusAppDetailsMock.json */; };
+		510AC64D2B727DA6006EBC49 /* AppsPlusSectionMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC63D2B727DA6006EBC49 /* AppsPlusSectionMock.json */; };
+		510AC64E2B727DA6006EBC49 /* AppsPlusMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC63E2B727DA6006EBC49 /* AppsPlusMock.json */; };
+		510AC64F2B727DA6006EBC49 /* ODSAboutListItemPriorityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC63F2B727DA6006EBC49 /* ODSAboutListItemPriorityTests.swift */; };
+		510AC6502B727DA6006EBC49 /* AppNewsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6412B727DA6006EBC49 /* AppNewsListViewModelTests.swift */; };
+		510AC6512B727DA6006EBC49 /* AppNewsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC6432B727DA6006EBC49 /* AppNewsMock.json */; };
+		510AC6522B727DA6006EBC49 /* FileWithoutJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC6442B727DA6006EBC49 /* FileWithoutJson.json */; };
+		510AC6532B727DA6006EBC49 /* NotStringFile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 510AC6452B727DA6006EBC49 /* NotStringFile.jpg */; };
+		510AC6542B727DA6006EBC49 /* AppNewsMock_notCompliant_badDateFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC6462B727DA6006EBC49 /* AppNewsMock_notCompliant_badDateFormat.json */; };
+		510AC65A2B727DD0006EBC49 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6552B727DCF006EBC49 /* ArrayExtensionTests.swift */; };
+		510AC65B2B727DD0006EBC49 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6562B727DD0006EBC49 /* DateFormatterTests.swift */; };
+		510AC65C2B727DD0006EBC49 /* StringLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6572B727DD0006EBC49 /* StringLocalizationTests.swift */; };
+		510AC65D2B727DD0006EBC49 /* DateFormatterCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6582B727DD0006EBC49 /* DateFormatterCacheTests.swift */; };
+		510AC65E2B727DD0006EBC49 /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC6592B727DD0006EBC49 /* CacheTests.swift */; };
+		510AC6612B727FCF006EBC49 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510AC65F2B727ED2006EBC49 /* Logger.swift */; };
+		510AC6632B7282B4006EBC49 /* AppsPlusListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC6622B72828B006EBC49 /* AppsPlusListMock.json */; };
+		510AC6652B7286F6006EBC49 /* AppsPlus.json in Resources */ = {isa = PBXBuildFile; fileRef = 510AC6642B7286F6006EBC49 /* AppsPlus.json */; };
 		5138768B2ADD449100AE53DF /* InnovationCupTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0C2AC1BCF800AAE074 /* InnovationCupTheme */; };
 		5138768C2ADD449100AE53DF /* OrangeDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E0E2AC1BCF800AAE074 /* OrangeDesignSystem */; };
 		5138768D2ADD449100AE53DF /* OrangeTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 076C0E102AC1BCF800AAE074 /* OrangeTheme */; };
@@ -270,6 +294,30 @@
 		07E4C8662AE7BC8E00FB4DAC /* ListModuleOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModuleOptions.swift; sourceTree = "<group>"; };
 		07F580142B69290300C8A00A /* SubtitleOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleOption.swift; sourceTree = "<group>"; };
 		2ACFE972C59B1460F410852D /* Pods-OrangeDesignSystemDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.debug.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		510AC62F2B727D9D006EBC49 /* MockURLAndResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockURLAndResponse.swift; path = ../OrangeDesignSystemDemoTests/_/MockURLAndResponse.swift; sourceTree = "<group>"; };
+		510AC6302B727D9D006EBC49 /* XCTestCase+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+extension.swift"; path = "../OrangeDesignSystemDemoTests/_/XCTestCase+extension.swift"; sourceTree = "<group>"; };
+		510AC6362B727DA6006EBC49 /* MoreAppsAppsPlusMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAppsAppsPlusMapperTests.swift; sourceTree = "<group>"; };
+		510AC6372B727DA6006EBC49 /* LocalAppsPlusRepositoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAppsPlusRepositoryTest.swift; sourceTree = "<group>"; };
+		510AC6382B727DA6006EBC49 /* MoreAppsServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAppsServiceTests.swift; sourceTree = "<group>"; };
+		510AC6392B727DA6006EBC49 /* MoreAppsBOTests.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAppsBOTests.swift.swift; sourceTree = "<group>"; };
+		510AC63B2B727DA6006EBC49 /* AppsPlusCache.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppsPlusCache.json; sourceTree = "<group>"; };
+		510AC63C2B727DA6006EBC49 /* AppsPlusAppDetailsMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppsPlusAppDetailsMock.json; sourceTree = "<group>"; };
+		510AC63D2B727DA6006EBC49 /* AppsPlusSectionMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppsPlusSectionMock.json; sourceTree = "<group>"; };
+		510AC63E2B727DA6006EBC49 /* AppsPlusMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppsPlusMock.json; sourceTree = "<group>"; };
+		510AC63F2B727DA6006EBC49 /* ODSAboutListItemPriorityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSAboutListItemPriorityTests.swift; sourceTree = "<group>"; };
+		510AC6412B727DA6006EBC49 /* AppNewsListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNewsListViewModelTests.swift; sourceTree = "<group>"; };
+		510AC6432B727DA6006EBC49 /* AppNewsMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppNewsMock.json; sourceTree = "<group>"; };
+		510AC6442B727DA6006EBC49 /* FileWithoutJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FileWithoutJson.json; sourceTree = "<group>"; };
+		510AC6452B727DA6006EBC49 /* NotStringFile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NotStringFile.jpg; sourceTree = "<group>"; };
+		510AC6462B727DA6006EBC49 /* AppNewsMock_notCompliant_badDateFormat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppNewsMock_notCompliant_badDateFormat.json; sourceTree = "<group>"; };
+		510AC6552B727DCF006EBC49 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtensionTests.swift; path = OrangeDesignSystemDemoTests/Utils/ArrayExtensionTests.swift; sourceTree = "<group>"; };
+		510AC6562B727DD0006EBC49 /* DateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterTests.swift; path = OrangeDesignSystemDemoTests/Utils/DateFormatterTests.swift; sourceTree = "<group>"; };
+		510AC6572B727DD0006EBC49 /* StringLocalizationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringLocalizationTests.swift; path = OrangeDesignSystemDemoTests/Utils/StringLocalizationTests.swift; sourceTree = "<group>"; };
+		510AC6582B727DD0006EBC49 /* DateFormatterCacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterCacheTests.swift; path = OrangeDesignSystemDemoTests/Utils/DateFormatterCacheTests.swift; sourceTree = "<group>"; };
+		510AC6592B727DD0006EBC49 /* CacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheTests.swift; path = OrangeDesignSystemDemoTests/Utils/CacheTests.swift; sourceTree = "<group>"; };
+		510AC65F2B727ED2006EBC49 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		510AC6622B72828B006EBC49 /* AppsPlusListMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppsPlusListMock.json; sourceTree = "<group>"; };
+		510AC6642B7286F6006EBC49 /* AppsPlus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppsPlus.json; path = OrangeDesignSystemDemo/Resources/AppsPlus.json; sourceTree = "<group>"; };
 		513876912ADD62A000AE53DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = OrangeDesignSystemDemo/Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		513C99F42B5812300043DAAE /* AppsPlus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = AppsPlus.json; path = OrangeDesignSystemDemo/Resources/AppsPlus.json; sourceTree = "<group>"; };
 		513C99F62B5937700043DAAE /* LocalAppsPlusRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppsPlusRepositoryTest.swift; sourceTree = "<group>"; };
@@ -711,6 +759,7 @@
 		077C388C2A9DEEDB003D6B51 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				510AC65F2B727ED2006EBC49 /* Logger.swift */,
 				077C38A02A9E24DB003D6B51 /* UI */,
 				077C38902A9DEEDB003D6B51 /* Domain */,
 				51F600892B5E9AB200FF90F3 /* Logger.swift */,
@@ -1250,6 +1299,7 @@
 				077C38762A9DDC79003D6B51 /* GuidelinePage.swift in Sources */,
 				077C38752A9DDC79003D6B51 /* Guideline.swift in Sources */,
 				077C386A2A9DDC79003D6B51 /* NavigationBarModifiers.swift in Sources */,
+				510AC6612B727FCF006EBC49 /* Logger.swift in Sources */,
 				077C387B2A9DDC79003D6B51 /* ColorDetail.swift in Sources */,
 				07BDEA932B150263005574A2 /* ActionChipsVariant.swift in Sources */,
 				077C386B2A9DDC79003D6B51 /* NavigationBarVariant.swift in Sources */,

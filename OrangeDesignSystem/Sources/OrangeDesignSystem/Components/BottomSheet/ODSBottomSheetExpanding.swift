@@ -10,7 +10,6 @@
 // Authors: See CONTRIBUTORS.txt
 // Software description: A SwiftUI components library with code examples for Orange Design System
 //
-
 import SwiftUI
 
 public enum ODSBottomSheetSize {
