@@ -1,10 +1,15 @@
-/*
- * Software Name: Orange Design System (iOS)
- * SPDX-FileCopyrightText: Copyright (c) 2021-2023 Orange SA
- * SPDX-License-Identifier: MIT
- *
- * This software is distributed under the MIT license.
- */
+//
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
+// SPDX-License-Identifier: MIT
+//
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
+//
 
 // ========================
 // MARK: - Shared / commmon
@@ -73,6 +78,7 @@
 "screens.about.app_information.option_description.feedback" = "Avis";
 "screens.about.app_information.option_description.app_news" = "Actualités de l'app";
 "screens.about.app_information.option_description.legal_information" = "Mentions légales";
+"screens.about.app_information.option_description.more_apps" = "Plus d'apps";
 "screens.about.app_information.option_description.rate" = "Évaluez l'app";
 "screens.about.file_load_failure" = "Impossible de charger le fichier %@.%@";
 
@@ -242,6 +248,10 @@
 "screens.components.lists.alert" = "Icône d'information tappée ! Bon appétit";
 "screens.components.lists.options.description.info_button" = "Bouton d'information";
 "screens.components.list.details" = "Détails";
+"screens.components.lists.subtitle_option.title" = "Subtitle";
+"screens.components.lists.subtitle_option.none" = "None";
+"screens.components.lists.subtitle_option.one_line" = "One line";
+"screens.components.lists.subtitle_option.two_lines" = "Two lines";
 
 // ==================================================
 // MARK: - Screens - Components - Progress indicators
@@ -329,6 +339,11 @@
 "screens.modules.about.texts.add_cgu" = "Ajouter les CGU ici";
 "screens.modules.about.titles.my_review" = "Mes revues";
 "screens.modules.about.titles.my_recipes" = "Mes recettes";
+"screens.modules.about.more_apps_demo_section.flatten_more_apps_sections" = "Ne pas catégoriser les apps";
+"screens.modules.about.more_apps_demo_section.use_embeded_mock" = "Utiliser un bouchon";
+"screens.modules.about.more_apps_demo_section.cache_more_apps_icons" = "Mettre en cache les images";
+"screens.modules.about.more_apps_demo_section.enable_haptics" = "Activer les vibrations";
+"screens.modules.about.more_apps_demo_section.title" = "Réglage pour la liste d'apps";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections

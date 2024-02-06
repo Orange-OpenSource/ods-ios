@@ -1,9 +1,14 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import OrangeDesignSystem
@@ -27,7 +32,7 @@ struct CardViewDemo: View {
             LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                 NavigationLink {
                     ListOfVerticalImageFirstCard()
-                        .navigationTitle("screens.modules.card_collections.titles.list")
+                        .odsNavigationTitle("screens.modules.card_collections.titles.list".🌐)
                         .navigationbarMenuForThemeSelection()
                 } label: {
                     ODSCardVerticalImageFirst(
@@ -37,7 +42,7 @@ struct CardViewDemo: View {
 
                 NavigationLink {
                     GrifOfSmallCards()
-                        .navigationTitle("screens.modules.card_collections.titles.grid")
+                        .odsNavigationTitle("screens.modules.card_collections.titles.grid".🌐)
                         .navigationbarMenuForThemeSelection()
                 } label: {
                     ODSCardVerticalImageFirst(

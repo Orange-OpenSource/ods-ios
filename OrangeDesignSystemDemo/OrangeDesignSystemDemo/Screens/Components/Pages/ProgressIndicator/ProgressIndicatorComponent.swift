@@ -1,9 +1,14 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import OrangeDesignSystem
@@ -28,12 +33,12 @@ private struct ProgressIndicatorVariants: View {
     var body: some View {
         VariantEntryItem(title: "screens.components.progress_indicators.progress_bar.title", technicalElement: "ProgressView(value:, total:)") {
             ProgressBarVariant(model: ProgressBarVariantModel())
-                .navigationTitle("screens.components.progress_indicators.progress_bar.title")
+                .odsNavigationTitle("screens.components.progress_indicators.progress_bar.title".🌐)
         }
 
         VariantEntryItem(title: "screens.components.progress_indicators.activity_bar.title", technicalElement: "ProgressView()") {
             ActivityIndicatorVariant(model: ActivityIndicatorModel())
-                .navigationTitle("screens.components.progress_indicators.activity_bar.title")
+                .odsNavigationTitle("screens.components.progress_indicators.activity_bar.title".🌐)
         }
     }
 }

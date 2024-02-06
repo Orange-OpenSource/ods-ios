@@ -25,7 +25,7 @@
 [![MIT license](https://img.shields.io/github/license/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios/blob/qualif/LICENSE)
 [![Versions](https://img.shields.io/github/v/release/Orange-OpenSource/ods-ios.svg?label=Last%20version)](https://github.com/Orange-OpenSource/ods-ios/releases)
 [![iOS 15.0](https://img.shields.io/badge/iOS-15.0-informational.svg)](https://developer.apple.com/support/app-store "iOS 15 supports")
-[![Still maintained](https://img.shields.io/maintenance/yes/2023)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
+[![Still maintained](https://img.shields.io/maintenance/yes/2024)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
 [![Code size](https://img.shields.io/github/languages/code-size/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios)
 
 ## Environment

@@ -1,9 +1,14 @@
 //
-// Software Name: Orange Design System (iOS)
-// SPDX-FileCopyrightText: Copyright (c) 2021 - 2023 Orange SA
+// Software Name: Orange Design System
+// SPDX-FileCopyrightText: Copyright (c) Orange SA
 // SPDX-License-Identifier: MIT
 //
-// This software is distributed under the MIT license.
+// This software is distributed under the MIT license,
+// the text of which is available at https://opensource.org/license/MIT/
+// or see the "LICENSE" file for more details.
+//
+// Authors: See CONTRIBUTORS.txt
+// Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
 import OrangeDesignSystem
@@ -38,8 +43,15 @@ private struct ListItemSelectionVariantInner: View {
 
     @ObservedObject var model: ListItemSelectionVariantModel
     @State private var isSelected: Bool = true
-    private let recipe: Recipe = RecipeBook.shared.recipes[0]
+    
+    // =================
+    // MARK: Initializer
+    // =================
 
+    init(model: ListItemSelectionVariantModel) {
+        self.model = model
+    }
+    
     // ==========
     // MARK: Body
     // ==========
@@ -53,6 +65,9 @@ private struct ListItemSelectionVariantInner: View {
                         isSelected.toggle()
                     }
                 }
+        }
+        .refreshable {
+            model.updateRecipe()
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
@@ -69,6 +84,7 @@ private struct ListItemSelectionVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading,
                 trailingToggleIsOn: $isSelected)
 
@@ -76,22 +92,31 @@ private struct ListItemSelectionVariantInner: View {
             ODSListItem(
                 title: title,
                 subtitle: subtitle,
+                subtitleNumberOfLines: subtitleNumberOfLines,
                 leading: leading,
                 trailingCheckmarkIsSelected: isSelected)
         }
     }
 
     private var title: Text {
-        Text(recipe.title)
+        Text(model.recipe.title)
     }
 
     private var subtitle: Text? {
-        if model.showSubtitle {
-            return Text(recipe.subtitle)
-        } else {
-            return nil
+        switch model.subtitleOption {
+        case .none: return nil
+        case .oneLine, .twoLines: return Text(model.recipe.description)
         }
     }
+
+    var subtitleNumberOfLines: ODSListItem.SubtitleNumberOfLines? {
+        switch model.subtitleOption {
+        case .none: return nil
+        case .oneLine: return .one
+        case .twoLines: return .two
+        }
+    }
+
 
     private var leading: ODSListItem.Leading? {
         let emptyImage = Image("ods_empty", bundle: Bundle.ods)
@@ -99,13 +124,13 @@ private struct ListItemSelectionVariantInner: View {
         case .none:
             return nil
         case .icon:
-            return .icon(Image(recipe.iconName))
+            return .icon(Image(model.recipe.iconName))
         case .circle:
-            return .circularImage(source: .asyncImage(recipe.url, emptyImage))
+            return .circularImage(source: .asyncImage(model.recipe.url, emptyImage))
         case .square:
-            return .squareImage(source: .asyncImage(recipe.url, emptyImage))
+            return .squareImage(source: .asyncImage(model.recipe.url, emptyImage))
         case .wide:
-            return .wideImage(source: .asyncImage(recipe.url, emptyImage))
+            return .wideImage(source: .asyncImage(model.recipe.url, emptyImage))
         }
     }
 }
