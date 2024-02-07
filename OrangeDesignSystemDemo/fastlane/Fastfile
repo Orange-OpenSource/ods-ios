@@ -58,6 +58,10 @@ platform :ios do
   # ------------------------------------------------------------
   desc "ADD APPS PLUS CREDENTIALS"
   lane :add_credentials_appsplus do
+    if APPS_PLUS_SERVICE_URL.nil? || APPS_PLUS_SERVICE_URL.empty?
+      publish_mattermost_notification("⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
+    end
+
     update_plist(
       plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
       block: proc do |plist|
@@ -77,9 +81,9 @@ platform :ios do
   end
 
   # ------------------------------------------------------------
-  # READ AND SET NEXT RELEASE NOTE IN CHANLOG
+  # READ AND SET NEXT RELEASE NOTE IN CHANGELOG
   # ------------------------------------------------------------
-  desc "READ AND SET NEXT RELEASE NOTE IN CHANLOG"
+  desc "READ AND SET NEXT RELEASE NOTE IN CHANGELOG"
   lane :prepare_release do
     version = get_app_version
 
@@ -141,11 +145,11 @@ platform :ios do
   # -----------------------------------------------------------------------
   private_lane :build_and_upload do |options|
     build
-
     if options[:upload]
       upload
+      tag_testflight_build
     else
-      puts ">> Upload to testflight no requested"
+      puts "Upload to TestFlight not requested"
     end
   end
 
@@ -188,6 +192,26 @@ platform :ios do
     end
   end
   
+  # -----------------------------------------------------------------------
+  # PRIVATE LANE TO CREATE GIT TAG FOR CI AND TESTFLIGHT BUILD
+  # -----------------------------------------------------------------------
+  private_lane :tag_testflight_build do
+    begin
+
+        # Create a tag dedicated to the CI/CD builds for TestFlight using the updated app build number
+        build_number = get_build_number(xcodeproj: ODS_PROJECT)
+        expected_git_tag = "Test_Flight/" + build_number
+
+        sh "git tag #{expected_git_tag}"
+        sh "git push origin #{expected_git_tag}"
+
+        publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+    rescue => error
+        publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
+        raise error
+    end
+  end
+
   # -----------------------------------------------------------------------
   # PRIVATE LANE UPLOAD TO TESTFLIGHT (DEV / QUALIF / PROD is set by main lane)
   # -----------------------------------------------------------------------
@@ -271,9 +295,8 @@ platform :ios do
         )
     end
 
-    puts "current relase notes = #{changelog}"
+    puts "Current relase notes = #{changelog}"
     return changelog
   end
 
 end
-
