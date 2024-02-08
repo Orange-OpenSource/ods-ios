@@ -13,7 +13,7 @@
 
 import SwiftUI
 
-struct BottomSheedHeader: View {
+struct BottomSheetHeader: View {
 
     // =======================
     // MARK: Stored Properties
@@ -78,11 +78,11 @@ struct BottomSheedHeader: View {
 #if DEBUG
 struct HeaderPreviewProvider_Previews: PreviewProvider {
 
-    struct AnimatinoExample: View {
+    struct AnimationExample: View {
         @State var applyRotation = false
 
         var body: some View {
-            BottomSheedHeader(title: "Rotation: \(applyRotation ? "Yes" : "No")", subtitle: nil, icon: Image(systemName: "chevron.up"), applyRotation: applyRotation)
+            BottomSheetHeader(title: "Rotation: \(applyRotation ? "Yes" : "No")", subtitle: nil, icon: Image(systemName: "chevron.up"), applyRotation: applyRotation)
                 .onTapGesture {
                     applyRotation.toggle()
                 }
@@ -99,28 +99,28 @@ struct HeaderPreviewProvider_Previews: PreviewProvider {
                 Text("Title and Subtile")
                     .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                BottomSheedHeader(title: "Title", subtitle: "Subtitle", icon: nil, applyRotation: false)
+                BottomSheetHeader(title: "Title", subtitle: "Subtitle", icon: nil, applyRotation: false)
             }
 
             VStack {
                 Text("Title and icon (without rotation)")
                     .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                BottomSheedHeader(title: "Title", subtitle: nil, icon: Image(systemName: "chevron.down"), applyRotation: false)
+                BottomSheetHeader(title: "Title", subtitle: nil, icon: Image(systemName: "chevron.down"), applyRotation: false)
             }
 
             VStack {
                 Text("Title and icon (with rotation)")
                     .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                BottomSheedHeader(title: "Title", subtitle: nil, icon: Image(systemName: "chevron.down"), applyRotation: true)
+                BottomSheetHeader(title: "Title", subtitle: nil, icon: Image(systemName: "chevron.down"), applyRotation: true)
             }
 
             VStack {
                 Text("Title and icon (animated rotation)")
                     .odsFont(.titleM)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                AnimatinoExample()
+                AnimationExample()
             }
         }
         .padding(.horizontal, 16)

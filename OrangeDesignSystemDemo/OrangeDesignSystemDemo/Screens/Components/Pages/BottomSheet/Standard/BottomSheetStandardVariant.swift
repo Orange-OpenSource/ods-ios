@@ -31,6 +31,10 @@ struct StandardBottomSheetVariant: View {
         pageContent
             .odsBottomSheetStandard(isOpen: $isOpen,
                                     title: °°"screens.components.bottom_sheets.sample.recipe",
+                                    accessibilityStateLabels: (opened: °°"screens.components.template.customize.label.opened",
+                                                               closed: °°"screens.components.template.customize.label.closed"),
+                                    accessibilityStateHints: (opened: °°"screens.components.template.customize.hint.opened",
+                                                              closed: °°"screens.components.template.customize.hint.closed"),
                                     icon: Image(systemName: "chevron.down")) {
                 RecipesListSelection(selectedRecipe: $selectedRecipe)
             }

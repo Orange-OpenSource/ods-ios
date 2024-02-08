@@ -56,7 +56,7 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
                 bottomSheetPosition: $bottomSheetPosition,
                 switchablePositions: ODSBottomSheetSize.positions,
                 headerContent: {
-                    BottomSheedHeader(title: title, subtitle: subtitle, icon: icon, applyRotation: false)
+                    BottomSheetHeader(title: title, subtitle: subtitle, icon: icon, applyRotation: false)
                         .onTapGesture {
                             switch self.bottomSheetSize.wrappedValue {
                             case .small:
