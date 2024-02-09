@@ -38,7 +38,7 @@ To integrate an ODS Empty state into your app, you can use `ODSEmptyStateView` a
 ODSEmptyStateView(
     title: Text("No result"),
     text: Text("Try a new search"),
-    image: Image("il_no_result"),
+    image: Image("il_emptyStateNoData"),
     button: Button("Search") {
         // Do something
     }
