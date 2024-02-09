@@ -18,7 +18,7 @@ import SwiftUI
 /// Display an empty state with a centered image followed by a title and an optional text.
 /// A button can also be added.
 ///
-public struct ODSEmptytStateView: View {
+public struct ODSEmptyStateView: View {
 
     // =======================
     // MARK: Stored properties

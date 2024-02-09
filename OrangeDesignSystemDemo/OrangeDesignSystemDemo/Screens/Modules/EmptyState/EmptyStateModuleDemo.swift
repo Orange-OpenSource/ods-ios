@@ -48,14 +48,14 @@ struct EmptyStateModuleDemo: View {
     // =====================
     
     private func emptyStateViewNoImage() -> some View {
-        ODSEmptytStateView(
+        ODSEmptyStateView(
             title: model.usageOption.title,
             text: text,
             button: button)
     }
         
     private func emptyStateViewWithImage(image: Image) -> some View {
-        ODSEmptytStateView(
+        ODSEmptyStateView(
             title: model.usageOption.title,
             text: text,
             image: image,
