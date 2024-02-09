@@ -42,6 +42,7 @@
 "shared.foods" = "Foods";
 "shared.loading" = "Loading\U2026";
 "shared.bon_app" = "Bon appétit !";
+"shared.button" = "Button";
 
 // =====================
 // MARK: - Miscellaneous
@@ -367,6 +368,33 @@
 "screens.modules.lists.options.style.sidebar" = "Sidebar";
 "screens.modules.lists.options.editable" = "Editable";
 "screens.modules.lists.section.footer.text" = "All the recipes are made with selected ingredients.";
+
+// =======================================
+// MARK: - Screens - Modules - Empty State
+// =======================================
+
+"screens.modules.empty_state.title" = "Empty state";
+"screens.modules.empty_state.title.setup" = "Empty state: Setup";
+"screens.modules.empty_state.description" = "An empty state can occur when no content or data is available to display in the UI. Avoid displaying completely empty screens.";
+"screens.modules.empty_state.customize" = "Customize module";
+"screens.modules.empty_state.button.view_demo" = "View demo";
+"screens.modules.empty_state.usage_first_use.choice" = "First use";
+"screens.modules.empty_state.usage_first_use.title" = "First time";
+"screens.modules.empty_state.usage_first_use.text" = "To find out how the service works press the button.";
+"screens.modules.empty_state.usage_first_use.buttonLabel" = "Take a tour";
+"screens.modules.empty_state.usage_user_cleared.choice" = "User cleared";
+"screens.modules.empty_state.usage_user_cleared.title" = "All is cleared";
+"screens.modules.empty_state.usage_user_cleared.text" = "To add a recipe press the button.";
+"screens.modules.empty_state.usage_user_cleared.buttonLabel" = "Add a recipe";
+"screens.modules.empty_state.usage_error.choice" = "Error";
+"screens.modules.empty_state.usage_error.title" = "Something goes wrong";
+"screens.modules.empty_state.usage_error.text" = "There is no connection.";
+"screens.modules.empty_state.usage_error.buttonLabel" = "Retry";
+"screens.modules.empty_state.usage_no_data.choice" = "No data";
+"screens.modules.empty_state.usage_no_data.title" = "No result";
+"screens.modules.empty_state.usage_no_data.text" = "Try a new search.";
+"screens.modules.empty_state.usage_no_data.buttonLabel" = "Search";
+"screens.modules.empty_state.usage.alert" = "%@ clicked";
 
 // =======================================
 // MARK: - Screens - Components - Template
