@@ -22,6 +22,9 @@
 
 /* Begin PBXBuildFile section */
 		072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */; };
+		074741EB2B74CE0B00D74F00 /* EmptyStateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EA2B74CE0B00D74F00 /* EmptyStateModule.swift */; };
+		074741ED2B74D3E700D74F00 /* EmptyStateModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EC2B74D3E700D74F00 /* EmptyStateModuleModel.swift */; };
+		074741EF2B74E59500D74F00 /* EmptyStateModuleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EE2B74E59500D74F00 /* EmptyStateModuleDemo.swift */; };
 		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		077B673C2AE1500F0008C32B /* LeadingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B673B2AE1500F0008C32B /* LeadingOption.swift */; };
@@ -169,6 +172,9 @@
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceChipsVariant.swift; sourceTree = "<group>"; };
+		074741EA2B74CE0B00D74F00 /* EmptyStateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateModule.swift; sourceTree = "<group>"; };
+		074741EC2B74D3E700D74F00 /* EmptyStateModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateModuleModel.swift; sourceTree = "<group>"; };
+		074741EE2B74E59500D74F00 /* EmptyStateModuleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateModuleDemo.swift; sourceTree = "<group>"; };
 		075326832AD45610003D8832 /* GridOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridOfSmallCards.swift; sourceTree = "<group>"; };
 		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		077B673B2AE1500F0008C32B /* LeadingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingOption.swift; sourceTree = "<group>"; };
@@ -358,6 +364,16 @@
 				07210C482A8FAD1500507988 /* Fastfile */,
 			);
 			name = Fastlane;
+			sourceTree = "<group>";
+		};
+		074741E92B74CDEA00D74F00 /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				074741EA2B74CE0B00D74F00 /* EmptyStateModule.swift */,
+				074741EC2B74D3E700D74F00 /* EmptyStateModuleModel.swift */,
+				074741EE2B74E59500D74F00 /* EmptyStateModuleDemo.swift */,
+			);
+			path = EmptyState;
 			sourceTree = "<group>";
 		};
 		0753267E2AD00137003D8832 /* CardListAndCollection */ = {
@@ -676,6 +692,7 @@
 		077C38402A9DDC79003D6B51 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				074741E92B74CDEA00D74F00 /* EmptyState */,
 				07E4C85A2AE7BBE900FB4DAC /* Lists */,
 				0753267E2AD00137003D8832 /* CardListAndCollection */,
 				077C38412A9DDC79003D6B51 /* About */,
@@ -1230,6 +1247,7 @@
 				078AB0552B30A7AA00C592AE /* Variants.swift in Sources */,
 				077C38862A9DDC79003D6B51 /* AboutModuleModel.swift in Sources */,
 				077C387C2A9DDC79003D6B51 /* ColorIllustration.swift in Sources */,
+				074741EF2B74E59500D74F00 /* EmptyStateModuleDemo.swift in Sources */,
 				077C38782A9DDC79003D6B51 /* ColorsPage.swift in Sources */,
 				077C385E2A9DDC79003D6B51 /* ChipsComponent.swift in Sources */,
 				077C38482A9DDC79003D6B51 /* AboutSceen.swift in Sources */,
@@ -1237,6 +1255,7 @@
 				077C38812A9DDC79003D6B51 /* SpacingsGuideline.swift in Sources */,
 				077C38852A9DDC79003D6B51 /* AboutMyReviewsItemConfiguration.swift in Sources */,
 				077C387A2A9DDC79003D6B51 /* ODSColors+extension.swift in Sources */,
+				074741EB2B74CE0B00D74F00 /* EmptyStateModule.swift in Sources */,
 				077C38732A9DDC79003D6B51 /* SlidersVariant.swift in Sources */,
 				077C38702A9DDC79003D6B51 /* BottomSheetExpandingVariantOptions.swift in Sources */,
 				077C384C2A9DDC79003D6B51 /* Component.swift in Sources */,
@@ -1280,6 +1299,7 @@
 				077C384E2A9DDC79003D6B51 /* ButtonsComponent.swift in Sources */,
 				077C38792A9DDC79003D6B51 /* RGBA.swift in Sources */,
 				077C386C2A9DDC79003D6B51 /* NavigationBarComponent.swift in Sources */,
+				074741ED2B74D3E700D74F00 /* EmptyStateModuleModel.swift in Sources */,
 				077C38602A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift in Sources */,
 				07B94E0F2AD9908300AAD1A5 /* ListItemSelectionVariantOptions.swift in Sources */,
 				077C38622A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift in Sources */,

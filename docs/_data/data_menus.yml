@@ -45,6 +45,8 @@ toc2:
     subfolderitems:
       - page: About
         url: modules/about_docs
+      - page: Empty States
+        url: modules/emptyState_docs
       - page: List
         url: modules/list_docs
 
