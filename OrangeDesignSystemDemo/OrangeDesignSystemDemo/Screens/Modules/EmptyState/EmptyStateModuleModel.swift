@@ -14,7 +14,7 @@
 import SwiftUI
 import OrangeDesignSystem
 
-class EmptyStateModuleModel: ObservableObject {
+final class EmptyStateModuleModel: ObservableObject {
     
     // =========================
     // MARK: - Stored properties

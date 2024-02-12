@@ -21,7 +21,7 @@ import OrangeDesignSystem
 struct EmptyStateModule: View {
     
     var body: some View {
-        EmptyStateModuleSatup(model: EmptyStateModuleModel())
+        EmptyStateModuleSetup(model: EmptyStateModuleModel())
     }
 }
 
@@ -29,22 +29,14 @@ struct EmptyStateModule: View {
 // MARK: - About Setup
 // ===================
 
-struct EmptyStateModuleSatup: View {
+struct EmptyStateModuleSetup: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    @State var showDemo: Bool = false
+    @State private var showDemo: Bool = false
     @ObservedObject var model: EmptyStateModuleModel
-
-    // =================
-    // MARK: Initializer
-    // =================
-
-    init(model: EmptyStateModuleModel) {
-        self.model = model
-    }
 
     // ==========
     // MARK: Body
@@ -62,8 +54,6 @@ struct EmptyStateModuleSatup: View {
 
                 Text("screens.modules.empty_state.customize")
                     .odsFont(.headlineS)
-
-//                Text("screens.modules.about.mandatory")
 
                 ODSChoiceChipPicker(
                     title: Text("misc.usage"),

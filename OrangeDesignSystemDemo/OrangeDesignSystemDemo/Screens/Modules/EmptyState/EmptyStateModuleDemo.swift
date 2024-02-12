@@ -31,9 +31,18 @@ struct EmptyStateModuleDemo: View {
     var body: some View {
         VStack {
             if let image = image {
-                emptyStateViewWithImage(image: image)
+                ODSEmptyStateView(
+                    title: model.usageOption.title,
+                    text: text,
+                    image: image,
+                    button: button
+                )
             } else {
-                emptyStateViewNoImage()
+                ODSEmptyStateView(
+                    title: model.usageOption.title,
+                    text: text,
+                    button: button
+                )
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -46,23 +55,6 @@ struct EmptyStateModuleDemo: View {
     // =====================
     // MARK: private helpers
     // =====================
-    
-    private func emptyStateViewNoImage() -> some View {
-        ODSEmptyStateView(
-            title: model.usageOption.title,
-            text: text,
-            button: button)
-    }
-        
-    private func emptyStateViewWithImage(image: Image) -> some View {
-        ODSEmptyStateView(
-            title: model.usageOption.title,
-            text: text,
-            image: image,
-            button: button
-        )
-    }
-            
 
     @ViewBuilder
     private var text: Text? {
@@ -93,7 +85,7 @@ struct EmptyStateModuleDemo: View {
 struct EmptyStateModuleDemo_Previews: PreviewProvider {
 
     static var previews: some View {
-        EmptyStateModuleSatup(model: EmptyStateModuleModel())
+        EmptyStateModuleSetup(model: EmptyStateModuleModel())
     }
 }
 #endif

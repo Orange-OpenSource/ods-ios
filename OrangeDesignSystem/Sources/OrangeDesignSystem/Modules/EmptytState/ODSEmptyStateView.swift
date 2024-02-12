@@ -14,7 +14,7 @@
 import SwiftUI
 
 /// <a href="https://system.design.orange.com/0c1af118d/p/177496-empty-states/b/454547" target="_blank">Empty State</a>.
-
+///
 /// Display an empty state with a centered image followed by a title and an optional text.
 /// A button can also be added.
 ///
@@ -41,7 +41,8 @@ public struct ODSEmptyStateView: View {
     ///    - image: Image displayed centered horizontally in the view.
     ///    - button: The button to add below the text.
     ///
-    public init(title: Text, text: Text? = nil,
+    public init(title: Text, 
+                text: Text? = nil,
                 image: Image = Image("il_yoga_man", bundle: Bundle.ods),
                 button: Button<Text>? = nil) {
         self.title = title
