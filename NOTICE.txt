@@ -22,11 +22,12 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_legal.
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_review.imageset/ic_review.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_share.imageset/ic_share.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_taskList.imageset/ic_taskList.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_mobile_apps.imageset/ic_mobile_apps
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_mobile_apps.imageset/ic_mobile_apps.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_about.imageset/il_about.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@2x.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/img_about.imageset/img_about@3x.png
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/ods_empty.imageset/ods_nopicture.png
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_yoga_man.imageset/EmptyStatesUserCleared.png
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/App-Store-512@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@1x.png
@@ -145,5 +146,14 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/About/ic_folderFavourite.imageset/ic_folderFavourite.svg
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/About/ic_subtitles.imageset/ic_subtitles.svg
+
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyState.imageset/EmptyStates.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateError.imageset/EmptyStatesError.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateFirstUse.imageset/EmptyStatesFirstUse.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateNoData.imageset/EmptyStatesNoData.png
 
 End of the parts list under Orange SA Copyright
