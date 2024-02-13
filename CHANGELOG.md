@@ -11,10 +11,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [SDK] Fix Expanding Bottom Sheet on iPad (Bug [#428] (https://github.com/Orange-OpenSource/ods-ios/issues/428))
 - [SDK/DemoApp] Add ODSEmptyState module ([#558](https://github.com/Orange-OpenSource/ods-ios/issues/558))
 - [SDK] Vocalized buttons selected status with Voice Over ([#583](https://github.com/Orange-OpenSource/ods-ios/issues/583))
 - [Tooling] Add Git tags in CI/CD pipelines for TestFlight builds, update CocoaPods ([#680](https://github.com/Orange-OpenSource/ods-ios/issues/680))
-- [SDK] Fix Expanding Bottom Sheet on iPad (Bug [#428] (https://github.com/Orange-OpenSource/ods-ios/issues/428))
 
 ## [0.17.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-07-06
 
