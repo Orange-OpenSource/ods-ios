@@ -15,13 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios test
+### ios test_tag
 
 ```sh
-[bundle exec] fastlane ios test
+[bundle exec] fastlane ios test_tag
 ```
 
-RUN TESTS BY TRIGGERING THE TESTS PLANS OF THE PROJECT
+
 
 ### ios add_credentials_appsplus
 
@@ -30,6 +30,14 @@ RUN TESTS BY TRIGGERING THE TESTS PLANS OF THE PROJECT
 ```
 
 ADD APPS PLUS CREDENTIALS
+
+### ios test
+
+```sh
+[bundle exec] fastlane ios test
+```
+
+RUN TESTS BY TRIGGERING THE TESTS PLANS OF THE PROJECT
 
 ### ios increment
 
@@ -45,7 +53,7 @@ UPDATE BUILD NUMBER WITH TIMESTAMP
 [bundle exec] fastlane ios prepare_release
 ```
 
-READ AND SET NEXT RELEASE NOTE IN CHANLOG
+READ AND SET NEXT RELEASE NOTE IN CHANGELOG
 
 ### ios buildDebugApp
 

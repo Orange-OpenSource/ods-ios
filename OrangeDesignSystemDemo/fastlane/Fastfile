@@ -31,6 +31,11 @@ MATTERMOST_HOOK_URL = ENV["ODS_MATTERMOST_HOOK_URL"]
 MATTERMOST_HOOK_BOT_NAME = ENV["ODS_MATTERMOST_HOOK_BOT_NAME"]
 MATTERMOST_HOOK_BOT_ICON_URL = ENV["ODS_MATTERMOST_HOOK_BOT_ICON_URL"]
 
+# GitHub
+# ------
+
+GITHUB_ACCESS_TOKEN = ENV['GITHUB_ACCESS_TOKEN']
+
 # Project configuration
 # ---------------------
 
@@ -55,7 +60,8 @@ platform :ios do
   desc "ADD APPS PLUS CREDENTIALS"
   lane :add_credentials_appsplus do
     if APPS_PLUS_SERVICE_URL.nil? || APPS_PLUS_SERVICE_URL.empty?
-      publish_mattermost_notification("⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
+      puts "Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?"
+      publish_mattermost_notification("⚙️ ⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
     end
 
     update_plist(
@@ -231,13 +237,12 @@ platform :ios do
     begin
 
         # Create a tag dedicated to the CI/CD builds using the updated app build number
+        # Beware build number msut be unique, e.g. timestamps or incremented values so as to keep tags unique
         build_number = get_build_number(xcodeproj: ODS_PROJECT)
         expected_git_tag = "ci/" + build_number
-
-        sh "git tag #{expected_git_tag}"
-        sh "git push origin #{expected_git_tag}"
-
-        publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+        if create_tag(expected_git_tag)
+          publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+        end
     rescue => error
         publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
         raise error
@@ -251,13 +256,12 @@ platform :ios do
     begin
 
         # Create a tag dedicated to the CI/CD builds for TestFlight using the updated app build number
+        # Beware build number msut be unique, e.g. timestamps or incremented values so as to keep tags unique
         build_number = get_build_number(xcodeproj: ODS_PROJECT)
         expected_git_tag = "Test_Flight/" + build_number
-
-        sh "git tag #{expected_git_tag}"
-        sh "git push origin #{expected_git_tag}"
-
-        publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+        if create_tag(expected_git_tag)
+          publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+        end
     rescue => error
         publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
         raise error
@@ -278,7 +282,7 @@ platform :ios do
           in_house: false
         )
         
-        TESTFLIGHT_GROUPS = ENV['TESTFLIGHT_GROUPS']
+        TESTFLIGHT_GROUPS = ENV['TESTFLIGHT_GROUPS'] # Defined in Appfile
         
         version = get_app_version
         puts version
@@ -307,20 +311,45 @@ platform :ios do
     end
   end
   
-  # -----------------------------------------
-  # PRIVATE LANE FOR MATTERMOST NOTIFICATIONS
-  # -----------------------------------------
-  def publish_mattermost_notification(message)
-      mattermost(url: MATTERMOST_HOOK_URL,
-                 text: message,
-                 username: MATTERMOST_HOOK_BOT_NAME,
-                 icon_url: MATTERMOST_HOOK_BOT_ICON_URL
-                 )
-  end
-
   # -------
   # Helpers
   # -------
+
+  # Creates a Git tag at current commit through HTTP protocol to prevent proxy or firewalls to block SSH requests
+  def create_tag(tag)
+    tag_exists=`git rev-parse #{tag} >/dev/null 2>&1 && echo "Bazinga!"`
+
+    if tag_exists.strip! == "Bazinga!" # ¯\_( ͡❛ ͜ʖ ͡❛)_/¯
+         puts "Warning: tag '#{tag}' still exists, won't create new one!"
+         publish_mattermost_notification("⚙️ 😰 @channel The tag '#{tag}' exists, won't create a new one")
+         return false
+    else
+      if GITHUB_ACCESS_TOKEN.nil? || GITHUB_ACCESS_TOKEN.empty?
+          puts "Error: No GitHub access token defined, cannot create and push tags"
+          publish_mattermost_notification("⚙️ 😰 @channel No GitHub access token defined, cannot create and push tags")
+          return false
+      else
+        commit_sha=`git rev-parse --short HEAD`
+        sh("curl -L \
+        -X POST \
+        -H 'Accept: application/vnd.github+json' \
+        -H 'Authorization: Bearer #{GITHUB_ACCESS_TOKEN}'\
+        -H 'X-GitHub-Api-Version: 2022-11-28' \
+        https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs \
+        -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{commit_sha}\"}'")
+      end
+    end
+    return true
+  end
+
+  # Sends a message notification through Mattermost hook
+  def publish_mattermost_notification(message)
+    mattermost(url: MATTERMOST_HOOK_URL,
+               text: message,
+               username: MATTERMOST_HOOK_BOT_NAME,
+               icon_url: MATTERMOST_HOOK_BOT_ICON_URL
+               )
+  end
 
   # Get version set in the Xcode project
   def get_app_version
