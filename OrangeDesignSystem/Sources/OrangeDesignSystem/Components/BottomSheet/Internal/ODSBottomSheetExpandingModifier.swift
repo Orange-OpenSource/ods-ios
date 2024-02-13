@@ -75,6 +75,8 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
             .enableAppleScrollBehavior(true)
             .enableContentDrag(true)
             .enableTapToDismiss(true)
+            .enableFloatingIPadSheet(false)
+            .sheetWidth(.relative(1.0))
             .onDismiss {
                 bottomSheetPosition = ODSBottomSheetSize.small.position
             }
