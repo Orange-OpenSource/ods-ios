@@ -124,6 +124,54 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     - Create a new pull request named `Update release U.V.W` on GitHub to merge your branch into `qualif`.
     - Review and merge this pull request on GitHub.<br /><br />
 
+## [About CI/CD with GitLabCI]
+
+You can setup in your side a _GitLab CI_ runner which can trigger some _Fastlane_ actions for example each night.
+
+You can find bellow some pipeline script to fill and use. Ensure all environement variables are filled (used in _Fastfile_ and _Appfile_).
+
+```yaml
+stages:
+  - prepare
+  - test
+  - build
+
+# Define in .common the tags matching your runners, and the rule smatching at least "schedule"
+
+checkout:
+  extends: .common
+  stage: prepare
+  script:
+    - rm -rf qualif
+    - git clone git@github.com:Orange-OpenSource/ods-ios qualif
+    - cd qualif
+
+prepare_workspace:
+  extends: .common
+  stage: prepare
+  needs: [checkout]
+  script:
+    - git clean -dxf
+    - gem install bundler -v $(tail -n1 Gemfile.lock)'
+    - bundle --version
+    - bundle check || (bundle install --jobs $(sysctl -n hw.logicalcpu) --path=vendor/bundle
+
+test-ios:
+  extends: .common
+  stage: test
+  needs: [prepare_workspace]
+  script:
+    - bundle exec fastlane ios test
+
+build-ios:
+  extends: .common
+  stage: build
+  needs: [test-ios]
+  script:
+    - bundle exec fastlane add_credentials_appsplus
+    - bundle exec fastlane qualif
+```
+
 ## [About CI/CD with Jenkins]
 
 You can setup in your side a _Jenkins_ runner which can trigger some _Fastlane_ actions for example each night.

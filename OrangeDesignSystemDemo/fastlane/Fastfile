@@ -11,25 +11,35 @@
 # Software description: A SwiftUI components library with code examples for Orange Design System
 #
 
+# App features configuration
+# --------------------------
+
+APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
+
 # Apple configuration
+# -------------------
+
 APPLE_ISSUER_ID = ENV["ODS_APPLE_ISSUER_ID"]
 APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
 DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
 
 # Notifications and hooks
+# -----------------------
+
 MATTERMOST_HOOK_URL = ENV["ODS_MATTERMOST_HOOK_URL"]
 MATTERMOST_HOOK_BOT_NAME = ENV["ODS_MATTERMOST_HOOK_BOT_NAME"]
 MATTERMOST_HOOK_BOT_ICON_URL = ENV["ODS_MATTERMOST_HOOK_BOT_ICON_URL"]
 
-# App features configuration
-APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
-
 # Project configuration
-ODS_PROPROFILE = ENV["ODS_PROPROFILE"]
+# ---------------------
+
 ODS_WORKSPACE = "OrangeDesignSystemDemo.xcworkspace"
 ODS_PROJECT = "OrangeDesignSystemDemo.xcodeproj"
 ODS_SCHEME = "OrangeDesignSystemDemo"
+
+# Lanes
+# ------
 
 default_platform(:ios)
 
@@ -37,6 +47,23 @@ platform :ios do
 
   before_all do
     xcodes(select_for_current_build_only: true)
+  end
+
+  # ------------------------------------------------------------
+  # ADD APPS PLUS CREDENTIALS (About module)
+  # ------------------------------------------------------------
+  desc "ADD APPS PLUS CREDENTIALS"
+  lane :add_credentials_appsplus do
+    if APPS_PLUS_SERVICE_URL.nil? || APPS_PLUS_SERVICE_URL.empty?
+      publish_mattermost_notification("⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
+    end
+
+    update_plist(
+      plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
+      block: proc do |plist|
+        plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
+      end
+    )
   end
 
   # ---------
@@ -294,6 +321,7 @@ platform :ios do
   # -------
   # Helpers
   # -------
+
   # Get version set in the Xcode project
   def get_app_version
     version = get_version_number(
