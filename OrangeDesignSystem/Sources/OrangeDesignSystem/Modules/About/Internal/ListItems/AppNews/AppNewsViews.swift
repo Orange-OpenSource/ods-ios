@@ -42,7 +42,7 @@ struct AppNewsList: View {
             case let .loaded(releaseDescription) where !releaseDescription.isEmpty:
                 loadedView(releaseDescription)
             default: // case .error, case .loaded(let releaseDescription) where releaseDescription.isEmpty:
-                errorView()
+                AboutErrorView(text: Text("modules.about.app_news.no_news".🌐))
             }
         }.task {
             viewModel.load()
@@ -65,10 +65,6 @@ struct AppNewsList: View {
                 .odsRequestAccessibleFocus(_requestFocus, for: .some(id: data[0].version))
             Divider()
         }
-    }
-
-    private func errorView() -> some View {
-        Text(°°"modules.about.app_news.no_news")
     }
 }
 

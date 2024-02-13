@@ -42,8 +42,8 @@ struct MoreAppsView: View {
                         VibrationsManager.success()
                     }
                 }
-            case let .error(error):
-                errorView(error).task {
+            case .error:
+                AboutErrorView().task {
                     if enableHaptics {
                         VibrationsManager.error()
                     }
@@ -58,11 +58,6 @@ struct MoreAppsView: View {
     // TODO: #64 - Implement loading view when the "empty state" module will be ready to be implemented
     private func loadingView() -> some View {
         Text("⏳ Loading")
-    }
-
-    // TODO: #64 - Implement error view when the "empty state" module will be ready to be implemented
-    private func errorView(_ error: MoreAppsViewModel.Error) -> some View {
-        Text("❌ An error occured: '\(error.localizedDescription)'")
     }
 
     @ViewBuilder

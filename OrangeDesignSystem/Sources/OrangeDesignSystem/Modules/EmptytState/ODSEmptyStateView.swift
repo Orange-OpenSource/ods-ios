@@ -62,6 +62,7 @@ public struct ODSEmptyStateView: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .padding(.top, ODSSpacing.xxl)
                     .padding(.horizontal, ODSSpacing.xxl)
                     .accessibilityHidden(true)
 
