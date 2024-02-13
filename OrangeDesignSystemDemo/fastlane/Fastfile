@@ -11,21 +11,25 @@
 # Software description: A SwiftUI components library with code examples for Orange Design System
 #
 
+# Apple configuration
 APPLE_ISSUER_ID = ENV["ODS_APPLE_ISSUER_ID"]
 APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
 DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
 
-APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
-
+# Notifications and hooks
 MATTERMOST_HOOK_URL = ENV["ODS_MATTERMOST_HOOK_URL"]
 MATTERMOST_HOOK_BOT_NAME = ENV["ODS_MATTERMOST_HOOK_BOT_NAME"]
 MATTERMOST_HOOK_BOT_ICON_URL = ENV["ODS_MATTERMOST_HOOK_BOT_ICON_URL"]
 
+# App features configuration
+APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
+
+# Project configuration
+ODS_PROPROFILE = ENV["ODS_PROPROFILE"]
 ODS_WORKSPACE = "OrangeDesignSystemDemo.xcworkspace"
 ODS_PROJECT = "OrangeDesignSystemDemo.xcodeproj"
 ODS_SCHEME = "OrangeDesignSystemDemo"
-ODS_PROPROFILE = ENV["ODS_PROPROFILE"]
 
 default_platform(:ios)
 
@@ -145,9 +149,11 @@ platform :ios do
   # -----------------------------------------------------------------------
   private_lane :build_and_upload do |options|
     build
+    tag_ci_build
     if options[:upload]
+      puts "Upload to TestFlight requested"
       upload
-      #tag_testflight_build
+      tag_testflight_build
     else
       puts "Upload to TestFlight not requested"
     end
@@ -185,7 +191,6 @@ platform :ios do
         )
         
         publish_mattermost_notification("🔨 ✅ @channel A new build has been done successfully")
-
     rescue => error
         publish_mattermost_notification("🔨 🚨 @channel Some issue occurred during the build step (:build_and_upload)")
         raise error
@@ -193,9 +198,29 @@ platform :ios do
   end
   
   # -----------------------------------------------------------------------
-  # PRIVATE LANE TO CREATE GIT TAG FOR CI AND TESTFLIGHT BUILD
+  # PRIVATE LANE TO CREATE GIT TAG FOR CI
   # -----------------------------------------------------------------------
-  private_lane :tag_testflight_build do
+  private_lane :tag_ci_build do
+    begin
+
+        # Create a tag dedicated to the CI/CD builds using the updated app build number
+        build_number = get_build_number(xcodeproj: ODS_PROJECT)
+        expected_git_tag = "ci/" + build_number
+
+        sh "git tag #{expected_git_tag}"
+        sh "git push origin #{expected_git_tag}"
+
+        publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+    rescue => error
+        publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
+        raise error
+    end
+  end
+
+  # -----------------------------------------------------------------------
+  # PRIVATE LANE TO CREATE GIT TAG FOR TESTFLIGHT BUILD
+  # -----------------------------------------------------------------------
+  private_lane :tag_testflight_upload do
     begin
 
         # Create a tag dedicated to the CI/CD builds for TestFlight using the updated app build number
