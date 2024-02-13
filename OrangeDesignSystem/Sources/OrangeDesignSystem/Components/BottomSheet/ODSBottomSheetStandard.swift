@@ -13,6 +13,8 @@
 
 import SwiftUI
 
+public typealias AccessibilityStatesValues = (opened: String, closed: String)
+
 extension View {
 
     ///
@@ -46,52 +48,56 @@ extension View {
     ///    }
     ///
     /// - Parameters:
-    ///   - isOpen: A binding to a Boolean value that determines whether
-    ///     to open the sheet that you create in the modifier's
-    ///     `content` closure.
+    ///   - isOpen: A binding to a Boolean value that determines whether to open the sheet that you create in the modifier's `content` closure.
     ///   - title: The title added in the header.
+    ///   - accessibilityStateLabels: Optional accessibility labels to add for the bottom sheet opened and closed states, you should define them.
+    ///   - accessibilityStateHints: Optional accessibility hints to add for the bottom sheet opened and closed states, you should define them.
     ///   - content: A closure that returns the content of the bottom sheet.
     ///
     public func odsBottomSheetStandard<Content: View>(
         isOpen: Binding<Bool>,
         title: String,
+        accessibilityStateLabels: AccessibilityStatesValues? = nil,
+        accessibilityStateHints: AccessibilityStatesValues? = nil,
         @ViewBuilder content: @escaping () -> Content) -> some View
     {
         modifier(ODSBottomSheetStandardModifier(
             isOpen: isOpen,
-            headerConfig: ODSBottomSheetStandardHeaderConfig(title: title),
+            headerConfig: ODSBottomSheetStandardHeaderConfig(title: title, stateLabels: accessibilityStateLabels, stateHints: accessibilityStateHints),
             bottomSheetContent: content))
     }
 
     /// This modifier adds a bottom sheet containing title and subtitle in header.
     ///
     /// - Parameters:
-    ///   - isOpen: A binding to a Boolean value that determines whether
-    ///     to open the sheet that you create in the modifier's
-    ///     `content` closure.
+    ///   - isOpen: A binding to a Boolean value that determines whether to open the sheet that you create in the modifier's `content` closure.
     ///   - title: The title added in the header.
     ///   - subtitle: Add a subtitle in header.
+    ///   - accessibilityStateLabels: Optional accessibility labels to add for the bottom sheet opened and closed states, you should define them.
+    ///   - accessibilityStateHints: Optional accessibility hints to add for the bottom sheet opened and closed states, you should define them.
     ///   - content: A closure that returns the content of the bottom sheet.
     ///
     public func odsBottomSheetStandard<Content: View>(
         isOpen: Binding<Bool>,
         title: String,
         subtitle: String,
+        accessibilityStateLabels: AccessibilityStatesValues? = nil,
+        accessibilityStateHints: AccessibilityStatesValues? = nil,
         @ViewBuilder content: @escaping () -> Content) -> some View
     {
         modifier(ODSBottomSheetStandardModifier(
             isOpen: isOpen,
-            headerConfig: ODSBottomSheetStandardHeaderConfig(title: title, subtitle: subtitle),
+            headerConfig: ODSBottomSheetStandardHeaderConfig(title: title, subtitle: subtitle, stateLabels: accessibilityStateLabels, stateHints: accessibilityStateHints),
             bottomSheetContent: content))
     }
 
     /// This modifier adds a bottom sheet containing title and icon in header.
     ///
     /// - Parameters:
-    ///   - isOpen: A binding to a Boolean value that determines whether
-    ///     to open the sheet that you create in the modifier's
-    ///     `content` closure.
+    ///   - isOpen: A binding to a Boolean value that determines whether to open the sheet that you create in the modifier's `content` closure.
     ///   - title: The title added in the header.
+    ///   - accessibilityStateLabels: Optional accessibility labels to add for the bottom sheet opened and closed states, you should define them.
+    ///   - accessibilityStateHints: Optional accessibility hints to add for the bottom sheet opened and closed states, you should define them.
     ///   - icon: Add a icon in header before title.
     ///   - animateIcon: To animate (ration to 180 degrees) when sheet is opening.
     ///   - content: A closure that returns the content of the bottom sheet.
@@ -99,13 +105,19 @@ extension View {
     public func odsBottomSheetStandard<Content: View>(
         isOpen: Binding<Bool>,
         title: String,
+        accessibilityStateLabels: AccessibilityStatesValues? = nil,
+        accessibilityStateHints: AccessibilityStatesValues? = nil,
         icon: Image,
-        annimateIcon: Bool = true,
+        animateIcon: Bool = true,
         @ViewBuilder content: @escaping () -> Content) -> some View
     {
         modifier(ODSBottomSheetStandardModifier(
             isOpen: isOpen,
-            headerConfig: ODSBottomSheetStandardHeaderConfig(title: title, icon: icon, animateIcon: annimateIcon),
+            headerConfig: ODSBottomSheetStandardHeaderConfig(title: title,
+                                                             stateLabels: accessibilityStateLabels,
+                                                             stateHints: accessibilityStateHints,
+                                                             icon: icon,
+                                                             animateIcon: animateIcon),
             bottomSheetContent: content))
     }
 }

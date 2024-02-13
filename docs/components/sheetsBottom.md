@@ -56,6 +56,8 @@ struct BottomSheetPresentation: View {
 }
 ```
 
+You can also define accessibility hints and labels for this standard bottom sheet so as to make VoiceOver vocalize the state of this sheet (opended or closed) or to vocalize some hints to make it be opened or not.
+
 ### Expanding
 
 The type of bottom must be used if the content is more complex and perhaps need to be scrollable.

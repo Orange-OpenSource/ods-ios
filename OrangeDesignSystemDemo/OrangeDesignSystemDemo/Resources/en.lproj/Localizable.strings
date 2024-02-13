@@ -408,3 +408,7 @@
 // =======================================
 
 "screens.components.template.customize" = "Customize";
+"screens.components.template.customize.label.opened" = "Opened";
+"screens.components.template.customize.label.closed" = "Closed";
+"screens.components.template.customize.hint.opened" = "Tap twice to open this customization sheet";
+"screens.components.template.customize.hint.closed" = "Tap twice to close this customization sheet";
