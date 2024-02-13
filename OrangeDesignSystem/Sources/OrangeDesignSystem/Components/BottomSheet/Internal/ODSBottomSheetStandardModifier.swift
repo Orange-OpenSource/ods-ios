@@ -35,9 +35,9 @@ struct ODSBottomSheetStandardModifier<BottomSheetContent>: ViewModifier where Bo
     func body(content: Content) -> some View {
         ZStack {
             content
-            ODSBottomSheetStandard(isOpen: isOpen, 
+            ODSBottomSheetStandard(isOpen: isOpen,
                                    headerSize: $bottomSheetHeaderSize,
-                                   headerConfig: headerConfig, 
+                                   headerConfig: headerConfig,
                                    content: bottomSheetContent)
         }
     }
@@ -107,8 +107,8 @@ struct ODSBottomSheetStandardHeaderConfig {
     ///  - Parameters:
     ///     - title: The title of the bottom sheet
     ///     - subtitle: The additional subtitle, optional, default set to nil
-    ///     - stateLabels:The accessibility labels to use for opened and closed states
-    ///     - stateHints:The accessibility hints to use for opened and closed states
+    ///     - stateLabels: The accessibility labels to use for opened and closed states
+    ///     - stateHints: The accessibility hints to use for opened and closed states
     ///     - icon: The additional icon added near to the title, optional, default set to nil
     ///     - animateIcon: To animate (ratio to 180 degrees) when sheet is opening, default set to false
     init(title: String,
@@ -210,7 +210,7 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
                 .readSize { size in
                     headerSize?.wrappedValue = size
                 }
-
+     
                 if isOpen.wrappedValue {
                     content
                         .background(Color(UIColor.systemBackground))
@@ -243,7 +243,9 @@ private struct AccessibilityValuesModifier: ViewModifier {
         labels = configuration.stateLabels
         hints = configuration.stateHints
         self.isOpen = isOpen
-        checkValues()
+#if DEBUG
+        logValues()
+#endif
     }
 
     func body(content: Content) -> some View {
@@ -252,9 +254,10 @@ private struct AccessibilityValuesModifier: ViewModifier {
             .modifier(AccessibilityHintsModifier(hints: hints, isOpen: isOpen))
     }
 
+#if DEBUG
     /// Just to let developers have in their console some warnings about missing accessibility values.
     /// Better to have this info in console instead of loosing time in testing.
-    private func checkValues() {
+    private func logValues() {
         if let labels = labels {
             if labels.opened.isEmpty {
                 ODSLogger.warning("Accessibility opened label for Bottom Sheet is empty")
@@ -272,7 +275,8 @@ private struct AccessibilityValuesModifier: ViewModifier {
             }
         }
     }
-
+#endif
+    
     private struct AccessibilityLabelsModifier: ViewModifier {
 
         let labels: AccessibilityStatesValues?
