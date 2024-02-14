@@ -51,12 +51,8 @@ default_platform(:ios)
 platform :ios do
 
   before_all do |lane, options|
-    xcversion(version: "~> 14.3.0")
+    xcversion(version: "~> 15.1")
   end
-
-  #before_all do
-  #  xcodes(select_for_current_build_only: true)
-  #end
 
   # ------------------------------------------------------------
   # ADD APPS PLUS CREDENTIALS (About module)
@@ -89,7 +85,7 @@ platform :ios do
         scan(scheme: "OrangeDesignSystemDemo", 
              device: device,
              skip_build: true)
-             
+
         publish_mattermost_notification("🧪 ✅ No issue with tests")
 
     rescue => error
