@@ -50,12 +50,7 @@ final class DateFormatterTest: XCTestCase {
         XCTAssertTrue(formattedDate == "10/19/23", "Value under test is '\(formattedDate)'")
     }
 
-    /*
-     Warning: We suppose for this test case the simulator used for tests:
-     - has french in first system language then english in second
-     - has english and french in app languages
-     - has french selected in app language
-     */
+    // Beware of locale and preferences for languages in use on devices
     func testFormatDateSmallFormatPreferredLocale() {
         // Given
         let date = date()
@@ -67,7 +62,7 @@ final class DateFormatterTest: XCTestCase {
         let formattedDate = DateFormatter.localizedFormat(date: date, for: bundle, dateStyle: dateStyle, timeStyle: timeStyle)
 
         // Then
-        XCTAssertTrue(formattedDate == "19/10/2023", "Value under test is '\(formattedDate)'")
+        XCTAssertTrue(formattedDate == "10/19/23", "Value under test is '\(formattedDate)'")
     }
 
     func testFormatterWithParameters() {
