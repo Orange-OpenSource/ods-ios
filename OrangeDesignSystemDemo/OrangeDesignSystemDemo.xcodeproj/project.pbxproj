@@ -1247,7 +1247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint ../OrangeDesignSystem\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint ../OrangeDesignSystem\n    ${PODS_ROOT}/SwiftLint/swiftlint ../InnovationCupTheme\n    ${PODS_ROOT}/SwiftLint/swiftlint ../OrangeTheme\n    ${PODS_ROOT}/SwiftLint/swiftlint OrangeDesignSystemDemo/OrangeDesignSystemDemo\n    ${PODS_ROOT}/SwiftLint/swiftlint OrangeDesignSystemDemoTests\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

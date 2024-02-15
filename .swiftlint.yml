@@ -30,7 +30,7 @@ included:
 
 excluded:
 - OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources
-- Pods
+- OrangeDesignSystemDemo/Pods
 - DerivedData
 
 # ==============
