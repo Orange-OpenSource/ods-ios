@@ -20,7 +20,7 @@ description: Displays a list of applications can be downloaded and used by user.
 
 ## Overview
 
-The _Recirculation module_ exposes a feature allowing the final users to get the available apps they can use.
+The _Recirculation_ module exposes a feature allowing the final users to get the available apps they can use.
 This feature is based today only on the Orange proprietary _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
 This service today is based on a simple URL containing both a lang parameter and an API key. 
 
