@@ -50,3 +50,7 @@ toc2:
       - page: List
         url: modules/list_docs
 
+  - title: About
+    subfolderitems:
+      - page: "Cookies"
+        url: /about/Cookies_docs
