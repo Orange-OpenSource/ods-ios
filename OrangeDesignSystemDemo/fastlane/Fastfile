@@ -349,7 +349,7 @@ platform :ios do
   # Sends a message notification through Mattermost hook
   def publish_mattermost_notification(message)
     mattermost(url: MATTERMOST_HOOK_URL,
-               text: message,
+               text: "[Fastlane via GitLab CI] #{message}",
                username: MATTERMOST_HOOK_BOT_NAME,
                icon_url: MATTERMOST_HOOK_BOT_ICON_URL
                )
