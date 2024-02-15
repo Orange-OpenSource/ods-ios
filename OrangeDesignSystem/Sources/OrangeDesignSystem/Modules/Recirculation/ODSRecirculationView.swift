@@ -13,28 +13,51 @@
 
 import SwiftUI
 
+// ==============
+// MARK: - Source
+// ==============
+
+/// The source of data the module must use to get all available apps
+public enum ODSRecirculationDataSource {
+
+    /// Fetch some backend available at `url` with sufficient `URL` for data retrievement
+    case remote(url: URL)
+    /// Get useful data from some local file available at `path`
+    case local(path: URL)
+}
+
 /// The view displaying the available apps in a list
-struct MoreAppsView: View {
+public struct ODSRecirculation: View {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
 
     private let enableHaptics: Bool
-    @StateObject private var viewModel: MoreAppsViewModel
+    @StateObject private var viewModel: ODSRecirculationModel
     @AccessibilityFocusState private var requestFocus: Focusable?
     @Environment(\.openURL) private var openURL
 
-    init(feedURL: URL, flattenApps: Bool, cacheAppsIcons: Bool, enableHaptics: Bool) {
+    // ==================
+    // MARK: Initializers
+    // ==================
+
+    public init(dataSource: ODSRecirculationDataSource,
+                flattenApps: Bool,
+                cacheAppsIcons: Bool,
+                enableHaptics: Bool) {
         self.enableHaptics = enableHaptics
-        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(dataSource: .remote(url: feedURL), flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
+        _viewModel = StateObject(wrappedValue: ODSRecirculationModel(dataSource: dataSource, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
     }
 
-    init(localPath: URL, flattenApps: Bool, cacheAppsIcons: Bool, enableHaptics: Bool) {
-        self.enableHaptics = enableHaptics
-        _viewModel = StateObject(wrappedValue: MoreAppsViewModel(dataSource: .local(path: localPath), flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
-    }
+    // ==========
+    // MARK: Body
+    // ==========
 
-    var body: some View {
+    public var body: some View {
         Group {
             switch viewModel.loadingState {
-            case .loading:
+            case .loading, .idle:
                 loadingView()
             case let .loaded(appsList):
                 loadedView(appsList).task {
@@ -50,18 +73,26 @@ struct MoreAppsView: View {
                 }
             }
         }
-        .task {
+        .refreshable {
             viewModel.fetchAvailableAppsList()
+        }
+        .task {
+            if case .idle = viewModel.loadingState {
+                viewModel.fetchAvailableAppsList()
+            }
         }
     }
 
-    // TODO: #64 - Implement loading view when the "empty state" module will be ready to be implemented
+    // =====================
+    // MARK: Private Helpers
+    // =====================
+
     private func loadingView() -> some View {
         Text("⏳ Loading")
     }
 
     @ViewBuilder
-    private func loadedView(_ appsList: MoreAppsList) -> some View {
+    private func loadedView(_ appsList: RecirculationAppsList) -> some View {
         List {
             if appsList.sections.isEmpty {
                 ForEach(appsList.apps, id: \.self) { app in
@@ -73,7 +104,7 @@ struct MoreAppsView: View {
                         listItem(for: app).odsListItemStyle()
                     }
                 } header: {
-                    Text("modules.about.apps_recirculation.uncategorized_apps".🌐)
+                    Text("modules.recirculation.uncategorized_apps".🌐)
                         .accessibilityFocused($requestFocus, equals: .uncategorizedAppsSection)
                 }
 
@@ -82,13 +113,13 @@ struct MoreAppsView: View {
                 }
             }
         }
-        .accessibilityFocused($requestFocus, equals: .moreApps)
+        .accessibilityFocused($requestFocus, equals: .appsList)
         .listStyle(.insetGrouped)
         .onAppear {
             // Voice Over gives focus to some random item in the middle of the screen in the list, need to move focus
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 if appsList.sections.isEmpty {
-                    requestFocus = .moreApps
+                    requestFocus = .appsList
                 } else {
                     requestFocus = .uncategorizedAppsSection
                 }
@@ -97,7 +128,7 @@ struct MoreAppsView: View {
     }
 
     @ViewBuilder
-    private func listItem(for section: MoreAppsSection) -> some View {
+    private func listItem(for section: RecirculationAppsListSection) -> some View {
         Section {
             ForEach(section.apps, id: \.self) { app in
                 listItem(for: app).odsListItemStyle()
@@ -108,7 +139,7 @@ struct MoreAppsView: View {
     }
 
     @ViewBuilder
-    private func listItem(for app: MoreAppsAppDetails) -> some View {
+    private func listItem(for app: RecirculationAppDetails) -> some View {
         let item = ODSListItem(title: Text(app.title),
                                subtitle: app.description != nil ? Text(app.description!) : nil,
                                leading: app.iconURL != nil ? .squareImage(source: viewModel.appImage(at: app.iconURL!)) : nil)
@@ -120,7 +151,7 @@ struct MoreAppsView: View {
                 }
             }
             .accessibilityElement(children: .combine)
-            .accessibilityHint(Text(°°"a11y.navigation.tap_twice_to_go_to_appstore"))
+            .accessibilityHint(Text("a11y.navigation.tap_twice_to_go_to_appstore".🌐))
 
         /*
          Asked to let user read more text if possible even if lines are limited.
@@ -155,7 +186,7 @@ struct MoreAppsView: View {
             Button {
                 openURL(storeURL)
             } label: {
-                Text("modules.about.apps_recirculation.go_to_appstore".🌐)
+                Text("modules.recirculation.go_to_appstore".🌐)
             }
         }
     }
@@ -177,7 +208,7 @@ struct MoreAppsView: View {
     // ============
 
     private enum Focusable: Hashable {
-        case moreApps
+        case appsList
         case uncategorizedAppsSection
     }
 }

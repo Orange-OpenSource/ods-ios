@@ -28,10 +28,15 @@
 "modules.about.rate.title" = "Rate this app";
 "modules.about.copyright" = "Orange property. All rights reserved";
 "modules.about.app_news.no_news" = "No App news found in file";
-"modules.about.apps_recirculation.title" = "More apps";
-"modules.about.apps_recirculation.uncategorized_apps" = "Uncategorized apps";
-"modules.about.apps_recirculation.go_to_appstore" = "Open in App Store";
-"module.about.error.generic_message" = "Something goes wrong";
+"modules.about.error.generic_message" = "Something goes wrong";
+"modules.about.recirculation.title" = "Recirculation";
+
+// ============================
+// MARK: - Recirculation module
+// ============================
+
+"modules.recirculation.uncategorized_apps" = "Uncategorized apps";
+"modules.recirculation.go_to_appstore" = "Open in App Store";
 
 // ============
 // MARK: - A11Y

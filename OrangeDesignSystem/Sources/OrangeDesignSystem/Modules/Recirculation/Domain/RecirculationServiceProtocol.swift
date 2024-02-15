@@ -11,17 +11,12 @@
 // Software description: A SwiftUI components library with code examples for Orange Design System 
 //
 
-import SwiftUI
+import Foundation
 
-struct AboutErrorView: View {
+protocol RecirculationServiceProtocol {
+    /// - Parameter repository: The object to use to get the raw data from a feeder
+    init(repository: RecirculationRepositoryProtocol)
 
-    private let text: Text
-
-    init(text: Text = Text("modules.about.error.generic_message".🌐)) {
-        self.text = text
-    }
-
-    var body: some View {
-        ODSEmptyStateView(title: text, image: Image("il_yoga_man", bundle: Bundle.ods))
-    }
+    /// Supposed to be async method to return the apps lists or to throw some error, using the given `RecirculationRepositoryProtocol`
+    func availableAppsList() async throws -> RecirculationAppsList
 }
