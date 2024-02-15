@@ -325,7 +325,7 @@ platform :ios do
 
     if tag_exists.strip! == "Bazinga!" # ¯\_( ͡❛ ͜ʖ ͡❛)_/¯
          puts "Warning: tag '#{tag}' still exists, won't create new one!"
-         publish_mattermost_notification("⚙️ 😰 @channel The tag '#{tag}' exists, won't create a new one")
+         publish_mattermost_notification("⚙️ 🤔 The tag '#{tag}' exists, won't create a new one")
          return false
     else
       if GITHUB_ACCESS_TOKEN.nil? || GITHUB_ACCESS_TOKEN.empty?
