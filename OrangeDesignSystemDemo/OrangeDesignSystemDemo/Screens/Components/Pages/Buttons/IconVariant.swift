@@ -67,7 +67,6 @@ struct IconVariant: View {
             .padding(.horizontal, ODSSpacing.m)
         }
         .padding(.bottom, 55)
-        .background(Color("componentBackground2"))
     }
 }
 

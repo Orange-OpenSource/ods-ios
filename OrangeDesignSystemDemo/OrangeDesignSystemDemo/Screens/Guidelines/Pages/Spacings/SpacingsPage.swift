@@ -104,7 +104,7 @@ private struct SpacingVisual: View {
                 .frame(height: 16, alignment: .topLeading)
 
             Rectangle()
-                .foregroundColor(Color("supportingIndicator"))
+                .foregroundColor(Color("spacingIndicator"))
                 .frame(width: spacingWidth, alignment: .center)
         }
         .frame(width: 60, height: 50)
