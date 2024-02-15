@@ -66,7 +66,7 @@ enum OrangeColors: String, CaseIterable {
     case supportingOrganic600
 
     // MARK: - TMP
-    case componentBackground
+    case bottomSheetHeader
 
     public var colorDecription: ODSColorDecription {
         ODSColorDecription(assetName: rawValue,
@@ -165,7 +165,7 @@ enum OrangeColors: String, CaseIterable {
             return "Orangic 500"
         case .supportingOrganic600:
             return "Orangic 600"
-        case .componentBackground:
+        case .bottomSheetHeader:
             return nil
         }
     }
@@ -260,7 +260,7 @@ enum OrangeColors: String, CaseIterable {
             return "Orangic 500"
         case .supportingOrganic600:
             return "Orangic 600"
-        case .componentBackground:
+        case .bottomSheetHeader:
             return nil
         }
     }
@@ -282,11 +282,11 @@ public struct OrangeThemeFactory {
 
         // Navigation bar
         theme.componentColors.navigationBarTitle = Color.primary
-        theme.componentColors.navigationBarBackground = OrangeColors.componentBackground.colorDecription.color
+        theme.componentColors.navigationBarBackground = Color(UIColor.systemBackground)
         theme.componentColors.navigationBarForeground = theme.componentColors.accent
 
         // Tab bar
-        theme.componentColors.tabBarBackground = OrangeColors.componentBackground.colorDecription.color
+        theme.componentColors.tabBarBackground = Color(UIColor.systemBackground)
         theme.componentColors.tabBarItem = .primary
         theme.componentColors.tabBarSelectedItem = theme.componentColors.accent
 
@@ -302,7 +302,7 @@ public struct OrangeThemeFactory {
         theme.componentColors.functionalAlert = OrangeColors.functionalAlert.colorDecription.color
 
         // Bottom sheet
-        theme.componentColors.bottomSheetHeaderBackground = OrangeColors.componentBackground.colorDecription.color
+        theme.componentColors.bottomSheetHeaderBackground = OrangeColors.bottomSheetHeader.colorDecription.color
 
         theme.font = { style in
             switch style {

@@ -34,7 +34,7 @@ struct GuidelinePage: View {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
                 themeProvider.imageFromResources(guideline.imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .padding(.bottom, ODSSpacing.m)
                     .accessibilityHidden(true)
 
