@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 /// Helps top run tests on the _Orange Design System_ library beside simulator when needed (e.g. for l10n)
 final class DateFormatterTest: XCTestCase {
 
@@ -110,3 +111,4 @@ final class DateFormatterTest: XCTestCase {
         return Calendar(identifier: .gregorian).date(from: dateComponents)!
     }
 }
+// swiftlint:enable line_length

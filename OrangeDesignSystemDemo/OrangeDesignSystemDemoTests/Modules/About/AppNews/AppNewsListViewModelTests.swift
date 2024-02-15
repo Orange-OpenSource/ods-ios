@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 final class AppNewsListViewModelTests: XCTestCase {
 
     // ==================
@@ -172,3 +173,4 @@ final class AppNewsListViewModelTests: XCTestCase {
         return decodedRelease
     }
 }
+// swiftlint:enable line_length

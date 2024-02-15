@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 /// Helps to test the `MoreAppsAppsPlusMapper` to check if the data transfer objects parsed from JSON match the business objects after the mapping
 final class MoreAppsAppsPlusMapperTests: XCTestCase {
 
@@ -35,7 +36,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         let moreAppsAppDetails = AppsPlusMoreAppsMapper().appDetails(from: appsPlusAppDetailsDTOMock)
 
         // Then
-        compare(bo: moreAppsAppDetails, dto: appsPlusAppDetailsDTOMock)
+        compare(businessObject: moreAppsAppDetails, dataTransferObject: appsPlusAppDetailsDTOMock)
     }
 
     /// Test if some `AppsPlusSectionDTO` can be parsed to `MoreAppsSection`
@@ -58,8 +59,8 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         XCTAssertTrue(moreAppsSection.description == appsPlusSectionDTOMock.description)
         XCTAssertTrue(moreAppsSection.apps.count == appsPlusSectionDTOMock.apps.count)
 
-        compare(bo: moreAppsSection.apps[0], dto: appsPlusSectionDTOMock.apps[0])
-        compare(bo: moreAppsSection.apps[1], dto: appsPlusSectionDTOMock.apps[1])
+        compare(businessObject: moreAppsSection.apps[0], dataTransferObject: appsPlusSectionDTOMock.apps[0])
+        compare(businessObject: moreAppsSection.apps[1], dataTransferObject: appsPlusSectionDTOMock.apps[1])
     }
 
     /// Test if some `AppsPlusListDTO` can be parsed by the  `MoreAppsAppsPlusMapper`
@@ -132,3 +133,4 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
     }
 }
+// swiftlint:enable line_length

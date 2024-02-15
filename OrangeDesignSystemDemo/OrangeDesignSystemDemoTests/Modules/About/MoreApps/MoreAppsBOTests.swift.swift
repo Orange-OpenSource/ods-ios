@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 final class MoreAppsBOTests: XCTestCase {
 
     func testFlattened() {
@@ -60,3 +61,4 @@ final class MoreAppsBOTests: XCTestCase {
         return MoreAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
     }
 }
+// swiftlint:enable line_length

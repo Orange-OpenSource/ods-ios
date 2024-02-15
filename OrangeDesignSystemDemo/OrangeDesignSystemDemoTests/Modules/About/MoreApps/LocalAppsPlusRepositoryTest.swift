@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 final class LocalAppsPlusRepositoryTests: XCTestCase {
 
     func testReadOfLocalData() async {
@@ -44,3 +45,4 @@ final class LocalAppsPlusRepositoryTests: XCTestCase {
         XCTAssertTrue(appsList.sections[1].apps[0].title == "Orange Radio")
     }
 }
+// swiftlint:enable line_length

@@ -17,6 +17,7 @@ import Foundation
 import SwiftUI
 import XCTest
 
+// swiftlint:disable line_length
 final class ODSAboutListItemPriorityTests: XCTestCase {
 
     // ==================
@@ -67,3 +68,4 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         AnyView(EmptyView())
     }
 }
+// swiftlint:enable line_length
