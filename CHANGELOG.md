@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.76.0...qualif)
 
+- [SDK] About module, Add error views for more apps and appnews ([#689](https://github.com/Orange-OpenSource/ods-ios/issues/689))
 - [SDK] Vocalized buttons selected status with Voice Over ([#583](https://github.com/Orange-OpenSource/ods-ios/issues/583))
 - [DemoApp/SDK] Customize accordion status is not vocalized (Bug [#581](https://github.com/Orange-OpenSource/ods-ios/issues/581))
 - [Tooling] Add Git tags in CI/CD pipelines for TestFlight builds, update CocoaPods ([#680](https://github.com/Orange-OpenSource/ods-ios/issues/680))

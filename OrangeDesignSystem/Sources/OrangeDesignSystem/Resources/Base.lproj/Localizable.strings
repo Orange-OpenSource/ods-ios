@@ -31,6 +31,7 @@
 "modules.about.apps_recirculation.title" = "More apps";
 "modules.about.apps_recirculation.uncategorized_apps" = "Uncategorized apps";
 "modules.about.apps_recirculation.go_to_appstore" = "Open in App Store";
+"module.about.error.generic_message" = "Something goes wrong";
 
 // ============
 // MARK: - A11Y
