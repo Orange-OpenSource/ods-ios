@@ -84,7 +84,7 @@ platform :ios do
     # Add new environments using `xcodebuild -downloadPlatform iOS`
     begin
         device = "iPhone 14"
-        scan(scheme: "OrangeDesignSystemDemo", 
+        scan(scheme: "OrangeDesignSystemDemo",
              device: device,
              skip_build: true)
 
@@ -222,10 +222,8 @@ platform :ios do
         cocoapods(
             clean_install: true
         )
-
-        build_app(
-            workspace: ODS_WORKSPACE,
-            clean: true,
+        
+        gym(
             scheme: ODS_SCHEME,
             output_directory: 'build/',
             archive_path: 'build/odsApp.xcarchive',
