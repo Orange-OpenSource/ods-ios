@@ -210,7 +210,7 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
                 .readSize { size in
                     headerSize?.wrappedValue = size
                 }
-     
+
                 if isOpen.wrappedValue {
                     content
                         .background(Color(UIColor.systemBackground))
