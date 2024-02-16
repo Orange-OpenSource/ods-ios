@@ -403,5 +403,5 @@
 "screens.components.template.customize" = "Customize";
 "screens.components.template.customize.label.opened" = "Customize the component (opened)";
 "screens.components.template.customize.label.closed" = "Customize the component (closed)";
-"screens.components.template.customize.hint.opened" = "Tap twice to open this customization sheet";
-"screens.components.template.customize.hint.closed" = "Tap twice to close this customization sheet";
+"screens.components.template.customize.hint.opened" = "Tap twice to close this customization sheet";
+"screens.components.template.customize.hint.closed" = "Tap twice to open this customization sheet";
