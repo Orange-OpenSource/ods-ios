@@ -36,8 +36,8 @@ final class RecirculationModuleModel: ObservableObject {
         useLocalMock = true
         cacheAppsIcons = true
         enableHaptics = true
-        localDataSource = Self.localDataSource
-        remoteDataSource = Self.remoteDataSource
+        localDataSource = Self.localDataSource()
+        remoteDataSource = Self.remoteDataSource()
     }
     
     var hasRemoteDateSource: Bool {
@@ -70,7 +70,7 @@ final class RecirculationModuleModel: ObservableObject {
     // =======================
 
     /// The `URL` of the service to reach to get the list of apps to display
-    private static var remoteDataSource: ODSRecirculationDataSource? {
+    private static func remoteDataSource() -> ODSRecirculationDataSource? {
         guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
             Log.warning("No Apps Plus URL found in app settings")
             return nil
@@ -85,7 +85,7 @@ final class RecirculationModuleModel: ObservableObject {
     }
 
     /// The `URL` pointing some JSON file, picked from backend, embeded in the app, containing the list of apps to display
-    private static var localDataSource: ODSRecirculationDataSource? {
+    private static func localDataSource() -> ODSRecirculationDataSource? {
         guard let localPath = Bundle.main.url(forResource: "AppsPlus", withExtension: "json"), localPath.isFileURL else {
             return nil
         }
