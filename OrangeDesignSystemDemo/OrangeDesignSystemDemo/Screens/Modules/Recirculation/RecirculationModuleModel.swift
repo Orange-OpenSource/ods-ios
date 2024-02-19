@@ -36,8 +36,28 @@ final class RecirculationModuleModel: ObservableObject {
         useLocalMock = true
         cacheAppsIcons = true
         enableHaptics = true
-        localDataSource = Self.localDataSource()
-        remoteDataSource = Self.remoteDataSource()
+        
+        if let localPath = Bundle.main.url(forResource: "AppsPlus", withExtension: "json"), localPath.isFileURL {
+            localDataSource = .local(path: localPath)
+        } else {
+            localDataSource = nil
+        }
+        
+        
+        if let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty {
+            let currentLocale = Bundle.main.preferredLocalizations[0]
+            let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
+            if let feedURL = URL(string: requestURL) {
+                remoteDataSource = .remote(url: feedURL)
+            }
+            else {
+                remoteDataSource = nil
+                Log.warning("Failed to forge the service URL to get more apps")
+            }
+        } else {
+            remoteDataSource = nil
+            Log.warning("No Apps Plus URL found in app settings")
+        }
     }
     
     var hasRemoteDateSource: Bool {
@@ -63,32 +83,5 @@ final class RecirculationModuleModel: ObservableObject {
 
             return remoteDataSource
         }
-    }
-
-    // =======================
-    // MARK: - Private helpers
-    // =======================
-
-    /// The `URL` of the service to reach to get the list of apps to display
-    private static func remoteDataSource() -> ODSRecirculationDataSource? {
-        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
-            Log.warning("No Apps Plus URL found in app settings")
-            return nil
-        }
-        let currentLocale = Bundle.main.preferredLocalizations[0]
-        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
-        guard let feedURL = URL(string: requestURL) else {
-            Log.warning("Failed to forge the service URL to get more apps")
-            return nil
-        }
-        return .remote(url: feedURL)
-    }
-
-    /// The `URL` pointing some JSON file, picked from backend, embeded in the app, containing the list of apps to display
-    private static func localDataSource() -> ODSRecirculationDataSource? {
-        guard let localPath = Bundle.main.url(forResource: "AppsPlus", withExtension: "json"), localPath.isFileURL else {
-            return nil
-        }
-        return .local(path: localPath)
     }
 }
