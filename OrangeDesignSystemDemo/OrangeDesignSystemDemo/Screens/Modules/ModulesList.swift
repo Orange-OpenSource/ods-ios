@@ -41,7 +41,7 @@ struct ModulesList: View {
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.recirculation.title"),
-                            imageSource: .image(Image("il_recirculation")))
+                            imageSource: .image(imageFrom(resourceName: "il_recirculation")))
                     }
 
                     NavigationLink {

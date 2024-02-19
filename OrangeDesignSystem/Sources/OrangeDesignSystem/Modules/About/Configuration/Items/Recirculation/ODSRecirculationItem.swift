@@ -35,7 +35,7 @@ public struct ODSRecirculationItemConfig: ODSAboutListItemConfig {
     /// Initializes the configuration.
     ///
     /// - Parameters:
-    ///    - source: The source to use to get data
+    ///    - dataSource: The source to use to get data
     ///    - flattenApps: True if all apps must be palced in one list without categories, false (default) to keep categories
     ///    - cacheAppsIcons: True (default) to use app cache to save locally the apps stores icons, false otherwise
     ///    - enableHaptics: True (default) to enable vibrations with the module, false to disable

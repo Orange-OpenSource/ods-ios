@@ -63,8 +63,8 @@ final class ODSRecirculationModel: ObservableObject {
         Task {
             loadingState = .loading
             do {
-                let appsList = try await self.service.availableAppsList()
-                self.loadingState = .loaded(self.flattenApps ? appsList.flattened() : appsList)
+                let appsList = try await service.availableAppsList()
+                loadingState = .loaded(flattenApps ? appsList.flattened() : appsList)
             } catch {
                 if let appsRecirculationError = error as? ODSRecirculationModel.Error {
                     loadingState = .error(appsRecirculationError)

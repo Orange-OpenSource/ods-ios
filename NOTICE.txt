@@ -156,4 +156,7 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateFirstUse.imageset/EmptyStatesFirstUse.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateNoData.imageset/EmptyStatesNoData.png
 
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/il_recirculation_generic.imageset/il_recirculation_generic.svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_recirculation.imageset/il_recirculation.svg
+
 End of the parts list under Orange SA Copyright
