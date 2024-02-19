@@ -298,11 +298,7 @@ private struct AccessibilityValuesModifier: ViewModifier {
 
         func body(content: Content) -> some View {
             if let hints = hints {
-                let o: Text = Text(hints.opened)
-                let c: Text = Text(hints.closed)
-                let t = isOpen.wrappedValue ? o : c
-                
-                content.accessibilityHint(t)
+                content.accessibilityHint(Text(isOpen.wrappedValue ? hints.opened : hints.closed))
             } else {
                 content
             }
