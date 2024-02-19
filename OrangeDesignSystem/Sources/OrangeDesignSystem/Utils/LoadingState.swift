@@ -20,6 +20,9 @@ import Foundation
 ///    - Error: Some error instead of a payload
 enum LoadingState<Payload, Error> {
 
+    /// No fetch started yet
+    case idle
+    
     /// Waiting for some data
     case loading
 

@@ -44,7 +44,7 @@ final class MoreAppsBOTests: XCTestCase {
     // MARK: - Helper
     // ==============
 
-    private func availableAppsList() -> MoreAppsList {
+    private func availableAppsList() -> RecirculationAppsList {
         let mockJsonPath = XCTestCase.stubPath(for: "AppsPlusMock", ofType: "json", inBundleOf: MoreAppsServiceTests.self)
         guard let jsonRawData = try? String(contentsOfFile: mockJsonPath).data(using: .utf8) else {
             fatalError("Failed to convert the mock JSON for tests!")
@@ -57,6 +57,6 @@ final class MoreAppsBOTests: XCTestCase {
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusDTOMock.items[0])
         let moreAppsSections = mapper.appsSections(from: appsPlusDTOMock.items[0])
 
-        return MoreAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
+        return RecirculationAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
     }
 }

@@ -28,10 +28,6 @@ final class AboutModuleModel: ObservableObject {
     @Published var showFeedbackPopup: Bool
     @Published var applicationSectionOptions: [ApplicationInformationOption]
     @Published var optionalAboutItems: [OptionalAboutItem]
-    @Published var useLocalMock: Bool
-    @Published var flattenAppsCategories: Bool
-    @Published var cacheAppsIcons: Bool
-    @Published var enableHaptics: Bool
     @Published var numberOfCustomItems: Int
 
     var applicationInformation: ODSAboutApplicationInformation {
@@ -111,10 +107,6 @@ final class AboutModuleModel: ObservableObject {
         applicationSectionOptions = ApplicationInformationOption.allCases
         optionalAboutItems = OptionalAboutItem.allCases
         numberOfCustomItems = 2
-        flattenAppsCategories = false
-        useLocalMock = true
-        cacheAppsIcons = true
-        enableHaptics = true
         defaultCustomItems = [
             AboutMyRecipeItemConfiguration(),
             AboutMyReviewsItemConfiguration(),

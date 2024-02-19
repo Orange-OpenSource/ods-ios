@@ -35,6 +35,16 @@ struct ModulesList: View {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
 
                     NavigationLink {
+                        RecirculationModule()
+                            .odsNavigationTitle("screens.modules.recirculation.title.setup".🌐)
+                            .navigationbarMenuForThemeSelection()
+                    } label: {
+                        ODSCardVerticalImageFirst(
+                            title: Text("screens.modules.recirculation.title"),
+                            imageSource: .image(imageFrom(resourceName: "il_recirculation")))
+                    }
+
+                    NavigationLink {
                         EmptyStateModule()
                             .odsNavigationTitle("screens.modules.empty_state.title.setup".🌐)
                             .navigationbarMenuForThemeSelection()

@@ -11,17 +11,11 @@
 // Software description: A SwiftUI components library with code examples for Orange Design System 
 //
 
-import SwiftUI
+import Foundation
 
-struct AboutErrorView: View {
+/// Abstraction layer if in the future another data feed will be used to get other available apps.
+protocol RecirculationRepositoryProtocol {
 
-    private let text: Text
-
-    init(text: Text = Text("modules.about.error.generic_message".🌐)) {
-        self.text = text
-    }
-
-    var body: some View {
-        ODSEmptyStateView(title: text, image: Image("il_yoga_man", bundle: Bundle.ods))
-    }
+    /// Supposed to be async method to return the apps lists or to throw some error
+    func availableAppsList() async throws -> AppsPlusListDTO
 }

@@ -14,29 +14,29 @@
 import SwiftUI
 import OrangeDesignSystem
 
-// =========================
-// MARK: - EmptyState Module
-// =========================
+// ============================
+// MARK: - Recirculation Module
+// ============================
 
-struct EmptyStateModule: View {
+struct RecirculationModule: View {
     
     var body: some View {
-        EmptyStateModuleSetup(model: EmptyStateModuleModel())
+        RecirculationModuleSetup(model: RecirculationModuleModel())
     }
 }
 
-// ===================
-// MARK: - About Setup
-// ===================
+// ===========================
+// MARK: - Recirculation Setup
+// ===========================
 
-struct EmptyStateModuleSetup: View {
+struct RecirculationModuleSetup: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
     @State private var showDemo: Bool = false
-    @ObservedObject var model: EmptyStateModuleModel
+    @ObservedObject var model: RecirculationModuleModel
 
     // ==========
     // MARK: Body
@@ -44,33 +44,43 @@ struct EmptyStateModuleSetup: View {
 
     var body: some View {
         ScrollView {
-            Image("il_emptyState")
+            ThemeProvider().imageFromResources("il_recirculation")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                Text("screens.modules.empty_state.description")
+                Text("screens.modules.recirculation.description")
 
                 Text("shared.modules.customize")
                     .odsFont(.headlineS)
 
-                ODSChoiceChipPicker(
-                    title: Text("misc.usage"),
-                    chips: EmptyStateModuleModel.UsageOption.chips,
-                    selection: $model.usageOption)
-                    .padding(.horizontal, -ODSSpacing.m)
+                Toggle(isOn: $model.useLocalMock) {
+                    Text("screens.modules.recirculation.option.use_embeded_mock")
+                }
+                .odsFont(.headlineS)
+                .disabled(!model.hasRemoteDateSource) // If no backend URL, force to use mocks
 
-                Toggle("shared.button", isOn: $model.showButton).odsFont(.headlineS)
-                Toggle("shared.subtitle", isOn: $model.showSubtitle).odsFont(.headlineS)
+                Toggle(isOn: $model.flattenAppsCategories) {
+                    Text("screens.modules.recirculation.option.flatten_apps_sections")
+                }.odsFont(.headlineS)
+
+                Toggle(isOn: $model.cacheAppsIcons) {
+                    Text("screens.modules.recirculation.option.cache_more_apps_icons")
+                }.odsFont(.headlineS)
+
+                Toggle(isOn: $model.enableHaptics) {
+                    Text("screens.modules.recirculation.option.enable_haptics")
+                }.odsFont(.headlineS)
                 
                 NavigationLink(isActive: $showDemo) {
-                    EmptyStateModuleDemo(model: model)
+                    RecirculationModuleDemo(model: model)
                 } label: {
                     ODSButton(text: Text("shared.modules.button.view_demo"), emphasis: .high, fullWidth: true) {
                         showDemo.toggle()
                     }
                 }
+
             }
             .padding(.all, ODSSpacing.m)
         }

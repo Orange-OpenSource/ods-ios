@@ -79,12 +79,12 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         let mapper = AppsPlusMoreAppsMapper()
 
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusItemsMock)
-        let lonelyApps: [MoreAppsAppDetails] = appsPlusItemsMock.apps.map { appDTO in
+        let lonelyApps: [RecirculationAppDetails] = appsPlusItemsMock.apps.map { appDTO in
             mapper.appDetails(from: appDTO)
         }
 
         let moreAppsSections = mapper.appsSections(from: appsPlusItemsMock)
-        let sections: [MoreAppsSection] = appsPlusItemsMock.sections.map { sectionDTO in
+        let sections: [RecirculationAppsListSection] = appsPlusItemsMock.sections.map { sectionDTO in
             mapper.appsSection(from: sectionDTO)
         }
 
@@ -104,21 +104,21 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
     // MARK: - Helper
     // ==============
 
-    private func compare(bo: MoreAppsAppDetails, dto: AppsPlusAppDetailsDTO) {
+    private func compare(bo: RecirculationAppDetails, dto: AppsPlusAppDetailsDTO) {
         XCTAssertTrue(bo.title == dto.title)
         XCTAssertTrue(bo.iconURL == URL(string: dto.iconURL))
         XCTAssertTrue(bo.description == dto.description)
         XCTAssertTrue(bo.storeURL == URL(string: dto.storeLink))
     }
 
-    private func compareBoth(_ lhs: MoreAppsAppDetails, _ rhs: MoreAppsAppDetails) {
+    private func compareBoth(_ lhs: RecirculationAppDetails, _ rhs: RecirculationAppDetails) {
         XCTAssertTrue(lhs.title == rhs.title)
         XCTAssertTrue(lhs.iconURL == rhs.iconURL)
         XCTAssertTrue(lhs.description == rhs.description)
         XCTAssertTrue(lhs.storeURL == rhs.storeURL)
     }
 
-    private func compareBoth(_ lhs: [MoreAppsSection], _ rhs: [MoreAppsSection]) {
+    private func compareBoth(_ lhs: [RecirculationAppsListSection], _ rhs: [RecirculationAppsListSection]) {
         XCTAssertTrue(lhs.count == rhs.count)
         for (lhsItem, rhsItem) in zip(lhs, rhs) {
             XCTAssertTrue(lhsItem.description == rhsItem.description)

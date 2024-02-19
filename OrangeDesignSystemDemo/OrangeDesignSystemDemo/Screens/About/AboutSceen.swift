@@ -105,10 +105,10 @@ struct AboutScreen: View {
             AboutChangelogItemConfig(priority: 200),
         ]
 
-        if let feedURL = Self.appsRecirculationRemoteFeedURL {
-            customItems.append(ODSMoreAppsItemConfig(source: .remote(url: feedURL), priority: 199))
+        if let feedURL = Self.recirculationRemoteFeedURL {
+            customItems.append(ODSRecirculationItemConfig(dataSource: .remote(url: feedURL), priority: 199))
         } else {
-            Log.warning("Missing configuration for this apps recirculation module, did you use a working URL?")
+            Log.warning("Missing configuration for this recirculation module, did you use a working URL?")
         }
     }
 
@@ -138,7 +138,7 @@ struct AboutScreen: View {
         AboutHtmlAndMarkdownView(title: °°"screens.about.terms_of_service", htmlFileName: "CGU")
     }
 
-    private static var appsRecirculationRemoteFeedURL: URL? {
+    private static var recirculationRemoteFeedURL: URL? {
         guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
             Log.warning("No Apps Plus URL found in app settings")
             return nil

@@ -15,42 +15,38 @@ import Combine
 import Foundation
 import SwiftUI
 
-// ============================
-// MARK: - More Apps View Model
-// ============================
+// ================================
+// MARK: - Recirculation View Model
+// ================================
 
 @MainActor
-final class MoreAppsViewModel: ObservableObject {
+final class ODSRecirculationModel: ObservableObject {
 
-    private let service: MoreAppsService
+    // =======================
+    // MARK: Stored Properties
+    // =======================
+
+    private let service: RecirculationService
     private let flattenApps: Bool
     private let cacheAppsIcons: Bool
-    @Published var loadingState: LoadingState<MoreAppsList, MoreAppsViewModel.Error>
+    @Published var loadingState: LoadingState<RecirculationAppsList, ODSRecirculationModel.Error>
 
-    init(dataSource: MoreAppsViewModel.Source, flattenApps: Bool, cacheAppsIcons: Bool) {
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init(dataSource: ODSRecirculationDataSource, flattenApps: Bool, cacheAppsIcons: Bool) {
         switch dataSource {
         case let .remote(feedURL):
             ODSLogger.info("AppsPlus backend will be requested to get apps to display")
-            service = MoreAppsService(repository: AppsPlusRepository(feedURL: feedURL))
+            service = RecirculationService(repository: AppsPlusRepository(feedURL: feedURL))
         case let .local(filePath):
             ODSLogger.info("Local data based on AppsPlus dump will be used to display apps")
-            service = MoreAppsService(repository: LocalAppsPlusRepository(feedURL: filePath))
+            service = RecirculationService(repository: LocalAppsPlusRepository(feedURL: filePath))
         }
         self.flattenApps = flattenApps
         self.cacheAppsIcons = cacheAppsIcons
-        loadingState = .loading
-    }
-
-    // ==============
-    // MARK: - Source
-    // ==============
-
-    /// The source of data the module must use to get all available apps
-    public enum Source {
-        /// Fetch some backend available at `url` with sufficient `URL` for data retrievement
-        case remote(url: URL)
-        /// Get useful data from some local file available at `path`
-        case local(path: URL)
+        loadingState = .idle
     }
 
     // ===============
@@ -63,22 +59,21 @@ final class MoreAppsViewModel: ObservableObject {
         case unknownError
     }
 
-    // swiftlint:disable force_cast
     func fetchAvailableAppsList() {
         Task {
             loadingState = .loading
             do {
                 let appsList = try await service.availableAppsList()
                 loadingState = .loaded(flattenApps ? appsList.flattened() : appsList)
-            } catch let error where error is MoreAppsViewModel.Error {
-                loadingState = .error(error as! MoreAppsViewModel.Error)
             } catch {
-                loadingState = .error(.unknownError)
+                if let appsRecirculationError = error as? ODSRecirculationModel.Error {
+                    loadingState = .error(appsRecirculationError)
+                } else {
+                    loadingState = .error(.unknownError)
+                }
             }
         }
     }
-
-    // swiftlint:enable force_cast
 
     func appImage(at url: URL) -> ODSImage.Source {
         return cacheAppsIcons

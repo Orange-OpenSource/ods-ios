@@ -54,7 +54,7 @@ platform :ios do
   end
     
   # ------------------------------------------------------------
-  # ADD APPS PLUS CREDENTIALS (About module)
+  # ADD APPS PLUS CREDENTIALS (Recirculation Module)
   # ------------------------------------------------------------
   desc "ADD APPS PLUS CREDENTIALS"
   lane :add_credentials_appsplus do
