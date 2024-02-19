@@ -5,10 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.76.0...qualif)
 
+- [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684] (https://github.com/Orange-OpenSource/ods-ios/issues/684))
 - [DemoApp] Spacer indicator missing on spacing guidelines page (Bug [#707](https://github.com/Orange-OpenSource/ods-ios/issues/707))
 - [DemoApp] On "Customize" bottom sheets, the hint is reversed (Bug a11y [#704](https://github.com/Orange-OpenSource/ods-ios/issues/704))
 - [SDK] Update background color of the navigation and tab bars for accessibility reason (Bug [#693](https://github.com/Orange-OpenSource/ods-ios/issues/693))
-- [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684] (https://github.com/Orange-OpenSource/ods-ios/issues/684))
 - [SDK] About module, Add error views for more apps and appnews ([#689](https://github.com/Orange-OpenSource/ods-ios/issues/689))
 - [SDK] Vocalized buttons selected status with Voice Over ([#583](https://github.com/Orange-OpenSource/ods-ios/issues/583))
 - [DemoApp/SDK] Customize accordion status is not vocalized (Bug [#581](https://github.com/Orange-OpenSource/ods-ios/issues/581))
