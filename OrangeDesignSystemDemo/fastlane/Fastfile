@@ -223,15 +223,22 @@ platform :ios do
             clean_install: true
         )
         
-        gym(
-            scheme: ODS_SCHEME,
-            output_directory: 'build/',
-            archive_path: 'build/odsApp.xcarchive',
-            output_name: 'odsApp',
-            configuration: 'Release',
-            include_symbols: true,
-            export_method: 'app-store',
-            xcargs: '-allowProvisioningUpdates'
+        update_code_signing_settings(
+          use_automatic_signing: false,
+          path: "#{ODS_PROJECT}"
+        )
+
+        build_app(
+          workspace: ODS_WORKSPACE,
+          clean: true,
+          scheme: ODS_SCHEME,
+          output_directory: 'build/',
+          archive_path: 'build/odsApp.xcarchive',
+          output_name: 'odsApp',
+          configuration: 'Release',
+          include_symbols: true,
+          export_method: 'app-store',
+          xcargs: '-allowProvisioningUpdates'
         )
         
         publish_mattermost_notification("🔨 ✅ @channel A new build has been done successfully")
