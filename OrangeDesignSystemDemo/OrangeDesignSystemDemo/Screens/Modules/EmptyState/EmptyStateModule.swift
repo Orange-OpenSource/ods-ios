@@ -31,6 +31,8 @@ struct EmptyStateModule: View {
 
 struct EmptyStateModuleSetup: View {
 
+    @EnvironmentObject private var themeProvider: ThemeProvider
+
     // =======================
     // MARK: Stored Properties
     // =======================
@@ -38,13 +40,14 @@ struct EmptyStateModuleSetup: View {
     @State private var showDemo: Bool = false
     @ObservedObject var model: EmptyStateModuleModel
 
+
     // ==========
     // MARK: Body
     // ==========
 
     var body: some View {
         ScrollView {
-            Image("il_emptyState")
+            themeProvider.imageFromResources("il_emptyState")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .accessibilityHidden(true)
