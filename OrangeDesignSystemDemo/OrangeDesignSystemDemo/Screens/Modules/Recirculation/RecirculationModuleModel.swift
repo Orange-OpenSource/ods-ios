@@ -20,7 +20,7 @@ final class RecirculationModuleModel: ObservableObject {
     // MARK: - Stored properties
     // =========================
 
-    @Published var useLocalMock: Bool
+    @Published var useLocalDataSource: Bool
     @Published var flattenAppsCategories: Bool
     @Published var cacheAppsIcons: Bool
     @Published var enableHaptics: Bool
@@ -33,7 +33,6 @@ final class RecirculationModuleModel: ObservableObject {
 
     init() {
         flattenAppsCategories = false
-        useLocalMock = true
         cacheAppsIcons = true
         enableHaptics = true
         
@@ -42,7 +41,6 @@ final class RecirculationModuleModel: ObservableObject {
         } else {
             localDataSource = nil
         }
-        
         
         if let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty {
             let currentLocale = Bundle.main.preferredLocalizations[0]
@@ -58,6 +56,13 @@ final class RecirculationModuleModel: ObservableObject {
             remoteDataSource = nil
             Log.warning("No Apps Plus URL found in app settings")
         }
+        
+        // If no remote url, force to use local data
+        if remoteDataSource == nil {
+            useLocalDataSource = true
+        } else {
+            useLocalDataSource = false
+        }
     }
     
     var hasRemoteDateSource: Bool {
@@ -65,7 +70,7 @@ final class RecirculationModuleModel: ObservableObject {
     }
     
     var dataSource: ODSRecirculationDataSource {
-        if useLocalMock {
+        if useLocalDataSource {
             Log.info("Source of data for Recirculation module is local file")
             
             guard let localDataSource = localDataSource else {

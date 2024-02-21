@@ -402,7 +402,7 @@
 "screens.modules.recirculation.title.setup" = "Recirculation: Setup";
 "screens.modules.recirculation.description" = "Recirculation (AppsPlus was a OMD Essential component) making Orange Apps discovery easier than ever.";
 "screens.modules.recirculation.option.flatten_apps_sections" = "Do not categorize apps";
-"screens.modules.recirculation.option.use_embeded_mock" = "Use local mock";
+"screens.modules.recirculation.option.use_embeded_data_source" = "Use local data";
 "screens.modules.recirculation.option.cache_more_apps_icons" = "Cache apps images";
 "screens.modules.recirculation.option.enable_haptics" = "Enable vibrations";
 
