@@ -3,24 +3,20 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.76.0...qualif)
+## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [SDK] Change the order of the accessibility focus between header and content in bottom sheet (Bug a11y [#703] (https://github.com/Orange-OpenSource/ods-ios/issues/703))
 - [SDK] Update the tab bar configuration to see the separator ([#712] (https://github.com/Orange-OpenSource/ods-ios/issues/712))
+- [SDK] Fix expanding Bottom Sheet on iPad (Bug [#428] (https://github.com/Orange-OpenSource/ods-ios/issues/428))
 - [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684] (https://github.com/Orange-OpenSource/ods-ios/issues/684))
 - [DemoApp] Spacer indicator missing on spacing guidelines page (Bug [#707](https://github.com/Orange-OpenSource/ods-ios/issues/707))
 - [DemoApp] On "Customize" bottom sheets, the hint is reversed (Bug a11y [#704](https://github.com/Orange-OpenSource/ods-ios/issues/704))
 - [SDK] Update background color of the navigation and tab bars for accessibility reason (Bug [#693](https://github.com/Orange-OpenSource/ods-ios/issues/693))
-- [SDK] About module, Add error views for more apps and appnews ([#689](https://github.com/Orange-OpenSource/ods-ios/issues/689))
-- [SDK] Vocalized buttons selected status with Voice Over ([#583](https://github.com/Orange-OpenSource/ods-ios/issues/583))
-- [DemoApp/SDK] Customize accordion status is not vocalized (Bug [#581](https://github.com/Orange-OpenSource/ods-ios/issues/581))
-- [Tooling] Add Git tags in CI/CD pipelines for TestFlight builds, update CocoaPods ([#680](https://github.com/Orange-OpenSource/ods-ios/issues/680))
-
-## [Unreleased]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
-
-- [SDK] Fix expanding Bottom Sheet on iPad (Bug [#428] (https://github.com/Orange-OpenSource/ods-ios/issues/428))
 - [DemoApp] Fix wrong color of the close button (Bug [#412] (https://github.com/Orange-OpenSource/ods-ios/issues/412))
+- [SDK] About module, Add error views for more apps and appnews ([#689](https://github.com/Orange-OpenSource/ods-ios/issues/689))
 - [SDK/DemoApp] Add ODSEmptyState module ([#558](https://github.com/Orange-OpenSource/ods-ios/issues/558))
 - [SDK] Vocalized buttons selected status with Voice Over ([#583](https://github.com/Orange-OpenSource/ods-ios/issues/583))
+- [DemoApp/SDK] Customize accordion status is not vocalized (Bug [#581](https://github.com/Orange-OpenSource/ods-ios/issues/581))
 - [Tooling] Add Git tags in CI/CD pipelines for TestFlight builds, update CocoaPods ([#680](https://github.com/Orange-OpenSource/ods-ios/issues/680))
 
 ## [0.17.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-07-06
