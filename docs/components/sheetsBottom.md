@@ -8,11 +8,8 @@ description: Bottom Sheets are surfaces anchored to the bottom of the screen tha
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-  * [Standard](#standard)
-  * [Expanding](#expanding)
+* Table of contents
+{:toc}
 
 ---
 

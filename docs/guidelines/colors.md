@@ -6,11 +6,8 @@ title: Colors
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Theme colors](#theme-colors)
-* [How to use](#how-to-use)
-  * [Using the color name](#using-the-color-name)
-  * [Using components token](#using-components-token)
+* Table of contents
+{:toc}
 
 ---
 

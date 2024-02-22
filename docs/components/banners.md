@@ -8,14 +8,8 @@ description: A banner displays an important message which requires an action to 
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-    * [No button](#no-button)
-    * [One button](#on-button)
-    * [Two buttons](#two-buttons)
-    * [Without image](#without-image)
-    * [With image from url](#with-image-from-url)
+* Table of contents
+{:toc}
 
 ---
 

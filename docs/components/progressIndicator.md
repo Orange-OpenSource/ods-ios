@@ -8,11 +8,8 @@ description: Progress indicators show users that elements or pages are loading
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-    * [Progress bar](#progress-bar)
-    * [Activity indicator](#activity-indicator)
+* Table of contents
+{:toc}
 
 ---
 

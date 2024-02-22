@@ -1,195 +1,130 @@
+<!--
+  ~ /*
+  ~ * Copyright 2021 Orange
+  ~ *
+  ~ * Use of this source code is governed by an MIT-style
+  ~ * license that can be found in the LICENSE file or at
+  ~ * https://opensource.org/licenses/MIT.
+  ~ */
+  -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.2.3/dist/css/orange-helvetica.min.css" rel="stylesheet" integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
     {% include head.html %}
 
     <style type="text/css">
-
-    html {
-        height: 100%;
-    }
-    body {
-        min-height: 100%;
-    }
-    img {
-        max-width: 100%;
-        max-height: 100%;
-    }
-
-    #outer {
-        width:100%;
-        height:100%;
-        margin:0 auto;
+        html,
+        body {
+            min-height: 100vh;
         }
-
-    #inner {
-        overflow:hidden;
+        img {
+            max-width: 100%;
         }
-
-    #header {
-        min-height:80px;
-        background:black;
-        padding-bottom: 30px;
+        .highlighter-rouge:last-child .highlight {
+            margin-bottom: 0;
         }
-
-    #content {
-        width:80%;
-        float:left;
-        background:white
+        @media (max-width: 1023.98px) {
+            .z-offcanvas {
+                z-index: 1045;
+            }
         }
-
-    #sidebar {
-        width:20%;
-        height:100%;
-        float:left;
-        background:white;
-        border-right: 2px solid #eee;
-        }
-
-    .logo {
-        height:100px;
-        width: 100px;
-    }
-
-    nav {
-        width: 50%;
-        margin: 0px auto 40px auto;
-        background-color: white;
-        position: sticky;
-        top: 0px;
-    }
-
-    nav ul {
-        list-style-type: none;
-    }
-
-    nav li {
-        float: left;
-        width: 25%;
-        text-align: center;
-    }
-
-    /*Avoid menu with null height*/
-    nav ul::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    nav a {
-        display: block; /*All surface will be clickable*/
-        text-decoration: none;
-        color: black;
-        border-bottom: 2px solid transparent;/*Avoid elements gap below the menu caused by border in :hover*/
-        padding: 10px 0px;/*Enlarge menu and text border*/
-    }
     </style>
 
-    <title>{{ page.title }}</title>
+    <title>{{ page.title }} - ODS iOS</title>
 </head>
 
 <body>
-<div id="outer">
+    {% include header.html %}
 
-    <div id="header">
+    <div class="container-xxl pt-4 pt-lg-5 mb-4 mb-lg-5">
+        <div class="row">
 
-        <div class="row align-items-center">
-            <div class="col">
-                <div class="logo ods-intro pt-md-4 ps-lg-4">
-                    <img src="https://c.woopic.com/logo-orange.png" alt="ods ios">
-                </div>
-            </div>
-            <div class="col">
-                <p class="text-white bg-dark h1">ODS iOS Documentation</p>
-            </div>
-            <div class="col">
-            </div>
-        </div>
+            <div class="col-lg-3" aria-label="Global navigation of ODS iOS">
+                <aside class="h-100 border-end border-1 border-light overflow-auto z-offcanvas" style="position: sticky; top: 120px; max-height: calc(100vh - 180px);">
 
-    </div>
-
-    <div id="inner">
-
-        <div id="sidebar">
-            <div class="ods-layout container-xxl">
-                <main class="ods-main order-1">
-                    {% if site.data.data_menus.toc2[0] %}
-                    {% for item in site.data.data_menus.toc2 %}
-                    <div class="ods-intro pt-md-4 ps-lg-4">
-                        <h3>{{ item.title }}</h3>
-                    </div>
-                    {% if item.subfolderitems[0] %}
-                    <div class="ods-content ps-lg-4 mb-3">
-                        <ul>
-                            {% for entry in item.subfolderitems %}
-                            <li><a href="{{ site.baseurl }}/{{ entry.url }}">{{ entry.page }}</a>
-                                {% if entry.subsubfolderitems[0] %}
-                                <ul>
-                                    {% for subentry in entry.subsubfolderitems %}
-                                    <li><a href="{{ site.baseurl }}/{{ subentry.url }}">{{ subentry.page }}</a></li>
-                                    {% endfor %}
-                                </ul>
+                    <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasWrapper" aria-labelledby="offcanvasWrapperLabel" style="--bs-offcanvas-width: 300px;">
+                        <div class="offcanvas-header border-bottom border-1 border-light">
+                            <h5 class="offcanvas-title" id="offcanvasWrapperLabel">ODS iOS navigation</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasWrapper" style="margin-right: -.625rem;"><span class="visually-hidden">Close</span></button>
+                        </div>
+                        <nav class="offcanvas-body d-flex flex-column pb-4 pb-lg-0 pe-1 gap-4">
+                            {% if site.data.data_menus.toc2[0] %}
+                            {% for item in site.data.data_menus.toc2 %}
+                            <div>
+                                <h3 class="mb-2">{{ item.title }}</h3>
+                                {% if item.subfolderitems[0] %}
+                                <div class="ps-3">
+                                    <ul class="d-flex flex-column gap-2 gap-lg-1 mb-0 list-unstyled">
+                                        {% for entry in item.subfolderitems %}
+                                        {% if entry.page == page.title %}
+                                        <li><a class="text-decoration-none fw-bold" href="{{ site.baseurl }}/{{ entry.url }}">{{ entry.page }}</a>
+                                        {% else %}
+                                        <li><a class="text-decoration-none" href="{{ site.baseurl }}/{{ entry.url }}">{{ entry.page }}</a>
+                                        {% endif %}
+                                            {% if entry.subsubfolderitems[0] %}
+                                            <ul>
+                                                {% for subentry in entry.subsubfolderitems %}
+                                                <li><a href="{{ site.baseurl }}/{{ subentry.url }}">{{ subentry.page }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% endif %}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                                 {% endif %}
-                            </li>
+                            </div>
                             {% endfor %}
-                        </ul>
+                            {% endif %}
+                        </nav>
                     </div>
-                    {% endif %}
-                    {% endfor %}
-                    {% endif %}
-                </main>
+                </aside>
             </div>
-        </div>
 
-        <div id="content">
-            <div class="ods-layout container-xxl">
-                <main class="ods-main order-1">
-
+            <main class="col-lg-9">
+                <div class="ps-lg-4">
                     {% if page.content_page %}
 
                     {% for all in site.pages %}
                     {% if all.name == page.content_page %}
 
-                    <div class="ods-intro pt-md-4 ps-lg-4">
-                        <div class="d-md-flex align-items-center justify-content-between">
-                            <h1 id="ods-title">{{ all.title }}</h1>
-                        </div>
-                        <p class="ods-lead">{{ all.description }}</p>
-                    </div>
+                    {% if page.url != "/" %}
+                    <h1>{{ all.title }}</h1>
+                    <p class="lead fw-bold">{{ all.description }}</p>
+                    {% else %}
+                    <h1>{{ all.description }}</h1>
+                    {% endif %}
 
-                    <div class="ods-content ps-lg-4 mb-3">
-                        {{all.content}}
-                    </div>
+                    {{ all.content }}
+
                     {% endif %}
                     {% endfor %}
 
                     {% else %}
 
-                    <div class="ods-intro pt-md-4 ps-lg-4">
-                        <div class="d-md-flex align-items-center justify-content-between">
-                            <h1 id="ods-title">{{ page.title }}</h1>
-                        </div>
-                        <p class="ods-lead">{{ page.description }}</p>
-                    </div>
-
-                    <div class="ods-content ps-lg-4 mb-3">
-                        {{content}}
-                    </div>
-
+                    {% if page.url != "/" %}
+                    <h1>{{ page.title }}</h1>
+                    <p class="lead fw-bold">{{ page.description }}</p>
+                    {% else %}
+                    <h1>{{ page.description }}</h1>
                     {% endif %}
 
-                </main>
-            </div>
-        </div>
+                    {{ content }}
 
+                    {% endif %}
+                </div>
+            </main>
+        </div>
     </div>
 
-</div>
+    {% include footer.html %}
 
-{% include scripts.html %}
+    {% include scripts.html %}
 
-{% include tarteaucitron.html %}
+    {% include tarteaucitron.html %}
 
 </body>
 </html>

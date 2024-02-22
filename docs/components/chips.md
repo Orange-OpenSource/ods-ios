@@ -8,13 +8,8 @@ description: Chips are compact elements that represent an input, attribute, or a
 
 **Page summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-    * [Action chip](#action-chip)
-    * [Input chip](#input-chip)
-    * [Choice chip](#choice-chip)
-    * [Filter chip](#filter-chip)
+* Table of contents
+{:toc}
 
 ---
 

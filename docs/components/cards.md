@@ -8,14 +8,8 @@ description: Cards contain content and actions about a single subject.
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-    * [Vertical Image First Card)](#vertical-image-first-card)
-    * [Vertical Header First Card)](#vertical-header-first-card)
-    * [Horizontal Card](#horizontal-card)
-    * [Small Card](#small-card)
-* [Component specific tokens](#component-specific-tokens)
+* Table of contents
+{:toc}
 
 ---
 

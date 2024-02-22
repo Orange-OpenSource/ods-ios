@@ -6,10 +6,8 @@ title: Typography
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Implementation](#implementation)
-  * [Apply font style on text](#apply-font-style-on-text)
-  * [Apply font style on view](#apply-font-style-on-view)
+* Table of contents
+{:toc}
   
 ---
 

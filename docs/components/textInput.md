@@ -8,13 +8,8 @@ description: Text fields and text editor let users enter and edit text.
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-    * [Text field](#text-field)
-    * [Secure Text field](#secure-text-field)
-    * [Text editor](#text-editor)
-* [Text Selection](#text-selection)
+* Table of contents
+{:toc}
 
 ---
 

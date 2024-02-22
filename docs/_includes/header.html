@@ -1,0 +1,21 @@
+<header class="sticky-top bg-black">
+  <div class="navbar navbar-dark bg-dark navbar-expand-lg" aria-label="Global header of ODS iOS">
+    <div class="container-xxl">
+      <div class="navbar-brand me-auto me-lg-4">
+        <span>
+          <img src="https://boosted.orange.com/docs/5.3/assets/brand/orange-logo.svg" width="50" height="50" alt="ODS iOS" loading="lazy">
+        </span>
+        <h1 class="two-lined text-white">
+          ODS iOS
+          <br>
+          Documentation
+        </h1>
+      </div>
+      {% if page.name != "404.html" %}
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWrapper" aria-controls="offcanvasWrapper" aria-expanded="false" aria-label="Toggle global navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      {% endif %}
+    </div>
+  </div>
+</header>

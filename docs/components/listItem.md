@@ -8,11 +8,8 @@ description: Lists are continuous, vertical indexes of text or images.
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-   * [Standard list item](#standard-list-item)
-   * [Selection list item](#selection-list-item)
+* Table of contents
+{:toc}
 
 ---
 
