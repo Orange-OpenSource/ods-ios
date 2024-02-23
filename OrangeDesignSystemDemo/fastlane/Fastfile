@@ -353,8 +353,8 @@ platform :ios do
         -H 'Accept: application/vnd.github+json' \
         -H 'Authorization: Bearer #{GITHUB_ACCESS_TOKEN}'\
         -H 'X-GitHub-Api-Version: 2022-11-28' \
-        https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs \
-        -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{commit_sha}\"}'")
+        https://api.github.com/repos/Orange-OpenSource/ods-ios/git/tags \
+        -d '{\"tag\":\"#{tag}\",\"message\":\"CI/CD build\", \"object\":\"#{commit_sha}\", \"type\":\"commit\"}'")
       end
     end
     return true
