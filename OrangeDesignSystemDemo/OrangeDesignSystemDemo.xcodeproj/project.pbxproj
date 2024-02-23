@@ -21,10 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		071F1CF82B7E46C100833A33 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 071F1CF72B7E46C100833A33 /* AccessibilityStatement.xml */; };
 		071F1CF02B7BC69D00833A33 /* RecirculationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F1CEF2B7BC69D00833A33 /* RecirculationModule.swift */; };
 		071F1CF22B7BC6AE00833A33 /* RecirculationModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F1CF12B7BC6AE00833A33 /* RecirculationModuleModel.swift */; };
 		071F1CF42B7BC6BC00833A33 /* RecirculationModuleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F1CF32B7BC6BC00833A33 /* RecirculationModuleDemo.swift */; };
+		071F1CF82B7E46C100833A33 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 071F1CF72B7E46C100833A33 /* AccessibilityStatement.xml */; };
 		072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */; };
 		074741EB2B74CE0B00D74F00 /* EmptyStateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EA2B74CE0B00D74F00 /* EmptyStateModule.swift */; };
 		074741ED2B74D3E700D74F00 /* EmptyStateModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EC2B74D3E700D74F00 /* EmptyStateModuleModel.swift */; };
@@ -169,10 +169,10 @@
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
 		070E3C012B6152F3008A8856 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
-		071F1CF72B7E46C100833A33 /* AccessibilityStatement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AccessibilityStatement.xml; path = OrangeDesignSystemDemo/Resources/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		071F1CEF2B7BC69D00833A33 /* RecirculationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecirculationModule.swift; sourceTree = "<group>"; };
 		071F1CF12B7BC6AE00833A33 /* RecirculationModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecirculationModuleModel.swift; sourceTree = "<group>"; };
 		071F1CF32B7BC6BC00833A33 /* RecirculationModuleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecirculationModuleDemo.swift; sourceTree = "<group>"; };
+		071F1CF72B7E46C100833A33 /* AccessibilityStatement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AccessibilityStatement.xml; path = OrangeDesignSystemDemo/Resources/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		07210C402A8FAC6500507988 /* THIRD-PARTY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "THIRD-PARTY.md"; path = "../THIRD-PARTY.md"; sourceTree = "<group>"; };
 		07210C412A8FAC6500507988 /* NOTICE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NOTICE.txt; path = ../NOTICE.txt; sourceTree = "<group>"; };
 		07210C422A8FAC6500507988 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -488,18 +488,18 @@
 		077C37F32A9DDC78003D6B51 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				077C37F42A9DDC78003D6B51 /* Buttons */,
-				077C37F82A9DDC79003D6B51 /* TextFields */,
-				077C37FC2A9DDC79003D6B51 /* Lists */,
-				077C38062A9DDC79003D6B51 /* ProgressIndicator */,
-				077C380A2A9DDC79003D6B51 /* Chips */,
-				077C380D2A9DDC79003D6B51 /* Cards */,
-				077C38142A9DDC79003D6B51 /* ToolBar */,
-				077C38172A9DDC79003D6B51 /* TabBar */,
-				077C381A2A9DDC79003D6B51 /* NavigationBar */,
 				077C381E2A9DDC79003D6B51 /* Banners */,
 				077C38212A9DDC79003D6B51 /* BottomSheet */,
+				077C37F42A9DDC78003D6B51 /* Buttons */,
+				077C380D2A9DDC79003D6B51 /* Cards */,
+				077C380A2A9DDC79003D6B51 /* Chips */,
+				077C37FC2A9DDC79003D6B51 /* Lists */,
+				077C381A2A9DDC79003D6B51 /* NavigationBar */,
+				077C38062A9DDC79003D6B51 /* ProgressIndicator */,
 				077C38282A9DDC79003D6B51 /* Sliders */,
+				077C38172A9DDC79003D6B51 /* TabBar */,
+				077C37F82A9DDC79003D6B51 /* TextFields */,
+				077C38142A9DDC79003D6B51 /* ToolBar */,
 			);
 			path = Pages;
 			sourceTree = "<group>";

@@ -217,6 +217,7 @@ struct ODSBottomSheetStandard<Content: View>: View where Content: View {
                         .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
                 }
             }
+            .accessibilityElement(children: .contain)
         }
     }
 
