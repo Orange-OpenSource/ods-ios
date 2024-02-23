@@ -58,11 +58,7 @@ final class RecirculationModuleModel: ObservableObject {
         }
         
         // If no remote url, force to use local data
-        if remoteDataSource == nil {
-            useLocalDataSource = true
-        } else {
-            useLocalDataSource = false
-        }
+        useLocalDataSource = remoteDataSource == nil
     }
     
     var hasRemoteDateSource: Bool {
