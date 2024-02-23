@@ -19,10 +19,15 @@ APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
 # Apple configuration
 # -------------------
 
+# TestFlight
+
 APPLE_ISSUER_ID = ENV["ODS_APPLE_ISSUER_ID"]
 APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
-DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_APP_IDENTIFIER"]
+
+# Bundle identifier
+
+DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_BUNDLE_IDENTIFIER"]
 
 # Notifications and hooks
 # -----------------------
@@ -56,7 +61,7 @@ platform :ios do
   end
 
   # ------------------------------------------------------------
-  # ADD APPS PLUS CREDENTIALS (About module)
+  # ADD APPS PLUS CREDENTIALS (Recirculation module)
   # ------------------------------------------------------------
   desc "ADD APPS PLUS CREDENTIALS"
   lane :add_credentials_appsplus do
@@ -131,6 +136,7 @@ platform :ios do
   desc "READ AND SET NEXT RELEASE NOTE IN CHANGELOG"
   lane :prepare_release do
     puts "👉 Prepare release"
+
     version = get_app_version
 
     stamp_changelog(
@@ -148,9 +154,11 @@ platform :ios do
   desc "BUILD DEBUG APP"
   lane :buildDebugApp do
     puts "👉 Build debug app"
+
     cocoapods(
       clean_install: true
     )
+
     gym(
       scheme: ODS_SCHEME,
       output_directory: 'build/',
@@ -168,7 +176,6 @@ platform :ios do
   desc "BUILD & UPLOAD TO TESTFLIGHT QUALIF APP"
   lane :qualif do
     puts "👉 Qualif"
-    puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
     Dir.chdir "../OrangeDesignSystemDemo/Resources/Assets.xcassets" do
         sh "rm -Rf AppIconRelease.appiconset"
         sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
@@ -185,7 +192,6 @@ platform :ios do
   desc "BUILD & UPLOAD TO TESTFLIGHT (if set in options: upload) PROD APP"
   lane :prod do |options|
     puts "👉 Prod"
-    puts "This is a dumb 'puts' to ensure the 'Appfile' is read!"
     build_and_upload(options)
   end
 
@@ -198,7 +204,7 @@ platform :ios do
     tag_ci_build
     if options[:upload]
       puts "Upload to TestFlight requested"
-     # upload
+      upload
       tag_testflight_upload
     else
       puts "Upload to TestFlight not requested"
@@ -252,7 +258,7 @@ platform :ios do
     begin
 
         # Create a tag dedicated to the CI/CD builds using the updated app build number
-        # Beware build number msut be unique, e.g. timestamps or incremented values so as to keep tags unique
+        # Beware build number must be unique, e.g. timestamps or incremented values so as to keep tags unique
         build_number = get_build_number(xcodeproj: ODS_PROJECT)
         expected_git_tag = "ci/" + build_number
         if create_tag(expected_git_tag)
@@ -272,7 +278,7 @@ platform :ios do
     begin
 
         # Create a tag dedicated to the CI/CD builds for TestFlight using the updated app build number
-        # Beware build number msut be unique, e.g. timestamps or incremented values so as to keep tags unique
+        # Beware build number must be unique, e.g. timestamps or incremented values so as to keep tags unique
         build_number = get_build_number(xcodeproj: ODS_PROJECT)
         expected_git_tag = "Test_Flight/" + build_number
         if create_tag(expected_git_tag)
@@ -353,7 +359,7 @@ platform :ios do
         -H 'Authorization: Bearer #{GITHUB_ACCESS_TOKEN}'\
         -H 'X-GitHub-Api-Version: 2022-11-28' \
         https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs \
-        -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{IOS_APP_COMMIT_SHA}\"}'")
+        -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{IOS_APP_COMMIT_SHA}\"}'") # Just a light tag is enough
       end
     end
     return true
