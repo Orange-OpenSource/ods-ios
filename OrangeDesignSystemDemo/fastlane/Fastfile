@@ -197,7 +197,7 @@ platform :ios do
     tag_ci_build
     if options[:upload]
       puts "Upload to TestFlight requested"
-      upload
+     # upload
       tag_testflight_upload
     else
       puts "Upload to TestFlight not requested"
@@ -345,7 +345,9 @@ platform :ios do
           publish_mattermost_notification("⚙️ 😰 @channel No GitHub access token defined, cannot create and push tags")
           return false
       else
-        commit_sha=`git rev-parse --short HEAD`
+        commit_sha=`git rev-parse HEAD`
+        commit_sha=commit_sha[0,40]
+        puts "Commit SHA to tag is '#{commit_sha}'"
         sh("curl -L \
         -X POST \
         -H 'Accept: application/vnd.github+json' \
