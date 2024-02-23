@@ -55,8 +55,8 @@ struct RecirculationModuleSetup: View {
                 Text("shared.modules.customize")
                     .odsFont(.headlineS)
 
-                Toggle(isOn: $model.useLocalMock) {
-                    Text("screens.modules.recirculation.option.use_embeded_mock")
+                Toggle(isOn: $model.useLocalDataSource) {
+                    Text("screens.modules.recirculation.option.use_embeded_data_source")
                 }
                 .odsFont(.headlineS)
                 .disabled(!model.hasRemoteDateSource) // If no backend URL, force to use mocks

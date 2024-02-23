@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [DemoApp] Update the demo configuration for recirculation module ([#714] (https://github.com/Orange-OpenSource/ods-ios/issues/714))
 - [SDK] Change the order of the accessibility focus between header and content in bottom sheet (Bug a11y [#703] (https://github.com/Orange-OpenSource/ods-ios/issues/703))
 - [SDK] Update the tab bar configuration to see the separator ([#712] (https://github.com/Orange-OpenSource/ods-ios/issues/712))
 - [SDK] Fix expanding Bottom Sheet on iPad (Bug [#428] (https://github.com/Orange-OpenSource/ods-ios/issues/428))
