@@ -198,7 +198,7 @@ platform :ios do
     if options[:upload]
       puts "Upload to TestFlight requested"
       upload
-      tag_testflight_build
+      tag_testflight_upload
     else
       puts "Upload to TestFlight not requested"
     end
