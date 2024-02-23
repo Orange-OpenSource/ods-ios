@@ -222,24 +222,19 @@ platform :ios do
         cocoapods(
             clean_install: true
         )
-        
-        update_code_signing_settings(
-          use_automatic_signing: false,
-          path: "#{ODS_PROJECT}"
-        )
 
-        build_app(
-          workspace: ODS_WORKSPACE,
-          clean: true,
+        update_code_signing_settings(path: "#{ODS_PROJECT}",
+          use_automatic_signing: false,
+          profile_name: 'ods-demo-app-appstore-qualif',
+          targets: ODS_SCHEME)
+        
+        gym(workspace: "#{ODS_WORKSPACE}",
           scheme: ODS_SCHEME,
-          output_directory: 'build/',
-          archive_path: 'build/odsApp.xcarchive',
-          output_name: 'odsApp',
           configuration: 'Release',
-          include_symbols: true,
+          output_directory: 'build/',
           export_method: 'app-store',
-          xcargs: '-allowProvisioningUpdates'
-        )
+          archive_path: 'build/odsApp.xcarchive',
+          xcargs: "-allowProvisioningUpdates")
         
         publish_mattermost_notification("🔨 ✅ @channel A new build has been done successfully")
     rescue => error

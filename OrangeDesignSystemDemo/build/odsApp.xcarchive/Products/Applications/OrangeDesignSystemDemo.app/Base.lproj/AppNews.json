@@ -1,0 +1,63 @@
+[
+    {
+        "version": "0.18.0",
+        "date": "2024-02-06",
+        "news": "Remove french localisation."
+    },
+    {
+        "version": "0.17.0",
+        "date": "2024-02-06",
+        "news": "New apps recirculation module is added.\n Update Benners and Cards to align buttons when text is too long.\nFix the background color of low empasis buttons.\nUpdate ListItem to limite number of lines on title and subtitle.\nFix some accessibility issues like Small cards and Grid of small cards to avoid truncated text at accessibility level."
+    },
+    {
+        "version": "0.16.0",
+        "date": "2024-01-15",
+        "news": "Update typography names.\n Update chips API and design.\nUpdate CardHeaderFirst to get thumbnail from resources or url.\nRefactor About module to manage errors when loading resources.\nFix some accessibility issues."
+    },
+    {
+        "version": "0.15.0",
+        "date": "2023-11-14",
+        "news": "Add internationalization support.\n Add module List in demo application to illustrates header and footer of sections in list and update ListItem api to use SwiftUI elements.\nAdd accessibility statement in About module"
+    },
+    {
+        "version": "0.14.0",
+        "date": "2023-10-09",
+        "news": "Update the API of Cards and Banner components to use SwiftUI elements.\nUpdate button emphasis to be aligned to the web design system.\nFix some bugs like the disable state of the IconButton."
+    },
+    {
+        "version": "0.13.1",
+        "date": "2023-09-13",
+        "news": "Update AppNews file"
+    },
+    {
+        "version": "0.13.0",
+        "date": "2023-09-12",
+        "news": "Add about module (first version)\nUpdate Application icons for Beta and Alpha versions\nUpdate colors"
+    },
+    {
+        "version": "0.12.0",
+        "date": "2023-04-14",
+        "news": "Addition of the Bottom Sheet component."
+    },
+    {
+        "version": "0.11.2",
+        "date": "2023-03-27",
+        "news": "Update application to publish on store as unsearchable application"
+    },
+    {
+        "version": "0.11.1",
+        "date": "2023-03-16",
+        "news": "Rename application"
+    },
+    {
+        "version": "0.11.0",
+        "date": "2023-02-28",
+        "news": "1. Update Card component: \n- Update demo with realistics data\n- Add SideBySide card\n- Update Horizonal card to add a divider\n\n2. Update assets for Innovation theme"
+    },
+    {
+        "version": "0.10.0",
+        "date": "2023-02-02",
+        "news": "Fix some bugs\n Add Tool bar component"
+    }
+]
+

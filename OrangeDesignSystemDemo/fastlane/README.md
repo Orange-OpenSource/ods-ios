@@ -15,14 +15,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios test_tag
-
-```sh
-[bundle exec] fastlane ios test_tag
-```
-
-
-
 ### ios add_credentials_appsplus
 
 ```sh
