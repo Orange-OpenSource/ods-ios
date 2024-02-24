@@ -75,29 +75,6 @@ final class AboutModuleModel: ObservableObject {
 
     private static let privacyPolicyResourceUrl = Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!
 
-    /// The `URL` of the service to reach to get the list of apps to display
-    static var appsRecirculationRemoteFeedURL: URL? {
-        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
-            Log.warning("No Apps Plus URL found in app settings")
-            return nil
-        }
-        let currentLocale = Bundle.main.preferredLocalizations[0]
-        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
-        guard let feedURL = URL(string: requestURL) else {
-            Log.warning("Failed to forge the service URL to get more apps")
-            return nil
-        }
-        return feedURL
-    }
-
-    /// The `URL` pointing some JSON file, picked from backend, embeded in the app, containing the lsit of apps to display
-    static var appsRecirculationLocalDataPath: URL {
-        guard let localPath = Bundle.main.url(forResource: "AppsPlus", withExtension: "json") else {
-            fatalError("Failed to URL of local data file")
-        }
-        return localPath
-    }
-
     // =============
     // MARK: Methods
     // =============

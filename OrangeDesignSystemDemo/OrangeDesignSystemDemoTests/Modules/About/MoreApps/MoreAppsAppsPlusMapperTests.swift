@@ -33,7 +33,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsAppDetails = AppsPlusMoreAppsMapper().appDetails(from: appsPlusAppDetailsDTOMock)
+        let moreAppsAppDetails = AppsPlusRecirculationMapper().appDetails(from: appsPlusAppDetailsDTOMock)
 
         // Then
         compare(businessObject: moreAppsAppDetails, dataTransferObject: appsPlusAppDetailsDTOMock)
@@ -53,7 +53,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsSection = AppsPlusMoreAppsMapper().appsSection(from: appsPlusSectionDTOMock)
+        let moreAppsSection = AppsPlusRecirculationMapper().appsSection(from: appsPlusSectionDTOMock)
 
         // Then
         XCTAssertTrue(moreAppsSection.description == appsPlusSectionDTOMock.description)
@@ -77,7 +77,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
             fatalError("Failed to process the JSON mock data!")
         }
 
-        let mapper = AppsPlusMoreAppsMapper()
+        let mapper = AppsPlusRecirculationMapper()
 
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusItemsMock)
         let lonelyApps: [RecirculationAppDetails] = appsPlusItemsMock.apps.map { appDTO in
@@ -105,11 +105,11 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
     // MARK: - Helper
     // ==============
 
-    private func compare(bo: RecirculationAppDetails, dto: AppsPlusAppDetailsDTO) {
-        XCTAssertTrue(bo.title == dto.title)
-        XCTAssertTrue(bo.iconURL == URL(string: dto.iconURL))
-        XCTAssertTrue(bo.description == dto.description)
-        XCTAssertTrue(bo.storeURL == URL(string: dto.storeLink))
+    private func compare(businessObject: RecirculationAppDetails, dataTransferObject: AppsPlusAppDetailsDTO) {
+        XCTAssertTrue(businessObject.title == dataTransferObject.title)
+        XCTAssertTrue(businessObject.iconURL == URL(string: dataTransferObject.iconURL))
+        XCTAssertTrue(businessObject.description == dataTransferObject.description)
+        XCTAssertTrue(businessObject.storeURL == URL(string: dataTransferObject.storeLink))
     }
 
     private func compareBoth(_ lhs: RecirculationAppDetails, _ rhs: RecirculationAppDetails) {

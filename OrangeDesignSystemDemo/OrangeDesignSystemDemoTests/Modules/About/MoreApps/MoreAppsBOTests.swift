@@ -54,7 +54,7 @@ final class MoreAppsBOTests: XCTestCase {
             fatalError("Failed to process the JSON mock data!")
         }
 
-        let mapper = AppsPlusMoreAppsMapper()
+        let mapper = AppsPlusRecirculationMapper()
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusDTOMock.items[0])
         let moreAppsSections = mapper.appsSections(from: appsPlusDTOMock.items[0])
 
