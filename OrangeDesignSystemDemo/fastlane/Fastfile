@@ -101,23 +101,6 @@ platform :ios do
         raise error
     end
   end
-    
-  # ------------------------------------------------------------
-  # ADD APPS PLUS CREDENTIALS (Recirculation Module)
-  # ------------------------------------------------------------
-  desc "ADD APPS PLUS CREDENTIALS"
-  lane :add_credentials_appsplus do
-    if APPS_PLUS_SERVICE_URL.nil? || APPS_PLUS_SERVICE_URL.empty?
-      publish_mattermost_notification("⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
-    end
-
-    update_plist(
-      plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
-      block: proc do |plist|
-        plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
-      end
-    )
-  end
 
   # ------------------------------------------------------------
   # UPDATE BUILD NUMBER WITH TIMESTAMP
