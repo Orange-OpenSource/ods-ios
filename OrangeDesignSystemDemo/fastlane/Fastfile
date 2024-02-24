@@ -204,7 +204,7 @@ platform :ios do
     tag_ci_build
     if options[:upload]
       puts "Upload to TestFlight requested"
-      upload
+#      upload
       tag_testflight_upload
     else
       puts "Upload to TestFlight not requested"
