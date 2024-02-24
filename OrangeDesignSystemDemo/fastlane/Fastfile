@@ -14,19 +14,18 @@
 # App features configuration
 # --------------------------
 
+# URL for recirculation module to get feed from backend
 APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
 
 # Apple configuration
 # -------------------
 
 # TestFlight
-
 APPLE_ISSUER_ID = ENV["ODS_APPLE_ISSUER_ID"]
 APPLE_KEY_ID = ENV["ODS_APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["ODS_APPLE_KEY_CONTENT"]
 
 # Bundle identifier
-
 DEVELOPER_APP_IDENTIFIER = ENV["ODS_DEVELOPER_BUNDLE_IDENTIFIER"]
 
 # Notifications and hooks
@@ -39,7 +38,10 @@ MATTERMOST_HOOK_BOT_ICON_URL = ENV["ODS_MATTERMOST_HOOK_BOT_ICON_URL"]
 # GitHub
 # ------
 
+# Fine grained personal access token with enough permissions for the suitable GitHub project
 GITHUB_ACCESS_TOKEN = ENV['GITHUB_ACCESS_TOKEN']
+
+# Should be last commit, for builds and tags
 IOS_APP_COMMIT_SHA = ENV['IOS_APP_COMMIT_SHA']
 
 # Project configuration
@@ -66,6 +68,7 @@ platform :ios do
   desc "ADD APPS PLUS CREDENTIALS"
   lane :add_credentials_appsplus do
     puts "👉 Add AppsPlus credentials in project"
+
     if APPS_PLUS_SERVICE_URL.nil? || APPS_PLUS_SERVICE_URL.empty?
       puts "Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?"
       publish_mattermost_notification("⚙️ ⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
@@ -85,6 +88,7 @@ platform :ios do
   desc "RUN TESTS BY TRIGGERING THE TESTS PLANS OF THE PROJECT"
   lane :test do
     puts "👉 Run tests"
+
     # Should have on runner one device under at least iOS 15
     # Check the available devices using `xcrun xctrace list devices`
     # Add new environments using `xcodebuild -downloadPlatform iOS`
@@ -157,7 +161,7 @@ platform :ios do
   # BUILD & UPLOAD TO TESTFLIGHT QUALIF APP
   # ------------------------------------------------------------
   desc "BUILD & UPLOAD TO TESTFLIGHT QUALIF APP"
-  lane :qualif do
+  lane :qualif do |params|
     puts "👉 Qualif"
     Dir.chdir "../OrangeDesignSystemDemo/Resources/Assets.xcassets" do
         sh "rm -Rf AppIconRelease.appiconset"
@@ -166,29 +170,29 @@ platform :ios do
 
     set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildType", value: "BETA")
     
-    build_and_upload(upload: true)
+    build_and_upload(upload: true, tagSuffix: params[:tagSuffix])
   end
 
   # ------------------------------------------------------------
   # BUILD & UPLOAD TO TESTFLIGHT PROD APP
   # ------------------------------------------------------------
   desc "BUILD & UPLOAD TO TESTFLIGHT (if set in options: upload) PROD APP"
-  lane :prod do |options|
+  lane :prod do |params|
     puts "👉 Prod"
-    build_and_upload(options)
+    build_and_upload(params)
   end
 
   # -----------------------------------------------------------------------
   # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
   # -----------------------------------------------------------------------
-  private_lane :build_and_upload do |options|
+  private_lane :build_and_upload do |params|
     puts "👉 Build and upload"
     build
-    tag_ci_build
-    if options[:upload]
+    tag_ci_build params[:tagSuffix]
+    if params[:upload]
       puts "Upload to TestFlight requested"
-#      upload
-      tag_testflight_upload
+#      upload #TODO: Uncomment this line once everything will be done
+      tag_testflight_upload params[:tagSuffix]
     else
       puts "Upload to TestFlight not requested"
     end
@@ -213,6 +217,11 @@ platform :ios do
             clean_install: true
         )
 
+        # Disable automatic code signing.
+        # Thus we won't use any Xcode with plugged account in, and use only needed certificat and provisinning profiles.
+        # Mobile provisionning profile named "ods-demo-app-appstore-qualif" must be placed in runner.
+        # The certificate(s) used to build with bundle ID the provisionning profile must be available in the keychain of the runner
+        # (both .cer and p12)
         update_code_signing_settings(path: "#{ODS_PROJECT}",
           use_automatic_signing: false,
           profile_name: 'ods-demo-app-appstore-qualif',
@@ -236,16 +245,19 @@ platform :ios do
   # -----------------------------------------------------------------------
   # PRIVATE LANE TO CREATE GIT TAG FOR CI
   # -----------------------------------------------------------------------
-  private_lane :tag_ci_build do
+  private_lane :tag_ci_build do |params|
     puts "👉 Tag CI build"
     begin
 
-        # Create a tag dedicated to the CI/CD builds using the updated app build number
-        # Beware build number must be unique, e.g. timestamps or incremented values so as to keep tags unique
-        build_number = get_build_number(xcodeproj: ODS_PROJECT)
-        expected_git_tag = "ci/" + build_number
-        if create_tag(expected_git_tag)
-          publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+        tagSuffix = params[:tagSuffix]
+        if tagSuffix.nil? || tagSuffix.empty?
+          puts "No parameter sent for CI tag, nothing will be done"
+          publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
+        else
+          expected_git_tag = "ci/" + tagSuffix[0,7]
+          if create_tag(expected_git_tag)
+            publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+          end
         end
     rescue => error
         publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
@@ -256,16 +268,19 @@ platform :ios do
   # -----------------------------------------------------------------------
   # PRIVATE LANE TO CREATE GIT TAG FOR TESTFLIGHT BUILD
   # -----------------------------------------------------------------------
-  private_lane :tag_testflight_upload do
+  private_lane :tag_testflight_upload do |params|
     puts "👉 Tag TestFlight upload"
     begin
-
-        # Create a tag dedicated to the CI/CD builds for TestFlight using the updated app build number
-        # Beware build number must be unique, e.g. timestamps or incremented values so as to keep tags unique
-        build_number = get_build_number(xcodeproj: ODS_PROJECT)
-        expected_git_tag = "Test_Flight/" + build_number
-        if create_tag(expected_git_tag)
-          publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+        
+        tagSuffix = params[:tagSuffix]
+        if tagSuffix.nil? || tagSuffix.empty?
+          puts "No parameter sent for CI tag, nothing will be done"
+          publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
+        else
+          expected_git_tag = "Test_Flight/" + tagSuffix[0,7]
+          if create_tag(expected_git_tag)
+            publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+          end
         end
     rescue => error
         publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
@@ -323,27 +338,22 @@ platform :ios do
 
   # Creates a Git tag at current commit through HTTP protocol to prevent proxy or firewalls to block SSH requests
   def create_tag(tag)
-    tag_exists=`git rev-parse #{tag} >/dev/null 2>&1 && echo "Bazinga!"`
 
-    if tag_exists.strip! == "Bazinga!" # ¯\_( ͡❛ ͜ʖ ͡❛)_/¯
-         puts "Warning: tag '#{tag}' still exists, won't create new one!"
-         publish_mattermost_notification("⚙️ 🤔 The tag '#{tag}' exists, won't create a new one")
-         return false
+    # TODO: Check if tag already exists
+    # TODO: Check if Shell command succeeded and with a 2xx HTTP status code
+    if GITHUB_ACCESS_TOKEN.nil? || GITHUB_ACCESS_TOKEN.empty?
+      puts "Error: No GitHub access token defined, cannot create and push tags"
+      publish_mattermost_notification("⚙️ 😰 @channel No GitHub access token defined, cannot create and push tags")
+      return false
     else
-      if GITHUB_ACCESS_TOKEN.nil? || GITHUB_ACCESS_TOKEN.empty?
-          puts "Error: No GitHub access token defined, cannot create and push tags"
-          publish_mattermost_notification("⚙️ 😰 @channel No GitHub access token defined, cannot create and push tags")
-          return false
-      else
-        puts "Commit SHA to tag is '#{IOS_APP_COMMIT_SHA}'"
-        sh("curl -L \
+      puts "Commit SHA to tag is '#{IOS_APP_COMMIT_SHA}'"
+      sh("curl -L \
         -X POST \
         -H 'Accept: application/vnd.github+json' \
         -H 'Authorization: Bearer #{GITHUB_ACCESS_TOKEN}'\
         -H 'X-GitHub-Api-Version: 2022-11-28' \
         https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs \
         -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{IOS_APP_COMMIT_SHA}\"}'") # Just a light tag is enough
-      end
     end
     return true
   end
@@ -351,7 +361,7 @@ platform :ios do
   # Sends a message notification through Mattermost hook
   def publish_mattermost_notification(message)
     mattermost(url: MATTERMOST_HOOK_URL,
-               text: "[Fastlane via GitLab CI] #{message}",
+               text: "[Fastlane via GitLab CI] #{message}", # TODO: Remove this header
                username: MATTERMOST_HOOK_BOT_NAME,
                icon_url: MATTERMOST_HOOK_BOT_ICON_URL
                )
