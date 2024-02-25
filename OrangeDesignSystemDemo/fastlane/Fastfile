@@ -107,17 +107,6 @@ platform :ios do
   end
 
   # ------------------------------------------------------------
-  # UPDATE BUILD NUMBER WITH TIMESTAMP
-  # ------------------------------------------------------------
-  desc "UPDATE BUILD NUMBER WITH TIMESTAMP"
-  lane :increment do
-      puts "👉 Increment build number"
-      timestamp = sh 'date +%s' # Timestamp are unique and bring details about build date
-      timestamp = timestamp.strip!
-      increment_build_number(xcodeproj: ODS_PROJECT, build_number: timestamp)
-  end
-
-  # ------------------------------------------------------------
   # READ AND SET NEXT RELEASE NOTE IN CHANGELOG
   # ------------------------------------------------------------
   desc "READ AND SET NEXT RELEASE NOTE IN CHANGELOG"
@@ -182,13 +171,32 @@ platform :ios do
       build_and_upload(params)
   end
 
+  # ------------------------------------------------------------
+  # UPDATE BUILD NUMBER WITH TIMESTAMP
+  # ------------------------------------------------------------
+  desc "UPDATE BUILD NUMBER WITH TIMESTAMP"
+  lane :update_build_number do
+      puts "👉 Update build number"
+
+      timestamp = sh 'date +%s' # Timestamp are unique and bring details about build date
+      timestamp = timestamp.strip!
+      puts "New builder number: '#{timestamp}'"
+
+      increment_build_number(xcodeproj: ODS_PROJECT, build_number: timestamp)
+  end
+
   # -----------------------------------------------------------------------
   # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
   # -----------------------------------------------------------------------
   private_lane :build_and_upload do |params|
-      puts "👉 Build and upload (tagSuffix = #{params[:tagSuffix]}"
+      puts "👉 Build and upload (tagSuffix = #{params[:tagSuffix]})"
+
+      # Ensure this build-then-uploaded app has a new and unique build number matching also to code version
+      update_build_number
+
       build
       tag_ci_build(params[:tagSuffix])
+      
       if params[:upload]
         puts "Upload to TestFlight requested"
         if tag_testflight_upload(params[:tagSuffix])
@@ -205,15 +213,13 @@ platform :ios do
   desc "PRIVATE LANE BUILD (DEV / QUALIF / PROD is set by main lane)"
   private_lane :build do
       puts "👉 Build"
+
       begin
           update_app_identifier(
               xcodeproj: "#{ODS_PROJECT}",
               plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
               app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
           )
-
-          # Ensure this build-then-uploaded app has a new and unique build number
-          increment
 
           cocoapods(
               clean_install: true
@@ -251,6 +257,7 @@ platform :ios do
   desc "PRIVATE LANE UPLOAD TO TESTFLIGHT"
   private_lane :upload do
       puts "👉 Upload"
+
       begin
           api_key = app_store_connect_api_key(
               key_id: APPLE_KEY_ID,
@@ -296,6 +303,7 @@ platform :ios do
   # Add a Git Tag dedicated to TestFLight uploads with sme suffix after a defined pattern
   def tag_ci_build(tagSuffix)
       puts "👉 Tag CI build"
+
       begin
 
           if tagSuffix.nil? || tagSuffix.empty?
@@ -320,6 +328,7 @@ platform :ios do
   # Add a Git Tag dedicated to TestFLight uploads with sme suffix after a defined pattern
   def tag_testflight_upload(tagSuffix)
       puts "👉 Tag TestFlight upload"
+
       begin
           
           if tagSuffix.nil? || tagSuffix.empty?
