@@ -27,6 +27,10 @@ enum RecirculationServiceErrors: Error {
     case jsonDecodingFailure
 }
 
+// =============================
+// MARK: - Recirculation Service
+// =============================
+
 /// Helps to test or use some data feeds to get available apps details
 struct RecirculationService: RecirculationServiceProtocol {
     private let repository: RecirculationRepositoryProtocol
@@ -38,13 +42,6 @@ struct RecirculationService: RecirculationServiceProtocol {
     /// Creates the URL to use to get data feed, then  through the `RecirculationRepositoryProtocol` request data
     /// - Returns `RecirculationAppsList`: The parsed business objects
     func availableAppsList() async throws -> RecirculationAppsList {
-        let appsPlusAppsList = try await repository.availableAppsList()
-        
-        let mapper = AppsPlusMoreAppsMapper()
-        let odsApps = mapper.appsDetails(from: appsPlusAppsList)
-        let odsAppsSections = mapper.appsSections(from: appsPlusAppsList)
-        let moreAppsList = RecirculationAppsList(sections: odsAppsSections, apps: odsApps)
-        ODSLogger.debug("Got data from AppsPlus service with \(odsApps.count) apps and \(odsAppsSections.count) sections")
-        return moreAppsList
+        try await repository.availableAppsList()
     }
 }

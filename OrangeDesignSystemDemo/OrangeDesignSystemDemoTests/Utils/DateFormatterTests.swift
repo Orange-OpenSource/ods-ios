@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 /// Helps top run tests on the _Orange Design System_ library beside simulator when needed (e.g. for l10n)
 final class DateFormatterTest: XCTestCase {
 
@@ -50,12 +51,7 @@ final class DateFormatterTest: XCTestCase {
         XCTAssertTrue(formattedDate == "10/19/23", "Value under test is '\(formattedDate)'")
     }
 
-    /*
-     Warning: We suppose for this test case the simulator used for tests:
-     - has french in first system language then english in second
-     - has english and french in app languages
-     - has french selected in app language
-     */
+    // Beware of locale and preferences for languages in use on devices
     func testFormatDateSmallFormatPreferredLocale() {
         // Given
         let date = date()
@@ -67,7 +63,7 @@ final class DateFormatterTest: XCTestCase {
         let formattedDate = DateFormatter.localizedFormat(date: date, for: bundle, dateStyle: dateStyle, timeStyle: timeStyle)
 
         // Then
-        XCTAssertTrue(formattedDate == "19/10/2023", "Value under test is '\(formattedDate)'")
+        XCTAssertTrue(formattedDate == "10/19/23", "Value under test is '\(formattedDate)'")
     }
 
     func testFormatterWithParameters() {
@@ -115,3 +111,4 @@ final class DateFormatterTest: XCTestCase {
         return Calendar(identifier: .gregorian).date(from: dateComponents)!
     }
 }
+// swiftlint:enable line_length

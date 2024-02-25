@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 final class MoreAppsBOTests: XCTestCase {
 
     func testFlattened() {
@@ -53,10 +54,11 @@ final class MoreAppsBOTests: XCTestCase {
             fatalError("Failed to process the JSON mock data!")
         }
 
-        let mapper = AppsPlusMoreAppsMapper()
+        let mapper = AppsPlusRecirculationMapper()
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusDTOMock.items[0])
         let moreAppsSections = mapper.appsSections(from: appsPlusDTOMock.items[0])
 
         return RecirculationAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
     }
 }
+// swiftlint:enable line_length

@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 /// Helps to test the `MoreAppsService` to check if JSON data (in local mocks) are well processed
 final class MoreAppsServiceTests: XCTestCase {
 
@@ -124,7 +125,7 @@ final class MoreAppsServiceTests: XCTestCase {
                 fatalError("Failed to process the JSON mock data!")
             }
 
-            let mapper = AppsPlusMoreAppsMapper()
+            let mapper = AppsPlusRecirculationMapper()
             let moreAppsAppDetails = mapper.appsDetails(from: appsPlusDTOMock.items[0])
             let moreAppsSections = mapper.appsSections(from: appsPlusDTOMock.items[0])
 
@@ -132,3 +133,4 @@ final class MoreAppsServiceTests: XCTestCase {
         }
     }
 }
+// swiftlint:enable line_length

@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [Tooling] Migration to GitLab CI runner ([#727](https://github.com/Orange-OpenSource/ods-ios/issues/727))
 - [DemoApp] Update the demo configuration for recirculation module ([#714] (https://github.com/Orange-OpenSource/ods-ios/issues/714))
 - [SDK] Change the order of the accessibility focus between header and content in bottom sheet (Bug a11y [#703] (https://github.com/Orange-OpenSource/ods-ios/issues/703))
 - [SDK] Update the tab bar configuration to see the separator ([#712] (https://github.com/Orange-OpenSource/ods-ios/issues/712))
@@ -20,7 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [DemoApp/SDK] Customize accordion status is not vocalized (Bug [#581](https://github.com/Orange-OpenSource/ods-ios/issues/581))
 - [Tooling] Add Git tags in CI/CD pipelines for TestFlight builds, update CocoaPods ([#680](https://github.com/Orange-OpenSource/ods-ios/issues/680))
 
-## [0.17.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-07-06
+## [0.17.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-07-06
 
 - [DemoApp] Remove french wordings because not enough ready yet ([#663](https://github.com/Orange-OpenSource/ods-ios/issues/663))
 - [Tooling] Various updates ([#667](https://github.com/Orange-OpenSource/ods-ios/issues/667))

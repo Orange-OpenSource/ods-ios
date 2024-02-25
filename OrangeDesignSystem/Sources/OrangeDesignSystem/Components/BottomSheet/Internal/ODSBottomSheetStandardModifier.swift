@@ -277,7 +277,7 @@ private struct AccessibilityValuesModifier: ViewModifier {
         }
     }
 #endif
-    
+
     private struct AccessibilityLabelsModifier: ViewModifier {
 
         let labels: AccessibilityStatesValues?

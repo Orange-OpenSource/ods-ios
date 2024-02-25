@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 final class StringTests: XCTestCase {
 
     // ================
@@ -324,3 +325,4 @@ final class StringTests: XCTestCase {
         XCTAssertTrue(result == "Version Normandy (build SR-2)", "Value under test is '\(result)'")
     }
 }
+// swiftlint:enable line_length

@@ -18,11 +18,11 @@ import SwiftUI
 // ============
 
 struct Chip<Leading, Text>: View where Leading: View, Text: View {
-    
+
     @ScaledMetric(relativeTo: .body) private var leadingHeight = 24
     @ScaledMetric(relativeTo: .body) private var frameHeight = 32
     @ScaledMetric(relativeTo: .body) private var labelPadding = ODSSpacing.xs
-    
+
     // =======================
     // MARK: Stored properties
     // =======================
