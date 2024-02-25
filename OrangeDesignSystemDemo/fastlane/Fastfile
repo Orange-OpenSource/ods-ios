@@ -188,10 +188,10 @@ platform :ios do
   private_lane :build_and_upload do |params|
       puts "👉 Build and upload (tagSuffix = #{params[:tagSuffix]}"
       build
-      tag_ci_build tagSuffix:params[:tagSuffix]
+      tag_ci_build(params[:tagSuffix])
       if params[:upload]
         puts "Upload to TestFlight requested"
-        if tag_testflight_upload tagSuffix:params[:tagSuffix]
+        if tag_testflight_upload(params[:tagSuffix])
           #      upload #TODO: Uncomment this line once everything will be done
         end
       else
@@ -223,7 +223,8 @@ platform :ios do
           # Thus we won't use any Xcode with plugged account in, and use only needed certificat and provisioning profiles.
           # Mobile provisioning profile named "ods-demo-app-appstore-qualif" must be placed in runner.
           # The certificate(s) used to build (with bundle ID) the provisionning profile must be available in the keychain of the runner
-          # (both .cer and p12)
+          # (both .cer and p12).
+          # This way is more agile and allows to use VM-based solution with on the fly configuration like with Tart
           update_code_signing_settings(path: "#{ODS_PROJECT}",
               use_automatic_signing: false,
               profile_name: 'ods-demo-app-appstore-qualif',
@@ -240,60 +241,6 @@ platform :ios do
           publish_mattermost_notification("🔨 ✅ @channel A new build has been done successfully")
       rescue => error
           publish_mattermost_notification("🔨 🚨 @channel Some issue occurred during the build step (:build_and_upload)")
-          raise error
-      end
-  end
-  
-  # -----------------------------------------------------------------------
-  # PRIVATE LANE TO CREATE GIT TAG FOR CI
-  # -----------------------------------------------------------------------
-  private_lane :tag_ci_build do |params|
-      puts "👉 Tag CI build"
-      begin
-
-          tagSuffix = params[:tagSuffix]
-          if tagSuffix.nil? || tagSuffix.empty?
-              puts "No parameter sent for CI tag, nothing will be done"
-              publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
-              return false
-          else
-              expected_git_tag = "ci/" + tagSuffix[0,7]
-              if create_tag(expected_git_tag)
-                  publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
-                  return true
-              else
-                  return false
-              end
-          end
-      rescue => error
-          publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
-          raise error
-      end
-  end
-
-  # -----------------------------------------------------------------------
-  # PRIVATE LANE TO CREATE GIT TAG FOR TESTFLIGHT BUILD
-  # -----------------------------------------------------------------------
-  private_lane :tag_testflight_upload do |params|
-      puts "👉 Tag TestFlight upload"
-      begin
-          
-          tagSuffix = params[:tagSuffix]
-          if tagSuffix.nil? || tagSuffix.empty?
-              puts "No parameter sent for CI tag, nothing will be done"
-              publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
-              return false
-          else
-              expected_git_tag = "Test_Flight/" + tagSuffix[0,7]
-              if create_tag(expected_git_tag)
-                  publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
-                  return true
-              else
-                  return false
-              end
-          end
-      rescue => error
-          publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
           raise error
       end
   end
@@ -346,6 +293,54 @@ platform :ios do
   # Helpers
   # -------
 
+  # Add a Git Tag dedicated to TestFLight uploads with sme suffix after a defined pattern
+  def tag_ci_build(tagSuffix)
+      puts "👉 Tag CI build"
+      begin
+
+          if tagSuffix.nil? || tagSuffix.empty?
+              puts "No parameter sent for CI tag, nothing will be done"
+              publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
+              return false
+          else
+              expected_git_tag = "ci/" + tagSuffix[0,7]
+              if create_tag(expected_git_tag)
+                  publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+                  return true
+              else
+                  return false
+              end
+          end
+      rescue => error
+          publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
+          raise error
+      end
+  end
+
+  # Add a Git Tag dedicated to TestFLight uploads with sme suffix after a defined pattern
+  def tag_testflight_upload(tagSuffix)
+      puts "👉 Tag TestFlight upload"
+      begin
+          
+          if tagSuffix.nil? || tagSuffix.empty?
+              puts "No parameter sent for CI tag, nothing will be done"
+              publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
+              return false
+          else
+              expected_git_tag = "Test_Flight/" + tagSuffix[0,7]
+              if create_tag(expected_git_tag)
+                  publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+                  return true
+              else
+                  return false
+              end
+          end
+      rescue => error
+          publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the tagging step (:tag_build)")
+          raise error
+      end
+  end
+
   # Creates a Git tag at given commit through HTTP protocol to prevent proxy or firewalls to block SSH requests
   def create_tag(tag)
     
@@ -357,7 +352,7 @@ platform :ios do
       else
           # Check if given tag exists yet
           puts "Check if '#{tag}' exists yet"
-          result=sh("curl -s 'https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs/tags/#{tag}' | jq -r '.ref'")
+          result=sh("curl -s 'https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs/tags/#{tag}' | jq -r '.ref'") # TODO Shell error management
           # If tag exists, CURL response is formatted like "refs/tags/tag"
           if "refs/tags/#{tag}".eql? result 
               puts "The tag '#{tag}' still exists, won't create new tag"
@@ -365,13 +360,14 @@ platform :ios do
               return false
           else
               puts "Commit SHA to tag is '#{IOS_APP_COMMIT_SHA}'"
+              # Just a light tag is enough 
               sh("curl -L \
                 -X POST \
                 -H 'Accept: application/vnd.github+json' \
                 -H 'Authorization: Bearer #{GITHUB_ACCESS_TOKEN}'\
                 -H 'X-GitHub-Api-Version: 2022-11-28' \
                 https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs \
-                -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{IOS_APP_COMMIT_SHA}\"}'") # Just a light tag is enough
+                -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{IOS_APP_COMMIT_SHA}\"}'") # TODO Shell error management
                 return true
             end
       end
