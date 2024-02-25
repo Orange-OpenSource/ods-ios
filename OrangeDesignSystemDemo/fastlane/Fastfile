@@ -198,12 +198,12 @@ platform :ios do
         tag_ci_build(params[:tagSuffix])
         
         if params[:upload]
-          puts "Upload to TestFlight requested"
-          if tag_testflight_upload(params[:tagSuffix])
-            #      upload #TODO: Uncomment this line once everything will be done
-          end
+            puts "Upload to TestFlight requested"
+            if tag_testflight_upload(params[:tagSuffix])
+                upload
+            end
         else
-          puts "Upload to TestFlight not requested"
+            puts "Upload to TestFlight not requested"
         end
     end
 
