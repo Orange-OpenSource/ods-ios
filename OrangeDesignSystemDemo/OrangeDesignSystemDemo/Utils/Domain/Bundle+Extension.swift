@@ -34,6 +34,15 @@ extension Bundle {
         string(forInfoDictionaryKey: "ODSBuildType")
         #endif
     }
+    
+    var appIconFileName: String? {
+        guard let icons = infoDictionary?["CFBundleIcons"] as? [String: Any],
+              let primaryIcon = icons["CFBundlePrimaryIcon"] as? [String: Any],
+              let iconFiles = primaryIcon["CFBundleIconFiles"] as? [String],
+              let iconFileName = iconFiles.last
+        else { return nil }
+        return iconFileName
+    }
 
     // ============================
     // MARK: Private Implementation

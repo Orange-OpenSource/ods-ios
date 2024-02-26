@@ -142,7 +142,7 @@ public struct ODSRecirculation: View {
     private func listItem(for app: RecirculationAppDetails) -> some View {
         let item = ODSListItem(title: Text(app.title),
                                subtitle: app.description != nil ? Text(app.description!) : nil,
-                               leading: app.iconURL != nil ? .squareImage(source: viewModel.appImage(at: app.iconURL!)) : nil)
+                               leading: leadingAppIcon(from: app))
             .lineLimit(3) // 3 lines asked
             .accessibilityChildren {
                 Text(app.title)
@@ -178,6 +178,13 @@ public struct ODSRecirculation: View {
                 }
             }
         }
+    }
+    
+    private func leadingAppIcon(from appDetails: RecirculationAppDetails) -> ODSListItem.Leading? {
+        guard let appIconUrl = appDetails.iconURL else {
+            return nil
+        }
+        return .appIcon(source: viewModel.appImage(at: appIconUrl))
     }
 
     @ViewBuilder
