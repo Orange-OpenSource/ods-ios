@@ -90,12 +90,15 @@ platform :ios do
             puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'" # Ensure your variable is "masked" in your CI/CD chain
         end
 
+        plistPath="#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist"
         update_plist(
-            plist_path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist",
+            plist_path: "#{plistPath}",
             block: proc do |plist|
                 plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
             end
         )
+
+        sh("cat #{plistPath}")
     end
 
     # ---------
@@ -199,14 +202,14 @@ platform :ios do
         build
      #   tag_ci_build(params[:tagSuffix])
         
-     #   if params[:upload]
+        if params[:upload]
      #       puts "Upload to TestFlight requested"
      #       if tag_testflight_upload(params[:tagSuffix])
-     #           upload
+                upload
      #       end
      #   else
      #       puts "Upload to TestFlight not requested"
-     #   end
+        end
     end
 
     # -----------------------------------------------------------------------
