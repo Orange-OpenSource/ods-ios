@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
-- [SDK/DemoApp] Update ListIetm to add AppIcon for leading element ([#716] (https://github.com/Orange-OpenSource/ods-ios/issues/716))
+- [Tooling] Update dependency SwiftFormat/CLI to v0.53.2 
+- [SDK/DemoApp] Update ListItemm to add AppIcon for leading element ([#716] (https://github.com/Orange-OpenSource/ods-ios/issues/716))
 - [SDK] Use appIcons in recirculation module ([#698] (https://github.com/Orange-OpenSource/ods-ios/issues/698))
 - [Tooling] Migration to GitLab CI runner ([#727](https://github.com/Orange-OpenSource/ods-ios/issues/727))
 - [DemoApp] Update the demo configuration for recirculation module ([#714] (https://github.com/Orange-OpenSource/ods-ios/issues/714))
