@@ -32,6 +32,10 @@ struct LeadingView: View {
         switch element {
         case let .icon(image):
             image.renderingMode(.template)
+        case let .appIcon(source):
+            ODSImage(source: source)
+                .frame(width: width, height: height)
+                .clipShape(RoundedRectangle(cornerRadius: 8.0))
         case let .circularImage(source):
             ODSImage(source: source)
                 .frame(width: width, height: height)

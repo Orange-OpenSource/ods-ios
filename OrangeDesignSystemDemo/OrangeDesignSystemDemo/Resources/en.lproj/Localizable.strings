@@ -32,6 +32,7 @@
 "shared.subtitle" = "Subtitle";
 "shared.label" = "Label";
 "shared.icon" = "Icon";
+"shared.appIcon" = "App icon";
 "shared.enabled" = "Enabled";
 "shared.disabled" = "Disabled";
 "shared.long_text" = "Long text";

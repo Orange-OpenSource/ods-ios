@@ -24,6 +24,7 @@ enum LeadingOption: Int, CaseIterable {
     case circle
     case wide
     case square
+    case appIcon = 10 // To be shure is the last in chips list
 
     var description: LocalizedStringKey {
         switch self {
@@ -31,6 +32,8 @@ enum LeadingOption: Int, CaseIterable {
             return "shared.none"
         case .icon:
             return "shared.icon"
+        case .appIcon:
+            return "shared.appIcon"
         case .circle:
             return "shared.circle"
         case .wide:
