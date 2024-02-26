@@ -86,7 +86,7 @@ struct AboutScreen: View {
         applicationInformation = ODSAboutApplicationInformation(
             name: °°"screens.about.app_information.name",
             version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
-            description: "'\(Self.recirculationRemoteFeedURL!)'",
+            description: °°"screens.about.app_information.description",
             shareConfiguration: ODSAboutShareTheApplication(
                 storeUrl: URL(string: "http://oran.ge/dsapp")!,
                 subject: °°"screens.about.app_information.share.subject",
@@ -138,7 +138,7 @@ struct AboutScreen: View {
         AboutHtmlAndMarkdownView(title: °°"screens.about.terms_of_service", htmlFileName: "CGU")
     }
 
-    public static var recirculationRemoteFeedURL: URL? {
+    private static var recirculationRemoteFeedURL: URL? {
         guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
             Log.warning("No Apps Plus URL found in app settings")
             return nil
