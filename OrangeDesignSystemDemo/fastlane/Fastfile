@@ -97,8 +97,6 @@ platform :ios do
                 plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
             end
         )
-
-        sh("cat #{plistPath}")
     end
 
     # ---------
@@ -200,15 +198,15 @@ platform :ios do
         update_build_number
 
         build
-     #   tag_ci_build(params[:tagSuffix])
+        tag_ci_build(params[:tagSuffix])
         
         if params[:upload]
-     #       puts "Upload to TestFlight requested"
-     #       if tag_testflight_upload(params[:tagSuffix])
+            puts "Upload to TestFlight requested"
+            if tag_testflight_upload(params[:tagSuffix])
                 upload
-     #       end
-     #   else
-     #       puts "Upload to TestFlight not requested"
+            end
+        else
+            puts "Upload to TestFlight not requested"
         end
     end
 
@@ -293,8 +291,7 @@ platform :ios do
                 api_key: api_key
             )
             
-            publish_mattermost_notification("📦 ✅ @channel The upload to TestFlight has been done successfully")
-            
+            publish_mattermost_notification("📦 ✅ @channel The upload to TestFlight has been done successfully")    
         rescue => error
             publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the upload step (:build_and_upload)")
             raise error
@@ -310,7 +307,6 @@ platform :ios do
         puts "👉 Tag CI build"
 
         begin
-
             if tagSuffix.nil? || tagSuffix.empty?
                 puts "No parameter sent for CI tag, nothing will be done"
                 publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
@@ -334,8 +330,7 @@ platform :ios do
     def tag_testflight_upload(tagSuffix)
         puts "👉 Tag TestFlight upload"
 
-        begin
-            
+        begin     
             if tagSuffix.nil? || tagSuffix.empty?
                 puts "No parameter sent for CI tag, nothing will be done"
                 publish_mattermost_notification("⚙️ 🤔 No tag suffix has ben given, no tag can be created")
@@ -425,5 +420,4 @@ platform :ios do
         puts "Current relase notes = #{changelog}"
         return changelog
     end
-
 end
