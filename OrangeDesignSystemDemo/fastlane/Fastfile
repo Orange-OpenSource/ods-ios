@@ -90,15 +90,12 @@ platform :ios do
             puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'"
         end
 
-        plistPath="#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist"
         update_plist(
-            plist_path: "#{plistPath}",
+            plist_path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist",
             block: proc do |plist|
                 plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
             end
         )
-        
-        sh("cat #{plistPath}")
     end
 
     # ---------
