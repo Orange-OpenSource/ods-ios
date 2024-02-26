@@ -86,10 +86,12 @@ platform :ios do
         if APPS_PLUS_SERVICE_URL.nil? || APPS_PLUS_SERVICE_URL.empty?
             puts "Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?"
             publish_mattermost_notification("⚙️ ⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
+        else
+            puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'" # Ensure your variable is "masked" in your CI/CD chain
         end
 
         update_plist(
-            plist_path: "OrangeDesignSystemDemo/Resources/Info.plist",
+            plist_path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist",
             block: proc do |plist|
                 plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
             end
