@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/OrangeDesignSystemDemo.app</string>
+		<key>Architectures</key>
+		<array>
+			<string>arm64</string>
+		</array>
+		<key>CFBundleIdentifier</key>
+		<string>soft.cocoa.ods-ios-demo.qualif</string>
+		<key>CFBundleShortVersionString</key>
+		<string>0.18.0</string>
+		<key>CFBundleVersion</key>
+		<string>1708691644</string>
+		<key>SigningIdentity</key>
+		<string>Apple Distribution: France Telecom (MG2LSJNJB6)</string>
+		<key>Team</key>
+		<string>MG2LSJNJB6</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2024-02-23T12:36:48Z</date>
+	<key>Name</key>
+	<string>OrangeDesignSystemDemo</string>
+	<key>SchemeName</key>
+	<string>OrangeDesignSystemDemo</string>
+</dict>
+</plist>

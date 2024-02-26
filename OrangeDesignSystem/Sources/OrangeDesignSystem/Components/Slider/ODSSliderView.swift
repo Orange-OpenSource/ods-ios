@@ -348,6 +348,7 @@ extension ODSSlider: View {
 }
 
 #if DEBUG
+// swiftlint:disable type_name
 // MARK: - Previews.
 struct ODSSlider_Previews: PreviewProvider {
 
@@ -379,4 +380,5 @@ struct ODSSlider_Previews_with_label: PreviewProvider {
         }
     }
 }
+// swiftlint:enable type_name
 #endif

@@ -14,6 +14,7 @@
 import Foundation
 
 protocol RecirculationServiceProtocol {
+
     /// - Parameter repository: The object to use to get the raw data from a feeder
     init(repository: RecirculationRepositoryProtocol)
 

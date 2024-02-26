@@ -22,7 +22,7 @@ enum LoadingState<Payload, Error> {
 
     /// No fetch started yet
     case idle
-    
+
     /// Waiting for some data
     case loading
 

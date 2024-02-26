@@ -27,7 +27,6 @@ public struct ODSRecirculationItemConfig: ODSAboutListItemConfig {
     public private(set) var target: ODSAboutListItemTarget
     public private(set) var priority: ODSAboutListItemPriority
 
-
     // =================
     // MARK: Initializer
     // =================

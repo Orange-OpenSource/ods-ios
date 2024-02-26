@@ -17,5 +17,5 @@ import Foundation
 protocol RecirculationRepositoryProtocol {
 
     /// Supposed to be async method to return the apps lists or to throw some error
-    func availableAppsList() async throws -> AppsPlusListDTO
+    func availableAppsList() async throws -> RecirculationAppsList
 }

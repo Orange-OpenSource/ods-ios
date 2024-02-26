@@ -1,0 +1,1115 @@
+{
+  "recipes": [
+    {
+      "title": "Summer Salad",
+      "catId": "2",
+      "subtitle": "20min",
+      "ingredients": [
+        {
+          "foodId": 1,
+          "quantity": "50g"
+        },
+        {
+          "foodId": 2,
+          "quantity": "1/2 a piece"
+        },
+        {
+          "foodId": 3,
+          "quantity": "25g"
+        },
+        {
+          "foodId": 4,
+          "quantity": "50g"
+        },
+        {
+          "foodId": 5,
+          "quantity": "20g"
+        },
+        {
+          "foodId": 6,
+          "quantity": "50g"
+        },
+        {
+          "foodId": 7,
+          "quantity": "50g"
+        }
+      ],
+      "description": "A great salad with refreshing ingredients, really adapted for summer.",
+      "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "iconName": "Restaurant"
+    },
+    {
+      "title": "Broccoli Soup",
+      "catId": "2",
+      "subtitle": "12min",
+      "ingredients": [
+        {
+          "foodId": 8,
+          "quantity": "8 cups"
+        },
+        {
+          "foodId": 9,
+          "quantity": "5 tbs"
+        },
+        {
+          "foodId": 10,
+          "quantity": "3tbs"
+        },
+        {
+          "foodId": 4,
+          "quantity": "50g"
+        },
+        {
+          "foodId": 11,
+          "quantity": "2cups"
+        },
+        {
+          "foodId": 12,
+          "quantity": "branch"
+        },
+        {
+          "foodId": 13,
+          "quantity": "limp"
+        }
+      ],
+      "description": "Make a great cream of broccoli soup in the comfort of your home. It's thick, flavorful, creamy, and easy to make with simple ingredients.",
+      "url": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80",
+      "iconName": "Restaurant"
+    },
+    {
+      "title": "Pesto Farfalle",
+      "catId": "3",
+      "subtitle": "1h20",
+      "ingredients": [
+        {
+          "foodId": 13,
+          "quantity": "1tbs"
+        },
+        {
+          "foodId": 14,
+          "quantity": "1 1/2 tp"
+        },
+        {
+          "foodId": 15,
+          "quantity": "1cup"
+        },
+        {
+          "foodId": 16,
+          "quantity": "1cup"
+        },
+        {
+          "foodId": 17,
+          "quantity": "1/4cup"
+        },
+        {
+          "foodId": 12,
+          "quantity": "1tbs"
+        }
+      ],
+      "description": "This pesto pasta with farfalle pasta and cherry tomatoes, all tossed in basil pesto and finished off with parmesan cheese is a quick and easy dinner option that always gets rave reviews!",
+      "url": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "iconName": "CookingPot"
+    },
+    {
+      "title": "Fig Sponge Cake",
+      "catId": "4",
+      "subtitle": "1h20",
+      "ingredients": [
+        {
+          "foodId": 9,
+          "quantity": "250g"
+        },
+        {
+          "foodId": 18,
+          "quantity": "4tbs"
+        },
+        {
+          "foodId": 19,
+          "quantity": "8"
+        },
+        {
+          "foodId": 20,
+          "quantity": "4"
+        },
+        {
+          "foodId": 10,
+          "quantity": "250g"
+        },
+        {
+          "foodId": 21,
+          "quantity": "1tsp"
+        },
+        {
+          "foodId": 22,
+          "quantity": "1tsp"
+        }
+      ],
+      "description": "Sponge pudding gets taken up a level with the addition of delicious baked figs and thyme, resulting in a seriously comforting wintry dessert. Serve warm with cream, ice cream or Greek yogurt",
+      "url": "https://images.unsplash.com/photo-1565661834013-d196ca46e14e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80",
+      "iconName": "Cafe"
+    },
+    {
+      "title": "Raspberry Cake",
+      "catId": "4",
+      "subtitle": "45min",
+      "ingredients": [
+        {
+          "foodId": 20,
+          "quantity": "3"
+        },
+        {
+          "foodId": 10,
+          "quantity": "250g"
+        },
+        {
+          "foodId": 21,
+          "quantity": "1tsp"
+        },
+        {
+          "foodId": 22,
+          "quantity": "1tsp"
+        },
+        {
+          "foodId": 23,
+          "quantity": "zest of 1"
+        },
+        {
+          "foodId": 24,
+          "quantity": "100g"
+        }
+      ],
+      "description": "Make this summery cake with seasonal fresh raspberries. A dusting of icing sugar offsets the red of the raspberries, but you could also serve with a glaze.",
+      "url": "https://images.unsplash.com/photo-1615735487485-e52b9af610c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      "iconName": "IceCream"
+    },
+    {
+      "title": "Salmon Curry",
+      "catId": "3",
+      "subtitle": "31min",
+      "ingredients": [
+        {
+          "foodId": 25,
+          "quantity": "500g"
+        },
+        {
+          "foodId": 26,
+          "quantity": "2tbs"
+        },
+        {
+          "foodId": 27,
+          "quantity": "2 leaves"
+        },
+        {
+          "foodId": 28,
+          "quantity": "1"
+        },
+        {
+          "foodId": 1,
+          "quantity": "1"
+        },
+        {
+          "foodId": 29,
+          "quantity": "1/2 cup"
+        },
+        {
+          "foodId": 30,
+          "quantity": "2 leaves"
+        }
+      ],
+      "description": "Treat yourself to a delicious and flavorsome Salmon Curry! This easy and quick Indian curry is made by simmering salmon in an amazingly delicious spicy and tangy curry.",
+      "url": "https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      "iconName": "Cafe"
+    },
+    {
+      "title": "Ham & Mozzarella Pasta",
+      "catId": "3",
+      "subtitle": "17min",
+      "ingredients": [
+        {
+          "foodId": 31,
+          "quantity": "400g"
+        },
+        {
+          "foodId": 32,
+          "quantity": "150g"
+        },
+        {
+          "foodId": 33,
+          "quantity": "120g"
+        },
+        {
+          "foodId": 34,
+          "quantity": "2"
+        },
+        {
+          "foodId": 28,
+          "quantity": "1"
+        },
+        {
+          "foodId": 9,
+          "quantity": "20g"
+        },
+        {
+          "foodId": 12,
+          "quantity": "30ml"
+        }
+      ],
+      "description": "A wonderful pasta dish that smells like a piece of Italy.",
+      "url": "https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80",
+      "iconName": "Restaurant"
+    },
+    {
+      "title": "Feta Pizza",
+      "catId": "3",
+      "subtitle": "21min",
+      "ingredients": [
+        {
+          "foodId": 34,
+          "quantity": "10"
+        },
+        {
+          "foodId": 1,
+          "quantity": "50cl"
+        },
+        {
+          "foodId": 36,
+          "quantity": "200g"
+        },
+        {
+          "foodId": 12,
+          "quantity": "5ml"
+        }
+      ],
+      "description": "A simple revisit of the pizza that makes your ordinary a little more extraordinary.",
+      "url": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "iconName": "IceCream"
+    },
+    {
+      "title": "Fajitas",
+      "catId": "3",
+      "subtitle": "13min",
+      "ingredients": [
+      ],
+      "description": "Make your own fajitas and enjoy a sunny Mexican dinner with the rest of the family",
+      "url": "https://images.unsplash.com/photo-1569692062823-f1196218f0a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+      "iconName": "Restaurant"
+    },
+    {
+      "title": "Tomato Soup",
+      "catId": "2",
+      "subtitle": "15min",
+      "ingredients": [],
+      "description": "After the iconic Andy Warhol revisit of the tin box, make your own revisit of a basic but great simple meal.",
+      "url": "https://images.unsplash.com/photo-1578020190125-f4f7c18bc9cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "iconName": "Restaurant"
+    },
+    {
+      "title": "Virgin Mojito Mocktail",
+      "catId": "1",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 42,
+          "quantity": "2 pieces"
+        },
+        {
+          "foodId": 43,
+          "quantity": "2 cl"
+        },
+        {
+          "foodId": 44,
+          "quantity": "2 branches"
+        },
+        {
+          "foodId": 41,
+          "quantity": "12 cl"
+        },
+        {
+          "foodId": 45,
+          "quantity": "fill up the glass"
+        }
+      ],
+      "description": "The mojito is one of the world's most popular cocktails, It is originating from Cuba, and this virgin version is the perfect summer drink for the entire family.",
+      "url": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29ja3RhaWx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "iconName": "OrangeDetente"
+    },
+    {
+      "title": "Virgin Sunrise Mocktail",
+      "catId": "1",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 47,
+          "quantity": "1 dose"
+        },
+        {
+          "foodId": 49,
+          "quantity": "limp"
+        },
+        {
+          "foodId": 41,
+          "quantity": "1 dose"
+        },
+        {
+          "foodId": 46,
+          "quantity": "full up the glass"
+        }
+      ],
+      "description": "This cocktail, with its bright striations of color, evokes a summer sunrise. This virgin version is very tasty. Note that the original cocktail was created in the early 1970s by Bobby Lozoff and Billy Rice at the Trident bar in Sausalito, California. It was popularized bu the Rolling Stones during their 1972 tour, as the band began ordering it at stops across the US.",
+      "url": "https://images.pexels.com/photos/8919168/pexels-photo-8919168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "iconName": "OrangeDetente"
+    },
+    {
+      "title": "Bella Luna Mocktail",
+      "catId": "1",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 47,
+          "quantity": "10 cl"
+        },
+        {
+          "foodId": 48,
+          "quantity": "6 cl"
+        },
+        {
+          "foodId": 42,
+          "quantity": "1 piece"
+        }
+      ],
+      "description": "A simple Orange based Mocktail very refreshing.",
+      "url": "https://images.unsplash.com/photo-1595864816539-b186b403f06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvY2t0YWlsJTIweWVsbG93fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "iconName": "OrangeDetente"
+    },
+    {
+      "title": "Virgin Colada Mocktail",
+      "catId": "1",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 48,
+          "quantity": "12 cl"
+        },
+        {
+          "foodId": 29,
+          "quantity": "4 cl"
+        },
+        {
+          "foodId": 43,
+          "quantity": "2g"
+        }
+      ],
+      "description": "A sweet and fresh Mocktail. The original piña colada is a blended or iced cocktail that originated in Puerto Rico. Tails say that Puerto Rican pirate Roberto Cofresí, made this to boost his crew's morale. The name means “strained pineapple” in Spanish, a reference to the freshly pressed and strained pineapple juice used in the drink's preparation.",
+      "url": "https://images.unsplash.com/photo-1607644536940-6c300b5784c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y29ja3RhaWwlMjBjb2xhZGF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "iconName": "OrangeDetente"
+    },
+    {
+      "title": "Tomatoes & Mozzarella di Buffala",
+      "catId": "2",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 16,
+          "quantity": "20"
+        },
+        {
+          "foodId": 34,
+          "quantity": "2"
+        },
+        {
+          "foodId": 52,
+          "quantity": "20"
+        },
+        {
+          "foodId": 53,
+          "quantity": "8 leaves"
+        },
+        {
+          "foodId": 13,
+          "quantity": "a limp"
+        }
+      ],
+      "description": "A basic marvel from the Italian cuisine, very simple and quick for the summer.",
+      "url": "https://images.unsplash.com/photo-1580638149300-65f0b9e8fbff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGxhdCUyMGVudHIlQzMlQTllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "iconName": "Restaurant"
+    },
+    {
+      "title": "Tapenade Bruschetta",
+      "catId": "2",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 54,
+          "quantity": "1"
+        },
+        {
+          "foodId": 13,
+          "quantity": "3 Table Spoons"
+        },
+        {
+          "foodId": 1,
+          "quantity": "5"
+        },
+        {
+          "foodId": 14,
+          "quantity": "1"
+        },
+        {
+          "foodId": 23,
+          "quantity": "1"
+        },
+        {
+          "foodId": 53,
+          "quantity": "3 branches"
+        },
+        {
+          "foodId": 55,
+          "quantity": "1 Table Spoon"
+        },
+        {
+          "foodId": 56,
+          "quantity": "300 g"
+        }
+      ],
+      "description": "Tapenade is the name for a type of spread that is made primarily out of chopped olives, capers, or anchovies. Originally from the Provence area of France, it’s savory, salty, and briny in flavor. ",
+      "url": "https://images.unsplash.com/photo-1625938144755-652e08e359b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHBsYXQlMjBlbnRyJUMzJUE5ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "iconName": "Restaurant"
+    },
+    {
+      "title": "Lemon Pie",
+      "catId": "4",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 38,
+          "quantity": "1 cup"
+        },
+        {
+          "foodId": 10,
+          "quantity": "2 tablespoons"
+        },
+        {
+          "foodId": 57,
+          "quantity": "3 tablespoons"
+        },
+        {
+          "foodId": 37,
+          "quantity": "1/4 teaspoon"
+        },
+        {
+          "foodId": 40,
+          "quantity": "1 1/2 cup"
+        },
+        {
+          "foodId": 23,
+          "quantity": "2"
+        },
+        {
+          "foodId": 9,
+          "quantity": "2 tablespoons"
+        },
+        {
+          "foodId": 58,
+          "quantity": "4"
+        },
+        {
+          "foodId": 59,
+          "quantity": "1"
+        }
+      ],
+      "description": "A lemon meringue pie is a fantastic addition to any dessert table. This old-fashioned lemon meringue pie recipe has stood the test of time because it's easy to make, absolutely gorgeous, and totally irresistible.",
+      "url": "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bGVtb24lMjBwaWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "iconName": "InformationData"
+    },
+    {
+      "title": "Brownies",
+      "catId": "4",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 50,
+          "quantity": "75 g"
+        },
+        {
+          "foodId": 9,
+          "quantity": "80 g"
+        },
+        {
+          "foodId": 38,
+          "quantity": "240 g"
+        },
+        {
+          "foodId": 20,
+          "quantity": "2"
+        },
+        {
+          "foodId": 10,
+          "quantity": "90 g"
+        },
+        {
+          "foodId": 21,
+          "quantity": "1/2 tea spoon"
+        },
+        {
+          "foodId": 51,
+          "quantity": "1 cup"
+        }
+      ],
+      "description": "An iconic chocolate baked cake that comes in a variety of forms and may be either fudgy or cakey, depending on their density. Brownies often, have a glossy 'skin' on their upper crust. Brownies was a direct request from Bertha Palmer to a pastry chef for a dessert suitable for ladies attending the Chicago World's Columbian Exposition. She requested a cake-like confection smaller than a piece of cake that could be included in boxed lunches.",
+      "url": "https://images.unsplash.com/photo-1611625358975-06a668e3a45f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJyb3duaWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "iconName": "IceCream"
+    },
+    {
+      "title": "Chocolate Chips Cookies",
+      "catId": "4",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 50,
+          "quantity": "350 g"
+        },
+        {
+          "foodId": 39,
+          "quantity": "350 g"
+        },
+        {
+          "foodId": 9,
+          "quantity": "250 g"
+        },
+        {
+          "foodId": 20,
+          "quantity": "1"
+        },
+        {
+          "foodId": 10,
+          "quantity": "375 g"
+        },
+        {
+          "foodId": 22,
+          "quantity": "11 g"
+        },
+        {
+          "foodId": 37,
+          "quantity": "1 pinch"
+        },
+        {
+          "foodId": 21,
+          "quantity": "1/2 bag"
+        }
+      ],
+      "description": "A Cookie Monster's heaven... Cookies are most commonly baked until crisp or else for just long enough to ensure soft interior. The American name derives from the Dutch word 'koekje' or more precisely its informal, dialect variant koekie which means little cake, and arrived in American English with the Dutch settlement of New Netherland, in the early 1600s.",
+      "url": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGxlJTIwZGVzc2VydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "iconName": "IceCream"
+    },
+    {
+      "title": "Red Berries Crêpes",
+      "catId": "4",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 11,
+          "quantity": "750 ml"
+        },
+        {
+          "foodId": 10,
+          "quantity": "250 g"
+        },
+        {
+          "foodId": 20,
+          "quantity": "6"
+        },
+        {
+          "foodId": 9,
+          "quantity": "80 g"
+        },
+        {
+          "foodId": 37,
+          "quantity": "a pinch"
+        },
+        {
+          "foodId": 24,
+          "quantity": "100 g"
+        },
+        {
+          "foodId": 60,
+          "quantity": "50 g"
+        },
+        {
+          "foodId": 61,
+          "quantity": "1 cup"
+        },
+        {
+          "foodId": 38,
+          "quantity": "1 tablespoon"
+        },
+        {
+          "foodId": 22,
+          "quantity": "1 teaspoon"
+        }
+      ],
+      "description": "A simple delightment of these French crêpes accompanied with red berries and with this homemade whipped cream that is very easy to make and it holds its shape perfectly.",
+      "url": "https://images.unsplash.com/photo-1587314168485-3236d6710814?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGUlMjBkZXNzZXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "iconName": "OrangeExpert"
+    },
+    {
+      "title": "Baguette",
+      "catId": "5",
+      "subtitle": "French Bread",
+      "ingredients": [
+        {
+          "foodId": 10,
+          "quantity": "420 g"
+        },
+        {
+          "foodId": 40,
+          "quantity": "255 ml"
+        },
+        {
+          "foodId": 21,
+          "quantity": "11 g"
+        },
+        {
+          "foodId": 37,
+          "quantity": "12 g"
+        }
+      ],
+      "description": "There is nothing like a freshly baked French baguette on a Sunday morning. Or any morning for that matter. A delight when crusty and beautifully colored on the outside, buttery soft and chewy on the inside, and with a tiny bit of butter.",
+      "url": "https://unexisting.com/file/missing/on/purpose.png",
+      "iconName": "Heart"
+    },
+    {
+      "title": "Pain de Campagne",
+      "catId": "5",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 62,
+          "quantity": "500 g"
+        },
+        {
+          "foodId": 40,
+          "quantity": "200 ml"
+        },
+        {
+          "foodId": 21,
+          "quantity": "11 g"
+        },
+        {
+          "foodId": 37,
+          "quantity": "12 g"
+        }
+      ],
+      "description": "Best bread ever.",
+      "url": "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGFpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "iconName": "HandUp"
+    },
+    {
+      "title": "Brioche Tressée",
+      "catId": "5",
+      "subtitle": "15min",
+      "ingredients": [
+        {
+          "foodId": 10,
+          "quantity": "500 g"
+        },
+        {
+          "foodId": 11,
+          "quantity": "180 ml"
+        },
+        {
+          "foodId": 21,
+          "quantity": "25 g"
+        },
+        {
+          "foodId": 37,
+          "quantity": "8 g"
+        },
+        {
+          "foodId": 38,
+          "quantity": "80 g"
+        },
+        {
+          "foodId": 20,
+          "quantity": "80 g"
+        },
+        {
+          "foodId": 9,
+          "quantity": "100 g"
+        }
+      ],
+      "description": "",
+      "url": "https://images.unsplash.com/photo-1620416328855-f56e4e98637b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHBhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "iconName": "Tag"
+    },
+    {
+      "title": "Bagels",
+      "catId": "5",
+      "subtitle": "At its most basic, traditional bagel dough contains wheat flour, salt, water, and yeast leavening.",
+      "ingredients": [
+        {
+          "foodId": 10,
+          "quantity": "480g"
+        },
+        {
+          "foodId": 37,
+          "quantity": "12g"
+        },
+        {
+          "foodId": 39,
+          "quantity": "14g"
+        },
+        {
+          "foodId": 40,
+          "quantity": "303g"
+        }
+      ],
+      "description": "A bagel (Yiddish: בײגל, romanized: beygl; Polish: bajgiel; also spelled beigel)[1] is a bread roll originating in the Jewish communities of Poland. It is traditionally shaped by hand into a roughly hand-sized ring from yeasted wheat dough that is first boiled for a short time in water and then baked. The result is a dense, chewy, doughy interior with a browned and sometimes crisp exterior. Bagels are often topped with seeds baked on the outer crust—traditional choices include poppy and sesame seeds—or with salt grains. Different dough types include whole-grain and rye.[3][4] The basic roll-with-a-hole design, hundreds of years old, allows even cooking and baking of the dough; it also allows groups of bagels to be gathered on a string or dowel for handling, transportation, and retail display.",
+      "url": "https://www.seekpng.com/png/full/199-1993606_royalty-free-stock-bagel-transparent-french-toast-maple.png",
+      "iconName": "Bagel-does-not-exist"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Drinks",
+      "iconName": "OrangeDetente"
+    },
+    {
+      "id": 2,
+      "name": "Starter",
+      "iconName": "Food_and_Entertainment"
+    },
+    {
+      "id": 3,
+      "name": "Main course",
+      "iconName": "CookingPot"
+    },
+    {
+      "id": 4,
+      "name": "Desert",
+      "iconName": "IceCream"
+    },
+    {
+      "id": 5,
+      "name": "Bread",
+      "iconName": "Cafe"
+    },
+    {
+      "id": 6,
+      "name": "Space food",
+      "iconName": "medicine"
+    }
+  ],
+  "foods": [
+    {
+      "id": 1,
+      "name": "Tomato",
+      "image": "https://images.unsplash.com/photo-1564874997803-e4d589d5fd41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Advocado",
+      "image": "https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Yellow pepper",
+      "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Chickpea",
+      "image": "https://images.pexels.com/photos/7717474/pexels-photo-7717474.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    },
+    {
+      "id": 5,
+      "name": "Red cabbage",
+      "image": "https://images.pexels.com/photos/5876007/pexels-photo-5876007.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    },
+    {
+      "id": 6,
+      "name": "Sweet potato",
+      "image": "https://images.unsplash.com/photo-1617130094141-532436117aa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 7,
+      "name": "Watercress",
+      "image": "https://images.unsplash.com/photo-1622463214111-b192a53371d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80"
+    },
+    {
+      "id": 8,
+      "name": "Brocoli",
+      "image": "https://images.unsplash.com/photo-1615485291234-9d694218aeb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+    },
+    {
+      "id": 9,
+      "name": "Butter",
+      "image": "https://media.istockphoto.com/id/177834117/es/foto/mantequilla-aislado-en-blanco.jpg?s=612x612&w=0&k=20&c=3OFv5OG4FIiWHDz9kycyKX16izAYZBArwPy4Wr4IDOM="
+    },
+    {
+      "id": 10,
+      "name": "Flour",
+      "image": "https://media.istockphoto.com/photos/flour-picture-id535492963?b=1&k=20&m=535492963&s=612x612&w=0&h=LI-5F7rjhpRZYso3wbgb_-aceyotVm6nC_SEf8u_OD0="
+    },
+    {
+      "id": 11,
+      "name": "Milk",
+      "image": "https://images.unsplash.com/photo-1588710929895-6ee7a0a4d155?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+    },
+    {
+      "id": 12,
+      "name": "Parsley",
+      "image": "https://images.unsplash.com/photo-1583116935690-eb4893c5de84?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 13,
+      "name": "Olive oil",
+      "image": "https://images.pexels.com/photos/1022385/pexels-photo-1022385.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    },
+    {
+      "id": 14,
+      "name": "Garlic",
+      "image": "https://images.unsplash.com/photo-1587049332298-1c42e83937a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 15,
+      "name": "Basil",
+      "image": "https://media.istockphoto.com/photos/basil-leafs-picture-id174544785?b=1&k=20&m=174544785&s=612x612&w=0&h=Lbsbk5CROJfBqnDXS-eOOvNMPSULRU23bwSlFGX8Bjo="
+    },
+    {
+      "id": 16,
+      "name": "Cherry tomato",
+      "image": "https://images.unsplash.com/photo-1587411768515-eeac0647deed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 17,
+      "name": "Parmesan",
+      "image": "https://media.istockphoto.com/id/1136203798/es/foto/queso-parmesano-aislado-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=3cijmSnWUcTL7d3sMcrM_TVq5snh494I3d0WXhpcPQw="
+    },
+    {
+      "id": 18,
+      "name": "Honey",
+      "image": "https://images.unsplash.com/photo-1625600243103-1dc6824c6c8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+      "id": 19,
+      "name": "Figs",
+      "image": "https://images.unsplash.com/photo-1601379760591-1d89ae6ee1b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "id": 20,
+      "name": "Eggs",
+      "image": "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 21,
+      "name": "Baking soda",
+      "image": "https://media.istockphoto.com/id/473217706/fr/photo/cuill%C3%A8re-en-bois-avec-du-sel.jpg?s=612x612&w=0&k=20&c=uPAEOUXFLruMMe1bfX8WxwUAl4q3cfjN0-6twtSLBxg="
+    },
+    {
+      "id": 22,
+      "name": "Vanilla",
+      "image": "https://images.unsplash.com/photo-1610487512810-b614ad747572?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1164&q=80"
+    },
+    {
+      "id": 23,
+      "name": "Lemon",
+      "image": "https://images.unsplash.com/photo-1582287104445-6754664dbdb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 24,
+      "name": "Raspberries",
+      "image": "https://images.unsplash.com/photo-1615484477676-c6f3c18e8462?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 25,
+      "name": "Salmon",
+      "image": "https://media.istockphoto.com/id/157641208/fr/photo/saumon.jpg?s=612x612&w=0&k=20&c=JsoJv4uy2IsDpuLKtOK-j2_jMr_MosEEaLvqIsNPErI="
+    },
+    {
+      "id": 26,
+      "name": "Oil",
+      "image": "https://images.unsplash.com/photo-1552592074-ea7a91b851b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+      "id": 27,
+      "name": "Curry",
+      "image": "https://media.istockphoto.com/id/185296258/es/foto/amarillo-spice.jpg?s=612x612&w=0&k=20&c=anc8Iee-Vr2-kI1CQ9mGstd6i-UJAjOjEWfgtwiMNLU="
+    },
+    {
+      "id": 28,
+      "name": "Onion",
+      "image": "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 29,
+      "name": "Coconut cream",
+      "image": "https://images.unsplash.com/photo-1588413336022-43f5326d33b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "id": 30,
+      "name": "Coriander",
+      "image": "https://media.istockphoto.com/id/624698704/es/foto/manojo-de-perejil.jpg?s=612x612&w=0&k=20&c=YqNTrNpY5ftMkFsrKxVm932IuXWeuWM7aTxz18KaPR0="
+    },
+    {
+      "id": 31,
+      "name": "Spagetti",
+      "image": "https://media.istockphoto.com/id/1096157720/es/foto/secas-pastas-spaghetti.jpg?s=612x612&w=0&k=20&c=hauFhc3-rp9H0lVI5fiCGkrK_g4ncmGtmBY4QkdoCGE="
+    },
+    {
+      "id": 32,
+      "name": "Peas",
+      "image": "https://media.istockphoto.com/id/1133566291/es/foto/guisantes-verdes-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=B57b41Z-AylzQPdT8bDCUuvjnmSKWPdIMJEAXEKcei4="
+    },
+    {
+      "id": 33,
+      "name": "Ham",
+      "image": "https://media.istockphoto.com/id/518953076/es/foto/horneados-rebanada-de-jam%C3%B3n.jpg?s=612x612&w=0&k=20&c=3XH_ZgUBZCRAlJEunr9mvenocCxHXRE9l7VrTAxF8iM="
+    },
+    {
+      "id": 34,
+      "name": "Mozzarella",
+      "image": "https://media.istockphoto.com/id/1341216531/es/foto/mozzarella-de-b%C3%BAfala-italiana-aislada-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=GUywj6PapNtXvo47FTtUpHyB-FN2EBrkredOHuzEbd0="
+    },
+    {
+      "id": 35,
+      "name": "Spinash leaves",
+      "image": "https://media.istockphoto.com/id/1216176567/fr/photo/spinash-isol%C3%A9.jpg?s=612x612&w=0&k=20&c=m7aqUBRbHI8ePDPxoi7--MtWLJvNMpzWRZBlxv47uUI="
+    },
+    {
+      "id": 36,
+      "name": "Feta",
+      "image": "https://media.istockphoto.com/id/626516364/fr/photo/f%C3%A9ta.jpg?s=612x612&w=0&k=20&c=ObpAT2rZbHgwbcudPU6jMeltGDmHB-5EaGxOy7-vL68="
+    },
+    {
+      "id": 37,
+      "name": "Salt",
+      "image": "https://media.istockphoto.com/id/668551038/es/foto/sal-marina.jpg?s=612x612&w=0&k=20&c=2fzrFySOFc0Fc9i-Rq-3iUjQh5JBaItgjzoo8spnbbs="
+    },
+    {
+      "id": 38,
+      "name": "Sugar",
+      "image": "https://media.istockphoto.com/id/499842394/es/foto/de-az%C3%BAcar.jpg?s=612x612&w=0&k=20&c=khz4jN_iqwRhhOzFJa0AGZbEb1ktFgMHmtjhvFygs80="
+    },
+    {
+      "id": 39,
+      "name": "Brown sugar",
+      "image": "https://media.istockphoto.com/id/104676536/es/foto/ca%C3%B1a-de-az%C3%BAcar-hill-aislado-en-blanco.jpg?s=612x612&w=0&k=20&c=XeJv77eRb7HBzwC7SPd5_aQwl3dOuOpMAXmxs4PIzAc="
+    },
+    {
+      "id": 40,
+      "name": "Water",
+      "image": "https://media.istockphoto.com/id/485685046/es/foto/vaso-de-agua.jpg?s=612x612&w=0&k=20&c=okNxhczP-wl_5-_Fo3RnFz2vsb9VSucIuE5Kq4PmGr4="
+    },
+    {
+      "id": 41,
+      "name": "Sparkling water",
+      "image": "https://media.istockphoto.com/id/181957643/es/foto/soda-agua.jpg?s=612x612&w=0&k=20&c=ci6ZURhAPD3FxyfA1peu5mRCW8T3IX0ugCEWee1UFfM="
+    },
+    {
+      "id": 42,
+      "name": "Lime",
+      "image": "https://media.istockphoto.com/id/106491732/es/foto/lim%C3%B3n.jpg?s=612x612&w=0&k=20&c=Wv_WKA9VnujGkli4qWjiQGjou9PhXYcWcL8BtKrOhfw="
+    },
+    {
+      "id": 43,
+      "name": "Sugar cane Syrup",
+      "image": "https://media.istockphoto.com/id/175438109/es/foto/estrellas-de-cuchara-de-miel.jpg?s=612x612&w=0&k=20&c=2MFpjH-5Kb2P-mYMRrRoIPwLjt3CkDqqYm8wrLyXojY="
+    },
+    {
+      "id": 44,
+      "name": "Mint",
+      "image": "https://media.istockphoto.com/id/183754081/es/foto/mint.jpg?s=612x612&w=0&k=20&c=mt3p6aITKQV1vnt31bT6VIuNBebSmISjepzntbC-jvk="
+    },
+    {
+      "id": 45,
+      "name": "Crunched ice",
+      "image": "https://media.istockphoto.com/id/500399462/es/foto/hielo-picado-en-cubo.jpg?s=612x612&w=0&k=20&c=a8KSq4WkTAbVsDiYFKn3aHWwaZqCVOeQeBpQVrO3nI8="
+    },
+    {
+      "id": 46,
+      "name": "Ice cubes",
+      "image": "https://media.istockphoto.com/id/177131518/es/foto/cubos-de-hielo.jpg?s=612x612&w=0&k=20&c=71wDtnaGnZJVXV9NFsU2wl9H6AGbzICa2uiufEUv8nY="
+    },
+    {
+      "id": 47,
+      "name": "Orange juice",
+      "image": "https://media.istockphoto.com/id/175022686/es/foto/jugo-fresco-de-naranja.jpg?s=612x612&w=0&k=20&c=NmwQZgjQwm0EXufK78filJaW-oUYEu0dzEc7OLCyLxY="
+    },
+    {
+      "id": 48,
+      "name": "Pineapple juice",
+      "image": "https://media.istockphoto.com/id/176851361/es/foto/jugo-de-pi%C3%B1a.jpg?s=612x612&w=0&k=20&c=SNOvEr2rlyW7dfCnlvy5NQWfo7QOsHik2qKClCWiyQw="
+    },
+    {
+      "id": 49,
+      "name": "Grenadine",
+      "image": "https://media.istockphoto.com/id/475373289/es/foto/semillas-de-granada.jpg?s=612x612&w=0&k=20&c=06oAwzqd7-gRTPRnGR3AJfyP3GWZzx6SLzmoJlO3x8Q="
+    },
+    {
+      "id": 50,
+      "name": "Chocolate",
+      "image": "https://media.istockphoto.com/id/924850604/es/foto/tres-piezas-de-chocolate-con-leche.jpg?s=612x612&w=0&k=20&c=c46gdGCxMSYXf0OvF1sXv_EogHo5AAOIJNkY_dD6hTU="
+    },
+    {
+      "id": 51,
+      "name": "Walnuts",
+      "image": "https://media.istockphoto.com/id/639478614/fr/photo/walnut-seul-sur-fond-blanc-avec-trait-de-coupe.jpg?s=612x612&w=0&k=20&c=CQb72_wmJMqmpE3jqry_MEl5AWlDozQGzPnaf6PCvgI="
+    },
+    {
+      "id": 52,
+      "name": "Yellow tomato",
+      "image": "https://media.istockphoto.com/id/638646596/photo/tomatoes.jpg?s=612x612&w=0&k=20&c=n68zxSwjJMEW1Kc3xGDVEfvbXb7Ag4qvkj-bXBG77OE="
+    },
+    {
+      "id": 53,
+      "name": "Basil",
+      "image": "https://media.istockphoto.com/id/182173388/photo/basil-leafs.jpg?s=612x612&w=0&k=20&c=JPooP0Fjbc32DGrxvs9DZDX2nVEaTKrfrcR4n-_L66g="
+    },
+    {
+      "id": 54,
+      "name": "Baguette",
+      "image": "https://media.istockphoto.com/id/537246627/photo/wall.jpg?s=612x612&w=0&k=20&c=buK9BzxJNbAqvAdAQgzukOeWA8wiEBA5g9xEHpP22H4="
+    },
+    {
+      "id": 55,
+      "name": "Balsamic vinegar",
+      "image": "https://media.istockphoto.com/id/117489777/photo/balsamic-vinegar.jpg?s=612x612&w=0&k=20&c=DUQq-u3LiZwMA2XvrOXy5rfxJ1Z7hqgQumC-K_-VXsw="
+    },
+    {
+      "id": 56,
+      "name": "Olives",
+      "image": "https://media.istockphoto.com/id/97863822/photo/antipasti-olives-isolated-iii.jpg?s=612x612&w=0&k=20&c=0uUyRU3ZTZnZSgWhPcULQpDOSGrib-eKbO70Jt5Ru7Y="
+    },
+    {
+      "id": 57,
+      "name": "Cornstarch",
+      "image": "https://media.istockphoto.com/id/1207945185/photo/petri-dish-with-corn-starch-and-yellow-kernels-on-a-white-background-closeup-of-tapioca.jpg?s=612x612&w=0&k=20&c=dHobmfoGPUJJbPz0x8M9OB5z4OPwznOwPgUyjko-FCA="
+    },
+    {
+      "id": 58,
+      "name": "Egg yolks",
+      "image": "https://media.istockphoto.com/id/165160671/photo/brown-eggs.jpg?s=612x612&w=0&k=20&c=6w6AdAlBwmk9dMrkqdhxPtRpe51Sfz-WW1bJl-47bC0="
+    },
+    {
+      "id": 59,
+      "name": "Pie crust",
+      "image": "https://media.istockphoto.com/id/1007686728/photo/rolling-a-pastry-for-baking-a-pie-and-pricking-it-with-fork-recipe-concept.jpg?s=612x612&w=0&k=20&c=UBCe7na3L4mw_j-T5yaaXxqI5Pa33StQkfDuEYP0Ezg="
+    },
+    {
+      "id": 60,
+      "name": "Strawberries",
+      "image": "https://media.istockphoto.com/id/471674664/photo/two-strawberries-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=a5g5o0t4M5qGInHo4gKNa07TRdz0HHzZ31UmGW9HuBk="
+    },
+    {
+      "id": 61,
+      "name": "Heavy Cream",
+      "image": "https://media.istockphoto.com/id/478216750/photo/sour-cream.jpg?s=612x612&w=0&k=20&c=N029hQO6Rvb8onl-iQfOlu4wX3HmfnY6GwGGT9JXHk4="
+    },
+    {
+      "id": 62,
+      "name": "Wholemeal flour",
+      "image": "https://media.istockphoto.com/id/672050170/photo/rye-flour.jpg?s=612x612&w=0&k=20&c=A1Xo8sPiiFCGn4lUC2Z337HEleOIJmgDFlzOAjaXchk="
+    }
+  ]
+}

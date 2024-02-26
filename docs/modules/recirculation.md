@@ -106,5 +106,4 @@ We could have choosen this implemention deeper in the repository but wanted to l
     // And then ODSRecirculation(dataSource: .remote(url: buildAppsPlusURL()))
 ```
 
-In some CI/CD chain, like our old-school Jenkins server with Groovy pipelines, we can use a _Fastlane_ lane to read some previously environment variable and
-fill the _Info.Plist_ file in the suitable row.
+In some CI/CD chain like our GitLab CI runner, we can use a _Fastlane_ lane to read some previously environment variable and fill the _Info.Plist_ file in the suitable row.

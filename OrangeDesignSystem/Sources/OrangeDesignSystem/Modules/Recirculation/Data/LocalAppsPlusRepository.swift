@@ -36,16 +36,17 @@ struct LocalAppsPlusRepository: RecirculationRepositoryProtocol {
     // MARK: MoreAppsRepositoryProtocol - Impl
     // =======================================
 
-    func availableAppsList() async throws -> AppsPlusListDTO {
-        var appsPlusAppsList: AppsPlusListDTO
+    func availableAppsList() async throws -> RecirculationAppsList {
         do {
             let rawData = try Data(contentsOf: feedURL)
-            appsPlusAppsList = try JSONDecoder().decode(AppsPlusDTO.self, from: rawData).items[0]
+            let appsPlusAppsList: AppsPlusListDTO = try JSONDecoder().decode(AppsPlusDTO.self, from: rawData).items[0]
+            let mapper = AppsPlusRecirculationMapper()
+            let recirculationApps = mapper.appsDetails(from: appsPlusAppsList)
+            let recirculationSections = mapper.appsSections(from: appsPlusAppsList)
+            return RecirculationAppsList(sections: recirculationSections, apps: recirculationApps)
         } catch {
             ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode local AppsPlus file: '\(error.localizedDescription)'")
             throw RecirculationServiceErrors.jsonDecodingFailure
         }
-
-        return appsPlusAppsList
     }
 }

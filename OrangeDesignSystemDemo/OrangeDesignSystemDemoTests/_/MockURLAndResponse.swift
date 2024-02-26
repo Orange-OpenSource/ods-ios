@@ -14,6 +14,8 @@
 import Foundation
 import XCTest
 
+// swiftlint:disable line_length
+
 // =====================
 // MARK: - Mock Response
 // =====================
@@ -98,3 +100,5 @@ final class MockURLMachine: URLProtocol {
         self.mockHandlers = mockHandlers
     }
 }
+
+// swiftlint:enable line_length

@@ -41,7 +41,7 @@ public struct ODSEmptyStateView: View {
     ///    - image: Image displayed centered horizontally in the view.
     ///    - button: The button to add below the text.
     ///
-    public init(title: Text, 
+    public init(title: Text,
                 text: Text? = nil,
                 image: Image = Image("il_yoga_man", bundle: Bundle.ods),
                 button: Button<Text>? = nil) {
