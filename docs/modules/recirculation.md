@@ -7,10 +7,8 @@ description: Displays a list of applications can be downloaded and used by user.
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Overview](#overview)
-* [Implementation](#implementation)
-* [Example about definiton of Apps Plus credentials](#example-about-definiton-of-apps-plus-credentials)
+* Table of contents
+{:toc}
 
 ---
 

@@ -8,12 +8,8 @@ description: Navigation bar with Orange branding
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Standard navigation bar](#standard-navigation-bar)
-* [Navigation bar with large title](#navigation-bar-with-large-title)
-* [Navigation bar with search bar](#navigation-bar-with-search-bar)
-* [Navigation bar with action item](#navigation-bar-with-action-item)
+* Table of contents
+{:toc}
 
 ---
 

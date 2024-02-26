@@ -8,12 +8,8 @@ description: A button allows a user to perform an action or to navigate to anoth
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-    * [Emphasis button](#emphasis-button)
-    * [Functional button](#functional-button)
-    * [Icon button](#icon-button)
+* Table of contents
+{:toc}
 
 ---
 

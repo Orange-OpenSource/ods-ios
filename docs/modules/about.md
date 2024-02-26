@@ -7,23 +7,8 @@ description: An about screen should be displayed in all Orange applications to d
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Overview](#overview)
-* [About screen layout](#about-screen-layout)
-  * [Illustration area](#illustration-area)
-  * [Application section area](#application-section-area)
-  * [List items area](#list-items-area)
-    * [Mandatory items](#mandatory-items)
-    * [Optionnal items](#optionnal-tems)
-    * [Custom items](#custom-items)
-* [How to configure the module](#how-to-configure-the-module)
-  * [Illustration area](#illustration-area)
-  * [Application section area](#application-section-area)
-  * [List Items area](#list-items-area)
-    * [Use mandatory items](#use-mandatory-items)
-    * [Add items to the list](#add-items-to-the-list)
-    * [Use optional items](#use-optional-items)
-    * [Create a custom item](#create-a-custom-item)
+* Table of contents
+{:toc}
 
 ---
 

@@ -8,9 +8,8 @@ description: Tab bars with Orange branding
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Standard tab bar](#standard-tab-bar)
+* Table of contents
+{:toc}
 
 ---
 

@@ -8,13 +8,8 @@ description: Sliders allow users to make selections from a range of values.
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-  * [Unlabeled slider](#unlabeled-slider)
-  * [Labeled slider (with images)](#labeled-slider-with-images)
-  * [Labeled slider (with text)](#labeled-slider-with-images)
-  * [Stepped slider (with text and value display)](#stepped-sslider-with-text-and-value-display)
+* Table of contents
+{:toc}
   
 ---
 
@@ -30,7 +25,7 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 As the `ODSSlider` is based on the native `Slider`, Voice Over is able to vocalize 
 However, if you want to set a description you need to add it using `.accessibilityLabel` on the `ODSSlider`.
 
-We recommand to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
+We recommend to not set information on `minimumValueLabel` and `maximumValueLabel` view using `.accessibilityHidden(true)`
 
 ## Variants
 

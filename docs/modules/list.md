@@ -7,15 +7,8 @@ description: Lists are continuous, vertical indexes of text or images.
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [List styles](#list_styles)
-  * [Automatic style](#automatic-style)
-  * [Inset Grouped style](#inset-grouped-style)
-  * [Grouped style](#grouped-style)
-  * [Inset style](#inse-style)
-  * [Plain style](#plain-style)
-  * [Sidebar style](#sidebar-style)
+* Table of contents
+{:toc}
 
 ---
 
