@@ -19,12 +19,12 @@ import SwiftUI
 // =============
 
 enum LeadingOption: Int, CaseIterable {
-    case none
-    case icon
-    case circle
-    case wide
-    case square
-    case appIcon = 10 // To be shure is the last in chips list
+    case none = 0
+    case icon = 1
+    case circle = 2
+    case wide = 3
+    case square = 4
+    case appIcon = 10 // To be sure is the last in chips list
 
     var description: LocalizedStringKey {
         switch self {
