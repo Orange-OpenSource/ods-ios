@@ -97,7 +97,7 @@ You may download the source code on the [following website](https://github.com/g
 
 ### SwiftFormat
 
-Version 0.53.0
+Version 0.53.2
 
 Copyright 2016 Nick Lockwood.
 
