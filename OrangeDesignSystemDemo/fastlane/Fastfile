@@ -86,6 +86,8 @@ platform :ios do
         if APPS_PLUS_SERVICE_URL.nil? || APPS_PLUS_SERVICE_URL.empty?
             puts "Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?"
             publish_mattermost_notification("⚙️ ⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
+        else
+            puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'"
         end
 
         update_plist(
@@ -94,6 +96,8 @@ platform :ios do
                 plist[:APPS_PLUS_URL] = APPS_PLUS_SERVICE_URL
             end
         )
+        
+        sh("cat OrangeDesignSystemDemo/Resources/Info.plist")
     end
 
     # ---------
@@ -195,16 +199,16 @@ platform :ios do
         update_build_number
 
         build
-        tag_ci_build(params[:tagSuffix])
+#        tag_ci_build(params[:tagSuffix])
         
-        if params[:upload]
-            puts "Upload to TestFlight requested"
-            if tag_testflight_upload(params[:tagSuffix])
-                upload
-            end
-        else
-            puts "Upload to TestFlight not requested"
-        end
+#        if params[:upload]
+#            puts "Upload to TestFlight requested"
+#            if tag_testflight_upload(params[:tagSuffix])
+#                upload
+#            end
+#        else
+#            puts "Upload to TestFlight not requested"
+#        end
     end
 
     # -----------------------------------------------------------------------
