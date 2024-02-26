@@ -197,16 +197,16 @@ platform :ios do
         update_build_number
 
         build
-        tag_ci_build(params[:tagSuffix])
+     #   tag_ci_build(params[:tagSuffix])
         
-        if params[:upload]
-            puts "Upload to TestFlight requested"
-            if tag_testflight_upload(params[:tagSuffix])
-                upload
-            end
-        else
-            puts "Upload to TestFlight not requested"
-        end
+     #   if params[:upload]
+     #       puts "Upload to TestFlight requested"
+     #       if tag_testflight_upload(params[:tagSuffix])
+     #           upload
+     #       end
+     #   else
+     #       puts "Upload to TestFlight not requested"
+     #   end
     end
 
     # -----------------------------------------------------------------------
