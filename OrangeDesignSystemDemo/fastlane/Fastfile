@@ -87,7 +87,7 @@ platform :ios do
             puts "Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?"
             publish_mattermost_notification("⚙️ ⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
         else
-            puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'"
+            puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'" # Ensure your variable is "masked" in your CI/CD chain
         end
 
         update_plist(
@@ -197,16 +197,16 @@ platform :ios do
         update_build_number
 
         build
-#        tag_ci_build(params[:tagSuffix])
+        tag_ci_build(params[:tagSuffix])
         
-#        if params[:upload]
-#            puts "Upload to TestFlight requested"
-#            if tag_testflight_upload(params[:tagSuffix])
-#                upload
-#            end
-#        else
-#            puts "Upload to TestFlight not requested"
-#        end
+        if params[:upload]
+            puts "Upload to TestFlight requested"
+            if tag_testflight_upload(params[:tagSuffix])
+                upload
+            end
+        else
+            puts "Upload to TestFlight not requested"
+        end
     end
 
     # -----------------------------------------------------------------------
