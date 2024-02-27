@@ -363,7 +363,7 @@ platform :ios do
             puts "Check if '#{tag}' exists yet"
             result=sh("curl -s 'https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs/tags/#{tag}' | jq -r '.ref'") # TODO Shell error management
             # If tag exists, CURL response is formatted like "refs/tags/tag"
-            if "refs/tags/#{tag}".eql? result 
+            if "refs/tags/#{tag}".eql? result.strip # Removes line break avaialble in command result
                 puts "The tag '#{tag}' still exists, won't create new tag"
                 publish_mattermost_notification("⚙️ 🤔 The tag '#{tag}' still exists, won't create new tag")
                 return false
