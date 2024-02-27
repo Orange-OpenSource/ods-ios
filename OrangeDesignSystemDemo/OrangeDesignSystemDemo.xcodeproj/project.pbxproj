@@ -1587,7 +1587,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.18.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.qualif";
+				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1624,7 +1624,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.18.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.qualif";
+				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ods-demo-app-appstore-qualif";
 				SWIFT_EMIT_LOC_STRINGS = YES;
