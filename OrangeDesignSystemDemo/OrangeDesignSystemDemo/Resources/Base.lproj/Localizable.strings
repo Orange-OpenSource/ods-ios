@@ -140,8 +140,8 @@
 "screens.components.bars.navigation.description" = "A navigation bar appears at the top of an app screen, below the status bar, and enables navigation through a series of hierarchical screens.";
 "screens.components.bars.navigation.button.edit" = "Edit action";
 "screens.components.bars.navigation.button.share" = "Share action";
-"screens.components.bars.navigation.standard_title.text" = "Title";
-"screens.components.bars.navigation.large_title.text" = "Large Title";
+"screens.components.bars.navigation.standard_title.text" = "Title example";
+"screens.components.bars.navigation.large_title.text" = "Large Title example";
 "screens.components.bars.navigation.standard_title.hint" = "Standard";
 "screens.components.bars.navigation.large_title.hint" = "Large";
 "screens.components.bars.navigation.size.hint" = "Size";
