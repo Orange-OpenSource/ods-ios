@@ -57,7 +57,6 @@ private struct ColorList: View {
                     Text("screens.guidelines.colors.color_palette.on_dark").tag(ColorScheme.dark)
                 })
                 .pickerStyle(.segmented)
-                .colorMultiply(.blue)
                 .onAppear {
                     UISegmentedControl.appearance().tintColor = .orange
                     screenState.colorScheme = phoneColorScheme
