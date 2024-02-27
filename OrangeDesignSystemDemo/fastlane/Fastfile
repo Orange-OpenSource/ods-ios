@@ -175,7 +175,7 @@ platform :ios do
         end
 
         set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildType", value: "BETA")
-        set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildTag", value: "#{params[:tagSuffix]}".strip)
+        set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildTag", value: "#{params[:tagSuffix][0,7]}".strip)
 
         build_and_upload(upload: true, tagSuffix: params[:tagSuffix])
     end
