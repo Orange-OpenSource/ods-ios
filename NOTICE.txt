@@ -32,8 +32,8 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_yoga_
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/App-Store-512@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@1x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@1x.pn
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@2x.pn
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@1x.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Pro-App-83.5@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Settings-29@1x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Settings-29@2x.png
@@ -41,8 +41,8 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconD
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Spotlight-40@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@2x.
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@3x.
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@2x.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@3x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Settings-29@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Settings-29@3x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Spotlight-40@2x.png
@@ -51,8 +51,8 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconD
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/App-Store-512@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-App-76@1x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-App-76@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@1x.pn
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@2x.pn
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@1x.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Pro-App-83.5@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Settings-29@1x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Settings-29@2x.png
@@ -60,8 +60,8 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQ
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Spotlight-40@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-App-60@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-App-60@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@2x.
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@3x.
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@2x.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@3x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Settings-29@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Settings-29@3x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Spotlight-40@2x.png
@@ -70,8 +70,8 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQ
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/App-Store-512@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-App-76@1x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-App-76@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@1x.pn
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@2x.pn
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@1x.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Pro-App-83.5@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Settings-29@1x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Settings-29@2x.png
@@ -79,8 +79,8 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconR
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Spotlight-40@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-App-60@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-App-60@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@2x.
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@3x.
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@2x.png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@3x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Settings-29@2x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Settings-29@3x.png
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Spotlight-40@2x.png
