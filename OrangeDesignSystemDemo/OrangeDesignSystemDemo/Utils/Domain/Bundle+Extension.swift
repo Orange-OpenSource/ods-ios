@@ -35,7 +35,7 @@ extension Bundle {
 #endif
     }
     
-    /// A value filled by the CI/CD chain for debug purposes to help to match ths current app to some CI/CD build tag
+    /// A value filled by the CI/CD chain for debug purposes to help to match the current app codebase to some CI/CD build tag
     var buildTag: String? {
 #if DEBUG
         nil
