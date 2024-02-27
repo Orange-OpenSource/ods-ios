@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [SDK] Group Labels in ODSListItems for accessibility ([#741] (https://github.com/Orange-OpenSource/ods-ios/issues/741))
 - [DemoApp] Update AppIcons changed during runner migration ([#738] (https://github.com/Orange-OpenSource/ods-ios/issues/738))
 - [Tooling] Update dependency SwiftFormat/CLI to v0.53.2 
 - [SDK/DemoApp] Update ListItemm to add AppIcon for leading element ([#716] (https://github.com/Orange-OpenSource/ods-ios/issues/716))
