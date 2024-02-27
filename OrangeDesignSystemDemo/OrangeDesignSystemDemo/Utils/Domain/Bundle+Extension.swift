@@ -48,7 +48,7 @@ extension Bundle {
         let type = buildType ?? ""
         var tag = ""
         if let buildTag = buildTag, !buildTag.isEmpty {
-            tag = " \(buildTag)"
+            tag = " (\(buildTag))"
         }
         return "\(type)\(tag)"
     }

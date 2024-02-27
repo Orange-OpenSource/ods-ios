@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [Tooling/DemoApp] Display build tag in about screen for beta releases (TestFight)
 - [SDK] Group labels and associated elements in ChipsPickers ([#677] (https://github.com/Orange-OpenSource/ods-ios/issues/677))
 - [DemoApp] Fix accessibility issues on the demo screen of Bars-navigation component ([#574] (https://github.com/Orange-OpenSource/ods-ios/issues/574))
 - [SDK] Group Labels in ODSListItems for accessibility ([#741] (https://github.com/Orange-OpenSource/ods-ios/issues/741))
