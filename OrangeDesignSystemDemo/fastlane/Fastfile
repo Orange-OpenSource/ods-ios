@@ -192,18 +192,25 @@ platform :ios do
     # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
     # -----------------------------------------------------------------------
     private_lane :build_and_upload do |params|
-        puts "👉 Build and upload (tagSuffix = #{params[:tagSuffix]})"
+        tagSuffix=params[:tagSuffix]
+        puts "👉 Build and upload (tagSuffix = #{tagSuffix})"
 
-        # Ensure this build-then-uploaded app has a new and unique build number matching also to code version
-        update_build_number
-
-        build
-        tag_ci_build(params[:tagSuffix])
+        # If already build, prevents to build again for nothing
+        if tag_ci_build(tagSuffix)
+            # Ensure this build-then-uploaded app has a new and unique build number matching also to code version
+            update_build_number
+            build
+        else
+            puts "Nothing new to build today, a CI tag with '#{tagSuffix}' already exists"
+        end
         
         if params[:upload]
             puts "Upload to TestFlight requested"
-            if tag_testflight_upload(params[:tagSuffix])
+            # If already uploaded, prevents to upload again
+            if tag_testflight_upload(tagSuffix)
                 upload
+            else
+                puts "Nothing new to build today, a TestFlight tag with '#{tagSuffix}' already exists"
             end
         else
             puts "Upload to TestFlight not requested"
