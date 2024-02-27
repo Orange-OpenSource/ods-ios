@@ -85,8 +85,9 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
                     .frame(width: leadingHeight, height: leadingHeight)
             }
             .padding(.all, labelPadding)
-            .modifier(ChipContentModifier(isSelected: isSelected))
             .frame(height: frameHeight)
+            .modifier(ChipContentModifier(isSelected: isSelected))
+
         }
     }
 

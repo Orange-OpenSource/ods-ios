@@ -59,7 +59,7 @@ struct AboutSetup: View {
             VStack(alignment: .leading) {
                 Text("screens.modules.about.description")
                 
-                Text("screens.modules.about.customize")
+                Text("shared.modules.customize")
                     .odsFont(.headlineS)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.s)
