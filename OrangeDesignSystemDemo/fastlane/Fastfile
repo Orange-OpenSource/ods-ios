@@ -168,14 +168,15 @@ platform :ios do
     # ------------------------------------------------------------
     desc "BUILD & UPLOAD TO TESTFLIGHT QUALIF APP"
     lane :qualif do |params|
-        puts "👉 Qualif (tagSuffix = #{params[:tagSuffix]}"
+        puts "👉 Qualif (tagSuffix = '#{params[:tagSuffix]}')"
         Dir.chdir "../OrangeDesignSystemDemo/Resources/Assets.xcassets" do
             sh "rm -Rf AppIconRelease.appiconset"
             sh "cp -R AppIconQualif.appiconset AppIconRelease.appiconset"
         end
 
         set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildType", value: "BETA")
-        
+        set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildTag", value: "#{params[:tagSuffix]}".strip)
+
         build_and_upload(upload: true, tagSuffix: params[:tagSuffix])
     end
 
