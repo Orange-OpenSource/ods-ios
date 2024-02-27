@@ -306,28 +306,32 @@ public struct ODSListItem: View {
 
     private var content: some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
-            if let leading = self.leading {
-                LeadingView(element: leading, height: height)
-                    .padding(.vertical, ODSSpacing.s)
-            }
+            Group {
+                if let leading = self.leading {
+                    LeadingView(element: leading, height: height)
+                        .padding(.vertical, ODSSpacing.s)
+                        .accessibilityHidden(true)
+                }
 
-            VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                title
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .odsFont(.bodyLRegular)
-                    .foregroundColor(.primary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
+                VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                    title
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                        .odsFont(.bodyLRegular)
+                        .foregroundColor(.primary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .multilineTextAlignment(.leading)
 
-                subtitle?
-                    .lineLimit(subtitleNumberOfLines?.rawValue)
-                    .truncationMode(.tail)
-                    .odsFont(.labelL)
-                    .foregroundColor(.primary)
-                    .multilineTextAlignment(.leading)
+                    subtitle?
+                        .lineLimit(subtitleNumberOfLines?.rawValue)
+                        .truncationMode(.tail)
+                        .odsFont(.labelL)
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.leading)
+                }
+                .padding(.vertical, ODSSpacing.s)
             }
-            .padding(.vertical, ODSSpacing.s)
+            .accessibilityElement(children: .combine)
 
             if let trailing = trailing {
                 TrailingView(element: trailing, height: height)
