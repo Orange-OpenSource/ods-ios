@@ -85,7 +85,7 @@ struct AboutScreen: View {
     init() {
         applicationInformation = ODSAboutApplicationInformation(
             name: °°"screens.about.app_information.name",
-            version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
+            version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.fullBuildType),
             description: °°"screens.about.app_information.description",
             shareConfiguration: ODSAboutShareTheApplication(
                 storeUrl: URL(string: "http://oran.ge/dsapp")!,

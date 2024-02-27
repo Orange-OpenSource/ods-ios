@@ -14,25 +14,43 @@
 import Foundation
 
 extension Bundle {
-
+    
     // =========
     // MARK: API
     // =========
-
+    
     var marketingVersion: String {
         string(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0.0"
     }
-
+    
     var buildNumber: String? {
         string(forInfoDictionaryKey: kCFBundleVersionKey as String)
     }
-
+    
     var buildType: String? {
-        #if DEBUG
+#if DEBUG
         "ALPHA"
-        #else
+#else
         string(forInfoDictionaryKey: "ODSBuildType")
-        #endif
+#endif
+    }
+    
+    /// A value filled by the CI/CD chain for debug purposes to help to match the current app codebase to some CI/CD build tag
+    var buildTag: String? {
+#if DEBUG
+        nil
+#else
+        string(forInfoDictionaryKey: "ODSBuildTag")
+#endif
+    }
+    
+    var fullBuildType: String? {
+        let type = buildType ?? ""
+        var tag = ""
+        if let buildTag = buildTag, !buildTag.isEmpty {
+            tag = " \(buildTag)"
+        }
+        return "\(type)\(tag)"
     }
     
     var appIconFileName: String? {
@@ -43,11 +61,11 @@ extension Bundle {
         else { return nil }
         return iconFileName
     }
-
+    
     // ============================
     // MARK: Private Implementation
     // ============================
-
+    
     private func string(forInfoDictionaryKey key: String) -> String? {
         object(forInfoDictionaryKey: key) as? String
     }
