@@ -192,18 +192,25 @@ platform :ios do
     # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
     # -----------------------------------------------------------------------
     private_lane :build_and_upload do |params|
-        puts "👉 Build and upload (tagSuffix = #{params[:tagSuffix]})"
+        tagSuffix=params[:tagSuffix]
+        puts "👉 Build and upload (tagSuffix = #{tagSuffix})"
 
-        # Ensure this build-then-uploaded app has a new and unique build number matching also to code version
-        update_build_number
-
-        build
-        tag_ci_build(params[:tagSuffix])
+        # If already build, prevents to build again for nothing
+        if tag_ci_build(tagSuffix)
+            # Ensure this build-then-uploaded app has a new and unique build number matching also to code version
+            update_build_number
+            build
+        else
+            puts "Nothing new to build today, a CI tag with '#{tagSuffix}' already exists"
+        end
         
         if params[:upload]
             puts "Upload to TestFlight requested"
-            if tag_testflight_upload(params[:tagSuffix])
+            # If already uploaded, prevents to upload again
+            if tag_testflight_upload(tagSuffix)
                 upload
+            else
+                puts "Nothing new to build today, a TestFlight tag with '#{tagSuffix}' already exists"
             end
         else
             puts "Upload to TestFlight not requested"
@@ -247,7 +254,7 @@ platform :ios do
                 archive_path: 'build/odsApp.xcarchive',
                 xcargs: "-allowProvisioningUpdates")
             
-            publish_mattermost_notification("🔨 ✅ @channel A new build has been done successfully")
+            publish_mattermost_notification("🔨 ✅ A new build has been done successfully")
         rescue => error
             publish_mattermost_notification("🔨 🚨 @channel Some issue occurred during the build step (:build_and_upload)")
             raise error
@@ -291,7 +298,7 @@ platform :ios do
                 api_key: api_key
             )
             
-            publish_mattermost_notification("📦 ✅ @channel The upload to TestFlight has been done successfully")    
+            publish_mattermost_notification("📦 ✅ @here The upload to TestFlight has been done successfully")    
         rescue => error
             publish_mattermost_notification("📦 🚨 @channel Some issue occurred during the upload step (:build_and_upload)")
             raise error
@@ -314,7 +321,7 @@ platform :ios do
             else
                 expected_git_tag = "ci/" + tagSuffix[0,7]
                 if create_tag(expected_git_tag)
-                    publish_mattermost_notification("📦 ✅ New Git tag created: #{expected_git_tag}")
+                    publish_mattermost_notification("📦 ✅  New Git tag created: #{expected_git_tag}")
                     return true
                 else
                     return false
@@ -363,7 +370,7 @@ platform :ios do
             puts "Check if '#{tag}' exists yet"
             result=sh("curl -s 'https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs/tags/#{tag}' | jq -r '.ref'") # TODO Shell error management
             # If tag exists, CURL response is formatted like "refs/tags/tag"
-            if "refs/tags/#{tag}".eql? result 
+            if "refs/tags/#{tag}".eql? result.strip # Removes line break avaialble in command result
                 puts "The tag '#{tag}' still exists, won't create new tag"
                 publish_mattermost_notification("⚙️ 🤔 The tag '#{tag}' still exists, won't create new tag")
                 return false
