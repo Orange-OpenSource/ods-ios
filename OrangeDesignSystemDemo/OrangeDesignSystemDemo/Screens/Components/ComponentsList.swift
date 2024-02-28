@@ -58,15 +58,19 @@ struct ComponentsList: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                if sizeCategory.isAccessibilityCategory {
-                    smallCards()
-                        .padding(.all, ODSSpacing.s)
-                } else {
-                    LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
-                        smallCards()
+                grid {
+                    ForEach(components, id: \.id) { component in
+                        NavigationLink {
+                            ComponentPage(component: component)
+                        } label: {
+                            card(for: component)
+                                .accessibilityFocused($requestFocus, equals: .some(id: component.id))
+                                // Placed here below to be sure 'components' will be evaluated in good time (compared to some assignement higher and later in body)
+                                .odsRequestAccessibleFocus(_requestFocus, for: .some(id: components[0].id)) // TODO: Dirty, need to find nicer solution
+                        }
                     }
-                    .padding(.all, ODSSpacing.s)
                 }
+                .padding(.all, ODSSpacing.s)
             }
             .odsNavigationTitle("main_view.tabs.components".🌐)
             .navigationbarMenuForThemeSelection()
@@ -77,23 +81,30 @@ struct ComponentsList: View {
     // =====================
     // MARK: Private helper
     // =====================
-
-    private func smallCards() -> some View {
-        ForEach(components, id: \.id) { component in
-            smallCard(for: component)
+    
+    @ViewBuilder
+    private func grid<Content>(content: () -> Content) -> some View where Content: View {
+        if sizeCategory.isAccessibilityCategory {
+            content()
+        } else {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
+                content()
+            }
         }
     }
-    
-    private func smallCard(for component: Component) -> some View {
-        NavigationLink {
-            ComponentPage(component: component)
-        } label: {
+        
+    @ViewBuilder
+    private func card(for component: Component) -> some View {
+        if sizeCategory.isAccessibilityCategory {
+            ODSCardVerticalImageFirst(
+                title: Text(component.name),
+                imageSource: .image(themeProvider.imageFromResources(component.imageName))
+            )
+        } else {
             ODSCardSmall(
                 title: Text(component.name),
-                imageSource: .image(themeProvider.imageFromResources(component.imageName)))
-            .accessibilityFocused($requestFocus, equals: .some(id: component.id))
-            // Placed here below to be sure 'components' will be evaluated in good time (compared to some assignement higher and later in body)
-            .odsRequestAccessibleFocus(_requestFocus, for: .some(id: components[0].id)) // TODO: Dirty, need to find nicer solution
+                imageSource: .image(themeProvider.imageFromResources(component.imageName))
+            )
         }
     }
 }
