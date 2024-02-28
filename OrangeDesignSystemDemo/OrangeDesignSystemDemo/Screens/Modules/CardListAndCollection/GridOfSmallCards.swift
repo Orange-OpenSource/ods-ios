@@ -17,6 +17,7 @@ import SwiftUI
 struct GrifOfSmallCards: View {
 
     @Environment(\.sizeCategory) private var sizeCategory
+    @AccessibilityFocusState private var requestFocus: AccessibilityFocusable?
     
     // =======================
     // MARK: Stored Properties
@@ -32,30 +33,53 @@ struct GrifOfSmallCards: View {
 
     var body: some View {
         ScrollView {
-            if sizeCategory.isAccessibilityCategory {
-                recipesCards()
-                .padding(.all, ODSSpacing.m)
-            } else {
-                LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-                    recipesCards()
+            Grid {
+                ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
+                    NavigationLink {
+                        Text("shared.bon_app")
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationbarMenuForThemeSelection()
+                    } label: {
+                        Card(for: recipe)
+                            .accessibilityFocused($requestFocus, equals: .some(id: recipe.id))
+                        // Placed here below to be sure 'components' will be evaluated in good time (compared to some assignement higher and later in body)
+                            .odsRequestAccessibleFocus(_requestFocus, for: .some(id: RecipeBook.shared.recipes[0].id)) // TODO: Dirty, need to find nicer solution
+                    }
                 }
-                .padding(.all, ODSSpacing.m)
+            }.padding(.all, ODSSpacing.s)
+        }
+        .odsNavigationTitle("main_view.tabs.components".🌐)
+        .navigationbarMenuForThemeSelection()
+    }
+    
+
+    // =====================
+    // MARK: Private helper
+    // =====================
+    
+    @ViewBuilder
+    func Grid<Content>(content: () -> Content) -> some View where Content: View {
+        if sizeCategory.isAccessibilityCategory {
+            content()
+        } else {
+            LazyVGrid(columns: columns, spacing: ODSSpacing.none) {
+                content()
             }
         }
     }
-    
-    private func recipesCards() -> some View {
-        ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
-            NavigationLink {
-                Text("shared.bon_app")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationbarMenuForThemeSelection()
-            } label: {
-                ODSCardSmall(
-                    title: Text(recipe.title),
-                    imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
-                    subtitle: Text(recipe.subtitle))
-            }
+        
+    @ViewBuilder
+    private func Card(for recipe: Recipe) -> some View {
+        if sizeCategory.isAccessibilityCategory {
+            ODSCardVerticalImageFirst(
+                title: Text(recipe.title),
+                imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                subtitle: Text(recipe.subtitle))
+        } else {
+            ODSCardSmall(
+                title: Text(recipe.title),
+                imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                subtitle: Text(recipe.subtitle))
         }
     }
 }
