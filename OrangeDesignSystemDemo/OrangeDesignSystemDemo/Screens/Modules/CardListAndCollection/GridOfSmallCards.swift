@@ -33,14 +33,14 @@ struct GrifOfSmallCards: View {
 
     var body: some View {
         ScrollView {
-            Grid {
+            grid {
                 ForEach(RecipeBook.shared.recipes, id: \.id) { recipe in
                     NavigationLink {
                         Text("shared.bon_app")
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationbarMenuForThemeSelection()
                     } label: {
-                        Card(for: recipe)
+                        card(for: recipe)
                             .accessibilityFocused($requestFocus, equals: .some(id: recipe.id))
                         // Placed here below to be sure 'components' will be evaluated in good time (compared to some assignement higher and later in body)
                             .odsRequestAccessibleFocus(_requestFocus, for: .some(id: RecipeBook.shared.recipes[0].id)) // TODO: Dirty, need to find nicer solution
@@ -58,7 +58,7 @@ struct GrifOfSmallCards: View {
     // =====================
     
     @ViewBuilder
-    func Grid<Content>(content: () -> Content) -> some View where Content: View {
+    private func grid<Content>(content: () -> Content) -> some View where Content: View {
         if sizeCategory.isAccessibilityCategory {
             content()
         } else {
@@ -69,7 +69,7 @@ struct GrifOfSmallCards: View {
     }
         
     @ViewBuilder
-    private func Card(for recipe: Recipe) -> some View {
+    private func card(for recipe: Recipe) -> some View {
         if sizeCategory.isAccessibilityCategory {
             ODSCardVerticalImageFirst(
                 title: Text(recipe.title),

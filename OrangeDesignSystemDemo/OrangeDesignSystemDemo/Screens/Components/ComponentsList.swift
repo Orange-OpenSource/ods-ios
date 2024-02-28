@@ -58,12 +58,12 @@ struct ComponentsList: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Grid {
+                grid {
                     ForEach(components, id: \.id) { component in
                         NavigationLink {
                             ComponentPage(component: component)
                         } label: {
-                            Card(for: component)
+                            card(for: component)
                                 .accessibilityFocused($requestFocus, equals: .some(id: component.id))
                                 // Placed here below to be sure 'components' will be evaluated in good time (compared to some assignement higher and later in body)
                                 .odsRequestAccessibleFocus(_requestFocus, for: .some(id: components[0].id)) // TODO: Dirty, need to find nicer solution
@@ -83,7 +83,7 @@ struct ComponentsList: View {
     // =====================
     
     @ViewBuilder
-    func Grid<Content>(content: () -> Content) -> some View where Content: View {
+    private func grid<Content>(content: () -> Content) -> some View where Content: View {
         if sizeCategory.isAccessibilityCategory {
             content()
         } else {
@@ -94,7 +94,7 @@ struct ComponentsList: View {
     }
         
     @ViewBuilder
-    private func Card(for component: Component) -> some View {
+    private func card(for component: Component) -> some View {
         if sizeCategory.isAccessibilityCategory {
             ODSCardVerticalImageFirst(
                 title: Text(component.name),
