@@ -40,7 +40,7 @@ struct ModulesList: View {
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("shared.about"),
-                            imageSource: .image(imageFrom(resourceName: "AboutImage")))
+                            imageSource: .image(imageFrom(resourceName: "il_about")))
                         .accessibilityFocused($requestFocus)
                         //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
                         .onAppear {
