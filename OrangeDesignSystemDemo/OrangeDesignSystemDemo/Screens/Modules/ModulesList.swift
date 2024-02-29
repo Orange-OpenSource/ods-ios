@@ -35,13 +35,20 @@ struct ModulesList: View {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
 
                     NavigationLink {
-                        RecirculationModule()
-                            .odsNavigationTitle("screens.modules.recirculation.title.setup".🌐)
+                        AboutModule()
+                            .odsNavigationTitle("screens.modules.about.titles.setup".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
-                            title: Text("screens.modules.recirculation.title"),
-                            imageSource: .image(imageFrom(resourceName: "il_recirculation")))
+                            title: Text("shared.about"),
+                            imageSource: .image(imageFrom(resourceName: "AboutImage")))
+                        .accessibilityFocused($requestFocus)
+                        //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                requestFocus = true
+                            }
+                        }
                     }
 
                     NavigationLink {
@@ -62,23 +69,16 @@ struct ModulesList: View {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.lists.title"),
                             imageSource: .image(imageFrom(resourceName: "Lists")))
-                            .accessibilityFocused($requestFocus)
-                            //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    requestFocus = true
-                                }
-                            }
                     }
 
                     NavigationLink {
-                        AboutModule()
-                            .odsNavigationTitle("screens.modules.about.titles.setup".🌐)
+                        RecirculationModule()
+                            .odsNavigationTitle("screens.modules.recirculation.title.setup".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
-                            title: Text("shared.about"),
-                            imageSource: .image(imageFrom(resourceName: "AboutImage")))
+                            title: Text("screens.modules.recirculation.title"),
+                            imageSource: .image(imageFrom(resourceName: "il_recirculation")))
                     }
 
                     NavigationLink {
