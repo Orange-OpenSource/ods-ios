@@ -146,11 +146,11 @@ struct ODSBanner_Previews: PreviewProvider {
                         .border(.gray)
 
                     ODSBanner(Text("A short desciption to see text"),
-                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
+                              imageSource: .image(Image("placeholder", bundle: Bundle.ods)))
                         .border(.gray)
 
                     ODSBanner(Text("A short desciption to see text"),
-                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
+                              imageSource: .image(Image("placeholder", bundle: Bundle.ods))) {
                         Button("Text") {
                             // Do Something here
                         }
@@ -158,7 +158,7 @@ struct ODSBanner_Previews: PreviewProvider {
                     .border(.gray)
 
                     ODSBanner(Text("A short desciption to see text"),
-                              imageSource: .image(Image("ods_empty", bundle: Bundle.ods))) {
+                              imageSource: .image(Image("placeholder", bundle: Bundle.ods))) {
                         Button("Button 1") {
                             // Do something
                         }

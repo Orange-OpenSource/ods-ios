@@ -77,7 +77,7 @@ final class ODSRecirculationModel: ObservableObject {
 
     func appImage(at url: URL) -> ODSImage.Source {
         return cacheAppsIcons
-            ? ODSImage.Source.cachedAsyncImage(url, Image("ods_empty", bundle: Bundle.ods))
-            : ODSImage.Source.asyncImage(url, Image("ods_empty", bundle: Bundle.ods))
+            ? ODSImage.Source.cachedAsyncImage(url, Image("placeholder", bundle: Bundle.ods))
+            : ODSImage.Source.asyncImage(url, Image("placeholder", bundle: Bundle.ods))
     }
 }

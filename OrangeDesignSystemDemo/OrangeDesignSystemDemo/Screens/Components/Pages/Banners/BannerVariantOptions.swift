@@ -49,7 +49,7 @@ final class BannerVariantModel: ObservableObject {
     }
 
     var imageSource: ODSImage.Source? {
-        let placeholder = Image("ods_empty", bundle: Bundle.ods)
+        let placeholder = Image("placeholder", bundle: Bundle.ods)
         return showImage ? .asyncImage(recipe.url, placeholder) : nil
     }
 

@@ -51,7 +51,7 @@ struct AboutSetup: View {
     
     var body: some View {
         ScrollView {
-            ThemeProvider().imageFromResources("AboutImage")
+            ThemeProvider().imageFromResources("il_about")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .accessibilityHidden(true)

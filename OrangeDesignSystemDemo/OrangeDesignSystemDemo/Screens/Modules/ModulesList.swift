@@ -33,7 +33,6 @@ struct ModulesList: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
-
                     NavigationLink {
                         AboutModule()
                             .odsNavigationTitle("screens.modules.about.titles.setup".🌐)
@@ -41,7 +40,7 @@ struct ModulesList: View {
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("shared.about"),
-                            imageSource: .image(imageFrom(resourceName: "AboutImage")))
+                            imageSource: .image(imageFrom(resourceName: "il_about")))
                         .accessibilityFocused($requestFocus)
                         //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
                         .onAppear {
@@ -58,7 +57,7 @@ struct ModulesList: View {
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.empty_state.title"),
-                            imageSource: .image(Image("il_emptyState")))
+                            imageSource: .image(imageFrom(resourceName: "il_emptyState")))
                     }
                     
                     NavigationLink {
@@ -68,7 +67,7 @@ struct ModulesList: View {
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.lists.title"),
-                            imageSource: .image(imageFrom(resourceName: "Lists")))
+                            imageSource: .image(imageFrom(resourceName: "il_lists")))
                     }
 
                     NavigationLink {
@@ -88,7 +87,7 @@ struct ModulesList: View {
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.about.titles.card_collections"),
-                            imageSource: .image(imageFrom(resourceName: "Cards")))
+                            imageSource: .image(imageFrom(resourceName: "il_cardList")))
                     }
                 }
                 .padding(.all, ODSSpacing.m)
