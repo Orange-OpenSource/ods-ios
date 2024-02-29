@@ -63,7 +63,7 @@ final class ThemeProvider: ObservableObject {
     func imageFromResources(_ name: String) -> Image {
         let isOrangeTheme = currentTheme.name == OrangeThemeFactory.themeName
         let imageName = isOrangeTheme ? name : "\(name)_generic"
-        return Image(imageName)
+        return Image(decorative: imageName)
     }
 }
 

@@ -57,9 +57,10 @@ public struct ODSCardSmall: View {
         VStack(spacing: 0) {
             ODSImage(source: imageSource)
                 .aspectRatio(contentMode: .fill)
-                .accessibilityHidden(true)
                 .frame(maxHeight: 100)
                 .clipped()
+                .accessibilityRemoveTraits(.isImage)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 title

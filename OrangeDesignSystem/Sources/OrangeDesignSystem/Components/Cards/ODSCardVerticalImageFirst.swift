@@ -115,6 +115,7 @@ public struct ODSCardVerticalImageFirst: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(maxHeight: 192, alignment: .center)
                     .clipped()
+                    .accessibilityRemoveTraits(.isImage)
                     .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: ODSSpacing.xs) {
