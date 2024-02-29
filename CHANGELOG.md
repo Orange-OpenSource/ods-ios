@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [SDK/DemoApp] Disable vocalization of text on image in cards component ([#702](https://github.com/Orange-OpenSource/ods-ios/issues/702))
+- [DemoApp] Set focus on first item in Modules page ([#719](https://github.com/Orange-OpenSource/ods-ios/issues/719))
 - [DemoApp] Update padding in components screen when cards are in one column ([#654](https://github.com/Orange-OpenSource/ods-ios/issues/654))
 - [Tooling/DemoApp] Display build tag in about screen for beta releases (TestFlight)
 - [SDK] Group labels and associated elements in ChipsPickers ([#677](https://github.com/Orange-OpenSource/ods-ios/issues/677))
