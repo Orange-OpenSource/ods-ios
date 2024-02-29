@@ -26,8 +26,8 @@ enum ODSCCardPreviewData {
 
     static let longSupportingText = "Lorem ipsum dolor sit amet. In similique soluta et corrupti aperiam et ipsum quibusdam aut ducimus beatae aut aliquid perferendis qui sunt quam et dolor maxime. Est laudantium quod sit nihil possimus et quas voluptatem in fugit deserunt sit Quis eligendi aut deserunt voluptatum est quia dolor. Quasi odit et incidunt quis sit quia inventore ut repellat quam hic repellat veritatis est dolorem quia et expedita voluptas. Et internos molestiae ut tempora quod non facere nisi ad doloribus velit ad enim corporis qui molestias dolorum qui galisum velit."
 
-    static let image = Image("ods_empty", bundle: Bundle.ods)
-    static let thumbnail = Image("ods_empty", bundle: Bundle.ods)
+    static let image = Image("placeholder", bundle: Bundle.ods)
+    static let thumbnail = Image("placeholder", bundle: Bundle.ods)
 }
 // swiftlint:enable line_length
 #endif

@@ -119,7 +119,7 @@ private struct ListItemSelectionVariantInner: View {
 
 
     private var leading: ODSListItem.Leading? {
-        let emptyImage = Image("ods_empty", bundle: Bundle.ods)
+        let emptyImage = Image("placeholder", bundle: Bundle.ods)
         switch model.leadingOption {
         case .none:
             return nil

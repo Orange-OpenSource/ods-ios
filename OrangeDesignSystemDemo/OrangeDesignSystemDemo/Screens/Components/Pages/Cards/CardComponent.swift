@@ -26,7 +26,7 @@ struct CardComponent: Component {
 
     init() {
         name = °°"screens.components.cards.title"
-        imageName = "Cards_1"
+        imageName = "Cards"
         description = °°"screens.components.cards.description"
         variants = AnyView(CardVariants())
     }

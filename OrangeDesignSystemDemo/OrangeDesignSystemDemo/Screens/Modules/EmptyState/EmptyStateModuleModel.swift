@@ -104,16 +104,16 @@ final class EmptyStateModuleModel: ObservableObject {
             }
         }
         
-        var image: Image? {
+        var imageName: String? {
             switch self {
             case .firstUse:
-                return Image("il_emptyStateFirstUse")
+                return "il_emptyStateFirstUse"
             case .noData:
-                return Image("il_emptyStateNoData")
+                return "il_emptyStateNoData"
             case .userCleared:
                 return nil
             case .error:
-                return Image("il_emptyStateError")
+                return "il_emptyStateError"
             }
         }
     }

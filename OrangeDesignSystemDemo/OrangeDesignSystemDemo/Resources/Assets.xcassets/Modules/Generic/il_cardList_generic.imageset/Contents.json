@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "il_card_list_generic.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

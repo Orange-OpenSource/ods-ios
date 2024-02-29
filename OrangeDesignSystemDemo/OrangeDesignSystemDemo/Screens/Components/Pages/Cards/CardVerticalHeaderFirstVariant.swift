@@ -67,7 +67,7 @@ final class CardVerticalHeaderFirstVariantModel: ObservableObject {
     }
 
     var imageSource: ODSImage.Source {
-        .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods))
+        .asyncImage(recipe.url, Image("placeholder", bundle: Bundle.ods))
     }
 
     var text: Text? {

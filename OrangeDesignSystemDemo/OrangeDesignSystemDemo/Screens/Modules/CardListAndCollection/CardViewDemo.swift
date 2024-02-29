@@ -37,7 +37,7 @@ struct CardViewDemo: View {
                 } label: {
                     ODSCardVerticalImageFirst(
                         title: Text("screens.modules.card_collections.titles.list"),
-                        imageSource: .image(imageFrom(resourceName: "Cards")))
+                        imageSource: .image(imageFrom(resourceName: "il_cardList")))
                 }
 
                 NavigationLink {
@@ -47,7 +47,7 @@ struct CardViewDemo: View {
                 } label: {
                     ODSCardVerticalImageFirst(
                         title: Text("screens.modules.card_collections.titles.grid"),
-                        imageSource: .image(imageFrom(resourceName: "Cards_1")))
+                        imageSource: .image(imageFrom(resourceName: "Cards")))
                 }
             }
             .padding(.all, ODSSpacing.m)

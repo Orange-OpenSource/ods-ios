@@ -73,12 +73,12 @@ struct GrifOfSmallCards: View {
         if sizeCategory.isAccessibilityCategory {
             ODSCardVerticalImageFirst(
                 title: Text(recipe.title),
-                imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                imageSource: .asyncImage(recipe.url, Image("placeholder", bundle: Bundle.ods)),
                 subtitle: Text(recipe.subtitle))
         } else {
             ODSCardSmall(
                 title: Text(recipe.title),
-                imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                imageSource: .asyncImage(recipe.url, Image("placeholder", bundle: Bundle.ods)),
                 subtitle: Text(recipe.subtitle))
         }
     }

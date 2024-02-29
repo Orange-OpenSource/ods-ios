@@ -63,8 +63,11 @@ struct EmptyStateModuleDemo: View {
         }
     }
 
+    @ViewBuilder
     private var image: Image? {
-        model.usageOption.image
+        if let imageName = model.usageOption.imageName {
+            ThemeProvider().imageFromResources(imageName)
+        }
     }
 
     @ViewBuilder

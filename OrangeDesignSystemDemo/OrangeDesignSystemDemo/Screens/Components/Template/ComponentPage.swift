@@ -71,7 +71,7 @@ struct ComponentPage_Previews: PreviewProvider {
 
         init() {
             name = "Test"
-            imageName = "Cards_1"
+            imageName = "Cards"
             description = "This is a long text to illustrate the description area"
             variants = AnyView(Variants())
         }

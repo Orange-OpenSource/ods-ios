@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "il_emptyState_generic.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
