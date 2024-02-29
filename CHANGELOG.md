@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
 
+- [SDK/DemoApp] Update assets for empty state and recirculation modules ([#692] (https://github.com/Orange-OpenSource/ods-ios/issues/692))
+- [SDK] Update the tab bar configuration to see the separator ([#712] (https://github.com/Orange-OpenSource/ods-ios/issues/712))
+- [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684] (https://github.com/Orange-OpenSource/ods-ios/issues/684))
 - [SDK/DemoApp] Disable vocalization of text on image in cards component ([#702](https://github.com/Orange-OpenSource/ods-ios/issues/702))
 - [DemoApp] Set focus on first item in Modules page ([#719](https://github.com/Orange-OpenSource/ods-ios/issues/719))
 - [DemoApp] Update padding in components screen when cards are in one column ([#654](https://github.com/Orange-OpenSource/ods-ios/issues/654))
@@ -22,9 +25,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [SDK] Update the tab bar configuration to see the separator ([#712](https://github.com/Orange-OpenSource/ods-ios/issues/712))
 - [SDK] Fix expanding Bottom Sheet on iPad (Bug [#428](https://github.com/Orange-OpenSource/ods-ios/issues/428))
 - [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684](https://github.com/Orange-OpenSource/ods-ios/issues/684))
-- [SDK/DemoApp] Update assets for empty state and recirculation modules ([#692] (https://github.com/Orange-OpenSource/ods-ios/issues/692))
-- [SDK] Update the tab bar configuration to see the separator ([#712] (https://github.com/Orange-OpenSource/ods-ios/issues/712))
-- [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684] (https://github.com/Orange-OpenSource/ods-ios/issues/684))
 - [DemoApp] Spacer indicator missing on spacing guidelines page (Bug [#707](https://github.com/Orange-OpenSource/ods-ios/issues/707))
 - [DemoApp] On "Customize" bottom sheets, the hint is reversed (Bug a11y [#704](https://github.com/Orange-OpenSource/ods-ios/issues/704))
 - [SDK] Update background color of the navigation and tab bars for accessibility reason (Bug [#693](https://github.com/Orange-OpenSource/ods-ios/issues/693))
