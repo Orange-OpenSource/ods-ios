@@ -179,7 +179,7 @@ public struct ODSRecirculation: View {
             }
         }
     }
-    
+
     private func leadingAppIcon(from appDetails: RecirculationAppDetails) -> ODSListItem.Leading? {
         guard let appIconUrl = appDetails.iconURL else {
             return nil
