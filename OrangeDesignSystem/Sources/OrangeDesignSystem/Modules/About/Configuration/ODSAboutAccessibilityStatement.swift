@@ -30,7 +30,7 @@ public struct ODSAboutAccessibilityStatement {
     // MARK: Initializer
     // =================
 
-    /// Initializes the configuration for the accessibility statement."modules.about.accessibility_statement.title"
+    /// Initializes the configuration for the accessibility statement.
     ///
     /// - Parameters:
     ///    - conformityStatus: The conformity status associated to the accessibility audit, used in the menu entry, should be a localized string
