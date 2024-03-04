@@ -97,7 +97,10 @@ struct AboutScreen: View {
 
         privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!))
 
-        accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
+        accessibilityStatement = ODSAboutAccessibilityStatement(
+            conformityStatus: "Accessibility: partially conform",
+            fileName: "AccessibilityStatement",
+            reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: 202),

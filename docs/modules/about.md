@@ -169,20 +169,23 @@ ODSAboutModule(applicationInformation: withFeedback, ...)
 
 #### Use mandatory items
 
-For the privacy policy display, only html content is supported today. A more structured content will be added soon.
+For the privacy policy display, only HTML content is supported today. A more structured content will be added soon.
 
 - Privacy policy
 
 ```swift
-// Initialize the privacy policy page with url of the html file store in resources. 
+// Initializes the privacy policy page with URL of the HTML file stored in resources. 
 let privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!))
 ```
 
 - The accessibility statement
 
 ```swift
-// Still it is not supported, initilaize with fake information 
-let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
+// Defines an item displaying as a title the "conformity status" text, parsing the file named "fileName" and sending user elsewhere for further details
+let accessibilityStatement = ODSAboutAccessibilityStatement(
+    conformityStatus: "Accessibility: partially conform",
+    fileName: "AccessibilityStatement",
+    reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 ```
 
 - The Terms of service

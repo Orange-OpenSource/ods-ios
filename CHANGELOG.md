@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- [SDK/DemoApp] Display accessibility conformity status instead of simple title wording for accessibility statement menu entry ([#772](https://github.com/Orange-OpenSource/ods-ios/issues/772))
 - [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684](https://github.com/Orange-OpenSource/ods-ios/issues/684))
 - [Tooling/DemoApp] Display build tag in about screen for beta releases (TestFlight)
 - [SDK/DemoApp] Add ODSEmptyState module ([#558](https://github.com/Orange-OpenSource/ods-ios/issues/558))
