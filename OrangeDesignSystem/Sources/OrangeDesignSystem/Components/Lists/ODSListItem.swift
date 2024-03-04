@@ -107,7 +107,7 @@ public struct ODSListItem: View {
     public enum Leading {
         /// A Solaris icon from image resource.
         case icon(Image)
- 
+
         /// An image cropped into a rounded rectangle like application icon.
         /// - Parameter source: The source of the image
         case appIcon(source: ODSImage.Source)
