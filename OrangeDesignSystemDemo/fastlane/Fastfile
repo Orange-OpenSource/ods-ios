@@ -203,6 +203,7 @@ platform :ios do
             build
         else
             puts "Nothing new to build today, a CI tag with '#{tagSuffix}' already exists"
+            publish_mattermost_notification("⚙️ 🤔 Nothing new to build today, a CI tag with '#{tagSuffix}' already exists")
         end
         
         if params[:upload]
@@ -212,6 +213,7 @@ platform :ios do
                 upload
             else
                 puts "Nothing new to build today, a TestFlight tag with '#{tagSuffix}' already exists"
+                publish_mattermost_notification("⚙️ 🤔 Nothing new to build today, a TestFlight tag with '#{tagSuffix}' already exists")
             end
         else
             puts "Upload to TestFlight not requested"
@@ -373,7 +375,6 @@ platform :ios do
             # If tag exists, CURL response is formatted like "refs/tags/tag"
             if "refs/tags/#{tag}".eql? result.strip # Removes line break avaialble in command result
                 puts "The tag '#{tag}' still exists, won't create new tag"
-                publish_mattermost_notification("⚙️ 🤔 The tag '#{tag}' still exists, won't create new tag")
                 return false
             else
                 puts "Commit SHA to tag is '#{IOS_APP_COMMIT_SHA}'"
