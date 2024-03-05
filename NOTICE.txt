@@ -24,7 +24,7 @@ OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_share.
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_taskList.imageset/ic_taskList.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_mobile_apps.imageset/ic_mobile_apps.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_about.imageset/il_about.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_yoga_man.imageset/il_yoga_man.svg
+OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_emptyStateUserCleared.imageset/il_emptyStateUserCleared.svg
 OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/placeholder.imageset/placeholder.svg
 
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/App-Store-512@2x.png

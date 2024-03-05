@@ -111,7 +111,7 @@ final class EmptyStateModuleModel: ObservableObject {
             case .noData:
                 return "il_emptyStateNoData"
             case .userCleared:
-                return "il_yoga_man"
+                return "il_emptyStateUserCleared"
             case .error:
                 return "il_emptyStateError"
             }

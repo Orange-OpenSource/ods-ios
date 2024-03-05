@@ -48,5 +48,5 @@ ODSEmptyStateView(
 |-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | <b>`title: Text`</b>              |                                                                                   | The title of the screen displayed below the image. For example "File is missing". |
 | `text: Text?`                     | `null`                                                                            | Text displayed below the title                                                    |
-| `image: Image`    | `Image("il_yoga_man", bundle: Bundle.ods)` | Image displayed centered in the composable                                        |
+| `image: Image`    | `Image("il_emptyStateUserCleared", bundle: Bundle.ods)` | Image displayed centered in the composable                                        |
 | `button: Button<Text>?` | `null`                                                                            | The button to add below the text                                                  |

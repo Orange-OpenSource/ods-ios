@@ -43,7 +43,7 @@ public struct ODSEmptyStateView: View {
     ///
     public init(title: Text,
                 text: Text? = nil,
-                image: Image = Image("il_yoga_man", bundle: Bundle.ods),
+                image: Image = Image("il_emptyStateUserCleared", bundle: Bundle.ods),
                 button: Button<Text>? = nil) {
         self.title = title
         self.text = text
