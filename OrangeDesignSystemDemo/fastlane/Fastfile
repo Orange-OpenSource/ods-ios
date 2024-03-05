@@ -303,7 +303,7 @@ platform :ios do
     # Helpers
     # -------
 
-    # Add a Git Tag dedicated to CI/CD builds with for some commit hash used to compute tag suffix
+    # Add a Git tag dedicated to CI/CD builds with for some commit hash used to compute tag suffix
     def tag_ci_build(commitHash)
         puts "👉 Tag CI build"
 
@@ -327,7 +327,7 @@ platform :ios do
         end
     end
 
-    # Add a Git Tag dedicated to TestFLight uploads for some commit hashused to compute tag suffix
+    # Add a Git tag dedicated to TestFLight uploads for some commit hash used to compute tag suffix
     def tag_testflight_upload(commitHash)
         puts "👉 Tag TestFlight upload"
 
