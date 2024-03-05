@@ -63,7 +63,7 @@ You may download the source code on the [following website](https://github.com/C
                    
 ### Fastlane
 
-Version 2.213.0
+Version 2.219.0
 
 Copyright 2015-2022 The Fastlane Authors.
 
@@ -97,7 +97,7 @@ You may download the source code on the [following website](https://github.com/g
 
 ### SwiftFormat
 
-Version 0.53.2
+Version 0.53.3
 
 Copyright 2016 Nick Lockwood.
 
