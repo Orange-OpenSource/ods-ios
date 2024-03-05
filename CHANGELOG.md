@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [DemoApp] Update illustrations for empty state module (Innocation Cup theme), update assets loading logic ([#776](https://github.com/Orange-OpenSource/ods-ios/issues/776)) 
 - [SDK] Update accessibility statement library to v1.2.0
 - [Tooling] Update dependency SwiftFormat/CLI to v0.53.3
 - [Tooling] Refactor CI/CD lanes
