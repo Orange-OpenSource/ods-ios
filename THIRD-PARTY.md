@@ -9,7 +9,9 @@ requirements of the relevant license of the Third Party Software they are using.
 
 ### accessibility-statement-lib-ios
 
-Copyright 2021-2023 Orange SA.
+Version 1.2.0
+
+Copyright 2021-2024 Orange SA.
 
 *accessibility-statement-lib-ios* is distributed under the terms and conditions of the [Apache 2.0 License](https://opensource.org/license/apache-2-0/).
 You may download the source code on the [following website](https://github.com/Orange-OpenSource/accessibility-statement-lib-ios).
@@ -63,7 +65,7 @@ You may download the source code on the [following website](https://github.com/C
                    
 ### Fastlane
 
-Version 2.213.0
+Version 2.219.0
 
 Copyright 2015-2022 The Fastlane Authors.
 
@@ -97,7 +99,7 @@ You may download the source code on the [following website](https://github.com/g
 
 ### SwiftFormat
 
-Version 0.53.2
+Version 0.53.3
 
 Copyright 2016 Nick Lockwood.
 

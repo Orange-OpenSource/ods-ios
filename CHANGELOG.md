@@ -30,6 +30,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [SDK] Update accessibility statement library to v1.2.0
+- [Tooling] Update dependency SwiftFormat/CLI to v0.53.3
+- [Tooling] Refactor CI/CD lanes
 - [SDK/DemoApp] Update assets for empty state and recirculation modules ([#692](https://github.com/Orange-OpenSource/ods-ios/issues/692))
 - [SDK] Group labels and associated elements in ChipsPickers ([#677](https://github.com/Orange-OpenSource/ods-ios/issues/677))
 - [SDK] Group Labels in ODSListItems for accessibility ([#741](https://github.com/Orange-OpenSource/ods-ios/issues/741))
