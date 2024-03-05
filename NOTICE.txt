@@ -91,15 +91,15 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBa
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/Module-molecule_32.imageset/Module-molecule_32.svg
 
 ## Modules Assets
-### Generic Assets
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/EmptyState/il_emptyState_generic.imageset/il_emptyState_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/EmptyState/il_emptyStateError_generic.imageset/il_emptyStateError_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/EmptyState/il_emptyStateFirstUse_generic.imageset/il_emptyStateFirstUse_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/EmptyState/il_emptyStateNoData_generic.imageset/il_emptyStateNoData_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/il_about_generic.imageset/il_about_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/il_cardList_generic.imageset/il_card_list_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/il_lists_generic.imageset/il_lists_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Generic/il_recirculation_generic.imageset/il_recirculation_generic.svg
+### Innovation Cup Assets
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyState (Innovation Cup).imageset/il_emptyState (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyStateError (Innovation Cup).imageset/il_emptyStateError (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyStateFirstUse (Innovation Cup).imageset/il_emptyStateFirstUse (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyStateNoData (Innovation Cup).imageset/il_emptyStateNoData (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_about (Innovation Cup).imageset/il_about (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_cardList (Innovation Cup).imageset/il_card_list (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_lists (Innovation Cup).imageset/il_lists (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_recirculation (Innovation Cup).imageset/il_recirculation (Innovation Cup).svg
 
 ### Orange Assets
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_tools.imageset/ic_tools.svg
@@ -128,23 +128,23 @@ OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/S
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Settings_19371.imageset/Settings_19371.svg
 
 ## Components Thumbnails
-### Generic assets
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/AboutImage_generic.imageset/AboutImage_generic.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Banners_generic.imageset/Banners_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Bars - tool_generic.imageset/Bars - tool_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/BottomSheet_generic.imageset/BottomSheet_generic.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Buttons - Shape_generic.imageset/Buttons - Shape_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Cards_generic.imageset/Cards_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Chips_generic.imageset/Chips_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Colour_generic.imageset/Colour_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Lists_generic.imageset/Lists_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Navigation bars_generic.imageset/Navigation bars_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Progress indicator_generic.imageset/Progress indicator_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Slider_generic.imageset/Slider_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Spacing_generic.imageset/Spacing_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Tab bar_generic.imageset/Tab bar_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Text edit menu_generic.imageset/Text edit menu_generic.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Generic/Typography_generic.imageset/Typography_generic.svg
+### Innovation Cup Assets
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/AboutImage (Innovation Cup).imageset/AboutImage (Innovation Cup).png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Banners (Innovation Cup).imageset/Banners (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Bars - tool (Innovation Cup).imageset/Bars - tool (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/BottomSheet (Innovation Cup).imageset/BottomSheet (Innovation Cup).png
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Buttons - Shape (Innovation Cup).imageset/Buttons - Shape (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Cards (Innovation Cup).imageset/Cards (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Chips (Innovation Cup).imageset/Chips (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Colour (Innovation Cup).imageset/Colour (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Lists (Innovation Cup).imageset/Lists (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Navigation bars (Innovation Cup).imageset/Navigation bars (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Progress indicator (Innovation Cup).imageset/Progress indicator (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Slider (Innovation Cup).imageset/Slider (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Spacing (Innovation Cup).imageset/Spacing (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Tab bar (Innovation Cup).imageset/Tab bar (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Text edit menu (Innovation Cup).imageset/Text edit menu (Innovation Cup).svg
+OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Typography (Innovation Cup).imageset/Typography (Innovation Cup).svg
 
 ### Orange Assets
 OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/AboutImage.imageset/AboutImage.svg

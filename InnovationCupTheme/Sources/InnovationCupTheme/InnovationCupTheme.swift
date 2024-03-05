@@ -37,10 +37,11 @@ enum InnovationCupThemeColors: String, CaseIterable {
 
 public struct InnovationCupThemeFactory {
     public let theme: ODSTheme
+    public static let themeName = "InnovationCup"
 
     public init() {
         var theme = ODSTheme()
-        theme.name = "InnovationCup"
+        theme.name = InnovationCupThemeFactory.themeName
 
         theme.colorPalette = InnovationCupThemeColors.palette
         theme.componentColors.accent = InnovationCupThemeColors.accent.colorDecription.color

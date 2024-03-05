@@ -16,11 +16,8 @@ import OrangeDesignSystem
 import OrangeTheme
 import SwiftUI
 
-///
-/// Theme provider that propose all supported themes for the
-/// demo application.
+/// Theme provider that proposes all supported themes for the demo application.
 /// It also stores the current theme, selected by user.
-///
 final class ThemeProvider: ObservableObject {
 
     // =======================
@@ -61,8 +58,8 @@ final class ThemeProvider: ObservableObject {
     }
 
     func imageFromResources(_ name: String) -> Image {
-        let isOrangeTheme = currentTheme.name == OrangeThemeFactory.themeName
-        let imageName = isOrangeTheme ? name : "\(name)_generic"
+        let isInnovationCupTheme = currentTheme.name == InnovationCupThemeFactory.themeName
+        let imageName = isInnovationCupTheme ? "\(name) (Innovation Cup)" : name
         return Image(decorative: imageName)
     }
 }
@@ -77,10 +74,11 @@ extension View {
     }
 }
 
-///
-/// Button is added in navigation bar to allow,
-/// the user to change the current theme.
-///
+// ==============================
+// MARK: - Theme Selection Button
+// ==============================
+
+/// Button is added in navigation bar to allow, the user to change the current theme.
 struct ThemeSelectionButton: View {
 
     // =======================
@@ -109,7 +107,9 @@ struct ThemeSelectionButton: View {
     }
 }
 
-// MARK: - Hot switch Warning
+// ===========================
+// MARK: - Hot Switch Warning
+// ===========================
 
 /// Will be removed when hot switch will be supported
 final class HotSwitchWarningIndicator: ObservableObject {
