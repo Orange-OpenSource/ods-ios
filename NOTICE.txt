@@ -7,161 +7,244 @@ or displayed on this website and owned by Orange SA and its subsidiaries,
 in whole or part of, in any medium, except as required for reasonable and customary use in describing the origin of the software
 and reproducing the content of the NOTICE and DOCUMENTATION files.
 Any use or displaying shall constitute an infringement under intellectual property laws of France and international conventions.
-                                                            
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick.png
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick@2x.png
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick@3x.png
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/Close.imageset/Close.pdf
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/controlsTableViewRowXCheckmark/controlsTableViewRowXCheckmark.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_accessibility.imageset/ic_accessibility.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_apps.imageset/ic_apps.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_calendarEventInfo.imageset/ic_calendarEventInfo.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_comments.imageset/ic_comments.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_dataProtection.imageset/ic_dataProtection.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_legal.imageset/ic_legal.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_review.imageset/ic_review.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_share.imageset/ic_share.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_taskList.imageset/ic_taskList.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_mobile_apps.imageset/ic_mobile_apps.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_about.imageset/il_about.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_emptyStateUserCleared.imageset/il_emptyStateUserCleared.svg
-OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/placeholder.imageset/placeholder.svg
+            
+# Library
+            
+## Resources
+            
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_accessibility.imageset/ic_accessibility.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_legal.imageset/ic_legal.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_calendarEventInfo.imageset/ic_calendarEventInfo.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_taskList.imageset/ic_taskList.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_close.imageset/form-cross.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_comments.imageset/ic_comments.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_review.imageset/ic_review.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_apps.imageset/ic_apps.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_dataProtection.imageset/ic_dataProtection.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_mobile_apps.imageset/ic_mobile_apps.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/ic_share.imageset/ic_share.svg
 
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/App-Store-512@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Pro-App-83.5@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Settings-29@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Settings-29@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Spotlight-40@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Spotlight-40@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Settings-29@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Settings-29@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Spotlight-40@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Spotlight-40@3x.png
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick@2x.png
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick.png
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/iconsFunctionalUiEMIcFormTick.imageset/iconsFunctionalUiEMIcFormTick@3x.png
 
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/App-Store-512@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-App-76@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-App-76@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Pro-App-83.5@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Settings-29@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Settings-29@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Spotlight-40@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Spotlight-40@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-App-60@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-App-60@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Settings-29@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Settings-29@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Spotlight-40@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Spotlight-40@3x.png
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_emptyStateUserCleared.imageset/il_yoga_man.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/il_about.imageset/il_about.svg
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Images.xcassets/placeholder.imageset/placeholder.svg
 
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/App-Store-512@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-App-76@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-App-76@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Pro-App-83.5@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Settings-29@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Settings-29@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Spotlight-40@1x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Spotlight-40@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-App-60@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-App-60@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Settings-29@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Settings-29@3x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Spotlight-40@2x.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Spotlight-40@3x.png
+./OrangeDesignSystem/Sources/OrangeDesignSystem/Resources/Icons.xcassets/Close.imageset/Close.pdf
+            
+## Orange Theme
 
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Add.imageset/Add.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/component-atom_32.imageset/component-atom_32.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/Guideline-DNA_32.imageset/Guideline-DNA_32.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/info_32.imageset/info_32.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/Module-molecule_32.imageset/Module-molecule_32.svg
+./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyState.imageset/il_emptyState.svg
+./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateNoData.imageset/il_emptyStateNoData.svg
+./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateFirstUse.imageset/il_emptyStateFirstUse.svg
+./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateError.imageset/il_emptyStateError.svg
+./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateUserCleared.imageset/il_yoga_man.svg
 
-## Modules Assets
-### Innovation Cup Assets
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyState (Innovation Cup).imageset/il_emptyState (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyStateError (Innovation Cup).imageset/il_emptyStateError (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyStateFirstUse (Innovation Cup).imageset/il_emptyStateFirstUse (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/EmptyState/il_emptyStateNoData (Innovation Cup).imageset/il_emptyStateNoData (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_about (Innovation Cup).imageset/il_about (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_cardList (Innovation Cup).imageset/il_card_list (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_lists (Innovation Cup).imageset/il_lists (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_recirculation (Innovation Cup).imageset/il_recirculation (Innovation Cup).svg
+## Innovation Cup Theme
 
-### Orange Assets
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_tools.imageset/ic_tools.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_folderFavourite.imageset/ic_folderFavourite.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_subtitles.imageset/ic_subtitles.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/il_about.imageset/il_about.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/EmptyState/il_emptyState.imageset/il_emptyState.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateError.imageset/il_emptyStateError.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateFirstUse.imageset/il_emptyStateFirstUse.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/EmptyState/il_emptyStateNoData.imageset/il_emptyStateNoData.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_cardList.imageset/il_card_list.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_lists.imageset/il_lists.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_recirculation.imageset/il_recirculation.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateError (Innovation Cup).imageset/Error.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateUserCleared (Innovation Cup).imageset/UserClear.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateNoData (Innovation Cup).imageset/NoData.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateFirstUse (Innovation Cup).imageset/FirstUser.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyState (Innovation Cup).imageset/il_emptyState_generic.svg
 
-## Recipes
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/IceCream.imageset/iconsCommunicationDIIcIceCream.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/Cafe.imageset/iconsCommunicationDIcCafe.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/CookingPot.imageset/iconsCommunicationDIcCookingPot.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/Restaurant.imageset/iconsCommunicationRUIcRestaurant.svg
+# Demo app
 
-## tabBar
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Heart_19371.imageset/Heart_19371.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Info_19371.imageset/Info_19371.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Notification_Alert_19371.imageset/Notification_Alert_19371.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Search_19371.imageset/Search_19371.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Settings_19371.imageset/Settings_19371.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Buttons - Shape (Innovation Cup).imageset/Buttons - Shape_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Colour (Innovation Cup).imageset/Colour_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Chips (Innovation Cup).imageset/Chips_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Banners (Innovation Cup).imageset/Banners_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Progress indicator (Innovation Cup).imageset/Progress indicator_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Spacing (Innovation Cup).imageset/Spacing_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Typography (Innovation Cup).imageset/Typography_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Bars - tool (Innovation Cup).imageset/Bars - tool_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Navigation bars (Innovation Cup).imageset/Navigation bars_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Text edit menu (Innovation Cup).imageset/Text edit menu_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Cards (Innovation Cup).imageset/Cards_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Lists (Innovation Cup).imageset/Lists_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Slider (Innovation Cup).imageset/Slider_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Tab bar (Innovation Cup).imageset/Tab bar_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/BottomSheet (Innovation Cup).imageset/BottomSheet_generic.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/AboutImage (Innovation Cup).imageset/AboutImage_generic.png
 
-## Components Thumbnails
-### Innovation Cup Assets
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/AboutImage (Innovation Cup).imageset/AboutImage (Innovation Cup).png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Banners (Innovation Cup).imageset/Banners (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Bars - tool (Innovation Cup).imageset/Bars - tool (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/BottomSheet (Innovation Cup).imageset/BottomSheet (Innovation Cup).png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Buttons - Shape (Innovation Cup).imageset/Buttons - Shape (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Cards (Innovation Cup).imageset/Cards (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Chips (Innovation Cup).imageset/Chips (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Colour (Innovation Cup).imageset/Colour (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Lists (Innovation Cup).imageset/Lists (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Navigation bars (Innovation Cup).imageset/Navigation bars (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Progress indicator (Innovation Cup).imageset/Progress indicator (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Slider (Innovation Cup).imageset/Slider (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Spacing (Innovation Cup).imageset/Spacing (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Tab bar (Innovation Cup).imageset/Tab bar (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Text edit menu (Innovation Cup).imageset/Text edit menu (Innovation Cup).svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Innovation Cup/Typography (Innovation Cup).imageset/Typography (Innovation Cup).svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Slider.imageset/Slider.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/AboutImage.imageset/AboutImage.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Colour.imageset/Colour.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Typography.imageset/Typography.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Cards.imageset/Cards.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Navigation bars.imageset/Navigation bars.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Banners.imageset/Banners.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/BottomSheet.imageset/bottomSheet.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Chips.imageset/Chips.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Lists.imageset/Lists.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Spacing.imageset/Spacing.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Buttons - Shape.imageset/Buttons - Shape.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Progress indicator.imageset/Progress indicator.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Text edit menu.imageset/Text edit menu.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Bars - tool.imageset/Bars - tool.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Tab bar.imageset/Tab bar.png
 
-### Orange Assets
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/AboutImage.imageset/AboutImage.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Banners.imageset/Banners.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Bars - tool.imageset/Bars - tool.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/BottomSheet.imageset/bottomSheet.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Buttons - Shape.imageset/Buttons - Shape.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Cards.imageset/Cards.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Chips.imageset/Chips.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Colour.imageset/Colour.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Lists.imageset/Lists.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Navigation bars.imageset/Navigation bars.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Progress indicator.imageset/Progress indicator.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Slider.imageset/Slider.svg
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Spacing.imageset/Spacing.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Tab bar.imageset/Tab bar.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Text edit menu.imageset/Text edit menu.png
-OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/thumbs/Orange/Typography.imageset/Typography.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Settings_19371.imageset/Settings_19371.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Notification_Alert_19371.imageset/Notification_Alert_19371.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Search_19371.imageset/Search_19371.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Heart_19371.imageset/Heart_19371.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/tabBar/Info_19371.imageset/Info_19371.svg
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/FoodsAndEntertainment.imageset/ic_Beam_angle_110.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/IceCream.imageset/iconsCommunicationDIIcIceCream.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/Restaurant.imageset/iconsCommunicationRUIcRestaurant.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/Cafe.imageset/iconsCommunicationDIcCafe.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Recipes/CookingPot.imageset/iconsCommunicationDIcCookingPot.svg
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/Guideline-DNA_32.imageset/Guideline-DNA_32.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/info_32.imageset/info_32.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/component-atom_32.imageset/component-atom_32.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/Module-molecule_32.imageset/Module-molecule_32.svg
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_recirculation (Innovation Cup).imageset/il_recirculation_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_lists (Innovation Cup).imageset/il_lists_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_about (Innovation Cup).imageset/il_about_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_cardList (Innovation Cup).imageset/il_card_list_generic.svg
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_recirculation.imageset/il_recirculation.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_lists.imageset/il_lists.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_folderFavourite.imageset/ic_folderFavourite.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_tools.imageset/ic_tools.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_subtitles.imageset/ic_subtitles.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/il_about.imageset/il_about.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_cardList.imageset/il_card_list.svg
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Settings-29@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Pro-App-83.5@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Settings-29@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Spotlight-40@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Settings-29@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Notification-20@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Spotlight-40@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-App-76@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Spotlight-40@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-Spotlight-40@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/App-Store-512@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Notification-20@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPad-Settings-29@1x.png
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-App-60@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-App-60@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Settings-29@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Pro-App-83.5@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Settings-29@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Spotlight-40@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-App-76@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Settings-29@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Notification-20@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Spotlight-40@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-App-76@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Spotlight-40@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPhone-Spotlight-40@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/App-Store-512@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Notification-20@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconRelease.appiconset/iPad-Settings-29@1x.png
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-App-60@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-App-60@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Settings-29@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Pro-App-83.5@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Settings-29@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Spotlight-40@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-App-76@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Settings-29@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Notification-20@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Spotlight-40@3x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-App-76@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Spotlight-40@1x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPhone-Spotlight-40@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/App-Store-512@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Notification-20@2x.png
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconQualif.appiconset/iPad-Settings-29@1x.png
+
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Add.imageset/Add.png
+
+# Documentation
+
+./docs/components/images/buttons_layout_small_with_icon.png
+./docs/components/images/list_items_selection_circle_light.png
+./docs/components/images/buttons_functional_negative.png
+./docs/components/images/bars_navigation_standard_dark.png
+./docs/components/images/card_small_light.png
+./docs/components/images/card_horizontal_dark.png
+./docs/components/images/bars_navigation_standard_light.png
+./docs/components/images/bars_navigation_large_light.png
+./docs/components/images/chips_choice_light.png
+./docs/components/images/bars_tool_icons_light.png
+./docs/components/images/chips_choice_dark.png
+./docs/components/images/card_vertical_header_first_light.png
+./docs/components/images/buttons_icon.png
+./docs/components/images/buttons_emphasis_lowest.png
+./docs/components/images/banner-light.png
+./docs/components/images/card_vertical_header_first_dark.png
+./docs/components/images/bars_navigation_large_dark.png
+./docs/components/images/list_items_standard_square_dark.png
+./docs/components/images/sliders.png
+./docs/components/images/bars_tool_icons_dark.png
+./docs/components/images/buttons_emphasis_lowest_disabled.png
+./docs/components/images/bars_navigation_search_dark.png
+./docs/components/images/buttons_layout_small_without_icon.png
+./docs/components/images/chips_action_dark.png
+./docs/components/images/buttons_functional_positive.png
+./docs/components/images/card_horizontal_light.png
+./docs/components/images/bars_tool_labels_light.png
+./docs/components/images/bars_tab_dark.png
+./docs/components/images/progress_bar.png
+./docs/components/images/buttons_layout_large_with_icon.png
+./docs/components/images/buttons_emphasis_medium.png
+./docs/components/images/card_small_dark.png
+./docs/components/images/chips_action_light.png
+./docs/components/images/bars_navigation_items_light.png
+./docs/components/images/chips_filter_avatar_light.png
+./docs/components/images/chips_filter_avatar_dark.png
+./docs/components/images/card_vertical_image_first_dark.png
+./docs/components/images/bars_navigation_items_dark.png
+./docs/components/images/buttons_functionnal_disabled.png
+./docs/components/images/activity_indicator.png
+./docs/components/images/banner-dark.png
+./docs/components/images/chips_input_light.png
+./docs/components/images/bars_tab_light.png
+./docs/components/images/buttons_emphasis_high.png
+./docs/components/images/chips_filter_dark.png
+./docs/components/images/buttons_emphasis_low.png
+./docs/components/images/card_vertical_image_first_light.png
+./docs/components/images/buttons_layout_large_without_icon.png
+./docs/components/images/list_items_selection_circle_dark.png
+./docs/components/images/chips_input_dark.png
+./docs/components/images/chips_filter_light.png
+./docs/components/images/bars_navigation_search_light.png
+./docs/components/images/bars_tool_labels_dark.png
+./docs/components/images/list_items_standard_square_light.png
+./docs/modules/images/list_plain_light.png
+./docs/modules/images/list_plain_dark.png
+./docs/modules/images/list_grouped_light.png
+./docs/modules/images/list_inset_grouped_light.png
+./docs/modules/images/list_inset_grouped_dark.png
+./docs/modules/images/list_sidebar_light.png
+./docs/modules/images/empty_state_light.png
+./docs/modules/images/list_grouped_dark.png
+./docs/modules/images/about_screen.png
+./docs/modules/images/list_sidebar_dark.png
+./docs/modules/images/list_inset_dark.png
+./docs/modules/images/list_inset_light.png
+./docs/modules/images/empty_state_dark.png
+./docs_release/images/github_release_01.png
+./docs_release/images/github_release_02.png
 
 End of the parts list under Orange SA Copyright
