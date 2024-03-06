@@ -96,7 +96,6 @@ struct CommonButtonVariant<Variant>: View where Variant: View {
                 .padding(.horizontal, ODSSpacing.m)
             }
             .padding(.bottom, 55)
-            .background(Color("componentBackground2"))
         } options: {
             EmphasisAndFunctionalVariantOptions(model: model)
         }

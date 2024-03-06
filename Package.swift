@@ -36,7 +36,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/tevelee/SwiftUI-Flow", .exact("1.2.0")),
         .package(url: "https://github.com/lucaszischka/BottomSheet", .exact("3.1.1")),
-        .package(url: "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git", .exact("1.0.0"))
+        .package(url: "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git", .exact("1.2.0"))
     ],
     targets: [
         .target(
@@ -49,7 +49,8 @@ let package = Package(
         .target(
             name: "OrangeTheme",
             dependencies: ["OrangeDesignSystem"],
-            path: "OrangeTheme/Sources"),
+            path: "OrangeTheme/Sources",
+            resources: [.process("OrangeTheme/Resources/")]),
         .target(
             name: "InnovationCupTheme",
             dependencies: ["OrangeDesignSystem"],

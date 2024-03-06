@@ -58,6 +58,7 @@ private struct ColorList: View {
                 })
                 .pickerStyle(.segmented)
                 .onAppear {
+                    UISegmentedControl.appearance().tintColor = .orange
                     screenState.colorScheme = phoneColorScheme
                 }
                 .padding(EdgeInsets(top: ODSSpacing.s, leading: ODSSpacing.m, bottom: ODSSpacing.xs, trailing: ODSSpacing.m))

@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 /// Helps top run tests on the _Orange Design System_ library beside simulator when needed (e.g. for l10n)
 final class DateFormatterCacheTest: XCTestCase {
 
@@ -90,3 +91,4 @@ final class DateFormatterCacheTest: XCTestCase {
         XCTAssertEqual(formatter.dateFormat, storedFormatter.dateFormat)
     }
 }
+// swiftlint:enable line_length

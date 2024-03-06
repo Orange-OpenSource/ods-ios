@@ -9,21 +9,38 @@
   -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en" data-bs-theme="light">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.3/dist/css/orange-helvetica.min.css" rel="stylesheet" integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
     {% include head.html %}
+
+    <style type="text/css">
+        html,
+        body {
+            min-height: 100vh;
+        }
+        img {
+            max-width: 100%;
+        }
+        main > div > :last-child {
+            margin-bottom: 0;
+        }
+        main > div > :last-child > * {
+            margin-bottom: 0;
+        }
+        @media (max-width: 1023.98px) {
+            .z-offcanvas {
+                z-index: 1045;
+            }
+        }
+    </style>
+
     <title>{{ page.title }}</title>
 </head>
 
 <body>
-<div id="content">
-    <div class="ods-layout container-xxl">
-        <main class="ods-main order-1">
-            <div class="ods-content ps-lg-4 mb-3">
-                {{content}}
-            </div>
-        </main>
-    </div>
-</div>
+    <main class="container-xxl">
+        {{content}}
+    </main>
 </body>
 </html>

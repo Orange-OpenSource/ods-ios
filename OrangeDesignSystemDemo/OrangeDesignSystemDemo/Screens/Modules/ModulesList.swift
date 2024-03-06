@@ -34,30 +34,50 @@ struct ModulesList: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: ODSSpacing.xs) {
                     NavigationLink {
-                        ListModule()
-                            .odsNavigationTitle("screens.modules.lists.title".🌐)
-                            .navigationbarMenuForThemeSelection()
-                    } label: {
-                        ODSCardVerticalImageFirst(
-                            title: Text("screens.modules.lists.title"),
-                            imageSource: .image(imageFrom(resourceName: "Lists")))
-                            .accessibilityFocused($requestFocus)
-                            //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    requestFocus = true
-                                }
-                            }
-                    }
-
-                    NavigationLink {
                         AboutModule()
                             .odsNavigationTitle("screens.modules.about.titles.setup".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("shared.about"),
-                            imageSource: .image(imageFrom(resourceName: "AboutImage")))
+                            imageSource: .image(imageFrom(resourceName: "il_about")))
+                        .accessibilityFocused($requestFocus)
+                        //.odsRequestAccessibleFocus(_requestFocus) // <--- Don't know why it does not work each time
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                requestFocus = true
+                            }
+                        }
+                    }
+
+                    NavigationLink {
+                        EmptyStateModule()
+                            .odsNavigationTitle("screens.modules.empty_state.title.setup".🌐)
+                            .navigationbarMenuForThemeSelection()
+                    } label: {
+                        ODSCardVerticalImageFirst(
+                            title: Text("screens.modules.empty_state.title"),
+                            imageSource: .image(imageFrom(resourceName: "il_emptyState")))
+                    }
+                    
+                    NavigationLink {
+                        ListModule()
+                            .odsNavigationTitle("screens.modules.lists.title".🌐)
+                            .navigationbarMenuForThemeSelection()
+                    } label: {
+                        ODSCardVerticalImageFirst(
+                            title: Text("screens.modules.lists.title"),
+                            imageSource: .image(imageFrom(resourceName: "il_lists")))
+                    }
+
+                    NavigationLink {
+                        RecirculationModule()
+                            .odsNavigationTitle("screens.modules.recirculation.title.setup".🌐)
+                            .navigationbarMenuForThemeSelection()
+                    } label: {
+                        ODSCardVerticalImageFirst(
+                            title: Text("screens.modules.recirculation.title"),
+                            imageSource: .image(imageFrom(resourceName: "il_recirculation")))
                     }
 
                     NavigationLink {
@@ -67,7 +87,7 @@ struct ModulesList: View {
                     } label: {
                         ODSCardVerticalImageFirst(
                             title: Text("screens.modules.about.titles.card_collections"),
-                            imageSource: .image(imageFrom(resourceName: "Cards")))
+                            imageSource: .image(imageFrom(resourceName: "il_cardList")))
                     }
                 }
                 .padding(.all, ODSSpacing.m)
@@ -83,7 +103,7 @@ struct ModulesList: View {
     // ====================
 
     private func imageFrom(resourceName: String) -> Image {
-        themeProvider.imageFromResources(resourceName)
+        themeProvider.imageFromResources(name: resourceName)
     }
 }
 

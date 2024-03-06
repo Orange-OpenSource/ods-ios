@@ -13,7 +13,15 @@
 
 import SwiftUI
 
+// ============
+// MARK: - Chip
+// ============
+
 struct Chip<Leading, Text>: View where Leading: View, Text: View {
+
+    @ScaledMetric(relativeTo: .body) private var leadingHeight = 24
+    @ScaledMetric(relativeTo: .body) private var frameHeight = 32
+    @ScaledMetric(relativeTo: .body) private var labelPadding = ODSSpacing.xs
 
     // =======================
     // MARK: Stored properties
@@ -24,10 +32,6 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
     private let removeAction: (() -> Void)?
     @ViewBuilder private let text: () -> Text
     @ViewBuilder private let leading: () -> Leading
-
-    @ScaledMetric(relativeTo: .body) private var leadingHeight = 24
-    @ScaledMetric(relativeTo: .body) private var frameHeight = 32
-    @ScaledMetric(relativeTo: .body) private var labelPadding = ODSSpacing.xs
 
     // =================
     // MARK: Intializers
@@ -81,8 +85,9 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
                     .frame(width: leadingHeight, height: leadingHeight)
             }
             .padding(.all, labelPadding)
-            .modifier(ChipContentModifier(isSelected: isSelected))
             .frame(height: frameHeight)
+            .modifier(ChipContentModifier(isSelected: isSelected))
+
         }
     }
 
@@ -100,12 +105,16 @@ struct Chip<Leading, Text>: View where Leading: View, Text: View {
     }
 }
 
-struct ChipContentModifier: ViewModifier {
+// =============================
+// MARK: - Chip Content Modifier
+// =============================
 
+private struct ChipContentModifier: ViewModifier {
+
+    let isSelected: Bool
+    private let lineWidth: CGFloat = 1.0
     @Environment(\.theme) private var theme
     @Environment(\.isEnabled) private var isEnabled
-    private let lineWidth: CGFloat = 1.0
-    let isSelected: Bool
 
     func body(content: Content) -> some View {
         if isSelected {
@@ -113,12 +122,14 @@ struct ChipContentModifier: ViewModifier {
                 .foregroundColor(.black)
                 .background(theme.componentColors.accent, in: Capsule())
                 .opacity(isEnabled ? 1 : 0.5)
+                .accessibilityAddTraits(.isSelected)
         } else {
             content
                 .foregroundColor(.primary)
                 .overlay(Capsule().stroke(Color.primary, lineWidth: lineWidth))
                 .padding(.all, lineWidth)
                 .opacity(isEnabled ? 1 : 0.5)
+                .accessibilityRemoveTraits(.isSelected)
         }
     }
 }

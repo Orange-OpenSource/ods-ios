@@ -8,13 +8,8 @@ description: Tool bars with Orange branding
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Description](#description)
-* [Variants](#variants)
-    * [With label items](#with-label-items)
-    * [With icon items](#with-icon-items)
-* [Remarks](#remarks)
+* Table of contents
+{:toc}
 
 ---
 

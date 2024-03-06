@@ -147,12 +147,18 @@ private struct ListItemStandardVariantInner: View {
     }
 
     private var leading: ODSListItem.Leading? {
-        let emptyImage = Image("ods_empty", bundle: Bundle.ods)
+        let emptyImage = Image("placeholder", bundle: Bundle.ods)
         switch model.leadingOption {
         case .none:
             return nil
         case .icon:
             return .icon(Image(model.recipe.iconName))
+        case .appIcon:
+            if let appImage = appImage {
+                return .appIcon(source: .image(appImage))
+            } else {
+                return .appIcon(source: .asyncImage(model.recipe.url, emptyImage))
+            }
         case .circle:
             return .circularImage(source: .asyncImage(model.recipe.url, emptyImage))
         case .square:
@@ -169,5 +175,11 @@ private struct ListItemStandardVariantInner: View {
     // Info button action
     private func iButtonAction() {
         showAlert = true
+    }
+    
+    private var appImage: Image? {
+        Bundle.main.appIconFileName
+            .flatMap { UIImage(named: $0) }
+            .map { Image(uiImage: $0) }
     }
 }

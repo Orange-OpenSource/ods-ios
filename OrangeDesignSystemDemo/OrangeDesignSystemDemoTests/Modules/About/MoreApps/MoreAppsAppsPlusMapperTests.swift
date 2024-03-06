@@ -15,6 +15,7 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 /// Helps to test the `MoreAppsAppsPlusMapper` to check if the data transfer objects parsed from JSON match the business objects after the mapping
 final class MoreAppsAppsPlusMapperTests: XCTestCase {
 
@@ -32,10 +33,10 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsAppDetails = AppsPlusMoreAppsMapper().appDetails(from: appsPlusAppDetailsDTOMock)
+        let moreAppsAppDetails = AppsPlusRecirculationMapper().appDetails(from: appsPlusAppDetailsDTOMock)
 
         // Then
-        compare(bo: moreAppsAppDetails, dto: appsPlusAppDetailsDTOMock)
+        compare(businessObject: moreAppsAppDetails, dataTransferObject: appsPlusAppDetailsDTOMock)
     }
 
     /// Test if some `AppsPlusSectionDTO` can be parsed to `MoreAppsSection`
@@ -52,14 +53,14 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsSection = AppsPlusMoreAppsMapper().appsSection(from: appsPlusSectionDTOMock)
+        let moreAppsSection = AppsPlusRecirculationMapper().appsSection(from: appsPlusSectionDTOMock)
 
         // Then
         XCTAssertTrue(moreAppsSection.description == appsPlusSectionDTOMock.description)
         XCTAssertTrue(moreAppsSection.apps.count == appsPlusSectionDTOMock.apps.count)
 
-        compare(bo: moreAppsSection.apps[0], dto: appsPlusSectionDTOMock.apps[0])
-        compare(bo: moreAppsSection.apps[1], dto: appsPlusSectionDTOMock.apps[1])
+        compare(businessObject: moreAppsSection.apps[0], dataTransferObject: appsPlusSectionDTOMock.apps[0])
+        compare(businessObject: moreAppsSection.apps[1], dataTransferObject: appsPlusSectionDTOMock.apps[1])
     }
 
     /// Test if some `AppsPlusListDTO` can be parsed by the  `MoreAppsAppsPlusMapper`
@@ -76,15 +77,15 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
             fatalError("Failed to process the JSON mock data!")
         }
 
-        let mapper = AppsPlusMoreAppsMapper()
+        let mapper = AppsPlusRecirculationMapper()
 
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusItemsMock)
-        let lonelyApps: [MoreAppsAppDetails] = appsPlusItemsMock.apps.map { appDTO in
+        let lonelyApps: [RecirculationAppDetails] = appsPlusItemsMock.apps.map { appDTO in
             mapper.appDetails(from: appDTO)
         }
 
         let moreAppsSections = mapper.appsSections(from: appsPlusItemsMock)
-        let sections: [MoreAppsSection] = appsPlusItemsMock.sections.map { sectionDTO in
+        let sections: [RecirculationAppsListSection] = appsPlusItemsMock.sections.map { sectionDTO in
             mapper.appsSection(from: sectionDTO)
         }
 
@@ -104,21 +105,21 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
     // MARK: - Helper
     // ==============
 
-    private func compare(bo: MoreAppsAppDetails, dto: AppsPlusAppDetailsDTO) {
-        XCTAssertTrue(bo.title == dto.title)
-        XCTAssertTrue(bo.iconURL == URL(string: dto.iconURL))
-        XCTAssertTrue(bo.description == dto.description)
-        XCTAssertTrue(bo.storeURL == URL(string: dto.storeLink))
+    private func compare(businessObject: RecirculationAppDetails, dataTransferObject: AppsPlusAppDetailsDTO) {
+        XCTAssertTrue(businessObject.title == dataTransferObject.title)
+        XCTAssertTrue(businessObject.iconURL == URL(string: dataTransferObject.iconURL))
+        XCTAssertTrue(businessObject.description == dataTransferObject.description)
+        XCTAssertTrue(businessObject.storeURL == URL(string: dataTransferObject.storeLink))
     }
 
-    private func compareBoth(_ lhs: MoreAppsAppDetails, _ rhs: MoreAppsAppDetails) {
+    private func compareBoth(_ lhs: RecirculationAppDetails, _ rhs: RecirculationAppDetails) {
         XCTAssertTrue(lhs.title == rhs.title)
         XCTAssertTrue(lhs.iconURL == rhs.iconURL)
         XCTAssertTrue(lhs.description == rhs.description)
         XCTAssertTrue(lhs.storeURL == rhs.storeURL)
     }
 
-    private func compareBoth(_ lhs: [MoreAppsSection], _ rhs: [MoreAppsSection]) {
+    private func compareBoth(_ lhs: [RecirculationAppsListSection], _ rhs: [RecirculationAppsListSection]) {
         XCTAssertTrue(lhs.count == rhs.count)
         for (lhsItem, rhsItem) in zip(lhs, rhs) {
             XCTAssertTrue(lhsItem.description == rhsItem.description)
@@ -132,3 +133,4 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
     }
 }
+// swiftlint:enable line_length

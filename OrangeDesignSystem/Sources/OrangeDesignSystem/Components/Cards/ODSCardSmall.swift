@@ -57,9 +57,10 @@ public struct ODSCardSmall: View {
         VStack(spacing: 0) {
             ODSImage(source: imageSource)
                 .aspectRatio(contentMode: .fill)
-                .accessibilityHidden(true)
                 .frame(maxHeight: 100)
                 .clipped()
+                .accessibilityRemoveTraits(.isImage)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.xs) {
                 title
@@ -121,21 +122,21 @@ struct SmallCardView_Previews: PreviewProvider {
                 LazyVGrid(columns: SmallCardView_Previews.columns, spacing: ODSSpacing.none) {
                     ODSCardSmall(
                         title: Text("1 Title"),
-                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
+                        imageSource: .image(Image("placeholder", bundle: Bundle.ods)))
 
                     ODSCardSmall(
                         title: Text("2 Title"),
-                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+                        imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
                         subtitle: Text("2 Subtitle"))
 
                     ODSCardSmall(
                         title: Text("3 A long long title"),
-                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+                        imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
                         subtitle: Text("3 A long long Subtitle"))
 
                     ODSCardSmall(
                         title: Text("4 A long long Title"),
-                        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)))
+                        imageSource: .image(Image("placeholder", bundle: Bundle.ods)))
                 }
                 .padding(.bottom, ODSSpacing.m)
 
@@ -146,7 +147,7 @@ struct SmallCardView_Previews: PreviewProvider {
 
                 ODSCardSmall(
                     title: Text("Title 4"),
-                    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+                    imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
                     subtitle: Text("Subtitle 4"))
             }
             .padding(.horizontal, ODSSpacing.m)

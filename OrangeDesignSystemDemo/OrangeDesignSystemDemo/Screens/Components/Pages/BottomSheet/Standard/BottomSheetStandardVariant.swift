@@ -20,8 +20,16 @@ struct StandardBottomSheetVariant: View {
     // MARK: Stored properties
     // =======================
 
-    @State var selectedRecipe: Recipe? = RecipesListSelection.receipes.first
-    @State var isOpen: Bool = false
+    @State var selectedRecipe: Recipe?
+    @State var isOpen: Bool
+    private let recipes: [Recipe]
+    
+    init() {
+        let recipes = Array(RecipeBook.shared.recipes.prefix(4))
+        self.recipes = recipes
+        self._isOpen = State(initialValue: false)
+        self._selectedRecipe = State(initialValue: recipes.first)
+    }
 
     // ==========
     // MARK: Body
@@ -31,8 +39,12 @@ struct StandardBottomSheetVariant: View {
         pageContent
             .odsBottomSheetStandard(isOpen: $isOpen,
                                     title: °°"screens.components.bottom_sheets.sample.recipe",
+                                    accessibilityStateLabels: (opened: °°"screens.components.template.customize.label.opened",
+                                                               closed: °°"screens.components.template.customize.label.closed"),
+                                    accessibilityStateHints: (opened: °°"screens.components.template.customize.hint.opened",
+                                                              closed: °°"screens.components.template.customize.hint.closed"),
                                     icon: Image(systemName: "chevron.down")) {
-                RecipesListSelection(selectedRecipe: $selectedRecipe)
+                RecipesListSelection(recipes: recipes, selectedRecipe: $selectedRecipe)
             }
     }
 
@@ -46,7 +58,7 @@ struct StandardBottomSheetVariant: View {
             ScrollView {
                 ODSCardVerticalImageFirst(
                     title: Text(recipe.title),
-                    imageSource: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods)),
+                    imageSource: .asyncImage(recipe.url, Image("placeholder", bundle: Bundle.ods)),
                     subtitle: Text(recipe.subtitle),
                     text: Text(recipe.description))
                 {
@@ -66,15 +78,15 @@ struct RecipesListSelection: View {
     // =======================
 
     private let selectedRecipe: Binding<Recipe?>
-    fileprivate static let receipes: [Recipe] = Array(RecipeBook.shared.recipes.prefix(4))
+    private let recipes: [Recipe]
 
     // =================
     // MARK: Initializer
     // =================
 
-    init(selectedRecipe: Binding<Recipe?>) {
+    init(recipes: [Recipe], selectedRecipe: Binding<Recipe?>) {
+        self.recipes = recipes
         self.selectedRecipe = selectedRecipe
-        self.selectedRecipe.wrappedValue = Self.receipes.first
     }
 
     // ==========
@@ -83,11 +95,11 @@ struct RecipesListSelection: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(Self.receipes, id: \.id) { recipe in
+            ForEach(recipes, id: \.id) { recipe in
                 ODSListItem(title: Text(recipe.title), leading: .icon(Image(recipe.iconName)))
                     .odsListItemStyle()
                     .onTapGesture {
-                        selectedRecipe.wrappedValue = Self.receipes.first { $0.title == recipe.title }
+                        selectedRecipe.wrappedValue = recipes.first { $0.title == recipe.title }
                     }
             }
         }

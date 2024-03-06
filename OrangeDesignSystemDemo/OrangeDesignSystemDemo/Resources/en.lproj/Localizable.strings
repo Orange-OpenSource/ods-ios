@@ -32,6 +32,7 @@
 "shared.subtitle" = "Subtitle";
 "shared.label" = "Label";
 "shared.icon" = "Icon";
+"shared.appIcon" = "App icon";
 "shared.enabled" = "Enabled";
 "shared.disabled" = "Disabled";
 "shared.long_text" = "Long text";
@@ -42,6 +43,9 @@
 "shared.foods" = "Foods";
 "shared.loading" = "Loading\U2026";
 "shared.bon_app" = "Bon appétit !";
+"shared.button" = "Button";
+"shared.modules.customize" = "Customize module";
+"shared.modules.button.view_demo" = "View demo";
 
 // =====================
 // MARK: - Miscellaneous
@@ -331,21 +335,14 @@
 "screens.modules.about.titles.setup" = "About: Setup";
 "screens.modules.about.titles.card_collections" = "Card collections";
 "screens.modules.about.description" = "An « About » screen should be displayed in all Orange applications to show the application name, software version as wall as all legal data protection, privacy, terms of service and accessibility statement.";
-"screens.modules.about.customize" = "Customize module";
 "screens.modules.about.mandatory" = "Some items such as: illustration (customizable), app name, privacy policy, terms of service and accessibility statement are mandatory.\nTo this standard screen you can add optional components:";
 "screens.modules.about.picker.app_section" = "Application section";
 "screens.modules.about.picker.optional_about_items" = "Optional about items";
 "screens.modules.about.picker.custom_items" = "Custom items: %@";
-"screens.modules.about.buttons.view_demo" = "View demo";
 "screens.modules.about.alert.feedback_clicked" = "Feedback clicked";
 "screens.modules.about.texts.add_cgu" = "Add terms of service here";
 "screens.modules.about.titles.my_review" = "My reviews";
 "screens.modules.about.titles.my_recipes" = "My recipes";
-"screens.modules.about.more_apps_demo_section.flatten_more_apps_sections" = "Do not categorize apps";
-"screens.modules.about.more_apps_demo_section.use_embeded_mock" = "Use local mock";
-"screens.modules.about.more_apps_demo_section.cache_more_apps_icons" = "Cache apps images";
-"screens.modules.about.more_apps_demo_section.enable_haptics" = "Enable vibrations";
-"screens.modules.about.more_apps_demo_section.title" = "More apps settings";
 
 // ============================================
 // MARK: - Screens - Modules - Card collections
@@ -371,7 +368,51 @@
 "screens.modules.lists.section.footer.text" = "All the recipes are made with selected ingredients.";
 
 // =======================================
+// MARK: - Screens - Modules - Empty State
+// =======================================
+
+"screens.modules.empty_state.title" = "Empty state";
+"screens.modules.empty_state.title.setup" = "Empty state: Setup";
+"screens.modules.empty_state.description" = "An empty state can occur when no content or data is available to display in the UI. Avoid displaying completely empty screens.";
+"screens.modules.empty_state.title" = "Empty state";
+"screens.modules.empty_state.title.setup" = "Empty state: Setup";
+"screens.modules.empty_state.description" = "An empty state can occur when no content or data is available to display in the UI. Avoid displaying completely empty screens.";
+"screens.modules.empty_state.usage_first_use.choice" = "First use";
+"screens.modules.empty_state.usage_first_use.title" = "First time";
+"screens.modules.empty_state.usage_first_use.text" = "To find out how the service works press the button.";
+"screens.modules.empty_state.usage_first_use.buttonLabel" = "Take a tour";
+"screens.modules.empty_state.usage_user_cleared.choice" = "User cleared";
+"screens.modules.empty_state.usage_user_cleared.title" = "All is cleared";
+"screens.modules.empty_state.usage_user_cleared.text" = "To add a recipe press the button.";
+"screens.modules.empty_state.usage_user_cleared.buttonLabel" = "Add a recipe";
+"screens.modules.empty_state.usage_error.choice" = "Error";
+"screens.modules.empty_state.usage_error.title" = "Something goes wrong";
+"screens.modules.empty_state.usage_error.text" = "There is no connection.";
+"screens.modules.empty_state.usage_error.buttonLabel" = "Retry";
+"screens.modules.empty_state.usage_no_data.choice" = "No data";
+"screens.modules.empty_state.usage_no_data.title" = "No result";
+"screens.modules.empty_state.usage_no_data.text" = "Try a new search.";
+"screens.modules.empty_state.usage_no_data.buttonLabel" = "Search";
+"screens.modules.empty_state.usage.alert" = "%@ clicked";
+
+// =============================================
+// MARK: - Screens - Modules - Recirculation
+// =============================================
+
+"screens.modules.recirculation.title" = "Recirculation";
+"screens.modules.recirculation.title.setup" = "Recirculation: Setup";
+"screens.modules.recirculation.description" = "Recirculation (AppsPlus was a OMD Essential component) making Orange Apps discovery easier than ever.";
+"screens.modules.recirculation.option.flatten_apps_sections" = "Uncategorize apps";
+"screens.modules.recirculation.option.use_embeded_data_source" = "Use local data";
+"screens.modules.recirculation.option.cache_more_apps_icons" = "Cache apps images";
+"screens.modules.recirculation.option.enable_haptics" = "Enable vibrations";
+
+// =======================================
 // MARK: - Screens - Components - Template
 // =======================================
 
 "screens.components.template.customize" = "Customize";
+"screens.components.template.customize.label.opened" = "Opened";
+"screens.components.template.customize.label.closed" = "Closed";
+"screens.components.template.customize.hint.opened" = "Tap twice to close this customization sheet";
+"screens.components.template.customize.hint.closed" = "Tap twice to open this customization sheet";

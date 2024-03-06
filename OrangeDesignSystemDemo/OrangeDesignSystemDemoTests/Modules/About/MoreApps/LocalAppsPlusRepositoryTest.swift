@@ -15,15 +15,16 @@ import Foundation
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 final class LocalAppsPlusRepositoryTests: XCTestCase {
 
     func testReadOfLocalData() async {
         // Given
         let localDataURL = XCTestCase.stubURL(for: "AppsPlusMock", ofType: "json", inBundleOf: LocalAppsPlusRepositoryTests.self)
-        let localAppsPlusRepository: MoreAppsRepositoryProtocol = LocalAppsPlusRepository(feedURL: localDataURL)
+        let localAppsPlusRepository: RecirculationRepositoryProtocol = LocalAppsPlusRepository(feedURL: localDataURL)
 
         // When
-        let appsList: MoreAppsList
+        let appsList: RecirculationAppsList
         do {
             appsList = try await localAppsPlusRepository.availableAppsList()
         } catch {
@@ -44,3 +45,4 @@ final class LocalAppsPlusRepositoryTests: XCTestCase {
         XCTAssertTrue(appsList.sections[1].apps[0].title == "Orange Radio")
     }
 }
+// swiftlint:enable line_length

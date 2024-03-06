@@ -7,23 +7,8 @@ description: An about screen should be displayed in all Orange applications to d
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Overview](#overview)
-* [About screen layout](#about-screen-layout)
-  * [Illustration area](#illustration-area)
-  * [Application section area](#application-section-area)
-  * [List items area](#list-items-area)
-    * [Mandatory items](#mandatory-items)
-    * [Optionnal items](#optionnal-tems)
-    * [Custom items](#custom-items)
-* [How to configure the module](#how-to-configure-the-module)
-  * [Illustration area](#illustration-area)
-  * [Application section area](#application-section-area)
-  * [List Items area](#list-items-area)
-    * [Use mandatory items](#use-mandatory-items)
-    * [Add items to the list](#add-items-to-the-list)
-    * [Use optional items](#use-optional-items)
-    * [Create a custom item](#create-a-custom-item)
+* Table of contents
+{:toc}
 
 ---
 
@@ -184,20 +169,23 @@ ODSAboutModule(applicationInformation: withFeedback, ...)
 
 #### Use mandatory items
 
-For the privacy policy display, only html content is supported today. A more structured content will be added soon.
+For the privacy policy display, only HTML content is supported today. A more structured content will be added soon.
 
 - Privacy policy
 
 ```swift
-// Initialize the privacy policy page with url of the html file store in resources. 
+// Initializes the privacy policy page with URL of the HTML file stored in resources. 
 let privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!))
 ```
 
 - The accessibility statement
 
 ```swift
-// Still it is not supported, initilaize with fake information 
-let acessibilityStatement = ODSAboutAccessibilityStatement(reportPath: "path", reportDetail: URL(string: "https://www.apple.com")!)
+// Defines an item displaying as a title the "conformity status" text, parsing the file named "fileName" and sending user elsewhere for further details
+let accessibilityStatement = ODSAboutAccessibilityStatement(
+    conformityStatus: "Accessibility: partially conform",
+    fileName: "AccessibilityStatement",
+    reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 ```
 
 - The Terms of service
@@ -290,16 +278,15 @@ let legalInformationItem = ODSAboutLegalInformationItemConfig(priority: 500) {
 }
 ```
 
-- More apps / apps recirculation
+- Apps recirculation
 
 You can also add an item to let people discover other apps of Orange, by using the following item:
 
 ```swift
-let moreAppsItem = ODSMoreAppsItemConfig(feedURL: yourFeederURL)
+let appsRecirculation = ODSRecirculationItemConfig(dataSource: yourDataSource)
 ```
 
-The _feedURL_ is a `URL` object containing the URL of the backend to get the list of apps.
-Today the only supported backend is Orange proprietary backend _Apps Plus_.
+The __dataSource__ can contain the URL of the backend to get the list of apps, (today the only supported backend is Orange proprietary backend _Apps Plus_) or a local json file. (for more details see the __Recirculation Module__. 
 
 #### Create a custom item
 
@@ -321,94 +308,3 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
 }
 ```
 
-### Configuration of apps recirculation feature
-
-#### Use the feature
-
-The _about module_ exposes a feature allowing the final users to get the available apps they can use.
-This feature is based today only on the Orange proprietary _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
-This service today is based on a simple URL containing both a lang parameter and an API key. 
-**This API key will define the type of data returned by the backend ; maybe you should have your own API key which matches the suitable filters to get only a subgroup of apps.**
-
-To be able to call this service and display the list of available apps, you have to use the `ODSMoreAppsItemConfig`.
-This _struct_ has a `source` parameter of type `ODSMoreAppsItemConfig.Source` which must contain the type of source of data to display the apps:
-                                     
-```swift
-    // Get data from the Apps Plus backend
-    ODSMoreAppsItemConfig(source: .remote(url: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
-    
-    // Get data for some local files
-    ODSMoreAppsItemConfig(source: local(path: somePathToJSONFileInResources))
-```
-
-Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
-or if an error occured.
-
-If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
-
-```swift
-let moreAppsItem = ODSMoreAppsItemConfig(source: ..., flattenApps: true)
-```  
-
-The apps icons displayed in the list of apps can also be cached.
-If you do not want to see these values put in cache, meaning e.g. displaying instead a placeholder if no network, use:
-
-```swift
-let moreAppsItem = ODSMoreAppsItemConfig(source: ..., cacheAppsIcons: false)
-```
-
-The list of apps can trigger also haptic notifications, e.g. vibrations when the data have been lodaded or if an error occured.
-By default this feature is enabled, but it can be disabled:
-
-```swift
-let moreAppsItem = ODSMoreAppsItemConfig(source: ..., enableHaptics: false)
-```
-
-#### Example about definiton of Apps Plus credentials
-
-You can for example for your app use a _.xcconfig_ configuration settings file to store such credentials.
-A key named **APPS_PLUS_URL** can be defined with the URL (containing the API key) to call.
-Then the **Info.plist** file of your app must have an entry with the same name.
-Of course the _.xcconfig_ file should not be versionned in Git, ensure this with [Gitleaks](https://github.com/gitleaks/gitleaks) for example.
-
-See the example for the _.xcconfig_:
-
-```text
-// Configuration settings file format documentation can be found at:
-// https://help.apple.com/xcode/#/dev745c5c974
-// See also https://medium.com/swift-india/secure-secrets-in-ios-app-9f66085800b4
-
-APPS_PLUS_API_KEY = SoMeApIkEy
-APPS_PLUS_URL = https:/$()/url-to-api?apikey=$(APPS_PLUS_API_KEY)
-
-// Here $() prevents the // to be interpreted as comment, we suppose the URL has an apikey parameter and is GET only
-```
-
-And the entry for the _Info.plist_:
-
-```text
-    <key>APPS_PLUS_URL</key> <!-- Key used in the demo app code -->
-    <string>${APPS_PLUS_URL}</string> <!-- Key in the xcconfig side, or write here the full URL with API key but without lang -->
-```
-
-Then in your code you can read the URL, get the locale, and forge the final URL to give to `ODSMoreAppsItemConfig`.
-We could have choosen this implemention deeper in the repository but wanted to let ODS lib users choose their own way to deal with the URL.
-
-```swift
-    private func buildAppsPlusURL() -> URL {
-        guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] else {
-            fatalError("No Apps Plus URL found in app settings")
-        }
-        let currentLocale = Bundle.main.preferredLocalizations[0]
-        let requestURL = "\(appsPlusURL)&lang=\(currentLocale)"
-        guard let feedURL = URL(string: requestURL) else {
-            fatalError("Failed to forge the service URL to get more apps")
-        }
-        return feedURL
-    }
-    
-    // And then ODSMoreAppsItemConfig(source: .remote(url: buildAppsPlusURL()))
-```
-
-In some CI/CD chain, like our old-school Jenkins server with Groovy pipelines, we can use a _Fastlane_ lane to read some previously environment variable and
-fill the _Info.Plist_ file in the suitable row.

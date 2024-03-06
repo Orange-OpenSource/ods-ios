@@ -85,7 +85,7 @@ struct AboutScreen: View {
     init() {
         applicationInformation = ODSAboutApplicationInformation(
             name: °°"screens.about.app_information.name",
-            version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.buildType),
+            version: ODSApplicationVersion(marketingVersion: Bundle.main.marketingVersion, buildNumber: Bundle.main.buildNumber ?? "", buildType: Bundle.main.fullBuildType),
             description: °°"screens.about.app_information.description",
             shareConfiguration: ODSAboutShareTheApplication(
                 storeUrl: URL(string: "http://oran.ge/dsapp")!,
@@ -97,7 +97,10 @@ struct AboutScreen: View {
 
         privacyPolicy = ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!))
 
-        accessibilityStatement = ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
+        accessibilityStatement = ODSAboutAccessibilityStatement(
+            conformityStatus: "Accessibility: partially conform",
+            fileName: "AccessibilityStatement",
+            reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
 
         customItems = [
             AboutDesignGuidelinesItemConfig(priority: 202),
@@ -105,10 +108,10 @@ struct AboutScreen: View {
             AboutChangelogItemConfig(priority: 200),
         ]
 
-        if let feedURL = Self.appsRecirculationRemoteFeedURL {
-            customItems.append(ODSMoreAppsItemConfig(source: .remote(url: feedURL), priority: 199))
+        if let feedURL = Self.recirculationRemoteFeedURL {
+            customItems.append(ODSRecirculationItemConfig(dataSource: .remote(url: feedURL), priority: 199))
         } else {
-            Log.warning("Missing configuration for this apps recirculation module, did you use a working URL?")
+            Log.warning("Missing configuration for this recirculation module, did you use a working URL?")
         }
     }
 
@@ -118,7 +121,7 @@ struct AboutScreen: View {
 
     var body: some View {
         NavigationView {
-            ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources("AboutImage"),
+            ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources(name: "AboutImage"),
                            applicationInformation: applicationInformation,
                            privacyPolicy: privacyPolicy,
                            acessibilityStatement: accessibilityStatement,
@@ -138,7 +141,7 @@ struct AboutScreen: View {
         AboutHtmlAndMarkdownView(title: °°"screens.about.terms_of_service", htmlFileName: "CGU")
     }
 
-    private static var appsRecirculationRemoteFeedURL: URL? {
+    private static var recirculationRemoteFeedURL: URL? {
         guard let appsPlusURL = Bundle.main.infoDictionary?["APPS_PLUS_URL"] as? String, !appsPlusURL.isEmpty else {
             Log.warning("No Apps Plus URL found in app settings")
             return nil

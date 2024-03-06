@@ -182,9 +182,10 @@ public struct ODSCardHorizontal: View {
 
     private var image: some View {
         ODSImage(source: imageSource)
-            .accessibilityHidden(true)
             .frame(width: 128)
             .clipped()
+            .accessibilityRemoveTraits(.isImage)
+            .accessibilityHidden(true)
     }
 
     @ViewBuilder

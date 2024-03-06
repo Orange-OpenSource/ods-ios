@@ -45,6 +45,18 @@ toc2:
     subfolderitems:
       - page: About
         url: modules/about_docs
+      - page: Empty states
+        url: modules/emptyState_docs
       - page: List
         url: modules/list_docs
+      - page: Recirculation
+        url: modules/recirculation_docs
 
+  - title: About
+    subfolderitems:
+      - page: "License"
+        url: about/License_docs
+      - page: "Team"
+        url: about/Team_docs
+      - page: "Cookies"
+        url: about/Cookies_docs

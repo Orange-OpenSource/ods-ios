@@ -9,7 +9,9 @@ requirements of the relevant license of the Third Party Software they are using.
 
 ### accessibility-statement-lib-ios
 
-Copyright 2021-2023 Orange SA.
+Version 1.2.0
+
+Copyright 2021-2024 Orange SA.
 
 *accessibility-statement-lib-ios* is distributed under the terms and conditions of the [Apache 2.0 License](https://opensource.org/license/apache-2-0/).
 You may download the source code on the [following website](https://github.com/Orange-OpenSource/accessibility-statement-lib-ios).
@@ -63,7 +65,7 @@ You may download the source code on the [following website](https://github.com/C
                    
 ### Fastlane
 
-Version 2.213.0
+Version 2.219.0
 
 Copyright 2015-2022 The Fastlane Authors.
 
@@ -95,9 +97,16 @@ Copyright (c) 2019 Zachary Rice
 *gitleaks* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/gitleaks/gitleaks).
 
+### LicensePlist
+
+Copyright (c) 2017 Masayuki Ono
+
+*LicensePlist* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
+You may download the source code on the [following website](https://github.com/mono0926/LicensePlistt).
+
 ### SwiftFormat
 
-Version 0.53.0
+Version 0.53.3
 
 Copyright 2016 Nick Lockwood.
 
@@ -112,7 +121,16 @@ Copyright 2020 Realm Inc.
 
 *SwiftLint* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/realm/SwiftLint).
-    
+
+### xcode-install
+
+Version 2.8.1
+
+Copyright (c) 2015 Boris Bügling
+
+*xcode-install* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
+You may download the source code on the [following website](https://github.com/xcpretty/xcode-install).
+
 ## For tests
 
 ### FileWithoutUTF8Content.jpg

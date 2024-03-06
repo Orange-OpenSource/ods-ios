@@ -13,12 +13,37 @@
 
 import SwiftUI
 
+// =========================
+// MARK: - ODS Color Palette
+// =========================
+
 public typealias ODSColorPalette = [ODSColorDecription]
 
-///
+// ====================================
+// MARK: - ODS Theme Empty State Images
+// ====================================
+
+/// Wraps the images the __ ODS Empty State__ module must use
+public struct ODSThemeEmptyStateImages {
+    let error: Image
+    let firstUse: Image
+    let noData: Image
+    let userCleared: Image
+
+    public init(error: Image, firstUse: Image, noData: Image, userCleared: Image) {
+        self.error = error
+        self.firstUse = firstUse
+        self.noData = noData
+        self.userCleared = userCleared
+    }
+}
+
+// =================
+// MARK: - ODS Theme
+// =================
+
 /// Defines elements for an ODS Theme.
 /// Default values are provided to define a `Default` fake theme
-///
 public struct ODSTheme: Identifiable, Hashable {
 
     // =======================
@@ -29,6 +54,8 @@ public struct ODSTheme: Identifiable, Hashable {
     public var colorPalette: ODSColorPalette
     public var componentColors: ODSComponentColors
     public var font: (_ style: ODSFontStyle) -> Font
+    public var emptyStateImages: ODSThemeEmptyStateImages
+    public var bundle: Bundle
 
     // ==================
     // MARK: Initializers
@@ -69,11 +96,19 @@ public struct ODSTheme: Identifiable, Hashable {
                 return Font.caption2
             }
         }
+
+        emptyStateImages = ODSThemeEmptyStateImages(error: Image("il_emptyStateUserCleared", bundle: Bundle.ods),
+                                                    firstUse: Image("il_emptyStateUserCleared", bundle: Bundle.ods),
+                                                    noData: Image("il_emptyStateUserCleared", bundle: Bundle.ods),
+                                                    userCleared: Image("il_emptyStateUserCleared", bundle: Bundle.ods))
+
+        bundle = Bundle.ods
     }
 
     // ==================
     // MARK: Color access
     // ==================
+
     func color(_ assetName: String) -> Color? {
         colorPalette.first { $0.assetName == assetName }?.color
     }
@@ -85,6 +120,7 @@ public struct ODSTheme: Identifiable, Hashable {
     // ==================
     // MARK: Identifiable
     // ==================
+
     public var id: String {
         name
     }
@@ -92,6 +128,7 @@ public struct ODSTheme: Identifiable, Hashable {
     // ==============
     // MARK: Hashable
     // ==============
+
     public static func == (lhs: ODSTheme, rhs: ODSTheme) -> Bool {
         lhs.name == rhs.name
     }

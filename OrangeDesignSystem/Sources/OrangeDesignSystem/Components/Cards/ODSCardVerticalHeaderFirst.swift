@@ -130,6 +130,7 @@ public struct ODSCardVerticalHeaderFirst: View {
                     ODSImage(source: thumbnailSource)
                         .frame(width: 44.0, height: 44.0, alignment: .center)
                         .clipShape(Circle())
+                        .accessibilityRemoveTraits(.isImage)
                         .accessibilityHidden(true)
                 }
 

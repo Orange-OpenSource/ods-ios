@@ -1,10 +1,54 @@
 # ODS library changelog
 
 All notable changes to this project will be documented in this file.
-This project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...1.0.0) - 2024-03-06
 
-## [0.17.0]\(https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-07-06
+### Added
+
+- [DemoApp] List of third-party librairies integrated in the app ([#778](https://github.com/Orange-OpenSource/ods-ios/issues/778))
+- [SDK/DemoApp] Display accessibility conformity status instead of simple title wording for accessibility statement menu entry ([#772](https://github.com/Orange-OpenSource/ods-ios/issues/772))
+- [SDK/DemoApp] Create Recirculation module and update About module to use it ([#684](https://github.com/Orange-OpenSource/ods-ios/issues/684))
+- [Tooling/DemoApp] Display build tag in about screen for beta releases (TestFlight)
+- [SDK/DemoApp] Add ODSEmptyState module ([#558](https://github.com/Orange-OpenSource/ods-ios/issues/558))
+- [Tooling] Add Git tags in CI/CD pipelines for TestFlight builds, update CocoaPods ([#680](https://github.com/Orange-OpenSource/ods-ios/issues/680))
+
+### Fixed
+
+- [SDK] Update the tab bar configuration to see the separator ([#712](https://github.com/Orange-OpenSource/ods-ios/issues/712))
+- [SDK/DemoApp] Disable vocalization of text on image in cards component ([#702](https://github.com/Orange-OpenSource/ods-ios/issues/702))
+- [DemoApp] Set focus on first item in Modules page ([#719](https://github.com/Orange-OpenSource/ods-ios/issues/719))
+- [DemoApp] Update padding in components screen when cards are in one column ([#654](https://github.com/Orange-OpenSource/ods-ios/issues/654))
+- [DemoApp] Fix accessibility issues on the demo screen of Bars-navigation component ([#574](https://github.com/Orange-OpenSource/ods-ios/issues/574))
+- [SDK] Change the order of the accessibility focus between header and content in bottom sheet ([#703](https://github.com/Orange-OpenSource/ods-ios/issues/703))
+- [SDK] Fix expanding Bottom Sheet on iPad ([#428](https://github.com/Orange-OpenSource/ods-ios/issues/428))
+- [DemoApp] Spacer indicator missing on spacing guidelines page ([#707](https://github.com/Orange-OpenSource/ods-ios/issues/707))
+- [DemoApp] On "Customize" bottom sheets, the hint is reversed ([#704](https://github.com/Orange-OpenSource/ods-ios/issues/704))
+- [SDK] Vocalized buttons selected status with Voice Over ([#583](https://github.com/Orange-OpenSource/ods-ios/issues/583))
+- [DemoApp/SDK] Customize accordion status is not vocalized ([#581](https://github.com/Orange-OpenSource/ods-ios/issues/581))
+
+### Changed
+
+- [DemoApp] Update illustrations for empty state module (Innocation Cup theme), update assets loading logic ([#776](https://github.com/Orange-OpenSource/ods-ios/issues/776)) 
+- [SDK] Update accessibility statement library to v1.2.0
+- [Tooling] Update dependency SwiftFormat/CLI to v0.53.3
+- [Tooling] Refactor CI/CD lanes
+- [SDK/DemoApp] Update assets for empty state and recirculation modules ([#692](https://github.com/Orange-OpenSource/ods-ios/issues/692))
+- [SDK] Group labels and associated elements in ChipsPickers ([#677](https://github.com/Orange-OpenSource/ods-ios/issues/677))
+- [SDK] Group Labels in ODSListItems for accessibility ([#741](https://github.com/Orange-OpenSource/ods-ios/issues/741))
+- [DemoApp] Update AppIcons changed during runner migration ([#738](https://github.com/Orange-OpenSource/ods-ios/issues/738))
+- [Tooling] Update dependency SwiftFormat/CLI to v0.53.2 
+- [SDK/DemoApp] Update ListItemm to add AppIcon for leading element ([#716](https://github.com/Orange-OpenSource/ods-ios/issues/716))
+- [SDK] Use appIcons in recirculation module ([#698](https://github.com/Orange-OpenSource/ods-ios/issues/698))
+- [Tooling] Migration to GitLab CI runner ([#727](https://github.com/Orange-OpenSource/ods-ios/issues/727))
+- [DemoApp] Update the demo configuration for recirculation module ([#714](https://github.com/Orange-OpenSource/ods-ios/issues/714))
+- [SDK] Update background color of the navigation and tab bars for accessibility reason ([#693](https://github.com/Orange-OpenSource/ods-ios/issues/693))
+- [DemoApp] Fix wrong color of the close button ([#412](https://github.com/Orange-OpenSource/ods-ios/issues/412))
+- [SDK] About module, Add error views for more apps and appnews ([#689](https://github.com/Orange-OpenSource/ods-ios/issues/689))
+
+## [0.17.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-02-07
 
 - [DemoApp] Remove french wordings because not enough ready yet ([#663](https://github.com/Orange-OpenSource/ods-ios/issues/663))
 - [Tooling] Various updates ([#667](https://github.com/Orange-OpenSource/ods-ios/issues/667))
@@ -32,14 +76,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.16.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.15.0...0.16.0) - 2024-01-15
 
-- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
+- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577](https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
 - [DemoApp/SDK] Thumbnail of card vertical header first not showing (Bug [#499](https://github.com/Orange-OpenSource/ods-ios/issues/499))
 - [DemoApp] Back button renamed after switching from lanscape to portrait mode (Bug [#562](https://github.com/Orange-OpenSource/ods-ios/issues/562))
 - [DemoApp] Udpate accessibility label on Functional and Emphasis buttons in demo app ([#546](https://github.com/Orange-OpenSource/ods-ios/issues/546))
 - [SDK/DemoApp] Refactor chips component API ([#262](https://github.com/Orange-OpenSource/ods-ios/issues/262))
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
-- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577] (https://github.com/Orange-OpenSource/ods-ios/issues/577))
+- [SDK/DemoApp] Options are overlapped in Setup page of the about module. This needs update in Chips Pickers (Bug [#577](https://github.com/Orange-OpenSource/ods-ios/issues/577))
 - [SDK] Size of filter chips is not inconsistent in selected and unselected states (Bug [#594](https://github.com/Orange-OpenSource/ods-ios/issues/594))
 - [DemoApp/SDK] Thumbnail of card vertical header first not showing (Bug [#499](https://github.com/Orange-OpenSource/ods-ios/issues/499))
 - [DemoApp] Back button renamed after switching from lanscape to portrait mode (Bug [#562](https://github.com/Orange-OpenSource/ods-ios/issues/562))

@@ -32,7 +32,7 @@ public struct ODSImage: View {
         case asyncImage(URL, Image)
         case cachedAsyncImage(URL, Image)
 
-        public init(url: URL, placeholder: Image = Image("ods_empty", bundle: Bundle.ods)) {
+        public init(url: URL, placeholder: Image = Image("placeholder", bundle: Bundle.ods)) {
             self = .asyncImage(url, placeholder)
         }
     }

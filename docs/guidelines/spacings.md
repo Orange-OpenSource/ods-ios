@@ -6,10 +6,8 @@ title: Spacings
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Usage](#usage)
-  * [Apply spacing for magin](#apply-spacing-for-margin)
-  * [Apply spacing for padding](#apply-spacing-for-padding)
+* Table of contents
+{:toc}
   
 ---
 

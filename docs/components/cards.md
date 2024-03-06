@@ -8,14 +8,8 @@ description: Cards contain content and actions about a single subject.
 
 **Page Summary**
 
-* [Specifications references](#specifications-references)
-* [Accessibility](#accessibility)
-* [Variants](#variants)
-    * [Vertical Image First Card)](#vertical-image-first-card)
-    * [Vertical Header First Card)](#vertical-header-first-card)
-    * [Horizontal Card](#horizontal-card)
-    * [Small Card](#small-card)
-* [Component specific tokens](#component-specific-tokens)
+* Table of contents
+{:toc}
 
 ---
 
@@ -53,7 +47,7 @@ Card is configured like this:
 ```swift
 ODSCardVerticalImageFirst(
     title: Text("Title"),
-    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
     subtitle: Text("Subtitle"),
     text: Text("A supporting text to describe something")
 ) {
@@ -86,9 +80,9 @@ Card is configured like this:
     
 ODSCardVerticalHeaderFirst(
     title: Text("Title"),
-    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
     subtitle: Text("Subtitle"),
-    thumbnailSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    thumbnailSource: .image(Image("placeholder", bundle: Bundle.ods)),
     text: Text("A supporting text to describe something")
 ) {
    Button("Button 1") {
@@ -119,7 +113,7 @@ Card is configured like this:
 ```swift    
 ODSCardHorizontal(
     title: Text("Title"),
-    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
     imagePosition: .leading,
     subtitle: Text("Subtitle"),
     text: Text("A supporting text to describe something")
@@ -149,7 +143,7 @@ Card is configured like this:
 ```swift
 ODSCardSmall(
     title: Text("Title"),
-    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
     subtitle: Text("Subtitle")
 ) 
 ```
@@ -173,12 +167,12 @@ class Model {
 let models = [
     Model(
         title: "Title 1",
-        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+        imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
         subtitle: "Subtitle 1"
     )
     Model(
         title: "Title 2",
-        imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+        imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
         subtitle: "Subtitle 2"
     )
     //...
@@ -206,7 +200,7 @@ If this choice is too impacting for your UI, it is possible to define the limit 
 ```swift
 ODSCardSmall(
     title: Text("Title"),
-    imageSource: .image(Image("ods_empty", bundle: Bundle.ods)),
+    imageSource: .image(Image("placeholder", bundle: Bundle.ods)),
     subtitle: Text("Subtitle"),
     // Here 3 is the number of lines you want for such edge cases
     titleAccessibleLineLimit: 3,

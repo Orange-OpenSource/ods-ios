@@ -21,7 +21,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		071F1CF02B7BC69D00833A33 /* RecirculationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F1CEF2B7BC69D00833A33 /* RecirculationModule.swift */; };
+		071F1CF22B7BC6AE00833A33 /* RecirculationModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F1CF12B7BC6AE00833A33 /* RecirculationModuleModel.swift */; };
+		071F1CF42B7BC6BC00833A33 /* RecirculationModuleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F1CF32B7BC6BC00833A33 /* RecirculationModuleDemo.swift */; };
+		071F1CF82B7E46C100833A33 /* AccessibilityStatement.xml in Resources */ = {isa = PBXBuildFile; fileRef = 071F1CF72B7E46C100833A33 /* AccessibilityStatement.xml */; };
 		072D9EF82B0CA96A00763EAE /* ChoiceChipsVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */; };
+		074741EB2B74CE0B00D74F00 /* EmptyStateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EA2B74CE0B00D74F00 /* EmptyStateModule.swift */; };
+		074741ED2B74D3E700D74F00 /* EmptyStateModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EC2B74D3E700D74F00 /* EmptyStateModuleModel.swift */; };
+		074741EF2B74E59500D74F00 /* EmptyStateModuleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074741EE2B74E59500D74F00 /* EmptyStateModuleDemo.swift */; };
 		075326852AD45610003D8832 /* GridOfSmallCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326832AD45610003D8832 /* GridOfSmallCards.swift */; };
 		075326862AD45610003D8832 /* ListOfVerticalImageFirstCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */; };
 		077B673C2AE1500F0008C32B /* LeadingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B673B2AE1500F0008C32B /* LeadingOption.swift */; };
@@ -143,6 +150,7 @@
 		51CD728A2B162D1A008CE57D /* FileWithoutJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72812B162D19008CE57D /* FileWithoutJson.json */; };
 		51CD728B2B162D1A008CE57D /* NotStringFile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72822B162D19008CE57D /* NotStringFile.jpg */; };
 		51CD728C2B162D1A008CE57D /* AppNewsMock_notCompliant_badDateFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72832B162D19008CE57D /* AppNewsMock_notCompliant_badDateFormat.json */; };
+		51E547A92B98DEDB00CAEF31 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 51E547A82B98DEDB00CAEF31 /* Settings.bundle */; };
 		51F6008A2B5E9AB200FF90F3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F600892B5E9AB200FF90F3 /* Logger.swift */; };
 		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
@@ -162,6 +170,10 @@
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
 		070E3C012B6152F3008A8856 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
+		071F1CEF2B7BC69D00833A33 /* RecirculationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecirculationModule.swift; sourceTree = "<group>"; };
+		071F1CF12B7BC6AE00833A33 /* RecirculationModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecirculationModuleModel.swift; sourceTree = "<group>"; };
+		071F1CF32B7BC6BC00833A33 /* RecirculationModuleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecirculationModuleDemo.swift; sourceTree = "<group>"; };
+		071F1CF72B7E46C100833A33 /* AccessibilityStatement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AccessibilityStatement.xml; path = OrangeDesignSystemDemo/Resources/AccessibilityStatement.xml; sourceTree = "<group>"; };
 		07210C402A8FAC6500507988 /* THIRD-PARTY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "THIRD-PARTY.md"; path = "../THIRD-PARTY.md"; sourceTree = "<group>"; };
 		07210C412A8FAC6500507988 /* NOTICE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NOTICE.txt; path = ../NOTICE.txt; sourceTree = "<group>"; };
 		07210C422A8FAC6500507988 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -169,6 +181,9 @@
 		07210C482A8FAD1500507988 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		07210C492A8FAD1600507988 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		072D9EF72B0CA96A00763EAE /* ChoiceChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceChipsVariant.swift; sourceTree = "<group>"; };
+		074741EA2B74CE0B00D74F00 /* EmptyStateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateModule.swift; sourceTree = "<group>"; };
+		074741EC2B74D3E700D74F00 /* EmptyStateModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateModuleModel.swift; sourceTree = "<group>"; };
+		074741EE2B74E59500D74F00 /* EmptyStateModuleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateModuleDemo.swift; sourceTree = "<group>"; };
 		075326832AD45610003D8832 /* GridOfSmallCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridOfSmallCards.swift; sourceTree = "<group>"; };
 		075326842AD45610003D8832 /* ListOfVerticalImageFirstCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfVerticalImageFirstCard.swift; sourceTree = "<group>"; };
 		077B673B2AE1500F0008C32B /* LeadingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingOption.swift; sourceTree = "<group>"; };
@@ -297,6 +312,7 @@
 		51CD72812B162D19008CE57D /* FileWithoutJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FileWithoutJson.json; sourceTree = "<group>"; };
 		51CD72822B162D19008CE57D /* NotStringFile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NotStringFile.jpg; sourceTree = "<group>"; };
 		51CD72832B162D19008CE57D /* AppNewsMock_notCompliant_badDateFormat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppNewsMock_notCompliant_badDateFormat.json; sourceTree = "<group>"; };
+		51E547A82B98DEDB00CAEF31 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = OrangeDesignSystemDemo/Resources/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51F600892B5E9AB200FF90F3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +350,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071F1CEE2B7BC63700833A33 /* Recirculation */ = {
+			isa = PBXGroup;
+			children = (
+				071F1CEF2B7BC69D00833A33 /* RecirculationModule.swift */,
+				071F1CF12B7BC6AE00833A33 /* RecirculationModuleModel.swift */,
+				071F1CF32B7BC6BC00833A33 /* RecirculationModuleDemo.swift */,
+			);
+			path = Recirculation;
+			sourceTree = "<group>";
+		};
 		07210C342A8FA6BC00507988 /* 🛠 */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +384,16 @@
 				07210C482A8FAD1500507988 /* Fastfile */,
 			);
 			name = Fastlane;
+			sourceTree = "<group>";
+		};
+		074741E92B74CDEA00D74F00 /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				074741EA2B74CE0B00D74F00 /* EmptyStateModule.swift */,
+				074741EC2B74D3E700D74F00 /* EmptyStateModuleModel.swift */,
+				074741EE2B74E59500D74F00 /* EmptyStateModuleDemo.swift */,
+			);
+			path = EmptyState;
 			sourceTree = "<group>";
 		};
 		0753267E2AD00137003D8832 /* CardListAndCollection */ = {
@@ -385,6 +421,7 @@
 		077C37C92A9DD5FF003D6B51 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				071F1CF72B7E46C100833A33 /* AccessibilityStatement.xml */,
 				513876902ADD624B00AE53DF /* Localizable.strings */,
 				077C37D52A9DD6A3003D6B51 /* Preview Content */,
 				077C37CB2A9DD643003D6B51 /* Assets.xcassets */,
@@ -453,18 +490,18 @@
 		077C37F32A9DDC78003D6B51 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				077C37F42A9DDC78003D6B51 /* Buttons */,
-				077C37F82A9DDC79003D6B51 /* TextFields */,
-				077C37FC2A9DDC79003D6B51 /* Lists */,
-				077C38062A9DDC79003D6B51 /* ProgressIndicator */,
-				077C380A2A9DDC79003D6B51 /* Chips */,
-				077C380D2A9DDC79003D6B51 /* Cards */,
-				077C38142A9DDC79003D6B51 /* ToolBar */,
-				077C38172A9DDC79003D6B51 /* TabBar */,
-				077C381A2A9DDC79003D6B51 /* NavigationBar */,
 				077C381E2A9DDC79003D6B51 /* Banners */,
 				077C38212A9DDC79003D6B51 /* BottomSheet */,
+				077C37F42A9DDC78003D6B51 /* Buttons */,
+				077C380D2A9DDC79003D6B51 /* Cards */,
+				077C380A2A9DDC79003D6B51 /* Chips */,
+				077C37FC2A9DDC79003D6B51 /* Lists */,
+				077C381A2A9DDC79003D6B51 /* NavigationBar */,
+				077C38062A9DDC79003D6B51 /* ProgressIndicator */,
 				077C38282A9DDC79003D6B51 /* Sliders */,
+				077C38172A9DDC79003D6B51 /* TabBar */,
+				077C37F82A9DDC79003D6B51 /* TextFields */,
+				077C38142A9DDC79003D6B51 /* ToolBar */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -676,6 +713,8 @@
 		077C38402A9DDC79003D6B51 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				071F1CEE2B7BC63700833A33 /* Recirculation */,
+				074741E92B74CDEA00D74F00 /* EmptyState */,
 				07E4C85A2AE7BBE900FB4DAC /* Lists */,
 				0753267E2AD00137003D8832 /* CardListAndCollection */,
 				077C38412A9DDC79003D6B51 /* About */,
@@ -916,6 +955,7 @@
 		EB0AA527275652AE0012E192 = {
 			isa = PBXGroup;
 			children = (
+				51E547A82B98DEDB00CAEF31 /* Settings.bundle */,
 				07210C342A8FA6BC00507988 /* 🛠 */,
 				F99FF06D2767ADF0006236A0 /* OrangeDesignSystemDemo */,
 				F99FF0892767B20C006236A0 /* OrangeDesignSystemDemoTests */,
@@ -1045,8 +1085,6 @@
 				en,
 			);
 			mainGroup = EB0AA527275652AE0012E192;
-			packageReferences = (
-			);
 			productRefGroup = EB0AA531275652AE0012E192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1066,6 +1104,8 @@
 				51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */,
 				5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */,
 				5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */,
+				071F1CF82B7E46C100833A33 /* AccessibilityStatement.xml in Resources */,
+				51E547A92B98DEDB00CAEF31 /* Settings.bundle in Resources */,
 				077C37D32A9DD643003D6B51 /* Recipes.json in Resources */,
 				513C99F52B5812300043DAAE /* AppsPlus.json in Resources */,
 				077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */,
@@ -1209,7 +1249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint ../OrangeDesignSystem\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint ../OrangeDesignSystem\n    ${PODS_ROOT}/SwiftLint/swiftlint ../InnovationCupTheme\n    ${PODS_ROOT}/SwiftLint/swiftlint ../OrangeTheme\n    ${PODS_ROOT}/SwiftLint/swiftlint OrangeDesignSystemDemo/OrangeDesignSystemDemo\n    ${PODS_ROOT}/SwiftLint/swiftlint OrangeDesignSystemDemoTests\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1230,6 +1270,7 @@
 				078AB0552B30A7AA00C592AE /* Variants.swift in Sources */,
 				077C38862A9DDC79003D6B51 /* AboutModuleModel.swift in Sources */,
 				077C387C2A9DDC79003D6B51 /* ColorIllustration.swift in Sources */,
+				074741EF2B74E59500D74F00 /* EmptyStateModuleDemo.swift in Sources */,
 				077C38782A9DDC79003D6B51 /* ColorsPage.swift in Sources */,
 				077C385E2A9DDC79003D6B51 /* ChipsComponent.swift in Sources */,
 				077C38482A9DDC79003D6B51 /* AboutSceen.swift in Sources */,
@@ -1237,6 +1278,7 @@
 				077C38812A9DDC79003D6B51 /* SpacingsGuideline.swift in Sources */,
 				077C38852A9DDC79003D6B51 /* AboutMyReviewsItemConfiguration.swift in Sources */,
 				077C387A2A9DDC79003D6B51 /* ODSColors+extension.swift in Sources */,
+				074741EB2B74CE0B00D74F00 /* EmptyStateModule.swift in Sources */,
 				077C38732A9DDC79003D6B51 /* SlidersVariant.swift in Sources */,
 				077C38702A9DDC79003D6B51 /* BottomSheetExpandingVariantOptions.swift in Sources */,
 				077C384C2A9DDC79003D6B51 /* Component.swift in Sources */,
@@ -1261,6 +1303,7 @@
 				077C387D2A9DDC79003D6B51 /* ColorUsage.swift in Sources */,
 				077C38822A9DDC79003D6B51 /* SpacingsPage.swift in Sources */,
 				077C384A2A9DDC79003D6B51 /* CustomizableVariant.swift in Sources */,
+				071F1CF42B7BC6BC00833A33 /* RecirculationModuleDemo.swift in Sources */,
 				077C389B2A9DEEDC003D6B51 /* RecipesBook.swift in Sources */,
 				079DDC0C2AE6A18D0073A542 /* Recipe+id.swift in Sources */,
 				077C38802A9DDC79003D6B51 /* TypographyPage.swift in Sources */,
@@ -1280,6 +1323,7 @@
 				077C384E2A9DDC79003D6B51 /* ButtonsComponent.swift in Sources */,
 				077C38792A9DDC79003D6B51 /* RGBA.swift in Sources */,
 				077C386C2A9DDC79003D6B51 /* NavigationBarComponent.swift in Sources */,
+				074741ED2B74D3E700D74F00 /* EmptyStateModuleModel.swift in Sources */,
 				077C38602A9DDC79003D6B51 /* CardVerticalHeaderFirstVariant.swift in Sources */,
 				07B94E0F2AD9908300AAD1A5 /* ListItemSelectionVariantOptions.swift in Sources */,
 				077C38622A9DDC79003D6B51 /* CardVerticalImageFirstVariant.swift in Sources */,
@@ -1293,6 +1337,7 @@
 				07B94E0B2AD98D7900AAD1A5 /* ListItemStandardVariant.swift in Sources */,
 				077C37E62A9DDC1A003D6B51 /* MainTabView.swift in Sources */,
 				077C385D2A9DDC79003D6B51 /* ActivityIndicatorVariant.swift in Sources */,
+				071F1CF02B7BC69D00833A33 /* RecirculationModule.swift in Sources */,
 				077C38612A9DDC79003D6B51 /* CardExampleData.swift in Sources */,
 				077C384D2A9DDC79003D6B51 /* ComponentsList.swift in Sources */,
 				077C38512A9DDC79003D6B51 /* CapitalizedTextInputsVariant.swift in Sources */,
@@ -1304,6 +1349,7 @@
 				077C389C2A9DEEDC003D6B51 /* RecipesLoader.swift in Sources */,
 				077C38742A9DDC79003D6B51 /* SliderComponent.swift in Sources */,
 				07C3C7FC2AE7E4E000833957 /* ListModuleDataModel.swift in Sources */,
+				071F1CF22B7BC6AE00833A33 /* RecirculationModuleModel.swift in Sources */,
 				077C389A2A9DEEDC003D6B51 /* RecipeBookModel.swift in Sources */,
 				F99FF0732767AE2A006236A0 /* OrangeDesignSystemApp.swift in Sources */,
 				077C38502A9DDC79003D6B51 /* EmphasisAndFunctionnalVariant.swift in Sources */,
@@ -1527,7 +1573,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1707242535;
+				CURRENT_PROJECT_VERSION = 1709748064;
 				DEVELOPMENT_ASSET_PATHS = "\"OrangeDesignSystemDemo/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = MG2LSJNJB6;
 				ENABLE_PREVIEWS = YES;
@@ -1544,7 +1590,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.17.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1562,9 +1608,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconRelease;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1707242535;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1709748064;
 				DEVELOPMENT_ASSET_PATHS = "\"OrangeDesignSystemDemo/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = MG2LSJNJB6;
 				ENABLE_PREVIEWS = YES;
@@ -1581,10 +1627,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.17.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "soft.cocoa.ods-ios-demo.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ods-demo-app-appstore-qualif";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1598,7 +1644,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1652713510;
+				CURRENT_PROJECT_VERSION = 1708691644;
 				DEVELOPMENT_TEAM = MG2LSJNJB6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1624,7 +1670,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1652713510;
+				CURRENT_PROJECT_VERSION = 1708691644;
 				DEVELOPMENT_TEAM = MG2LSJNJB6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

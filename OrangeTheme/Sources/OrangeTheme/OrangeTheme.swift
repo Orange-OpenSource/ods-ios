@@ -14,7 +14,12 @@
 import OrangeDesignSystem
 import SwiftUI
 
+// =====================
+// MARK: - Orange Colors
+// =====================
+
 enum OrangeColors: String, CaseIterable {
+
     // MARK: - CORE
     case coreOrange // 2 tints (Dark & Light)
     case coreWhite
@@ -66,7 +71,7 @@ enum OrangeColors: String, CaseIterable {
     case supportingOrganic600
 
     // MARK: - TMP
-    case componentBackground
+    case bottomSheetHeader
 
     public var colorDecription: ODSColorDecription {
         ODSColorDecription(assetName: rawValue,
@@ -165,7 +170,7 @@ enum OrangeColors: String, CaseIterable {
             return "Orangic 500"
         case .supportingOrganic600:
             return "Orangic 600"
-        case .componentBackground:
+        case .bottomSheetHeader:
             return nil
         }
     }
@@ -260,7 +265,7 @@ enum OrangeColors: String, CaseIterable {
             return "Orangic 500"
         case .supportingOrganic600:
             return "Orangic 600"
-        case .componentBackground:
+        case .bottomSheetHeader:
             return nil
         }
     }
@@ -268,10 +273,15 @@ enum OrangeColors: String, CaseIterable {
     static let palette: ODSColorPalette = Self.allCases.map { $0.colorDecription }
 }
 
+// ============================
+// MARK: - Orange Theme Factory
+// ============================
+
 public struct OrangeThemeFactory {
     public let theme: ODSTheme
     public static let themeName = "OrangeTheme"
 
+    // swiftlint:disable function_body_length
     public init() {
         var theme = ODSTheme()
 
@@ -282,11 +292,11 @@ public struct OrangeThemeFactory {
 
         // Navigation bar
         theme.componentColors.navigationBarTitle = Color.primary
-        theme.componentColors.navigationBarBackground = OrangeColors.componentBackground.colorDecription.color
+        theme.componentColors.navigationBarBackground = Color(UIColor.systemBackground)
         theme.componentColors.navigationBarForeground = theme.componentColors.accent
 
         // Tab bar
-        theme.componentColors.tabBarBackground = OrangeColors.componentBackground.colorDecription.color
+        theme.componentColors.tabBarBackground = Color(UIColor.systemBackground)
         theme.componentColors.tabBarItem = .primary
         theme.componentColors.tabBarSelectedItem = theme.componentColors.accent
 
@@ -302,8 +312,9 @@ public struct OrangeThemeFactory {
         theme.componentColors.functionalAlert = OrangeColors.functionalAlert.colorDecription.color
 
         // Bottom sheet
-        theme.componentColors.bottomSheetHeaderBackground = OrangeColors.componentBackground.colorDecription.color
+        theme.componentColors.bottomSheetHeaderBackground = OrangeColors.bottomSheetHeader.colorDecription.color
 
+        // Font
         theme.font = { style in
             switch style {
             case .headlineL:
@@ -335,6 +346,36 @@ public struct OrangeThemeFactory {
             }
         }
 
+        // Images for empty states
+        theme.emptyStateImages = ODSThemeEmptyStateImages(error: Image(decorative: "il_emptyStateError", bundle: .orangeTheme),
+                                                          firstUse: Image(decorative: "il_emptyStateFirstUse", bundle: .orangeTheme),
+                                                          noData: Image(decorative: "il_emptyStateNoData", bundle: .orangeTheme),
+                                                          userCleared: Image(decorative: "il_emptyStateUserCleared", bundle: .orangeTheme))
+
+        // Bundle
+        theme.bundle = Bundle.orangeTheme
+
+        // Read-to-use theme
         self.theme = theme
     }
+    // swiftlint:enable function_body_length
 }
+
+// ==============
+// MARK: - Bundle
+// ==============
+
+extension Bundle {
+    public static var orangeTheme: Bundle {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
+        return Bundle(for: OrangeThemeBundleResource.self)
+        #endif
+    }
+}
+
+#if SWIFT_PACKAGE
+#else
+final class OrangeThemeBundleResource {}
+#endif

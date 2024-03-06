@@ -108,6 +108,10 @@ public struct ODSListItem: View {
         /// A Solaris icon from image resource.
         case icon(Image)
 
+        /// An image cropped into a rounded rectangle like application icon.
+        /// - Parameter source: The source of the image
+        case appIcon(source: ODSImage.Source)
+
         /// An image cropped into a circle.
         /// - Parameter source: The source of the image
         case circularImage(source: ODSImage.Source)
@@ -302,28 +306,32 @@ public struct ODSListItem: View {
 
     private var content: some View {
         HStack(alignment: .center, spacing: ODSSpacing.s) {
-            if let leading = self.leading {
-                LeadingView(element: leading, height: height)
-                    .padding(.vertical, ODSSpacing.s)
-            }
+            Group {
+                if let leading = self.leading {
+                    LeadingView(element: leading, height: height)
+                        .padding(.vertical, ODSSpacing.s)
+                        .accessibilityHidden(true)
+                }
 
-            VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                title
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .odsFont(.bodyLRegular)
-                    .foregroundColor(.primary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
+                VStack(alignment: .leading, spacing: ODSSpacing.none) {
+                    title
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                        .odsFont(.bodyLRegular)
+                        .foregroundColor(.primary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .multilineTextAlignment(.leading)
 
-                subtitle?
-                    .lineLimit(subtitleNumberOfLines?.rawValue)
-                    .truncationMode(.tail)
-                    .odsFont(.labelL)
-                    .foregroundColor(.primary)
-                    .multilineTextAlignment(.leading)
+                    subtitle?
+                        .lineLimit(subtitleNumberOfLines?.rawValue)
+                        .truncationMode(.tail)
+                        .odsFont(.labelL)
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.leading)
+                }
+                .padding(.vertical, ODSSpacing.s)
             }
-            .padding(.vertical, ODSSpacing.s)
+            .accessibilityElement(children: .combine)
 
             if let trailing = trailing {
                 TrailingView(element: trailing, height: height)

@@ -17,6 +17,7 @@ import Foundation
 import SwiftUI
 import XCTest
 
+// swiftlint:disable line_length
 final class ODSAboutListItemPriorityTests: XCTestCase {
 
     // ==================
@@ -37,10 +38,10 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         // Given
         let privacyPoliceItem = AboutPrivacyPolicyItem(policy: ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!)))
         let termOfServiceItem = AboutTermOfServiceItem(termsOfService: fakeView)
-        let accessiblityStatementItem = AboutAccessibilityStatementItemConfig(statementConfig: ODSAboutAccessibilityStatement(fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!))
+        let accessiblityStatementItem = AboutAccessibilityStatementItemConfig(statementConfig: ODSAboutAccessibilityStatement(conformityStatus: "Accessibility: partially conform", fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!))
         let appNewsItem = ODSAboutAppNewsItemConfig(path: "")
         let legalInformationItem = ODSAboutLegalInformationItemConfig(legalInformation: fakeView)
-        let moreAppsItem = ODSMoreAppsItemConfig(source: .remote(url: URL(string: "https://opensource.orange.com/")!))
+        let moreAppsItem = ODSRecirculationItemConfig(dataSource: .remote(url: URL(string: "https://opensource.orange.com/")!))
         let rateTheAppItem = ODSAboutRateTheAppItemConfig(storeUrl: URL(string: "https://www.apple.com/app-store/")!)
         let aboutDesignGuidelinesItem = AboutDesignGuidelinesItemConfig(priority: 202)
         let aboutChangelogItem = AboutChangelogItemConfig(priority: 200)
@@ -58,7 +59,7 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         XCTAssertTrue(sortedAboutItemsConfig[4] is AboutAccessibilityStatementItemConfig) // 100 (default)
         XCTAssertTrue(sortedAboutItemsConfig[5] is ODSAboutAppNewsItemConfig) // 60 (default)
         XCTAssertTrue(sortedAboutItemsConfig[6] is ODSAboutLegalInformationItemConfig) // 50 (default)
-        XCTAssertTrue(sortedAboutItemsConfig[7] is ODSMoreAppsItemConfig) // 40 (default)
+        XCTAssertTrue(sortedAboutItemsConfig[7] is ODSRecirculationItemConfig) // 40 (default)
         XCTAssertTrue(sortedAboutItemsConfig[8] is ODSAboutRateTheAppItemConfig) // 30 (default)
     }
 
@@ -67,3 +68,4 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         AnyView(EmptyView())
     }
 }
+// swiftlint:enable line_length

@@ -14,6 +14,7 @@
 @testable import OrangeDesignSystem
 import XCTest
 
+// swiftlint:disable line_length
 class CacheTests: XCTestCase {
 
     func testSetValueSucceeds_dateFormatter_localeDateTimeConfiguration() {
@@ -160,3 +161,4 @@ class CacheTests: XCTestCase {
         return (key, value)
     }
 }
+// swiftlint:enable line_length

@@ -37,10 +37,10 @@ CONTRIBUTING @ludovic35 @pylapp @B3nz01d
 
 # Project
 
-/.github/ @julien-deramond 
+/.github/ @pylapp @ludovic35
 
-/docs/ @julien-deramond @ludovic35 @pylapp
-/docs_release/ @julien-deramond @ludovic35 @pylapp
+/docs/ @ludovic35 @pylapp
+/docs_release/ @ludovic35 @pylapp
 
 /InnovationCupTheme/ @ludovic35 @pylapp
 /OrangeDesignSystem/ @ludovic35 @pylapp

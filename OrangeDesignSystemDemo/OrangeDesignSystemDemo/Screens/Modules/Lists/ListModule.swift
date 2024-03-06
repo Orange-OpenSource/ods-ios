@@ -119,12 +119,12 @@ private struct ListModuleInner: View {
         ODSListItem(
             title: Text(recipe.title),
             subtitle: Text(recipe.subtitle),
-            leading: .circularImage(source: .asyncImage(recipe.url, Image("ods_empty", bundle: Bundle.ods))))
+            leading: .circularImage(source: .asyncImage(recipe.url, Image("placeholder", bundle: Bundle.ods))))
     }
 
     @ViewBuilder
     private func listItem(for food: Food) -> some View {
-        let defaultImage = Image("ods_empty", bundle: Bundle.ods)
+        let defaultImage = Image("placeholder", bundle: Bundle.ods)
         if let imageUrl = food.image {
             ODSListItem(title: Text(food.name), leading: .circularImage(source: .asyncImage(imageUrl, defaultImage)))
         } else {

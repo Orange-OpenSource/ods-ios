@@ -56,7 +56,7 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
                 bottomSheetPosition: $bottomSheetPosition,
                 switchablePositions: ODSBottomSheetSize.positions,
                 headerContent: {
-                    BottomSheedHeader(title: title, subtitle: subtitle, icon: icon, applyRotation: false)
+                    BottomSheetHeader(title: title, subtitle: subtitle, icon: icon, applyRotation: false)
                         .onTapGesture {
                             switch self.bottomSheetSize.wrappedValue {
                             case .small:
@@ -75,6 +75,8 @@ struct ODSBottomSheetExpandingModifier<ContentView>: ViewModifier where ContentV
             .enableAppleScrollBehavior(true)
             .enableContentDrag(true)
             .enableTapToDismiss(true)
+            .enableFloatingIPadSheet(false)
+            .sheetWidth(.relative(1.0))
             .onDismiss {
                 bottomSheetPosition = ODSBottomSheetSize.small.position
             }

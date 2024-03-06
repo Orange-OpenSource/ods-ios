@@ -23,14 +23,23 @@
 "modules.about.app_news.title" = "App News";
 "modules.about.privacy_policy.title" = "Privacy Policy";
 "modules.about.terms_of_service.title" = "Terms of Service";
-"modules.about.accessibility_statement.title" = "Accessibility Statement";
 "modules.about.legal_information.title" = "Legal information";
 "modules.about.rate.title" = "Rate this app";
 "modules.about.copyright" = "Orange property. All rights reserved";
 "modules.about.app_news.no_news" = "No App news found in file";
-"modules.about.apps_recirculation.title" = "More apps";
-"modules.about.apps_recirculation.uncategorized_apps" = "Uncategorized apps";
-"modules.about.apps_recirculation.go_to_appstore" = "Open in App Store";
+"modules.about.error.generic_message" = "Something goes wrong";
+"modules.about.recirculation.title" = "Recirculation";
+
+// ============================
+// MARK: - Recirculation module
+// ============================
+
+"modules.recirculation.uncategorized_apps" = "Uncategorized apps";
+"modules.recirculation.go_to_appstore" = "Open in App Store";
+"modules.recirculation.loading.title" = "Loading";
+"modules.recirculation.loading.text" = "Waiting for fresh data\U2026";
+"modules.recirculation.error.title" = "Error";
+"modules.recirculation.error.text" = "Something wrong happened, sorry!";
 
 // ============
 // MARK: - A11Y

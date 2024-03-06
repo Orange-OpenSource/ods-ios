@@ -63,6 +63,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
                 stackedContent
             }
         }
+        .accessibilityLabel(title ?? Text(""))
     }
 
     // =====================
@@ -89,6 +90,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
                         content(for: chip)
                     }
                 }
+                .accessibilityElement(children: .contain)
                 .padding(.leading, ODSSpacing.m)
             }
         }
@@ -104,6 +106,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
                     content(for: chip)
                 }
             }
+            .accessibilityElement(children: .contain)
             .padding(.horizontal, ODSSpacing.m)
         } else {
             var width = CGFloat.zero
@@ -144,6 +147,7 @@ public struct ODSFilterChipPicker<Value>: View where Value: Hashable {
             }
             .frame(height: finalSize.height)
             .padding(.horizontal, ODSSpacing.m)
+            .accessibilityElement(children: .contain)
         }
     }
 }

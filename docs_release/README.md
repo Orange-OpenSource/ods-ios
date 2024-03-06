@@ -7,7 +7,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
   * [Publish release to GitHub](#publish-release-to-github)
   * [Announce the new release on FoODS](#announce-the-new-release-on-foods)<br /><br />
 - [Prepare Next Release]
-- [About CI/CD with Jenkins]
+- [About CI/CD with GitLab CI]
 
 ## Prepare release
 
@@ -26,7 +26,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     ```
     where P.Q.R is the previous version, X.Y.Z the one we are releasing.
 
-    - Update the AppNews file store in the resources of the demo application
+    - Update the AppNews file stored in the resources of the demo application
     `OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/AppNews.json`
     
     Add a new entry:
@@ -38,7 +38,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     },
     
     ```
-    
+    - Ensure the marketing version defined in Xcode is updated with the new X.Y.Z
     - Commit your modifications
     - Push them to the repository
     
@@ -50,8 +50,8 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 - Create a new pull request named `Release X.Y.Z` on GitHub to merge `qualif` into `main`.
 - Review and merge this pull request on GitHub.
 - Launch a job on your runner to build the demo application
-    - Using fastlane command:
-    ```
+    - Using _Fastlane_ command:
+    ```shell
     # Variables for application signing
     export ODS_DEVELOPER_APP_IDENTIFIER=<your_app_identifier>
     export ODS_FASTLANE_APPLE_ID=<your_apple_email_address>
@@ -62,8 +62,8 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     export ODS_APPLE_ISSUER_ID = <your_issuer_ID>
     export ODS_APPLE_KEY_CONTENT = <your_key_content>
     
-    fastlane prod upload: true"
-    # set true if you want to upload app to Test Flight, false otrherwise.
+    bundle exec fastlane prod upload:true
+    # set "upload" to true if you want to upload app to TestFlight, false otrherwise.
     ```
 
 ### Publish release to GitHub
@@ -124,67 +124,156 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     - Create a new pull request named `Update release U.V.W` on GitHub to merge your branch into `qualif`.
     - Review and merge this pull request on GitHub.<br /><br />
 
-## [About CI/CD with Jenkins]
+## [About CI/CD with GitLabCI]
 
-You can setup in your side a _Jenkins_ runner which can trigger some _Fastlane_ actions for example each night.
+You can setup in your side a _GitLab CI_ runner which can trigger some _Fastlane_ actions for example each night.
 
-You can find bellow some pipeline script to fill and use:
+You can find bellow some pipeline script to fill and use. Ensure all environement variables are filled (used in _Fastfile_ and _Appfile_).
 
-```groovy
-pipeline {
-    agent any
-    stages {
-        
-        stage('Prepare') {
-             steps {
-                sh 'git clean -dxf'
-                sh 'gem install bundler -v $(tail -n1 Gemfile.lock)'
-                sh "bundle --version"
-                sh 'bundle check || (bundle install --jobs $(sysctl -n hw.logicalcpu) --path=vendor/bundle  --deployment)'
-            }
-        }
-        
-        stage('Tests') {
-            // Of course you must fill all these environment variables
-            environment {
-                ODS_MATTERMOST_HOOK_URL = ...
-                ODS_MATTERMOST_HOOK_BOT_NAME = ...
-                ODS_MATTERMOST_HOOK_BOT_ICON_URL = ...
-            }
-            step {
-                dir('OrangeDesignSystemDemo') {
-                    sh "bundle exec fastlane ios test"
-                }
-            }
-        }
-        
-        stage('Beta') {
-            // Of course you must file all these environment variables
-            environment {
-                // Build and release
-                ODS_DEVELOPER_APP_IDENTIFIER = ...
-                ODS_FASTLANE_APPLE_ID = ...
-                ODS_DEVELOPER_PORTAL_TEAM_ID = ...
-                ODS_APPLE_KEY_ID = ...
-                ODS_APPLE_ISSUER_ID = ...
-                ODS_APPLE_KEY_CONTENT = ...
-                
-                // Credentials to fill in the app
-                ODS_APPS_PLUS_SERVICE_URL = "https://url-to-api?apikey=APPS_PLUS_API_KEY"
+```yaml
+stages:
+  - prepare
+  - test
+  - build
+  - production
 
-                // Mattermost webhooks notifications
-                ODS_MATTERMOST_HOOK_URL = ...
-                ODS_MATTERMOST_HOOK_BOT_NAME = ...
-                ODS_MATTERMOST_HOOK_BOT_ICON_URL = ...
-            }
-            steps {
-                dir('OrangeDesignSystemDemo') {
-                    sh "bundle exec fastlane add_credentials_appsplus"
-                    sh "bundle exec fastlane qualif"
-                }
-            }
-        }
-        
-    }
+.common:
+  tags:
+    - xcode15.1
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" # Only scheduled pipeline needed
+
+.common_ios:
+  extends: .common
+  before_script:
+    # Job fails with allowed error code if IOS_APP_COMMIT_SHA environment variable does not exist.
+    # This IOS_APP_COMMIT_SHA variable is defined as environement variable in prepare-{qualif|production}-environment.sh
+    - if [[ -z "$IOS_APP_COMMIT_SHA" ]]; then exit 81680085; fi
+    - ./download_github_repository.sh Orange-OpenSource ods-ios $IOS_APP_COMMIT_SHA 
+    - cd tmp/ods-ios
+  allow_failure:
+    exit_codes: 81680085
+
+prepare-qualif-environment:
+  extends: .common
+  stage: prepare
+  script: ./prepare_qualif_environment.sh
+  artifacts:
+    reports:
+      dotenv: .env
+  
+test-ios:
+  extends: .common_ios
+  stage: test   
+  needs: [prepare-qualif-environment]  
+  script:
+    - cd ./OrangeDesignSystemDemo
+    - bundle install
+    - bundle exec pod cache clean --all
+    - bundle exec pod install
+    - bundle exec fastlane ios test
+
+build-ios:
+  extends: .common_ios
+  stage: build
+  needs: [prepare-qualif-environment]  
+  script:
+    - cd ./OrangeDesignSystemDemo
+    - bundle install
+    - bundle exec pod cache clean --all
+    - bundle exec pod install
+    - bundle exec fastlane add_credentials_appsplus
+    - bundle exec fastlane qualif tagSuffix:$IOS_APP_COMMIT_SHA
+    # Creates tags dedicated to the CI/CD builds and TestFlight uploads using some commit hash, e.g. the last commit hash.
+    # Will use first characters of the hash, but it might not be enough accurate because some commits may start with same value.
+
+prepare-production-environment:
+  extends: .common
+  stage: production
+  script: ./prepare_production_environment.sh
+  artifacts:
+    reports:
+      dotenv: .env
+  
+prod-ios:
+  extends: .common_ios
+  stage: production
+  needs: [prepare-production-environment]
+  script:
+    - cd ./OrangeDesignSystemDemo
+    - bundle install
+    - bundle exec pod cache clean --all
+    - bundle exec pod install
+    - bundle exec fastlane add_credentials_appsplus
+    - bundle exec fastlane prod upload:true
+  when: manual
+```
+
+Some details for *download_github_repository.sh*:
+
+```shell
+#!/bin/bash
+
+TMP_DIR_PATH="tmp"
+if [ -d $TMP_DIR_PATH ]; then
+    echo "Delete old temp directory"
+    rm -rf $TMP_DIR_PATH
+fi
+
+# No need to clone the Git repository which can be quite heavy.
+# Using also SSH implies to have proxy settings allowing this protocol and to use private key
+# but some developers of ODS iOS are GitHub organization admins, thus their private key are much to powerful
+# and their use is too hazardous.
+
+mkdir -p "$TMP_DIR_PATH/ods-ios" # Ensure the used value, e.g tmp/ods-ios, is the one defined in the .gitlab-ci.yml
+
+ZIP_FILE_PATH="$TMP_DIR_PATH/ods-ios.zip"
+HEADERS=(-L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GITHUB_ACCESS_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28")
+curl "${HEADERS[@]}" "https://api.github.com/repos/$GITHUB_ORGA_NAME/$GITHUB_REPO_NAME/zipball/$COMMIT_SHA" --output $ZIP_FILE_PATH
+yes | unzip $ZIP_FILE_PATH -d $TMP_DIR_PATH
+mv $TMP_DIR_PATH/Orange-OpenSource-ods-ios-*/** "$TMP_DIR_PATH/ods-ios"
+```
+
+Some details for *prepare_(qualif|production)_environment.sh*:
+
+```shell
+#!/bin/bash
+
+Assert(){
+  env_var_name=$1
+  env_var_value=$2
+  if [[ -z $env_var_value ]]; then
+    echo "❌ The environment variable '$env_var_name' is undefined"
+    exit 1
+  fi
 }
+
+# Here are all environement variables you must have filled in your CI/CD chain
+Assert "ODS_APPS_PLUS_SERVICE_URL" $ODS_APPS_PLUS_SERVICE_URL
+Assert "ODS_APPLE_ISSUER_ID" $ODS_APPLE_ISSUER_ID
+Assert "ODS_APPLE_KEY_CONTENT" $ODS_APPLE_KEY_CONTENT
+Assert "ODS_DEVELOPER_BUNDLE_IDENTIFIER" $ODS_DEVELOPER_BUNDLE_IDENTIFIER
+Assert "ODS_MATTERMOST_HOOK_URL" $ODS_MATTERMOST_HOOK_URL
+Assert "ODS_MATTERMOST_HOOK_BOT_NAME" $ODS_MATTERMOST_HOOK_BOT_NAME
+Assert "ODS_MATTERMOST_HOOK_BOT_ICON_URL" $ODS_MATTERMOST_HOOK_BOT_ICON_URL
+Assert "ODS_FASTLANE_APPLE_ID" $ODS_FASTLANE_APPLE_ID
+Assert "ODS_DEVELOPER_PORTAL_TEAM_ID" $ODS_DEVELOPER_PORTAL_TEAM_ID
+Assert "ODS_APPLE_KEY_ID" $ODS_APPLE_KEY_ID
+Assert "GITHUB_ACCESS_TOKEN" $GITHUB_ACCESS_TOKEN
+
+> .env
+
+tag_or_branch="qualif" # Or "main" for production
+headers=(-L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GITHUB_ACCESS_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28")
+commits=$(curl "${headers[@]}" https://api.github.com/repos/Orange-OpenSource/ods-ios/commits\?per_page\=100\&sha\=$tag_or_branch)
+release_commit_sha=$(echo $commits | jq -r 'try(first | .sha)')
+
+if [[ -z $release_commit_sha ]]; then
+  echo "❌ Could not find any commit in qualif branch on GitHub ods-ios repository."
+  exit 2
+fi
+
+echo "IOS_APP_COMMIT_SHA=$release_commit_sha" >> .env # Store environment variables for GitLab jobs
+IOS_APP_COMMIT_SHA="$release_commit_sha"
+export IOS_APP_COMMIT_SHA
 ```

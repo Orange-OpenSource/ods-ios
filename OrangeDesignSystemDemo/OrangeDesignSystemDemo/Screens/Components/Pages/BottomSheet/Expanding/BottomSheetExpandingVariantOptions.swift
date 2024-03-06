@@ -127,10 +127,8 @@ struct ExpandingBottomSheetVariantHome: View {
                         .navigationbarMenuForThemeSelection()
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
-                                Button {
-                                    showBottomSheet = false
-                                } label: {
-                                    Text("shared.close")
+                                ODSButton(text: Text("shared.close"), emphasis: .lowest) {
+                                          showBottomSheet = false
                                 }
                             }
                         }

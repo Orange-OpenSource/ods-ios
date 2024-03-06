@@ -30,7 +30,7 @@ struct ComponentPage: View {
     var body: some View {
         List {
             VStack {
-                themeProvider.imageFromResources(component.imageName)
+                themeProvider.imageFromResources(name: component.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)
@@ -71,7 +71,7 @@ struct ComponentPage_Previews: PreviewProvider {
 
         init() {
             name = "Test"
-            imageName = "Cards_1"
+            imageName = "Cards"
             description = "This is a long text to illustrate the description area"
             variants = AnyView(Variants())
         }
