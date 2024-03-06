@@ -150,6 +150,7 @@
 		51CD728A2B162D1A008CE57D /* FileWithoutJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72812B162D19008CE57D /* FileWithoutJson.json */; };
 		51CD728B2B162D1A008CE57D /* NotStringFile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72822B162D19008CE57D /* NotStringFile.jpg */; };
 		51CD728C2B162D1A008CE57D /* AppNewsMock_notCompliant_badDateFormat.json in Resources */ = {isa = PBXBuildFile; fileRef = 51CD72832B162D19008CE57D /* AppNewsMock_notCompliant_badDateFormat.json */; };
+		51E547A92B98DEDB00CAEF31 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 51E547A82B98DEDB00CAEF31 /* Settings.bundle */; };
 		51F6008A2B5E9AB200FF90F3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F600892B5E9AB200FF90F3 /* Logger.swift */; };
 		51F90B1B2ADED756007AAA45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513876902ADD624B00AE53DF /* Localizable.strings */; };
 		C88E9E08333D56BAEA28A60E /* Pods_OrangeDesignSystemDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E816C9278060A8072007BFD0 /* Pods_OrangeDesignSystemDemoTests.framework */; };
@@ -311,6 +312,7 @@
 		51CD72812B162D19008CE57D /* FileWithoutJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FileWithoutJson.json; sourceTree = "<group>"; };
 		51CD72822B162D19008CE57D /* NotStringFile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NotStringFile.jpg; sourceTree = "<group>"; };
 		51CD72832B162D19008CE57D /* AppNewsMock_notCompliant_badDateFormat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppNewsMock_notCompliant_badDateFormat.json; sourceTree = "<group>"; };
+		51E547A82B98DEDB00CAEF31 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		51F058B62AE8083500B1F690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = OrangeDesignSystemDemo/Resources/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51F600892B5E9AB200FF90F3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		759CBF84E701D1BE3D68D365 /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -953,6 +955,7 @@
 		EB0AA527275652AE0012E192 = {
 			isa = PBXGroup;
 			children = (
+				51E547A82B98DEDB00CAEF31 /* Settings.bundle */,
 				07210C342A8FA6BC00507988 /* 🛠 */,
 				F99FF06D2767ADF0006236A0 /* OrangeDesignSystemDemo */,
 				F99FF0892767B20C006236A0 /* OrangeDesignSystemDemoTests */,
@@ -1102,6 +1105,7 @@
 				5107F55E2AE11BDD00D4D01F /* AppNews.json in Resources */,
 				5107F5622AE1209A00D4D01F /* PrivacyNotice.html in Resources */,
 				071F1CF82B7E46C100833A33 /* AccessibilityStatement.xml in Resources */,
+				51E547A92B98DEDB00CAEF31 /* Settings.bundle in Resources */,
 				077C37D32A9DD643003D6B51 /* Recipes.json in Resources */,
 				513C99F52B5812300043DAAE /* AppsPlus.json in Resources */,
 				077C38A22AA0DD68003D6B51 /* CHANGELOG.md in Resources */,
