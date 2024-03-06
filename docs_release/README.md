@@ -50,8 +50,8 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 - Create a new pull request named `Release X.Y.Z` on GitHub to merge `qualif` into `main`.
 - Review and merge this pull request on GitHub.
 - Launch a job on your runner to build the demo application
-    - Using fastlane command:
-    ```
+    - Using _Fastlane_ command:
+    ```shell
     # Variables for application signing
     export ODS_DEVELOPER_APP_IDENTIFIER=<your_app_identifier>
     export ODS_FASTLANE_APPLE_ID=<your_apple_email_address>
@@ -62,8 +62,8 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     export ODS_APPLE_ISSUER_ID = <your_issuer_ID>
     export ODS_APPLE_KEY_CONTENT = <your_key_content>
     
-    fastlane prod upload: true"
-    # set true if you want to upload app to Test Flight, false otrherwise.
+    bundle exec fastlane prod upload:true
+    # set "upload" to true if you want to upload app to TestFlight, false otrherwise.
     ```
 
 ### Publish release to GitHub
@@ -135,28 +135,29 @@ stages:
   - prepare
   - test
   - build
+  - production
 
 .common:
   tags:
-    - xcode15.1 # Ensure you have registered a runner with this tag, e.g. device having Xcode 15.1
+    - xcode15.1
   rules:
     - if: $CI_PIPELINE_SOURCE == "schedule" # Only scheduled pipeline needed
 
 .common_ios:
   extends: .common
   before_script:
-    # Job fails with allowed error code if IOS_APP_COMMIT_SHA environment variable does not exist
-    # This IOS_APP_COMMIT_SHA variable is defined as environement variable in prepare-environment
+    # Job fails with allowed error code if IOS_APP_COMMIT_SHA environment variable does not exist.
+    # This IOS_APP_COMMIT_SHA variable is defined as environement variable in prepare-{qualif|production}-environment.sh
     - if [[ -z "$IOS_APP_COMMIT_SHA" ]]; then exit 81680085; fi
     - ./download_github_repository.sh Orange-OpenSource ods-ios $IOS_APP_COMMIT_SHA 
     - cd tmp/ods-ios
   allow_failure:
     exit_codes: 81680085
 
-prepare-environment:
+prepare-qualif-environment:
   extends: .common
   stage: prepare
-  script: ./prepare_environment.sh
+  script: ./prepare_qualif_environment.sh
   artifacts:
     reports:
       dotenv: .env
@@ -164,7 +165,7 @@ prepare-environment:
 test-ios:
   extends: .common_ios
   stage: test   
-  needs: [prepare-environment]  
+  needs: [prepare-qualif-environment]  
   script:
     - cd ./OrangeDesignSystemDemo
     - bundle install
@@ -175,7 +176,7 @@ test-ios:
 build-ios:
   extends: .common_ios
   stage: build
-  needs: [prepare-environment]  
+  needs: [prepare-qualif-environment]  
   script:
     - cd ./OrangeDesignSystemDemo
     - bundle install
@@ -184,7 +185,28 @@ build-ios:
     - bundle exec fastlane add_credentials_appsplus
     - bundle exec fastlane qualif tagSuffix:$IOS_APP_COMMIT_SHA
     # Creates tags dedicated to the CI/CD builds and TestFlight uploads using some commit hash, e.g. the last commit hash.
-    # Will use first characters of the hash, but it might not be enough accurate because some commits may start with same value    
+    # Will use first characters of the hash, but it might not be enough accurate because some commits may start with same value.
+
+prepare-production-environment:
+  extends: .common
+  stage: production
+  script: ./prepare_production_environment.sh
+  artifacts:
+    reports:
+      dotenv: .env
+  
+prod-ios:
+  extends: .common_ios
+  stage: production
+  needs: [prepare-production-environment]
+  script:
+    - cd ./OrangeDesignSystemDemo
+    - bundle install
+    - bundle exec pod cache clean --all
+    - bundle exec pod install
+    - bundle exec fastlane add_credentials_appsplus
+    - bundle exec fastlane prod upload:true
+  when: manual
 ```
 
 Some details for *download_github_repository.sh*:
@@ -212,7 +234,7 @@ yes | unzip $ZIP_FILE_PATH -d $TMP_DIR_PATH
 mv $TMP_DIR_PATH/Orange-OpenSource-ods-ios-*/** "$TMP_DIR_PATH/ods-ios"
 ```
 
-Some details for *prepare_environment.sh*:
+Some details for *prepare_(qualif|production)_environment.sh*:
 
 ```shell
 #!/bin/bash
@@ -241,7 +263,7 @@ Assert "GITHUB_ACCESS_TOKEN" $GITHUB_ACCESS_TOKEN
 
 > .env
 
-tag_or_branch="qualif"
+tag_or_branch="qualif" # Or "main" for production
 headers=(-L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GITHUB_ACCESS_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28")
 commits=$(curl "${headers[@]}" https://api.github.com/repos/Orange-OpenSource/ods-ios/commits\?per_page\=100\&sha\=$tag_or_branch)
 release_commit_sha=$(echo $commits | jq -r 'try(first | .sha)')

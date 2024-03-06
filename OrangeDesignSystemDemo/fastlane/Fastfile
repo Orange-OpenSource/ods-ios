@@ -180,6 +180,23 @@ platform :ios do
         build_and_upload(upload: true, commitHash: params[:commitHash])
     end
 
+    # ------------------------------------------------------------
+    # BUILD & UPLOAD TO TESTFLIGHT PROD APP
+    # ------------------------------------------------------------
+    desc "BUILD & UPLOAD TO TESTFLIGHT (if set in options: upload) PROD APP"
+    lane :prod do |params|
+        puts "👉 Prod"
+        update_build_number
+        set_info_plist_value(path: "#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist", key: "ODSBuildType", value: "PROD")
+        build
+        if params[:upload]
+            puts "Upload to TestFlight requested"
+            upload
+        else
+            puts "Upload to TestFlight not requested"
+        end
+    end
+
     # -----------------------------------------------------------------------
     # PRIVATE LANE BUILD & UPLOAD (DEV / QUALIF / PROD is set by main lane)
     # -----------------------------------------------------------------------
