@@ -121,7 +121,7 @@ struct AboutScreen: View {
 
     var body: some View {
         NavigationView {
-            ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources("AboutImage"),
+            ODSAboutModule(headerIllustration: ThemeProvider().imageFromResources(name: "AboutImage"),
                            applicationInformation: applicationInformation,
                            privacyPolicy: privacyPolicy,
                            acessibilityStatement: accessibilityStatement,

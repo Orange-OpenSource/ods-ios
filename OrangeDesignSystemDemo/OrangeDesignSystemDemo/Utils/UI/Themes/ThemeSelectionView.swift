@@ -16,11 +16,8 @@ import OrangeDesignSystem
 import OrangeTheme
 import SwiftUI
 
-///
-/// Theme provider that propose all supported themes for the
-/// demo application.
+/// Theme provider that proposes all supported themes for the demo application.
 /// It also stores the current theme, selected by user.
-///
 final class ThemeProvider: ObservableObject {
 
     // =======================
@@ -60,10 +57,19 @@ final class ThemeProvider: ObservableObject {
         hotSwitchWarningIndicator = HotSwitchWarningIndicator()
     }
 
-    func imageFromResources(_ name: String) -> Image {
-        let isOrangeTheme = currentTheme.name == OrangeThemeFactory.themeName
-        let imageName = isOrangeTheme ? name : "\(name)_generic"
-        return Image(decorative: imageName)
+    /// Returns a decorative image (so as to prevent _Voice Over_ to vocalize it) with the given name.
+    /// A bundle can be assigned, otherwise no bundle will be used (i.e. resource in app).
+    /// - Parameters:
+    ///    - name: The name of the image, which can be suffixed according to the theme
+    ///    - inThemeBundle: If `false` no bundle will be used, otherwise will use the theme bundle.
+    /// - Returns: The decorative image
+    func imageFromResources(name: String, inThemeBundle: Bool = false) -> Image {
+        let imageName = currentTheme.name == InnovationCupThemeFactory.themeName ? "\(name) (Innovation Cup)" : name
+        if inThemeBundle { // Supposing the themes have the same types of images but some of them are suffixed
+            return Image(decorative: imageName, bundle: currentTheme.bundle)
+        } else {
+            return Image(decorative: imageName)
+        }
     }
 }
 
@@ -77,10 +83,11 @@ extension View {
     }
 }
 
-///
-/// Button is added in navigation bar to allow,
-/// the user to change the current theme.
-///
+// ==============================
+// MARK: - Theme Selection Button
+// ==============================
+
+/// Button is added in navigation bar to allow, the user to change the current theme.
 struct ThemeSelectionButton: View {
 
     // =======================
@@ -109,7 +116,9 @@ struct ThemeSelectionButton: View {
     }
 }
 
-// MARK: - Hot switch Warning
+// ===========================
+// MARK: - Hot Switch Warning
+// ===========================
 
 /// Will be removed when hot switch will be supported
 final class HotSwitchWarningIndicator: ObservableObject {

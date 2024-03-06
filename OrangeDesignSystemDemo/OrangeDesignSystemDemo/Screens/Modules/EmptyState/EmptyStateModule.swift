@@ -47,7 +47,7 @@ struct EmptyStateModuleSetup: View {
 
     var body: some View {
         ScrollView {
-            themeProvider.imageFromResources("il_emptyState")
+            themeProvider.imageFromResources(name: "il_emptyState")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .accessibilityHidden(true)

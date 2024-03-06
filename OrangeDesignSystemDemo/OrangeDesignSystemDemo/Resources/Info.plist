@@ -11,7 +11,7 @@
 	<key>CFBundleSpokenName</key>
 	<string>Orange Design System</string>
 	<key>ODSBuildType</key>
-	<string>BETA</string>
+	<string>ALPHA</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>

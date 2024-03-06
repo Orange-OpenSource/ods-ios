@@ -27,7 +27,7 @@ public enum ODSRecirculationDataSource {
 }
 
 /// The view displaying the available apps in a list
-public struct ODSRecirculation: View {
+public struct ODSRecirculationView: View {
 
     // =======================
     // MARK: Stored properties
@@ -37,6 +37,7 @@ public struct ODSRecirculation: View {
     @StateObject private var viewModel: ODSRecirculationModel
     @AccessibilityFocusState private var requestFocus: Focusable?
     @Environment(\.openURL) private var openURL
+    @Environment(\.theme) private var theme
 
     // ==================
     // MARK: Initializers
@@ -66,7 +67,7 @@ public struct ODSRecirculation: View {
                     }
                 }
             case .error:
-                AboutErrorView().task {
+                errorView().task {
                     if enableHaptics {
                         VibrationsManager.error()
                     }
@@ -88,7 +89,19 @@ public struct ODSRecirculation: View {
     // =====================
 
     private func loadingView() -> some View {
-        Text("⏳ Loading")
+        ODSEmptyStateView(
+            title: Text(°°"modules.recirculation.loading.title"),
+            text: Text(°°"modules.recirculation.loading.text"),
+            image: theme.emptyStateImages.userCleared
+        )
+    }
+
+    private func errorView() -> some View {
+        ODSEmptyStateView(
+            title: Text(°°"modules.recirculation.error.title"),
+            text: Text(°°"modules.recirculation.error.text"),
+            image: theme.emptyStateImages.error
+        )
     }
 
     @ViewBuilder

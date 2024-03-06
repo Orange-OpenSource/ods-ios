@@ -49,7 +49,8 @@ let package = Package(
         .target(
             name: "OrangeTheme",
             dependencies: ["OrangeDesignSystem"],
-            path: "OrangeTheme/Sources"),
+            path: "OrangeTheme/Sources",
+            resources: [.process("OrangeTheme/Resources/")]),
         .target(
             name: "InnovationCupTheme",
             dependencies: ["OrangeDesignSystem"],

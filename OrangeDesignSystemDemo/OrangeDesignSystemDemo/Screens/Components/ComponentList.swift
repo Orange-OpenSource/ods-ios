@@ -80,7 +80,7 @@ struct ComponentsList: View {
         } label: {
             ODSCardSmall(
                 title: Text(component.name),
-                imageSource: .image(themeProvider.imageFromResources(component.imageName)))
+                imageSource: .image(themeProvider.imageFromResources(name: component.imageName)))
         }
     }
 }

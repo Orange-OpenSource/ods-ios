@@ -22,6 +22,6 @@ struct AboutErrorView: View {
     }
 
     var body: some View {
-        ODSEmptyStateView(title: text, image: Image("il_yoga_man", bundle: Bundle.ods))
+        ODSEmptyStateView(title: text, image: Image("il_emptyStateUserCleared", bundle: Bundle.ods))
     }
 }

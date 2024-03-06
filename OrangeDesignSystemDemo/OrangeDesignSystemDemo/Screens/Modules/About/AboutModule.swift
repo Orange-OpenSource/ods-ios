@@ -51,7 +51,7 @@ struct AboutSetup: View {
     
     var body: some View {
         ScrollView {
-            ThemeProvider().imageFromResources("il_about")
+            ThemeProvider().imageFromResources(name: "il_about")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .accessibilityHidden(true)
@@ -130,7 +130,7 @@ struct AboutModuleDemo: View {
     // MARK: Mandatory configurations
     // ==============================
 
-    let headerIllustration = ThemeProvider().imageFromResources("AboutImage")
+    let headerIllustration = ThemeProvider().imageFromResources(name: "AboutImage")
     let acessibilityStatement = ODSAboutAccessibilityStatement(
         conformityStatus: "Accessibility: partially conform",
         fileName: "AccessibilityStatement",

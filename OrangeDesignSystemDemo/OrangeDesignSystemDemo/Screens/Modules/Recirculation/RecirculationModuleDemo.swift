@@ -28,7 +28,7 @@ struct RecirculationModuleDemo: View {
 
     var body: some View {
         NavigationView {
-            ODSRecirculation(
+            ODSRecirculationView(
                 dataSource: model.dataSource,
                 flattenApps: model.flattenAppsCategories,
                 cacheAppsIcons: model.cacheAppsIcons,
