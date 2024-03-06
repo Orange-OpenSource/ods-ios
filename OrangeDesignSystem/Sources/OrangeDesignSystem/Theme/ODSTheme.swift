@@ -56,7 +56,7 @@ public struct ODSTheme: Identifiable, Hashable {
     public var font: (_ style: ODSFontStyle) -> Font
     public var emptyStateImages: ODSThemeEmptyStateImages
     public var bundle: Bundle
-    
+
     // ==================
     // MARK: Initializers
     // ==================
@@ -96,19 +96,19 @@ public struct ODSTheme: Identifiable, Hashable {
                 return Font.caption2
             }
         }
-        
+
         emptyStateImages = ODSThemeEmptyStateImages(error: Image("il_emptyStateUserCleared", bundle: Bundle.ods),
                                                     firstUse: Image("il_emptyStateUserCleared", bundle: Bundle.ods),
                                                     noData: Image("il_emptyStateUserCleared", bundle: Bundle.ods),
                                                     userCleared: Image("il_emptyStateUserCleared", bundle: Bundle.ods))
-        
+
         bundle = Bundle.ods
     }
 
     // ==================
     // MARK: Color access
     // ==================
-    
+
     func color(_ assetName: String) -> Color? {
         colorPalette.first { $0.assetName == assetName }?.color
     }
@@ -120,7 +120,7 @@ public struct ODSTheme: Identifiable, Hashable {
     // ==================
     // MARK: Identifiable
     // ==================
-    
+
     public var id: String {
         name
     }
@@ -128,7 +128,7 @@ public struct ODSTheme: Identifiable, Hashable {
     // ==============
     // MARK: Hashable
     // ==============
-    
+
     public static func == (lhs: ODSTheme, rhs: ODSTheme) -> Bool {
         lhs.name == rhs.name
     }

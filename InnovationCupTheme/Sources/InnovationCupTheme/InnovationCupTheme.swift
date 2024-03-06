@@ -87,9 +87,9 @@ public struct InnovationCupThemeFactory {
                                                           firstUse: Image(decorative: "il_emptyStateFirstUse (Innovation Cup)", bundle: .innovationCupTheme),
                                                           noData: Image(decorative: "il_emptyStateNoData (Innovation Cup)", bundle: .innovationCupTheme),
                                                           userCleared: Image(decorative: "il_emptyStateUserCleared (Innovation Cup)", bundle: .innovationCupTheme))
-        
+
         theme.bundle = Bundle.innovationCupTheme
-        
+
         self.theme = theme
     }
 }

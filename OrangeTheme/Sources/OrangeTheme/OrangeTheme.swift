@@ -19,7 +19,7 @@ import SwiftUI
 // =====================
 
 enum OrangeColors: String, CaseIterable {
-    
+
     // MARK: - CORE
     case coreOrange // 2 tints (Dark & Light)
     case coreWhite
@@ -281,6 +281,7 @@ public struct OrangeThemeFactory {
     public let theme: ODSTheme
     public static let themeName = "OrangeTheme"
 
+    // swiftlint:disable function_body_length
     public init() {
         var theme = ODSTheme()
 
@@ -357,6 +358,7 @@ public struct OrangeThemeFactory {
         // Read-to-use theme
         self.theme = theme
     }
+    // swiftlint:enable function_body_length
 }
 
 // ==============
