@@ -103,7 +103,7 @@ struct ModulesList: View {
     // ====================
 
     private func imageFrom(resourceName: String) -> Image {
-        themeProvider.imageFromResources(resourceName)
+        themeProvider.imageFromResources(name: resourceName)
     }
 }
 

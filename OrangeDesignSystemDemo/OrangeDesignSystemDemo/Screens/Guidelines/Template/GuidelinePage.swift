@@ -32,7 +32,7 @@ struct GuidelinePage: View {
     var body: some View {
         List {
             VStack(alignment: .leading, spacing: ODSSpacing.none) {
-                themeProvider.imageFromResources(guideline.imageName)
+                themeProvider.imageFromResources(name: guideline.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(.bottom, ODSSpacing.m)

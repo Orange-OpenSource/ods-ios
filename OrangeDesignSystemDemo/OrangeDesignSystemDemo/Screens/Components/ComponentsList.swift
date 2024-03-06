@@ -98,12 +98,12 @@ struct ComponentsList: View {
         if sizeCategory.isAccessibilityCategory {
             ODSCardVerticalImageFirst(
                 title: Text(component.name),
-                imageSource: .image(themeProvider.imageFromResources(component.imageName))
+                imageSource: .image(themeProvider.imageFromResources(name: component.imageName))
             )
         } else {
             ODSCardSmall(
                 title: Text(component.name),
-                imageSource: .image(themeProvider.imageFromResources(component.imageName))
+                imageSource: .image(themeProvider.imageFromResources(name: component.imageName))
             )
         }
     }

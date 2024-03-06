@@ -47,7 +47,7 @@ public struct ODSRecirculationItemConfig: ODSAboutListItemConfig {
     {
         title = "modules.about.recirculation.title".🌐
         icon = Image("ic_mobile_apps", bundle: Bundle.ods)
-        let destination = ODSRecirculation(
+        let destination = ODSRecirculationView(
             dataSource: dataSource,
             flattenApps: flattenApps,
             cacheAppsIcons: cacheAppsIcons,

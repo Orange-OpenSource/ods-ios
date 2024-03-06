@@ -14,7 +14,12 @@
 import OrangeDesignSystem
 import SwiftUI
 
+// =====================
+// MARK: - Orange Colors
+// =====================
+
 enum OrangeColors: String, CaseIterable {
+    
     // MARK: - CORE
     case coreOrange // 2 tints (Dark & Light)
     case coreWhite
@@ -268,6 +273,10 @@ enum OrangeColors: String, CaseIterable {
     static let palette: ODSColorPalette = Self.allCases.map { $0.colorDecription }
 }
 
+// ============================
+// MARK: - Orange Theme Factory
+// ============================
+
 public struct OrangeThemeFactory {
     public let theme: ODSTheme
     public static let themeName = "OrangeTheme"
@@ -304,6 +313,7 @@ public struct OrangeThemeFactory {
         // Bottom sheet
         theme.componentColors.bottomSheetHeaderBackground = OrangeColors.bottomSheetHeader.colorDecription.color
 
+        // Font
         theme.font = { style in
             switch style {
             case .headlineL:
@@ -335,6 +345,35 @@ public struct OrangeThemeFactory {
             }
         }
 
+        // Images for empty states
+        theme.emptyStateImages = ODSThemeEmptyStateImages(error: Image(decorative: "il_emptyStateError", bundle: .orangeTheme),
+                                                          firstUse: Image(decorative: "il_emptyStateFirstUse", bundle: .orangeTheme),
+                                                          noData: Image(decorative: "il_emptyStateNoData", bundle: .orangeTheme),
+                                                          userCleared: Image(decorative: "il_emptyStateUserCleared", bundle: .orangeTheme))
+
+        // Bundle
+        theme.bundle = Bundle.orangeTheme
+
+        // Read-to-use theme
         self.theme = theme
     }
 }
+
+// ==============
+// MARK: - Bundle
+// ==============
+
+extension Bundle {
+    public static var orangeTheme: Bundle {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
+        return Bundle(for: OrangeThemeBundleResource.self)
+        #endif
+    }
+}
+
+#if SWIFT_PACKAGE
+#else
+final class OrangeThemeBundleResource {}
+#endif

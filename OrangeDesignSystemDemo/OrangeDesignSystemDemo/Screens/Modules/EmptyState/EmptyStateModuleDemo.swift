@@ -66,7 +66,7 @@ struct EmptyStateModuleDemo: View {
     @ViewBuilder
     private var image: Image? {
         if let imageName = model.usageOption.imageName {
-            ThemeProvider().imageFromResources(imageName)
+            ThemeProvider().imageFromResources(name: imageName, inThemeBundle: true)
         }
     }
 

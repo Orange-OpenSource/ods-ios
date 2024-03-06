@@ -14,6 +14,10 @@
 import OrangeDesignSystem
 import SwiftUI
 
+// ===================================
+// MARK: - Innovation Cup Theme Colors
+// ===================================
+
 enum InnovationCupThemeColors: String, CaseIterable {
     // MARK: - Core
     case accent
@@ -34,6 +38,10 @@ enum InnovationCupThemeColors: String, CaseIterable {
 
     static let palette: ODSColorPalette = Self.allCases.map { $0.colorDecription }
 }
+
+// ====================================
+// MARK: - Innovation Cup Theme Factory
+// ====================================
 
 public struct InnovationCupThemeFactory {
     public let theme: ODSTheme
@@ -74,6 +82,33 @@ public struct InnovationCupThemeFactory {
         // Fonts: use the default ones
         // theme.font = { style in }
 
+        // Images for empty states
+        theme.emptyStateImages = ODSThemeEmptyStateImages(error: Image(decorative: "il_emptyStateError (Innovation Cup)", bundle: .innovationCupTheme),
+                                                          firstUse: Image(decorative: "il_emptyStateFirstUse (Innovation Cup)", bundle: .innovationCupTheme),
+                                                          noData: Image(decorative: "il_emptyStateNoData (Innovation Cup)", bundle: .innovationCupTheme),
+                                                          userCleared: Image(decorative: "il_emptyStateUserCleared (Innovation Cup)", bundle: .innovationCupTheme))
+        
+        theme.bundle = Bundle.innovationCupTheme
+        
         self.theme = theme
     }
 }
+
+// ==============
+// MARK: - Bundle
+// ==============
+
+extension Bundle {
+    public static var innovationCupTheme: Bundle {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
+        return Bundle(for: InnovationCupThemeBundleResource.self)
+        #endif
+    }
+}
+
+#if SWIFT_PACKAGE
+#else
+final class InnovationCupThemeBundleResource {}
+#endif

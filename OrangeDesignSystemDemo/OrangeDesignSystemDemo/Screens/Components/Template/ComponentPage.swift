@@ -30,7 +30,7 @@ struct ComponentPage: View {
     var body: some View {
         List {
             VStack {
-                themeProvider.imageFromResources(component.imageName)
+                themeProvider.imageFromResources(name: component.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .accessibilityHidden(true)

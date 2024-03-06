@@ -44,7 +44,7 @@ struct RecirculationModuleSetup: View {
 
     var body: some View {
         ScrollView {
-            ThemeProvider().imageFromResources("il_recirculation")
+            ThemeProvider().imageFromResources(name: "il_recirculation")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .accessibilityHidden(true)

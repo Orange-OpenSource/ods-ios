@@ -31,10 +31,10 @@ This _View_ has a `dataSource` parameter of type `ODSRecirculationDataSource` wh
                                      
 ```swift
     // Get data from the Apps Plus backend
-    ODSRecirculation(dataSource: .remote(url: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
+    ODSRecirculationView(dataSource: .remote(url: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
     
     // Get data for some local files
-    ODSRecirculation(dataSource: .local(path: somePathToJSONFileInResources))
+        ODSRecirculationView(dataSource: .local(path: somePathToJSONFileInResources))
 ```
 
 Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
@@ -43,21 +43,21 @@ or if an error occured.
 If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
 
 ```swift
-    ODSRecirculation(dataSource: ..., flattenApps: true)
+    ODSRecirculationView(dataSource: ..., flattenApps: true)
 ```  
 
 The apps icons displayed in the list of apps can also be cached.
 If you do not want to see these values put in cache, meaning e.g. displaying instead a placeholder if no network, use:
 
 ```swift
-    ODSRecirculation(dataSource: ..., cacheAppsIcons: false)
+    ODSRecirculationView(dataSource: ..., cacheAppsIcons: false)
 ```
 
 The list of apps can trigger also haptic notifications, e.g. vibrations when the data have been lodaded or if an error occured.
 By default this feature is enabled, but it can be disabled:
 
 ```swift
-    ODSRecirculation(dataSource: ..., enableHaptics: false)
+    ODSRecirculationView(dataSource: ..., enableHaptics: false)
 ```
 
 ### Example about definiton of Apps Plus credentials
@@ -103,7 +103,7 @@ We could have choosen this implemention deeper in the repository but wanted to l
         return feedURL
     }
     
-    // And then ODSRecirculation(dataSource: .remote(url: buildAppsPlusURL()))
+    // And then ODSRecirculationView(dataSource: .remote(url: buildAppsPlusURL()))
 ```
 
 In some CI/CD chain like our GitLab CI runner, we can use a _Fastlane_ lane to read some previously environment variable and fill the _Info.Plist_ file in the suitable row.
