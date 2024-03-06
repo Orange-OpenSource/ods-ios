@@ -1,8 +1,8 @@
 [
     {
-        "version": "0.18.0",
-        "date": "2024-02-06",
-        "news": "Remove french localisation."
+        "version": "1.0.0",
+        "date": "2024-03-06",
+        "news": "- New empty state module\n- Independant recirculation module\n- New accessibility statement and display of status\n- Various accessibility fixes\n- Some bug fixes\n- Updated assets of Innovation Cup theme\n- Remove french localisation\n- Display more build details\n- List third-party components in the app in settings"
     },
     {
         "version": "0.17.0",
