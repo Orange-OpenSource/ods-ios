@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...qualif)
+## [1.0.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...1.0.0) - 2024-03-06
 
 ### Added
 
@@ -48,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [DemoApp] Fix wrong color of the close button ([#412](https://github.com/Orange-OpenSource/ods-ios/issues/412))
 - [SDK] About module, Add error views for more apps and appnews ([#689](https://github.com/Orange-OpenSource/ods-ios/issues/689))
 
-## [0.17.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-07-06
+## [0.17.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.16.0...0.17.0) - 2024-02-07
 
 - [DemoApp] Remove french wordings because not enough ready yet ([#663](https://github.com/Orange-OpenSource/ods-ios/issues/663))
 - [Tooling] Various updates ([#667](https://github.com/Orange-OpenSource/ods-ios/issues/667))

@@ -26,7 +26,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     ```
     where P.Q.R is the previous version, X.Y.Z the one we are releasing.
 
-    - Update the AppNews file store in the resources of the demo application
+    - Update the AppNews file stored in the resources of the demo application
     `OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/AppNews.json`
     
     Add a new entry:
@@ -38,7 +38,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     },
     
     ```
-    
+    - Ensure the marketing version defined in Xcode is updated with the new X.Y.Z
     - Commit your modifications
     - Push them to the repository
     
