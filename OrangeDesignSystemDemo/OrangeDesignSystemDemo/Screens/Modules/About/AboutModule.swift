@@ -134,7 +134,7 @@ struct AboutModuleDemo: View {
     let acessibilityStatement = ODSAboutAccessibilityStatement(
         conformityStatus: "Accessibility: partially conform",
         fileName: "AccessibilityStatement",
-        reportDetail: URL(string: "https://la-va11ydette.orange.com/")!)
+        reportDetail: URL(string: "https://orange-opensource.github.io/ods-ios/accessibilityStatement/orange-design-system.html")!)
 
     var privacyPolicy: ODSPrivacyPolicy {
         model.privacyPolicy

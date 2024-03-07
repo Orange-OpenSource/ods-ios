@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.0.0...qualif)
 
+### Changed
 
+ - [DemoApp] Add accessibility statement in online resources and point to it from app ([#786](https://github.com/Orange-OpenSource/ods-ios/issues/786)) 
 
 ## [1.0.0](https://github.com/Orange-OpenSource/ods-ios/compare/0.17.0...1.0.0) - 2024-03-06
 
