@@ -38,7 +38,7 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         // Given
         let privacyPoliceItem = AboutPrivacyPolicyItem(policy: ODSPrivacyPolicy.webview(.url(Bundle.main.url(forResource: "PrivacyNotice", withExtension: "html")!)))
         let termOfServiceItem = AboutTermOfServiceItem(termsOfService: fakeView)
-        let accessiblityStatementItem = AboutAccessibilityStatementItemConfig(statementConfig: ODSAboutAccessibilityStatement(conformityStatus: "Accessibility: partially conform", fileName: "AccessibilityStatement", reportDetail: URL(string: "https://la-va11ydette.orange.com/")!))
+        let accessiblityStatementItem = AboutAccessibilityStatementItemConfig(statementConfig: ODSAboutAccessibilityStatement(conformityStatus: "Accessibility: partially conform", fileName: "AccessibilityStatement", reportDetail: URL(string: "https://orange-opensource.github.io/ods-ios/accessibilityStatement/orange-design-system.html")!))
         let appNewsItem = ODSAboutAppNewsItemConfig(path: "")
         let legalInformationItem = ODSAboutLegalInformationItemConfig(legalInformation: fakeView)
         let moreAppsItem = ODSRecirculationItemConfig(dataSource: .remote(url: URL(string: "https://opensource.orange.com/")!))
