@@ -39,6 +39,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     
     ```
     - Ensure the marketing version defined in Xcode is updated with the new X.Y.Z
+    - Update the version precised in *home_content* file
     - Commit your modifications
     - Push them to the repository
     
