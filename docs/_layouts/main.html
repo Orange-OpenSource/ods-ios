@@ -20,10 +20,6 @@
         body {
             min-height: 100vh;
         }
-        body > .container-xxl,
-        body > .container-xxl > .row {
-            min-height: calc(100vh - 280px);
-        }
         img {
             max-width: 100%;
         }
@@ -36,6 +32,12 @@
         @media (max-width: 1023.98px) {
             .z-offcanvas {
                 z-index: 1045;
+            }
+        }
+        @media (min-width: 1024px) {
+            body > .container-xxl,
+            body > .container-xxl > .row {
+                min-height: calc(100vh - 280px);
             }
         }
     </style>
