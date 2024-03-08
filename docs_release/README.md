@@ -39,6 +39,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     
     ```
     - Ensure the marketing version defined in Xcode is updated with the new X.Y.Z
+    - Update the version precised in *home_content* file
     - Commit your modifications
     - Push them to the repository
     
@@ -70,7 +71,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 
 - Go to [GitHub Releases](https://github.com/Orange-OpenSource/ods-ios/releases).
 
-- Click on `Draft a new version`.
+- Click on `Draft a new release`.
 
     ![Edit GitHub release](images/github_release_01.png)
 
@@ -132,19 +133,20 @@ You can find bellow some pipeline script to fill and use. Ensure all environemen
 
 ```yaml
 stages:
-  - prepare
-  - test
-  - build
-  - production
+  - prepare-qualif
+  - test-qualif
+  - build-qualif
+  - prepare-production
+  - build-production
 
-.common:
+.common_qualif:
   tags:
     - xcode15.1
   rules:
     - if: $CI_PIPELINE_SOURCE == "schedule" # Only scheduled pipeline needed
 
-.common_ios:
-  extends: .common
+.common_qualif_ios:
+  extends: .common_qualif
   before_script:
     # Job fails with allowed error code if IOS_APP_COMMIT_SHA environment variable does not exist.
     # This IOS_APP_COMMIT_SHA variable is defined as environement variable in prepare-{qualif|production}-environment.sh
@@ -154,18 +156,18 @@ stages:
   allow_failure:
     exit_codes: 81680085
 
-prepare-qualif-environment:
-  extends: .common
-  stage: prepare
+prepare_qualif_environment:
+  extends: .common_qualif
+  stage: prepare-qualif
   script: ./prepare_qualif_environment.sh
   artifacts:
     reports:
       dotenv: .env
   
-test-ios:
-  extends: .common_ios
-  stage: test   
-  needs: [prepare-qualif-environment]  
+test_ios:
+  extends: .common_qualif_ios
+  stage: test-qualif
+  needs: [prepare_qualif_environment]  
   script:
     - cd ./OrangeDesignSystemDemo
     - bundle install
@@ -173,10 +175,10 @@ test-ios:
     - bundle exec pod install
     - bundle exec fastlane ios test
 
-build-ios:
-  extends: .common_ios
-  stage: build
-  needs: [prepare-qualif-environment]  
+build_ios:
+  extends: .common_qualif_ios
+  stage: build-qualif
+  needs: [prepare_qualif_environment]  
   script:
     - cd ./OrangeDesignSystemDemo
     - bundle install
@@ -187,18 +189,34 @@ build-ios:
     # Creates tags dedicated to the CI/CD builds and TestFlight uploads using some commit hash, e.g. the last commit hash.
     # Will use first characters of the hash, but it might not be enough accurate because some commits may start with same value.
 
-prepare-production-environment:
-  extends: .common
-  stage: production
+.common_prod:
+  tags:
+    - xcode15.1
+
+.common_prod_ios:
+  extends: .common_prod
+  before_script:
+    # Job fails with allowed error code if IOS_APP_COMMIT_SHA environment variable does not exist.
+    # This IOS_APP_COMMIT_SHA variable is defined as environement variable in prepare-{qualif|production}-environment.sh
+    - if [[ -z "$IOS_APP_COMMIT_SHA" ]]; then exit 81680085; fi
+    - ./download_github_repository.sh Orange-OpenSource ods-ios $IOS_APP_COMMIT_SHA 
+    - cd tmp/ods-ios
+  allow_failure:
+    exit_codes: 81680085
+
+prepare_production_environment:
+  extends: .common_prod
+  stage: prepare-production
   script: ./prepare_production_environment.sh
   artifacts:
     reports:
       dotenv: .env
+  when: manual      
   
-prod-ios:
-  extends: .common_ios
-  stage: production
-  needs: [prepare-production-environment]
+build_production:
+  extends: .common_prod_ios
+  stage: build-production
+  needs: [prepare_production_environment]
   script:
     - cd ./OrangeDesignSystemDemo
     - bundle install
