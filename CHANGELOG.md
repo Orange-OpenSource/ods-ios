@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [Doc] Improve release documentation
 - [Tooling] Define ZIP archive for nightly and production builds (for artifacts storage in CI/CD pipelines)
+- [Tooling] Update dependency SwiftFormat/CLI to v0.53.4
 
 ## [1.1.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.0.0...1.1.0) - 2024-03-08
 

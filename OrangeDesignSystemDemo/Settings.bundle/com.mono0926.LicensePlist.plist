@@ -54,7 +54,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/SwiftFormat</string>
 			<key>Title</key>
-			<string>SwiftFormat (0.53.3)</string>
+			<string>SwiftFormat (0.53.4)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

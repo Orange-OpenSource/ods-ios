@@ -25,6 +25,12 @@ brew install peripheryapp/periphery/periphery
 
 # For jq (https://jqlang.github.io/jq/)
 brew install jq
+
+# For gitleaks (https://github.com/gitleaks/gitleaks)
+brew install gitleaks
+
+# For licenseplist (https://github.com/mono0926/LicensePlist)
+brew install licenseplist
 ```
 
 ## Build OrangeDesignSystemDemo
@@ -133,3 +139,35 @@ gitleaks detect -v -l debug --source .
 ```
 
 Note that we face some issues about the use of _Gitleaks GitHub Action_ and _Gitleaks_ as CLI command, for fur further details see [#131](https://github.com/gitleaks/gitleaks-action/issues/131), [#132](https://github.com/gitleaks/gitleaks-action/issues/132) and [#1331](https://github.com/gitleaks/gitleaks/issues/1331).
+
+## Update dependencies
+
+Sometimes dependencies should be updated, with for example warnings of [Renovate bot](https://github.com/apps/renovate).
+Here is the list of files to update to keep the project clean:
+- CHANGELOG (to note for releases the update of the version)
+- THIRD-PARTY (because we list all third-party components)
+- Of course, update and save in tyout VSC the new states of the Podfile, Package.swift or Gemfile (and do not forget locks)
+- doctor.sh (to notify to newcomers the version they should have when using this doctor script)
+- And update the resources embeded in the demo app bundle settings:
+
+```shell
+license-plist --add-version-numbers
+```
+
+Maybe yo will need to update your pods repo before if you updated a Pod:
+
+```shell
+bundle exec pod install --repo-update
+```
+
+## Third-party components declaration
+
+It is a good practice to have in the app, e.g. in the app settings, the list of third-party components in use, at least for the app.
+The [LicensePlist](https://github.com/mono0926/LicensePlist) project helps to get dependencies 
+and produce files to place inside the _Settings.bundle_ file:
+
+To use it:
+
+```shell
+license-plist --add-version-numbers
+```

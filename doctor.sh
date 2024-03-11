@@ -110,7 +110,7 @@ echo -e "\n"
 
 read -p "✋ Let's check version of SwiftFormat (for headers and code style)... [PRESS ANY KEY]"
 echo -e "\n"
-CheckIfRuntimeExists "SwiftFormat" "swiftformat --version" "0.53.2"
+CheckIfRuntimeExists "SwiftFormat" "swiftformat --version" "0.53.4"
 echo -e "\n"
 
 # ====================
@@ -131,9 +131,18 @@ echo -e "\n"
 CheckIfRuntimeExists "jq" "jq --version" "jq-1.6"
 echo -e "\n"
 
-# =============================
-# Check n°9: Dependencies files
-# =============================
+# ==============
+# Check n°8: jq
+# ==============
+
+read -p "✋ Let's check version of licenseplist (for third-party files of demo app)... [PRESS ANY KEY]"
+echo -e "\n"
+CheckIfRuntimeExists "LicensePlist" "license-plist" "3.25.1"
+echo -e "\n"
+
+# ==============================
+# Check n°10: Dependencies files
+# ==============================
 
 read -p "✋ Let's check some dependencies manager files you have to have... [PRESS ANY KEY]"
 echo -e "\n"
@@ -146,7 +155,7 @@ CheckIfFileExists "./OrangeDesignSystemDemo/Podfile.lock"
 echo -e "\n"
 
 # =================
-# Check n°10: Tests
+# Check n°11: Tests
 # =================
 
 read -p "✋ Let's launch the test, they must all pass... [PRESS ANY KEY]"
