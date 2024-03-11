@@ -8,13 +8,13 @@
         padding: 1.25rem 0;
         background-color: var(--bs-body-bg);
         background-clip: padding-box;
+        border:var(--bs-border-width) solid var(--bs-border-color-subtle);
         transform: translateX(-50%)
     }
 
     [id="tarteaucitron"] [role="heading"] {
         display: block;
         font-weight: 700;
-        color: #000
     }
 
     @media (min-width: 480px) {
@@ -62,6 +62,7 @@
         font-weight: 700;
         color: #fff;
         background: #000;
+        border-top: var(--bs-border-width) solid var(--bs-border-color-subtle);
         --max-width: 312px
     }
 
@@ -105,22 +106,6 @@
         font-size: .875rem
     }
 
-    [id="tarteaucitronCloseAlert"] {
-        --bs-btn-color: #000;
-        --bs-btn-bg: #fff;
-        --bs-btn-border-color: #fff;
-        --bs-btn-hover-color: #fff;
-        --bs-btn-hover-bg: #000;
-        --bs-btn-hover-border-color: #000;
-        --bs-btn-focus-shadow-rgb: #fff;
-        --bs-btn-active-color: #000;
-        --bs-btn-active-bg: #ff7900;
-        --bs-btn-active-border-color: #ff7900;
-        --bs-btn-disabled-color: #ccc;
-        --bs-btn-disabled-bg: #fff;
-        --bs-btn-disabled-border-color: #ccc
-    }
-
     [id="tarteaucitronClosePanel"] {
         position: absolute;
         right: 1.25rem 0;
@@ -162,7 +147,7 @@
     }
 
     [id="tarteaucitronInfo"] {
-        padding: .625rem 1.25rem 0;
+        padding: .625rem 0;
         margin-bottom: 1.25rem;
         font-weight: 700
     }
@@ -190,7 +175,7 @@
     .tarteaucitronMainLine {
         padding-bottom: 1.25rem;
         margin-bottom: 1.25rem;
-        border-bottom: var(--bs-border-width) solid #ddd
+        border-bottom: var(--bs-border-width) solid var(--bs-border-color-subtle);
     }
 
     [id="tarteaucitronServices"] {
@@ -223,8 +208,8 @@
         min-height: inherit;
         content: "";
         background-color: currentcolor;
-        -webkit-mask: var(--o-check-icon) no-repeat 50% / .875rem .875rem;
-        mask: var(--o-check-icon) no-repeat 50% / .875rem .875rem
+        -webkit-mask: var(--bs-check-icon) no-repeat 50% / .875rem .875rem;
+        mask: var(--bs-check-icon) no-repeat 50% / .875rem .875rem
     }
 
     .tarteaucitronAllow::before {
@@ -242,8 +227,8 @@
         min-height: inherit;
         content: "";
         background-color: currentcolor;
-        -webkit-mask: var(--o-close-icon) no-repeat 50% / .875rem .875rem;
-        mask: var(--o-close-icon) no-repeat 50% / .875rem .875rem
+        -webkit-mask: var(--bs-close-icon) no-repeat 50% / .875rem .875rem;
+        mask: var(--bs-close-icon) no-repeat 50% / .875rem .875rem
     }
 
     .tarteaucitronDeny::before {
@@ -302,10 +287,12 @@
         window.addEventListener('tac.open_alert', () => {
             const alert = document.getElementById('tarteaucitronAlertBig')
 
-            document.getElementById('tarteaucitronCloseAlert').classList.add('btn', 'btn-sm', 'btn-info', 'btn-inverse', 'ms-lg-2')
-            alert.querySelector('.tarteaucitronAllow').classList.add('btn', 'btn-sm', 'btn-success', 'btn-inverse', 'mx-sm-2', 'ms-lg-auto', 'my-2', 'my-lg-0')
+            alert.setAttribute('data-bs-theme', 'dark')
+
+            document.getElementById('tarteaucitronCloseAlert').classList.add('btn', 'btn-sm', 'btn-secondary', 'ms-lg-2')
+            alert.querySelector('.tarteaucitronAllow').classList.add('btn', 'btn-sm', 'btn-success', 'mx-sm-2', 'ms-lg-auto', 'my-2', 'my-lg-0')
             alert.querySelector('.tarteaucitronAllow').innerHTML = tarteaucitron.lang.acceptAll
-            alert.querySelector('.tarteaucitronDeny').classList.add('btn', 'btn-sm', 'btn-danger', 'btn-inverse', 'mx-sm-2', 'my-2', 'my-lg-0')
+            alert.querySelector('.tarteaucitronDeny').classList.add('btn', 'btn-sm', 'btn-danger', 'mx-sm-2', 'my-2', 'my-lg-0')
             alert.querySelector('.tarteaucitronDeny').innerHTML = tarteaucitron.lang.denyAll
         }, { once: true })
 
