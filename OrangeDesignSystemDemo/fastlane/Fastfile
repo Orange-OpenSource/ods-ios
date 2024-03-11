@@ -218,8 +218,7 @@ platform :ios do
             puts "Upload to TestFlight requested"
             # If already uploaded, prevents to upload again
             if tag_testflight_upload(commitHash)
-            # @@@ TODO: Uncomment! Commented here for debug purposes                
-            #    upload 
+                upload 
             else
                 puts "Nothing new to build today, a TestFlight tag for commit '#{commitHash}' already exists"
                 publish_mattermost_notification("⚙️ 🤔 Nothing new to build today, a TestFlight tag for commit '#{commitHash}' already exists")
@@ -267,7 +266,7 @@ platform :ios do
                 xcargs: "-allowProvisioningUpdates")
             
             # Build a ZIP archive to put as artificat to the GitLab CI runner
-            # Nneeded for upload later as .xcarchive for App Store through corporate portal
+            # Needed for upload later as .xcarchive for App Store through corporate portal
             zip(path: "build/odsApp.xcarchive",
                 output_path: "build/odsApp.zip")
 
@@ -394,14 +393,13 @@ platform :ios do
             else
                 puts "Commit SHA to tag is '#{IOS_APP_COMMIT_SHA}'"
                 # Just a light tag is enough 
-                # @@@ TODO: Uncomment! Commented here for debug purposes
-                #sh("curl -L \
-                #  -X POST \
-                #  -H 'Accept: application/vnd.github+json' \
-                #  -H 'Authorization: Bearer #{GITHUB_ACCESS_TOKEN}'\
-                #  -H 'X-GitHub-Api-Version: 2022-11-28' \
-                #  https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs \
-                #  -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{IOS_APP_COMMIT_SHA}\"}'") # TODO Shell error management
+                sh("curl -L \
+                  -X POST \
+                  -H 'Accept: application/vnd.github+json' \
+                  -H 'Authorization: Bearer #{GITHUB_ACCESS_TOKEN}'\
+                  -H 'X-GitHub-Api-Version: 2022-11-28' \
+                  https://api.github.com/repos/Orange-OpenSource/ods-ios/git/refs \
+                  -d '{\"ref\":\"refs/tags/#{tag}\",\"sha\":\"#{IOS_APP_COMMIT_SHA}\"}'") # TODO Shell error management
                   return true
               end
         end
@@ -409,12 +407,11 @@ platform :ios do
 
     # Sends a message notification through Mattermost hook
     def publish_mattermost_notification(message)
-        # @@@ TODO: Un comment! Commented here for debug purposes
-       # mattermost(url: MATTERMOST_HOOK_URL,
-       #           text: "#{message}",
-       #           username: MATTERMOST_HOOK_BOT_NAME,
-       #           icon_url: MATTERMOST_HOOK_BOT_ICON_URL
-       #           )
+        mattermost(url: MATTERMOST_HOOK_URL,
+                  text: "#{message}",
+                  username: MATTERMOST_HOOK_BOT_NAME,
+                  icon_url: MATTERMOST_HOOK_BOT_ICON_URL
+                  )
     end
 
     # Get version set in the Xcode project

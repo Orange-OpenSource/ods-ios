@@ -5,9 +5,9 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 - [Prepare release](#prepare-release)
 - [Release](#release)
   * [Publish release to GitHub](#publish-release-to-github)
-  * [Announce the new release on FoODS](#announce-the-new-release-on-foods)<br /><br />
-- [Prepare Next Release]
-- [About CI/CD with GitLab CI]
+  * [Announce the new release on FoODS](#announce-the-new-release-on-foods)
+- [Prepare Next Release](#prepare-next-release)
+- [About CI/CD with GitLab CI](#about-cicd-with-gitlabci)
 
 ## Prepare release
 
@@ -49,7 +49,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 ## Release
 
 - Create a new pull request named `Release X.Y.Z` on GitHub to merge `qualif` into `main`.
-- Review and merge this pull request on GitHub.
+- Review and merge this pull request on GitHub. The merge strategy must be a **simple merge without squash of commits** (this strategy is only dedicated to feature branches to merge in qualif branch).
 - Launch a job on your runner to build the demo application
     - Using _Fastlane_ command:
     ```shell
@@ -64,7 +64,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     export ODS_APPLE_KEY_CONTENT = <your_key_content>
     
     bundle exec fastlane prod upload:true
-    # set "upload" to true if you want to upload app to TestFlight, false otrherwise.
+    # set "upload" to true if you want to upload app to TestFlight, false otherwise.
     ```
 
 ### Publish release to GitHub
@@ -191,7 +191,8 @@ build_ios:
   artifacts:
     expire_in: 1 week
     paths:
-      - build/odsApp.zip    
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/OrangeDesignSystemDemo.ipa
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/odsApp.zip
 
 .common_prod:
   tags:
@@ -231,7 +232,8 @@ build_production:
   artifacts:
     expire_in: 1 week
     paths:
-      - build/odsApp.zip    
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/OrangeDesignSystemDemo.ipa
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/odsApp.zip
   when: manual
 ```
 
@@ -250,6 +252,7 @@ fi
 # Using also SSH implies to have proxy settings allowing this protocol and to use private key
 # but some developers of ODS iOS are GitHub organization admins, thus their private key are much to powerful
 # and their use is too hazardous.
+# Repository mirroring is not provided in the current GitLab CI purchased plan.
 
 mkdir -p "$TMP_DIR_PATH/ods-ios" # Ensure the used value, e.g tmp/ods-ios, is the one defined in the .gitlab-ci.yml
 
