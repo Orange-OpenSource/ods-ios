@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...qualif)
 
+### Changed
+
+- [Tooling] Define ZIP archive for nightly and production builds (for artifacts storage in CI/CD pipelines)
+
 ## [1.1.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.0.0...1.1.0) - 2024-03-08
 
 ### Changed

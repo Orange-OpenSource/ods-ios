@@ -259,12 +259,17 @@ platform :ios do
             
             gym(workspace: "#{ODS_WORKSPACE}",
                 scheme: ODS_SCHEME,
-                configuration: 'Release',
-                output_directory: 'build/',
-                export_method: 'app-store',
-                archive_path: 'build/odsApp.xcarchive',
+                configuration: "Release",
+                output_directory: "build/",
+                export_method: "app-store",
+                archive_path: "build/odsApp.xcarchive",
                 xcargs: "-allowProvisioningUpdates")
             
+            # Build a ZIP archive to put as artificat to the GitLab CI runner
+            # Nneeded for upload later as .xcarchive for App Store through corporate portal
+            zip(path: "build/odsApp.xcarchive",
+                output_path: "build/odsApp.zip")
+
             publish_mattermost_notification("🔨 ✅ A new build has been done successfully")
         rescue => error
             publish_mattermost_notification("🔨 🚨 @channel Some issue occurred during the build step (:build)")
@@ -368,7 +373,8 @@ platform :ios do
         end
     end
 
-    # Creates a Git tag at given commit through HTTP protocol to prevent proxy or firewalls to block SSH requests
+    # Creates a Git tag at given commit through HTTP protocol to prevent proxy or firewalls to block SSH requests.
+    # Not possible also to make repository mirroring because of the current purchased plan of the GitLab instance.
     def create_tag(tag)
       
         # Check personal access token for tag creation

@@ -188,6 +188,10 @@ build_ios:
     - bundle exec fastlane qualif tagSuffix:$IOS_APP_COMMIT_SHA
     # Creates tags dedicated to the CI/CD builds and TestFlight uploads using some commit hash, e.g. the last commit hash.
     # Will use first characters of the hash, but it might not be enough accurate because some commits may start with same value.
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - build/odsApp.zip    
 
 .common_prod:
   tags:
@@ -224,6 +228,10 @@ build_production:
     - bundle exec pod install
     - bundle exec fastlane add_credentials_appsplus
     - bundle exec fastlane prod upload:true
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - build/odsApp.zip    
   when: manual
 ```
 
