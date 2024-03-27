@@ -30,44 +30,13 @@ Please follow [accessibility criteria for development](https://a11y-guidelines.o
 
 ## Variants
 
-### No button
-
-```swift
-ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
-         imageSource: .image(Image("placeholder", bundle: Bundle.ods)))
-```
-
-### One button
-
-The button is placed under the text.
-
-```swift
-ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
-         imageSource: .image(Image("placeholder", bundle: Bundle.ods))) {
-             Button("Button") {
-                 // your action here
-             }
-}
-```
-
 ### Two buttons
 
 Button are placed under the text.
 
-```swift
-ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
-         imageSource: .image(Image("placeholder", bundle: Bundle.ods))) {
-    Button("Button 1") {
-        // your action here
-    }
-} secondButton: { 
-    Button("Button 1") {
-        // your action here
-    }
-}
-```
+#### SwiftUI examples
 
-### Without image
+- Without image
 
 ```swift
 ODSBanner(text: "One to two lines is preferable on mobile and tablet.") {
@@ -81,7 +50,23 @@ ODSBanner(text: "One to two lines is preferable on mobile and tablet.") {
 }
 ```
 
-### With image from url
+- with image from resourcess
+ 
+```swift
+ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
+         imageSource: .image(Image("placeholder", bundle: Bundle.ods))) {
+    Button("Button 1") {
+        // your action here
+    }
+} secondButton: { 
+    Button("Button 1") {
+        // your action here
+    }
+}
+```
+
+
+- With image from url
 
 ```swift
 
@@ -100,4 +85,52 @@ ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
 }
 ```
 
+#### ODSBanner API
+
+| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
+|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| <b>`text: Text`</b>                 |                                                                                   | Text displayed into the banner.                                                   |
+| `imageSource: ODSImage.Source?`     | `nil`                                                                             | Image displayed in the banner in a circle shape.                                  |
+| `firstButton: Button<Text>`         |                                                                                   | Primary (leading) button displayed in the banner.                                 |
+| `secondButton: Button<Text>`        |                                                                                   | Secondary (trailing) button displayed into the banner next to the primary one.    |
+
+### One button
+
+The button is placed under the text.
+
+#### SwiftUI example
+
+```swift
+ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
+         imageSource: .image(Image("placeholder", bundle: Bundle.ods))) {
+             Button("Button") {
+                 // your action here
+             }
+}
+```
+
+#### ODSBanner API
+
+| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
+|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| <b>`text: Text`</b>                 |                                                                                   | Text displayed into the banner.                                                   |
+| `imageSource: ODSImage.Source?`     | `nil`                                                                             | Image displayed in the banner in a circle shape.                                  |
+| `button: Button<Text>`              |                                                                                   | Primary button displayed in the banner.                                           |
+
+
+### No button
+
+#### SwiftUI example
+
+```swift
+ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
+         imageSource: .image(Image("placeholder", bundle: Bundle.ods)))
+```
+
+#### ODSBanner API
+
+| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
+|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| <b>`text: Text`</b>                 |                                                                                   | Text displayed into the banner.                                                   |
+| `imageSource: ODSImage.Source?`     | `nil`                                                                             | Image displayed in the banner in a circle shape.                                  |
 
