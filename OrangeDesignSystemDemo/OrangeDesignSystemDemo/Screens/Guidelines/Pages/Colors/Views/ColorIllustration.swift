@@ -39,10 +39,9 @@ struct ColorIllustration: View {
                 .border(bordered ? Color.secondary : Color.clear)
                 .aspectRatio(1.0, contentMode: .fit)
 
+            Text(colorDescription.assetName).odsFont(.headlineS)
+                
             ColorName(colorDescription: colorDescription)
-
-            Text(colorDescription.assetName)
-                .font(.system(.caption, design: .monospaced))
 
             Text(colorDescription.uiColor.hexa(colorScheme: screenState.colorScheme))
                 .odsFont(.labelMRegular)
@@ -64,7 +63,10 @@ struct ColorIllustration: View {
 
     private var accessibilityLabel: String {
         let rgba = colorDescription.uiColor.rgba(colorScheme: screenState.colorScheme)
-        return "a11y.color_details" <- [colorDescription.assetName, rgba.accessibilityLabel, rgba.hexa]
+        return "a11y.color_details" <- [colorDescription.assetName,
+                                        colorDescription.name(for: screenState.colorScheme) ??
+                                        colorDescription.assetName,
+                                        rgba.hexa]
     }
 }
 
@@ -83,7 +85,8 @@ struct ColorName: View {
 
     var body: some View {
         if let colorName = colorName {
-            Text(colorName).odsFont(.headlineS)
+            Text(colorName)
+                .font(.system(.caption, design: .monospaced))
         }
     }
 

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - [Tooling] Update dependency SwiftFormat/CLI to v0.53.5
+- [DemoApp] The main color names, visible on the screen are not vocalized ([#720](https://github.com/Orange-OpenSource/ods-ios/issues/720))
 - [Doc] Improve release documentation
 - [Tooling] Define ZIP archive for nightly and production builds (for artifacts storage in CI/CD pipelines)
 

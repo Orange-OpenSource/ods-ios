@@ -99,7 +99,7 @@
 "screens.guidelines.colors.description.more" = "Some colours are defined with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
 
 "a11y.tap_twice_to_get_more" = "Tap twice to get more information";
-"a11y.color_details" = "asset name: %@, RGB value is %@ . Hex value is %@";
+"a11y.color_details" = "token name: %@, color name is %@ . Hex value is %@";
 
 // =======================================
 // MARK: - Screens - Guidelines - Spacings
