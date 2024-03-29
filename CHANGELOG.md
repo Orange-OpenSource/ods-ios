@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...qualif)
 
+### Added
+
+- [DemoApp] Add privacy manifest ([#798](https://github.com/Orange-OpenSource/ods-ios/issues/798))
+
 ### Changed
 
 - [Tooling] Update dependency SwiftFormat/CLI to v0.53.5
