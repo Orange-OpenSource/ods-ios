@@ -137,7 +137,6 @@ If required, colour versions can also be used to inform users of positive or neg
 | <b>`style: ODSFunctionalButton.Style`</b> |                                                                                   | Controls the style of the button. Use `ODSFunctionalButton.Style.positive`/`ODSFunctionalButton.Style.negative` to get a green/red button.
 | `fullWidth: Bool`                         | `false`                                                                           | Defines the size of the button layout. Set to `true` means button takes all available space horizontally. Set to `false`, the size of the button is limited to the size of the text added by a padding round it.   
 | <b>`action: () -> Void`</b>               |                                                                                   | Callback invoked on button click.                                                 |                                                                            
-
 <BR>
 
 
