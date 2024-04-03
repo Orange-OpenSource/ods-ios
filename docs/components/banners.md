@@ -87,12 +87,12 @@ ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
 
 #### ODSBanner API
 
-| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| <b>`text: Text`</b>                 |                                                                                   | Text displayed into the banner.                                                   |
-| `imageSource: ODSImage.Source?`     | `nil`                                                                             | Image displayed in the banner in a circle shape.                                  |
-| `firstButton: Button<Text>`         |                                                                                   | Primary (leading) button displayed in the banner.                                 |
-| `secondButton: Button<Text>`        |                                                                                   | Secondary (trailing) button displayed into the banner next to the primary one.    |
+| Parameter                       | Default&nbsp;value  | Description                                                                    |
+|-------------------------------- |---------------------|------------------------------------------------------------------------------- |
+| <b>`text: Text`</b>             |                     | Text displayed into the banner.                                                |
+| `imageSource: ODSImage.Source?` | `nil`               | Image displayed in the banner in a circle shape.                               |
+| `firstButton: Button<Text>`     |                     | Primary (leading) button displayed in the banner.                              |
+| `secondButton: Button<Text>`    |                     | Secondary (trailing) button displayed into the banner next to the primary one. |
 
 ### One button
 
@@ -111,11 +111,11 @@ ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
 
 #### ODSBanner API
 
-| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| <b>`text: Text`</b>                 |                                                                                   | Text displayed into the banner.                                                   |
-| `imageSource: ODSImage.Source?`     | `nil`                                                                             | Image displayed in the banner in a circle shape.                                  |
-| `button: Button<Text>`              |                                                                                   | Primary button displayed in the banner.                                           |
+| Parameter                       | Default&nbsp;value | Description                                      |
+|---------------------------------|--------------------|--------------------------------------------------|
+| <b>`text: Text`</b>             |                    | Text displayed into the banner.                  |
+| `imageSource: ODSImage.Source?` | `nil`              | Image displayed in the banner in a circle shape. |
+| `button: Button<Text>`          |                    | Primary button displayed in the banner.          |
 
 
 ### No button
@@ -129,8 +129,8 @@ ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
 
 #### ODSBanner API
 
-| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| <b>`text: Text`</b>                 |                                                                                   | Text displayed into the banner.                                                   |
-| `imageSource: ODSImage.Source?`     | `nil`                                                                             | Image displayed in the banner in a circle shape.                                  |
+| Parameter                       | Default&nbsp;value | Description                                      |
+|---------------------------------|--------------------|--------------------------------------------------|
+| <b>`text: Text`</b>             |                    | Text displayed into the banner.                  |
+| `imageSource: ODSImage.Source?` | `nil`              | Image displayed in the banner in a circle shape. |
 

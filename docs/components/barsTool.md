@@ -57,25 +57,25 @@ NavigationView {
 
 #### odsToolBar Modifier API
 
-| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `items: ODSToolbarLabeledItems`     |                                                                                   | Text items displayed into the banner.                                             |
+| Parameter                       | Default&nbsp;value | Description                           |
+|---------------------------------|--------------------|---------------------------------------|
+| `items: ODSToolbarLabeledItems` |                    | Text items displayed into the banner. |
 
 
 #### ODSToolbarLabeledItems API
 
-| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `description1: ODSToolbarLabelDesription` |                                                                             | Primary description of item in tool bar                                           |
-| `description2: ODSToolbarLabelDesription` |                                                                             | Secondary description of item in tool bar                                         |
-| `description3: ODSToolbarLabelDesription?`| nil                                                                         | Terciary (optional) description of item in tool bar                               |
+| Parameter                                 | Default&nbsp;value | Description                                         |
+|-------------------------------------------|--------------------|---------------------------------------------------- |
+| `description1: ODSToolbarLabelDesription` |                    | Primary description of item in tool bar             |
+| `description2: ODSToolbarLabelDesription` |                    | Secondary description of item in tool bar           |
+| `description3: ODSToolbarLabelDesription?`| `nil`              | Terciary (optional) description of item in tool bar |
 
 #### ODSToolbarLabelDesriptionF API
 
-| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `text: String                       |                                                                                   | Text displayed in the item                                                        |
-| `action: @escaping () -> Void`      |                                                                                   | Action when item is clicked                                                       |
+| Parameter                      | Default&nbsp;value | Description                 |
+|--------------------------------|--------------------|-----------------------------|
+| `text: String                  |                    | Text displayed in the item  |
+| `action: @escaping () -> Void` |                    | Action when item is clicked |
 <BR>
 
 ### With icon items
@@ -110,28 +110,28 @@ NavigationView {
 
 #### odsToolBar Modifier API
 
-| Parameter                           | Default value                                                                     | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `items: ODSToolbarIconItems`        |                                                                                   | Icon items displayed into the banner.                                             |
+| Parameter                    | Default value  | Description                           |
+|------------------------------|----------------|---------------------------------------|
+| `items: ODSToolbarIconItems` |                | Icon items displayed into the banner. |
 
 
 #### ODSToolbarIconsItems API
 
-| Parameter                                | Default value                                                                | Description                                                                       |
-|------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `description1: ODSToolbarIconDesription` |                                                                              | First description of item in tool bar                                             |
-| `description2: ODSToolbarIconDesription` |                                                                              | Second description of item in tool bar                                            |
-| `description3: ODSToolbarIconDesription?`| nil                                                                          | Third (optional) description of item in tool bar                                  |
-| `description4: ODSToolbarIconDesription?`| nil                                                                          | Fourth (optional) description of item in tool bar                                 |
-| `description5: ODSToolbarIconDesription?`| nil                                                                          | Fifth (optional)  description  of item in tool bar                                |
+| Parameter                                | Default value | Description                                        |
+|------------------------------------------|---------------|----------------------------------------------------|
+| `description1: ODSToolbarIconDesription` |               | First description of item in tool bar              |
+| `description2: ODSToolbarIconDesription` |               | Second description of item in tool bar             |
+| `description3: ODSToolbarIconDesription?`| `nil`         | Third (optional) description of item in tool bar   |
+| `description4: ODSToolbarIconDesription?`| `nil`         | Fourth (optional) description of item in tool bar  |
+| `description5: ODSToolbarIconDesription?`| `nil`         | Fifth (optional)  description  of item in tool bar |
 
 
 #### ODSToolbarIconDesription API
 
-| Parameter                           | Default value                                                                     | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `systemName: String                 |                                                                                   | System name of the image                                                          |
-| `action: @escaping () -> Void`      |                                                                                   | Action when item is clicked                                                       |
+| Parameter                      | Default value | Description                 |
+|--------------------------------|---------------|-----------------------------|
+| `systemName: String            |               | System name of the image    |
+| `action: @escaping () -> Void` |               | Action when item is clicked |
 <BR>
 
 
