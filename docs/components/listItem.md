@@ -49,6 +49,8 @@ For standard items, trailing icons can be added. Two types of icons are proposed
     
 The standard item can be used in a `NavigationLink` (for example, display more details)
 
+#### SwiftUI example
+
 ```swift
 
 // Build the List view using ODSListItem withount navigation
@@ -92,6 +94,8 @@ List {
 
 The selection list items can be used to enumerate data as list in order to select elements.
 
+#### SwiftUI example
+
 ```swift
 struct MyMultipleOptionsSelection: View {
 
@@ -123,6 +127,17 @@ struct MyMultipleOptionsSelection: View {
     }
 }     
 ```
+
+
+#### ODSListItem API
+
+| Parameter                                       | Default&nbsp;value | Description                                       |
+|-------------------------------------------------|--------------------|---------------------------------------------------|
+| <b>`title: Text`</b>                            |                    | The primary text of the list item.                |
+| `subtitle: Text?`                               | `nil`              | The secondary (optional) text of the list item.   |
+| `subtitleNumberOfLines: SubtitleNumberOfLines?` | `.one`             | To limit the subtitle text to 1 or 2 lines.       |
+| `leading: Self.Leading?`                        | `nil`              | The leading icon (optional) of the list item.     |
+| `trailing: Self.Trailing?`                      | `nil`              | The trailing element (optional) of the list item. |
 
 **Note 1:** Don’t forget, if item is used in a `NavigationLink`, a chevron is automatically added by the system. For design purpose it is NOT recommended to add item with `trailingCheckmarkIsSelected` and `trailingToggleIsOn` parameters in a `NavigationLink`.
 

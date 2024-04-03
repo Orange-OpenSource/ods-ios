@@ -270,7 +270,7 @@ public struct ODSListItem: View {
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
     ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
-    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not   design compliant).
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailing: The trailing element
     ///
