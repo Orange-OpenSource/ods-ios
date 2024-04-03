@@ -27,7 +27,7 @@ The ODS Empty states module is built to support accessibility criteria and is re
 
 ![Empty state light](images/empty_state_light.png) ![Empty state dark](images/empty_state_dark.png)
 
-### SwiftUI
+### SwiftUI example 
 
 To integrate an ODS Empty state into your app, you can use `ODSEmptyStateView` as shown below:
 
@@ -44,9 +44,9 @@ ODSEmptyStateView(
 
 #### ODSEmptyStateView API
 
-| Parameter                           | Default&nbsp;value                                                                | Description                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| Parameter                         | Default&nbsp;value                                                                | Description                                                                       |
+|-----------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | <b>`title: Text`</b>              |                                                                                   | The title of the screen displayed below the image. For example "File is missing". |
-| `text: Text?`                     | `null`                                                                            | Text displayed below the title                                                    |
-| `image: Image`    | `Image("il_emptyStateUserCleared", bundle: Bundle.ods)` | Image displayed centered in the composable                                        |
-| `button: Button<Text>?` | `null`                                                                            | The button to add below the text                                                  |
+| `text: Text?`                     | `nil`                                                                             | Text displayed below the title                                                    |
+| <b>`image: Image`</b>             | `Image("il_emptyStateUserCleared", bundle: Bundle.ods)`                           | Image displayed centered in the view                                              |
+| `button: Button<Text>?`           | `nil`                                                                             | The button to add below the text                                                  |
