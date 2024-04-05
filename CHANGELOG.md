@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- [Doc] Add Documentatino versionning ([#223](https://github.com/Orange-OpenSource/ods-ios/issues/223))
 - [DemoApp] Add privacy manifest ([#798](https://github.com/Orange-OpenSource/ods-ios/issues/798))
 
 ### Changed
