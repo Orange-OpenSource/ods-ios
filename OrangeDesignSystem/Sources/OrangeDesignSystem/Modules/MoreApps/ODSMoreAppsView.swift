@@ -92,7 +92,7 @@ public struct ODSMoreAppsView: View {
         ODSEmptyStateView(
             title: Text(°°"modules.moreApps.loading.title"),
             text: Text(°°"modules.moreApps.loading.text"),
-            image: Image(ODSEmptyStateView.DefaultAssets.uerCleared.name, bundle: theme.bundle)
+            image: Image("il_emptyStateUserCleared", bundle: theme.bundle)
         )
     }
 
@@ -100,7 +100,7 @@ public struct ODSMoreAppsView: View {
         ODSEmptyStateView(
             title: Text(°°"modules.moreApps.error.title"),
             text: Text(°°"modules.moreApps.error.text"),
-            image: Image(ODSEmptyStateView.DefaultAssets.error.name, bundle: theme.bundle)
+            image: Image("il_emptyStateError", bundle: theme.bundle)
         )
     }
 
@@ -232,3 +232,4 @@ public struct ODSMoreAppsView: View {
         case uncategorizedAppsSection
     }
 }
+

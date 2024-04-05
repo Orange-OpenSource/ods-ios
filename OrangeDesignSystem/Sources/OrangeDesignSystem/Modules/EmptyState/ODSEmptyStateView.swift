@@ -83,24 +83,4 @@ public struct ODSEmptyStateView: View {
             .padding(.vertical, ODSSpacing.s)
         }
     }
-    
-    public enum DefaultAssets {
-        case uerCleared
-        case error
-        case firstUse
-        case noData
-        
-        var name: String {
-            switch self {
-            case .uerCleared:
-                return "il_emptyStateUserCleared"
-            case .error:
-                return "il_emptyStateError"
-            case .firstUse:
-                return "il_emptyStateFirstUse"
-            case .noData:
-                return "il_emptyStateNoData"
-            }
-        }
-    }
 }
