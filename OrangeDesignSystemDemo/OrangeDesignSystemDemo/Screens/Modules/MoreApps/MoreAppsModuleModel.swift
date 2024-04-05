@@ -14,7 +14,7 @@
 import SwiftUI
 import OrangeDesignSystem
 
-final class RecirculationModuleModel: ObservableObject {
+final class MoreAppsModuleModel: ObservableObject {
     
     // =========================
     // MARK: - Stored properties
@@ -24,8 +24,8 @@ final class RecirculationModuleModel: ObservableObject {
     @Published var flattenAppsCategories: Bool
     @Published var cacheAppsIcons: Bool
     @Published var enableHaptics: Bool
-    private let localDataSource: ODSRecirculationDataSource?
-    private let remoteDataSource: ODSRecirculationDataSource?
+    private let localDataSource: ODSMoreAppsDataSource?
+    private let remoteDataSource: ODSMoreAppsDataSource?
 
     // ===================
     // MARK: - Initializer
@@ -65,9 +65,9 @@ final class RecirculationModuleModel: ObservableObject {
         remoteDataSource != nil
     }
     
-    var dataSource: ODSRecirculationDataSource {
+    var dataSource: ODSMoreAppsDataSource {
         if useLocalDataSource {
-            Log.info("Source of data for Recirculation module is local file")
+            Log.info("Source of data for MoreApps module is local file")
             
             guard let localDataSource = localDataSource else {
                 fatalError("Failed to URL of local data file")
@@ -75,7 +75,7 @@ final class RecirculationModuleModel: ObservableObject {
             return localDataSource
             
         } else {
-            Log.info("Source of data for Recirculation module is Apps Plus backend")
+            Log.info("Source of data for MoreApps module is Apps Plus backend")
             
             guard let remoteDataSource = remoteDataSource else {
                 // Should not happen, previous controls made before

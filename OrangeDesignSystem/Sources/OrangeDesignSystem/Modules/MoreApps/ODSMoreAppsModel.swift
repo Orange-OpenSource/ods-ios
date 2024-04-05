@@ -16,33 +16,33 @@ import Foundation
 import SwiftUI
 
 // ================================
-// MARK: - Recirculation View Model
+// MARK: - MoreApps View Model
 // ================================
 
 @MainActor
-final class ODSRecirculationModel: ObservableObject {
+final class ODSMoreAppsModel: ObservableObject {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    private let service: RecirculationService
+    private let service: MoreAppsService
     private let flattenApps: Bool
     private let cacheAppsIcons: Bool
-    @Published var loadingState: LoadingState<RecirculationAppsList, ODSRecirculationModel.Error>
+    @Published var loadingState: LoadingState<MoreAppsList, ODSMoreAppsModel.Error>
 
     // =================
     // MARK: Initializer
     // =================
 
-    init(dataSource: ODSRecirculationDataSource, flattenApps: Bool, cacheAppsIcons: Bool) {
+    init(dataSource: ODSMoreAppsDataSource, flattenApps: Bool, cacheAppsIcons: Bool) {
         switch dataSource {
         case let .remote(feedURL):
             ODSLogger.info("AppsPlus backend will be requested to get apps to display")
-            service = RecirculationService(repository: AppsPlusRepository(feedURL: feedURL))
+            service = MoreAppsService(repository: AppsPlusRepository(feedURL: feedURL))
         case let .local(filePath):
             ODSLogger.info("Local data based on AppsPlus dump will be used to display apps")
-            service = RecirculationService(repository: LocalAppsPlusRepository(feedURL: filePath))
+            service = MoreAppsService(repository: LocalAppsPlusRepository(feedURL: filePath))
         }
         self.flattenApps = flattenApps
         self.cacheAppsIcons = cacheAppsIcons
@@ -66,8 +66,8 @@ final class ODSRecirculationModel: ObservableObject {
                 let appsList = try await service.availableAppsList()
                 loadingState = .loaded(flattenApps ? appsList.flattened() : appsList)
             } catch {
-                if let appsRecirculationError = error as? ODSRecirculationModel.Error {
-                    loadingState = .error(appsRecirculationError)
+                if let modeAppsError = error as? ODSMoreAppsModel.Error {
+                    loadingState = .error(modeAppsError)
                 } else {
                     loadingState = .error(.unknownError)
                 }

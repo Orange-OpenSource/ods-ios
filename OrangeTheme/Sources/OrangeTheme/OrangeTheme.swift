@@ -346,12 +346,6 @@ public struct OrangeThemeFactory {
             }
         }
 
-        // Images for empty states
-        theme.emptyStateImages = ODSThemeEmptyStateImages(error: Image(decorative: "il_emptyStateError", bundle: .orangeTheme),
-                                                          firstUse: Image(decorative: "il_emptyStateFirstUse", bundle: .orangeTheme),
-                                                          noData: Image(decorative: "il_emptyStateNoData", bundle: .orangeTheme),
-                                                          userCleared: Image(decorative: "il_emptyStateUserCleared", bundle: .orangeTheme))
-
         // Bundle
         theme.bundle = Bundle.orangeTheme
 

@@ -18,7 +18,7 @@ import Foundation
 // ============================
 
 /// Requests the Apps Plus backend to get list of availables apps, usging also HTTP cache and local file cache
-struct AppsPlusRepository: RecirculationRepositoryProtocol {
+struct AppsPlusRepository: MoreAppsRepositoryProtocol {
 
     // =======================
     // MARK: Stored properties
@@ -51,7 +51,7 @@ struct AppsPlusRepository: RecirculationRepositoryProtocol {
     /// The data got from the service is also saved in cache (local file) so as to be available if the device is offline or if some error occured.
     /// - Returns: The list of object containing all apps and sections of apps.
     /// - Throws: `Error.badConfigurationPrerequisites` if not possible to build the URL for the _Apps Plus_ backend.
-    func availableAppsList() async throws -> RecirculationAppsList {
+    func availableAppsList() async throws -> MoreAppsList {
 
         var request = URLRequest(url: feedURL)
         if let lastResourceEtag = Self.lastResourceEtag {
@@ -75,7 +75,7 @@ struct AppsPlusRepository: RecirculationRepositoryProtocol {
                 ODSLogger.debug("But AppsPlus data in cache available, use them")
                 return cachedList
             }
-            throw RecirculationServiceErrors.sessionError
+            throw MoreAppsServiceErrors.sessionError
         }
 
         if let httpResponse = httpResponse {
@@ -96,17 +96,17 @@ struct AppsPlusRepository: RecirculationRepositoryProtocol {
             // Only one object sent by AppsPlus backend
             let appsPlusAppsList: AppsPlusListDTO = try JSONDecoder().decode(AppsPlusDTO.self, from: appsPlusRawData).items[0]
             ODSLogger.debug("Got data from AppsPlus service with \(appsPlusAppsList.apps.count) apps and \(appsPlusAppsList.sections.count) sections")
-            let mapper = AppsPlusRecirculationMapper()
+            let mapper = AppsPlusToMoreAppsMapper()
             let recirculationApps = mapper.appsDetails(from: appsPlusAppsList)
             let recirculationSections = mapper.appsSections(from: appsPlusAppsList)
-            return RecirculationAppsList(sections: recirculationSections, apps: recirculationApps)
+            return MoreAppsList(sections: recirculationSections, apps: recirculationApps)
         } catch {
             ODSLogger.error("Failed to decode AppsPlus service data: '\(error.localizedDescription)'")
             if let cachedList = cachedList(for: request) {
                 ODSLogger.debug("But AppsPlus data in cache available, use them")
                 return cachedList
             }
-            throw RecirculationServiceErrors.jsonDecodingFailure
+            throw MoreAppsServiceErrors.jsonDecodingFailure
         }
     }
 
@@ -133,7 +133,7 @@ struct AppsPlusRepository: RecirculationRepositoryProtocol {
 
     /// Returns from the cache directory the content previously picked from AppsPlus backend, or nil if error occured
     /// - Returns RecirculationAppsList?
-    private func cachedList(for request: URLRequest) -> RecirculationAppsList? {
+    private func cachedList(for request: URLRequest) -> MoreAppsList? {
         guard let cachedResponse = cache.cachedResponse(for: request) else {
             ODSLogger.debug("No cache is available for this request")
             return nil
@@ -142,10 +142,10 @@ struct AppsPlusRepository: RecirculationRepositoryProtocol {
         do {
             let appsPlusAppsList: AppsPlusListDTO = try JSONDecoder().decode(AppsPlusDTO.self, from: cachedResponse.data).items[0]
             ODSLogger.debug("Got data from AppsPlus service with \(appsPlusAppsList.apps.count) apps and \(appsPlusAppsList.sections.count) sections")
-            let mapper = AppsPlusRecirculationMapper()
+            let mapper = AppsPlusToMoreAppsMapper()
             let recirculationApps = mapper.appsDetails(from: appsPlusAppsList)
             let recirculationSections = mapper.appsSections(from: appsPlusAppsList)
-            return RecirculationAppsList(sections: recirculationSections, apps: recirculationApps)
+            return MoreAppsList(sections: recirculationSections, apps: recirculationApps)
         } catch {
             ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode AppsPlus JSON data in cache: '\(error.localizedDescription)'")
             return nil

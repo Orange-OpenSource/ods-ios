@@ -14,11 +14,11 @@
 import Foundation
 
 // ====================================
-// MARK: - Recirculation Service Errors
+// MARK: - MoreApps Service Errors
 // ====================================
 
 /// Errors which can occur in repository or service layers and should be managed upside
-enum RecirculationServiceErrors: Error {
+enum MoreAppsServiceErrors: Error {
     /// Prerequisites are not fullfilled to request the feeder service
     case badConfigurationPrerequisites
     /// Some issue occured with session or network requests, and no cache can be used
@@ -28,20 +28,20 @@ enum RecirculationServiceErrors: Error {
 }
 
 // =============================
-// MARK: - Recirculation Service
+// MARK: - ModeApps Service
 // =============================
 
 /// Helps to test or use some data feeds to get available apps details
-struct RecirculationService: RecirculationServiceProtocol {
-    private let repository: RecirculationRepositoryProtocol
+struct MoreAppsService: MoreAppsServiceProtocol {
+    private let repository: MoreAppsRepositoryProtocol
 
-    init(repository: RecirculationRepositoryProtocol) {
+    init(repository: MoreAppsRepositoryProtocol) {
         self.repository = repository
     }
 
-    /// Creates the URL to use to get data feed, then  through the `RecirculationRepositoryProtocol` request data
-    /// - Returns `RecirculationAppsList`: The parsed business objects
-    func availableAppsList() async throws -> RecirculationAppsList {
+    /// Creates the URL to use to get data feed, then  through the `MoreAppsRepositoryProtocol` request data
+    /// - Returns `MoreAppsList`: The parsed business objects
+    func availableAppsList() async throws -> MoreAppsList {
         try await repository.availableAppsList()
     }
 }

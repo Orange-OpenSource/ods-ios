@@ -14,13 +14,13 @@
 import SwiftUI
 import OrangeDesignSystem
 
-struct RecirculationModuleDemo: View {
+struct MoreAppsModuleDemo: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
-    let model: RecirculationModuleModel
+    let model: MoreAppsModuleModel
     
     // ==========
     // MARK: Body
@@ -28,23 +28,23 @@ struct RecirculationModuleDemo: View {
 
     var body: some View {
         NavigationView {
-            ODSRecirculationView(
+            ODSMoreAppsView(
                 dataSource: model.dataSource,
                 flattenApps: model.flattenAppsCategories,
                 cacheAppsIcons: model.cacheAppsIcons,
                 enableHaptics: model.enableHaptics)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("screens.modules.recirculation.title")
+        .navigationTitle("screens.modules.moreApps.title")
     }
 }
 
 
 #if DEBUG
-struct AppsRecirculationModuleDemo_Previews: PreviewProvider {
+struct AppsMoreAppsModuleDemo_Previews: PreviewProvider {
 
     static var previews: some View {
-        RecirculationModuleSetup(model: RecirculationModuleModel())
+        MoreAppsModuleSetup(model: MoreAppsModuleModel())
     }
 }
 #endif

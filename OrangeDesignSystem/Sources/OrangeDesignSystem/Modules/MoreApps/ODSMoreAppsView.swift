@@ -18,7 +18,7 @@ import SwiftUI
 // ==============
 
 /// The source of data the module must use to get all available apps
-public enum ODSRecirculationDataSource {
+public enum ODSMoreAppsDataSource {
 
     /// Fetch some backend available at `url` with sufficient `URL` for data retrievement
     case remote(url: URL)
@@ -27,14 +27,14 @@ public enum ODSRecirculationDataSource {
 }
 
 /// The view displaying the available apps in a list
-public struct ODSRecirculationView: View {
+public struct ODSMoreAppsView: View {
 
     // =======================
     // MARK: Stored properties
     // =======================
 
     private let enableHaptics: Bool
-    @StateObject private var viewModel: ODSRecirculationModel
+    @StateObject private var viewModel: ODSMoreAppsModel
     @AccessibilityFocusState private var requestFocus: Focusable?
     @Environment(\.openURL) private var openURL
     @Environment(\.theme) private var theme
@@ -43,12 +43,12 @@ public struct ODSRecirculationView: View {
     // MARK: Initializers
     // ==================
 
-    public init(dataSource: ODSRecirculationDataSource,
+    public init(dataSource: ODSMoreAppsDataSource,
                 flattenApps: Bool,
                 cacheAppsIcons: Bool,
                 enableHaptics: Bool) {
         self.enableHaptics = enableHaptics
-        _viewModel = StateObject(wrappedValue: ODSRecirculationModel(dataSource: dataSource, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
+        _viewModel = StateObject(wrappedValue: ODSMoreAppsModel(dataSource: dataSource, flattenApps: flattenApps, cacheAppsIcons: cacheAppsIcons))
     }
 
     // ==========
@@ -90,22 +90,22 @@ public struct ODSRecirculationView: View {
 
     private func loadingView() -> some View {
         ODSEmptyStateView(
-            title: Text(°°"modules.recirculation.loading.title"),
-            text: Text(°°"modules.recirculation.loading.text"),
-            image: theme.emptyStateImages.userCleared
+            title: Text(°°"modules.moreApps.loading.title"),
+            text: Text(°°"modules.moreApps.loading.text"),
+            image: Image(ODSEmptyStateView.DefaultAssets.uerCleared.name, bundle: theme.bundle)
         )
     }
 
     private func errorView() -> some View {
         ODSEmptyStateView(
-            title: Text(°°"modules.recirculation.error.title"),
-            text: Text(°°"modules.recirculation.error.text"),
-            image: theme.emptyStateImages.error
+            title: Text(°°"modules.moreApps.error.title"),
+            text: Text(°°"modules.moreApps.error.text"),
+            image: Image(ODSEmptyStateView.DefaultAssets.error.name, bundle: theme.bundle)
         )
     }
 
     @ViewBuilder
-    private func loadedView(_ appsList: RecirculationAppsList) -> some View {
+    private func loadedView(_ appsList: MoreAppsList) -> some View {
         List {
             if appsList.sections.isEmpty {
                 ForEach(appsList.apps, id: \.self) { app in
@@ -117,7 +117,7 @@ public struct ODSRecirculationView: View {
                         listItem(for: app).odsListItemStyle()
                     }
                 } header: {
-                    Text("modules.recirculation.uncategorized_apps".🌐)
+                    Text("modules.moreApps.uncategorized_apps".🌐)
                         .accessibilityFocused($requestFocus, equals: .uncategorizedAppsSection)
                 }
 
@@ -141,7 +141,7 @@ public struct ODSRecirculationView: View {
     }
 
     @ViewBuilder
-    private func listItem(for section: RecirculationAppsListSection) -> some View {
+    private func listItem(for section: MoreAppsListSection) -> some View {
         Section {
             ForEach(section.apps, id: \.self) { app in
                 listItem(for: app).odsListItemStyle()
@@ -152,7 +152,7 @@ public struct ODSRecirculationView: View {
     }
 
     @ViewBuilder
-    private func listItem(for app: RecirculationAppDetails) -> some View {
+    private func listItem(for app: MoreAppDetails) -> some View {
         let item = ODSListItem(title: Text(app.title),
                                subtitle: app.description != nil ? Text(app.description!) : nil,
                                leading: leadingAppIcon(from: app))
@@ -193,7 +193,7 @@ public struct ODSRecirculationView: View {
         }
     }
 
-    private func leadingAppIcon(from appDetails: RecirculationAppDetails) -> ODSListItem.Leading? {
+    private func leadingAppIcon(from appDetails: MoreAppDetails) -> ODSListItem.Leading? {
         guard let appIconUrl = appDetails.iconURL else {
             return nil
         }
@@ -206,7 +206,7 @@ public struct ODSRecirculationView: View {
             Button {
                 openURL(storeURL)
             } label: {
-                Text("modules.recirculation.go_to_appstore".🌐)
+                Text("modules.moreApps.go_to_appstore".🌐)
             }
         }
     }

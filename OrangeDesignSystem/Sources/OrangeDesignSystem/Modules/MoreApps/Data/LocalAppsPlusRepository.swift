@@ -14,7 +14,7 @@
 import Foundation
 
 /// Parses local JSON data from file, supposing to be Apps Plus data
-struct LocalAppsPlusRepository: RecirculationRepositoryProtocol {
+struct LocalAppsPlusRepository: MoreAppsRepositoryProtocol {
 
     // =======================
     // MARK: Stored properties
@@ -36,17 +36,17 @@ struct LocalAppsPlusRepository: RecirculationRepositoryProtocol {
     // MARK: MoreAppsRepositoryProtocol - Impl
     // =======================================
 
-    func availableAppsList() async throws -> RecirculationAppsList {
+    func availableAppsList() async throws -> MoreAppsList {
         do {
             let rawData = try Data(contentsOf: feedURL)
             let appsPlusAppsList: AppsPlusListDTO = try JSONDecoder().decode(AppsPlusDTO.self, from: rawData).items[0]
-            let mapper = AppsPlusRecirculationMapper()
-            let recirculationApps = mapper.appsDetails(from: appsPlusAppsList)
-            let recirculationSections = mapper.appsSections(from: appsPlusAppsList)
-            return RecirculationAppsList(sections: recirculationSections, apps: recirculationApps)
+            let mapper = AppsPlusToMoreAppsMapper()
+            let apps = mapper.appsDetails(from: appsPlusAppsList)
+            let sections = mapper.appsSections(from: appsPlusAppsList)
+            return MoreAppsList(sections: sections, apps: apps)
         } catch {
             ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode local AppsPlus file: '\(error.localizedDescription)'")
-            throw RecirculationServiceErrors.jsonDecodingFailure
+            throw MoreAppsServiceErrors.jsonDecodingFailure
         }
     }
 }

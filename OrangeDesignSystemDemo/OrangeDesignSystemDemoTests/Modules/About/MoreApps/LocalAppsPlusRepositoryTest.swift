@@ -21,10 +21,10 @@ final class LocalAppsPlusRepositoryTests: XCTestCase {
     func testReadOfLocalData() async {
         // Given
         let localDataURL = XCTestCase.stubURL(for: "AppsPlusMock", ofType: "json", inBundleOf: LocalAppsPlusRepositoryTests.self)
-        let localAppsPlusRepository: RecirculationRepositoryProtocol = LocalAppsPlusRepository(feedURL: localDataURL)
+        let localAppsPlusRepository: MoreAppsRepositoryProtocol = LocalAppsPlusRepository(feedURL: localDataURL)
 
         // When
-        let appsList: RecirculationAppsList
+        let appsList: MoreAppsList
         do {
             appsList = try await localAppsPlusRepository.availableAppsList()
         } catch {
