@@ -14,9 +14,9 @@
 import SwiftUI
 import OrangeDesignSystem
 
-// =======================
+// ============================
 // MARK: - MoreApps Module
-// =======================
+// ============================
 
 struct MoreAppsModule: View {
     
@@ -25,9 +25,9 @@ struct MoreAppsModule: View {
     }
 }
 
-// ======================
+// ===========================
 // MARK: - MoreApps Setup
-// ======================
+// ===========================
 
 struct MoreAppsModuleSetup: View {
 

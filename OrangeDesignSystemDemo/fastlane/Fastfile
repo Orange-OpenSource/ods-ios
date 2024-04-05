@@ -14,7 +14,7 @@
 # App features configuration
 # --------------------------
 
-# URL for MoreApps module to get feed from APPS_PLUS backend
+# URL for moreApps module to get feed from backend
 APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
 
 # Apple configuration

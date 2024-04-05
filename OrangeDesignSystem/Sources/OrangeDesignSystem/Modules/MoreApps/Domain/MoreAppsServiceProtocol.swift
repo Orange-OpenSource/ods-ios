@@ -19,5 +19,5 @@ protocol MoreAppsServiceProtocol {
     init(repository: MoreAppsRepositoryProtocol)
 
     /// Supposed to be async method to return the apps lists or to throw some error, using the given `MoreAppsRepositoryProtocol`
-    func availableAppsList() async throws -> MoreAppsAppsList
+    func availableAppsList() async throws -> MoreAppsList
 }

@@ -51,7 +51,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
     /// The data got from the service is also saved in cache (local file) so as to be available if the device is offline or if some error occured.
     /// - Returns: The list of object containing all apps and sections of apps.
     /// - Throws: `Error.badConfigurationPrerequisites` if not possible to build the URL for the _Apps Plus_ backend.
-    func availableAppsList() async throws -> MoreAppsAppsList {
+    func availableAppsList() async throws -> MoreAppsList {
 
         var request = URLRequest(url: feedURL)
         if let lastResourceEtag = Self.lastResourceEtag {
@@ -97,9 +97,9 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             let appsPlusAppsList: AppsPlusListDTO = try JSONDecoder().decode(AppsPlusDTO.self, from: appsPlusRawData).items[0]
             ODSLogger.debug("Got data from AppsPlus service with \(appsPlusAppsList.apps.count) apps and \(appsPlusAppsList.sections.count) sections")
             let mapper = AppsPlusToMoreAppsMapper()
-            let apps = mapper.appsDetails(from: appsPlusAppsList)
-            let sections = mapper.appsSections(from: appsPlusAppsList)
-            return MoreAppsAppsList(sections: sections, apps: apps)
+            let recirculationApps = mapper.appsDetails(from: appsPlusAppsList)
+            let recirculationSections = mapper.appsSections(from: appsPlusAppsList)
+            return MoreAppsList(sections: recirculationSections, apps: recirculationApps)
         } catch {
             ODSLogger.error("Failed to decode AppsPlus service data: '\(error.localizedDescription)'")
             if let cachedList = cachedList(for: request) {
@@ -133,7 +133,7 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
 
     /// Returns from the cache directory the content previously picked from AppsPlus backend, or nil if error occured
     /// - Returns RecirculationAppsList?
-    private func cachedList(for request: URLRequest) -> MoreAppsAppsList? {
+    private func cachedList(for request: URLRequest) -> MoreAppsList? {
         guard let cachedResponse = cache.cachedResponse(for: request) else {
             ODSLogger.debug("No cache is available for this request")
             return nil
@@ -143,9 +143,9 @@ struct AppsPlusRepository: MoreAppsRepositoryProtocol {
             let appsPlusAppsList: AppsPlusListDTO = try JSONDecoder().decode(AppsPlusDTO.self, from: cachedResponse.data).items[0]
             ODSLogger.debug("Got data from AppsPlus service with \(appsPlusAppsList.apps.count) apps and \(appsPlusAppsList.sections.count) sections")
             let mapper = AppsPlusToMoreAppsMapper()
-            let apps = mapper.appsDetails(from: appsPlusAppsList)
-            let sections = mapper.appsSections(from: appsPlusAppsList)
-            return MoreAppsAppsList(sections: sections, apps: apps)
+            let recirculationApps = mapper.appsDetails(from: appsPlusAppsList)
+            let recirculationSections = mapper.appsSections(from: appsPlusAppsList)
+            return MoreAppsList(sections: recirculationSections, apps: recirculationApps)
         } catch {
             ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode AppsPlus JSON data in cache: '\(error.localizedDescription)'")
             return nil

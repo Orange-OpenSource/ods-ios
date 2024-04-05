@@ -13,52 +13,52 @@
 
 import Foundation
 
-// ==========================
-// MARK: - MoreApps Apps List
-// ==========================
+// ===============================
+// MARK: - MoreApps List
+// ===============================
 
-/// Business object to gather both sections and apps ready to use for the _MoreApps module_
-struct MoreAppsAppsList {
+/// Business object to gather both sections and apps ready to use for the _ModeApps module_
+struct MoreAppsList {
     /// All available sections of apps
-    let sections: [MoreAppsAppsListSection]
+    let sections: [MoreAppsListSection]
     /// All available apps without associated sections
-    let apps: [MoreAppsAppDetails]
+    let apps: [MoreAppDetails]
 }
 
-extension MoreAppsAppsList {
+extension MoreAppsList {
 
     /// Returns a fresh new object without any sections anymore but with all apps of all sections add in the_apps_.
     /// Order of apps is based on order of previous sections.
-    /// - Returns MoreAppsAppsList: Flattened version without changing `self`
-    func flattened() -> MoreAppsAppsList {
+    /// - Returns MoreAppsList: Flattened version without changing `self`
+    func flattened() -> MoreAppsList {
         var flattenedApps = apps
         sections.forEach {
             flattenedApps.append(contentsOf: $0.apps)
         }
-        return MoreAppsAppsList(sections: [], apps: flattenedApps)
+        return MoreAppsList(sections: [], apps: flattenedApps)
     }
 }
 
 // ==================================
-// MARK: - MoreApps Apps List Section
+// MARK: - MoreApps List Section
 // ==================================
 
 /// Business object to gather a group of apps behind a description ready to use for the _MoreApps module_
-struct MoreAppsAppsListSection {
+struct MoreAppsListSection {
     /// Some description for a section, e.g. "customer" or "business"
     let description: String
     /// All the apps for this section
-    let apps: [MoreAppsAppDetails]
+    let apps: [MoreAppDetails]
 }
 
-extension MoreAppsAppsListSection: Hashable {}
+extension MoreAppsListSection: Hashable {}
 
-// =============================
-// MARK: - MoreApps Apps Details
-// =============================
+// =================================
+// MARK: - MoreApps Details
+// =================================
 
 /// Business object modelizing details of an app ready to use for the _MoreApps module_
-struct MoreAppsAppDetails {
+struct MoreAppDetails {
     /// Commercial title of the app
     let title: String
     /// URL to use to load the icon of the app
@@ -69,4 +69,4 @@ struct MoreAppsAppDetails {
     let storeURL: URL?
 }
 
-extension MoreAppsAppDetails: Hashable {}
+extension MoreAppDetails: Hashable {}

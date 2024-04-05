@@ -13,7 +13,7 @@
 
 import SwiftUI
 
-/// Configuration to add in list the item that opens the __ODSMoreAppsView__.
+/// Configuration to add in list the item that opens the more apps view.
 ///
 /// By default, this item is placed between legal information item and rate the app item. That can be changed with new priority set in the configuration.
 public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
