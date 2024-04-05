@@ -6,9 +6,16 @@ description: An overview of the founding team and core contributors to ODS iOS.
 
 ODS iOS is maintained by the core team and a small group of invaluable core contributors, with the support and involvement of our community.
 
-{% if site.data.team.ODS_iOS[0] %}
+{% if page.version == "" %}
+{% assign key_suffix = "" %}
+{% else %}
+{% capture key_suffix %}_{{ page.version | replace: '.', '_' }}{% endcapture %}
+{% endif %}
+{% capture team_key %}team{{ key_suffix }}{% endcapture %}
+{% assign team = site.data[team_key] %}
+{% if team.ODS_iOS[0] %}
 <div class="list-group mb-3">
-  {% for team_member in site.data.team.ODS_iOS %}
+  {% for team_member in team.ODS_iOS %}
     <a class="list-group-item list-group-item-action d-flex align-items-center" href="https://github.com/{{ team_member.gh_pseudo }}">
       <img src="https://github.com/{{ team_member.gh_pseudo }}.png" alt="@{{ team_member.gh_pseudo }}" width="32" height="32" class="me-2" loading="lazy">
       <span class="fw-normal">

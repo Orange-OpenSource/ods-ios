@@ -1,0 +1,6 @@
+version: "1.0.0"
+ODS_iOS:
+  - name: Lapersonne Pierre-Yves
+    gh_pseudo: pylapp
+  - name: Pinel Ludovic
+    gh_pseudo: ludovic35
