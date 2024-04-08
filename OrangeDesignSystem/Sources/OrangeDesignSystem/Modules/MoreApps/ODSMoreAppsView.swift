@@ -105,7 +105,7 @@ public struct ODSMoreAppsView: View {
     }
 
     @ViewBuilder
-    private func loadedView(_ appsList: MoreAppsList) -> some View {
+    private func loadedView(_ appsList: MoreAppsAppsList) -> some View {
         List {
             if appsList.sections.isEmpty {
                 ForEach(appsList.apps, id: \.self) { app in
@@ -141,7 +141,7 @@ public struct ODSMoreAppsView: View {
     }
 
     @ViewBuilder
-    private func listItem(for section: MoreAppsListSection) -> some View {
+    private func listItem(for section: MoreAppsAppsListSection) -> some View {
         Section {
             ForEach(section.apps, id: \.self) { app in
                 listItem(for: app).odsListItemStyle()
@@ -152,7 +152,7 @@ public struct ODSMoreAppsView: View {
     }
 
     @ViewBuilder
-    private func listItem(for app: MoreAppDetails) -> some View {
+    private func listItem(for app: MoreAppsAppDetails) -> some View {
         let item = ODSListItem(title: Text(app.title),
                                subtitle: app.description != nil ? Text(app.description!) : nil,
                                leading: leadingAppIcon(from: app))
@@ -193,7 +193,7 @@ public struct ODSMoreAppsView: View {
         }
     }
 
-    private func leadingAppIcon(from appDetails: MoreAppDetails) -> ODSListItem.Leading? {
+    private func leadingAppIcon(from appDetails: MoreAppsAppDetails) -> ODSListItem.Leading? {
         guard let appIconUrl = appDetails.iconURL else {
             return nil
         }

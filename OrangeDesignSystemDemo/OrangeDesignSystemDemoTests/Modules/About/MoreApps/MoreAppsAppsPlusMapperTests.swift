@@ -80,12 +80,12 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         let mapper = AppsPlusToMoreAppsMapper()
 
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusItemsMock)
-        let lonelyApps: [MoreAppDetails] = appsPlusItemsMock.apps.map { appDTO in
+        let lonelyApps: [MoreAppsAppDetails] = appsPlusItemsMock.apps.map { appDTO in
             mapper.appDetails(from: appDTO)
         }
 
         let moreAppsSections = mapper.appsSections(from: appsPlusItemsMock)
-        let sections: [MoreAppsListSection] = appsPlusItemsMock.sections.map { sectionDTO in
+        let sections: [MoreAppsAppsListSection] = appsPlusItemsMock.sections.map { sectionDTO in
             mapper.appsSection(from: sectionDTO)
         }
 
@@ -105,21 +105,21 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
     // MARK: - Helper
     // ==============
 
-    private func compare(businessObject: MoreAppDetails, dataTransferObject: AppsPlusAppDetailsDTO) {
+    private func compare(businessObject: MoreAppsAppDetails, dataTransferObject: AppsPlusAppDetailsDTO) {
         XCTAssertTrue(businessObject.title == dataTransferObject.title)
         XCTAssertTrue(businessObject.iconURL == URL(string: dataTransferObject.iconURL))
         XCTAssertTrue(businessObject.description == dataTransferObject.description)
         XCTAssertTrue(businessObject.storeURL == URL(string: dataTransferObject.storeLink))
     }
 
-    private func compareBoth(_ lhs: MoreAppDetails, _ rhs: MoreAppDetails) {
+    private func compareBoth(_ lhs: MoreAppsAppDetails, _ rhs: MoreAppsAppDetails) {
         XCTAssertTrue(lhs.title == rhs.title)
         XCTAssertTrue(lhs.iconURL == rhs.iconURL)
         XCTAssertTrue(lhs.description == rhs.description)
         XCTAssertTrue(lhs.storeURL == rhs.storeURL)
     }
 
-    private func compareBoth(_ lhs: [MoreAppsListSection], _ rhs: [MoreAppsListSection]) {
+    private func compareBoth(_ lhs: [MoreAppsAppsListSection], _ rhs: [MoreAppsAppsListSection]) {
         XCTAssertTrue(lhs.count == rhs.count)
         for (lhsItem, rhsItem) in zip(lhs, rhs) {
             XCTAssertTrue(lhsItem.description == rhsItem.description)

@@ -24,7 +24,7 @@ final class LocalAppsPlusRepositoryTests: XCTestCase {
         let localAppsPlusRepository: MoreAppsRepositoryProtocol = LocalAppsPlusRepository(feedURL: localDataURL)
 
         // When
-        let appsList: MoreAppsList
+        let appsList: MoreAppsAppsList
         do {
             appsList = try await localAppsPlusRepository.availableAppsList()
         } catch {

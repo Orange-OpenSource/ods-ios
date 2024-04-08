@@ -13,9 +13,9 @@
 
 import Foundation
 
-// ====================================
+// ===============================
 // MARK: - MoreApps Service Errors
-// ====================================
+// ===============================
 
 /// Errors which can occur in repository or service layers and should be managed upside
 enum MoreAppsServiceErrors: Error {
@@ -27,9 +27,9 @@ enum MoreAppsServiceErrors: Error {
     case jsonDecodingFailure
 }
 
-// =============================
+// ========================
 // MARK: - ModeApps Service
-// =============================
+// ========================
 
 /// Helps to test or use some data feeds to get available apps details
 struct MoreAppsService: MoreAppsServiceProtocol {
@@ -41,7 +41,7 @@ struct MoreAppsService: MoreAppsServiceProtocol {
 
     /// Creates the URL to use to get data feed, then  through the `MoreAppsRepositoryProtocol` request data
     /// - Returns `MoreAppsList`: The parsed business objects
-    func availableAppsList() async throws -> MoreAppsList {
+    func availableAppsList() async throws -> MoreAppsAppsList {
         try await repository.availableAppsList()
     }
 }

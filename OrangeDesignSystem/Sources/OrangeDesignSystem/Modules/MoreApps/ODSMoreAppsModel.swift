@@ -29,7 +29,7 @@ final class ODSMoreAppsModel: ObservableObject {
     private let service: MoreAppsService
     private let flattenApps: Bool
     private let cacheAppsIcons: Bool
-    @Published var loadingState: LoadingState<MoreAppsList, ODSMoreAppsModel.Error>
+    @Published var loadingState: LoadingState<MoreAppsAppsList, ODSMoreAppsModel.Error>
 
     // =================
     // MARK: Initializer

@@ -19,7 +19,7 @@ import SwiftUI
 /// A button can also be added.
 ///
 public struct ODSEmptyStateView: View {
-    
+
     // =======================
     // MARK: Stored properties
     // =======================

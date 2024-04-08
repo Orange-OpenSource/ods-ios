@@ -17,5 +17,5 @@ import Foundation
 protocol MoreAppsRepositoryProtocol {
 
     /// Supposed to be async method to return the apps lists or to throw some error
-    func availableAppsList() async throws -> MoreAppsList
+    func availableAppsList() async throws -> MoreAppsAppsList
 }

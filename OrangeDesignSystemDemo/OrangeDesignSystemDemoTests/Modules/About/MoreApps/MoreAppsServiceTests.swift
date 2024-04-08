@@ -25,7 +25,7 @@ final class MoreAppsServiceTests: XCTestCase {
         let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository(feedURL: URL(string: "https://opensource.orange.com/")!))
 
         // When
-        var apps = [MoreAppDetails]()
+        var apps = [MoreAppsAppDetails]()
         do {
             let moreAppsList = try await moreAppsService.availableAppsList()
             apps = moreAppsList.apps
@@ -62,7 +62,7 @@ final class MoreAppsServiceTests: XCTestCase {
 
         // When
 
-        var sections = [MoreAppsListSection]()
+        var sections = [MoreAppsAppsListSection]()
         do {
             let moreAppsList = try await moreAppsService.availableAppsList()
             sections = moreAppsList.sections
@@ -116,7 +116,7 @@ final class MoreAppsServiceTests: XCTestCase {
             self.urlSessionConfiguration = urlSessionConfiguration
         }
 
-        func availableAppsList() -> MoreAppsList {
+        func availableAppsList() -> MoreAppsAppsList {
             let mockJsonPath = XCTestCase.stubPath(for: "AppsPlusMock", ofType: "json", inBundleOf: MoreAppsServiceTests.self)
             guard let jsonRawData = try? String(contentsOfFile: mockJsonPath).data(using: .utf8) else {
                 fatalError("Failed to convert the mock JSON for tests!")
@@ -129,7 +129,7 @@ final class MoreAppsServiceTests: XCTestCase {
             let moreAppsAppDetails = mapper.appsDetails(from: appsPlusDTOMock.items[0])
             let moreAppsSections = mapper.appsSections(from: appsPlusDTOMock.items[0])
 
-            return MoreAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
+            return MoreAppsAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
         }
     }
 }
