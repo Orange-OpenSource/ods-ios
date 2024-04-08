@@ -54,6 +54,7 @@ struct RecirculationModuleSetup: View {
 
                 Text("shared.modules.customize")
                     .odsFont(.headlineS)
+                    .accessibilityAddTraits(.isHeader)
 
                 Toggle(isOn: $model.useLocalDataSource) {
                     Text("screens.modules.recirculation.option.use_embeded_data_source")

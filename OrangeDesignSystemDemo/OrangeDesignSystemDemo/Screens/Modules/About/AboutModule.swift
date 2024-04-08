@@ -61,6 +61,7 @@ struct AboutSetup: View {
                 
                 Text("shared.modules.customize")
                     .odsFont(.headlineS)
+                    .accessibilityAddTraits(.isHeader)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.s)
                 

@@ -57,6 +57,7 @@ struct EmptyStateModuleSetup: View {
 
                 Text("shared.modules.customize")
                     .odsFont(.headlineS)
+                    .accessibilityAddTraits(.isHeader)
 
                 ODSChoiceChipPicker(
                     title: Text("misc.usage"),

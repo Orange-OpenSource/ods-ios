@@ -56,6 +56,7 @@ public struct ODSChoiceChipPicker<Value>: View where Value: Hashable {
         VStack(alignment: .leading, spacing: ODSSpacing.s) {
             title?
                 .odsFont(.headlineS)
+                .accessibilityAddTraits(.isHeader)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, ODSSpacing.m)
 
