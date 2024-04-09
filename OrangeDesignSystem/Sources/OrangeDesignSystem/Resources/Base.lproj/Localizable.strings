@@ -28,13 +28,12 @@
 "modules.about.copyright" = "Orange property. All rights reserved";
 "modules.about.app_news.no_news" = "No App news found in file";
 "modules.about.error.generic_message" = "Something goes wrong";
-"modules.about.morsApps.title" = "More Apps";
+"modules.about.moreApps.title" = "More Apps";
 
 // =======================
 // MARK: - MoreApps module
 // =======================
 
-"modules.about.moreApps.title" = "More Apps";
 "modules.moreApps.uncategorized_apps" = "Uncategorized apps";
 "modules.moreApps.go_to_appstore" = "Open in App Store";
 "modules.moreApps.loading.title" = "Loading";

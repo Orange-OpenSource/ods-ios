@@ -47,7 +47,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 
   Please see [DEVELOP.md](../DEVELOP.md#documentation) to get more information about how to build and verify the documentation.
 
-  Once the Jekyll server is started, the documentation for version X.Y.Z should be available at http://127.0.0.1:4000/ods-android/X.Y.Z/.
+  Once the Jekyll server is started, the documentation for version X.Y.Z should be available at http://127.0.0.1:4000/ods-ios/X.Y.Z/.
       
 - Create a new pull request named `Prepare release X.Y.Z` on GitHub to merge your branch into `qualif`.
 
