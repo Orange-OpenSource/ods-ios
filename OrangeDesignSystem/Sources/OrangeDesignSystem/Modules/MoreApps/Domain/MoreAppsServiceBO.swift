@@ -13,9 +13,9 @@
 
 import Foundation
 
-// =====================
-// MARK: - MoreApps List
-// =====================
+// ==========================
+// MARK: - MoreApps Apps List
+// ==========================
 
 /// Business object to gather both sections and apps ready to use for the _ModeApps module_
 struct MoreAppsAppsList {
@@ -29,7 +29,7 @@ extension MoreAppsAppsList {
 
     /// Returns a fresh new object without any sections anymore but with all apps of all sections add in the_apps_.
     /// Order of apps is based on order of previous sections.
-    /// - Returns MoreAppsList: Flattened version without changing `self`
+    /// - Returns MoreAppsAppsList: Flattened version without changing `self`
     func flattened() -> MoreAppsAppsList {
         var flattenedApps = apps
         sections.forEach {
@@ -39,9 +39,9 @@ extension MoreAppsAppsList {
     }
 }
 
-// =============================
-// MARK: - MoreApps List Section
-// =============================
+// ==================================
+// MARK: - MoreApps Apps List Section
+// ==================================
 
 /// Business object to gather a group of apps behind a description ready to use for the _MoreApps module_
 struct MoreAppsAppsListSection {
@@ -53,9 +53,9 @@ struct MoreAppsAppsListSection {
 
 extension MoreAppsAppsListSection: Hashable {}
 
-// ========================
-// MARK: - MoreApps Details
-// ========================
+// =============================
+// MARK: - MoreApps Apps Details
+// =============================
 
 /// Business object modelizing details of an app ready to use for the _MoreApps module_
 struct MoreAppsAppDetails {

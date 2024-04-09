@@ -40,7 +40,7 @@ struct MoreAppsService: MoreAppsServiceProtocol {
     }
 
     /// Creates the URL to use to get data feed, then  through the `MoreAppsRepositoryProtocol` request data
-    /// - Returns `MoreAppsList`: The parsed business objects
+    /// - Returns `MoreAppsAppsList`: The parsed business objects
     func availableAppsList() async throws -> MoreAppsAppsList {
         try await repository.availableAppsList()
     }
