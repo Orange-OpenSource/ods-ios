@@ -17,7 +17,7 @@ import Foundation
 // MARK: - MoreApps Apps List
 // ==========================
 
-/// Business object to gather both sections and apps ready to use for the _ModeApps module_
+/// Business object to gather both sections and apps ready to use for the _MoreApps module_
 struct MoreAppsAppsList {
     /// All available sections of apps
     let sections: [MoreAppsAppsListSection]

@@ -391,7 +391,7 @@
 "screens.modules.empty_state.usage.alert" = "%@ clicked";
 
 // ====================================
-// MARK: - Screens - Modules - ModeApps
+// MARK: - Screens - Modules - MoreApps
 // ====================================
 
 "screens.modules.moreApps.title" = "MoreApps";
