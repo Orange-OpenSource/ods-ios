@@ -34,6 +34,7 @@
 // MARK: - MoreApps module
 // =======================
 
+"modules.about.moreApps.title" = "More Apps";
 "modules.moreApps.uncategorized_apps" = "Uncategorized apps";
 "modules.moreApps.go_to_appstore" = "Open in App Store";
 "modules.moreApps.loading.title" = "Loading";
