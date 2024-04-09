@@ -13,10 +13,10 @@
 
 import SwiftUI
 
-/// Configuration to add in list the item that opens the apps recirculation view.
+/// Configuration to add in list the item that opens the __ODSMoreAppsView__.
 ///
 /// By default, this item is placed between legal information item and rate the app item. That can be changed with new priority set in the configuration.
-public struct ODSRecirculationItemConfig: ODSAboutListItemConfig {
+public struct ODSMoreAppsItemConfig: ODSAboutListItemConfig {
 
     // =======================
     // MARK: Stored Properties
@@ -39,15 +39,15 @@ public struct ODSRecirculationItemConfig: ODSAboutListItemConfig {
     ///    - cacheAppsIcons: True (default) to use app cache to save locally the apps stores icons, false otherwise
     ///    - enableHaptics: True (default) to enable vibrations with the module, false to disable
     ///    - priority: Priority to adjust the position of the item in the list.
-    public init(dataSource: ODSRecirculationDataSource,
+    public init(dataSource: ODSMoreAppsDataSource,
                 flattenApps: Bool = false,
                 cacheAppsIcons: Bool = true,
                 enableHaptics: Bool = true,
                 priority: ODSAboutListItemPriority = .moreApps)
     {
-        title = "modules.about.recirculation.title".🌐
+        title = "modules.about.moreApps.title".🌐
         icon = Image("ic_mobile_apps", bundle: Bundle.ods)
-        let destination = ODSRecirculationView(
+        let destination = ODSMoreAppsView(
             dataSource: dataSource,
             flattenApps: flattenApps,
             cacheAppsIcons: cacheAppsIcons,

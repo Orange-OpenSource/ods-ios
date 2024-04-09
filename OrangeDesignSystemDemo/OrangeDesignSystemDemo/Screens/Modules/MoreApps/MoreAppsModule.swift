@@ -14,29 +14,29 @@
 import SwiftUI
 import OrangeDesignSystem
 
-// ============================
-// MARK: - Recirculation Module
-// ============================
+// =======================
+// MARK: - MoreApps Module
+// =======================
 
-struct RecirculationModule: View {
+struct MoreAppsModule: View {
     
     var body: some View {
-        RecirculationModuleSetup(model: RecirculationModuleModel())
+        MoreAppsModuleSetup(model: MoreAppsModuleModel())
     }
 }
 
-// ===========================
-// MARK: - Recirculation Setup
-// ===========================
+// ======================
+// MARK: - MoreApps Setup
+// ======================
 
-struct RecirculationModuleSetup: View {
+struct MoreAppsModuleSetup: View {
 
     // =======================
     // MARK: Stored Properties
     // =======================
 
     @State private var showDemo: Bool = false
-    @ObservedObject var model: RecirculationModuleModel
+    @ObservedObject var model: MoreAppsModuleModel
 
     // ==========
     // MARK: Body
@@ -44,37 +44,37 @@ struct RecirculationModuleSetup: View {
 
     var body: some View {
         ScrollView {
-            ThemeProvider().imageFromResources(name: "il_recirculation")
+            ThemeProvider().imageFromResources(name: "il_moreApps")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: ODSSpacing.m) {
-                Text("screens.modules.recirculation.description")
+                Text("screens.modules.moreApps.description")
 
                 Text("shared.modules.customize")
                     .odsFont(.headlineS)
 
                 Toggle(isOn: $model.useLocalDataSource) {
-                    Text("screens.modules.recirculation.option.use_embeded_data_source")
+                    Text("screens.modules.moreApps.option.use_embeded_data_source")
                 }
                 .odsFont(.headlineS)
                 .disabled(!model.hasRemoteDateSource) // If no backend URL, force to use mocks
 
                 Toggle(isOn: $model.flattenAppsCategories) {
-                    Text("screens.modules.recirculation.option.flatten_apps_sections")
+                    Text("screens.modules.moreApps.option.flatten_apps_sections")
                 }.odsFont(.headlineS)
 
                 Toggle(isOn: $model.cacheAppsIcons) {
-                    Text("screens.modules.recirculation.option.cache_more_apps_icons")
+                    Text("screens.modules.moreApps.option.cache_more_apps_icons")
                 }.odsFont(.headlineS)
 
                 Toggle(isOn: $model.enableHaptics) {
-                    Text("screens.modules.recirculation.option.enable_haptics")
+                    Text("screens.modules.moreApps.option.enable_haptics")
                 }.odsFont(.headlineS)
                 
                 NavigationLink(isActive: $showDemo) {
-                    RecirculationModuleDemo(model: model)
+                    MoreAppsModuleDemo(model: model)
                 } label: {
                     ODSButton(text: Text("shared.modules.button.view_demo"), emphasis: .high, fullWidth: true) {
                         showDemo.toggle()

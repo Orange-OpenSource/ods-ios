@@ -390,17 +390,17 @@
 "screens.modules.empty_state.usage_no_data.buttonLabel" = "Search";
 "screens.modules.empty_state.usage.alert" = "%@ clicked";
 
-// =========================================
-// MARK: - Screens - Modules - Recirculation
-// =========================================
+// ====================================
+// MARK: - Screens - Modules - MoreApps
+// ====================================
 
-"screens.modules.recirculation.title" = "Recirculation";
-"screens.modules.recirculation.title.setup" = "Recirculation: Setup";
-"screens.modules.recirculation.description" = "Recirculation (AppsPlus was a OMD Essential component) making Orange Apps discovery easier than ever.";
-"screens.modules.recirculation.option.flatten_apps_sections" = "Uncategorize apps";
-"screens.modules.recirculation.option.use_embeded_data_source" = "Use local data";
-"screens.modules.recirculation.option.cache_more_apps_icons" = "Cache apps images";
-"screens.modules.recirculation.option.enable_haptics" = "Enable vibrations";
+"screens.modules.moreApps.title" = "MoreApps";
+"screens.modules.moreApps.title.setup" = "MoreApps: Setup";
+"screens.modules.moreApps.description" = "MoreApps makes Orange Apps discovery easier than ever (based on AppsPlus which cas an OMD Essential component)";
+"screens.modules.moreApps.option.flatten_apps_sections" = "Uncategorize apps";
+"screens.modules.moreApps.option.use_embeded_data_source" = "Use local data";
+"screens.modules.moreApps.option.cache_more_apps_icons" = "Cache apps images";
+"screens.modules.moreApps.option.enable_haptics" = "Enable vibrations";
 
 // =======================================
 // MARK: - Screens - Components - Template

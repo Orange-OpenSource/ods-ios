@@ -71,13 +71,13 @@ struct ModulesList: View {
                     }
 
                     NavigationLink {
-                        RecirculationModule()
-                            .odsNavigationTitle("screens.modules.recirculation.title.setup".🌐)
+                        MoreAppsModule()
+                            .odsNavigationTitle("screens.modules.moreApps.title.setup".🌐)
                             .navigationbarMenuForThemeSelection()
                     } label: {
                         ODSCardVerticalImageFirst(
-                            title: Text("screens.modules.recirculation.title"),
-                            imageSource: .image(imageFrom(resourceName: "il_recirculation")))
+                            title: Text("screens.modules.moreApps.title"),
+                            imageSource: .image(imageFrom(resourceName: "il_moreApps")))
                     }
 
                     NavigationLink {

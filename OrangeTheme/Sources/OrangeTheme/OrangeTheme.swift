@@ -281,7 +281,6 @@ public struct OrangeThemeFactory {
     public let theme: ODSTheme
     public static let themeName = "OrangeTheme"
 
-    // swiftlint:disable function_body_length
     public init() {
         var theme = ODSTheme()
 
@@ -346,19 +345,12 @@ public struct OrangeThemeFactory {
             }
         }
 
-        // Images for empty states
-        theme.emptyStateImages = ODSThemeEmptyStateImages(error: Image(decorative: "il_emptyStateError", bundle: .orangeTheme),
-                                                          firstUse: Image(decorative: "il_emptyStateFirstUse", bundle: .orangeTheme),
-                                                          noData: Image(decorative: "il_emptyStateNoData", bundle: .orangeTheme),
-                                                          userCleared: Image(decorative: "il_emptyStateUserCleared", bundle: .orangeTheme))
-
         // Bundle
         theme.bundle = Bundle.orangeTheme
 
         // Read-to-use theme
         self.theme = theme
     }
-    // swiftlint:enable function_body_length
 }
 
 // ==============

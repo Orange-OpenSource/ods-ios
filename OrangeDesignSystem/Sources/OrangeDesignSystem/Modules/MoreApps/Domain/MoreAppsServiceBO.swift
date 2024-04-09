@@ -13,52 +13,52 @@
 
 import Foundation
 
-// ===============================
-// MARK: - Recirculation Apps List
-// ===============================
+// ==========================
+// MARK: - MoreApps Apps List
+// ==========================
 
-/// Business object to gather both sections and apps ready to use for the _Recirculation module_
-struct RecirculationAppsList {
+/// Business object to gather both sections and apps ready to use for the _MoreApps module_
+struct MoreAppsAppsList {
     /// All available sections of apps
-    let sections: [RecirculationAppsListSection]
+    let sections: [MoreAppsAppsListSection]
     /// All available apps without associated sections
-    let apps: [RecirculationAppDetails]
+    let apps: [MoreAppsAppDetails]
 }
 
-extension RecirculationAppsList {
+extension MoreAppsAppsList {
 
     /// Returns a fresh new object without any sections anymore but with all apps of all sections add in the_apps_.
     /// Order of apps is based on order of previous sections.
-    /// - Returns MoreAppsList: Flattened version without changing `self`
-    func flattened() -> RecirculationAppsList {
+    /// - Returns MoreAppsAppsList: Flattened version without changing `self`
+    func flattened() -> MoreAppsAppsList {
         var flattenedApps = apps
         sections.forEach {
             flattenedApps.append(contentsOf: $0.apps)
         }
-        return RecirculationAppsList(sections: [], apps: flattenedApps)
+        return MoreAppsAppsList(sections: [], apps: flattenedApps)
     }
 }
 
 // ==================================
-// MARK: - Recirculation Apps Section
+// MARK: - MoreApps Apps List Section
 // ==================================
 
-/// Business object to gather a group of apps behind a description ready to use for the _Recirculation module_
-struct RecirculationAppsListSection {
+/// Business object to gather a group of apps behind a description ready to use for the _MoreApps module_
+struct MoreAppsAppsListSection {
     /// Some description for a section, e.g. "customer" or "business"
     let description: String
     /// All the apps for this section
-    let apps: [RecirculationAppDetails]
+    let apps: [MoreAppsAppDetails]
 }
 
-extension RecirculationAppsListSection: Hashable {}
+extension MoreAppsAppsListSection: Hashable {}
 
-// =================================
-// MARK: - Recirculation App Details
-// =================================
+// =============================
+// MARK: - MoreApps Apps Details
+// =============================
 
-/// Business object modelizing details of an app ready to use for the _Recirculation module_
-struct RecirculationAppDetails {
+/// Business object modelizing details of an app ready to use for the _MoreApps module_
+struct MoreAppsAppDetails {
     /// Commercial title of the app
     let title: String
     /// URL to use to load the icon of the app
@@ -69,4 +69,4 @@ struct RecirculationAppDetails {
     let storeURL: URL?
 }
 
-extension RecirculationAppDetails: Hashable {}
+extension MoreAppsAppDetails: Hashable {}

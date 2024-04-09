@@ -14,7 +14,7 @@
 # App features configuration
 # --------------------------
 
-# URL for recirculation module to get feed from backend
+# URL for MoreApps module to get feed from APPS_PLUS backend
 APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
 
 # Apple configuration
@@ -77,7 +77,7 @@ platform :ios do
     end
 
     # ------------------------------------------------------------
-    # ADD APPS PLUS CREDENTIALS (Recirculation module)
+    # ADD APPS PLUS CREDENTIALS (MoreApps module)
     # ------------------------------------------------------------
     desc "ADD APPS PLUS CREDENTIALS"
     lane :add_credentials_appsplus do
@@ -87,7 +87,7 @@ platform :ios do
             puts "Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?"
             publish_mattermost_notification("⚙️ ⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
         else
-            puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'" # Ensure your variable is "masked" in your CI/CD chain
+            puts "URL for MoreApps module is '#{APPS_PLUS_SERVICE_URL}'" # Ensure your variable is "masked" in your CI/CD chain
         end
 
         plistPath="#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist"

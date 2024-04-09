@@ -22,10 +22,10 @@ final class MoreAppsServiceTests: XCTestCase {
     /// Assertions on the apps objects read from some mock JSON to test both mapper and service layers
     func testMoreAppsServiceApps() async {
         // Given
-        let moreAppsService = RecirculationService(repository: MockMoreAppsRepository(feedURL: URL(string: "https://opensource.orange.com/")!))
+        let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository(feedURL: URL(string: "https://opensource.orange.com/")!))
 
         // When
-        var apps = [RecirculationAppDetails]()
+        var apps = [MoreAppsAppDetails]()
         do {
             let moreAppsList = try await moreAppsService.availableAppsList()
             apps = moreAppsList.apps
@@ -58,11 +58,11 @@ final class MoreAppsServiceTests: XCTestCase {
     /// Assertions on the sections objects read from some mock JSON to test both mapper and service layers
     func testMoreAppsServiceSections() async {
         // Given
-        let moreAppsService = RecirculationService(repository: MockMoreAppsRepository(feedURL: URL(string: "https://opensource.orange.com/")!))
+        let moreAppsService = MoreAppsService(repository: MockMoreAppsRepository(feedURL: URL(string: "https://opensource.orange.com/")!))
 
         // When
 
-        var sections = [RecirculationAppsListSection]()
+        var sections = [MoreAppsAppsListSection]()
         do {
             let moreAppsList = try await moreAppsService.availableAppsList()
             sections = moreAppsList.sections
@@ -104,7 +104,7 @@ final class MoreAppsServiceTests: XCTestCase {
     // MARK: - Helpers
     // ===============
 
-    private struct MockMoreAppsRepository: RecirculationRepositoryProtocol {
+    private struct MockMoreAppsRepository: MoreAppsRepositoryProtocol {
 
         private let feedURL: URL
         private let urlSessionConfiguration: URLSessionConfiguration
@@ -116,7 +116,7 @@ final class MoreAppsServiceTests: XCTestCase {
             self.urlSessionConfiguration = urlSessionConfiguration
         }
 
-        func availableAppsList() -> RecirculationAppsList {
+        func availableAppsList() -> MoreAppsAppsList {
             let mockJsonPath = XCTestCase.stubPath(for: "AppsPlusMock", ofType: "json", inBundleOf: MoreAppsServiceTests.self)
             guard let jsonRawData = try? String(contentsOfFile: mockJsonPath).data(using: .utf8) else {
                 fatalError("Failed to convert the mock JSON for tests!")
@@ -125,11 +125,11 @@ final class MoreAppsServiceTests: XCTestCase {
                 fatalError("Failed to process the JSON mock data!")
             }
 
-            let mapper = AppsPlusRecirculationMapper()
+            let mapper = AppsPlusToMoreAppsMapper()
             let moreAppsAppDetails = mapper.appsDetails(from: appsPlusDTOMock.items[0])
             let moreAppsSections = mapper.appsSections(from: appsPlusDTOMock.items[0])
 
-            return RecirculationAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
+            return MoreAppsAppsList(sections: moreAppsSections, apps: moreAppsAppDetails)
         }
     }
 }

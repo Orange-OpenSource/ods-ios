@@ -13,9 +13,11 @@
 
 import Foundation
 
-/// Abstraction layer if in the future another data feed will be used to get other available apps.
-protocol RecirculationRepositoryProtocol {
+protocol MoreAppsServiceProtocol {
 
-    /// Supposed to be async method to return the apps lists or to throw some error
-    func availableAppsList() async throws -> RecirculationAppsList
+    /// - Parameter repository: The object to use to get the raw data from a feeder
+    init(repository: MoreAppsRepositoryProtocol)
+
+    /// Supposed to be async method to return the apps lists or to throw some error, using the given `MoreAppsRepositoryProtocol`
+    func availableAppsList() async throws -> MoreAppsAppsList
 }

@@ -64,11 +64,11 @@ final class ThemeProvider: ObservableObject {
     ///    - inThemeBundle: If `false` no bundle will be used, otherwise will use the theme bundle.
     /// - Returns: The decorative image
     func imageFromResources(name: String, inThemeBundle: Bool = false) -> Image {
-        let imageName = currentTheme.name == InnovationCupThemeFactory.themeName ? "\(name) (Innovation Cup)" : name
-        if inThemeBundle { // Supposing the themes have the same types of images but some of them are suffixed
-            return Image(decorative: imageName, bundle: currentTheme.bundle)
+        if inThemeBundle {
+            return Image(decorative: name, bundle: currentTheme.bundle)
         } else {
-            return Image(decorative: imageName)
+            let imageName = currentTheme.name == InnovationCupThemeFactory.themeName ? "\(name) (Innovation Cup)" : name
+            return Image(decorative: imageName, bundle: Bundle.main)
         }
     }
 }
