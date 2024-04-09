@@ -232,4 +232,3 @@ public struct ODSMoreAppsView: View {
         case uncategorizedAppsSection
     }
 }
-
