@@ -1,11 +1,13 @@
 <!--
-  ~ /*
-  ~ * Copyright 2021 Orange
-  ~ *
-  ~ * Use of this source code is governed by an MIT-style
-  ~ * license that can be found in the LICENSE file or at
-  ~ * https://opensource.org/licenses/MIT.
-  ~ */
+  ~ Software Name: Orange Design System
+  ~ SPDX-FileCopyrightText: Copyright (c) Orange SA
+  ~ SPDX-License-Identifier: MIT
+  ~
+  ~ This software is distributed under the MIT license,
+  ~ the text of which is available at https://opensource.org/license/MIT/
+  ~ or see the "LICENSE" file for more details.
+  ~
+  ~ Software description: A SwiftUI components library with code examples for Orange Design System
   -->
 
 <!DOCTYPE html>
@@ -64,8 +66,17 @@
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasWrapper" style="margin-right: -.625rem;"><span class="visually-hidden">Close</span></button>
                         </div>
                         <nav class="offcanvas-body d-flex flex-column pb-4 pb-lg-0 pe-1 gap-4">
-                            {% if site.data.data_menus.toc2[0] %}
-                            {% for item in site.data.data_menus.toc2 %}
+                            {% if page.version == "" %}
+                            {% assign url_prefix = "" %}
+                            {% assign key_suffix = "" %}
+                            {% else %}
+                            {% assign url_prefix = "/" | append: page.version %}
+                            {% capture key_suffix %}_{{ page.version | replace: '.', '_' }}{% endcapture %}
+                            {% endif %}
+                            {% capture data_menu_key %}data_menu{{ key_suffix }}{% endcapture %}
+                            {% assign data_menu = site.data[data_menu_key] %}
+                            {% if data_menu.toc2[0] %}
+                            {% for item in data_menu.toc2 %}
                             <div>
                                 <h3 class="mb-2">{{ item.title }}</h3>
                                 {% if item.subfolderitems[0] %}
@@ -73,14 +84,14 @@
                                     <ul class="d-flex flex-column gap-2 gap-lg-1 mb-0 list-unstyled">
                                         {% for entry in item.subfolderitems %}
                                         {% if entry.page == page.title %}
-                                        <li><a class="text-decoration-none fw-bold" href="{{ site.baseurl }}/{{ entry.url }}">{{ entry.page }}</a>
+                                        <li><a class="text-decoration-none fw-bold" href="{{ site.baseurl }}{{ url_prefix }}{{ entry.url }}">{{ entry.page }}</a>
                                         {% else %}
-                                        <li><a class="text-decoration-none" href="{{ site.baseurl }}/{{ entry.url }}">{{ entry.page }}</a>
+                                        <li><a class="text-decoration-none" href="{{ site.baseurl }}{{ url_prefix }}{{ entry.url }}">{{ entry.page }}</a>
                                         {% endif %}
                                             {% if entry.subsubfolderitems[0] %}
                                             <ul>
                                                 {% for subentry in entry.subsubfolderitems %}
-                                                <li><a href="{{ site.baseurl }}/{{ subentry.url }}">{{ subentry.page }}</a></li>
+                                                <li><a href="{{ site.baseurl }}{{ url_prefix }}{{ subentry.url }}">{{ subentry.page }}</a></li>
                                                 {% endfor %}
                                             </ul>
                                             {% endif %}
@@ -102,7 +113,7 @@
                     {% if page.content_page %}
 
                     {% for all in site.pages %}
-                    {% if all.name == page.content_page %}
+                    {% if all.name == page.content_page and all.version == page.version %}
 
                     {% if page.url != "/" %}
                     <h1>{{ all.title }}</h1>

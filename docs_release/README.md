@@ -40,10 +40,17 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     ```
     - Ensure the marketing version defined in Xcode is updated with the new X.Y.Z
     - Update the version precised in *home_content* file
-    - Commit your modifications
-    - Push them to the repository
-    
+    - Archive the documentation in `docs/X.Y.Z`.
+    - Update Jekyll configuration files.<br /><br />
+
+- Verify the changes mentioned above, then commit and push.
+
+  Please see [DEVELOP.md](../DEVELOP.md#documentation) to get more information about how to build and verify the documentation.
+
+  Once the Jekyll server is started, the documentation for version X.Y.Z should be available at http://127.0.0.1:4000/ods-ios/X.Y.Z/.
+      
 - Create a new pull request named `Prepare release X.Y.Z` on GitHub to merge your branch into `qualif`.
+
 - Review and merge this pull request on GitHub.<br /><br />
 
 ## Release

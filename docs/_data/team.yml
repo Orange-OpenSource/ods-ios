@@ -1,3 +1,4 @@
+version: ""
 ODS_iOS:
   - name: Lapersonne Pierre-Yves
     gh_pseudo: pylapp
