@@ -167,7 +167,7 @@ public struct ODSListItem: View {
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
     ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
-    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not design compliant).
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be careful: this is not design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///
     public init(
@@ -205,7 +205,7 @@ public struct ODSListItem: View {
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
     ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
-    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not design compliant).
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be careful: this is not design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingIButtonAction: The action the i button on trailing
@@ -227,7 +227,7 @@ public struct ODSListItem: View {
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
     ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
-    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not   design compliant).
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be careful: this is not   design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailingText The text on trailing
     ///     - trailingToggleIsOn: The binding to a property that determines whether the toggle is on or off.
@@ -270,7 +270,7 @@ public struct ODSListItem: View {
     ///     - title: The primary text of the list item
     ///     - subtitle: The secondary text of the list item (optional)
     ///     - subtitleNumberOfLines: If `subtitle` is provided, it is possible to limit the text
-    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be carefull: this is not design compliant).
+    ///     to 1 line or 2 lines. If set to nil, no restriction is applied (be careful: this is not design compliant).
     ///     - leading: The leading icon of the list item (optional)
     ///     - trailing: The trailing element
     ///

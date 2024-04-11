@@ -50,7 +50,7 @@ ODSBanner(text: "One to two lines is preferable on mobile and tablet.") {
 }
 ```
 
-- with image from resourcess
+- With image from resourcess
  
 ```swift
 ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
@@ -66,7 +66,7 @@ ODSBanner(text: "One to two lines is preferable on mobile and tablet.",
 ```
 
 
-- With image from url
+- With image from URL
 
 ```swift
 
