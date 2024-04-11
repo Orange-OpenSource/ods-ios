@@ -30,10 +30,9 @@
 "modules.about.error.generic_message" = "Something goes wrong";
 "modules.about.moreApps.title" = "More Apps";
 
-
-// ============================
+// =======================
 // MARK: - MoreApps module
-// ============================
+// =======================
 
 "modules.moreApps.uncategorized_apps" = "Uncategorized apps";
 "modules.moreApps.go_to_appstore" = "Open in App Store";

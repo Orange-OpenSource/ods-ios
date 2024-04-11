@@ -205,8 +205,8 @@ ODSCardSmall(
 | <b>`title: Text`</b>                |                    | Title displayed into the card.                                                     |
 | `imageSource: ODSImage.Source`      |                    | Image displayed in the card.                                                       |
 | `subtitle: Text?`                   | `nil`              | Subtitle (optional) displayed into the card.                                       |
-| `titleAccessibleLineLimit: Int?`    | `nil`              | The line limit to apply to the title is size category is accessibility category    |
-| `subtitleAccessibleLineLimit: Int?` | `nil`              | The line limit to apply to the subtitle is size category is accessibility category |
+| `titleAccessibleLineLimit: Int?`    | `nil`              | The line limit to apply to the title if size category is accessibility category    |
+| `subtitleAccessibleLineLimit: Int?` | `nil`              | The line limit to apply to the subtitle if size category is accessibility category |
 
 **Remark:** 
 - To handle action when card is clicked, add it into a `Button` or in `NnavigationLink` or add a `.onTapGesture` modifier.<BR><BR>

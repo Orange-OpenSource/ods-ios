@@ -15,9 +15,9 @@ import Combine
 import Foundation
 import SwiftUI
 
-// ================================
+// ===========================
 // MARK: - MoreApps View Model
-// ================================
+// ===========================
 
 @MainActor
 final class ODSMoreAppsModel: ObservableObject {
@@ -29,7 +29,7 @@ final class ODSMoreAppsModel: ObservableObject {
     private let service: MoreAppsService
     private let flattenApps: Bool
     private let cacheAppsIcons: Bool
-    @Published var loadingState: LoadingState<MoreAppsList, ODSMoreAppsModel.Error>
+    @Published var loadingState: LoadingState<MoreAppsAppsList, ODSMoreAppsModel.Error>
 
     // =================
     // MARK: Initializer
@@ -66,8 +66,8 @@ final class ODSMoreAppsModel: ObservableObject {
                 let appsList = try await service.availableAppsList()
                 loadingState = .loaded(flattenApps ? appsList.flattened() : appsList)
             } catch {
-                if let modeAppsError = error as? ODSMoreAppsModel.Error {
-                    loadingState = .error(modeAppsError)
+                if let moreAppsError = error as? ODSMoreAppsModel.Error {
+                    loadingState = .error(moreAppsError)
                 } else {
                     loadingState = .error(.unknownError)
                 }

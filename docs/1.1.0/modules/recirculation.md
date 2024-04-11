@@ -1,6 +1,6 @@
 ---
 layout: detail
-title: MoreApps
+title: Recirculation
 description: Displays a list of applications can be downloaded and used by user.
 ---
 ---
@@ -14,11 +14,11 @@ description: Displays a list of applications can be downloaded and used by user.
 
 ## Specifications references
 
-- [Design System Manager - Modules - MoreApps](https://system.design.orange.com/0c1af118d/p/37aa79-recirculation)
+- [Design System Manager - Modules - Recirculation](https://system.design.orange.com/0c1af118d/p/37aa79-recirculation)
 
 ## Overview
 
-The _MoreApps_ module exposes a feature allowing the final users to get the available apps they can use.
+The _Recirculation_ module exposes a feature allowing the final users to get the available apps they can use.
 This feature is based today only on the Orange proprietary _Apps Plus_ backend which provides a JSON file with list of apps and sections of apps.
 This service today is based on a simple URL containing both a lang parameter and an API key. 
 
@@ -26,15 +26,15 @@ This service today is based on a simple URL containing both a lang parameter and
 
 ## Implementation
 
-To be able to call this service and display the list of available apps, you have to use the `ODSMoreAppsView`.
-This _View_ has a `dataSource` parameter of type `ODSMoreAppsDataSource` which must contain the type of source of data to display the apps:
+To be able to call this service and display the list of available apps, you have to use the `ODSRecirculation`.
+This _View_ has a `dataSource` parameter of type `ODSRecirculationDataSource` which must contain the type of source of data to display the apps:
                                      
 ```swift
     // Get data from the Apps Plus backend
-    ODSMoreAppsView(dataSource: .remote(url: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
+    ODSRecirculationView(dataSource: .remote(url: "https://url-to-appsplus-backend/get?apikey=SomeKey&lang=fr"))
     
     // Get data for some local files
-    ODSMoreAppsView(dataSource: .local(path: somePathToJSONFileInResources))
+        ODSRecirculationView(dataSource: .local(path: somePathToJSONFileInResources))
 ```
 
 Note also that the data picked from the _Apps Plus_ service is saved in cache directory so as to be used if the device is offline
@@ -43,21 +43,21 @@ or if an error occured.
 If you want to flatten the list of apps without displaying categories, set the _flattenApps_ flag in the configuration:
 
 ```swift
-    ODSMoreAppsView(dataSource: ..., flattenApps: true)
+    ODSRecirculationView(dataSource: ..., flattenApps: true)
 ```  
 
 The apps icons displayed in the list of apps can also be cached.
 If you do not want to see these values put in cache, meaning e.g. displaying instead a placeholder if no network, use:
 
 ```swift
-    ODSMoreAppsView(dataSource: ..., cacheAppsIcons: false)
+    ODSRecirculationView(dataSource: ..., cacheAppsIcons: false)
 ```
 
 The list of apps can trigger also haptic notifications, e.g. vibrations when the data have been lodaded or if an error occured.
 By default this feature is enabled, but it can be disabled:
 
 ```swift
-    ODSMoreAppsView(dataSource: ..., enableHaptics: false)
+    ODSRecirculationView(dataSource: ..., enableHaptics: false)
 ```
 
 ### Example about definiton of Apps Plus credentials
@@ -103,7 +103,7 @@ We could have choosen this implemention deeper in the repository but wanted to l
         return feedURL
     }
     
-    // And then ODSMoreAppsView(dataSource: .remote(url: buildAppsPlusURL()))
+    // And then ODSRecirculationView(dataSource: .remote(url: buildAppsPlusURL()))
 ```
 
 In some CI/CD chain like our GitLab CI runner, we can use a _Fastlane_ lane to read some previously environment variable and fill the _Info.Plist_ file in the suitable row.

@@ -36,14 +36,14 @@ struct LocalAppsPlusRepository: MoreAppsRepositoryProtocol {
     // MARK: MoreAppsRepositoryProtocol - Impl
     // =======================================
 
-    func availableAppsList() async throws -> MoreAppsList {
+    func availableAppsList() async throws -> MoreAppsAppsList {
         do {
             let rawData = try Data(contentsOf: feedURL)
             let appsPlusAppsList: AppsPlusListDTO = try JSONDecoder().decode(AppsPlusDTO.self, from: rawData).items[0]
             let mapper = AppsPlusToMoreAppsMapper()
             let apps = mapper.appsDetails(from: appsPlusAppsList)
             let sections = mapper.appsSections(from: appsPlusAppsList)
-            return MoreAppsList(sections: sections, apps: apps)
+            return MoreAppsAppsList(sections: sections, apps: apps)
         } catch {
             ODSLogger.error("(ノಠ益ಠ)ノ彡┻━┻ Failed to decode local AppsPlus file: '\(error.localizedDescription)'")
             throw MoreAppsServiceErrors.jsonDecodingFailure
