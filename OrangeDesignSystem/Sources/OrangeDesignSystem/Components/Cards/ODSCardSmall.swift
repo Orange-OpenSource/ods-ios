@@ -39,8 +39,8 @@ public struct ODSCardSmall: View {
     ///  - title: Title displayed into the card.
     ///  - imageSource: Image from source [ODSImage.Source] displayed into the card.
     ///  - subtitle: Optional subtitle displayed into the card,d efault set to `nil`
-    ///  - titleAccessibleLineLimit: The line limit to apply to the title is size category is accessibility category, default set to `nil`
-    ///  - subtitleAccessibleLineLimit: The line limit to apply to the subtitle is size category is accessibility category, default set to `nil`
+    ///  - titleAccessibleLineLimit: The line limit to apply to the title if size category is accessibility category, default set to `nil`
+    ///  - subtitleAccessibleLineLimit: The line limit to apply to the subtitle if size category is accessibility category, default set to `nil`
     public init(title: Text, imageSource: ODSImage.Source, subtitle: Text? = nil, titleAccessibleLineLimit: Int? = nil, subtitleAccessibleLineLimit: Int? = nil) {
         self.title = title
         self.subtitle = subtitle

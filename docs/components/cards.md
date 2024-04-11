@@ -40,7 +40,7 @@ This card is composed of two parts:
 
 ![Vertical image first card light](images/card_vertical_image_first_light.png) ![Vertical image first card dark](images/card_vertical_image_first_dark.png)
 
-> **Implementation**
+#### SwiftUI example
 
 Card is configured like this:
 
@@ -61,6 +61,22 @@ ODSCardVerticalImageFirst(
 }
 ```
 
+#### ODSCardVerticalImageFirst API
+
+| Parameter                           | Default&nbsp;value | Description                                                                       |
+|-------------------------------------|--------------------|-----------------------------------------------------------------------------------|
+| <b>`title: Text`</b>                |                    | Title displayed into the card.                                                    |
+| `imageSource: ODSImage.Source`      |                    | Image displayed in the card.                                                      |
+| `subtitle: Text?`                   | `nil`              | Subtitle (optional) displayed into the card.                                      |
+| `text: Text`                        | `nil`              | Text (optional) displayed into the card.                                          |
+| `firstButton: Button<Text>`         |                    | Primary (leading) button displayed in the card.                                   |
+| `secondButton: Button<Text>`        |                    | Secondary (trailing) button displayed into the card next to the first one.        |
+
+**Remarks:** 
+- To get a card without button, use the right initializer without `firstButton` and `secondButton`.
+- To handle action when card is clicked, add it into a `Button` or in `NnavigationLink` or add a `.onTapGesture` modifier.<BR><BR>
+
+
 ### Vertical Header First Card
 
 This is a full width card displaying with a title and a thumbnail on top as first element.
@@ -72,7 +88,7 @@ This card is composed of three parts:
 
 ![Vertical header first card light](images/card_vertical_header_first_light.png) ![Vertical header first card dark](images/card_vertical_header_first_dark.png)
 
-> **Implementation**
+#### SwiftUI example
 
 Card is configured like this:
 
@@ -95,6 +111,23 @@ ODSCardVerticalHeaderFirst(
 }
 ```
 
+#### ODSCardVerticalHeaderFirst API
+
+| Parameter                           | Default&nbsp;value | Description                                                                       |
+|-------------------------------------|------------------- |-----------------------------------------------------------------------------------|
+| <b>`title: Text`</b>                |                    | Title displayed into the card.                                                    |
+| `imageSource: ODSImage.Source`      |                    | Image displayed in the card.                                                      |
+| `subtitle: Text?`                   | `nil`              | Subtitle (optional) displayed into the card.                                      |
+| `thumbnailSource: ODSImage.Source?` | `nil`              | Thumbnail displayed into the card next to the title: avatar, logo or icon.        |
+| `text: Text`                        | `nil`              | Text (optional) displayed into the card.                                          |
+| `firstButton: Button<Text>`         |                    | Primary (leading) button displayed in the card.                                   |
+| `secondButton: Button<Text>`        |                    | Secondary (trailing) button displayed into the card next to the first one.        |
+
+**Remarks:** 
+- To get a card without button, use the right initializer without `firstButton` and `secondButton`.
+- To handle action when card is clicked, add it into a `Button` or in `NnavigationLink` or add a `.onTapGesture` modifier.<BR><BR>
+
+
 ### Horizontal Card
 
 This is a full width card displaying with image on left and content with texts on the right. Additonal action buttons can be added at the bottom of the card. 
@@ -106,7 +139,7 @@ Thes content is composed by:
 
 ![Horizontal card light](images/card_horizontal_light.png) ![Horizontal card dark](images/card_horizontal_dark.png)
 
-> **Implementation**
+#### SwiftUI example
 
 Card is configured like this:
 
@@ -129,6 +162,23 @@ ODSCardHorizontal(
 }
 ```
 
+#### ODSCardHorizontal API
+
+| Parameter                           | Default&nbsp;value | Description                                                                       |
+|-------------------------------------|--------------------|-----------------------------------------------------------------------------------|
+| <b>`title: Text`</b>                |                    | Title displayed into the card.                                                    |
+| `imageSource: ODSImage.Source`      |                    | Image displayed in the card.                                                      |
+| `imagePosition: Self.ImagePosition` | `.leading`         | The side where image is placed.                                                   |
+| `subtitle: Text?`                   | `nil`              | Subtitle (optional) displayed into the card.                                      |
+| `text: Text`                        | `nil`              | Text (optional) displayed into the card.                                          |
+| `firstButton: Button<Text>`         |                    | Primary (leading) button displayed in the card.                                   |
+| `secondButton: Button<Text>`        |                    | Secondary (trailing) button displayed into the card next to the first one.        |
+
+**Remarks:** 
+- To get a card without button, use the right initializer without `firstButton` and `secondButton`.
+- To handle action when card is clicked, add it into a `Button` or in `NnavigationLink` or add a `.onTapGesture` modifier.<BR><BR>
+
+
 ### Small Card  
 
 The small card if prefered for two-column portrait mobile screen display.
@@ -136,7 +186,7 @@ As it is smaller than full-width cards, it contains only title and subtitle (opt
 
 ![Small card light](images/card_small_light.png) ![Small card dark](images/card_small_dark.png)
 
-> **Implementation**
+#### SwiftUI example
 
 Card is configured like this:
 
@@ -148,7 +198,21 @@ ODSCardSmall(
 ) 
 ```
 
-How to add Small Card in Grid 
+#### ODSCardSmall API
+
+| Parameter                           | Default&nbsp;value | Description                                                                        |
+|-------------------------------------|--------------------|------------------------------------------------------------------------------------|
+| <b>`title: Text`</b>                |                    | Title displayed into the card.                                                     |
+| `imageSource: ODSImage.Source`      |                    | Image displayed in the card.                                                       |
+| `subtitle: Text?`                   | `nil`              | Subtitle (optional) displayed into the card.                                       |
+| `titleAccessibleLineLimit: Int?`    | `nil`              | The line limit to apply to the title if size category is accessibility category    |
+| `subtitleAccessibleLineLimit: Int?` | `nil`              | The line limit to apply to the subtitle if size category is accessibility category |
+
+**Remark:** 
+- To handle action when card is clicked, add it into a `Button` or in `NnavigationLink` or add a `.onTapGesture` modifier.<BR><BR>
+
+
+#### How to add Small Card in Grid 
 
 ```swift
 class Model {

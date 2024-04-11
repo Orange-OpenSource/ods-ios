@@ -25,8 +25,7 @@ struct AppsPlusToMoreAppsMapper {
     }
 
     func appsSection(from section: AppsPlusSectionDTO) -> MoreAppsAppsListSection {
-        MoreAppsAppsListSection(description: section.description,
-                        apps: section.apps.map { appDetails(from: $0) })
+        MoreAppsAppsListSection(description: section.description, apps: section.apps.map { appDetails(from: $0) })
     }
 
     func appDetails(from details: AppsPlusAppDetailsDTO) -> MoreAppsAppDetails {
