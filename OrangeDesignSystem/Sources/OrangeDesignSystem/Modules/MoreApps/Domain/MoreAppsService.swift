@@ -28,7 +28,7 @@ enum MoreAppsServiceErrors: Error {
 }
 
 // ========================
-// MARK: - ModeApps Service
+// MARK: - MoreApps Service
 // ========================
 
 /// Helps to test or use some data feeds to get available apps details

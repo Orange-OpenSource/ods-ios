@@ -29,7 +29,7 @@ extension MoreAppsAppsList {
 
     /// Returns a fresh new object without any sections anymore but with all apps of all sections add in the_apps_.
     /// Order of apps is based on order of previous sections.
-    /// - Returns MoreAppsList: Flattened version without changing `self`
+    /// - Returns MoreAppsAppsList: Flattened version without changing `self`
     func flattened() -> MoreAppsAppsList {
         var flattenedApps = apps
         sections.forEach {
