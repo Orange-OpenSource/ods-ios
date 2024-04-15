@@ -204,7 +204,9 @@ platform :ios do
         commitHash=params[:commitHash]
         puts "👉 Build and upload (commit hash = #{commitHash})"
 
-        # If already build, prevents to build again for nothing
+        # If already built, prevents to build again for nothing
+        # Warning: tag is done before build and not remove, so if build failed, tag will remain and needs to be remove manualy.
+        # It prevents to have loops of failing builds.
         if tag_ci_build(commitHash)
             # Ensure this build-then-uploaded app has a new and unique build number matching also to code version
             update_build_number
