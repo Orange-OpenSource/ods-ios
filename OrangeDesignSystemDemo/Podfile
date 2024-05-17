@@ -20,7 +20,7 @@ target 'OrangeDesignSystemDemo' do
   target 'OrangeDesignSystemDemoTests' do
     inherit! :search_paths
 
-    pod 'SwiftLint', '0.54.0'
+    pod 'SwiftLint', '0.55.1'
     pod 'SwiftFormat/CLI', '0.53.5'
     
   end
