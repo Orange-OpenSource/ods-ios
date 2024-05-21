@@ -43,7 +43,6 @@ struct EmphasisVariant: View {
                         .odsFont(.headlineS)
                     Spacer()
                 }
-                .accessibilityAddTraits(.isHeader)
 
                 ODSButton(text: Text(model.text),
                           image: model.icon,
@@ -52,6 +51,8 @@ struct EmphasisVariant: View {
                     .disabled(!model.showEnabled)
             }
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isButton)
     }
 }
 
