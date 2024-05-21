@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [Doc] Wrong name of MoreApprs module in documentation ([#815](https://github.com/Orange-OpenSource/ods-ios/issues/815))
 - [Doc] Update components and modules documentation to add a description of the API ([#759](https://github.com/Orange-OpenSource/ods-ios/issues/759))
 - [DemoApp/SDK] Rename "Recirculation" module to "MoreApps", and use "EmptyState" assets from Theme bundle ([#801](https://github.com/Orange-OpenSource/ods-ios/issues/801))
 - [Tooling] Update dependency SwiftFormat/CLI to v0.53.5
