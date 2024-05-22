@@ -42,6 +42,7 @@ struct TrailingView: View {
 
                 ODSIconButton(image: Image(systemName: "info.circle"), action: action)
                     .foregroundColor(theme.componentColors.accent)
+                    .frame(width: height, height: height)
                     .buttonStyle(PlainButtonStyle())
             }
 
