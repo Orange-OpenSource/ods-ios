@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...qualif)
+## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.2.0...qualif)
+
+### Fixed
+
+- [A11y] Target size is too small for info and chevron components, difficult to tap without mistake. ([#732](https://github.com/Orange-OpenSource/ods-ios/issues/732))
+
+## [1.2.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.0.0...1.2.0) - 2024-05-06
 
 ### Added
 
