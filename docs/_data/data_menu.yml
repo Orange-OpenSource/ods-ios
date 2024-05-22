@@ -49,8 +49,8 @@ toc2:
         url: /modules/emptyState_docs
       - page: List
         url: /modules/list_docs
-      - page: Recirculation
-        url: /modules/recirculation_docs
+      - page: MoreApps
+        url: /modules/moreApps_docs
 
   - title: About
     subfolderitems:
