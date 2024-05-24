@@ -73,7 +73,6 @@ struct AboutSetup: View {
                     selection: $model.applicationSectionOptions)
                 .padding(.vertical, ODSSpacing.m)
                 .padding(.horizontal, -ODSSpacing.m)
-                .accessibilityAddTraits(.isHeader)
                 
                 ODSFilterChipPicker(
                     title: Text("screens.modules.about.picker.optional_about_items"),
@@ -81,7 +80,6 @@ struct AboutSetup: View {
                     selection: $model.optionalAboutItems)
                 .padding(.vertical, ODSSpacing.s)
                 .padding(.horizontal, -ODSSpacing.m)
-                .accessibilityAddTraits(.isHeader)
                 
                 Stepper("screens.modules.about.picker.custom_items" <- "\(model.numberOfCustomItems)",
                         value: $model.numberOfCustomItems,
