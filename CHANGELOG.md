@@ -4,13 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.2.0...qualif)
-
-### Fixed
-
-- [A11y] Target size is too small for info and chevron components, difficult to tap without mistake. ([#732](https://github.com/Orange-OpenSource/ods-ios/issues/732))
-
-## [1.2.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.0.0...1.2.0) - 2024-05-06
+## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...qualif)
 
 ### Added
 
@@ -29,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- [DemoApp] A11y - Target size is too small for info and chevron components, difficult to tap without mistake. ([#732](https://github.com/Orange-OpenSource/ods-ios/issues/732))
 - [DemoApp] A11y - Buttons component : group labels and buttons ([#760](https://github.com/Orange-OpenSource/ods-ios/issues/760))
 - [DemoApp] A11y - Title is the same for both variants "Progress bar demo", title must be unique. ([#724](https://github.com/Orange-OpenSource/ods-ios/issues/724))
 
