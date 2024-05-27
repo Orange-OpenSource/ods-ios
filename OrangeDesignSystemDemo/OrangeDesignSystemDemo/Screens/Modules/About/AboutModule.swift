@@ -63,6 +63,7 @@ struct AboutSetup: View {
                     .odsFont(.headlineS)
                     .padding(.top, ODSSpacing.m)
                     .padding(.bottom, ODSSpacing.s)
+                    .accessibilityAddTraits(.isHeader)
                 
                 Text("screens.modules.about.mandatory")
                 
