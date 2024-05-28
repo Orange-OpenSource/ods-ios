@@ -53,9 +53,13 @@ struct SliderVariant: View {
                     ODSSlider(value: $value, in: range, step: 0.5) {
                         Text("screens.components.sliders.sample.volume")
                     } minimumValueLabel: {
-                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill") {
+                                                value = max(value - 0.5, range.lowerBound)
+                                            }
                     } maximumValueLabel: {
-                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill") {
+                                                value = min(value + 0.5, range.upperBound)
+                                            }
                     } onEditingChanged: { isEditing in
                         Log.debug("isEdition: \(isEditing)")
                     }
@@ -63,9 +67,14 @@ struct SliderVariant: View {
                     ODSSlider(value: $value, in: range) {
                         Text("screens.components.sliders.sample.volume")
                     } minimumValueLabel: {
-                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill")
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.1.fill") {
+                            value = max(value - 1.0, range.lowerBound)
+                                            }
+                        
                     } maximumValueLabel: {
-                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill")
+                        SliderLabel(show: model.showSideIcons, systemName: "speaker.wave.3.fill") {
+                            value = min(value + 1.0, range.upperBound)
+                                            }
                     } onEditingChanged: { isEditing in
                         Log.debug("isEdition: \(isEditing)")
                     }
@@ -77,9 +86,9 @@ struct SliderVariant: View {
     }
 
     @ViewBuilder
-    func SliderLabel(show: Bool, systemName: String) -> some View {
+    func SliderLabel(show: Bool, systemName: String, action: @escaping () -> Void) -> some View {
         if show {
-            Image(systemName: systemName).accessibilityHidden(true)
+            ODSIconButton(image: Image(systemName: systemName), action: action)
         }
     }
 }
