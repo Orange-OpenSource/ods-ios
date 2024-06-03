@@ -2,7 +2,7 @@ version: ""
 toc2:
   - title: Get Started
     subfolderitems:
-      - page: Integration
+      - page: Instructions
         url: /index.html
     
   - title: Guidelines
