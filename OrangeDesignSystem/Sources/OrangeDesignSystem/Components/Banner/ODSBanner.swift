@@ -11,11 +11,39 @@
 // Software description: A SwiftUI components library with code examples for Orange Design System
 //
 
-import SwiftUI
 import Flow
+import SwiftUI
 
-/// A banner displays an important message which requires an
-/// action to be dismissed.
+/// swiftlint:disable line_length
+///
+/// Banners should be displayed at the top of the screen, below a top app bar.
+/// They’re persistent and nonmodal, allowing the user to either ignore them or interact with them at any time. Only one banner should be shown at a time.
+///
+/// ![Banner light](banner-light.png)
+/// ![Banner dark](banner-dark.png)
+///
+/// ### Buttons in Banner
+///
+/// A banner can propose up to 2 buttons.
+///
+///     ODSBanner(text: "One to two lines is preferable on mobile and tablet.") {
+///        Button("Button 1") {
+///            // your action here
+///        }
+///     } secondButton: {
+///        Button("Button 2") {
+///          // your action here
+///        }
+///     }
+///
+/// ### Image in Banner
+///
+/// Images in banner can be laoaded from ressources or form url.
+///
+///     let placeholder = Image("placeholder", bundle: Bundle.ods)
+///     let url = URL(string: "https://images.unsplash.com/photo-1615735487485-e52b9af610c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80")
+///
+///     ODSBanner(text: "One to two lines is preferable on mobile and tablet.", imageSource: .asyncImage(url, placeholder))
 ///
 public struct ODSBanner: View {
 
@@ -40,7 +68,6 @@ public struct ODSBanner: View {
     ///   - imageSource: Image displayed before the text in a circle area. If `nil`, no image will be displayed.
     ///   - firstButton: First (leading) button (text only) added under the text.
     ///   - secondButton: Second (trailing) button (text only) added under the text.
-    ///
     public init(_ text: Text,
                 imageSource: ODSImage.Source? = nil,
                 @ViewBuilder firstButton: @escaping () -> Button<Text>,
