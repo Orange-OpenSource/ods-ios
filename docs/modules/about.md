@@ -308,3 +308,9 @@ public struct MyItemToDisplayText: ODSAboutListItemConfig {
 }
 ```
 
+## Internationalization
+ 
+The about module defines some strings sored in the Localizable.strings file provided with the framework. All keys are prefixed by "modules.about.". Today, the module supports only the english language. 
+
+To suopport a new langauge, add a Localizable.strings file (associeted to this langauge) to your main bundle. Then, add those keys and the associated translation for the language.  
+Indeed, the module tries to load first strings from this file. If there is no string found, it uses the string from the default language file.

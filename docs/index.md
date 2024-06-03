@@ -1,6 +1,6 @@
 ---
 layout: main
-title: Integration
+title: Instructions
 description: Getting started with Orange Design System for iOS
 ---
   
