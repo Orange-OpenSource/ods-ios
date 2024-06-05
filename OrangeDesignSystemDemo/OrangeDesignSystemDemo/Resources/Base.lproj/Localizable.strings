@@ -92,7 +92,7 @@
 
 "screens.guidelines.colors.title" = "Colour";
 "screens.guidelines.colors.description" = "It is important to use the iOS system background colours as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.";
-"screens.guidelines.colors.palette.title" = "Palette";
+"screens.guidelines.colors.palette.title" = "Colour palette";
 "screens.guidelines.colors.color_palette.title" = "Colour palette";
 "screens.guidelines.colors.color_palette.on_light" = "Light mode";
 "screens.guidelines.colors.color_palette.on_dark" = "Dark mode";
