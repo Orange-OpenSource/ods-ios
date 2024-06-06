@@ -45,29 +45,47 @@ struct IconVariant: View {
                     .odsFont(.bodyLRegular)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                VariantsTitle().frame(maxWidth: .infinity, alignment: .leading)
+                VariantsTitle()
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                 VStack(alignment: .center, spacing: ODSSpacing.l) {
-                    VStack(alignment: .center, spacing: ODSSpacing.s) {
-                        Text("screens.components.buttons.icon_add").odsFont(.headlineS).frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: ODSSpacing.s) {
+                        Text("screens.components.buttons.icon_add")
+                            .odsFont(.headlineS)
+                            .frame(maxWidth: .infinity, alignment: .leading)
 
-                        ODSIconButton(image: Image("Add")) {}
-                            .disabled(!model.showEnabled)
+                        HStack {
+                            Spacer()
+                            ODSIconButton(image: Image("Add")) {}
+                                .disabled(!model.showEnabled)
+                            Spacer()
+                        }
                     }
+                    .accessibilityElement(children: .combine)
 
-                    VStack(alignment: .center, spacing: ODSSpacing.s) {
-                        Text("screens.components.buttons.icon_info").odsFont(.headlineS).frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: ODSSpacing.s) {
+                        Text("screens.components.buttons.icon_info")
+                            .odsFont(.headlineS)
+                            .frame(maxWidth: .infinity, alignment: .leading)
 
-                        ODSIconButton(image: Image(systemName: "info.circle")) {}
-                            .disabled(!model.showEnabled)
+                        HStack {
+                            Spacer()
+                            ODSIconButton(image: Image(systemName: "info.circle")) {}
+                                .disabled(!model.showEnabled)
+                            Spacer()
+                        }
                     }
+                    .accessibilityElement(children: .combine)
                 }
+                .accessibilityHint(model.text)
             }
             .padding(.top, ODSSpacing.m)
             .padding(.horizontal, ODSSpacing.m)
         }
         .padding(.bottom, 55)
     }
+
+
 }
 
 // ==========================
@@ -80,6 +98,7 @@ final class IconVariantModel: ObservableObject {
     // MARK: Stored properties
     // =======================
 
+    @Published var showLongText: Bool
     @Published var showEnabled: Bool
 
     // =================
@@ -87,7 +106,16 @@ final class IconVariantModel: ObservableObject {
     // =================
 
     init() {
+        showLongText = false
         showEnabled = true
+    }
+    
+    // =====================
+    // MARK: Computed values
+    // =====================
+
+    var text: LocalizedStringKey {
+        showLongText ? "screens.components.buttons.variant.long" : (showEnabled ? "shared.enabled" : "shared.disabled")
     }
 }
 
