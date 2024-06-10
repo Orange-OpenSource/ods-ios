@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- [DemoApp] A11y - Buttons component : group labels and buttons and state ([#835](https://github.com/Orange-OpenSource/ods-ios/issues/835))
 - [DemoApp] A11y - Slider has no visible text ([#832](https://github.com/Orange-OpenSource/ods-ios/issues/832))
 - [DemoApp] A11y - Irrelevant Colour palette page title: page title is "Palette" ([#730](https://github.com/Orange-OpenSource/ods-ios/issues/730))
 - [DemoApp] A11y - Bars-navigation component accessibility issues ([#830](https://github.com/Orange-OpenSource/ods-ios/issues/830))

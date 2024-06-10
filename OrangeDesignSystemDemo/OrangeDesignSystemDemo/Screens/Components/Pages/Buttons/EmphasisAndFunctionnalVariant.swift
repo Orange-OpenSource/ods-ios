@@ -52,7 +52,8 @@ struct EmphasisVariant: View {
             }
         }
         .accessibilityElement(children: .combine)
-        .accessibilityAddTraits(.isButton)
+        .accessibilityHint(model.text)
+        .accessibilityValue(model.text)
     }
 }
 
@@ -84,7 +85,6 @@ struct FunctionalVariant: View {
                     Text(description(for: style)).odsFont(.headlineS)
                     Spacer()
                 }
-                .accessibilityAddTraits(.isHeader)
 
                 ODSFunctionalButton(text: Text(model.text),
                                     image: model.icon,
@@ -93,6 +93,9 @@ struct FunctionalVariant: View {
                     .disabled(!model.showEnabled)
             }
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityHint(model.text)
+        .accessibilityValue(model.text)
     }
 
     // ====================
