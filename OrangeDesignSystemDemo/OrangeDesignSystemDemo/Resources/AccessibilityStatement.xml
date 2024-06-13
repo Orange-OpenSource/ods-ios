@@ -15,7 +15,7 @@ This declaration was done in this language:
 -->
 <lang>en</lang>
 
-<!--
+<!-- 
 STATUS
 Either being audited or having been audited
 So:
@@ -37,12 +37,12 @@ GENERAL DECLARATION INFORMATION
 <!--
 APPROVAL
 Name: approval name
-Content: usefull for additional information like a postal address for example. This is CDATA-protected, please add properly formatted HTML.
+Content: usefull for additional information like a postal address for example. This is CDATA-protected, please add properly formatted HTML. 
 -->
 <approval>
-    <name>The Orange Group Accessibility Skill Centre</name>
-    <content>
-<![CDATA[<p><a href="https://a11y-guidelines.orange.com/en/">The Orange Group Accessibility Skill Centre</a></p>
+	<name>The Orange Group Accessibility Skills Center</name>
+	<content>
+<![CDATA[<p><a href="https://a11y-guidelines.orange.com/en/">The Orange Group Accessibility Skills Center</a></p>
 ]]>
 </content>
 </approval>
@@ -50,12 +50,12 @@ Content: usefull for additional information like a postal address for example. T
 <!--
 CONTACT
 Name: contact name
-Content: full contact informations. This is CDATA-protected, please add properly formatted HTML.
+Content: full contact informations. This is CDATA-protected, please add properly formatted HTML. 
 -->
 <contact>
-    <name>Orange Group</name>
-    <content>
-<![CDATA[<p>We welcome your feedback on the accessibility of this site. Please let us know if you encounter accessibility problems by sending an email to <a href="mailto:accessibility.group@orange.com">accessibility.group@orange.com</a>.</p>
+	<name>Équipe Projet</name>
+	<content>
+<![CDATA[<p>We welcome your feedback on the accessibility of this site. Please let us know if you encounter accessibility problems by sending an email to <a href="mailto:XXX@orange.com">XXX@orange.com</a>.</p>
 ]]>
 </content>
 </contact>
@@ -64,7 +64,7 @@ Content: full contact informations. This is CDATA-protected, please add properly
 AUDIT DATE
 Format: YYYY-MM-DD
 -->
-<audit_date>2024-03-01</audit_date>
+<audit_date>2024-02-29</audit_date>
 
 <!--
 AUDIT UPDATE DATE
@@ -74,7 +74,7 @@ Format: YYYY-MM-DD
 
 <!--
 DIGITAL ACCESSIBILITY PLAN
-Plan: Paragraph for the digital accessibility plan. This is CDATA-protected, please add properly formatted HTML.
+Plan: Paragraph for the digital accessibility plan. This is CDATA-protected, please add properly formatted HTML. 
 -->
 <plan>
 <![CDATA[<p>[Name of the organization] undertakes to make its websites internet, intranet, extranet and its mobile applications accessible in accordance with article 47 of Law No. 2005-102 of February 11, 2005.</p>
@@ -88,17 +88,17 @@ Plan: Paragraph for the digital accessibility plan. This is CDATA-protected, ple
 REFERENTIAL USED
 -->
 <referential>
-    <name>WCAG</name><!-- if it's an abbreviation, the document template must translate it to plain text -->
-    <version>2.2</version>
-    <level>AA</level>
-    <url>https://www.w3.org/Translations/WCAG20-fr/</url>
+	<name>WCAG</name><!-- if it's an abbreviation, the document template must translate it to plain text -->
+	<version>2.2</version>
+	<level>AA</level>
+	<url>https://www.w3.org/Translations/WCAG20-fr/</url>
 </referential>
 
 <!--
 TECHNOLOGIES USED IN THE SITE
 -->
 <technologies>
-    <technology>SwiftUI </technology>
+	<technology>SwiftUI </technology>
 </technologies>
 
 <!--
@@ -110,31 +110,31 @@ a test can have the type [auto|manual|functional|user]:
 * test done by a real user
 -->
 <tests>
-    <test type="auto">
-        <name>Accessibility Inspector</name>
-        <version></version>
-    </test>
-    <test type="manual">
-        <name>Voice Over</name>
-        <version></version>
-    </test>
-    <test type="manual">
-        <name>Switch Control</name>
-        <version></version>
-    </test>
-    <test type="manual">
-        <name>Keyboard navigation</name>
-        <version></version>
-    </test>
-    <test type="auto">
-        <name>Colour Contrat Analyzer</name>
-        <version></version>
-    </test>
+	<test type="auto">
+		<name>Accessibility Inspector</name>
+		<version></version>
+	</test>
+	<test type="functional">
+		<name>Voice Over</name>
+		<version></version>
+	</test>
+	<test type="functional">
+		<name>Switch Control</name>
+		<version></version>
+	</test>
+	<test type="functional">
+		<name>Keyboard navigation</name>
+		<version></version>
+	</test>
+	<test type="auto">
+		<name>Colour Contrat Analyzer</name>
+		<version></version>
+	</test>
 </tests>
 
 <!--
 ENVIRONMENTS USED TO EVALUATE ACCESSIBILITY
-Environment: an environment should indicate a user agent and an assistive technologie. This is CDATA-protected, please add properly formatted HTML.
+Environment: an environment should indicate a user agent and an assistive technologie. This is CDATA-protected, please add properly formatted HTML. 
 -->
 <environments>
 </environments>
@@ -145,94 +145,94 @@ This is the list of URLs that were tested
 This is CDATA-protected, please add properly formatted HTML.
 -->
 <urls>
-    <url>
-        <name><![CDATA[Guidelines]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Modules]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[About]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Guidelines-Colour]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Guidelines-Typography]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Guidelines-Spacing]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Banner]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Bars Navigation]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Bars tools]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Bars tabs]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Button]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Cards]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Chips]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Lists]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Progress indicators]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Sheets]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Sliders]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Components - Text field]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Modules - List]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Modules - About]]></name>
-        <location><![CDATA[]]></location>
-    </url>
-    <url>
-        <name><![CDATA[Modules - Card collections]]></name>
-        <location><![CDATA[]]></location>
-    </url>
+	<url>
+		<name><![CDATA[Guidelines]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Modules]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[About]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Guidelines-Colour]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Guidelines-Typography]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Guidelines-Spacing]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Banner]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Bars Navigation]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Bars tools]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Bars tabs]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Button]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Cards]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Chips]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Lists]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Progress indicators]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Sheets]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Sliders]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Components - Text field]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Modules - List]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Modules - About]]></name>
+		<location><![CDATA[]]></location>
+	</url>
+	<url>
+		<name><![CDATA[Modules - Card collections]]></name>
+		<location><![CDATA[]]></location>
+	</url>
 </urls>
 <!--
 ******************************************************
@@ -243,7 +243,7 @@ START SPECIFIC CONFORMITY NUMBERS
 -->
 <!--
 Comment of non-compliance
-Comment of non-compliance. This is CDATA-protected, please add properly formatted HTML.
+Comment of non-compliance. This is CDATA-protected, please add properly formatted HTML. 
 -->
 <nonComplianceComment>
 <![CDATA[]]>
@@ -261,232 +261,232 @@ and blocking points they found (if 0, the document will have to say “with no b
 RESULTS DETAILS
 -->
 <results>
-    <result type="a">
-        <criteria>32</criteria>
-        <ok>7</ok><!-- valid -->
-        <nok>8</nok><!-- not valid -->
-        <na>17</na><!-- not applicable -->
-        <conformity>47</conformity><!-- percentage, expressed as a number with no “%” sign -->
-    </result>
+	<result type="a">
+		<criteria>32</criteria>
+		<ok>9</ok><!-- valid -->
+		<nok>6</nok><!-- not valid -->
+		<na>17</na><!-- not applicable -->
+		<conformity>60</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	</result>
 
-    <result type="aa">
-        <criteria>24</criteria>
-        <ok>11</ok><!-- valid -->
-        <nok>4</nok><!-- not valid -->
-        <na>9</na><!-- not applicable -->
-        <conformity>73</conformity><!-- percentage, expressed as a number with no “%” sign -->
-    </result>
+	<result type="aa">
+		<criteria>24</criteria>
+		<ok>13</ok><!-- valid -->
+		<nok>2</nok><!-- not valid -->
+		<na>9</na><!-- not applicable -->
+		<conformity>87</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	</result>
 
-    <result type="total">
-        <criteria>56</criteria>
-        <ok>18</ok><!-- valid -->
-        <nok>12</nok><!-- not valid -->
-        <na>26</na><!-- not applicable -->
-        <conformity>60</conformity><!-- percentage, expressed as a number with no “%” sign -->
-    </result>
+	<result type="total">
+		<criteria>56</criteria>
+		<ok>22</ok><!-- valid -->
+		<nok>8</nok><!-- not valid -->
+		<na>26</na><!-- not applicable -->
+		<conformity>73</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	</result>
 </results>
 
 <!--
 Pages results details
 -->
-<pages_results conformity="94">
-    <page name="Guidelines">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+<pages_results conformity="98">
+	<page name="Guidelines">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Modules">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Modules">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="About">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">14</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">10</na><!-- not applicable -->
-        <conformity>93</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="About">
+		<ok type="a">12</ok><!-- valid -->
+		<ok type="aa">14</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">10</na><!-- not applicable -->
+		<conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Guidelines-Colour">
-        <ok type="a">11</ok><!-- valid -->
-        <ok type="aa">12</ok><!-- valid -->
-        <nok type="a">3</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">12</na><!-- not applicable -->
-        <conformity>88</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Guidelines-Colour">
+		<ok type="a">12</ok><!-- valid -->
+		<ok type="aa">12</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">12</na><!-- not applicable -->
+		<conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Guidelines-Typography">
-        <ok type="a">10</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">20</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>92</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Guidelines-Typography">
+		<ok type="a">10</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">21</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Guidelines-Spacing">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Guidelines-Spacing">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Banner">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>93</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Banner">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Bars Navigation">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>93</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Bars Navigation">
+		<ok type="a">12</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Bars tools">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">14</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">10</na><!-- not applicable -->
-        <conformity>93</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Bars tools">
+		<ok type="a">12</ok><!-- valid -->
+		<ok type="aa">14</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">10</na><!-- not applicable -->
+		<conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Bars tabs">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Bars tabs">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Button">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>93</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Button">
+		<ok type="a">12</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Cards">
-        <ok type="a">14</ok><!-- valid -->
-        <ok type="aa">14</ok><!-- valid -->
-        <nok type="a">0</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">10</na><!-- not applicable -->
-        <conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Cards">
+		<ok type="a">14</ok><!-- valid -->
+		<ok type="aa">14</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">18</na><!-- not applicable -->
+		<na type="aa">10</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Chips">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">14</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">10</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Chips">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">14</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">10</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Lists">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">12</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">1</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>89</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Lists">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Progress indicators">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">14</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">10</na><!-- not applicable -->
-        <conformity>93</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Progress indicators">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">14</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">10</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Sheets">
-        <ok type="a">11</ok><!-- valid -->
-        <ok type="aa">11</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">2</nok> <!-- not valid -->
-        <na type="a">19</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>85</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Sheets">
+		<ok type="a">11</ok><!-- valid -->
+		<ok type="aa">11</ok><!-- valid -->
+		<nok type="a">1</nok> <!-- not valid -->
+		<nok type="aa">2</nok> <!-- not valid -->
+		<na type="a">20</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>88</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Sliders">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">12</ok><!-- valid -->
-        <nok type="a">2</nok> <!-- not valid -->
-        <nok type="aa">1</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>89</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Sliders">
+		<ok type="a">11</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">2</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>92</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Components - Text field">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Components - Text field">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Modules - List">
-        <ok type="a">14</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">17</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Modules - List">
+		<ok type="a">14</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">18</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Modules - About">
-        <ok type="a">13</ok><!-- valid -->
-        <ok type="aa">12</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">1</nok> <!-- not valid -->
-        <na type="a">18</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>93</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Modules - About">
+		<ok type="a">13</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">19</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
-    <page name="Modules - Card collections">
-        <ok type="a">12</ok><!-- valid -->
-        <ok type="aa">13</ok><!-- valid -->
-        <nok type="a">1</nok> <!-- not valid -->
-        <nok type="aa">0</nok> <!-- not valid -->
-        <na type="a">19</na><!-- not applicable -->
-        <na type="aa">11</na><!-- not applicable -->
-        <conformity>96</conformity><!-- percentage, expressed as a number with no “%” sign -->
+	<page name="Modules - Card collections">
+		<ok type="a">12</ok><!-- valid -->
+		<ok type="aa">13</ok><!-- valid -->
+		<nok type="a">0</nok> <!-- not valid -->
+		<nok type="aa">0</nok> <!-- not valid -->
+		<na type="a">20</na><!-- not applicable -->
+		<na type="aa">11</na><!-- not applicable -->
+		<conformity>100</conformity><!-- percentage, expressed as a number with no “%” sign -->
 </page>
 </pages_results>
 
@@ -494,67 +494,59 @@ Pages results details
 Non conformity details
 -->
 <details>
-    <detail>
-        <title>1.1.1, Non-text Content, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>1.3.1, Info and Relationships, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>1.4.1, Use of Color, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>1.4.4, Resize text, Niveau AA</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>1.4.10, Reflow, Niveau AA</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>2.1.1, Keyboard, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>2.4.2, Page Titled, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>2.4.6, Headings and Labels, Niveau AA</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>2.5.1, Pointer Gestures, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>2.5.3, Label in Name, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>2.5.8, Target size, Niveau AA</title>
-        <description><![CDATA[]]></description>
-    </detail>
-    <detail>
-        <title>3.2.2, On Input, Niveau A</title>
-        <description><![CDATA[]]></description>
-    </detail>
+	<detail>
+		<title>1.3.1, Info and Relationships, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>1.4.4, Resize text, Niveau AA</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>1.4.10, Reflow, Niveau AA</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>2.1.1, Keyboard, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>2.4.2, Page Titled, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>2.4.4, Link Purpose (In Context), Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>2.5.1, Pointer Gestures, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
+	<detail>
+		<title>3.2.2, On Input, Niveau A</title>
+		<description><![CDATA[]]></description>
+	</detail>
 </details>
 
 <!--
+COMPLIANT STATE Comment
+Compliant state comment. This is CDATA-protected, please add properly formatted HTML. 
+-->
+<compliantStateComment>
+<![CDATA[]]>
+</compliantStateComment>
+
+<!--
 DEROGATIONS
-Derogations list. This is CDATA-protected, please add properly formatted HTML.
+Derogations list. This is CDATA-protected, please add properly formatted HTML. 
 -->
 <derogations>
 <![CDATA[]]>
 </derogations>
 
 <!--
-DEROGATIONS
-Exemptions list. This is CDATA-protected, please add properly formatted HTML.
+EXEMPTIONS
+Exemptions list. This is CDATA-protected, please add properly formatted HTML. 
 -->
 <exemptions>
 <![CDATA[]]>
