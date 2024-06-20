@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [DemoApp] Update accessibility statement file ([#839](https://github.com/Orange-OpenSource/ods-ios/issues/839))
 - [SDK] Update More Apps to use ListItems with subtile on two lines ([#651](https://github.com/Orange-OpenSource/ods-ios/issues/651))
 - [Doc] Wrong name of MoreApprs module in documentation ([#815](https://github.com/Orange-OpenSource/ods-ios/issues/815))
 - [Doc] Update components and modules documentation to add a description of the API ([#759](https://github.com/Orange-OpenSource/ods-ios/issues/759))
