@@ -155,8 +155,8 @@ public struct ODSMoreAppsView: View {
     private func listItem(for app: MoreAppsAppDetails) -> some View {
         let item = ODSListItem(title: Text(app.title),
                                subtitle: app.description != nil ? Text(app.description!) : nil,
+                               subtitleNumberOfLines: .two,
                                leading: leadingAppIcon(from: app))
-            .lineLimit(3) // 3 lines asked
             .accessibilityChildren {
                 Text(app.title)
                 if let description = app.description {
