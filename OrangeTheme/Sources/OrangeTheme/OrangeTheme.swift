@@ -284,6 +284,8 @@ public struct OrangeThemeFactory {
     public init() {
         var theme = ODSTheme()
 
+        theme.opacitySementicTokens.transparent = .opacity500
+        
         theme.name = OrangeThemeFactory.themeName
         theme.colorPalette = OrangeColors.palette
 

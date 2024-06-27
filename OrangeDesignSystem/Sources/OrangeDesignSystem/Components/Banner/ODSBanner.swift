@@ -27,6 +27,7 @@ public struct ODSBanner: View {
     private let imageSource: ODSImage.Source?
     private let firstButton: (() -> Button<Text>)?
     private let secondButton: (() -> Button<Text>)?
+    @Environment(\.theme) private var theme
 
     // ==================
     // MARK: Initializers
@@ -96,6 +97,7 @@ public struct ODSBanner: View {
                             .frame(width: 40.0, height: 40.0, alignment: .center)
                             .clipShape(Circle())
                             .accessibilityHidden(true)
+                            .opacity(theme.opacitySementicTokens.transparent.rawValue)
                     }
 
                     text

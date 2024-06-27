@@ -51,6 +51,8 @@ public struct InnovationCupThemeFactory {
         var theme = ODSTheme()
         theme.name = InnovationCupThemeFactory.themeName
 
+        theme.opacitySementicTokens.transparent = .opacity200
+        
         theme.colorPalette = InnovationCupThemeColors.palette
         theme.componentColors.accent = InnovationCupThemeColors.accent.colorDecription.color
 

@@ -13,7 +13,39 @@
 
 import SwiftUI
 
-// =========================
+
+public struct OpacitySementicTokens {
+    public init(transparent: OpacityRaw, weaker: OpacityRaw, weak: OpacityRaw, medium: OpacityRaw, emphasis: OpacityRaw, opaque: OpacityRaw) {
+        self.transparent = transparent
+        self.weaker = weaker
+        self.weak = weak
+        self.medium = medium
+        self.emphasis = emphasis
+        self.opaque = opaque
+    }
+    
+    public var transparent: OpacityRaw
+    public var weaker: OpacityRaw
+    public var weak: OpacityRaw
+    public var medium: OpacityRaw
+    public var emphasis: OpacityRaw
+    public var opaque: OpacityRaw
+}
+
+public enum OpacityRaw: Double {
+   case opacity0 = 0.0
+   case opacity100 = 0.04
+   case opacity200 = 0.08
+   case opacity300 = 0.16
+   case opacity400 = 0.24
+   case opacity500 = 0.32
+   case opacity600 = 0.48
+   case opacity700 = 0.64
+   case opacity800 = 0.88
+   case opacity900 = 1
+}
+
+// ========================
 // MARK: - ODS Color Palette
 // =========================
 
@@ -36,6 +68,7 @@ public struct ODSTheme: Identifiable, Hashable {
     public var componentColors: ODSComponentColors
     public var font: (_ style: ODSFontStyle) -> Font
     public var bundle: Bundle
+    public var opacitySementicTokens: OpacitySementicTokens
 
     // ==================
     // MARK: Initializers
@@ -43,6 +76,15 @@ public struct ODSTheme: Identifiable, Hashable {
 
     public init() {
         name = "Default"
+
+        opacitySementicTokens = .init(
+            transparent: .opacity0,
+            weaker: .opacity100,
+            weak: .opacity200,
+            medium: .opacity500,
+            emphasis: .opacity700,
+            opaque: .opacity900)
+    
         colorPalette = ODSColorPalette()
 
         componentColors = ODSComponentColors()
