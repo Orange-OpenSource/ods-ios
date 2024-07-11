@@ -13,23 +13,47 @@
 
 import SwiftUI
 
+public struct OpacitySementicValues {
+    
+    init() {
+        self.init(
+            transparent: .opacity0,
+            weaker: .opacity100,
+            weak: .opacity400,
+            medium: .opacity600,
+            emphasis: .opacity700,
+            opaque: .opacity900)
+    }
 
-public struct OpacitySementicTokens {
-    public init(transparent: OpacityRaw, weaker: OpacityRaw, weak: OpacityRaw, medium: OpacityRaw, emphasis: OpacityRaw, opaque: OpacityRaw) {
-        self.transparent = transparent
-        self.weaker = weaker
-        self.weak = weak
-        self.medium = medium
-        self.emphasis = emphasis
-        self.opaque = opaque
+    public init(transparent: OpacityRaw,
+         weaker: OpacityRaw,
+         weak: OpacityRaw,
+         medium: OpacityRaw,
+         emphasis: OpacityRaw,
+         opaque: OpacityRaw) {
+        values = [
+            transparent,
+            weaker,
+            weak,
+            medium,
+            emphasis,
+            opaque]
     }
     
-    public var transparent: OpacityRaw
-    public var weaker: OpacityRaw
-    public var weak: OpacityRaw
-    public var medium: OpacityRaw
-    public var emphasis: OpacityRaw
-    public var opaque: OpacityRaw
+    public var values: [OpacityRaw]
+    
+    public enum Token: Int {
+        case transparent = 0
+        case weaker
+        case weak
+        case medium
+        case emphasis
+        case opaque
+    }
+    
+    func value(from token: Token) -> OpacityRaw {
+        return values[token.rawValue]
+    }
 }
 
 public enum OpacityRaw: Double {
@@ -44,6 +68,19 @@ public enum OpacityRaw: Double {
    case opacity800 = 0.88
    case opacity900 = 1
 }
+
+public struct ODSBannerOpacity {
+    public var token: OpacitySementicValues.Token
+    
+    public init() {
+        self.token = .transparent
+    }
+    
+    public init(token: OpacitySementicValues.Token) {
+        self.token = .medium
+    }
+}
+
 
 // ========================
 // MARK: - ODS Color Palette
@@ -68,7 +105,8 @@ public struct ODSTheme: Identifiable, Hashable {
     public var componentColors: ODSComponentColors
     public var font: (_ style: ODSFontStyle) -> Font
     public var bundle: Bundle
-    public var opacitySementicTokens: OpacitySementicTokens
+    public var opacitySementicValues: OpacitySementicValues
+    public var bannerOpacity: ODSBannerOpacity
 
     // ==================
     // MARK: Initializers
@@ -77,14 +115,11 @@ public struct ODSTheme: Identifiable, Hashable {
     public init() {
         name = "Default"
 
-        opacitySementicTokens = .init(
-            transparent: .opacity0,
-            weaker: .opacity100,
-            weak: .opacity200,
-            medium: .opacity500,
-            emphasis: .opacity700,
-            opaque: .opacity900)
+        opacitySementicValues = OpacitySementicValues()
     
+        bannerOpacity = ODSBannerOpacity()
+        bannerOpacity.token = .medium
+        
         colorPalette = ODSColorPalette()
 
         componentColors = ODSComponentColors()

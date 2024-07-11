@@ -86,7 +86,7 @@ public struct ODSBanner: View {
     // ==========
     // MARK: Body
     // ==========
-
+    
     public var body: some View {
         VStack(spacing: ODSSpacing.none) {
             VStack(alignment: .trailing, spacing: ODSSpacing.none) {
@@ -97,7 +97,6 @@ public struct ODSBanner: View {
                             .frame(width: 40.0, height: 40.0, alignment: .center)
                             .clipShape(Circle())
                             .accessibilityHidden(true)
-                            .opacity(theme.opacitySementicTokens.transparent.rawValue)
                     }
 
                     text
@@ -113,7 +112,10 @@ public struct ODSBanner: View {
 
             Divider()
         }
+        .opacity(theme.opacitySementicValues.value(from: theme.bannerOpacity.token).rawValue)
     }
+    
+
 
     // =============
     // MARK: Helpers
