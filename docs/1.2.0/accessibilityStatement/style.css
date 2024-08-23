@@ -1,0 +1,117 @@
+body {
+	font-family: "Arial";
+	color: #000000;
+    background: #eee;
+    margin: 0;
+}
+
+.content {
+    background-color: #fff;
+    padding-bottom: 3em;
+}
+
+em {
+    color: #e00;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.underover {
+  text-decoration: underline overline #FF3028;
+}
+
+.lead {
+    font-weight: bold;
+}
+
+.row > [class*="col-"] {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+h1 {    
+    background-image: url(orange-logo.svg);
+    background-size: 3.5rem 3.5rem;
+    background-repeat: no-repeat;
+    background-position: 1rem 1.5rem;    
+    margin: 0;    
+    padding: 2rem 2rem 2rem 8rem;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 3rem;
+}
+
+.summary h4 {
+    text-align: center;
+    font-size: 1em;
+    border-bottom: 0;
+}
+
+.summary h4 span {
+    font-size: 3em;
+}
+
+.pie-noncompliant{
+	font-size: 1.75em !important;
+}
+
+h3 {
+    margin-top: 1.5rem;
+    font-size: 1em;
+}
+
+.table-responsive{
+	overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 1.25rem;
+    border-collapse: collapse;
+    text-align: center;
+	overflow-x:auto;
+}
+
+
+table tr {
+    border-bottom: 1px solid #ccc;
+}
+
+table th {
+    font-size: .875rem;
+    font-weight: bold;
+    padding: .5rem;
+}
+
+table td {
+    padding: .5rem;
+    font-size: .875rem;
+    line-height: 1rem;
+}
+
+.sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap; /* added line */
+            border: 0;
+}
+
+.visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap; /* added line */
+            border: 0;
+}
