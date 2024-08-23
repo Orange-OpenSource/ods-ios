@@ -13,6 +13,10 @@ defaults:
     values:
       version: ""
   - scope:
+      path: "1.2.0"
+    values:
+      version: "1.2.0"
+  - scope:
       path: "1.1.0"
     values:
       version: "1.1.0"

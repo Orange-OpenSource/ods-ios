@@ -171,6 +171,8 @@
 /* Begin PBXFileReference section */
 		021ED547747F959E94B4EA22 /* Pods-OrangeDesignSystemDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeDesignSystemDemo.release.xcconfig"; path = "Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo.release.xcconfig"; sourceTree = "<group>"; };
 		070E3C012B6152F3008A8856 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
+		071B009F2C78820100C31A3E /* DEVELOP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = DEVELOP.md; path = ../.github/DEVELOP.md; sourceTree = "<group>"; };
+		071B00A02C78820100C31A3E /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../.github/CONTRIBUTING.md; sourceTree = "<group>"; };
 		071F1CEF2B7BC69D00833A33 /* MoreAppsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsModule.swift; sourceTree = "<group>"; };
 		071F1CF12B7BC6AE00833A33 /* MoreAppsModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsModuleModel.swift; sourceTree = "<group>"; };
 		071F1CF32B7BC6BC00833A33 /* MoreAppsModuleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAppsModuleDemo.swift; sourceTree = "<group>"; };
@@ -270,7 +272,6 @@
 		079DDC0B2AE6A18D0073A542 /* Recipe+id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+id.swift"; sourceTree = "<group>"; };
 		07AA3D4D28AE8B160001B75E /* Pods_OrangeDesignSystemDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OrangeDesignSystemDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B030592AB0B454001764E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		07B0305A2AB0B4A9001764E7 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
 		07B1A09B2B1E191F00ABF0A1 /* InputChipsVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChipsVariant.swift; sourceTree = "<group>"; };
 		07B543E62B289B2000A2B6ED /* ListItemSelectionVariantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemSelectionVariantModel.swift; sourceTree = "<group>"; };
 		07B94DE82AD9239700AAD1A5 /* ListItemStandardVariantOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemStandardVariantOptions.swift; sourceTree = "<group>"; };
@@ -369,11 +370,12 @@
 				07210C472A8FAD0000507988 /* Fastlane */,
 				F913B86227679A13001CB0AA /* Scripts */,
 				07210C462A8FACAA00507988 /* LICENSE */,
+				071B00A02C78820100C31A3E /* CONTRIBUTING.md */,
+				071B009F2C78820100C31A3E /* DEVELOP.md */,
 				07210C412A8FAC6500507988 /* NOTICE.txt */,
 				07210C422A8FAC6500507988 /* README.md */,
 				07210C402A8FAC6500507988 /* THIRD-PARTY.md */,
 				FDDAB0F62809AB2100ACE5F4 /* CHANGELOG.md */,
-				07B0305A2AB0B4A9001764E7 /* CONTRIBUTING.md */,
 			);
 			name = "🛠";
 			sourceTree = "<group>";
