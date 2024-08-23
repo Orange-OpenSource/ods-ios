@@ -43,10 +43,14 @@ struct SliderVariant: View {
         ScrollView {
             VStack {
                 if model.showValue {
-                    Text(String(format: "%.2f", value))
-                        .odsFont(.bodyLRegular)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .accessibilityHidden(true)
+                    HStack {
+                        Text("screens.components.sliders.sample.volume")
+                            .odsFont(.bodyLRegular)
+                        Text(String(format: "%.2f", value))
+                            .odsFont(.bodyLRegular)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .accessibilityHidden(true)
                 }
 
                 if model.stepped {

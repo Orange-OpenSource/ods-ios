@@ -5,9 +5,9 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
 - [Prepare release](#prepare-release)
 - [Release](#release)
   * [Publish release to GitHub](#publish-release-to-github)
-  * [Announce the new release on FoODS](#announce-the-new-release-on-foods)<br /><br />
-- [Prepare Next Release]
-- [About CI/CD with GitLab CI]
+  * [Announce the new release on FoODS](#announce-the-new-release-on-foods)
+- [Prepare Next Release](#prepare-next-release)
+- [About CI/CD with GitLab CI](#about-cicd-with-gitlabci)
 
 ## Prepare release
 
@@ -40,16 +40,23 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     ```
     - Ensure the marketing version defined in Xcode is updated with the new X.Y.Z
     - Update the version precised in *home_content* file
-    - Commit your modifications
-    - Push them to the repository
-    
+    - Archive the documentation in `docs/X.Y.Z`.
+    - Update Jekyll configuration files.<br /><br />
+
+- Verify the changes mentioned above, then commit and push.
+
+  Please see [DEVELOP.md](../DEVELOP.md#documentation) to get more information about how to build and verify the documentation.
+
+  Once the Jekyll server is started, the documentation for version X.Y.Z should be available at http://127.0.0.1:4000/ods-ios/X.Y.Z/.
+      
 - Create a new pull request named `Prepare release X.Y.Z` on GitHub to merge your branch into `qualif`.
+
 - Review and merge this pull request on GitHub.<br /><br />
 
 ## Release
 
 - Create a new pull request named `Release X.Y.Z` on GitHub to merge `qualif` into `main`.
-- Review and merge this pull request on GitHub.
+- Review and merge this pull request on GitHub. The merge strategy must be a **simple merge without squash of commits** (this strategy is only dedicated to feature branches to merge in qualif branch).
 - Launch a job on your runner to build the demo application
     - Using _Fastlane_ command:
     ```shell
@@ -64,7 +71,7 @@ This file lists all the steps to follow when releasing a new version of ODS iOS.
     export ODS_APPLE_KEY_CONTENT = <your_key_content>
     
     bundle exec fastlane prod upload:true
-    # set "upload" to true if you want to upload app to TestFlight, false otrherwise.
+    # set "upload" to true if you want to upload app to TestFlight, false otherwise.
     ```
 
 ### Publish release to GitHub
@@ -188,6 +195,11 @@ build_ios:
     - bundle exec fastlane qualif tagSuffix:$IOS_APP_COMMIT_SHA
     # Creates tags dedicated to the CI/CD builds and TestFlight uploads using some commit hash, e.g. the last commit hash.
     # Will use first characters of the hash, but it might not be enough accurate because some commits may start with same value.
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/OrangeDesignSystemDemo.ipa
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/odsApp.zip
 
 .common_prod:
   tags:
@@ -224,6 +236,11 @@ build_production:
     - bundle exec pod install
     - bundle exec fastlane add_credentials_appsplus
     - bundle exec fastlane prod upload:true
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/OrangeDesignSystemDemo.ipa
+      - ./tmp/ods-ios/OrangeDesignSystemDemo/build/odsApp.zip
   when: manual
 ```
 
@@ -242,6 +259,7 @@ fi
 # Using also SSH implies to have proxy settings allowing this protocol and to use private key
 # but some developers of ODS iOS are GitHub organization admins, thus their private key are much to powerful
 # and their use is too hazardous.
+# Repository mirroring is not provided in the current GitLab CI purchased plan.
 
 mkdir -p "$TMP_DIR_PATH/ods-ios" # Ensure the used value, e.g tmp/ods-ios, is the one defined in the .gitlab-ci.yml
 

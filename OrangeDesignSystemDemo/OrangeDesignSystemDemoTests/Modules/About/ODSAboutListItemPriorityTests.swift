@@ -41,7 +41,7 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         let accessiblityStatementItem = AboutAccessibilityStatementItemConfig(statementConfig: ODSAboutAccessibilityStatement(conformityStatus: "Accessibility: partially conform", fileName: "AccessibilityStatement", reportDetail: URL(string: "https://orange-opensource.github.io/ods-ios/accessibilityStatement/orange-design-system.html")!))
         let appNewsItem = ODSAboutAppNewsItemConfig(path: "")
         let legalInformationItem = ODSAboutLegalInformationItemConfig(legalInformation: fakeView)
-        let moreAppsItem = ODSRecirculationItemConfig(dataSource: .remote(url: URL(string: "https://opensource.orange.com/")!))
+        let moreAppsItem = ODSMoreAppsItemConfig(dataSource: .remote(url: URL(string: "https://opensource.orange.com/")!))
         let rateTheAppItem = ODSAboutRateTheAppItemConfig(storeUrl: URL(string: "https://www.apple.com/app-store/")!)
         let aboutDesignGuidelinesItem = AboutDesignGuidelinesItemConfig(priority: 202)
         let aboutChangelogItem = AboutChangelogItemConfig(priority: 200)
@@ -59,7 +59,7 @@ final class ODSAboutListItemPriorityTests: XCTestCase {
         XCTAssertTrue(sortedAboutItemsConfig[4] is AboutAccessibilityStatementItemConfig) // 100 (default)
         XCTAssertTrue(sortedAboutItemsConfig[5] is ODSAboutAppNewsItemConfig) // 60 (default)
         XCTAssertTrue(sortedAboutItemsConfig[6] is ODSAboutLegalInformationItemConfig) // 50 (default)
-        XCTAssertTrue(sortedAboutItemsConfig[7] is ODSRecirculationItemConfig) // 40 (default)
+        XCTAssertTrue(sortedAboutItemsConfig[7] is ODSMoreAppsItemConfig) // 40 (default)
         XCTAssertTrue(sortedAboutItemsConfig[8] is ODSAboutRateTheAppItemConfig) // 30 (default)
     }
 

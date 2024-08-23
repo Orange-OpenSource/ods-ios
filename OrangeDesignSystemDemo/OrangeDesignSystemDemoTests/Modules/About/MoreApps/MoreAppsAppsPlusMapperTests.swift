@@ -33,7 +33,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsAppDetails = AppsPlusRecirculationMapper().appDetails(from: appsPlusAppDetailsDTOMock)
+        let moreAppsAppDetails = AppsPlusToMoreAppsMapper().appDetails(from: appsPlusAppDetailsDTOMock)
 
         // Then
         compare(businessObject: moreAppsAppDetails, dataTransferObject: appsPlusAppDetailsDTOMock)
@@ -53,7 +53,7 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
         }
 
         // When
-        let moreAppsSection = AppsPlusRecirculationMapper().appsSection(from: appsPlusSectionDTOMock)
+        let moreAppsSection = AppsPlusToMoreAppsMapper().appsSection(from: appsPlusSectionDTOMock)
 
         // Then
         XCTAssertTrue(moreAppsSection.description == appsPlusSectionDTOMock.description)
@@ -77,15 +77,15 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
             fatalError("Failed to process the JSON mock data!")
         }
 
-        let mapper = AppsPlusRecirculationMapper()
+        let mapper = AppsPlusToMoreAppsMapper()
 
         let moreAppsAppDetails = mapper.appsDetails(from: appsPlusItemsMock)
-        let lonelyApps: [RecirculationAppDetails] = appsPlusItemsMock.apps.map { appDTO in
+        let lonelyApps: [MoreAppsAppDetails] = appsPlusItemsMock.apps.map { appDTO in
             mapper.appDetails(from: appDTO)
         }
 
         let moreAppsSections = mapper.appsSections(from: appsPlusItemsMock)
-        let sections: [RecirculationAppsListSection] = appsPlusItemsMock.sections.map { sectionDTO in
+        let sections: [MoreAppsAppsListSection] = appsPlusItemsMock.sections.map { sectionDTO in
             mapper.appsSection(from: sectionDTO)
         }
 
@@ -105,21 +105,21 @@ final class MoreAppsAppsPlusMapperTests: XCTestCase {
     // MARK: - Helper
     // ==============
 
-    private func compare(businessObject: RecirculationAppDetails, dataTransferObject: AppsPlusAppDetailsDTO) {
+    private func compare(businessObject: MoreAppsAppDetails, dataTransferObject: AppsPlusAppDetailsDTO) {
         XCTAssertTrue(businessObject.title == dataTransferObject.title)
         XCTAssertTrue(businessObject.iconURL == URL(string: dataTransferObject.iconURL))
         XCTAssertTrue(businessObject.description == dataTransferObject.description)
         XCTAssertTrue(businessObject.storeURL == URL(string: dataTransferObject.storeLink))
     }
 
-    private func compareBoth(_ lhs: RecirculationAppDetails, _ rhs: RecirculationAppDetails) {
+    private func compareBoth(_ lhs: MoreAppsAppDetails, _ rhs: MoreAppsAppDetails) {
         XCTAssertTrue(lhs.title == rhs.title)
         XCTAssertTrue(lhs.iconURL == rhs.iconURL)
         XCTAssertTrue(lhs.description == rhs.description)
         XCTAssertTrue(lhs.storeURL == rhs.storeURL)
     }
 
-    private func compareBoth(_ lhs: [RecirculationAppsListSection], _ rhs: [RecirculationAppsListSection]) {
+    private func compareBoth(_ lhs: [MoreAppsAppsListSection], _ rhs: [MoreAppsAppsListSection]) {
         XCTAssertTrue(lhs.count == rhs.count)
         for (lhsItem, rhsItem) in zip(lhs, rhs) {
             XCTAssertTrue(lhsItem.description == rhsItem.description)

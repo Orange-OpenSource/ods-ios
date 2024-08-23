@@ -92,14 +92,14 @@
 
 "screens.guidelines.colors.title" = "Colour";
 "screens.guidelines.colors.description" = "It is important to use the iOS system background colours as they are dynamic. They automatically change between the slightly darker base and slightly lighter elevated colours, in order to enhance perception of depth and layering.";
-"screens.guidelines.colors.palette.title" = "Palette";
+"screens.guidelines.colors.palette.title" = "Colour palette";
 "screens.guidelines.colors.color_palette.title" = "Colour palette";
 "screens.guidelines.colors.color_palette.on_light" = "Light mode";
 "screens.guidelines.colors.color_palette.on_dark" = "Dark mode";
 "screens.guidelines.colors.description.more" = "Some colours are defined with different tints that automatically switches. For the greys, you can use the Apple System Greys. For black and white texts, use the Apple Dynamic System Colors. For more information, see [Apple Color Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/).";
 
 "a11y.tap_twice_to_get_more" = "Tap twice to get more information";
-"a11y.color_details" = "asset name: %@, RGB value is %@ . Hex value is %@";
+"a11y.color_details" = "token name: %@, color name is %@ . Hex value is %@";
 
 // =======================================
 // MARK: - Screens - Guidelines - Spacings
@@ -264,7 +264,7 @@
 "screens.components.progress_indicators.title" = "Progress indicators";
 "screens.components.progress_indicators.description" = "Progress bar and activity indicator are used when a process is taking place to illustrate progress and to reassure users that something is happening, and if possible, how long it will take.";
 "screens.components.progress_indicators.progress_bar.title" = "Progress bar demo";
-"screens.components.progress_indicators.activity_bar.title" = "Progress bar demo";
+"screens.components.progress_indicators.activity_bar.title" = "Activity indicator demo";
 "screens.components.progress_indicators.downloading" = "Downloading\U2026";
 "screens.components.progress_indicators.x_percent" = "%@ %%";
 "screens.components.progress_indicators.toggle.label" = "Label";
@@ -390,17 +390,17 @@
 "screens.modules.empty_state.usage_no_data.buttonLabel" = "Search";
 "screens.modules.empty_state.usage.alert" = "%@ clicked";
 
-// =========================================
-// MARK: - Screens - Modules - Recirculation
-// =========================================
+// ====================================
+// MARK: - Screens - Modules - MoreApps
+// ====================================
 
-"screens.modules.recirculation.title" = "Recirculation";
-"screens.modules.recirculation.title.setup" = "Recirculation: Setup";
-"screens.modules.recirculation.description" = "Recirculation (AppsPlus was a OMD Essential component) making Orange Apps discovery easier than ever.";
-"screens.modules.recirculation.option.flatten_apps_sections" = "Uncategorize apps";
-"screens.modules.recirculation.option.use_embeded_data_source" = "Use local data";
-"screens.modules.recirculation.option.cache_more_apps_icons" = "Cache apps images";
-"screens.modules.recirculation.option.enable_haptics" = "Enable vibrations";
+"screens.modules.moreApps.title" = "MoreApps";
+"screens.modules.moreApps.title.setup" = "MoreApps: Setup";
+"screens.modules.moreApps.description" = "MoreApps makes Orange Apps discovery easier than ever (based on AppsPlus which cas an OMD Essential component)";
+"screens.modules.moreApps.option.flatten_apps_sections" = "Uncategorize apps";
+"screens.modules.moreApps.option.use_embeded_data_source" = "Use local data";
+"screens.modules.moreApps.option.cache_more_apps_icons" = "Cache apps images";
+"screens.modules.moreApps.option.enable_haptics" = "Enable vibrations";
 
 // =======================================
 // MARK: - Screens - Components - Template

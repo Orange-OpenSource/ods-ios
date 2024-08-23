@@ -4,6 +4,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...1.2.0) - 2024-08-23
+
+### Added
+
+- [Doc] Add Documentation versionning ([#223](https://github.com/Orange-OpenSource/ods-ios/issues/223))
+- [DemoApp] Add privacy manifest ([#798](https://github.com/Orange-OpenSource/ods-ios/issues/798))
+
+### Changed
+
+- [DemoApp] Update accessibility statement file ([#839](https://github.com/Orange-OpenSource/ods-ios/issues/839))
+- [SDK] Update More Apps to use ListItems with subtile on two lines ([#651](https://github.com/Orange-OpenSource/ods-ios/issues/651))
+- [Doc] Wrong name of MoreApprs module in documentation ([#815](https://github.com/Orange-OpenSource/ods-ios/issues/815))
+- [Doc] Update components and modules documentation to add a description of the API ([#759](https://github.com/Orange-OpenSource/ods-ios/issues/759))
+- [DemoApp/SDK] Rename "Recirculation" module to "MoreApps", and use "EmptyState" assets from Theme bundle ([#801](https://github.com/Orange-OpenSource/ods-ios/issues/801))
+- [Tooling] Update dependency SwiftFormat/CLI to v0.53.5
+- [DemoApp] The main color names, visible on the screen are not vocalized ([#720](https://github.com/Orange-OpenSource/ods-ios/issues/720))
+- [Doc] Improve release documentation
+- [Tooling] Define ZIP archive for nightly and production builds (for artifacts storage in CI/CD pipelines)
+
+### Fixed
+
+- [DemoApp] A11y - Buttons component : group labels and buttons and state ([#835](https://github.com/Orange-OpenSource/ods-ios/issues/835))
+- [DemoApp] A11y - Slider has no visible text ([#832](https://github.com/Orange-OpenSource/ods-ios/issues/832))
+- [DemoApp] A11y - Irrelevant Colour palette page title: page title is "Palette" ([#730](https://github.com/Orange-OpenSource/ods-ios/issues/730))
+- [DemoApp] A11y - Bars-navigation component accessibility issues ([#830](https://github.com/Orange-OpenSource/ods-ios/issues/830))
+- [DemoApp] A11y - Target size is too small for info and chevron components, difficult to tap without mistake. ([#732](https://github.com/Orange-OpenSource/ods-ios/issues/732))
+- [DemoApp] A11y - Buttons component : group labels and buttons ([#760](https://github.com/Orange-OpenSource/ods-ios/issues/760))
+- [DemoApp] A11y - Title is the same for both variants "Progress bar demo", title must be unique. ([#724](https://github.com/Orange-OpenSource/ods-ios/issues/724))
+- [DemoApp] A11y - Buttons component : group labels and buttons ([#760](https://github.com/Orange-OpenSource/ods-ios/issues/760))
+- [DemoApp/SDK] A11y - Module - About : Title header ([#827](https://github.com/Orange-OpenSource/ods-ios/issues/727))
+
 ## [1.1.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.0.0...1.1.0) - 2024-03-08
 
 ### Changed

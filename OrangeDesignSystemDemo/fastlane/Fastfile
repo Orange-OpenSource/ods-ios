@@ -14,7 +14,7 @@
 # App features configuration
 # --------------------------
 
-# URL for recirculation module to get feed from backend
+# URL for MoreApps module to get feed from APPS_PLUS backend
 APPS_PLUS_SERVICE_URL = ENV["ODS_APPS_PLUS_SERVICE_URL"]
 
 # Apple configuration
@@ -59,7 +59,7 @@ default_platform(:ios)
 platform :ios do
 
     before_all do |lane, options|
-        xcversion(version: "~> 15.1")
+        xcversion(version: "~> 15.2")
     end
 
     # ------------------------------------------------------------
@@ -77,7 +77,7 @@ platform :ios do
     end
 
     # ------------------------------------------------------------
-    # ADD APPS PLUS CREDENTIALS (Recirculation module)
+    # ADD APPS PLUS CREDENTIALS (MoreApps module)
     # ------------------------------------------------------------
     desc "ADD APPS PLUS CREDENTIALS"
     lane :add_credentials_appsplus do
@@ -87,7 +87,7 @@ platform :ios do
             puts "Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?"
             publish_mattermost_notification("⚙️ ⚠️ @channel Warning: APPS_PLUS_SERVICE_URL is not defined, are you aware of that?")
         else
-            puts "URL for recirculation module is '#{APPS_PLUS_SERVICE_URL}'" # Ensure your variable is "masked" in your CI/CD chain
+            puts "URL for MoreApps module is '#{APPS_PLUS_SERVICE_URL}'" # Ensure your variable is "masked" in your CI/CD chain
         end
 
         plistPath="#{Dir.pwd}/../OrangeDesignSystemDemo/Resources/Info.plist"
@@ -204,7 +204,9 @@ platform :ios do
         commitHash=params[:commitHash]
         puts "👉 Build and upload (commit hash = #{commitHash})"
 
-        # If already build, prevents to build again for nothing
+        # If already built, prevents to build again for nothing
+        # Warning: tag is done before build and not remove, so if build failed, tag will remain and needs to be remove manualy.
+        # It prevents to have loops of failing builds.
         if tag_ci_build(commitHash)
             # Ensure this build-then-uploaded app has a new and unique build number matching also to code version
             update_build_number
@@ -218,7 +220,7 @@ platform :ios do
             puts "Upload to TestFlight requested"
             # If already uploaded, prevents to upload again
             if tag_testflight_upload(commitHash)
-                upload
+                upload 
             else
                 puts "Nothing new to build today, a TestFlight tag for commit '#{commitHash}' already exists"
                 publish_mattermost_notification("⚙️ 🤔 Nothing new to build today, a TestFlight tag for commit '#{commitHash}' already exists")
@@ -259,12 +261,17 @@ platform :ios do
             
             gym(workspace: "#{ODS_WORKSPACE}",
                 scheme: ODS_SCHEME,
-                configuration: 'Release',
-                output_directory: 'build/',
-                export_method: 'app-store',
-                archive_path: 'build/odsApp.xcarchive',
+                configuration: "Release",
+                output_directory: "build/",
+                export_method: "app-store",
+                archive_path: "build/odsApp.xcarchive",
                 xcargs: "-allowProvisioningUpdates")
             
+            # Build a ZIP archive to put as artificat to the GitLab CI runner
+            # Needed for upload later as .xcarchive for App Store through corporate portal
+            zip(path: "build/odsApp.xcarchive",
+                output_path: "build/odsApp.zip")
+
             publish_mattermost_notification("🔨 ✅ A new build has been done successfully")
         rescue => error
             publish_mattermost_notification("🔨 🚨 @channel Some issue occurred during the build step (:build)")
@@ -368,7 +375,8 @@ platform :ios do
         end
     end
 
-    # Creates a Git tag at given commit through HTTP protocol to prevent proxy or firewalls to block SSH requests
+    # Creates a Git tag at given commit through HTTP protocol to prevent proxy or firewalls to block SSH requests.
+    # Not possible also to make repository mirroring because of the current purchased plan of the GitLab instance.
     def create_tag(tag)
       
         # Check personal access token for tag creation

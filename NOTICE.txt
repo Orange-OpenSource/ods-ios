@@ -36,19 +36,16 @@ Any use or displaying shall constitute an infringement under intellectual proper
             
 ## Orange Theme
 
-./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyState.imageset/il_emptyState.svg
-./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateNoData.imageset/il_emptyStateNoData.svg
-./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateFirstUse.imageset/il_emptyStateFirstUse.svg
 ./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateError.imageset/il_emptyStateError.svg
 ./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateUserCleared.imageset/il_yoga_man.svg
+./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateNoData.imageset/il_emptyStateNoData.svg
+./OrangeTheme/Sources/OrangeTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateFirstUse.imageset/il_emptyStateFirstUse.svg
 
 ## Innovation Cup Theme
-
-./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateError (Innovation Cup).imageset/Error.svg
-./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateUserCleared (Innovation Cup).imageset/UserClear.svg
-./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateNoData (Innovation Cup).imageset/NoData.svg
-./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateFirstUse (Innovation Cup).imageset/FirstUser.svg
-./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyState (Innovation Cup).imageset/il_emptyState_generic.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateError.imageset/Error.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateUserCleared.imageset/UserClear.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateNoData.imageset/NoData.svg
+./InnovationCupTheme/Sources/InnovationCupTheme/Resources/Assets.xcassets/EmptyState/il_emptyStateFirstUse.imageset/FirstUser.svg
 
 # Demo app
 
@@ -103,18 +100,20 @@ Any use or displaying shall constitute an infringement under intellectual proper
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/component-atom_32.imageset/component-atom_32.svg
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/appTabBar/Module-molecule_32.imageset/Module-molecule_32.svg
 
-./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_recirculation (Innovation Cup).imageset/il_recirculation_generic.svg
-./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_lists (Innovation Cup).imageset/il_lists_generic.svg
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_about (Innovation Cup).imageset/il_about_generic.svg
-./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_cardList (Innovation Cup).imageset/il_card_list_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_cardList (Innovation Cup).imageset/il_cardList_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_emptyState.imageset/il_emptyState.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_lists (Innovation Cup).imageset/il_lists_generic.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Innovation Cup/il_moreApps (Innovation Cup).imageset/il_moreApps_generic.svg
 
-./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_recirculation.imageset/il_recirculation.svg
-./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_lists.imageset/il_lists.svg
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_folderFavourite.imageset/ic_folderFavourite.svg
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_tools.imageset/ic_tools.svg
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/ic_subtitles.imageset/ic_subtitles.svg
-./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/About/il_about.imageset/il_about.svg
-./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_cardList.imageset/il_card_list.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_about.imageset/il_about.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_cardList.imageset/il_cardList.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_emptyState.imageset/il_emptyState.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_lists.imageset/il_lists.svg
+./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/Modules/Orange/il_moreApps.imageset/il_moreApps.svg
 
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@2x.png
 ./OrangeDesignSystemDemo/OrangeDesignSystemDemo/Resources/Assets.xcassets/AppIconDev.appiconset/iPhone-App-60@3x.png
@@ -177,6 +176,10 @@ Any use or displaying shall constitute an infringement under intellectual proper
 
 # Documentation
 
+./docs/1.2.0/accessibilityStatement/favicon.ico
+./docs/1.2.0/accessibilityStatement/orange-logo.svg
+./docs/accessibilityStatement/orange-logo.svg
+./docs/accessibilityStatement/favicon.ico
 ./docs/components/images/buttons_layout_small_with_icon.png
 ./docs/components/images/list_items_selection_circle_light.png
 ./docs/components/images/buttons_functional_negative.png
