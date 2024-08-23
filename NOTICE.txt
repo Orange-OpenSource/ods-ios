@@ -176,6 +176,10 @@ Any use or displaying shall constitute an infringement under intellectual proper
 
 # Documentation
 
+./docs/1.2.0/accessibilityStatement/favicon.ico
+./docs/1.2.0/accessibilityStatement/orange-logo.svg
+./docs/accessibilityStatement/orange-logo.svg
+./docs/accessibilityStatement/favicon.ico
 ./docs/components/images/buttons_layout_small_with_icon.png
 ./docs/components/images/list_items_selection_circle_light.png
 ./docs/components/images/buttons_functional_negative.png
