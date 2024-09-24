@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Tooling] Update `cocoapods` from v1.15.2 to v1.16.2
 - [Tooling] Update `accessibility-statement-lib-ios` from v1.2.0 to v1.3.0
 
+### Security
+
+- [Tooling] Update `webrick` RubyGem from v1.8.1 to v1.8.2 (CVE-2024-47220)
+
 ## [1.2.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...1.2.0) - 2024-08-23
 
 ### Added
