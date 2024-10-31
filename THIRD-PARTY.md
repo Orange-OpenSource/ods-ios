@@ -56,7 +56,7 @@ You may download the source code on the [following website](https://github.com/d
 
 ### CocoaPods
 
-Version 1.13.0
+Version 1.16.2
 
 Copyright 2011 Eloy Durán, Fabio Pelosin, Samuel Giddins, Marius Rackwitz, Kyle Fuller, Boris Bügling, Orta Therox, Olivier Halligon, Danielle Tomlinson, Dimitris Koutsogiorgas, Paul Beusterien, Eric Amorde.
 
