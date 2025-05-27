@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [Tooling] Update pod `SwiftFormat/CLI`from v0.53.5 to v0.56.1
 - [Tooling] Update RubyGem `fastlane` from v2.219.0 to v2.227.2
 - [Tooling] Update `SwiftUI-Flow` from v1.2.0 to v1.3.1
 - [Tooling] Update `cocoapods` from v1.15.2 to v1.16.2
@@ -15,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+- [Tooling] Update `nokogiri` RubyGem from v1.15.6 to v1.18.8 (GHSA-r95h-9x8f-r3f7)
 - [Tooling] Update `webrick` RubyGem from v1.8.1 to v1.8.2 (CVE-2024-47220)
 
 ## [1.2.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...1.2.0) - 2024-08-23
