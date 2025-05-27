@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.2.0...qualif)
 
+### Changed
+
+- [Tooling] Update `accessibility-statement-lib-ios` from v1.2.0 to v1.3.0
+
 ## [1.2.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...1.2.0) - 2024-08-23
 
 ### Added
