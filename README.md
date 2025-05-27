@@ -14,8 +14,11 @@
 > [!CAUTION]
 > This project is different to [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios).
 
+> [!IMPORTANT]
+> ODS is maintained in best effort today, expect very few support from the maintainers.
+
 > [!TIP]
-> As ODS is maintained in best effort today, you may want to use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
+> You may want to use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
 
 ## Table of contents
 
