@@ -39,6 +39,7 @@
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FOrange-OpenSource%2Fods-ios%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/Orange-OpenSource/ods-ios)
 <img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/be955638-e675-41f0-bf64-661137467de8/deploy-status)](https://app.netlify.com/projects/ods-ios/deploys)
 [![AppStore](https://img.shields.io/itunes/v/6446178285?label=AppStore)](https://apps.apple.com/fr/app/orange-design-system/id6446178285)
 
 ## Environment
