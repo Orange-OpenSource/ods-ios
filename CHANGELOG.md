@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [DemoApp] Update third-parties in apps settings
 - [Tooling] Update `jekyll` ecosystem packages
 - [Tooling] Update dependency `wdm` from v0.1.1 to v0.2.0
 - [Tooling] Update dependency `webrick` from v1.8.2 to v1.9.1
