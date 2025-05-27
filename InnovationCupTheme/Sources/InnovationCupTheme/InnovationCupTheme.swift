@@ -32,7 +32,7 @@ enum InnovationCupThemeColors: String, CaseIterable {
     case tabBarItem
 
     /// Get the color values from resources with its name
-    public var colorDecription: ODSColorDecription {
+    var colorDecription: ODSColorDecription {
         ODSColorDecription(assetName: rawValue, bundle: Bundle.module)
     }
 

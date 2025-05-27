@@ -18,7 +18,7 @@ import SwiftUI
 // MARK: - ODSCardHorizontal.ImagePosition
 // =======================================
 
-extension ODSCardHorizontal.ImagePosition: CaseIterable {
+extension ODSCardHorizontal.ImagePosition: @retroactive CaseIterable {
 
     public static var allCases: [ODSCardHorizontal.ImagePosition] = [.leading, .trailing]
 

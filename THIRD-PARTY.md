@@ -9,7 +9,7 @@ requirements of the relevant license of the Third Party Software they are using.
 
 ### accessibility-statement-lib-ios
 
-Version 1.2.0
+Version 1.3.0
 
 Copyright 2021-2024 Orange SA.
 
@@ -37,8 +37,8 @@ You may download the source code on the [following website](https://github.com/l
 Version 1.2.0
 
 Copyright (c) 2023 Laszlo Teveli
-*SwiftUI-Flow* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 
+*SwiftUI-Flow* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/tevelee/SwiftUI-Flow).
 
 ## In Application
@@ -56,7 +56,7 @@ You may download the source code on the [following website](https://github.com/d
 
 ### CocoaPods
 
-Version 1.13.0
+Version 1.16.2
 
 Copyright 2011 Eloy Durán, Fabio Pelosin, Samuel Giddins, Marius Rackwitz, Kyle Fuller, Boris Bügling, Orta Therox, Olivier Halligon, Danielle Tomlinson, Dimitris Koutsogiorgas, Paul Beusterien, Eric Amorde.
 
@@ -65,7 +65,7 @@ You may download the source code on the [following website](https://github.com/C
                    
 ### Fastlane
 
-Version 2.219.0
+Version 2.227.2
 
 Copyright 2015-2022 The Fastlane Authors.
 
@@ -106,7 +106,7 @@ You may download the source code on the [following website](https://github.com/m
 
 ### SwiftFormat
 
-Version 0.53.5
+Version 0.56.1
 
 Copyright 2016 Nick Lockwood.
 
@@ -115,7 +115,7 @@ You may download the source code on the [following website](https://github.com/n
 
 ### SwiftLint
 
-Version 0.54.0
+Version 0.59.1
 
 Copyright 2020 Realm Inc.
 

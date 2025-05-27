@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Orange-OpenSource/accessibility-statement-lib-ios.git",
         "state": {
           "branch": null,
-          "revision": "7e41c407209a8d2cd5c236661172a456e95c950b",
-          "version": "1.2.0"
+          "revision": "480bf4629b951e459308379030f1ca0ce28a0987",
+          "version": "1.3.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/apple/swift-argument-parser",
         "state": {
           "branch": null,
-          "revision": "c8ed701b513cf5177118a175d85fbbbcd707ab41",
-          "version": "1.3.0"
+          "revision": "41982a3656a71c768319979febd796c6fd111d5c",
+          "version": "1.5.0"
         }
       },
       {

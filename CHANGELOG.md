@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased](https://github.com/Orange-OpenSource/ods-ios/compare/1.3.0...qualif)
+
+## [1.3.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.2.0...1.3.0) - 2025-05-27
+
+### Changed
+
+- [DemoApp] Update third-parties in apps settings
+- [Tooling] Update `jekyll` ecosystem packages
+- [Tooling] Update dependency `wdm` from v0.1.1 to v0.2.0
+- [Tooling] Update dependency `webrick` from v1.8.2 to v1.9.1
+- [Tooling] Update pod `SwiftLint` from v0.54.0 to v0.59.1
+- [Tooling] Update pod `SwiftFormat/CLI` from v0.53.5 to v0.56.1
+- [Tooling] Update RubyGem `fastlane` from v2.219.0 to v2.227.2
+- [Tooling] Update `SwiftUI-Flow` from v1.2.0 to v1.3.1
+- [Tooling] Update `cocoapods` from v1.15.2 to v1.16.2
+- [Tooling] Update `accessibility-statement-lib-ios` from v1.2.0 to v1.3.0
+
+### Security
+
+- [Tooling] Update `nokogiri` RubyGem from v1.15.6 to v1.18.8 (GHSA-r95h-9x8f-r3f7)
+- [Tooling] Update `webrick` RubyGem from v1.8.1 to v1.8.2 (CVE-2024-47220)
+
 ## [1.2.0](https://github.com/Orange-OpenSource/ods-ios/compare/1.1.0...1.2.0) - 2024-08-23
 
 ### Added
