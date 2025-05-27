@@ -21,7 +21,7 @@ brew install swiftformat
 brew install fastlane
 
 # For Periphery (https://github.com/peripheryapp/periphery)
-brew install peripheryapp/periphery/periphery
+brew install periphery
 
 # For jq (https://jqlang.github.io/jq/)
 brew install jq
