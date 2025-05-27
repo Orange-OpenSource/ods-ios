@@ -9,7 +9,7 @@ requirements of the relevant license of the Third Party Software they are using.
 
 ### accessibility-statement-lib-ios
 
-Version 1.2.0
+Version 1.3.0
 
 Copyright 2021-2024 Orange SA.
 
