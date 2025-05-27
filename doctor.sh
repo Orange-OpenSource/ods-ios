@@ -65,7 +65,7 @@ echo -e "\n"
 
 read -p "✋ Let's check version of Xcode (IDE)... [PRESS ANY KEY]"
 echo -e "\n"
-CheckIfRuntimeExists "Xcode" "xcodebuild -version" "15.2"
+CheckIfRuntimeExists "Xcode" "xcodebuild -version" "16.2"
 echo -e "\n"
 
 # ==================
@@ -119,7 +119,7 @@ echo -e "\n"
 
 read -p "✋ Let's check version of Periphery (for dead code hunt)... [PRESS ANY KEY]"
 echo -e "\n"
-CheckIfRuntimeExists "Periphery" "periphery version" "2.15.0"
+CheckIfRuntimeExists "Periphery" "periphery version" "3.1.0"
 echo -e "\n"
 
 # ==============

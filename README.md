@@ -14,8 +14,11 @@
 > [!CAUTION]
 > This project is different to [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios).
 
+> [!IMPORTANT]
+> ODS is maintained in best effort today, expect very few support from the maintainers.
+
 > [!TIP]
-> As ODS is maintained in best effort today, you may want to use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
+> You may want to use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
 
 ## Table of contents
 
@@ -36,12 +39,13 @@
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FOrange-OpenSource%2Fods-ios%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/Orange-OpenSource/ods-ios)
 <img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/be955638-e675-41f0-bf64-661137467de8/deploy-status)](https://app.netlify.com/projects/ods-ios/deploys)
 [![AppStore](https://img.shields.io/itunes/v/6446178285?label=AppStore)](https://apps.apple.com/fr/app/orange-design-system/id6446178285)
 
 ## Environment
 
 [![Swift 5](https://img.shields.io/badge/Swift-5-red.svg)](https://developer.apple.com/swift/)
-[![Xcode 15.2](https://img.shields.io/badge/Xcode-15.2-informational.svg)](https://developer.apple.com/xcode)
+[![Xcode 16.2](https://img.shields.io/badge/Xcode-16.2-informational.svg)](https://developer.apple.com/xcode)
 [![Fastlane 2.227.2](https://img.shields.io/badge/Fastlane-2.227.2-informational.svg)](https://fastlane.tools/)
 [![CocoaPods 1.16.2](https://img.shields.io/badge/CocoaPods-1.16.2-informational.svg)](https://cocoapods.org/)
 [![Bundler 2.6.9](https://img.shields.io/badge/Bundler-2.6.9-informational.svg)](https://bundler.io/)
