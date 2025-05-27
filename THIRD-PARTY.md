@@ -37,8 +37,8 @@ You may download the source code on the [following website](https://github.com/l
 Version 1.2.0
 
 Copyright (c) 2023 Laszlo Teveli
-*SwiftUI-Flow* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 
+*SwiftUI-Flow* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/tevelee/SwiftUI-Flow).
 
 ## In Application
