@@ -1179,7 +1179,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Periphery action to look for dead code\nperiphery scan --strict --workspace OrangeDesignSystemDemo.xcworkspace --schemes OrangeDesignSystemDemo --targets OrangeDesignSystemDemo --format xcode\n";
+			shellScript = "# Periphery action to look for dead code\nperiphery scan --project OrangeDesignSystemDemo.xcworkspace --schemes OrangeDesignSystemDemo --format xcode\n";
 		};
 		51EE08912B0F7464003A254A /* Check JSON files format */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1207,9 +1207,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OrangeDesignSystemDemo/Pods-OrangeDesignSystemDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

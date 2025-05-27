@@ -106,7 +106,6 @@ public struct ODSCardVerticalHeaderFirst: View {
         subtitle: Text? = nil,
         thumbnailSource: ODSImage.Source? = nil,
         text: Text? = nil,
-        dividerEnabled: Bool = true,
         @ViewBuilder firstButton: @escaping () -> Button<Text>,
         @ViewBuilder secondButton: @escaping () -> Button<Text>)
     {

@@ -23,7 +23,6 @@ public struct ODSInputChip: View {
     // MARK: Stored properties
     // =======================
 
-    @Environment(\.theme) private var theme
     private let text: Text
     private let leading: ODSImage.Source?
     private let action: () -> Void
