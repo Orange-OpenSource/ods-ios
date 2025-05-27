@@ -1,5 +1,10 @@
 [
     {
+        "version": "1.3.0",
+        "date": "2025-05-27",
+        "news": "Update dependencies"
+    },
+    {
         "version": "1.2.0",
         "date": "2024-08-23",
         "news": "Rename the Recirculation module to MoreApps\n- Various accessibility fixes\n-Update the accessibility statement\n-Add documentation versionning"
