@@ -59,7 +59,10 @@ default_platform(:ios)
 platform :ios do
 
     before_all do |lane, options|
-        xcversion(version: "~> 15.2")
+        xcodes(
+            version: '16.2',
+            select_for_current_build_only: true,
+        )
     end
 
     # ------------------------------------------------------------
