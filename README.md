@@ -11,6 +11,10 @@
   <a href="https://github.com/Orange-OpenSource/ods-ios/issues/new?assignees=B3nz01d&labels=feature%2C%F0%9F%94%8D%20triage&template=feature_request.yml&title=[feature]%3A+">Request feature</a>
 </p>
 
+> [!CAUTION]
+> This project is different to [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios).
+> You may want to use it instead.
+
 ## Table of contents
 
 - [Status](#status)
@@ -25,8 +29,9 @@
 [![MIT license](https://img.shields.io/github/license/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios/blob/qualif/LICENSE)
 [![Versions](https://img.shields.io/github/v/release/Orange-OpenSource/ods-ios.svg?label=Last%20version)](https://github.com/Orange-OpenSource/ods-ios/releases)
 [![iOS 15.0](https://img.shields.io/badge/iOS-15.0-informational.svg)](https://developer.apple.com/support/app-store "iOS 15 supports")
-[![Still maintained](https://img.shields.io/maintenance/yes/2024)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
+[![Still maintained](https://img.shields.io/maintenance/yes/2025)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
 [![Code size](https://img.shields.io/github/languages/code-size/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios)
+
 <img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
 
 ## Environment
