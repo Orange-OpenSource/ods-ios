@@ -104,6 +104,15 @@ Copyright (c) 2017 Masayuki Ono
 *LicensePlist* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
 You may download the source code on the [following website](https://github.com/mono0926/LicensePlistt).
 
+### Periphery
+
+Version 3.1.0
+
+Copyright (c) 2019 Ian Leitch
+
+*Periphery* is distributed under the terms and conditions of the [MIT License](http://opensource.org/licenses/MIT).
+You may download the source code on the [following website](https://github.com/peripheryapp/periphery).
+
 ### SwiftFormat
 
 Version 0.56.1
