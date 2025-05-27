@@ -2,12 +2,12 @@ PODS:
   - Down (0.9.5)
   - Parma (0.3.0):
     - Down (~> 0.9.3)
-  - SwiftFormat/CLI (0.53.5)
+  - SwiftFormat/CLI (0.56.2)
   - SwiftLint (0.59.1)
 
 DEPENDENCIES:
   - Parma (= 0.3.0)
-  - SwiftFormat/CLI (= 0.53.5)
+  - SwiftFormat/CLI (= 0.56.2)
   - SwiftLint (= 0.59.1)
 
 SPEC REPOS:
@@ -20,9 +20,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Down: 7321a72d0747ed0061dce948bcff518fcb6df2bd
   Parma: 679bca1c20ac336fffcdf9ff1ba0db9388a86a13
-  SwiftFormat: 57d49d9a63f4249c625b1e623fb9fde0c30cae9d
+  SwiftFormat: 405da0758f0b625a65844847bcf439078284a5c5
   SwiftLint: 3d48e2fb2a3468fdaccf049e5e755df22fb40c2c
 
-PODFILE CHECKSUM: 26779d4ddc4a587613ef926e1d2be8d5672c8c92
+PODFILE CHECKSUM: 626d7fcf66caac9c615bad292c18801028979d39
 
 COCOAPODS: 1.16.2
