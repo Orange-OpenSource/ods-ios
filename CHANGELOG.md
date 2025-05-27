@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [Tooling] Update pod `SwiftFormat/CLI`from v0.53.5 to v0.56.1
+- [Tooling] Update `jekyll` ecosystem packages
+- [Tooling] Update dependency `wdm` from v0.1.1 to v0.2.0
+- [Tooling] Update dependency `webrick` from v1.8.2 to v1.9.1
+- [Tooling] Update pod `SwiftLint` from v0.54.0 to v0.59.1
+- [Tooling] Update pod `SwiftFormat/CLI` from v0.53.5 to v0.56.1
 - [Tooling] Update RubyGem `fastlane` from v2.219.0 to v2.227.2
 - [Tooling] Update `SwiftUI-Flow` from v1.2.0 to v1.3.1
 - [Tooling] Update `cocoapods` from v1.15.2 to v1.16.2
