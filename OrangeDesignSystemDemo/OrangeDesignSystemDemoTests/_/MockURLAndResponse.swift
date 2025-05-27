@@ -48,11 +48,11 @@ final class MockURLMachine: URLProtocol {
 
     // MARK: - URL Protocol
 
-    override class func canInit(with request: URLRequest) -> Bool {
+    override static func canInit(with request: URLRequest) -> Bool {
         return true
     }
 
-    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    override static func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
 
@@ -92,11 +92,11 @@ final class MockURLMachine: URLProtocol {
         return mockHandlers.count == 1 ? mockHandlers.first?.value : mockHandlers[urlComponents.path]
     }
 
-    public class func setMock(mockHandler: @escaping MockRequestHandler) {
+    public static func setMock(mockHandler: @escaping MockRequestHandler) {
         mockHandlers = ["Mock": mockHandler]
     }
 
-    public class func setMocks(mockHandlers: [String: MockRequestHandler]) {
+    public static func setMocks(mockHandlers: [String: MockRequestHandler]) {
         self.mockHandlers = mockHandlers
     }
 }
