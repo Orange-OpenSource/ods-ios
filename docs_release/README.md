@@ -148,7 +148,7 @@ stages:
 
 .common_qualif:
   tags:
-    - xcode15.1
+    - xcode16
   rules:
     - if: $CI_PIPELINE_SOURCE == "schedule" # Only scheduled pipeline needed
 
@@ -179,7 +179,7 @@ test_ios:
     - cd ./OrangeDesignSystemDemo
     - bundle install
     - bundle exec pod cache clean --all
-    - bundle exec pod install
+    - bundle exec pod install --repo-update
     - bundle exec fastlane ios test
 
 build_ios:
@@ -190,7 +190,7 @@ build_ios:
     - cd ./OrangeDesignSystemDemo
     - bundle install
     - bundle exec pod cache clean --all
-    - bundle exec pod install
+    - bundle exec pod install --repo-update
     - bundle exec fastlane add_credentials_appsplus
     - bundle exec fastlane qualif tagSuffix:$IOS_APP_COMMIT_SHA
     # Creates tags dedicated to the CI/CD builds and TestFlight uploads using some commit hash, e.g. the last commit hash.
@@ -203,7 +203,7 @@ build_ios:
 
 .common_prod:
   tags:
-    - xcode15.1
+    - xcode16
 
 .common_prod_ios:
   extends: .common_prod
@@ -233,7 +233,7 @@ build_production:
     - cd ./OrangeDesignSystemDemo
     - bundle install
     - bundle exec pod cache clean --all
-    - bundle exec pod install
+    - bundle exec pod install --repo-update
     - bundle exec fastlane add_credentials_appsplus
     - bundle exec fastlane prod upload:true
   artifacts:
