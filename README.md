@@ -45,7 +45,7 @@
 ## Environment
 
 [![Swift 5](https://img.shields.io/badge/Swift-5-red.svg)](https://developer.apple.com/swift/)
-[![Xcode 15.2](https://img.shields.io/badge/Xcode-15.2-informational.svg)](https://developer.apple.com/xcode)
+[![Xcode 16.2](https://img.shields.io/badge/Xcode-16.2-informational.svg)](https://developer.apple.com/xcode)
 [![Fastlane 2.227.2](https://img.shields.io/badge/Fastlane-2.227.2-informational.svg)](https://fastlane.tools/)
 [![CocoaPods 1.16.2](https://img.shields.io/badge/CocoaPods-1.16.2-informational.svg)](https://cocoapods.org/)
 [![Bundler 2.6.9](https://img.shields.io/badge/Bundler-2.6.9-informational.svg)](https://bundler.io/)
