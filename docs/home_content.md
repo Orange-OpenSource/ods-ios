@@ -11,6 +11,11 @@ Using these resources will allow you to create Orange branded applications faste
 
 The Orange Design System framework supports iOS 15 and later.
 
+```
+⚠️ ODS is not Orange Unified Design System (OUDS). See unified-design-system.orange.com
+⚠️ You should maybe use OUDS instead. See github.com/Orange-OpenSource/ouds-ios
+```
+
 ## Instructions
 
 ### Swift Package Manager
