@@ -15,7 +15,7 @@ source "https://rubygems.org"
 
 gem 'cocoapods',  '1.16.2'
 
-gem 'fastlane', '2.219.0'
+gem 'fastlane', '2.227.2'
 gem 'fastlane-plugin-changelog', '0.16.0'
 gem 'fastlane-plugin-mattermost', '1.3.2'
 
