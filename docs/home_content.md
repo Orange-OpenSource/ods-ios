@@ -16,6 +16,9 @@ The Orange Design System framework supports iOS 15 and later.
 ⚠️ You should maybe use OUDS instead. See github.com/Orange-OpenSource/ouds-ios
 ```
 
+🚨 Orange Design System is not maintained anymore.
+🚨 Go to [OUDS iOS](https://github.com/Orange-OpenSource/ouds-ios) for the next design system generation!
+
 ## Instructions
 
 ### Swift Package Manager

@@ -1,5 +1,9 @@
 # Contributing to Orange Design System iOS
 
+> [!CAUTION]
+> ODS is not maintained anymore.
+> You should use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
+
 Looking to contribute something to Orange Design System iOS? **Here's how you can help.**
 
 Please take a moment to review this document in order to make the contribution process easy for everyone involved.

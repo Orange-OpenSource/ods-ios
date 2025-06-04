@@ -12,13 +12,11 @@
 </p>
 
 > [!CAUTION]
-> This project is different to [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios).
+> ODS is not maintained anymore.
+> You should use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
 
 > [!IMPORTANT]
-> ODS is maintained in best effort today, expect very few support from the maintainers.
-
-> [!TIP]
-> You may want to use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
+> This project is different to [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios).
 
 ## Table of contents
 
@@ -34,7 +32,7 @@
 [![MIT license](https://img.shields.io/github/license/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios/blob/qualif/LICENSE)
 [![Versions](https://img.shields.io/github/v/release/Orange-OpenSource/ods-ios.svg?label=Last%20version)](https://github.com/Orange-OpenSource/ods-ios/releases)
 [![iOS 15.0](https://img.shields.io/badge/iOS-15.0-informational.svg)](https://developer.apple.com/support/app-store "iOS 15 supports")
-[![Still maintained](https://img.shields.io/maintenance/yes/2025)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
+[![Still maintained](https://img.shields.io/maintenance/yes/2024)](https://github.com/Orange-OpenSource/ods-ios/issues?q=is%3Aissue+is%3Aclosed)
 [![Code size](https://img.shields.io/github/languages/code-size/Orange-OpenSource/ods-ios)](https://github.com/Orange-OpenSource/ods-ios)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FOrange-OpenSource%2Fods-ios%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/Orange-OpenSource/ods-ios)
 <img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">

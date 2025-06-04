@@ -64,6 +64,9 @@ public struct ODSThemeableView<Content>: View where Content: View {
         self.theme = theme
         self.content = content
         _ = navigationBarColors(for: theme)
+        print("🚨 WARNING: Orange Design System (ODS) is not maintained anymore.")
+        print("🚨 You should move instead to Orange Unified Design System")
+        print("🚨 For more details go to https://github.com/Orange-OpenSource/ouds-ios")
     }
 
     public var body: some View {

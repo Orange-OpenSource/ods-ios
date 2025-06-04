@@ -1,5 +1,9 @@
 # Developer guide
 
+> [!CAUTION]
+> ODS is not maintained anymore.
+> You should use [Orange Unified Design System](https://github.com/Orange-OpenSource/ouds-ios) instead.
+
 ## Check preconditions
 
 You can check wether or not you have the tools in use in the project like _Fastlane_, _SwiftLint_, _SwiftFormat_, etc.
