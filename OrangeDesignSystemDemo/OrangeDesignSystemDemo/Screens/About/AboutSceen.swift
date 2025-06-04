@@ -106,6 +106,7 @@ struct AboutScreen: View {
             AboutDesignGuidelinesItemConfig(priority: 202),
             ODSAboutAppNewsItemConfig(priority: 201, path: Bundle.main.path(forResource: "AppNews", ofType: "json")!),
             AboutChangelogItemConfig(priority: 200),
+            AboutOUDSItemConfig(),
         ]
 
         if let feedURL = Self.moreAppsRemoteFeedURL {
@@ -153,6 +154,31 @@ struct AboutScreen: View {
             return nil
         }
         return feedURL
+    }
+}
+
+// MARK: - OUDS references
+
+private struct AboutOUDSItemConfig: ODSAboutListItemConfig {
+
+    // =======================
+    // MARK: Stored properties
+    // =======================
+
+    let title: String
+    let icon: Image
+    let priority: ODSAboutListItemPriority
+    let target: ODSAboutListItemTarget
+
+    // =================
+    // MARK: Initializer
+    // =================
+
+    init() {
+        title = "Update from ODS to OUDS"
+        icon = Image(systemName: "exclamationmark.triangle.fill")
+        self.priority = 666
+        target = .action { UIApplication.shared.open(URL(string: "https://github.com/Orange-OpenSource/ouds-ios")!) }
     }
 }
 
